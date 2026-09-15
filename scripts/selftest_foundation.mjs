@@ -76,6 +76,11 @@ import {
   planResourceBars, clipLines, planDetailBio, planUnitDetailLayout,
   UnitDetailModal
 } from '../src/ui/components/unit_detail.js';
+import {
+  INVENTORY_VIEWS, INV_DEFAULT_KIND, INV_VISIBLE_ROWS,
+  planInventoryRows, planKindTabs, planTradeAction, planInvDesc,
+  planInventoryLayout, InventoryPanelModal
+} from '../src/ui/components/inventory_panel.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -1284,6 +1289,184 @@ check('组件 null config：「？？？」+ 赤手空拳 + 赤字九行全 0，
       && nm.bioBlock.empty === true;
     nm.handleKeyDown({ key: 'Enter' });   // selectable：聚焦唯一按钮，Enter 关闭
     return okShape && nm.finished === true && n === 1;
+  })());
+
+/* ══════════ §11 inventory_panel 人物道具/仓库面板（任务 #8d） ══════════ */
+section('11 inventory_panel 道具与仓库');
+
+// fixture：男主单位 + 自布置库存（覆写出厂包，断言零依赖配置库存）
+// 覆盖四类 + 多摞合并 + key_item：烤肠×3 / 数学卷×2 / 出厂武器×1 / 书包 / 红领巾 / 臭袜子
+const tradeUnit = createPlayerUnit('zhangzixiao');
+tradeUnit.inventory = [];
+const tradeWeaponId = UNITS.zhangzixiao.equippedWeapon;
+grantItems(tradeUnit.inventory, [
+  { itemId: 'sausage', count: 3, stack: 9 },
+  { itemId: 'math_exam', count: 2, stack: 9 },
+  { itemId: tradeWeaponId, count: 1, stack: WEAPONS[tradeWeaponId].stack },
+  { itemId: 'school_bag', count: 1, stack: 1 },
+  { itemId: 'red_scarf', count: 1, stack: 1 },
+  { itemId: 'dirty_sock', count: 1, stack: 1 }
+]);
+const tradeStash = createStash();
+const tradeEntries = summarizeItems(tradeUnit.inventory);
+
+// 11.1 常量：双视图签 + 四分类签与 goods 表同源镜像
+check('INVENTORY_VIEWS 背包/仓库双视图 + INV_DEFAULT_KIND=首个分类 + 四签序（道具/武器/防具/重要）',
+  INVENTORY_VIEWS.length === 2
+  && INVENTORY_VIEWS[0].view === 'unit' && INVENTORY_VIEWS[1].view === 'stash'
+  && INV_DEFAULT_KIND === GOODS_KINDS[0].kind && INV_VISIBLE_ROWS === 7
+  && GOODS_KINDS.map((k) => k.label).join(',') === '道具,武器,防具,重要'
+  && GOODS_KINDS.length === 4);
+
+// 11.2 纯函数：kind 过滤 + 插入序 + hint 三键查表镜像 + key_item disabled
+check('planInventoryRows 按 kind 过滤保插入序：hint 镜像（回复/成长/威力/双防/剧情）+ 未知 kind 零行',
+  (() => {
+    const cons = planInventoryRows(tradeEntries, 'consumable');
+    const wpns = planInventoryRows(tradeEntries, 'weapon');
+    const arms = planInventoryRows(tradeEntries, 'armor');
+    const keys = planInventoryRows(tradeEntries, 'key_item');
+    const bag = getGoodsById('school_bag');
+    return cons.map((r) => r.itemId).join(',') === 'sausage,math_exam'
+      && cons[0].count === 3 && cons[0].countText === '×3' && cons[1].countText === '×2'
+      && cons[0].hint === '回复' && cons[1].hint === '成长'
+      && wpns.length === 1 && wpns[0].itemId === tradeWeaponId
+      && wpns[0].hint === `威力 ${WEAPONS[tradeWeaponId].might}`
+      && arms.map((r) => r.itemId).join(',') === 'school_bag,red_scarf'
+      && arms[0].hint === `防 ${bag.def} 魔防 ${bag.res}`
+      && keys.length === 1 && keys[0].disabled === true
+      && planInventoryRows(tradeEntries, 'no_such_kind').length === 0
+      && planInventoryRows(null, 'consumable').length === 0;
+  })());
+
+// 11.3 分类签：计数徽标 [2,1,2,1] + active 唯一 + 空清单全零
+check('planKindTabs 四签计数徽标 2/1/2/1（按行数非件数）+ active 唯一 + 空清单全零',
+  (() => {
+    const tabs = planKindTabs(tradeEntries, 'armor');
+    return tabs.map((t) => t.count).join(',') === '2,1,2,1'
+      && tabs.filter((t) => t.active).length === 1 && tabs[2].active === true
+      && planKindTabs([], 'consumable').every((t) => t.count === 0);
+  })());
+
+// 11.4 动作语义层：背包可存 / 仓库可取 / key_item 禁存 / 无行无动作
+check('planTradeAction：unit 视图可存行 deposit / stash 视图 withdraw / key_item 禁存 null / 无行 null',
+  (() => {
+    const conRow = planInventoryRows(tradeEntries, 'consumable')[0];
+    const keyRow = planInventoryRows(tradeEntries, 'key_item')[0];
+    return planTradeAction('unit', conRow).id === 'deposit'
+      && planTradeAction('stash', conRow).id === 'withdraw'
+      && planTradeAction('unit', keyRow) === null
+      && planTradeAction('unit', null) === null
+      && planTradeAction('stash', null) === null
+      && stashSummary(tradeStash).length === 0;
+  })());
+
+// 11.5 描述块：null 行 empty / 标题=名·提示 / desc 按宽度折行 / 空 desc 零行不空块
+check('planInvDesc：null 行 empty / 标题「烤肠 · 回复」/ 37 字 desc 落 1 行（680 宽 45 字兜底）',
+  (() => {
+    const m = (s) => s.length * 15;
+    const row = planInventoryRows(tradeEntries, 'consumable')[0];
+    const d = planInvDesc(row, m, 680, 2);
+    const nullD = planInvDesc(null, m, 680, 2);
+    return nullD.empty === true && nullD.lines.length === 0
+      && d.empty === false && d.title.startsWith('烤肠 · 回复')
+      && d.lines.length === 1 && d.clipped === false
+      && planInvDesc({ name: 'x', hint: '', desc: '' }, m, 680, 2).lines.length === 0;
+  })());
+
+// 11.6 布局：760×500 盒内纵向预算不重叠（列表≤desc、desc≤按钮默认 y=盒底-76）
+check('planInventoryLayout：列表 7×24 + desc 2 行贴底不与按钮区（盒底-76）重叠、签区顺序正确',
+  (() => {
+    const L = planInventoryLayout({ x: 10, y: 20, w: 760, h: 500 });
+    return L.list.maxRows === INV_VISIBLE_ROWS && L.list.rowH === 24
+      && L.list.y + L.list.maxRows * L.list.rowH <= L.desc.y
+      && L.desc.y + L.desc.maxLines * L.desc.lineH <= 20 + 500 - 76
+      && L.viewTabs.y < L.kindTabs.y && L.kindTabs.y + L.kindTabs.h < L.list.y
+      && L.avatar.r === 28 && L.desc.w === 680;
+  })());
+
+// 11.7 组件构造：默认背包/道具分类/首行选中/双按钮/双视图计数
+const ip = new InventoryPanelModal(fakeCanvas, { unit: tradeUnit, stash: tradeStash }, () => {});
+check('组件初建：默认 unit 视图 + consumable 分类 + 首行烤肠选中 + 按钮 [存入仓库×1, 关闭]',
+  ip.box.w === 760 && ip.box.h === 500
+  && ip.view === 'unit' && ip.kind === 'consumable' && ip.rowIndex === 0
+  && ip.rows.length === 2 && ip.row.itemId === 'sausage'
+  && ip.buttons.length === 2 && ip.buttons[0].id === 'deposit' && ip.buttons[0].label === '存入仓库 ×1'
+  && ip.buttons[1].id === 'close' && ip.selectable === true
+  && ip.viewCounts.unit === 6 && ip.viewCounts.stash === 0
+  && ip.kindTabs.map((t) => t.count).join(',') === '2,1,2,1');
+
+// 11.8 键盘导航：↓ 两行循环 / → 连切三档到重要（key_item 单行禁存）/ ← 回防具
+check('键盘导航：↓ 循环选行 → 连切至重要（dirty_sock 禁存行）← 回防具，切分类重置首行',
+  (() => {
+    ip.handleKeyDown({ key: 'ArrowDown' });      // rowIndex 0→1（数学卷子）
+    const downOk = ip.rowIndex === 1 && ip.row.itemId === 'math_exam' && ip.row.hint === '成长';
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 循环回 0
+    const wrapOk = ip.rowIndex === 0 && ip.row.itemId === 'sausage';
+    ip.handleKeyDown({ key: 'ArrowRight' });     // consumable→weapon
+    ip.handleKeyDown({ key: 'ArrowRight' });     // weapon→armor
+    ip.handleKeyDown({ key: 'ArrowRight' });     // armor→key_item
+    const kindOk = ip.kind === 'key_item' && ip.rows.length === 1
+      && ip.rows[0].disabled === true && ip.rowIndex === 0;
+    ip.handleKeyDown({ key: 'ArrowLeft' });      // key_item→armor
+    return downOk && wrapOk && kindOk && ip.kind === 'armor' && ip.rowIndex === 0;
+  })());
+
+// 11.9 Tab 切仓库 + Enter 逐件存取往返：真实搬运 + 行消失 clamp + 按钮随视图翻转
+check('存取往返：Enter 存书包/红领巾入仓（armor 行清空 clamp）→ Tab 切仓库 → Enter 取回',
+  (() => {
+    ip.handleKeyDown({ key: 'Enter' });          // 存 school_bag ×1
+    const saved = countItem(tradeUnit.inventory, 'school_bag') === 0
+      && countItem(tradeStash.items, 'school_bag') === 1
+      && ip.rows.length === 1 && ip.row.itemId === 'red_scarf'
+      && ip.viewCounts.unit === 5;
+    ip.handleKeyDown({ key: 'Enter' });          // 存 red_scarf（armor 清空）
+    const emptied = ip.rows.length === 0 && ip.rowIndex === 0
+      && countItem(tradeStash.items, 'red_scarf') === 1 && ip.viewCounts.unit === 4;
+    ip.handleKeyDown({ key: 'Tab' });            // → stash 视图
+    const viewOk = ip.view === 'stash' && ip.rows.length === 2
+      && ip.buttons[0].id === 'withdraw' && ip.buttons[0].label === '取出 ×1';
+    ip.handleKeyDown({ key: 'Enter' });          // 取回 school_bag
+    const backOk = countItem(tradeUnit.inventory, 'school_bag') === 1
+      && countItem(tradeStash.items, 'school_bag') === 0 && ip.rows.length === 1;
+    return saved && emptied && viewOk && backOk;
+  })());
+
+// 11.10 key_item 禁存入仓：选中禁存行 Enter 数据不动、面板不关
+check('key_item 禁存：切回背包+重要分类，Enter 后臭袜子仍在单位包、面板不关',
+  (() => {
+    ip.handleKeyDown({ key: 'Tab' });            // stash → unit
+    ip.handleKeyDown({ key: 'ArrowRight' });     // armor → key_item
+    const guard = ip.view === 'unit' && ip.rows.length === 1 && ip.rows[0].itemId === 'dirty_sock';
+    ip.handleKeyDown({ key: 'Enter' });
+    return guard && countItem(tradeUnit.inventory, 'dirty_sock') === 1
+      && countItem(tradeStash.items, 'dirty_sock') === 0 && ip.finished === false;
+  })());
+
+// 11.11 空背包：零行 + Enter 不误关 + Escape 关闭回调一次
+check('空背包组件：行 0 + 连按 Enter 不误关（吞键不触发）+ Escape 关闭且回调恰好一次',
+  (() => {
+    const fresh = createPlayerUnit('shiyunuo');
+    fresh.inventory = [];
+    let n = 0;
+    const fm = new InventoryPanelModal(fakeCanvas, { unit: fresh, stash: createStash() }, () => n++);
+    const shape = fm.rows.length === 0 && fm.row === null && fm.descBlock.empty === true;
+    fm.handleKeyDown({ key: 'Enter' });
+    fm.handleKeyDown({ key: 'Enter' });
+    const stillOpen = fm.finished === false;
+    fm.handleKeyDown({ key: 'Escape' });
+    return shape && stillOpen && fm.finished === true && n === 1;
+  })());
+
+// 11.12 极端 config null：「？？？］持有者 + 内部空仓库 + Tab 也能安全切 + 关闭回调一次
+check('null config：unit 空背包 / 内置空仓库可切视图浏览（counts 双 0）+ Escape 安全关闭',
+  (() => {
+    let n = 0;
+    const nm = new InventoryPanelModal(fakeCanvas, null, () => n++);
+    const shape = nm.rows.length === 0 && nm.viewCounts.unit === 0 && nm.viewCounts.stash === 0;
+    nm.handleKeyDown({ key: 'Tab' });
+    const tabSafe = nm.view === 'stash' && nm.rows.length === 0;
+    nm.handleKeyDown({ key: 'Escape' });
+    return shape && tabSafe && nm.finished === true && n === 1;
   })());
 
 /* ══════════ 汇总 ══════════ */
