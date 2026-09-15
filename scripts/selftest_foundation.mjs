@@ -60,6 +60,11 @@ import {
   planStrikeSegment, planExpSegment, exchangeViewAt, planExchangeCards,
   CombatExchange
 } from '../src/ui/components/combat_exchange.js';
+import {
+  LEVEL_UP_TIMING, LEVEL_UP_LAYER_LEN, GROWTH_ROWS, GROWTH_BAR_MAX,
+  snapshotGrowthStats, planLevelUp, levelUpViewAt, planLevelUpLayout,
+  LevelUpModal
+} from '../src/ui/components/level_up.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -802,6 +807,188 @@ check('组件极端 config：null 整包构造出 "?" 双方各 1 血的可渲�
       && ce2.sides.attacker.maxHp === 1 && ce2.initial.attackerHp === 1
       && ce2.playerSide === null && ce2.initial.exp === null
       && typeof ce2.box.w === 'number' && ce2.cards.attacker.avatar.r > 0;
+  })());
+
+/* ══════════ §8 level_up 升级明细弹层 ══════════ */
+section('8 level_up 升级明细弹层');
+
+// —— 8.1 节拍与九维表锚定 ——
+check('节拍推导：单层时长 = 8×STAGGER + REVEAL + TAIL = 1360',
+  LEVEL_UP_LAYER_LEN === LEVEL_UP_TIMING.ROW_STAGGER * 8 + LEVEL_UP_TIMING.REVEAL + LEVEL_UP_TIMING.TAIL
+  && LEVEL_UP_LAYER_LEN === 1360);
+check('九维行序完整：hp→mp→str→mag→skl→spd→luk→def→res（mov 不入成长）',
+  GROWTH_ROWS.length === 9 && GROWTH_ROWS[0].key === 'hp' && GROWTH_ROWS[1].key === 'mp'
+  && GROWTH_ROWS[8].key === 'res' && !GROWTH_ROWS.some(r => r.key === 'mov'));
+
+// —— 8.2 面板快照（V1 运行时形态 → 规范九键）——
+const su = { name: '张子骁', faction: 'player', stats: { maxHp: 23, maxMp: 12, str: 7, mag: 3, skl: 7, spd: 7, luk: 6, def: 5, res: 4, mov: 5 } };
+const suSnap = snapshotGrowthStats(su);
+check('snapshotGrowthStats：V1 stats.maxHp/maxMp 映射为规范 hp/mp 键',
+  suSnap.hp === 23 && suSnap.mp === 12 && suSnap.str === 7 && suSnap.skl === 7 && suSnap.res === 4);
+check('快照防御：null / 乱形状键退 0 不抛（不给行条喂 NaN）',
+  (() => {
+    const s = snapshotGrowthStats(null);
+    const bad = snapshotGrowthStats({ stats: { maxHp: 'x' } });
+    return s.hp === 0 && bad.hp === 0 && Object.keys(bad).length === 9;
+  })());
+
+// —— 8.3 计划三态：空 / 单层 / 连环 ——
+check('空计划：0 层 / duration=0 / 视图层 idle 且已完',
+  (() => {
+    const p = planLevelUp({ fromLevel: 3, gainsByLevel: [] });
+    return p.layers.length === 0 && p.duration === 0 && p.totalGain === 0
+      && levelUpViewAt(p, 0).phase === 'idle' && levelUpViewAt(p, 0).timelineDone === true;
+  })());
+const luG1 = { hp: 1, mp: 0, str: 0, mag: 0, skl: 1, spd: 1, luk: 1, def: 0, res: 0 }; // 合计 +4
+const p1 = planLevelUp({ fromLevel: 1, gainsByLevel: [luG1], statsBefore: suSnap });
+check('单层计划：起拍=HEADLINE、层长、默认 toLevel=from+1、合计=+4',
+  p1.layers[0].start === LEVEL_UP_TIMING.HEADLINE
+  && p1.layers[0].end === LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_LAYER_LEN
+  && p1.duration === LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_LAYER_LEN
+  && p1.toLevel === 2 && p1.totalGain === 4 && p1.hasStats === true);
+check('行烘焙：涨项 before=快照值/after=+1，未涨项 before=after（条仍画旧值）',
+  p1.layers[0].rows[0].barBefore === 23 && p1.layers[0].rows[0].barAfter === 24
+  && p1.layers[0].rows[2].barBefore === 7 && p1.layers[0].rows[2].barAfter === 7);
+const luG2 = { hp: 1, skl: 1 };
+const p2 = planLevelUp({ fromLevel: 1, gainsByLevel: [luG1, luG2], statsBefore: suSnap });
+check('连环两层：L2 起拍 = HEADLINE + 1×(层长+SWITCH)、总长含 1 个层间 SWITCH、默认 toLevel=+2',
+  p2.layers[1].start === LEVEL_UP_TIMING.HEADLINE + (LEVEL_UP_LAYER_LEN + LEVEL_UP_TIMING.SWITCH)
+  && p2.duration === LEVEL_UP_TIMING.HEADLINE + 2 * LEVEL_UP_LAYER_LEN + LEVEL_UP_TIMING.SWITCH
+  && p2.toLevel === 3);
+check('跨层累计：L2 的 barBefore = L1 的 barAfter（24），且层等级行随层递推',
+  p2.layers[1].rows[0].barBefore === 24 && p2.layers[1].rows[0].barAfter === 25
+  && p2.layers[1].levelFrom === 2 && p2.layers[1].levelTo === 3
+  && planLevelUp({ fromLevel: 1, toLevel: 9, gainsByLevel: [luG1, luG2] }).toLevel === 9);
+check('statsBefore 缺失：纯数字模式 barBefore/barAfter 全 null、hasStats=false',
+  (() => {
+    const pn = planLevelUp({ fromLevel: 1, gainsByLevel: [luG1] });
+    return pn.hasStats === false
+      && pn.layers[0].rows.every(r => r.barBefore === null && r.barAfter === null);
+  })());
+
+// —— 8.4 视图相位：head / 层内三态行 / done ——
+check('head 相（elapsed<HEADLINE）：layerIndex=-1、等级行取首层、时间轴未完',
+  (() => {
+    const v = levelUpViewAt(p1, 100);
+    return v.phase === 'head' && v.layerIndex === -1
+      && v.levelFrom === 1 && v.levelTo === 2 && v.timelineDone === false;
+  })());
+check('行0 揭示中点：barShown = 23 + easeOutCubic(0.5) = 23.875、ghost=旧值、文字 +1',
+  (() => {
+    const v = levelUpViewAt(p1, LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_TIMING.REVEAL / 2);
+    const r = v.rows[0];
+    return v.phase === 'layer' && r.state === 'revealing'
+      && Math.abs(r.barShown - 23.875) < 1e-9 && r.ghostShown === 23 && r.deltaText === '+1';
+  })());
+check('未涨项：flat 态、文字"——"、条定格旧值',
+  (() => {
+    const v = levelUpViewAt(p1, LEVEL_UP_TIMING.HEADLINE + 2 * LEVEL_UP_TIMING.ROW_STAGGER + 10);
+    const r = v.rows[2];
+    return r.state === 'flat' && r.deltaText === '——' && r.barShown === 7 && r.ghostShown === 7;
+  })());
+check('未到揭示时刻：pending 态 deltaText=null（渲染层整行不画）',
+  (() => {
+    const v = levelUpViewAt(p1, LEVEL_UP_TIMING.HEADLINE + 8 * LEVEL_UP_TIMING.ROW_STAGGER - 10);
+    return v.rows[8].state === 'pending' && v.rows[8].deltaText === null;
+  })());
+check('时间轴走完：done 相、九行全 revealed 定格 barAfter、合计文案',
+  (() => {
+    const v = levelUpViewAt(p1, p1.end + 50);
+    return v.phase === 'done' && v.timelineDone === true
+      && v.rows.every(r => r.state === 'revealed')
+      && v.rows[0].barShown === 24 && v.totalGainText === '合计 +4';
+  })());
+check('层间切换到 L2：layerIndex/levelFrom/levelTo 跟随第 2 层、其行重新从 pending 起步',
+  (() => {
+    const v = levelUpViewAt(p2, p2.layers[1].start + 5);
+    return v.phase === 'layer' && v.layerIndex === 1
+      && v.levelFrom === 2 && v.levelTo === 3 && v.rows[8].state === 'pending';
+  })());
+check('纯数字模式视图：行条 null（渲染层画占位线）但 +1 / "——" 语义不变',
+  (() => {
+    const pn = planLevelUp({ fromLevel: 2, gainsByLevel: [luG1] });
+    const v = levelUpViewAt(pn, pn.end + 1);
+    return v.rows.every(r => r.barShown === null && r.ghostShown === null)
+      && v.rows[0].deltaText === '+1' && v.rows[2].deltaText === '——';
+  })());
+
+// —— 8.5 组件实例：虚拟时钟 / Promise / 输入锁 / finish 幂等 ——
+let luClosed = 0;
+const lum = new LevelUpModal(fakeCanvas, {
+  unit: su, fromLevel: 1, toLevel: 2, gainsByLevel: [luG1], statsBefore: suSnap,
+}, () => luClosed++);
+check('组件初建：盒 760×500、计划就位、虚拟时钟 0 起步、时间轴未完吞一切输入',
+  lum.box.w === 760 && lum.box.h === 500
+  && lum.plan.layers.length === 1 && lum._vm === 0 && lum._timelineEnded === false
+  && lum.handleClick(1, 1) === true && lum.handleKeyDown({ key: 'Enter' }) === true);
+check('布局几何：九行区 + 条宽 + valueMax=GROWTH_BAR_MAX',
+  (() => {
+    const L = planLevelUpLayout(lum.box);
+    const GROWTH_ROW_COUNT = 9;
+    return L.rows.count === GROWTH_ROW_COUNT && L.rows.rowH === 26
+      && L.bar.w === 250 && L.valueMax === GROWTH_BAR_MAX;
+  })());
+let luDone = 0;
+const pLuDone = lum.whenDone().then(() => luDone++);
+lum._advanceVirtual(LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_TIMING.REVEAL + 20);
+check('虚拟时钟推进中：whenDone 在途、层内视图生效（行0 已揭示完成、末行未到）',
+  luDone === 0 && lum._pending.length === 1 && lum.view.phase === 'layer'
+  && lum.view.rows[0].state === 'revealed' && lum.view.rows[8].state === 'pending');
+lum._advanceVirtual(lum.plan.end + 100);
+await pLuDone;
+check('时间轴走完：whenDone resolve（once）+ 视图定 done 相',
+  luDone === 1 && lum._pending.length === 0 && lum.view.timelineDone === true);
+lum.finish();
+lum.finish();
+check('finish 幂等：唯一"确认"按钮 + 键盘焦点 + 空白点击交还外层',
+  lum.buttons.length === 1 && lum.buttons[0].id === 'ok' && lum.selectable === true
+  && lum.focusIndex === 0 && lum.handleClick(10, 10) === false);
+check('finish 后 Enter 触发确认关闭（onClose one-shot）',
+  lum.handleKeyDown({ key: 'Enter' }) === true && lum.finished === true && luClosed === 1);
+
+// —— 8.6 growth 服务联动（升级链路端到端：快照 → 入账 roll+apply → payload → 时间轴）——
+const zx = createPlayerUnit('zhangzixiao');
+zx.exp = 99;
+const zxBefore = snapshotGrowthStats(zx);
+const zExpect = rollLevelUp(zx.classId, zx.personalGrowth, () => 0.5); // 镜像独立 roll
+const zRes = gainExp(zx, 50, { rng: () => 0.5 });                     // 99+50 → 连跳 1 级剩 49
+check('联动：gainExp 的 gainsByLevel 与独立 rollLevelUp 完全一致、payload 可直喂 planLevelUp',
+  zRes.levelsGained === 1 && deepEq(zRes.gainsByLevel[0], zExpect)
+  && (() => {
+    const pLU = planLevelUp({ fromLevel: zRes.fromLevel, toLevel: zRes.toLevel,
+      gainsByLevel: zRes.gainsByLevel, statsBefore: zxBefore });
+    return pLU.layers.length === 1 && pLU.duration === LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_LAYER_LEN
+      && pLU.hasStats === true;
+  })());
+check('升级入库与快照对齐：apply 后面板 = 快照 + 独立 roll 镜像（当级 HP/MP 立即补到当前值）',
+  zx.level === 2 && zx.stats.maxHp === zxBefore.hp + zExpect.hp
+  && zx.currentHp === zxBefore.hp + zExpect.hp
+  && zx.stats.maxMp === zxBefore.mp + zExpect.mp && zx.exp === 49);
+const sn = createPlayerUnit('shiyunuo');
+const snBefore = snapshotGrowthStats(sn);
+const snRes = gainExp(sn, 250, { rng: () => 0.01 }); // 0.01 → 全键必涨：250 跨两个 100 连升 2 级
+const snPlan = planLevelUp({ fromLevel: snRes.fromLevel, toLevel: snRes.toLevel,
+  gainsByLevel: snRes.gainsByLevel, statsBefore: snBefore });
+const snExpectTotal = snRes.gainsByLevel.reduce((a, g) => a + Object.values(g).reduce((x, y) => x + y, 0), 0);
+check('连环升级端到端：250 经验 → 2 层 gains、视图两层数据齐、totalGain 与镜像累计一致',
+  snRes.levelsGained === 2 && snRes.gainsByLevel.length === 2
+  && snPlan.layers.length === 2 && snPlan.totalGain === snExpectTotal
+  && levelUpViewAt(snPlan, snPlan.end + 1).layerCount === 2
+  && levelUpViewAt(snPlan, snPlan.end + 1).totalGainText === `合计 +${snExpectTotal}`);
+
+// —— 8.7 异常与边界防御 ——
+check('null/坏形状防御：planLevelUp(null) 与 levelUpViewAt(null) 退化为空计划不抛',
+  (() => {
+    const pn = planLevelUp(null);
+    const vn = levelUpViewAt(null, 100);
+    const bad = levelUpViewAt({ layers: [{ rows: [] }] }, 10); // 层缺 start：跳过并入 done
+    return pn.layers.length === 0 && vn.phase === 'idle' && bad.phase === 'done';
+  })());
+check('组件 null config：可构造可推进（"升级"占位名 + 空时间轴视为已完、render 一帧即出确认）',
+  (() => {
+    const luNull = new LevelUpModal(fakeCanvas, null, null);
+    return luNull.name === '升级' && luNull.plan.layers.length === 0 && luNull._vm === 0
+      && luNull.view.timelineDone === true && luNull.view.rows.length === 9;
   })());
 
 /* ══════════ 汇总 ══════════ */

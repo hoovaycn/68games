@@ -8,6 +8,8 @@ import { EpilogueScreen } from './ui/epilogue_screen.js';
 import { VictoryModal } from './ui/components/victory_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
+import { LevelUpModal, snapshotGrowthStats } from './ui/components/level_up.js';
+import { gainExp, expForKill, expForAction } from './systems/growth.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
@@ -59,6 +61,7 @@ class GameApp {
       floatingTexts: [],
       itemRewardModal: null, // 战利品掉落弹窗模态框
       combatExchangeModal: null, // 交战演出弹层（HP掉血/反击/经验条时间轴）
+      levelUpModal: null, // 升级明细弹层（九维条形增长 + 文字 +1）
       isAnimatingCombat: false, // 锁定输入，正在播放交战与受击震颤动画
       phaseBanner: null, // 回合切换横幅 (PLAYER_PHASE / ENEMY_PHASE)
       reinforcementNotice: null, // 援军出现提示
@@ -249,6 +252,7 @@ class GameApp {
       facing: 'right',
       stats: {
         maxHp: pCls.base.hp,
+        maxMp: pCls.base.mp,
         str: pCls.base.str,
         mag: pCls.base.mag,
         skl: pCls.base.skl,
@@ -258,7 +262,9 @@ class GameApp {
         res: pCls.base.res,
         mov: pCls.base.mov
       },
+      personalGrowth: { ...(playerTpl.personalGrowth || {}) },
       currentHp: pCls.base.hp,
+      currentMp: pCls.base.mp,
       isAlive: true,
       hasActed: false,
       animOffsetX: 0,
@@ -323,6 +329,7 @@ class GameApp {
     this.battleState.victoryModalShown = false;
     this.battleState.itemRewardModal = null;
     this.battleState.combatExchangeModal = null;
+    this.battleState.levelUpModal = null;
     this.battleState.phaseBanner = null;
     this.battleState.reinforcementNotice = null;
 
@@ -529,6 +536,12 @@ class GameApp {
         return;
       }
 
+      // ★ 升级明细弹层捕获（九维演出未完时吞点击防误关；确认后关闭继续掉落/回合结算）
+      if (this.battleState.levelUpModal) {
+        this.battleState.levelUpModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ isAnimatingCombat 锁只在战斗地图阶段生效
       // 中段剧情 (STAGE_STORY) 阶段必须放行，否则商贩被击败后切到 scene_punk_intro
       // 用户按键/点击推进对话会被锁拦截，导致"卡住不动"
@@ -593,6 +606,14 @@ class GameApp {
       if (this.battleState.combatExchangeModal) {
         if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
           this.battleState.combatExchangeModal.handleKeyDown(e);
+        }
+        return;
+      }
+
+      // ★ 升级明细弹层：时间轴未完时吞按键；确认键关闭继续流程
+      if (this.battleState.levelUpModal) {
+        if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
+          this.battleState.levelUpModal.handleKeyDown(e);
         }
         return;
       }
@@ -956,8 +977,8 @@ class GameApp {
 
     let ceConfirmResolve = null;
     const ceModal = new CombatExchange(this.canvas, {
-      attacker: { name: attacker.name, level: attacker.level, hp: attacker.currentHp, maxHp: attacker.maxHp, faction: attacker.faction, unit: attacker },
-      defender: { name: defender.name, level: defender.level, hp: defender.currentHp, maxHp: defender.maxHp, faction: defender.faction, unit: defender },
+      attacker: { name: attacker.name, level: attacker.level, hp: attacker.currentHp, maxHp: attacker.stats?.maxHp ?? attacker.currentHp, faction: attacker.faction, unit: attacker },
+      defender: { name: defender.name, level: defender.level, hp: defender.currentHp, maxHp: defender.stats?.maxHp ?? defender.currentHp, faction: defender.faction, unit: defender },
       playerSide: cePlayerSide,
       exp: playerUnit ? { current: playerUnit.exp, max: 100, level: playerUnit.level } : null,
     }, () => {
@@ -1028,25 +1049,23 @@ class GameApp {
     //   阵亡，正常弹窗 —— 两条线由此产生 UI 不一致。
     const slainUnit = !defender.isAlive ? defender : (!attacker.isAlive ? attacker : null);
 
-    // 经验与升级（我方单位参与本次交战时）：弹层经验条演出（普通增长 / 升级满格→横幅→回卷）
+    // 经验与升级（我方单位参与本次交战时）：growth 服务一次结算（曲线 + FE 随机成长 roll + apply），
+    //   弹层经验条吃结算结果做演出（普通增长 / 升级满格→横幅→回卷），升级明细留 levelUpPending
+    let levelUpPending = null;
     if (playerUnit) {
-      // 击杀经验：阵亡者为敌方（含反击击杀）；我方主动攻击未击杀保留参与经验 12
+      // 击杀经验：用户曲线 30+(敌等-我等)×10 下限 10（含反击击杀）；主动出手未击杀保留参与经验 12
       let expGained = 0;
       if (slainUnit && slainUnit.faction === 'enemy') {
-        expGained = 35;
+        expGained = expForKill(playerUnit.level, slainUnit.level);
       } else if (attacker === playerUnit) {
-        expGained = 12;
+        expGained = expForAction();
       }
       if (expGained > 0) {
         const expBefore = playerUnit.exp;
         const levelBefore = playerUnit.level;
-        playerUnit.exp += expGained;
-        let leveledUp = false;
-        if (playerUnit.exp >= 100) {
-          playerUnit.exp -= 100;
-          playerUnit.level += 1;
-          leveledUp = true;
-        }
+        const statsBefore = snapshotGrowthStats(playerUnit); // apply 前九维快照（升级明细行条的"旧值"）
+        const result = gainExp(playerUnit, expGained);       // 入账 + 连锁升级（roll + apply）
+        const leveledUp = result.levelsGained > 0;
         await ceModal.playExp({
           side: cePlayerSide,
           name: playerUnit.name,
@@ -1058,12 +1077,34 @@ class GameApp {
           levelAfter: playerUnit.level,
           maxExp: 100,
         });
+        if (leveledUp) {
+          levelUpPending = {
+            unit: playerUnit,
+            fromLevel: levelBefore,
+            toLevel: playerUnit.level,
+            gainsByLevel: result.gainsByLevel,
+            statsBefore,
+          };
+        }
       }
     }
 
     // ★ 交战演出收官：时间轴排完出确认按钮，等玩家看完终局面板再继续掉落与回合结算
     ceModal.finish();
     await new Promise((resolve) => { ceConfirmResolve = resolve; });
+
+    // ★ 升级明细弹层：交战弹层确认后弹出（九维 stagger + 条形增长 + 文字 +1），
+    //   连环多级一次放完整时间轴；玩家确认后才继续掉落与回合结算
+    if (levelUpPending) {
+      const lu = levelUpPending;
+      levelUpPending = null;
+      await new Promise((resolve) => {
+        this.battleState.levelUpModal = new LevelUpModal(this.canvas, lu, () => {
+          this.battleState.levelUpModal = null;
+          resolve();
+        });
+      });
+    }
 
     // 掉落结算 (真正弹出获得道具模态框) —— 以"阵亡者"为准，不再只看守方
     if (slainUnit && slainUnit.faction === 'enemy' && slainUnit.drops && slainUnit.drops.length > 0) {
@@ -1331,6 +1372,10 @@ class GameApp {
       // 渲染交战演出弹层组件（虚拟时钟由本 render 逐帧推进：playStrike/playExp 的 await 依赖此调用）
       if (this.battleState.combatExchangeModal && typeof this.battleState.combatExchangeModal.render === 'function') {
         this.battleState.combatExchangeModal.render();
+      }
+      // 渲染升级明细弹层组件（虚拟时钟同款：九维演出逐帧推进，whenDone/确认依赖此调用）
+      if (this.battleState.levelUpModal && typeof this.battleState.levelUpModal.render === 'function') {
+        this.battleState.levelUpModal.render();
       }
       // 渲染战利品模态框组件
       if (this.battleState.itemRewardModal && typeof this.battleState.itemRewardModal.render === 'function') {
