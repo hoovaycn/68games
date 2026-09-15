@@ -11,6 +11,7 @@
  *   §2 loot            掉落统一结算（含男主线反击击杀 bug 的回归锚点）
  *   §3 game_state      进度模型 / roster 血水合 / 剧情推进
  *   §4 save_manager    localStorage 3+1 槽（注入内存存储 + 时钟可控）
+ *   §5 avatar          头像统一解析（URL 约定 / 别名 / 兜底 / fs 守门）
  *
  * 断言套路：一律「动态镜像」而不是硬编码数值——镜像从 UNITS/CLASSES/ENEMIES
  * 等配置源现场计算期望值，配置改数值不需要改测试（chenpinxuan.level 断言
@@ -41,6 +42,12 @@ import {
 import {
   MANUAL_SLOTS, ALL_SLOTS, SLOT_LABELS, createSaveManager
 } from '../src/systems/save_manager.js';
+import { existsSync } from 'node:fs';
+import {
+  resolvePortrait, getPortraitUrl, portraitForUnit, normalizePortraitRef, parsePortraitRef,
+  registerActorStates, hasActor, listActors, listStates,
+  FALLBACK_URL, PORTRAITS_DIR
+} from '../src/engine/avatar.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -340,6 +347,99 @@ try {
   Date.now = realNow;
 }
 check('Date.now 已恢复原实现', Date.now === realNow);
+
+/* ══════════ §5 avatar 头像统一解析服务 ══════════ */
+section('5 avatar 头像统一解析服务');
+
+// —— 5.0 fs 守门（必须最先跑，后续 register 的行不参与本次盘点）——
+// 登记表声明的文件必须在盘上真实存在；缺图时逐条打印「按此 URL 补图」。
+let missingFiles = [];
+for (const actor of listActors()) {
+  for (const st of listStates(actor)) {
+    for (const d of ['1x', '2x']) {
+      const url = getPortraitUrl(actor, { state: st, density: d });
+      if (!existsSync(new URL('../' + url, import.meta.url))) missingFiles.push(url);
+    }
+  }
+}
+if (missingFiles.length > 0) {
+  console.log('    缺图清单（占位图顶住画面，请按以下 URL 补图）：');
+  for (const f of missingFiles) console.log('    - ' + f);
+}
+check('fs 守门：登记表 × state × 双密度全部在盘（缺 ' + missingFiles.length + ' 张）', missingFiles.length === 0);
+check('listActors 表规模 ≥15 头', listActors().length >= 15);
+
+// —— 5.1 URL 约定 ——
+check('命名约定：' + PORTRAITS_DIR + '/{fileKey}_{state}{@2x}.png',
+  getPortraitUrl('zhangzixiao') === 'assets/portraits/zhangzixiao_default.png'
+  && getPortraitUrl('zhangzixiao', { density: '2x' }) === 'assets/portraits/zhangzixiao_default@2x.png'
+  && getPortraitUrl('heyanxi', { state: 'corrupted' }) === 'assets/portraits/heyanxi_corrupted.png'
+  && getPortraitUrl('heyanxi', { state: 'corrupted', density: '2x' }) === 'assets/portraits/heyanxi_corrupted@2x.png');
+check('全局占位约定 _default（1x / 2x）',
+  FALLBACK_URL === 'assets/portraits/_default.png'
+  && getPortraitUrl('no_such_actor') === FALLBACK_URL
+  && getPortraitUrl('no_such_actor', { density: '2x' }) === 'assets/portraits/_default@2x.png');
+
+// —— 5.2 别名表：xu_laoshi 404 修复（回归锚点）——
+check('别名 xu_laoshi → teacher_xu_default（修复 V1 静默 404，1x 与 @2x 双在盘）',
+  getPortraitUrl('xu_laoshi') === 'assets/portraits/teacher_xu_default.png'
+  && getPortraitUrl('xu_laoshi', { density: '2x' }) === 'assets/portraits/teacher_xu_default@2x.png'
+  && hasActor('xu_laoshi') === true && hasActor('teacher_xu') === true);
+
+// —— 5.3 兜底语义 ——
+const fb = resolvePortrait('ghost_actor');
+check('未登记角色 → 全局占位 + reason=unknown_actor + actor=null',
+  fb.isFallback === true && fb.reason === 'unknown_actor' && fb.uri === FALLBACK_URL && fb.actor === null);
+const subst = resolvePortrait('zhangzixiao', { state: 'smile' });
+check('已登记角色 + 未登记 state → 落回本人 default（脸还是对的）+ substitutedState',
+  subst.isFallback === false && subst.reason === 'state'
+  && subst.substitutedState === 'smile' && subst.state === 'default' && subst.requestedState === 'smile'
+  && subst.uri === getPortraitUrl('zhangzixiao')
+  && resolvePortrait('heyanxi', { state: 'corrupted' }).substitutedState === null);
+check('非法密度（3x / 缺省）按 1x 组装，不带 @2x',
+  getPortraitUrl('shiyunuo', { density: '3x' }) === 'assets/portraits/shiyunuo_default.png'
+  && resolvePortrait('shiyunuo', { density: '3x' }).density === '1x');
+
+// —— 5.4 数据表守门：UNITS ∪ ENEMIES 全员已登记 ——
+const uncovered = [...Object.keys(UNITS), ...Object.keys(ENEMIES)].filter((id) => !hasActor(id));
+if (uncovered.length > 0) console.log('    下列角色未登记头像表：' + uncovered.join(', '));
+check('UNITS ∪ ENEMIES 全员登记（新增角色须同步登记表，漏掉由本项抓出）', uncovered.length === 0);
+check('listStates 镜像：fanwenmo 双态 / vendor 单态',
+  deepEq(listStates('fanwenmo'), ['default', 'corrupted']) && deepEq(listStates('vendor'), ['default']));
+
+// —— 5.5 registerActorStates 动态增行（在 fs 守门之后）——
+registerActorStates('newkid', ['smile', 'hurt']);
+check('registerActorStates 增行后立即可解析，default 恒为首位',
+  listStates('newkid').includes('smile') && listStates('newkid').includes('hurt')
+  && listStates('newkid')[0] === 'default'
+  && getPortraitUrl('newkid', { state: 'smile' }) === 'assets/portraits/newkid_smile.png'
+  && resolvePortrait('newkid', { state: 'smile' }).substitutedState === null);
+check('registerActorStates 返回副本（外界改动不回渗内部表）',
+  (() => { const s = registerActorStates('probe_x', []); s.push('leak'); return listStates('probe_x').length === 1; })());
+
+// —— 5.6 战场单位入口优先级 ——
+const eBattle = { id: 'punk_1', enemyId: 'punk', portrait: 'assets/art/punk_default.png' };
+const pBattle = { id: 'zhangzixiao', faction: 'player' };
+const legacy = { portrait: 'assets/art/heyanxi_corrupted.png' };
+check('portraitForUnit 优先级：enemyId(敌方实例) / id(我方) / portrait 兜底 / 空 → 占位',
+  portraitForUnit(eBattle) === 'assets/portraits/punk_default.png'
+  && portraitForUnit(pBattle) === 'assets/portraits/zhangzixiao_default.png'
+  && portraitForUnit(legacy) === 'assets/portraits/heyanxi_corrupted.png'
+  && portraitForUnit({}) === FALLBACK_URL
+  && portraitForUnit(null) === FALLBACK_URL);
+check('存量 art 引用自动搬家 + 双密度重打（1x→@2x）',
+  portraitForUnit(legacy, { density: '2x' }) === 'assets/portraits/heyanxi_corrupted@2x.png'
+  && portraitForUnit(eBattle, { density: '2x' }) === 'assets/portraits/punk_default@2x.png');
+
+// —— 5.7 字符串解析工具 ——
+const pp = parsePortraitRef('assets/art/zhangxizhe_default@2x.png');
+check('parsePortraitRef 四字段形状 / 垃圾串不匹配',
+  pp.actor === 'zhangxizhe' && pp.state === 'default' && pp.density === '2x' && pp.dir === 'art'
+  && parsePortraitRef('garbage') === null && parsePortraitRef(null) === null);
+check('normalizePortraitRef：已登记走表 / 未登记仅搬家',
+  normalizePortraitRef('assets/art/zhangxizhe_default.png') === 'assets/portraits/zhangxizhe_default.png'
+  && normalizePortraitRef('assets/art/whoever_smile.png') === 'assets/portraits/whoever_smile.png'
+  && normalizePortraitRef('assets/art/fanwenmo_corrupted.png') === 'assets/portraits/fanwenmo_corrupted.png');
 
 /* ══════════ 汇总 ══════════ */
 console.log('\n══════════════════════════════════');

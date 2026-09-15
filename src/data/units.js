@@ -219,7 +219,7 @@ export const UNITS = {
     personalGrowth: { str: 10, mag: 10 },    // 三十年教龄，文武双修
     personalSkill: 'authoritative_gaze',
     joinsAt: 'merged_route_ch1',
-    portrait: 'assets/portraits/xu_laoshi_default.png',
+    portrait: 'assets/portraits/teacher_xu_default.png', // 画作键是 teacher_xu（见 engine/avatar.js FILE_KEYS）
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
     themeColor: '#57534e',
     quotes: {
