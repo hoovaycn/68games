@@ -69,6 +69,13 @@ import {
   snapshotGrowthStats, planLevelUp, levelUpViewAt, planLevelUpLayout,
   LevelUpModal
 } from '../src/ui/components/level_up.js';
+import { WEAPONS } from '../src/data/weapons.js';
+import { SKILLS } from '../src/data/skills.js';
+import {
+  DETAIL_STAT_ROWS, detailSnapshotFromUnit, planDetailStatRows,
+  planResourceBars, clipLines, planDetailBio, planUnitDetailLayout,
+  UnitDetailModal
+} from '../src/ui/components/unit_detail.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -1139,6 +1146,144 @@ check('stashSummary = summarizeItems 的仓库别名：当前仓只剩 white_rab
     return viaAlias.length === viaDirect.length
       && deepEq(viaAlias, viaDirect) === true
       && viaAlias.length === 0;   // 9.3 的 1 件已在 9.8 取走
+  })());
+
+/* ══════════ §10 unit_detail 人物详情弹层（任务 #8c） ══════════ */
+section('10 unit_detail 人物详情弹层');
+
+// 10.1 行序同源：与 level_up 九维行序引用级同一对象，改一处两弹层联动
+check('DETAIL_STAT_ROWS 与 GROWTH_ROWS 同源镜像（九维 key/label 全序一致）',
+  DETAIL_STAT_ROWS === GROWTH_ROWS
+  && DETAIL_STAT_ROWS.length === 9
+  && DETAIL_STAT_ROWS.every((r, i) => r.key === GROWTH_ROWS[i].key && r.label === GROWTH_ROWS[i].label));
+
+// 10.2 我方快照：职业/装备/个人技三键查表镜像（期望值全部现场算，不硬编码名词）
+const dLead = createPlayerUnit('zhangzixiao');
+const dSnap = detailSnapshotFromUnit(dLead);
+const dWpn = WEAPONS[UNITS.zhangzixiao.equippedWeapon];
+check('detailSnapshotFromUnit 我方：三键查表镜像 + 满血满蓝出厂 + EXP 口径',
+  dSnap.name === UNITS.zhangzixiao.name && dSnap.faction === 'player'
+  && dSnap.className === CLASSES[UNITS.zhangzixiao.classId].name
+  && dSnap.weaponLine === `${dWpn.name} · 威力 ${dWpn.might}`
+  && dSnap.personalSkillName === SKILLS[UNITS.zhangzixiao.personalSkill].name
+  && dSnap.expMax === EXP_PER_LEVEL
+  && dSnap.hp.cur === dLead.stats.maxHp && dSnap.mp.cur === dLead.stats.maxMp
+  && dSnap.mov === dLead.stats.mov);
+
+// 10.3 敌方降级：createEnemyUnit 工厂不产 bio/personalSkill 键，快照自动降级不抛不糊
+check('敌方快照降级：faction=enemy / 个人技 null / 简介空串 / 装备行按模板有无兜底',
+  (() => {
+    const e = createEnemyUnit('vendor', { instanceId: 'd_vendor' });
+    const s = detailSnapshotFromUnit(e);
+    const expectWeapon = ENEMIES.vendor.equippedWeapon
+      ? WEAPONS[ENEMIES.vendor.equippedWeapon].name : '赤手空拳';
+    return s.faction === 'enemy' && s.personalSkillName === null && s.personalSkillDesc === null
+      && s.bio === '' && s.weaponName === expectWeapon && s.mov === e.stats.mov;
+  })());
+
+// 10.4 脏数据兜底：未知 classId / 无装备 / null 整包
+check('脏数据兜底：未知职业→「未知职业」 / 无装备→「赤手空拳」 / null 单位→「？？？」可出快照',
+  detailSnapshotFromUnit({ classId: 'no_such_class' }).className === '未知职业'
+  && detailSnapshotFromUnit({}).weaponName === '赤手空拳'
+  && detailSnapshotFromUnit(null).name === '？？？'
+  && typeof detailSnapshotFromUnit(null).stats === 'object');
+
+// 10.5 资源条三条：kind 序 hp/mp/exp + 出厂满血文本镜像
+check('planResourceBars 三条 hp/mp/exp：HP 文本 x/x 出厂镜像、ratio 数值化',
+  (() => {
+    const bars = planResourceBars(dSnap);
+    return bars.length === 3
+      && bars.map((b) => b.kind).join(',') === 'hp,mp,exp'
+      && bars[0].valueText === `${dLead.currentHp}/${dLead.stats.maxHp}`
+      && bars.every((b) => typeof b.ratio === 'number' && b.ratio >= 0 && b.ratio <= 1
+        && b.label === b.kind.toUpperCase());
+  })());
+
+// 10.6 满级 MAX：EXP 条钉死 ratio=1 / 文本 MAX（等级冻结名副其实）
+check('满级单位（level ≥ LEVEL_CAP）EXP 条：ratio=1 + valueText=MAX（经验照入账）',
+  (() => {
+    const maxed = createPlayerUnit('zhangzixiao');
+    maxed.level = LEVEL_CAP; maxed.exp = 42;
+    const bars = planResourceBars(detailSnapshotFromUnit(maxed));
+    return bars[2].ratio === 1 && bars[2].valueText === 'MAX';
+  })());
+
+// 10.7 九维行：与 snapshotGrowthStats 同映射（hp↔maxHp / mp↔maxMp / 余同名）
+check('planDetailStatRows 九行：value/name 映射镜像 + ratio 以 GROWTH_BAR_MAX 为基准 + valueText 即数字',
+  (() => {
+    const rows = planDetailStatRows(dSnap);
+    const expectVal = (k) => dLead.stats[k === 'hp' ? 'maxHp' : k === 'mp' ? 'maxMp' : k];
+    return rows.length === 9
+      && rows.every((r, i) => r.key === GROWTH_ROWS[i].key && r.label === GROWTH_ROWS[i].label
+        && r.value === expectVal(r.key)
+        && r.valueText === String(r.value)
+        && r.ratio === barRatio(r.value, GROWTH_BAR_MAX));
+  })());
+
+// 10.8 clipLines：数量内原样 / 超限末行缩 1 字加… / 单字行保护 / 非数组零行
+check('clipLines：未超不动 / 超限 clipping / 单字符保护换… / null 入参零行',
+  (() => {
+    const inner = clipLines(['一二三', '四五六'], 3);
+    const over = clipLines(['一二三', '四五六七', '八'], 2);
+    const single = clipLines(['一', '二'], 1);
+    const bad = clipLines(null, 3);
+    return inner.clipped === false && deepEq(inner.lines, ['一二三', '四五六']) === true
+      && over.clipped === true && over.lines.length === 2 && over.lines[1] === '四五六…'
+      && single.lines.length === 1 && single.lines[0] === '…'
+      && bad.clipped === false && bad.lines.length === 0;
+  })());
+
+// 10.9 planDetailBio：measure=(s)=>s.length*15，每行 ⌊344/15⌋=22 字
+check('planDetailBio：空 bio 空块 / 66 字折 3 行 height=63 / maxLines=2 超限截断',
+  (() => {
+    const m = (s) => s.length * 15;
+    const emptyB = planDetailBio({ bio: '' }, m, 344, 5);
+    const full = planDetailBio({ bio: '字'.repeat(66) }, m, 344, 5);
+    const clippedB = planDetailBio({ bio: '字'.repeat(66) }, m, 344, 2);
+    return emptyB.empty === true && emptyB.lines.length === 0 && emptyB.height === 0
+      && full.empty === false && full.lines.length === 3 && full.height === 63 && full.clipped === false
+      && clippedB.lines.length === 2 && clippedB.clipped === true
+      && clippedB.lines[1].length === 22 && clippedB.lines[1].endsWith('…');
+  })());
+
+// 10.10 布局：760×500 盒内几何 + valueMax 与 level_up 九维条同基准
+check('planUnitDetailLayout：九行区/条宽/头像/简介区几何齐备 + valueMax=GROWTH_BAR_MAX',
+  (() => {
+    const L = planUnitDetailLayout({ x: 100, y: 50, w: 760, h: 500 });
+    return L.valueMax === GROWTH_BAR_MAX && L.statRows.count === 9
+      && L.statBar.w === 118 && L.statBar.h === 11
+      && L.bars.w === 172 && L.bars.step === 36
+      && L.avatar.r === 46 && L.bio.w === 344 && L.bio.maxLines === 5;
+  })());
+
+// 10.11 组件实例（我方女主）：盒尺寸/快照/九行/三条/单按钮「关闭」全就位
+let udClosed = 0;
+const udm = new UnitDetailModal(fakeCanvas, { unit: createPlayerUnit('shiyunuo') }, () => udClosed++);
+check('组件初建女主：盒 760×500、快照镜像 UNITS、九行三条、唯一按钮「关闭」',
+  udm.box.w === 760 && udm.box.h === 500
+  && udm.snapshot.name === UNITS.shiyunuo.name
+  && udm.snapshot.className === CLASSES[UNITS.shiyunuo.classId].name
+  && udm.statRows.length === 9 && udm.bars.length === 3
+  && udm.buttons.length === 1 && udm.buttons[0].id === 'close' && udm.buttons[0].label === '关闭'
+  && udm.selectable === true);
+
+// 10.12 组件敌方与 null：两个极端 config 都可构造不抛（敌方简介降级 / null 全兜底）
+check('组件敌方单位：无个人技/无简介走降级（bioBlock.empty），布局仍九行',
+  (() => {
+    const em = new UnitDetailModal(fakeCanvas,
+      { unit: createEnemyUnit('vendor', { instanceId: 'v_d2' }) }, null);
+    return em.snapshot.faction === 'enemy' && em.snapshot.personalSkillName === null
+      && em.bioBlock.empty === true && em.statRows.length === 9 && em.bars.length === 3;
+  })());
+check('组件 null config：「？？？」+ 赤手空拳 + 赤字九行全 0，仍可安全关闭',
+  (() => {
+    let n = 0;
+    const nm = new UnitDetailModal(fakeCanvas, null, () => n++);
+    const okShape = nm.snapshot.name === '？？？' && nm.snapshot.weaponName === '赤手空拳'
+      && nm.statRows.length === 9 && nm.statRows.every((r) => r.value === 0 && r.valueText === '0')
+      && nm.bioBlock.empty === true;
+    nm.handleKeyDown({ key: 'Enter' });   // selectable：聚焦唯一按钮，Enter 关闭
+    return okShape && nm.finished === true && n === 1;
   })());
 
 /* ══════════ 汇总 ══════════ */
