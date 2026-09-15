@@ -24,6 +24,9 @@ export class SoundManager {
 
   // 播放或切换 BGM
   playBgm(bgmName, loop = true) {
+    // Node / 无窗口环境（selftest 引用组件层时）直接跳过，避免 Audio 未定义炸栈
+    if (typeof window === 'undefined') return;
+
     if (this.currentBgmName === bgmName && this.bgmAudio && !this.bgmAudio.paused) {
       return;
     }
@@ -55,6 +58,9 @@ export class SoundManager {
 
   // 播放短促音效
   playSfx(sfxName) {
+    // Node / 无窗口环境（selftest 引用组件层时）直接跳过，避免 Audio 未定义炸栈
+    if (typeof window === 'undefined') return;
+
     // ★ 打击感增强：命中/挥击类音效优先走 Web Audio 三层合成 (thump+punch+whoosh)
     if (sfxName === 'sfx_hit_normal' || sfxName === 'sfx_hit_crit' || sfxName === 'sfx_attack_swing') {
       this.playImpactSynth(sfxName);

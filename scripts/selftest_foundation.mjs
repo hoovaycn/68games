@@ -12,6 +12,7 @@
  *   §3 game_state      进度模型 / roster 血水合 / 剧情推进
  *   §4 save_manager    localStorage 3+1 槽（注入内存存储 + 时钟可控）
  *   §5 avatar          头像统一解析（URL 约定 / 别名 / 兜底 / fs 守门）
+ *   §6 ui_kit          视觉基座（调色盘锚定 / 条形计划 / 布局几何 / 折行 / ModalBase）
  *
  * 断言套路：一律「动态镜像」而不是硬编码数值——镜像从 UNITS/CLASSES/ENEMIES
  * 等配置源现场计算期望值，配置改数值不需要改测试（chenpinxuan.level 断言
@@ -48,6 +49,12 @@ import {
   registerActorStates, hasActor, listActors, listStates,
   FALLBACK_URL, PORTRAITS_DIR
 } from '../src/engine/avatar.js';
+import {
+  PALETTE, BAR_KINDS,
+  clamp01, barRatio, planBar, inRect, planModalBox, planButtonRow,
+  wrapLines, planWrappedBlock, lerp, easeOutCubic, fontCss,
+  ModalBase
+} from '../src/ui/components/ui_kit.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -440,6 +447,150 @@ check('normalizePortraitRef：已登记走表 / 未登记仅搬家',
   normalizePortraitRef('assets/art/zhangxizhe_default.png') === 'assets/portraits/zhangxizhe_default.png'
   && normalizePortraitRef('assets/art/whoever_smile.png') === 'assets/portraits/whoever_smile.png'
   && normalizePortraitRef('assets/art/fanwenmo_corrupted.png') === 'assets/portraits/fanwenmo_corrupted.png');
+
+/* ══════════ §6 ui_kit 视觉基座 ══════════ */
+section('6 ui_kit 视觉基座');
+
+// —— 6.1 调色盘 / 条形预设 / 数值工具 ——
+check('PALETTE 与存量弹窗逐色锚定（羊皮纸/炭黑/亮金/亮黄字/外框/标题琥珀）',
+  PALETTE.paper === '#FFFDF9' && PALETTE.ink === '#292524' && PALETTE.gold === '#FACC15'
+  && PALETTE.goldText === '#fef08a' && PALETTE.frame === '#d6c8b4' && PALETTE.title === '#b45309');
+check('BAR_KINDS 三语义（HP红 / EXP金 / STAT绿）各有渐变二色与标签',
+  BAR_KINDS.hp.label === 'HP' && BAR_KINDS.exp.label === 'EXP' && BAR_KINDS.stat.label === ''
+  && BAR_KINDS.hp.fill[0] !== BAR_KINDS.exp.fill[0]
+  && [BAR_KINDS.hp, BAR_KINDS.exp, BAR_KINDS.stat].every((k) => k.fill.length === 2));
+check('clamp01 全防御：负数/超界/NaN/非数字一律安全',
+  clamp01(-3) === 0 && clamp01(0.42) === 0.42 && clamp01(2) === 1
+  && clamp01(NaN) === 0 && clamp01('x') === 0 && clamp01(undefined) === 0 && clamp01(null) === 0);
+check('barRatio：正常值 / 负血 / 除零 / 超上限 / NaN',
+  Math.abs(barRatio(34, 48) - 34 / 48) < 1e-9 && barRatio(-5, 10) === 0 && barRatio(5, 0) === 0
+  && barRatio(20, 10) === 1 && barRatio(NaN, 10) === 0 && barRatio(0, 10) === 0);
+check('lerp / easeOutCubic 端点夹取（交战与经验动画时间轴的地基）',
+  lerp(10, 20, 0.5) === 15 && lerp(20, 10, 0.5) === 15
+  && easeOutCubic(0) === 0 && easeOutCubic(1) === 1 && easeOutCubic(0.5) === 0.875
+  && easeOutCubic(-3) === 0 && easeOutCubic(9) === 1);
+check('fontCss：中西字体栈 + 字号下限 10（Windows 微软雅黑兜底）',
+  fontCss(20, 'bold') === 'bold 20px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif'
+  && fontCss(9).startsWith('10px ') && fontCss(9).indexOf('PingFang SC') > 0
+  && fontCss(16).indexOf('Microsoft YaHei') > 0);
+
+// —— 6.2 planBar 条形计划 ——
+const bp = planBar({ x: 10, y: 20, w: 200, h: 14, kind: 'hp', ratio: -0.5, ghostRatio: 1.7, valueText: '34/48' });
+check('planBar：ratio/ghost 双向 clamp + 几何原样 + valueText 透传 + 标签取预设',
+  bp.ratio === 0 && bp.ghostRatio === 1 && bp.x === 10 && bp.y === 20 && bp.w === 200 && bp.h === 14
+  && bp.valueText === '34/48' && bp.label === 'HP');
+check('planBar：未知 kind 落 stat 不炸 / 标签显式覆盖 / 缺省 ghost 为 null',
+  planBar({ kind: 'mp' }).kind === 'stat'
+  && planBar({ kind: 'exp', label: '等级经验' }).label === '等级经验'
+  && planBar({ ratio: 0.5 }).ghostRatio === null
+  && planBar({}).label === '');
+
+// —— 6.3 命中测试 & 弹窗盒子几何 ——
+const hitRect = { x: 100, y: 200, w: 50, h: 30 };
+check('inRect：四边含边界命中，外一点即 miss',
+  inRect(100, 200, hitRect) && inRect(150, 230, hitRect) && inRect(125, 215, hitRect)
+  && !inRect(99, 200, hitRect) && !inRect(151, 230, hitRect) && !inRect(0, 0, null));
+const bx = planModalBox(1280, 720, 520, 330);
+check('planModalBox 居中几何：1280×720 → 520×330 @ (380,195) + cx/cy 派生',
+  bx.x === 380 && bx.y === 195 && bx.w === 520 && bx.h === 330 && bx.cx === 640 && bx.cy === 360);
+const bx2 = planModalBox(400, 300, 900, 700, 24);
+check('planModalBox 超大盒自动收缩到画布-margin 且仍居中',
+  bx2.w === 352 && bx2.h === 252 && bx2.x === 24 && bx2.y === 24);
+const bx3 = planModalBox(100, 100, 900, 700);
+check('planModalBox 极小画布给最小可读尺寸（80×120）不炸',
+  bx3.w === 80 && bx3.h === 120);
+
+// —— 6.4 折行（CJK/分段/不丢字）——
+const mLen = (s) => s.length * 10; // 假测量：每字符 10px 宽
+check('wrapLines：CJK 按字折行且无行超宽',
+  deepEq(wrapLines('一二三四五六七八九十一', mLen, 50), ['一二三四五', '六七八九十', '一']));
+check('wrapLines：显式 \\n 分段且空行保留',
+  deepEq(wrapLines('AAAA\n\nBB', mLen, 400), ['AAAA', '', 'BB']));
+check('wrapLines：空文本/null/undefined 统一空数组',
+  wrapLines('', mLen, 10).length === 0 && wrapLines(null, mLen, 10).length === 0
+  && wrapLines(undefined, mLen, 10).length === 0);
+check('wrapLines：单字超宽不丢字（逐字成行兜底）',
+  deepEq(wrapLines('ABC', () => 100, 10), ['A', 'B', 'C']));
+check('planWrappedBlock：行数组 + 行高下限 12 + 总高 = 行数×行高',
+  deepEq(planWrappedBlock('一二三四五六七八九十一', mLen, 50, 22).lines, ['一二三四五', '六七八九十', '一'])
+  && planWrappedBlock('一二三四五六七八九十一', mLen, 50, 22).height === 66
+  && planWrappedBlock('', mLen, 50, 22).height === 0
+  && planWrappedBlock('X', mLen, 50, 5).lineHeight === 12);
+
+// —— 6.5 按钮行布局 ——
+const two = planButtonRow(bx, 2);
+check('planButtonRow：双按钮等宽 / 间隙恒定 / 整行水平居中 / 全部落盒内',
+  two[0].w === two[1].w && two[0].y === two[1].y
+  && Math.abs(two[0].x + two[0].w + 16 - two[1].x) < 1e-9
+  && Math.abs(two[0].x - bx.x - (bx.x + bx.w - two[1].x - two[1].w)) < 1e-9
+  && two.every((r) => inRect(r.x, r.y, bx) && inRect(r.x + r.w, r.y + r.h, bx)));
+check('planButtonRow：单按钮 360 封顶 / 默认高 52 贴底留 24',
+  (() => { const one = planButtonRow(bx, 1);
+    return one[0].w === 360 && one[0].h === 52 && one[0].y === bx.y + bx.h - 52 - 24; })());
+check('planButtonRow：显式 btnW/btnH/gap/anchorY 全部被尊重',
+  (() => { const r = planButtonRow(bx, 2, { btnW: 150, btnH: 40, gap: 20, anchorY: 500 });
+    return r[0].w === 150 && r[0].h === 40 && r[0].y === 500
+      && r[1].x - (r[0].x + r[0].w) === 20; })());
+
+// —— 6.6 ModalBase 弹层基类（假 canvas，不触碰真实绘制）——
+const fakeCanvas = { width: 1280, height: 720, getContext: () => ({}) };
+class TestModal extends ModalBase {
+  constructor(canvas, cfg, onClose) { super(canvas, cfg, onClose); this.triggered = []; }
+  trigger(id) { this.triggered.push(id); this.close(); }
+  render() { this.renderFrame(); this.renderButtons(); }
+}
+
+let closed1 = 0;
+const m1 = new TestModal(fakeCanvas, {}, () => closed1++);
+m1.setupBox(520, 330);
+m1.setButtons([{ id: 'a', label: 'A' }, { id: 'b', label: 'B' }]);
+m1.handleKeyDown({ key: 'Enter' });
+m1.handleKeyDown({ key: 'Enter' });
+check('ModalBase 非 selectable：Enter 直接关闭，onClose one-shot 只回调一次',
+  m1.finished === true && m1.isDone === true && closed1 === 1 && m1.triggered.length === 0);
+
+let closed2 = 0;
+const m2 = new TestModal(fakeCanvas, {}, () => closed2++);
+m2.selectable = true;
+m2.setupBox(520, 330);
+m2.setButtons([{ id: 'atk', label: '攻击' }, { id: 'item', label: '道具' }, { id: 'wait', label: '待机' }]);
+check('selectable 弹层：焦点初始 0 且按钮全部落在盒内',
+  m2.focusIndex === 0
+  && m2.buttons.every((b) => inRect(b.rect.x, b.rect.y, m2.box)
+    && inRect(b.rect.x + b.rect.w, b.rect.y + b.rect.h, m2.box)));
+m2.handleKeyDown({ key: 'ArrowDown' });
+const step1 = m2.focusIndex === 1;
+m2.handleKeyDown({ key: 'ArrowDown' });
+m2.handleKeyDown({ key: 'ArrowDown' });
+const wrapOk = m2.focusIndex === 0;
+m2.handleKeyDown({ key: 'ArrowUp' });
+check('↑↓ 焦点导航 0→1→2→0 循环 + ArrowUp 回绕 0→2',
+  step1 && wrapOk && m2.focusIndex === 2);
+const eaten = m2.handleKeyDown({ key: 'Enter' });
+check('Enter 触发焦点按钮（trigger 收到 id）并关闭',
+  eaten === true && deepEq(m2.triggered, ['wait']) && m2.finished === true && closed2 === 1);
+
+let closed3 = 0;
+const m3 = new TestModal(fakeCanvas, {}, () => closed3++);
+m3.selectable = true;
+m3.setupBox(520, 330);
+m3.setButtons([{ id: 'yes', label: '确定' }, { id: 'no', label: '取消' }]);
+const b3 = m3.buttons[1].rect;
+m3.handleClick(b3.x + b3.w / 2, b3.y + b3.h / 2);
+check('handleClick 命中按钮 → 联动焦点 + trigger + 消费事件',
+  deepEq(m3.triggered, ['no']) && m3.focusIndex === 1 && m3.finished === true && closed3 === 1);
+
+const m4 = new TestModal(fakeCanvas, {}, () => {});
+m4.setupBox(520, 330);
+m4.setButtons([{ id: 'x', label: 'X' }]);
+check('空白处点击不被消费（交还外层）+ Escape 关闭 + 无关按键穿透',
+  m4.handleClick(5, 5) === false && m4.finished === false
+  && m4.handleKeyDown({ key: 'w' }) === false
+  && m4.handleKeyDown({ key: 'Escape' }) === true && m4.finished === true);
+
+check('render() 必须由子类实现（忘实现第一帧就明确报错，而不是白屏）',
+  (() => { const mb = new ModalBase(fakeCanvas, {}, () => {});
+    try { mb.render(); return false; } catch (e) { return /render/.test(e.message); } })());
 
 /* ══════════ 汇总 ══════════ */
 console.log('\n══════════════════════════════════');
