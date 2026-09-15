@@ -1,0 +1,326 @@
+/**
+ * 武器配置表（V2 服务层 / goods 分类表 1/4）
+ *
+ * ── Schema 约定 ─────────────────────────────────────────────
+ * id            string  唯一 id（注册中心自检唯一性）
+ * name          string  显示名
+ * kind          'weapon' 固定，统一 goods 分类
+ * type          'melee' | 'ranged' | 'magic'
+ *               combat.js 兼容字段：type==='magic' 时攻击力走 mag
+ * damageType    'phys' | 'magic'  新系统显式语义（与 type 联动，注册中心校验一致性）
+ * family        职业武器族（职业表 families 白名单用）：'笔'|'球'|'乐器'|'杂物'|'投掷'|'粉笔'|'教具'|'彩球'|'钝器'
+ * might/hit/crit/weight/range  与旧表完全同构，combat.js 直接消费
+ * uses          耐久（FE 式），>=1；当前战斗系统未扣减，联调轮接入
+ * levelReq      佩戴等级门槛（可缺省=1）
+ * stack         背包叠加上限（武器一般不可叠加=1）
+ * desc          描述文案
+ * ─────────────────────────────────────────────────────────────
+ * 收编说明：旧 src/data/weapons.js 全部 5 把原值迁入本表（数值逐字段原样保留，
+ * 仅补充 uses/family/damageType 新元数据），旧路径改为 re-export shim，main.js 零改动。
+ */
+
+export const WEAPONS = {
+  /* ══════════ 旧表收编（legacy，数值原样） ══════════ */
+  pencil: {
+    id: 'pencil',
+    name: '新手铅笔',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '笔',
+    might: 6,
+    hit: 100,
+    crit: 5,
+    range: [1, 1],
+    weight: 1,
+    uses: 45,
+    levelReq: 1,
+    stack: 1,
+    desc: '用得只剩半截的中华铅笔，橡皮头都磨平了，虽然朴素但十分趁手。'
+  },
+  calligraphy_brush: {
+    id: 'calligraphy_brush',
+    name: '练字毛笔',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '笔',
+    might: 9,
+    hit: 90,
+    crit: 12,
+    range: [1, 1],
+    weight: 2,
+    uses: 40,
+    levelReq: 3,
+    stack: 1,
+    desc: '狼毫小楷笔，笔锋锐利，点划之间颇有书法大家的章法。'
+  },
+  vocab_cards: {
+    id: 'vocab_cards',
+    name: '英语单词卡',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '杂物',
+    might: 7,
+    hit: 95,
+    crit: 8,
+    range: [1, 2],
+    weight: 1,
+    uses: 40,
+    levelReq: 3,
+    stack: 1,
+    desc: '红宝书高频词汇卡片，飞牌出去字字珠玑，令人头疼。'
+  },
+  snack_throw: {
+    id: 'snack_throw',
+    name: '过期辣条投掷',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '杂物',
+    might: 2,
+    hit: 65,
+    crit: 0,
+    range: [1, 2],
+    weight: 2,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '从推车里抓起的可疑零食直接掷出，油花四溅。'
+  },
+  exercise_bat: {
+    id: 'exercise_bat',
+    name: '练习册卷棒',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '钝器',
+    might: 4,
+    hit: 65,
+    crit: 3,
+    range: [1, 1],
+    weight: 4,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '五年中考三年模拟卷成的结实纸棒，打人生疼。'
+  },
+
+  /* ══════════ V2 新增（七大职业武器族） ══════════ */
+  // —— 普通小学生系列（学生通用武器族：笔 / 投掷） ——
+  triangular_ruler: {
+    id: 'triangular_ruler',
+    name: '三角尺',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '投掷',
+    might: 7,
+    hit: 85,
+    crit: 15,
+    range: [1, 2],
+    weight: 2,
+    uses: 35,
+    levelReq: 2,
+    stack: 1,
+    desc: '掏出三角尺照着同桌的脑门飞过去，是最古老的学生远程技艺。'
+  },
+  compass_needle: {
+    id: 'compass_needle',
+    name: '圆规',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '笔',
+    might: 5,
+    hit: 90,
+    crit: 30,
+    range: [1, 1],
+    weight: 1,
+    uses: 25,
+    levelReq: 2,
+    stack: 1,
+    desc: '针尖闪着寒光的制图圆规。刺中要害的快感，画过坐标系的人最懂。'
+  },
+  fountain_pen: {
+    id: 'fountain_pen',
+    name: '限量款钢笔',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '笔',
+    might: 8,
+    hit: 95,
+    crit: 10,
+    range: [1, 1],
+    weight: 1,
+    uses: 40,
+    levelReq: 1,
+    stack: 1,
+    desc: '笔帽镶着小金尖的进口货。全班只有一个人用得起，也只有他舍得拿它当武器。'
+  },
+
+  // —— 体育健将系列（球族） ——
+  basketball: {
+    id: 'basketball',
+    name: '篮球',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '球',
+    might: 10,
+    hit: 75,
+    crit: 5,
+    range: [1, 1],
+    weight: 4,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '带着一身操场灰尘的队服篮球。拍在地板上的声音就是宣战。'
+  },
+  ping_pong_paddle: {
+    id: 'ping_pong_paddle',
+    name: '乒乓球拍',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '球',
+    might: 8,
+    hit: 80,
+    crit: 10,
+    range: [1, 2],
+    weight: 2,
+    uses: 35,
+    levelReq: 2,
+    stack: 1,
+    desc: '直拍横拍不重要，重要的是那记擦边球。轻巧但刁钻。'
+  },
+  football: {
+    id: 'football',
+    name: '校队足球',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '球',
+    might: 9,
+    hit: 85,
+    crit: 5,
+    range: [1, 2],
+    weight: 2,
+    uses: 35,
+    levelReq: 1,
+    stack: 1,
+    desc: '气打得很足的校队 5 号球。贴地斩的弧线，连守门员看了都沉默。'
+  },
+
+  // —— 学习委员系列（乐器族：魔攻走 mag，combat.js type==='magic' 兼容） ——
+  flute: {
+    id: 'flute',
+    name: '长笛',
+    kind: 'weapon',
+    type: 'magic',
+    damageType: 'magic',
+    family: '乐器',
+    might: 8,
+    hit: 90,
+    crit: 5,
+    range: [1, 2],
+    weight: 1,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '校乐队练习用的旧长笛。跑调的音阶钻进耳朵里，让人太阳穴发麻。'
+  },
+
+  // —— 学酥系列（杂物族：低威力高命中/幸运） ——
+  water_bottle: {
+    id: 'water_bottle',
+    name: '水壶',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '杂物',
+    might: 4,
+    hit: 100,
+    crit: 0,
+    range: [1, 2],
+    weight: 1,
+    uses: 40,
+    levelReq: 1,
+    stack: 1,
+    desc: '妈妈塞进书包侧兜的保温壶。抛物线稳定，指哪打哪，就是砸不太疼。'
+  },
+  paper_plane: {
+    id: 'paper_plane',
+    name: '纸飞机',
+    kind: 'weapon',
+    type: 'ranged',
+    damageType: 'phys',
+    family: '杂物',
+    might: 5,
+    hit: 85,
+    crit: 10,
+    range: [1, 2],
+    weight: 1,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '撕掉最后一页作业本折的。哈一口气再扔出去，是小学生最后的仪式感。'
+  },
+
+  // —— 人民教师系列（粉笔族=魔攻 / 教具族=物理） ——
+  chalk_head: {
+    id: 'chalk_head',
+    name: '粉笔头',
+    kind: 'weapon',
+    type: 'magic',
+    damageType: 'magic',
+    family: '粉笔',
+    might: 9,
+    hit: 95,
+    crit: 10,
+    range: [1, 2],
+    weight: 1,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '讲台上顺手抄起的半截粉笔。被它点名命中的人，一辈子都记得那一瞬间。'
+  },
+  teaching_pointer: {
+    id: 'teaching_pointer',
+    name: '教鞭',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '教具',
+    might: 8,
+    hit: 100,
+    crit: 5,
+    range: [1, 1],
+    weight: 1,
+    uses: 30,
+    levelReq: 1,
+    stack: 1,
+    desc: '一米二的不锈钢伸缩教鞭。指向黑板是教具，敲下来是家访预告。'
+  },
+
+  // —— 拉拉操队员系列（彩球族：低威力稳命中，奶妈不以输出见长） ——
+  pom_pom: {
+    id: 'pom_pom',
+    name: '啦啦彩球',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '彩球',
+    might: 5,
+    hit: 100,
+    crit: 0,
+    range: [1, 1],
+    weight: 1,
+    uses: 40,
+    levelReq: 1,
+    stack: 1,
+    desc: '两把红金双色塑料彩球，甩起来哗啦作响。士气打击大于物理伤害。'
+  }
+};

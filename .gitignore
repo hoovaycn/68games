@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+# 手工快照备份目录：版本职责已由 git 承担，避免仓库膨胀
+backup/

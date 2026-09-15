@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>《六 8 班异闻录》- 校园悬疑战棋</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* 全局背景：雅致柔和的浅米黄/纸质色调，极简耐看 */
+    body {
+      background-color: #0e0d0c;
+      color: #292524;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* 16:9 等比缩放容器：跟随 canvas 实际尺寸动态缩放 */
+    #game-scaler {
+      position: relative;
+      transform-origin: center center;
+    }
+
+    #game-container {
+      position: relative;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 2px rgba(255, 255, 255, 0.06);
+      background: #000000;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    canvas#game-canvas {
+      display: block;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-crisp-edges;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* 顶部统一状态条：浅暖羊皮纸风 */
+    #top-bar {
+      display: none !important;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-player {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .badge-enemy {
+      background: #dc2626;
+      color: #ffffff;
+    }
+
+    /* 底部操作快捷提示 */
+    #controls-hint {
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #78716c;
+      text-align: center;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    #controls-hint kbd {
+      background: rgba(231, 223, 213, 0.9);
+      color: #292524;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12px;
+      border: 1px solid #d6cbbe;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="game-scaler">
+    <div id="game-container">
+      <div id="top-bar">
+        <div id="chapter-title">序章教学战：校外街道</div>
+        <div id="phase-indicator">
+          回合 <span id="turn-count">1</span> | <span id="current-phase" class="badge badge-player">我方回合</span>
+        </div>
+      </div>
+
+      <canvas id="game-canvas" width="960" height="540"></canvas>
+    </div>
+  </div>
+
+  <div id="controls-hint">
+    [操作提示] <kbd>鼠标点击</kbd> 选人/移动/攻击 · <kbd>鼠标右键</kbd> 或 <kbd>ESC</kbd> 随时撤销归位 · <kbd>滚轮</kbd> 切换菜单
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+  <script>
+    // 等比缩放：以 canvas 实际像素尺寸为基准适配视窗
+    function fitScaler() {
+      var scaler = document.getElementById('game-scaler');
+      var canvas = document.getElementById('game-canvas');
+      var cw = canvas.width || 960;
+      var ch = canvas.height || 540;
+      var margin = 80;
+      var availW = window.innerWidth - margin;
+      var availH = window.innerHeight - margin;
+      var scale = Math.min(availW / cw, availH / ch, 1.6);
+      if (scale < 0.3) scale = 0.3;
+      scaler.style.width = cw + 'px';
+      scaler.style.height = ch + 'px';
+      scaler.style.transform = 'scale(' + scale + ')';
+    }
+    window.addEventListener('resize', fitScaler);
+    window.addEventListener('load', fitScaler);
+    // canvas 尺寸变化时也要重新计算
+    var canvasEl = document.getElementById('game-canvas');
+    if (canvasEl) {
+      var observer = new MutationObserver(function() { fitScaler(); });
+      observer.observe(canvasEl, { attributes: true, attributeFilter: ['width', 'height'] });
+    }
+    fitScaler();
+  </script>
+</body>
+</html>
