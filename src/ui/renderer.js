@@ -1,5 +1,4 @@
 import { WEAPONS } from '../data/weapons.js';
-import { ITEMS } from '../data/items.js';
 import { assetLoader } from '../engine/asset_loader.js';
 
 /**
@@ -760,11 +759,10 @@ export class Renderer {
   drawUI(state) {
     this.drawTileInfoCard(state);
 
-    if (state.mode === 'ACTION_MENU') {
-      this.drawActionMenu(state);
-    } else if (state.mode === 'ITEM_MENU') {
-      this.drawItemMenu(state);
-    }
+    // ★ ACTION_MENU / ITEM_MENU 两分支已删除：
+    //   行动菜单迁移为 ActionMenu 组件（src/ui/components/action_menu.js）、
+    //   背包操作迁移为 InventoryPanelModal（src/ui/components/inventory_panel.js），
+    //   均由 main.js loop 在 renderer.render 之后调用其 render()，renderer 不再持有这两块 UI
 
     if (state.battlePreview) {
       this.drawBattlePreview(state.battlePreview);
@@ -842,154 +840,10 @@ export class Renderer {
     }
   }
 
-  getActionMenuRect(state) {
-    const u = state.selectedUnit;
-    if (!u || !state.actionMenu) return null;
-    const items = state.actionMenu.items;
-    const w = 110;
-    const itemH = 34;
-    const h = items.length * itemH + 14;
-
-    // ★ 智能避让：单位在上半屏 → 菜单放下方；下半屏 → 菜单放上方
-    const unitPy = u.y * this.tileSize + this.offsetY;
-    const isUnitLower = unitPy > this.offsetY + this.mapHeightPx / 2;
-    const x = Math.min(this.offsetX + this.mapWidthPx - w - 4, (u.x + 1) * this.tileSize + this.offsetX + 8);
-    const y = isUnitLower
-      ? Math.max(this.offsetY + 4, u.y * this.tileSize + this.offsetY - h - 4)
-      : Math.min(this.offsetY + this.mapHeightPx - h - 4, (u.y + 1) * this.tileSize + this.offsetY + 4);
-
-    return { x, y, w, h, itemH };
-  }
-
-  drawActionMenu(state) {
-    const ctx = this.ctx;
-    const menu = state.actionMenu;
-    const rect = this.getActionMenuRect(state);
-    if (!rect) return;
-
-    const { x, y, w, h, itemH } = rect;
-
-    ctx.fillStyle = '#fffdfa';
-    ctx.beginPath();
-    ctx.roundRect(x, y, w, h, 8);
-    ctx.fill();
-
-    ctx.strokeStyle = '#292524';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    menu.items.forEach((item, idx) => {
-      const isSelected = idx === menu.selectedIndex;
-      const iy = y + 7 + idx * itemH;
-      const rowH = itemH - 4;
-
-      if (isSelected) {
-        ctx.fillStyle = '#292524';
-        ctx.beginPath();
-        ctx.roundRect(x + 5, iy, w - 10, rowH, 4);
-        ctx.fill();
-      }
-
-      ctx.save();
-      ctx.fillStyle = isSelected ? '#ffffff' : (item.enabled ? '#1c1917' : '#a8a29e');
-      ctx.font = 'bold 14px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(item.label, x + w / 2, iy + rowH / 2);
-      ctx.restore();
-    });
-  }
-
-  getItemMenuRect(state) {
-    const u = state.selectedUnit;
-    if (!u) return null;
-    const items = u.inventory || [];
-    const w = 196;
-    const itemH = 34;
-    const h = Math.max(50, items.length * itemH + 40);
-
-    // ★ 智能避让：单位在上半屏 → 菜单放下方；下半屏 → 菜单放上方
-    const unitPy = u.y * this.tileSize + this.offsetY;
-    const isUnitLower = unitPy > this.offsetY + this.mapHeightPx / 2;
-    const x = Math.min(this.offsetX + this.mapWidthPx - w - 4, (u.x + 1) * this.tileSize + this.offsetX + 8);
-    const y = isUnitLower
-      ? Math.max(this.offsetY + 4, u.y * this.tileSize + this.offsetY - h - 4)
-      : Math.min(this.offsetY + this.mapHeightPx - h - 4, (u.y + 1) * this.tileSize + this.offsetY + 4);
-
-    return { x, y, w, h, itemH };
-  }
-
-  drawItemMenu(state) {
-    const ctx = this.ctx;
-    const rect = this.getItemMenuRect(state);
-    if (!rect) return;
-
-    const { x, y, w, h, itemH } = rect;
-    const u = state.selectedUnit;
-    const items = u.inventory || [];
-
-    ctx.fillStyle = '#fffdfa';
-    ctx.beginPath();
-    ctx.roundRect(x, y, w, h, 8);
-    ctx.fill();
-
-    ctx.strokeStyle = '#292524';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    ctx.save();
-    ctx.fillStyle = '#78716c';
-    ctx.font = 'bold 12px sans-serif';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('背包物品 (点击使用)', x + 12, y + 16);
-    ctx.restore();
-
-    if (items.length === 0) {
-      ctx.fillStyle = '#a8a29e';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('背包暂无物品', x + 12, y + 42);
-      return;
-    }
-
-    items.forEach((it, idx) => {
-      const isSelected = idx === state.itemMenuIndex;
-      const iy = y + 28 + idx * itemH;
-      const rowH = itemH - 4;
-      const itemData = ITEMS[it.id] || { name: it.id };
-
-      if (isSelected) {
-        ctx.fillStyle = '#292524';
-        ctx.beginPath();
-        ctx.roundRect(x + 5, iy, w - 10, rowH, 4);
-        ctx.fill();
-      }
-
-      // 绘制道具真实图标 (烤肠、混蛋汽水等)
-      const iconPath = `assets/items/${it.id}.png`;
-      const iconImg = assetLoader.getImage(iconPath);
-      const iconSize = 22;
-      const iconX = x + 10;
-      const iconY = iy + (rowH - iconSize) / 2;
-
-      if (iconImg) {
-        ctx.drawImage(iconImg, iconX, iconY, iconSize, iconSize);
-      } else {
-        ctx.fillStyle = isSelected ? '#fbbf24' : '#d97706';
-        ctx.beginPath();
-        ctx.roundRect(iconX, iconY, iconSize, iconSize, 3);
-        ctx.fill();
-      }
-
-      ctx.save();
-      ctx.fillStyle = isSelected ? '#ffffff' : '#1c1917';
-      ctx.font = 'bold 13px sans-serif';
-      ctx.textAlign = 'left';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(`${itemData.name} ×${it.count}`, iconX + iconSize + 8, iy + rowH / 2);
-      ctx.restore();
-    });
-  }
+  // ★ 以下四方法已删除（任务 #9 组件化迁移）：
+  //   getActionMenuRect / drawActionMenu  → ActionMenu 组件（ui/components/action_menu.js）
+  //   getItemMenuRect / drawItemMenu      → InventoryPanelModal（ui/components/inventory_panel.js）
+  //   菜单布局（贴单位 + 智能避让）也一并迁走，由 main.js loop 渲染。
 
   drawBattlePreview(preview) {
     const ctx = this.ctx;

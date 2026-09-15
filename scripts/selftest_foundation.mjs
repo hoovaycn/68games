@@ -81,6 +81,14 @@ import {
   planInventoryRows, planKindTabs, planTradeAction, planInvDesc,
   planInventoryLayout, InventoryPanelModal
 } from '../src/ui/components/inventory_panel.js';
+import {
+  ACTION_MENU_W, ACTION_MENU_ITEM_H,
+  planActionMenuItems, planNextEnabledIndex, planActionMenuBox, ActionMenu
+} from '../src/ui/components/action_menu.js';
+import {
+  normalizeTutorialSteps, planTutorialButtons, TutorialPanelModal
+} from '../src/ui/components/tutorial_panel.js';
+import { CH0_BATTLE1 } from '../src/data/chapters/ch0_battle1.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -1467,6 +1475,213 @@ check('null config：unit 空背包 / 内置空仓库可切视图浏览（counts
     const tabSafe = nm.view === 'stash' && nm.rows.length === 0;
     nm.handleKeyDown({ key: 'Escape' });
     return shape && tabSafe && nm.finished === true && n === 1;
+  })());
+
+/* ══════════ §12 action_menu 行动菜单 + tutorial_panel 教学面板 ══════════ */
+section('12 action_menu + tutorial_panel');
+
+// 12.1 常量：宽 136 / 行高 42（用户「字儿和元素都大点」基调的量化锚点）
+check('12.1 行动菜单常量：ACTION_MENU_W=136 / ACTION_MENU_ITEM_H=42',
+  ACTION_MENU_W === 136 && ACTION_MENU_ITEM_H === 42);
+
+// 12.2 四项恒定结构：默认态（射程内无敌 / 背包空）攻击+道具灰显，详情+待机恒可用
+check('12.2 planActionMenuItems 默认态：四项恒定 detail→attack→item→wait，仅详情/待机启用',
+  (() => {
+    const d = planActionMenuItems();
+    const order = d.map(i => i.id).join(',') === 'detail,attack,item,wait';
+    const labels = d.map(i => i.label).join(',') === '详情,攻击,道具,待机';
+    const marks = d.map(i => i.enabled).join(',') === 'true,false,false,true';
+    return order && labels && marks;
+  })());
+
+// 12.3 满状态：射程内有敌 + 有道具 → 四项全启用
+check('12.3 planActionMenuItems 满状态：enemiesInRange>0 + hasItems → 攻击/道具亮起',
+  planActionMenuItems({ enemiesInRange: 2, hasItems: true }).every(i => i.enabled === true));
+
+// 12.4 planNextEnabledIndex 数学：双向循环跳灰 + wrap + 全灰 -1 + 空数组 -1
+check('12.4 planNextEnabledIndex：跳灰循环（0→2→0 wrap）· 反向 wrap · 全灰 -1 · 空 -1',
+  (() => {
+    const items = [
+      { enabled: true }, { enabled: false },
+      { enabled: true }, { enabled: false }
+    ];
+    const fwd = planNextEnabledIndex(items, 0, 1) === 2
+      && planNextEnabledIndex(items, 2, 1) === 0;      // 正向 wrap
+    const back = planNextEnabledIndex(items, 0, -1) === 2; // 反向 wrap（0 → 2）
+    const first = planNextEnabledIndex(items, -1, 1) === 0; // 构造期找首个启用项
+    const none = planNextEnabledIndex(items.map(i => ({ enabled: false })), 2, 1) === -1;
+    const empty = planNextEnabledIndex([], 0, 1) === -1;
+    return fwd && back && first && none && empty;
+  })());
+
+// 12.5 planActionMenuBox 避让三态：右侧可放 / 右满翻左 / 垂直 clamp 进画布 + 高度公式
+check('12.5 planActionMenuBox：贴右优先·右满翻左·近底 clamp 上移·h=count×行高+2pad',
+  (() => {
+    const ok = planActionMenuBox({ x: 400, y: 300, w: 48, h: 48 }, 1280, 720, 4);
+    const right = ok.x === 400 + 48 + 8 && ok.h === 4 * 42 + 7 * 2;
+    const flip = planActionMenuBox({ x: 1200, y: 300, w: 48, h: 48 }, 1280, 720, 4);
+    const toLeft = flip.x === 1200 - 8 - 136;
+    const low = planActionMenuBox({ x: 400, y: 650, w: 48, h: 48 }, 1280, 720, 4);
+    const clamped = low.y === 720 - 6 - 182;
+    return right && toLeft && clamped;
+  })());
+
+// 12.6 ActionMenu 构造：落位矩形 + 初始焦点跳到首个启用项（灰首项时落到第 2 行）
+check('12.6 ActionMenu 构造：四项落位 / 初始焦点 = 首个启用项（首项灰则跳下一项）',
+  (() => {
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720
+    });
+    const shape = m.items.length === 4 && m.rect.w === 136 && m.selectedIndex === 0;
+    const m2 = new ActionMenu({
+      items: [{ id: 'a', label: '灰', enabled: false }, { id: 'b', label: '亮', enabled: true }],
+      anchorRect: { x: 0, y: 0, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720
+    });
+    return shape && m2.selectedIndex === 1;
+  })());
+
+// 12.7 键盘导航：↓/↑ 在四项默认态（攻击道具灰）间跳灰往返 0↔3
+check('12.7 键盘导航：ArrowDown 0→wait(3) 跳过攻击/道具 · ArrowUp 3→detail(0) 回跳',
+  (() => {
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720
+    });
+    m.handleKeyDown({ key: 'ArrowDown' });
+    const down = m.selectedIndex === 3;
+    m.handleKeyDown({ key: 'ArrowUp' });
+    return down && m.selectedIndex === 0;
+  })());
+
+// 12.8 确认灰项：cancel 音不回调，菜单保持打开（选中态可继续移动）
+check('12.8 Enter 灰项不触发：回调 0 次、菜单开着、焦点还能继续移动',
+  (() => {
+    const calls = [];
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720,
+      onSelect: (id) => calls.push(id)
+    });
+    m.selectedIndex = 1;                 // 攻击（灰）
+    const noFire = m.confirm() === false && calls.length === 0;
+    m.handleKeyDown({ key: 'ArrowDown' });
+    return noFire && m.selectedIndex === 3 && calls.length === 0;
+  })());
+
+// 12.9 确认启用项 + 取消回调：onSelect('wait') 一次 · onCancel 恰好一次
+check('12.9 Enter 亮项触发 onSelect(id) · cancel() 触发 onCancel 各恰好一次',
+  (() => {
+    const calls = [];
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720,
+      onSelect: (id) => calls.push('sel:' + id),
+      onCancel: () => calls.push('cancel')
+    });
+    m.selectedIndex = 3;                 // 待机（亮）
+    const fire = m.confirm() === true && calls[0] === 'sel:wait';
+    m.cancel();
+    return fire && calls.join(',') === 'sel:wait,cancel';
+  })());
+
+// 12.10 鼠标：盒外 false 由外层解释为取消 · 盒内灰行吃掉不触发
+check('12.10 鼠标：盒外点击返回 false · 灰行点击 true 但零回调（聚焦提示不误触发）',
+  (() => {
+    const calls = [];
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720,
+      onSelect: (id) => calls.push(id)
+    });
+    const outside = m.handleClick(0, 0) === false;
+    // 落位矩形：x=456 y=233 行区 [240, 408)，第 2 行(攻击,灰)中线 y≈261
+    const greyRow = m.handleClick(456 + 68, 240 + 42 + 21) === true;
+    return outside && greyRow && m.selectedIndex === 1 && calls.length === 0;
+  })());
+
+// 12.11 鼠标：点击启用行直接触发 · hover 联动移动焦点
+check('12.11 鼠标：点启用行(待机)即触发 · hover 另一启用行联动换焦点',
+  (() => {
+    const calls = [];
+    const m = new ActionMenu({
+      items: planActionMenuItems(),
+      anchorRect: { x: 400, y: 300, w: 48, h: 48 },
+      canvasW: 1280, canvasH: 720,
+      onSelect: (id) => calls.push(id)
+    });
+    // 第 4 行(待机,亮)中线 y≈240+3×42+21
+    m.handleClick(456 + 68, 240 + 3 * 42 + 21);
+    const clickFire = calls.join(',') === 'wait' && m.selectedIndex === 3;
+    m.handleMouseMove(456 + 68, 240 + 21);                     // hover 首行(详情,亮)
+    return clickFire && m.selectedIndex === 0;
+  })());
+
+// 12.12 normalizeTutorialSteps 归一：null 兜底单步 · 残条过滤 · hint 补空 · 数字标题字符串化
+check('12.12 normalizeTutorialSteps：null→兜底一条 · 残条/null 过滤 · hint 补空 · 标题字符串化',
+  (() => {
+    const bad = normalizeTutorialSteps(null);
+    const fallback = bad.length === 1 && bad[0].title === '开始行动' && bad[0].hint === '';
+    const messy = normalizeTutorialSteps({ steps: [
+      { title: 'A', body: 'a' },
+      null,
+      { body: '只有正文' },
+      { title: 123 }
+    ] });
+    return fallback && messy.length === 3
+      && messy[1].title === '操作引导' && messy[1].hint === ''
+      && messy[2].title === '123';
+  })());
+
+// 12.13 planTutorialButtons 三态 + 单步特例
+check('12.13 planTutorialButtons：单步[行动] · 首步[next] · 中间[prev,next] · 末步[prev,行动]',
+  (() => {
+    const ids = (arr) => arr.map(b => b.id).join(',');
+    return ids(planTutorialButtons(0, 1)) === 'finish'
+      && ids(planTutorialButtons(0, 3)) === 'next'
+      && ids(planTutorialButtons(1, 3)) === 'prev,next'
+      && ids(planTutorialButtons(2, 3)) === 'prev,finish';
+  })());
+
+// 12.14 TutorialPanelModal 组件：三步构造 + 首步 Enter 翻页 + 末步按钮组 + Escape 关闭回调一次
+check('12.14 教学面板：三步构造 · Enter(next) 0→1 · trigger 到末步出现[上一步,开始行动] · Escape 关一次',
+  (() => {
+    let n = 0;
+    const tp = new TutorialPanelModal(fakeCanvas, { steps: [
+      { title: '选中我方人员', body: '第一步正文', hint: 'h1' },
+      { title: '走近敌人', body: '第二步正文', hint: 'h2' },
+      { title: '行动菜单', body: '第三步正文', hint: 'h3' }
+    ] }, () => n++);
+    const init = tp.steps.length === 3 && tp.stepIndex === 0
+      && tp.buttons.map(b => b.id).join(',') === 'next';
+    tp.handleKeyDown({ key: 'Enter' });           // 首步焦点在 next → 翻到第 2 步
+    const s1 = tp.stepIndex === 1
+      && tp.buttons.map(b => b.id).join(',') === 'prev,next';
+    tp.trigger('next');                            // 直翻末步（焦点行为归 ModalBase §6 已测）
+    const s2 = tp.stepIndex === 2
+      && tp.buttons.map(b => b.id).join(',') === 'prev,finish';
+    tp.handleKeyDown({ key: 'Escape' });
+    return init && s1 && s2 && tp.finished === true && n === 1;
+  })());
+
+// 12.15 ch0_battle1.tutorial 配置镜像：≥3 步 · 每步三字段齐全 · 文案无主角名硬编码（男女主线共用这张图）
+check('12.15 ch0_battle1.tutorial：三步引导配置 · title/body/hint 全非空 · 无主角名硬编码（双线通用）',
+  (() => {
+    const tut = CH0_BATTLE1.tutorial;
+    const cfgOk = !!(tut && Array.isArray(tut.steps) && tut.steps.length >= 3);
+    const steps = normalizeTutorialSteps(tut);
+    const everyFilled = steps.every(s => s.title && s.body && s.title.length > 0 && s.body.length > 0);
+    const genderNeutral = steps.every(s =>
+      !s.title.includes('张子骁') && !s.body.includes('张子骁')
+      && !s.title.includes('石予诺') && !s.body.includes('石予诺'));
+    const hintGiven = steps.filter(s => s.hint.length > 0).length >= 2;
+    return cfgOk && steps.length === tut.steps.length && everyFilled && genderNeutral && hintGiven;
   })());
 
 /* ══════════ 汇总 ══════════ */

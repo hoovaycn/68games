@@ -9,7 +9,13 @@ import { VictoryModal } from './ui/components/victory_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
 import { LevelUpModal, snapshotGrowthStats } from './ui/components/level_up.js';
+import { ActionMenu, planActionMenuItems } from './ui/components/action_menu.js';
+import { TutorialPanelModal } from './ui/components/tutorial_panel.js';
+import { UnitDetailModal } from './ui/components/unit_detail.js';
+import { InventoryPanelModal } from './ui/components/inventory_panel.js';
 import { gainExp, expForKill, expForAction } from './systems/growth.js';
+import { createStash } from './systems/stash.js';
+import { settleLoot, summarizeLoots } from './systems/loot.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
@@ -18,7 +24,6 @@ import { UNITS } from './data/units.js';
 import { ENEMIES } from './data/enemies.js';
 import { CLASSES } from './data/classes.js';
 import { WEAPONS } from './data/weapons.js';
-import { ITEMS } from './data/items.js';
 
 class GameApp {
   constructor() {
@@ -54,7 +59,6 @@ class GameApp {
       attackableTiles: [],
       currentPath: [],
       actionMenu: null,
-      itemMenuIndex: 0,
       targetEnemies: [],
       targetIndex: 0,
       battlePreview: null,
@@ -62,6 +66,11 @@ class GameApp {
       itemRewardModal: null, // 战利品掉落弹窗模态框
       combatExchangeModal: null, // 交战演出弹层（HP掉血/反击/经验条时间轴）
       levelUpModal: null, // 升级明细弹层（九维条形增长 + 文字 +1）
+      unitDetailModal: null, // 人物详情弹层（行动菜单「详情」项，关闭回菜单）
+      inventoryModal: null, // 道具·仓库弹层（行动菜单「道具」项，关闭回菜单）
+      tutorialModal: null, // 新手教学弹层（首关 tutorial 配置驱动，开场弹出）
+      stash: null, // 全队共享仓库（InventoryPanelModal 双视图的另一侧）
+      collectedLoots: [], // 本场战斗实得掉落累计（胜利结算 lootName 用 summarizeLoots 汇总）
       isAnimatingCombat: false, // 锁定输入，正在播放交战与受击震颤动画
       phaseBanner: null, // 回合切换横幅 (PLAYER_PHASE / ENEMY_PHASE)
       reinforcementNotice: null, // 援军出现提示
@@ -330,8 +339,15 @@ class GameApp {
     this.battleState.itemRewardModal = null;
     this.battleState.combatExchangeModal = null;
     this.battleState.levelUpModal = null;
+    this.battleState.unitDetailModal = null;
+    this.battleState.inventoryModal = null;
+    this.battleState.tutorialModal = null;
     this.battleState.phaseBanner = null;
     this.battleState.reinforcementNotice = null;
+
+    // 全队共享仓库：跨战斗新建？（本期每场独立；未来接 game_state 后改持久化）
+    this.battleState.stash = createStash();
+    this.battleState.collectedLoots = [];
 
     // 初始化援军配置
     this.battleState.pendingReinforcements = (chapter.reinforcements || []).slice();
@@ -339,6 +355,16 @@ class GameApp {
 
     // 初始化回合阶段横幅：第1回合 PLAYER_PHASE 开场展示 (包含一级【第1回合】)
     this.showPhaseBanner('PLAYER_PHASE', 1, true);
+
+    // ★ 首关新手教学（任务 #9）：关卡配置了 tutorial 块就开场弹出三步引导，
+    //   遮罩挡住地图，玩家读完（或 Escape 跳过）再开始操作
+    if (chapter.tutorial && Array.isArray(chapter.tutorial.steps) && chapter.tutorial.steps.length > 0) {
+      this.battleState.tutorialModal = new TutorialPanelModal(
+        this.canvas,
+        chapter.tutorial,
+        () => { this.battleState.tutorialModal = null; }
+      );
+    }
 
     this.updateHUD();
   }
@@ -435,40 +461,9 @@ class GameApp {
       if (this.stage === 'STAGE_STORY') return;
 
       if (this.battleState.mode === 'ACTION_MENU') {
-        const mRect = this.renderer.getActionMenuRect(this.battleState);
-        if (mRect) {
-          if (
-            mouseX >= mRect.x && mouseX <= mRect.x + mRect.w &&
-            mouseY >= mRect.y + 6 && mouseY <= mRect.y + mRect.h - 6
-          ) {
-            const hoverIndex = Math.floor((mouseY - (mRect.y + 6)) / mRect.itemH);
-            if (
-              hoverIndex >= 0 &&
-              hoverIndex < this.battleState.actionMenu.items.length &&
-              this.battleState.actionMenu.selectedIndex !== hoverIndex
-            ) {
-              this.battleState.actionMenu.selectedIndex = hoverIndex;
-              sound.playSfx('sfx_cursor');
-            }
-          }
-        }
-        return;
-      }
-
-      if (this.battleState.mode === 'ITEM_MENU') {
-        const iRect = this.renderer.getItemMenuRect(this.battleState);
-        if (iRect) {
-          if (
-            mouseX >= iRect.x && mouseX <= iRect.x + iRect.w &&
-            mouseY >= iRect.y + 24 && mouseY <= iRect.y + iRect.h - 6
-          ) {
-            const hoverIndex = Math.floor((mouseY - (iRect.y + 24)) / iRect.itemH);
-            const items = this.battleState.selectedUnit.inventory || [];
-            if (hoverIndex >= 0 && hoverIndex < items.length && this.battleState.itemMenuIndex !== hoverIndex) {
-              this.battleState.itemMenuIndex = hoverIndex;
-              sound.playSfx('sfx_cursor');
-            }
-          }
+        // 委托行动菜单组件（ActionMenu 自闭环：盒内 hover 联动焦点，盒外静默）
+        if (this.battleState.actionMenu) {
+          this.battleState.actionMenu.handleMouseMove(mouseX, mouseY);
         }
         return;
       }
@@ -490,22 +485,9 @@ class GameApp {
       if (this.stage !== 'STAGE_BATTLE' || this.battleState.isAnimatingCombat) return;
 
       if (this.battleState.mode === 'ACTION_MENU') {
-        const menu = this.battleState.actionMenu;
-        if (e.deltaY > 0) {
-          menu.selectedIndex = (menu.selectedIndex + 1) % menu.items.length;
-        } else {
-          menu.selectedIndex = (menu.selectedIndex - 1 + menu.items.length) % menu.items.length;
-        }
-        sound.playSfx('sfx_cursor');
-      } else if (this.battleState.mode === 'ITEM_MENU') {
-        const items = this.battleState.selectedUnit.inventory || [];
-        if (items.length > 0) {
-          if (e.deltaY > 0) {
-            this.battleState.itemMenuIndex = (this.battleState.itemMenuIndex + 1) % items.length;
-          } else {
-            this.battleState.itemMenuIndex = (this.battleState.itemMenuIndex - 1 + items.length) % items.length;
-          }
-          sound.playSfx('sfx_cursor');
+        // 委托行动菜单组件（moveSelection 循环滚动且自动跳过灰项）
+        if (this.battleState.actionMenu) {
+          this.battleState.actionMenu.moveSelection(e.deltaY > 0 ? 1 : -1);
         }
       }
     }, { passive: false });
@@ -542,6 +524,24 @@ class GameApp {
         return;
       }
 
+      // ★ 新手教学弹层捕获（未读完吞点击；确认/关闭后开始正常操作）
+      if (this.battleState.tutorialModal) {
+        this.battleState.tutorialModal.handleClick(clickX, clickY);
+        return;
+      }
+
+      // ★ 人物详情弹层捕获（行动菜单「详情」：关闭后回菜单继续选择）
+      if (this.battleState.unitDetailModal) {
+        this.battleState.unitDetailModal.handleClick(clickX, clickY);
+        return;
+      }
+
+      // ★ 道具·仓库弹层捕获（行动菜单「道具」：关闭后回菜单继续选择）
+      if (this.battleState.inventoryModal) {
+        this.battleState.inventoryModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ isAnimatingCombat 锁只在战斗地图阶段生效
       // 中段剧情 (STAGE_STORY) 阶段必须放行，否则商贩被击败后切到 scene_punk_intro
       // 用户按键/点击推进对话会被锁拦截，导致"卡住不动"
@@ -570,6 +570,15 @@ class GameApp {
           }
         }
         this.dialogueSystem.next();
+        return;
+      }
+
+      // ★ 行动菜单组件独占：盒内命中组件消化；盒外点击解释为「取消菜单」
+      //   （handleBattleCancel 会把单位送回原位并重新圈选移动范围）
+      if (this.battleState.mode === 'ACTION_MENU' && this.battleState.actionMenu) {
+        if (!this.battleState.actionMenu.handleClick(clickX, clickY)) {
+          this.handleBattleCancel();
+        }
         return;
       }
 
@@ -618,6 +627,24 @@ class GameApp {
         return;
       }
 
+      // ★ 新手教学弹层：三步引导期间吃掉方向/确认/取消，防地图光标瞎动
+      if (this.battleState.tutorialModal) {
+        this.battleState.tutorialModal.handleKeyDown(e);
+        return;
+      }
+
+      // ★ 人物详情弹层：查看期间吃掉地图操作键
+      if (this.battleState.unitDetailModal) {
+        this.battleState.unitDetailModal.handleKeyDown(e);
+        return;
+      }
+
+      // ★ 道具·仓库弹层：Tab 切视图 / 上下左右行导航都在组件里
+      if (this.battleState.inventoryModal) {
+        this.battleState.inventoryModal.handleKeyDown(e);
+        return;
+      }
+
       // ★ isAnimatingCombat 锁只在战斗地图阶段生效
       // 中段剧情 (STAGE_STORY) 阶段必须放行，否则商贩被击败后切到 scene_punk_intro
       // 用户按键推进对话会被锁拦截，导致"卡住不动"
@@ -645,28 +672,23 @@ class GameApp {
         return;
       }
 
+      // ★ 行动菜单组件独占：↑↓ 移焦点 / Enter 确认 / Esc 取消全部在组件内消化，
+      //   菜单打开期间地图光标不再联动（其它按键不产生任何副作用）
+      if (this.battleState.mode === 'ACTION_MENU' && this.battleState.actionMenu) {
+        this.battleState.actionMenu.handleKeyDown(e);
+        return;
+      }
+
       switch (e.key) {
         case 'ArrowUp':
         case 'w':
         case 'W':
-          if (this.battleState.mode === 'ACTION_MENU') {
-            const m = this.battleState.actionMenu;
-            m.selectedIndex = (m.selectedIndex - 1 + m.items.length) % m.items.length;
-            sound.playSfx('sfx_cursor');
-          } else {
-            this.moveCursor(0, -1);
-          }
+          this.moveCursor(0, -1);
           break;
         case 'ArrowDown':
         case 's':
         case 'S':
-          if (this.battleState.mode === 'ACTION_MENU') {
-            const m = this.battleState.actionMenu;
-            m.selectedIndex = (m.selectedIndex + 1) % m.items.length;
-            sound.playSfx('sfx_cursor');
-          } else {
-            this.moveCursor(0, 1);
-          }
+          this.moveCursor(0, 1);
           break;
         case 'ArrowLeft':
         case 'a':
@@ -776,47 +798,10 @@ class GameApp {
       return;
     }
 
-    if (bs.mode === 'ACTION_MENU') {
-      const mRect = this.renderer.getActionMenuRect(bs);
-      if (clickX !== undefined && mRect) {
-        const insideMenu = (
-          clickX >= mRect.x && clickX <= mRect.x + mRect.w &&
-          clickY >= mRect.y && clickY <= mRect.y + mRect.h
-        );
-        if (!insideMenu) {
-          this.handleBattleCancel();
-          return;
-        }
-      }
-
-      const curItem = bs.actionMenu.items[bs.actionMenu.selectedIndex];
-      if (curItem.id === 'attack') {
-        this.enterTargetSelect();
-      } else if (curItem.id === 'item') {
-        bs.mode = 'ITEM_MENU';
-        bs.itemMenuIndex = 0;
-        sound.playSfx('sfx_menu_open');
-      } else if (curItem.id === 'wait') {
-        this.endUnitTurn();
-      }
-      return;
-    }
-
-    if (bs.mode === 'ITEM_MENU') {
-      const u = bs.selectedUnit;
-      const itemEntry = u.inventory[bs.itemMenuIndex];
-      if (itemEntry) {
-        const res = CombatSystem.useItem(u, itemEntry.id);
-        if (res.success) {
-          sound.playSfx('sfx_item_use');
-          this.addFloatingText(res.msg, u.x, u.y, '#4ade80');
-          this.endUnitTurn();
-        } else {
-          sound.playSfx('sfx_cancel');
-        }
-      }
-      return;
-    }
+    // ★ ACTION_MENU 已整体迁移到 ActionMenu 组件（bindEvents 内直接委托，
+    //   选中分发见 handleActionMenuSelect），这里不再有该分支。
+    // ★ ITEM_MENU 已删除：道具菜单项改为打开 InventoryPanelModal（背包·仓库面板），
+    //   道具的「使用」交互后续迭代并入面板。
 
     if (bs.mode === 'TARGET_SELECT') {
       const target = bs.targetEnemies[bs.targetIndex];
@@ -862,47 +847,95 @@ class GameApp {
       return;
     }
 
-    if (bs.mode === 'ITEM_MENU' || bs.mode === 'TARGET_SELECT') {
+    if (bs.mode === 'TARGET_SELECT') {
+      // 攻击选中取消 → 回到行动菜单（菜单在进入选敌时已销毁，原地重建四项重算）
       bs.battlePreview = null;
       bs.attackableTiles = [];
-      bs.mode = 'ACTION_MENU';
       sound.playSfx('sfx_cancel');
+      this.openActionMenu();
       return;
     }
   }
 
+  /**
+   * 打开行动菜单（任务 #9 重构）：
+   * 旧版是 items 数组 + renderer 手绘 + 散落各事件里的命中检测；
+   * 现在整体换成 ActionMenu 组件（四项恒定 + 灰显不隐藏 + 输入自闭环）。
+   */
   openActionMenu() {
-    const u = this.battleState.selectedUnit;
+    const bs = this.battleState;
+    const u = bs.selectedUnit;
+    if (!u) return;
+
     const weapon = WEAPONS[u.equippedWeapon] || WEAPONS.pencil;
-
-    const atkRangeTiles = this.battleState.gridSystem.getAttackableTiles(
-      u.x,
-      u.y,
-      weapon.range[0],
-      weapon.range[1]
+    const atkRangeTiles = bs.gridSystem.getAttackableTiles(u.x, u.y, weapon.range[0], weapon.range[1]);
+    const enemiesInRange = bs.units.filter(
+      enemy => enemy.isAlive && enemy.faction === 'enemy'
+        && atkRangeTiles.some(t => t.x === enemy.x && t.y === enemy.y)
     );
-
-    const enemiesInRange = this.battleState.units.filter(
-      enemy => enemy.isAlive && enemy.faction === 'enemy' && atkRangeTiles.some(t => t.x === enemy.x && t.y === enemy.y)
-    );
-
     const hasItems = u.inventory && u.inventory.length > 0;
 
-    const items = [];
-    if (enemiesInRange.length > 0) {
-      items.push({ id: 'attack', label: '攻击', enabled: true });
-    }
-    if (hasItems) {
-      items.push({ id: 'item', label: '道具', enabled: true });
-    }
-    items.push({ id: 'wait', label: '待机', enabled: true });
-
-    this.battleState.actionMenu = {
-      items,
-      selectedIndex: 0
+    // 菜单锚点 = 单位格的像素矩形（含地图偏移，与 renderer 绘制同一坐标系）
+    const anchorRect = {
+      x: u.x * this.tileSize + this.renderer.offsetX,
+      y: u.y * this.tileSize + this.renderer.offsetY,
+      w: this.tileSize,
+      h: this.tileSize
     };
-    this.battleState.mode = 'ACTION_MENU';
+
+    bs.actionMenu = new ActionMenu({
+      items: planActionMenuItems({ enemiesInRange: enemiesInRange.length, hasItems }),
+      anchorRect,
+      canvasW: this.canvas.width,
+      canvasH: this.canvas.height,
+      onSelect: (id) => this.handleActionMenuSelect(id),
+      onCancel: () => this.handleBattleCancel()
+    });
+    bs.mode = 'ACTION_MENU';
     sound.playSfx('sfx_menu_open');
+  }
+
+  /**
+   * 菜单选中分发（ActionMenu onSelect 回调）：
+   *   详情 → UnitDetailModal（查看数值，关闭回菜单，不耗行动）
+   *   攻击 → enterTargetSelect（关菜单进入选敌）
+   *   道具 → InventoryPanelModal（背包·仓库管理，关闭回菜单，不耗行动）
+   *   待机 → endUnitTurn（结束该单位行动）
+   */
+  handleActionMenuSelect(id) {
+    const bs = this.battleState;
+    const u = bs.selectedUnit;
+    if (!u) return;
+
+    if (id === 'detail') {
+      bs.unitDetailModal = new UnitDetailModal(
+        this.canvas,
+        { unit: u },
+        () => { bs.unitDetailModal = null; }
+      );
+      return; // 菜单保持打开，弹层盖在其上；关闭后继续选
+    }
+
+    if (id === 'attack') {
+      bs.actionMenu = null;   // 进入选敌，菜单销毁
+      this.enterTargetSelect();
+      return;
+    }
+
+    if (id === 'item') {
+      bs.inventoryModal = new InventoryPanelModal(
+        this.canvas,
+        { unit: u, stash: bs.stash || createStash() },
+        () => { bs.inventoryModal = null; }
+      );
+      return; // 菜单保持打开，弹层盖在其上；关闭后继续选
+    }
+
+    if (id === 'wait') {
+      bs.actionMenu = null;   // endUnitTurn 也会清，这里显式表达菜单生命周期
+      this.endUnitTurn();
+      return;
+    }
   }
 
   enterTargetSelect() {
@@ -1106,39 +1139,28 @@ class GameApp {
       });
     }
 
-    // 掉落结算 (真正弹出获得道具模态框) —— 以"阵亡者"为准，不再只看守方
-    if (slainUnit && slainUnit.faction === 'enemy' && slainUnit.drops && slainUnit.drops.length > 0) {
-      for (const drop of slainUnit.drops) {
-        if (Math.random() <= drop.chance) {
-          const itm = ITEMS[drop.itemId] || { name: drop.itemId, desc: '战利品道具。' };
-          const iconPath = `assets/items/${drop.itemId}.png`;
-          sound.playSfx('sfx_item_get');
-
-          // 将道具收入玩家背包（playerUnit：本次交战中的我方单位，反击击杀同样能拾取）
-          if (playerUnit && playerUnit.inventory) {
-            const exist = playerUnit.inventory.find(i => i.id === drop.itemId);
-            if (exist) exist.count += 1;
-            else playerUnit.inventory.push({ id: drop.itemId, count: 1 });
+    // ★ 掉落结算统一走 V2 服务 settleLoot（判定基准 = 阵亡者，反击击杀同样拾取；
+    //   返回快照自带 name/desc/iconPath，UI 层无需再查 ITEMS 表）
+    const { loots } = settleLoot(slainUnit, playerUnit);
+    if (loots.length > 0) this.battleState.collectedLoots.push(...loots);
+    for (const loot of loots) {
+      sound.playSfx('sfx_item_get');
+      // 逐条弹出真正的战利品弹窗组件，等待玩家确认后继续
+      await new Promise((resolve) => {
+        this.battleState.itemRewardModal = new ItemModal(
+          this.canvas,
+          {
+            enemyName: slainUnit.name,
+            itemName: loot.name,
+            desc: loot.desc,
+            icon: loot.iconPath
+          },
+          () => {
+            this.battleState.itemRewardModal = null;
+            resolve();
           }
-
-          // 弹出真正的战利品弹窗组件，等待玩家确认后继续
-          await new Promise((resolve) => {
-            this.battleState.itemRewardModal = new ItemModal(
-              this.canvas,
-              {
-                enemyName: slainUnit.name,
-                itemName: itm.name,
-                desc: itm.desc,
-                icon: iconPath
-              },
-              () => {
-                this.battleState.itemRewardModal = null;
-                resolve();
-              }
-            );
-          });
-        }
-      }
+        );
+      });
     }
 
     this.battleState.isAnimatingCombat = false;
@@ -1310,13 +1332,9 @@ class GameApp {
       const enemyUnit = bs.units.find(u => u.faction === 'enemy');
       const enemyName = enemyUnit ? enemyUnit.name : '敌方目标';
 
-      // ★ 战利品文案实时取自敌人掉落表：多个掉落时全列 (顿号分隔)，杜绝硬编码
-      let lootName = null;
-      if (enemyUnit && enemyUnit.drops && enemyUnit.drops.length > 0) {
-        lootName = enemyUnit.drops
-          .map(d => (ITEMS[d.itemId] ? ITEMS[d.itemId].name : d.itemId))
-          .join('、');
-      }
+      // ★ 战利品文案取自本场「实得掉落」累计（settleLoot 判定后 drops 已清空，
+      //   且旧逻辑列的是掉落表全量而非实际 roll 中的——改为只报真到手的）
+      const lootName = summarizeLoots(bs.collectedLoots);
 
       // 弹出胜利结算面板组件 VictoryModal
       bs.victoryModal = new VictoryModal(
@@ -1369,6 +1387,20 @@ class GameApp {
         }
       }
       this.renderer.render(this.battleState);
+      // 渲染行动菜单组件（非模态浮窗：无遮罩、与地图渲染并存，模态弹层在其上盖住）
+      if (this.battleState.mode === 'ACTION_MENU' && this.battleState.actionMenu) {
+        this.battleState.actionMenu.render(this.renderer.ctx);
+      }
+      // 渲染教学 / 人物详情 / 道具·仓库三个模态弹层（行动菜单打开的弹层盖在菜单上）
+      if (this.battleState.tutorialModal && typeof this.battleState.tutorialModal.render === 'function') {
+        this.battleState.tutorialModal.render();
+      }
+      if (this.battleState.unitDetailModal && typeof this.battleState.unitDetailModal.render === 'function') {
+        this.battleState.unitDetailModal.render();
+      }
+      if (this.battleState.inventoryModal && typeof this.battleState.inventoryModal.render === 'function') {
+        this.battleState.inventoryModal.render();
+      }
       // 渲染交战演出弹层组件（虚拟时钟由本 render 逐帧推进：playStrike/playExp 的 await 依赖此调用）
       if (this.battleState.combatExchangeModal && typeof this.battleState.combatExchangeModal.render === 'function') {
         this.battleState.combatExchangeModal.render();
