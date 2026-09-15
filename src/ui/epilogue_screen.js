@@ -95,8 +95,8 @@ export class EpilogueScreen {
     ctx.fillText('【调查初报 · 异常事件收拢】', cardX + 20, cardY + 24);
 
     const isMale = this.selectedRoute === 'male';
-    const heroName = isMale ? '张子骁 (书法特长 · 男主)' : '石予诺 (词汇敏锐 · 女主)';
-    const victimName = isMale ? '范文默 (同桌 / 物理狂热)' : '何妍熹 (闺蜜 / 英语狂热)';
+    const heroName = isMale ? '张子骁 (国际象棋 · 男主)' : '石予诺 (绘画特长 · 女主)';
+    const victimName = isMale ? '范文默 (同桌 / 物理异变)' : '何妍熹 (闺蜜 / 长笛异变)';
 
     ctx.fillStyle = '#292524';
     ctx.font = '13px sans-serif';

@@ -484,8 +484,8 @@ export class TitleScreen {
     const maleCfg = {
       id: 'male',
       name: '张子骁',
-      tag: '六（8）班男生 · 苦练硬笔书法',
-      line: '横平竖直，一笔一画 —— 魔物也一样。',
+      tag: '六（8）班男生 · 课间棋王',
+      line: '走一步，看三步 —— 魔物也一样。',
       portraitSrc: 'assets/art/zhangzixiao_default.png',
       themeColor: '#3B82F6',
       themeGlow: 'rgba(59, 130, 246, 0.55)',
@@ -499,8 +499,8 @@ export class TitleScreen {
     const femaleCfg = {
       id: 'female',
       name: '石予诺',
-      tag: '六（8）班女生 · 狂背英语单词',
-      line: 'abandon？放弃？我字典里没这个词。',
+      tag: '六（8）班女生 · 美术课代表',
+      line: '画不下去？我的速写本没有这一页。',
       portraitSrc: 'assets/art/shiyunuo_default.png',
       themeColor: '#DB2777',
       themeGlow: 'rgba(219, 39, 119, 0.55)',

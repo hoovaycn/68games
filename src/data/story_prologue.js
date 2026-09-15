@@ -21,7 +21,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '我叫张子骁，人大附小六（8）班的学生。苦练硬笔书法，信奉“横平竖直，一笔一画”。',
+          text: '我叫张子骁，人大附小六（8）班的学生。课间棋盘上的常胜将军，人送外号“六 8 班棋王”，信奉“走一步，看三步”。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -155,7 +155,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/vendor_default.png',
           activeSide: 'right',
-          text: '不知天高地厚的书法生……那就尝尝我投掷出的特制辣条吧！',
+          text: '不知天高地厚的小棋呆子……那就尝尝我投掷出的特制辣条吧！',
           sfx: 'sfx_shock_sting'
         }
       ],
@@ -182,7 +182,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/vendor_default.png',
           activeSide: 'right',
-          text: '哎哟！现在的流体物理硬笔书法怎么这么厉害……算你狠，我的小推车不要了！',
+          text: '哎哟！现在的小学生棋路怎么这么邪门……算你狠，我的小推车不要了！',
           sfx: 'sfx_unit_down'
         },
         {
@@ -244,7 +244,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/punk_default.png',
           activeSide: 'left',
-          text: '别挡道！我还要去救范文默呢！看我的中软笔锋！',
+          text: '别挡道！我还要去救范文默呢！这步棋，叫将军！',
           sfx: 'sfx_confirm'
         }
       ],
@@ -400,7 +400,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '我是石予诺，六（8）班的班干。我的字典里可没有“abandon（放弃）”这两个字！',
+          text: '我是石予诺，六（8）班的美术课代表。我的速写本上没有“画不下去”这一页！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -445,7 +445,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'right',
-          text: '【微信消息】“老师，妍熹昨晚一直自言自语说有个声音在催她背单词，背到凌晨三点，关灯就哭着说‘外面有脏东西’……今天把自己锁在房间里不肯出门……”',
+          text: '【微信消息】“老师，妍熹昨晚抱着长笛不肯撒手，同一个音翻来覆去练到凌晨三点，关灯就哭着说‘外面有脏东西’……今天把自己锁在房间里不肯出门……”',
           sfx: 'sfx_phone_msg'
         },
         {
@@ -464,7 +464,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/chenpinxuan_default.png',
           activeSide: 'right',
           bgm: 'bgm_suspense',
-          text: '予诺！昨天体育课我就觉得妍熹不对劲！平时看见我就叽叽喳喳的，昨天一个人蹲在墙角发疯一样翻英语词典，眼神直勾勾的！',
+          text: '予诺！昨天体育课我就觉得妍熹不对劲！平时看见我就叽叽喳喳的，昨天一个人蹲在墙角抱着长笛发疯一样比划，眼神直勾勾的！',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -507,7 +507,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/vendor_default.png',
           activeSide: 'right',
-          text: '漂亮的小姑娘，来尝尝阿伯的特制零食吗？吃了就能精通 GRE 八千个生僻词汇哦……',
+          text: '漂亮的小姑娘，来尝尝阿伯的特制零食吗？吃上一口……保你落笔就是美院满分卷哦……',
           sfx: 'sfx_text_blip'
         },
         {
@@ -516,7 +516,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/vendor_default.png',
           activeSide: 'left',
-          text: '小学生背什么 GRE！妍熹听到的怪声音就是你捣的鬼吧！',
+          text: '小学生考什么美院！妍熹听到的怪声音就是你捣的鬼吧！',
           sfx: 'sfx_attack_swing'
         },
         {
@@ -551,7 +551,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/vendor_default.png',
           activeSide: 'right',
-          text: '哎哟！现在的英语狂魔小学生怎么这么凶……小推车不要了，快闪！',
+          text: '哎哟！现在的小画家怎么这么凶……小推车不要了，快闪！',
           sfx: 'sfx_unit_down'
         },
         {
@@ -612,7 +612,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/punk_default.png',
           activeSide: 'left',
-          text: '让开！我还要去救何妍熹！字典里可没有放弃这两个字！',
+          text: '让开！我还要去救何妍熹！没有我画不出来的活路！',
           sfx: 'sfx_confirm'
         }
       ],
@@ -751,7 +751,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '品璇那个贪吃鬼，又在瞎编了……我真的只是太困了……只要再背完这十个单词……（手指开始剧烈颤抖）',
+          text: '品璇那个贪吃鬼，又在瞎编了……我真的只是太困了……只要再练熟这一个小节……（手指开始剧烈颤抖）',
           sfx: 'sfx_text_blip'
         },
         {
@@ -762,7 +762,7 @@ export const PROLOGUE_STORY = {
           activeSide: 'right',
           bgImg: 'assets/backgrounds/bg_home_eerie.png',
           bgm: 'bgm_eerie_revelation',
-          text: '……Aberration……Abyssal……背完这一整本字典……脑子里的那些虫鸣声……就会停下来了吧……嘻嘻……嘻嘻嘻……',
+          text: '……升C……降E……练完这一整本练习曲……耳朵里的那些虫鸣声……就会停下来了吧……嘻嘻……嘻嘻嘻……',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -772,7 +772,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/heyanxi_corrupted.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '妍熹？！你的瞳孔为什么在散发幽蓝冷光！满墙满床贴的都是高三生僻词汇便利贴！',
+          text: '妍熹？！你的瞳孔为什么在散发幽蓝冷光！满墙满床贴的都是写满乐句的便利贴！',
           sfx: 'sfx_shock_sting'
         },
         {

@@ -118,7 +118,7 @@ export const CLASSES = {
   calligrapher: {
     id: 'calligrapher',
     name: '书法生',
-    desc: '张子骁 V1 专属遗产职业。已由 primary_student + personalGrowth 取代。',
+    desc: '张子骁 V1 专属遗产职业。已由 xuesu（学酥）+ personalGrowth 取代。',
     base: { hp: 24, mp: 10, str: 7, mag: 0, skl: 6, spd: 6, luk: 5, def: 6, res: 2, mov: 5 },
     growth: { hp: 75, mp: 25, str: 45, mag: 10, skl: 40, spd: 40, luk: 35, def: 35, res: 15 },
     families: ['笔'],
@@ -127,7 +127,7 @@ export const CLASSES = {
   english_scholar: {
     id: 'english_scholar',
     name: '词汇生',
-    desc: '石予诺 V1 专属遗产职业。已由 primary_student + personalGrowth 取代。',
+    desc: '石予诺 V1 专属遗产职业。已由 xuesu（学酥）+ personalGrowth 取代。',
     base: { hp: 21, mp: 12, str: 5, mag: 3, skl: 8, spd: 8, luk: 7, def: 4, res: 5, mov: 5 },
     growth: { hp: 60, mp: 30, str: 30, mag: 35, skl: 55, spd: 50, luk: 45, def: 25, res: 35 },
     families: ['杂物'],
