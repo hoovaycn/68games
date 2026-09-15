@@ -25,7 +25,7 @@ import { runStartupCheck } from '../src/data/registry.js';
 import { UNITS } from '../src/data/units.js';
 import { ENEMIES } from '../src/data/enemies.js';
 import { CLASSES } from '../src/data/classes.js';
-import { getGoodsById } from '../src/data/goods/index.js';
+import { getGoodsById, GOODS_KINDS } from '../src/data/goods/index.js';
 
 import {
   EXP_PER_LEVEL, LEVEL_CAP, expForKill, expForAction, expToNext,
@@ -60,6 +60,10 @@ import {
   planStrikeSegment, planExpSegment, exchangeViewAt, planExchangeCards,
   CombatExchange
 } from '../src/ui/components/combat_exchange.js';
+import {
+  createStash, countItem, moveItems, deposit, withdraw,
+  summarizeItems, stashSummary
+} from '../src/systems/stash.js';
 import {
   LEVEL_UP_TIMING, LEVEL_UP_LAYER_LEN, GROWTH_ROWS, GROWTH_BAR_MAX,
   snapshotGrowthStats, planLevelUp, levelUpViewAt, planLevelUpLayout,
@@ -989,6 +993,152 @@ check('组件 null config：可构造可推进（"升级"占位名 + 空时间�
     const luNull = new LevelUpModal(fakeCanvas, null, null);
     return luNull.name === '升级' && luNull.plan.layers.length === 0 && luNull._vm === 0
       && luNull.view.timelineDone === true && luNull.view.rows.length === 9;
+  })());
+
+/* ══════════ §9 stash 全队共享仓库（任务 #8：道具存取 + UI 清单） ══════════ */
+
+// 9.1 建仓与页签常量：goods 四分类齐全是 inventory_panel 页签的地基
+check('createStash 空仓：items 恒为数组；GOODS_KINDS 四页签（道具/武器/防具/重要）',
+  (() => {
+    const s = createStash();
+    return Array.isArray(s.items) && s.items.length === 0
+      && GOODS_KINDS.length === 4
+      && GOODS_KINDS.map(k => k.kind).join('|') === 'consumable|weapon|armor|key_item'
+      && GOODS_KINDS.every(k => typeof k.label === 'string' && k.label.length > 0);
+  })());
+
+// 9.2 countItem：跨摞累计 + 垃圾形态防御（不喂 NaN）
+check('countItem：跨摞累计；非数组 0；非法 count 条目记 0 不传染',
+  (() => {
+    const inv = [
+      { id: 'sausage', count: 5 },
+      { id: 'sausage', count: 4 },
+      { id: 'sausage', count: NaN },
+      null,
+      { id: 'sausage' }
+    ];
+    return countItem(inv, 'sausage') === 9
+      && countItem(null, 'sausage') === 0
+      && countItem('junk', 'sausage') === 0
+      && countItem(inv, 'not_here') === 0;
+  })());
+
+// 9.3 deposit 成功路径：单位 → 仓库（数量贯通 + 双侧账目一致）
+const stUnit = createPlayerUnit('zhangzixiao');   // 模板背包：paper_plane ×1 / white_rabbit_candy ×2
+const stStash = createStash();
+check('deposit 成功：1 件入仓，单位侧扣到位、仓库侧按摞可见（moved 校验）',
+  (() => {
+    const beforeCandy = countItem(stUnit.inventory, 'white_rabbit_candy');   // 期望 2
+    const r = deposit(stUnit, stStash, 'white_rabbit_candy', 1);
+    return r.ok === true && r.moved === 1
+      && countItem(stUnit.inventory, 'white_rabbit_candy') === beforeCandy - 1
+      && countItem(stStash.items, 'white_rabbit_candy') === 1;
+  })());
+
+// 9.4 原子性：库存不足 → 整体不动（失败不产生半个操作）
+check('deposit 不足原子失败：请求 5 件仅有 2 → ok:false 双侧账目原样',
+  (() => {
+    const invSnap = JSON.stringify(stUnit.inventory);
+    const stashSnap = JSON.stringify(stStash.items);
+    const r = deposit(stUnit, stStash, 'white_rabbit_candy', 5);
+    return r.ok === false && r.moved === 0
+      && JSON.stringify(stUnit.inventory) === invSnap
+      && JSON.stringify(stStash.items) === stashSnap;
+  })());
+
+// 9.5 非法 count / 坏容器：拒绝不抛
+check('moveItems 非法入参：count 0 / -1 / NaN / 非字符串 id → 一律 fail',
+  (() => {
+    const a = moveItems([{ id: 'sausage', count: 9 }], [], 'sausage', 0);
+    const b = moveItems([{ id: 'sausage', count: 9 }], [], 'sausage', -1);
+    const c = moveItems([{ id: 'sausage', count: 9 }], [], 'sausage', NaN);
+    const d = moveItems([{ id: 'sausage', count: 9 }], [], '', 1);
+    return [a, b, c, d].every(r => r.ok === false && r.moved === 0);
+  })());
+
+// 9.6 跨摞扣减 + 空摞即时移除（不留 0 占位格）
+check('moveItems 跨摞扣减：两摞 5+5 取 9 → 剩 1 件一摞、源数组长度收缩',
+  (() => {
+    const from = [{ id: 'sausage', count: 5 }, { id: 'sausage', count: 5 }];
+    const to = [];
+    const r = moveItems(from, to, 'sausage', 9);
+    return r.ok === true && r.moved === 9
+      && from.length === 1 && from[0].count === 1
+      && to.length === 1 && to[0].id === 'sausage' && to[0].count === 9;
+  })());
+
+// 9.7 stack 口径贯通：grantItems 摞满即开新摞（sausage stack=9 语义镜像）
+check('moveItems 合入侧按 goods.stack 补摞：9 件进 3/6 仓 → 9/9/2 断言口径复现',
+  (() => {
+    const from = [{ id: 'sausage', count: 20 }];
+    const to = [{ id: 'sausage', count: 3 }, { id: 'sausage', count: 6 }];
+    moveItems(from, to, 'sausage', 11);
+    // 期望：3→9 补 6 件，6→9 补 3 件，剩 2 件开第三摞
+    return to.length === 3 && to.map(s => s.count).join(',') === '9,9,2';
+  })());
+
+// 9.8 withdraw 方向对称：仓库 → 单位（存得进去也要取得出来）
+check('withdraw 成功：仓库 1 → 单位 +1，双侧账目对上',
+  (() => {
+    const beforeStash = countItem(stStash.items, 'white_rabbit_candy');  // 期望 1
+    const beforeUnit = countItem(stUnit.inventory, 'white_rabbit_candy'); // 期望 1
+    const r = withdraw(stStash, stUnit, 'white_rabbit_candy', 1);
+    return r.ok === true && r.moved === 1
+      && beforeStash === 1 && beforeUnit === 1
+      && countItem(stStash.items, 'white_rabbit_candy') === 0
+      && countItem(stUnit.inventory, 'white_rabbit_candy') === 2;
+  })());
+
+// 9.9 容器缺位防御：V1 援军单位（无 inventory 字段）/ 仓库非对象 → fail 不抛
+check('容器缺位防御：无背包单位 deposit fail、坏仓库 withdraw fail、不替调用方造容器',
+  (() => {
+    const rawUnit = { id: 'nobody', inventory: undefined };   // 援军 spawn 曾无 inventory
+    const a = deposit(rawUnit, stStash, 'sausage', 1);
+    const b = deposit(stUnit, null, 'sausage', 1);
+    const c = withdraw(null, stUnit, 'sausage', 1);
+    const d = withdraw(stStash, { id: 'nobody' }, 'sausage', 1);
+    return [a, b, c, d].every(r => r.ok === false && r.moved === 0)
+      && rawUnit.inventory === undefined;   // 未被偷偷补上数组
+  })());
+
+// 9.10 summarizeItems：合并同 id 摞 + 全字段快照（panel 背包页与仓库页共用口径）
+check('summarizeItems：合并同 id 摞；category/use_in_battle 字段透传（sausage 可战斗用）',
+  (() => {
+    const inv = [{ id: 'sausage', count: 2 }, { id: 'sausage', count: 3 },
+                 { id: 'white_rabbit_candy', count: 1 }];
+    const list = summarizeItems(inv);
+    const sausage = list.find(x => x.itemId === 'sausage');
+    const candy = list.find(x => x.itemId === 'white_rabbit_candy');
+    return list.length === 2
+      && sausage.count === 5 && sausage.kind === 'consumable'
+      && sausage.stack === 9
+      && getGoodsById('sausage').use_in_battle === sausage.use_in_battle
+      && candy.iconPath === 'assets/items/white_rabbit_candy.png'
+      && summarizeItems(null).length === 0;
+  })());
+
+// 9.11 未注册 id 兜底：脏条目出面板快照而不是炸（与 loot 兜底同 philosophy）
+check('summarizeItems 未注册 id：走[name=id]兜底 + kind=unknown 仍可渲染不抛',
+  (() => {
+    const warnSnap = console.warn;  // snapshotItem 的兜底走 warn，此处静默
+    const warns = [];
+    console.warn = (m) => warns.push(m);
+    const list = summarizeItems([{ id: 'ghost_card', count: 2 }]);
+    console.warn = warnSnap;
+    const ghost = list[0];
+    return ghost.itemId === 'ghost_card' && ghost.name === 'ghost_card'
+      && ghost.kind === 'unknown' && ghost.desc.length > 0
+      && warns.length === 1;
+  })());
+
+// 9.12 stashSummary 与 summarizeItems 同口径（仓库页签直接消费）
+check('stashSummary = summarizeItems 的仓库别名：当前仓只剩 white_rabbit_candy 0 摞时清单为空',
+  (() => {
+    const viaAlias = stashSummary(stStash);
+    const viaDirect = summarizeItems(stStash.items);
+    return viaAlias.length === viaDirect.length
+      && deepEq(viaAlias, viaDirect) === true
+      && viaAlias.length === 0;   // 9.3 的 1 件已在 9.8 取走
   })());
 
 /* ══════════ 汇总 ══════════ */

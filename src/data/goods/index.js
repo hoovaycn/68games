@@ -26,6 +26,17 @@ export function getGoodsById(id) {
 }
 
 /**
+ * 四分类页签（UI 联调轮：inventory_panel / 行动菜单「道具」入口消费）。
+ * 顺序即页签顺序；label 为统一中文短语。未注册 kind（脏数据）由 UI 落到「其他」。
+ */
+export const GOODS_KINDS = [
+  { kind: 'consumable', label: '道具' },
+  { kind: 'weapon', label: '武器' },
+  { kind: 'armor', label: '防具' },
+  { kind: 'key_item', label: '重要' }
+];
+
+/**
  * 兼容旧路径的 ITEMS 视图：src/data/items.js 从本处 re-export。
  * 旧 main.js / combat.js 只做 ITEMS[id] 查找，多出的条目不影响现有查找。
  */
