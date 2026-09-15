@@ -7,6 +7,7 @@ import { TitleScreen } from './ui/title_screen.js';
 import { EpilogueScreen } from './ui/epilogue_screen.js';
 import { VictoryModal } from './ui/components/victory_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
+import { CombatExchange } from './ui/components/combat_exchange.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
@@ -57,6 +58,7 @@ class GameApp {
       battlePreview: null,
       floatingTexts: [],
       itemRewardModal: null, // 战利品掉落弹窗模态框
+      combatExchangeModal: null, // 交战演出弹层（HP掉血/反击/经验条时间轴）
       isAnimatingCombat: false, // 锁定输入，正在播放交战与受击震颤动画
       phaseBanner: null, // 回合切换横幅 (PLAYER_PHASE / ENEMY_PHASE)
       reinforcementNotice: null, // 援军出现提示
@@ -320,6 +322,7 @@ class GameApp {
     this.battleState.victoryModal = null;
     this.battleState.victoryModalShown = false;
     this.battleState.itemRewardModal = null;
+    this.battleState.combatExchangeModal = null;
     this.battleState.phaseBanner = null;
     this.battleState.reinforcementNotice = null;
 
@@ -520,6 +523,12 @@ class GameApp {
         return;
       }
 
+      // ★ 交战演出弹层捕获（时间轴未完时吞点击防误关；finish 后点确认触发 onClose）
+      if (this.battleState.combatExchangeModal) {
+        this.battleState.combatExchangeModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ isAnimatingCombat 锁只在战斗地图阶段生效
       // 中段剧情 (STAGE_STORY) 阶段必须放行，否则商贩被击败后切到 scene_punk_intro
       // 用户按键/点击推进对话会被锁拦截，导致"卡住不动"
@@ -576,6 +585,14 @@ class GameApp {
       if (this.battleState.itemRewardModal) {
         if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
           this.battleState.itemRewardModal.handleKeyDown(e);
+        }
+        return;
+      }
+
+      // ★ 交战演出弹层：时间轴未完时吞按键；finish 后回车/空格/ESC 触发确认关闭
+      if (this.battleState.combatExchangeModal) {
+        if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
+          this.battleState.combatExchangeModal.handleKeyDown(e);
         }
         return;
       }
@@ -931,45 +948,54 @@ class GameApp {
       this.battleState.gridSystem.getTerrain(defender.x, defender.y)
     );
 
-    // 单步击打函数：执行单次命中/未命中判定，并立即同步震动与血量
+    // ★ 交战演出弹层：承担 HP 条掉血动画、反击展示与经验条增长（取代地图 -N 浮字）
+    const cePlayerSide = attacker.faction === 'player' ? 'attacker'
+      : (defender.faction === 'player' ? 'defender' : null);
+    const playerUnit = attacker.faction === 'player' ? attacker
+      : (defender.faction === 'player' ? defender : null);
+
+    let ceConfirmResolve = null;
+    const ceModal = new CombatExchange(this.canvas, {
+      attacker: { name: attacker.name, level: attacker.level, hp: attacker.currentHp, maxHp: attacker.maxHp, faction: attacker.faction, unit: attacker },
+      defender: { name: defender.name, level: defender.level, hp: defender.currentHp, maxHp: defender.maxHp, faction: defender.faction, unit: defender },
+      playerSide: cePlayerSide,
+      exp: playerUnit ? { current: playerUnit.exp, max: 100, level: playerUnit.level } : null,
+    }, () => {
+      this.battleState.combatExchangeModal = null;
+      if (ceConfirmResolve) { const r = ceConfirmResolve; ceConfirmResolve = null; r(); }
+    });
+    this.battleState.combatExchangeModal = ceModal;
+
+    // 单步击打函数：掷骰一次（弹层演出与真实扣血共用判定结果）。
+    // 地图侧保留突进冲撞与受击震颤；弹层侧承担精确 HP 掉血动画与音效时间轴。
     const playSingleStrike = async (src, dst, statPred, strikeLabel) => {
-      // 1. 攻击者突进冲撞
-      await this.lungeUnit(src, dst, 8, 140);
+      const srcSide = (src === attacker) ? 'attacker' : 'defender';
 
-      // 2. 计算命中与伤害
+      // 1. 计算命中与伤害（判定只掷一次，弹层与真实扣血共用）
       const isHit = (Math.random() * 100) < statPred.hit;
+      const isCrit = isHit && (Math.random() * 100) < statPred.crit;
+      const damage = isHit ? (isCrit ? statPred.damage * 3 : statPred.damage) : 0;
+
+      // 2. 真实且同步扣减血量（与弹层 hpTrack 同源：hpAfter = clamp(hpBefore - damage, 0, maxHp)）
+      const dstHpBefore = dst.currentHp;
       if (isHit) {
-        const isCrit = (Math.random() * 100) < statPred.crit;
-        const damage = isCrit ? statPred.damage * 3 : statPred.damage;
-
-        // 真实且同步扣减血量！
         dst.currentHp = Math.max(0, dst.currentHp - damage);
-
-        // 播放打击音效与受击高频剧烈抖动
-        sound.playSfx(isCrit ? 'sfx_hit_crit' : 'sfx_hit_normal');
-        this.shakeUnit(dst, isCrit ? 8 : 5, isCrit ? 280 : 200);
-
-        const label = strikeLabel ? `【${strikeLabel}】` : '';
-        this.addFloatingText(
-          `${label}${isCrit ? '暴击! ' : ''}-${damage}`,
-          dst.x,
-          dst.y,
-          isCrit ? '#ef4444' : '#facc15'
-        );
-      } else {
-        // 落空 MISS
-        sound.playSfx('sfx_miss');
-        this.shakeUnit(dst, 2, 100); // 轻微躲闪
-        this.addFloatingText(
-          `${strikeLabel ? `【${strikeLabel}】` : ''}MISS`,
-          dst.x,
-          dst.y,
-          '#94a3b8'
-        );
       }
 
-      // 等待 380ms 停顿观察，让玩家看清每次血条变化
-      await new Promise(r => setTimeout(r, 380));
+      // 3. 并行演出：弹层自 windup 起播（音效由其时间轴驱动），地图突进到位后接受击震颤
+      const layerP = ceModal.playStrike({
+        srcSide,
+        label: strikeLabel || '',
+        isHit, isCrit, damage,
+        dstHpBefore,
+      });
+      await this.lungeUnit(src, dst, 8, 140);
+      if (isHit) {
+        this.shakeUnit(dst, isCrit ? 8 : 5, isCrit ? 280 : 200); // 受击高频剧烈抖动
+      } else {
+        this.shakeUnit(dst, 2, 100); // 轻微躲闪
+      }
+      await layerP; // 等弹层该段（蓄势→命中→HP掉落→定格）完整播完
     };
 
     // 1. 攻方先手攻击
@@ -1001,30 +1027,43 @@ class GameApp {
     //   11 伤反击击杀），零经验、零掉落、零弹窗；而石予诺双击 9×2 在自己回合以守方位
     //   阵亡，正常弹窗 —— 两条线由此产生 UI 不一致。
     const slainUnit = !defender.isAlive ? defender : (!attacker.isAlive ? attacker : null);
-    const playerSide = (attacker.faction === 'player')
-      ? attacker
-      : (defender.faction === 'player' ? defender : null);
 
-    // 经验与升级（我方单位参与本次交战时）
-    if (playerSide) {
+    // 经验与升级（我方单位参与本次交战时）：弹层经验条演出（普通增长 / 升级满格→横幅→回卷）
+    if (playerUnit) {
       // 击杀经验：阵亡者为敌方（含反击击杀）；我方主动攻击未击杀保留参与经验 12
       let expGained = 0;
       if (slainUnit && slainUnit.faction === 'enemy') {
         expGained = 35;
-      } else if (attacker === playerSide) {
+      } else if (attacker === playerUnit) {
         expGained = 12;
       }
       if (expGained > 0) {
-        playerSide.exp += expGained;
-        if (playerSide.exp >= 100) {
-          playerSide.exp -= 100;
-          playerSide.level += 1;
-          sound.playSfx('sfx_level_up');
-          this.addFloatingText('LEVEL UP! 等级提升!', playerSide.x, playerSide.y, '#f59e0b');
-          await new Promise(r => setTimeout(r, 350));
+        const expBefore = playerUnit.exp;
+        const levelBefore = playerUnit.level;
+        playerUnit.exp += expGained;
+        let leveledUp = false;
+        if (playerUnit.exp >= 100) {
+          playerUnit.exp -= 100;
+          playerUnit.level += 1;
+          leveledUp = true;
         }
+        await ceModal.playExp({
+          side: cePlayerSide,
+          name: playerUnit.name,
+          amount: expGained,
+          before: expBefore,
+          after: playerUnit.exp,
+          leveledUp,
+          levelBefore,
+          levelAfter: playerUnit.level,
+          maxExp: 100,
+        });
       }
     }
+
+    // ★ 交战演出收官：时间轴排完出确认按钮，等玩家看完终局面板再继续掉落与回合结算
+    ceModal.finish();
+    await new Promise((resolve) => { ceConfirmResolve = resolve; });
 
     // 掉落结算 (真正弹出获得道具模态框) —— 以"阵亡者"为准，不再只看守方
     if (slainUnit && slainUnit.faction === 'enemy' && slainUnit.drops && slainUnit.drops.length > 0) {
@@ -1034,11 +1073,11 @@ class GameApp {
           const iconPath = `assets/items/${drop.itemId}.png`;
           sound.playSfx('sfx_item_get');
 
-          // 将道具收入玩家背包（playerSide：本次交战中的我方单位，反击击杀同样能拾取）
-          if (playerSide && playerSide.inventory) {
-            const exist = playerSide.inventory.find(i => i.id === drop.itemId);
+          // 将道具收入玩家背包（playerUnit：本次交战中的我方单位，反击击杀同样能拾取）
+          if (playerUnit && playerUnit.inventory) {
+            const exist = playerUnit.inventory.find(i => i.id === drop.itemId);
             if (exist) exist.count += 1;
-            else playerSide.inventory.push({ id: drop.itemId, count: 1 });
+            else playerUnit.inventory.push({ id: drop.itemId, count: 1 });
           }
 
           // 弹出真正的战利品弹窗组件，等待玩家确认后继续
@@ -1289,6 +1328,10 @@ class GameApp {
         }
       }
       this.renderer.render(this.battleState);
+      // 渲染交战演出弹层组件（虚拟时钟由本 render 逐帧推进：playStrike/playExp 的 await 依赖此调用）
+      if (this.battleState.combatExchangeModal && typeof this.battleState.combatExchangeModal.render === 'function') {
+        this.battleState.combatExchangeModal.render();
+      }
       // 渲染战利品模态框组件
       if (this.battleState.itemRewardModal && typeof this.battleState.itemRewardModal.render === 'function') {
         this.battleState.itemRewardModal.render();

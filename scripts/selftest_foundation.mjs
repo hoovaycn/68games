@@ -55,6 +55,11 @@ import {
   wrapLines, planWrappedBlock, lerp, easeOutCubic, fontCss,
   ModalBase
 } from '../src/ui/components/ui_kit.js';
+import {
+  STRIKE_TIMING, EXP_TIMING,
+  planStrikeSegment, planExpSegment, exchangeViewAt, planExchangeCards,
+  CombatExchange
+} from '../src/ui/components/combat_exchange.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -591,6 +596,213 @@ check('空白处点击不被消费（交还外层）+ Escape 关闭 + 无关按�
 check('render() 必须由子类实现（忘实现第一帧就明确报错，而不是白屏）',
   (() => { const mb = new ModalBase(fakeCanvas, {}, () => {});
     try { mb.render(); return false; } catch (e) { return /render/.test(e.message); } })());
+
+/* ══════════ §7 combat_exchange 交战弹层 ══════════ */
+section('7 combat_exchange 交战弹层');
+
+// —— 7.1 节拍常量 / 交击计划 / 卡片几何 ——
+check('STRIKE_TIMING / EXP_TIMING 节拍全量锚定（改一处时序就同步改一处断言）',
+  STRIKE_TIMING.WINDUP === 170 && STRIKE_TIMING.IMPACT === 90
+  && STRIKE_TIMING.DROP === 320 && STRIKE_TIMING.DROP_CRIT === 400
+  && STRIKE_TIMING.SETTLE === 130 && STRIKE_TIMING.SETTLE_CRIT === 200
+  && STRIKE_TIMING.DODGE === 110 && STRIKE_TIMING.SETTLE_MISS === 220
+  && EXP_TIMING.CHARGE === 180 && EXP_TIMING.GROWTH === 420
+  && EXP_TIMING.GROWTH_WRAP === 300 && EXP_TIMING.BANNER === 480
+  && EXP_TIMING.REFILL === 320 && EXP_TIMING.SETTLE === 120);
+
+const segMiss0 = planStrikeSegment({ isHit: false, damage: 99, dstHpBefore: 10, dstMaxHp: 48 });
+const segNorm0 = planStrikeSegment({ isHit: true, damage: 7, dstHpBefore: 34, dstMaxHp: 48 }, 710);
+const segCrit0 = planStrikeSegment({ srcSide: 'defender', isHit: true, isCrit: true, damage: 50, dstHpBefore: 34, dstMaxHp: 48 });
+check('交击计划三型：MISS 500 / 普通 710 / 暴击 860，锚点与 src/dst 镜像齐全',
+  segMiss0.duration === 500 && segMiss0.impactAt === 280
+  && segMiss0.damage === 99 && segMiss0.hpAfter === 10 && segMiss0.hpBefore === 10
+  && segNorm0.impactAt === 170 && segNorm0.dropAt === 260 && segNorm0.settleAt === 580
+  && segNorm0.start === 710 && segNorm0.end === 1420
+  && segNorm0.srcSide === 'attacker' && segNorm0.dstSide === 'defender' && segNorm0.hpAfter === 27
+  && segCrit0.duration === 860 && segCrit0.settleAt === 660
+  && segCrit0.srcSide === 'defender' && segCrit0.dstSide === 'attacker' && segCrit0.hpAfter === 0);
+check('hpAfter 公式与 main.js 同源：伤害炸穿夹 0 / 血量超上限夹 maxHp / 负伤害归 0',
+  planStrikeSegment({ isHit: true, damage: 999, dstHpBefore: 10, dstMaxHp: 48 }).hpAfter === 0
+  && planStrikeSegment({ isHit: true, damage: 0, dstHpBefore: 100, dstMaxHp: 48 }).hpAfter === 48
+  && planStrikeSegment({ isHit: true, damage: -5, dstHpBefore: 34, dstMaxHp: 48 }).damage === 0);
+
+const cards0 = planExchangeCards(bx);
+check('planExchangeCards 卡片几何：双卡对称 / 条宽 198 / 升级横幅与 EXP 条落位',
+  cards0.attacker.avatar.cx === 489 && cards0.defender.avatar.cx === 791
+  && cards0.attacker.avatar.r === 35 && cards0.attacker.nameY === 359
+  && cards0.attacker.hpBar.w === 198 && Math.round(cards0.attacker.hpBar.x) === 390
+  && cards0.attacker.hpBar.y === cards0.defender.hpBar.y
+  && cards0.levelUpY === 393 && cards0.reportY === 413
+  && cards0.expBar.y === 431 && cards0.expBar.w === 364 && cards0.vs.x === 640);
+
+// —— 7.2 经验计划 ——
+const expNorm0 = planExpSegment({ amount: 18, before: 12, after: 30, maxExp: 100 });
+const expUp0 = planExpSegment({ name: '张子骁', amount: 40, before: 80, after: 20, maxExp: 100, leveledUp: true, levelBefore: 1, levelAfter: 2 });
+check('经验计划双型：普通 720 无横幅锚点 / 升级 1400（banner 480 / refill 960）',
+  expNorm0.duration === 720 && expNorm0.bannerAt === null && expNorm0.refillAt === null
+  && expUp0.duration === 1400 && expUp0.bannerAt === 480 && expUp0.refillAt === 960);
+check('levelAfter 缺省 = levelBefore+1；levelBefore 缺失则级数链断为 null',
+  planExpSegment({ leveledUp: true, levelBefore: 3, maxExp: 100 }).levelAfter === 4
+  && planExpSegment({ levelBefore: 5, maxExp: 100 }).levelAfter === 6
+  && planExpSegment({ leveledUp: true, maxExp: 100 }).levelAfter === null);
+check('maxExp≤0 兜底 100 + before/after 双向夹到 [0,maxExp]',
+  (() => { const z = planExpSegment({ maxExp: -3, before: 999, after: -5 });
+    return z.maxExp === 100 && z.before === 100 && z.after === 0; })());
+
+// —— 7.3 exchangeViewAt 分相位快照 ——
+const sA = planStrikeSegment({ srcSide: 'attacker', srcName: '张子骁', dstName: '流动商贩', label: '先手', isHit: true, damage: 7, dstHpBefore: 34, dstMaxHp: 48 });
+const sM = planStrikeSegment({ srcSide: 'attacker', srcName: '张子骁', dstName: '流动商贩', isHit: false, dstHpBefore: 34, dstMaxHp: 48 });
+const init0 = { attackerHp: 40, defenderHp: 34, exp: null };
+const vWind = exchangeViewAt([sA], 100, init0);
+const vImp = exchangeViewAt([sA], 200, init0);
+const vDrop = exchangeViewAt([sA], 420, init0);
+const vSet = exchangeViewAt([sA], 650, init0);
+check('strike 四相推进：windup 无字 → impact 数字先出 HP 不动 → drop 缓动掉血 → settle 定格',
+  vWind.phase === 'windup' && vWind.damageText === null
+  && vWind.reportText === '张子骁【先手】发起攻击' && vWind.defenderHp === 34
+  && vImp.phase === 'impact' && vImp.damageText === '-7' && vImp.damageKind === 'hit' && vImp.defenderHp === 34
+  && vDrop.phase === 'drop' && Math.abs(vDrop.defenderHp - 27.875) < 1e-9 && vDrop.defenderGhost === 34
+  && vSet.phase === 'settle' && vSet.defenderHp === 27 && vSet.defenderGhost === 34 && vSet.attackerHp === 40);
+const mWin = exchangeViewAt([sM], 100, init0);
+const mMiss = exchangeViewAt([sM], 300, init0);
+check('MISS 两相：windup 无伤害字 → miss 相 MISS 文案 + 不掉血',
+  mWin.phase === 'windup' && mWin.damageText === null
+  && mMiss.phase === 'miss' && mMiss.damageText === 'MISS' && mMiss.damageKind === 'miss'
+  && mMiss.reportText === '流动商贩灵巧地闪开了' && mMiss.defenderHp === 34 && mMiss.attackerHp === 40);
+
+const initE = { attackerHp: 40, defenderHp: 34, exp: { current: 80, maxExp: 100, level: 1 } };
+const initG = { attackerHp: 40, defenderHp: 34, exp: { current: 12, maxExp: 100, level: 2 } };
+const ec0 = exchangeViewAt([expUp0], 100, initE);
+const eb0 = exchangeViewAt([expUp0], 700, initE);
+const er0 = exchangeViewAt([expUp0], 1000, initE);
+const es0 = exchangeViewAt([expUp0], 1300, initE);
+const gg0 = exchangeViewAt([expNorm0], 390, initG);
+const gs0 = exchangeViewAt([expNorm0], 650, initG);
+check('exp 升级四相：charge→banner（满格+等级行提前跳新值）→refill（0→新值）→settle',
+  ec0.phase === 'exp-charge' && ec0.expShown === 80 && ec0.expGained === 40
+  && ec0.reportText === '张子骁获得40点经验'
+  && eb0.phase === 'exp-banner' && eb0.expShown === 100 && eb0.expLevel === 2
+  && eb0.levelUpText === '等级提升！ Lv.1 → Lv.2'
+  && er0.phase === 'exp-refill' && er0.expShown > 0 && er0.expShown < 20 && er0.expLevel === 2
+  && es0.phase === 'exp-settle' && es0.expShown === 20 && es0.expLevel === 2);
+check('exp 普通两相：growth 中点 27.75 + ghost 残影 → settle 到 after；纯交击时间轴无 exp 快照则经验区整体隐藏',
+  gg0.phase === 'exp-growth' && gg0.expShown === 27.75 && gg0.expGhost === 12
+  && gs0.phase === 'exp-settle' && gs0.expShown === 30
+  && exchangeViewAt([sA], 0, init0).expVisible === false
+  && exchangeViewAt([sA], 0, init0).expLevel === null);
+
+// —— 7.4 多段累计（同一时间轴：先手 → 反击 → 经验）——
+const c1 = planStrikeSegment({ srcSide: 'attacker', srcName: '张子骁', dstName: '流动商贩', label: '先手', isHit: true, damage: 7, dstHpBefore: 34, dstMaxHp: 48 }, 0);
+const c2 = planStrikeSegment({ srcSide: 'defender', srcName: '流动商贩', dstName: '张子骁', label: '反击', isHit: true, damage: 5, dstHpBefore: 40, dstMaxHp: 40 }, 710);
+const c3 = planExpSegment({ name: '张子骁', amount: 18, before: 12, after: 30, maxExp: 100 }, 1420);
+const vLink = exchangeViewAt([c1, c2], 710, init0);
+check('累计效应：第二段起点处守方 HP 已吸收第一段终态（27）',
+  vLink.phase === 'windup' && vLink.strikingSide === 'defender' && vLink.activeIndex === 1
+  && vLink.defenderHp === 27 && vLink.attackerHp === 40
+  && vLink.reportText === '流动商贩【反击】发起攻击');
+const vGrowth = exchangeViewAt([c1, c2, c3], 1810, initG);
+check('三段串联中段：交击终态 + exp growth 中点（27.75）双轨同时成立',
+  vGrowth.phase === 'exp-growth' && vGrowth.attackerHp === 35 && vGrowth.defenderHp === 27
+  && vGrowth.expShown === 27.75 && vGrowth.expGhost === 12 && vGrowth.timelineDone === false);
+const vEnd = exchangeViewAt([c1, c2, c3], 2140, initG);
+check('时间轴整体走完：全部终态吸收 + timelineDone=true',
+  vEnd.timelineDone === true && vEnd.attackerHp === 35 && vEnd.defenderHp === 27 && vEnd.expShown === 30);
+
+// —— 7.5 组件实例：虚拟时钟 / Promise 排队 / 输入锁（顶层 await 驱动微任务）——
+let ceClosed = 0;
+const ce = new CombatExchange(fakeCanvas, {
+  attacker: { name: '张子骁', level: 1, hp: 40, maxHp: 40, faction: 'player' },
+  defender: { name: '流动商贩', level: 1, hp: 34, maxHp: 48, faction: 'enemy' },
+  playerSide: 'attacker',
+  exp: { current: 80, max: 100, level: 1 },
+}, () => ceClosed++);
+check('组件初建：盒 760×500 / 双侧归位 / 我方经验快照挂我方侧',
+  ce.box.w === 760 && ce.box.h === 500
+  && ce.sides.attacker.name === '张子骁' && ce.sides.defender.maxHp === 48
+  && ce.playerSide === 'attacker' && ce.initial.exp.current === 80
+  && ce._pending.length === 0 && ce._sfxQueue.length === 0 && ce._vm === 0);
+
+let strikeResolved = 0;
+const pStrike = ce.playStrike({ srcSide: 'attacker', label: '先手', isHit: true, damage: 7 })
+  .then(() => strikeResolved++);
+ce._advanceVirtual(100);
+check('交击时间轴：windup 相快照由虚拟时钟驱动（无伤害字且 HP 未动）',
+  ce.view.phase === 'windup' && ce.view.defenderHp === 34 && ce.view.attackerHp === 40
+  && ce.view.damageText === null && ce.view.reportText === '张子骁【先手】发起攻击');
+check('虚拟时钟越点出队音效：swing 已发，命中音 170ms 处在队',
+  ce._sfxQueue.length === 1 && ce._sfxQueue[0].sfx === 'sfx_hit_normal' && ce._sfxQueue[0].at === 170);
+ce._advanceVirtual(125);
+check('impact 帧：伤害数字先出、HP 仍未动（弹层掉血的关键顺序）',
+  ce.view.phase === 'impact' && ce.view.damageText === '-7' && ce.view.damageKind === 'hit'
+  && ce.view.defenderHp === 34 && ce._sfxQueue.length === 0);
+ce._advanceVirtual(115);
+check('drop 相：HP 沿 easeOutCubic 插值（34→27 的 25% 处 ≈ 29.95）+ ghost 残影',
+  ce.view.phase === 'drop' && Math.abs(ce.view.defenderHp - 29.953125) < 1e-9
+  && ce.view.defenderGhost === 34 && ce.view.attackerHp === 40);
+check('时间轴未结束：弹层吞掉一切输入（点击/Enter/Escape 全不可跳过不可误关）',
+  ce.handleClick(1, 1) === true && ce.handleKeyDown({ key: 'Enter' }) === true
+  && ce.handleKeyDown({ key: 'Escape' }) === true && ce.finished === false
+  && ce._pending.length === 1 && strikeResolved === 0);
+ce._advanceVirtual(370);
+await pStrike;
+check('playStrike 的 Promise 过段末后 resolve（once），终态 27 落地',
+  strikeResolved === 1 && ce._pending.length === 0
+  && ce.view.defenderHp === 27 && ce.view.timelineDone === true);
+
+let expResolved = 0;
+const pExp = ce.playExp({ amount: 40, before: 80, after: 20, leveledUp: true, levelBefore: 1, levelAfter: 2 })
+  .then(() => expResolved++);
+ce._advanceVirtual(500);
+check('升级 banner 相：满格定格 + 横幅文案 + 等级行提前跳新值 + 升级音效已出队',
+  ce.view.phase === 'exp-banner' && ce.view.expShown === 100 && ce.view.expLevel === 2
+  && ce.view.levelUpText === '等级提升！ Lv.1 → Lv.2'
+  && ce._sfxQueue.length === 0 && expResolved === 0);
+ce._advanceVirtual(890);
+check('settle 相定格 20/100：经验终值已落条、时间轴未完时 Promise 仍在途',
+  ce.view.phase === 'exp-settle' && ce.view.expShown === 20
+  && ce.view.timelineDone === false && expResolved === 0 && ce._pending.length === 1);
+ce._advanceVirtual(20);
+await pExp;
+check('exp 段播完 Promise resolve（once）+ 终态吸收 + 时间轴再次走完',
+  expResolved === 1 && ce._pending.length === 0
+  && ce.view.expShown === 20 && ce.view.expLevel === 2 && ce.view.timelineDone === true);
+ce.finish();
+ce.finish();
+check('finish 幂等：出唯一"确认"按钮 + selectable 焦点 + 空白点击交还外层',
+  ce._timelineEnded === true && ce.selectable === true
+  && ce.buttons.length === 1 && ce.buttons[0].id === 'ok' && ce.focusIndex === 0
+  && ce.handleClick(1, 1) === false);
+check('finish 后输入解锁：Enter → trigger(ok) → close（onClose one-shot）',
+  ce.handleKeyDown({ key: 'Enter' }) === true && ce.finished === true && ceClosed === 1);
+
+// —— 7.6 异常与边界防御 ——
+check('plan 系 null/undefined 入参不抛（退化为 MISS 500 / exp 720 defaults 语义）',
+  (() => {
+    const a = planStrikeSegment(null);
+    const b = planStrikeSegment(undefined);
+    const c = planExpSegment(null);
+    const d = planExpSegment(undefined);
+    return a.kind === 'strike' && a.isHit === false && a.duration === 500
+      && b.duration === 500
+      && c.kind === 'exp' && c.duration === 720 && c.maxExp === 100 && c.leveledUp === false
+      && d.duration === 720;
+  })());
+check('exchangeViewAt：坏/空时间轴 → idle + timelineDone；顶层快照 null 也稳',
+  exchangeViewAt([], 500).timelineDone === true && exchangeViewAt([], 500).phase === 'idle'
+  && exchangeViewAt(null, 100).timelineDone === true
+  && exchangeViewAt([sA], 10, null).phase === 'windup' && exchangeViewAt([sA], 10, null).defenderHp === 0);
+const segNullLv = planExpSegment({ leveledUp: true, maxExp: 100 });
+const vNullLv = exchangeViewAt([segNullLv], 700, initE);
+check('等级数字缺失：升级横幅退化为 Lv.null 而不是抛错',
+  vNullLv.phase === 'exp-banner' && vNullLv.levelUpText === '等级提升！ Lv.null → Lv.null');
+check('组件极端 config：null 整包构造出 "?" 双方各 1 血的可渲染实例',
+  (() => {
+    const ce2 = new CombatExchange(fakeCanvas, null, null);
+    return ce2.sides.attacker.name === '?' && ce2.sides.defender.name === '?'
+      && ce2.sides.attacker.maxHp === 1 && ce2.initial.attackerHp === 1
+      && ce2.playerSide === null && ce2.initial.exp === null
+      && typeof ce2.box.w === 'number' && ce2.cards.attacker.avatar.r > 0;
+  })());
 
 /* ══════════ 汇总 ══════════ */
 console.log('\n══════════════════════════════════');
