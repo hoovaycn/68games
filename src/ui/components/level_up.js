@@ -483,7 +483,7 @@ export class LevelUpModal extends ModalBase {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = fontCss(24, 'bold');
-    ctx.fillStyle = PALETTE.ink;
+    ctx.fillStyle = '#fef3c7';
     ctx.shadowColor = 'rgba(0,0,0,0.6)';
     ctx.shadowBlur = 4;
     ctx.fillText(this.name, S.cx, S.nameY);
@@ -529,7 +529,7 @@ export class LevelUpModal extends ModalBase {
 
     if (v.phase !== 'head' && v.totalGainText) {
       ctx.font = fontCss(15, 'normal');
-      ctx.fillStyle = PALETTE.text;
+      ctx.fillStyle = '#fde68a';
       ctx.fillText(`九维合计 +${v.totalGain}`, P.titleX, P.gainY);
     }
     if (v.layerCount > 1 && v.phase !== 'head') {
@@ -574,7 +574,7 @@ export class LevelUpModal extends ModalBase {
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.font = fontCss(15, isFlat ? 'normal' : 'bold');
-      ctx.fillStyle = isFlat ? PALETTE.ghost : PALETTE.ink;
+      ctx.fillStyle = isFlat ? PALETTE.ghost : '#fef3c7';
       ctx.fillText(row.label, P.labelX, rowY);
 
       // 数值条（涨项 reveal：ghost 残影在左端 = 旧值，新值缓动盖上去）
@@ -614,7 +614,7 @@ export class LevelUpModal extends ModalBase {
       if (!isFlat && row.barShown != null) {
         ctx.textAlign = 'right';
         ctx.font = fontCss(15, 'bold');
-        ctx.fillStyle = PALETTE.title;
+        ctx.fillStyle = PALETTE.gold;
         const txt = row.state === 'revealed'
           ? `${Math.round(row.ghostShown)} → ${Math.round(row.barShown)}`
           : `${Math.round(row.barShown)}`;

@@ -119,7 +119,16 @@ export class VictoryModal {
 
       ctx.fillStyle = '#7c2d12';
       ctx.font = 'bold 18px sans-serif';
-      ctx.fillText(`获得战利品：【${this.config.lootName}】`, infoX + 20, currY + 27);
+      // 战利品过多时按卡宽截断，尾部省略号，避免文字溢出面板
+      const lootMaxW = (boxW - 210) - 40;   // 卡内可用文字宽度（左右各留 20）
+      let lootText = `获得战利品：【${this.config.lootName}】`;
+      if (ctx.measureText(lootText).width > lootMaxW) {
+        while (lootText.length > 1 && ctx.measureText(lootText + '…').width > lootMaxW) {
+          lootText = lootText.slice(0, -1);
+        }
+        lootText += '…';
+      }
+      ctx.fillText(lootText, infoX + 20, currY + 27);
       currY += 54;
     }
 
