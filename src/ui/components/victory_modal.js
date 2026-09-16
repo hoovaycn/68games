@@ -1,4 +1,5 @@
 import { sound } from '../../engine/sound.js';
+import { assetLoader } from '../../engine/asset_loader.js';
 
 /**
  * 通用战斗胜利与结算面板组件 (Victory & Result Modal)
@@ -68,25 +69,32 @@ export class VictoryModal {
     ctx.textBaseline = 'middle';
     ctx.fillText('★  战 斗 胜 利  ★', w / 2, y + 14 + headH / 2);
 
-    // 2. 评级印章 (SS / S / A)
+    // 2. 评级印章 (SS / S / A)：优先贴图，缺失回落程序绘制
     const turns = this.config.turns || 1;
     const rankText = turns <= 2 ? 'SS' : (turns <= 4 ? 'S' : 'A');
     const stampX = x + boxW - 92;
     const stampY = y + 150;
 
-    ctx.save();
-    ctx.strokeStyle = '#dc2626';
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.arc(stampX, stampY, 34, 0, Math.PI * 2);
-    ctx.stroke();
+    const rankImg = assetLoader.getImage(`assets/ui/ui_rank_${rankText.toLowerCase()}.png`);
+    if (rankImg) {
+      // 贴图 96×96 内主体直径 68 居中（≈ 原 arc r=34）
+      const stampSize = 96;
+      ctx.drawImage(rankImg, stampX - stampSize / 2, stampY - stampSize / 2, stampSize, stampSize);
+    } else {
+      ctx.save();
+      ctx.strokeStyle = '#dc2626';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(stampX, stampY, 34, 0, Math.PI * 2);
+      ctx.stroke();
 
-    ctx.fillStyle = '#dc2626';
-    ctx.font = 'bold 28px sans-serif';
-    ctx.fillText(rankText, stampX, stampY - 3);
-    ctx.font = '11px sans-serif';
-    ctx.fillText('EVALUATION', stampX, stampY + 19);
-    ctx.restore();
+      ctx.fillStyle = '#dc2626';
+      ctx.font = 'bold 28px sans-serif';
+      ctx.fillText(rankText, stampX, stampY - 3);
+      ctx.font = '11px sans-serif';
+      ctx.fillText('EVALUATION', stampX, stampY + 19);
+      ctx.restore();
+    }
 
     // 3. 统计数据列 (左对齐大字)
     ctx.fillStyle = '#44403c';

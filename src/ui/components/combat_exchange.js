@@ -20,6 +20,7 @@
  *   CombatExchange.render* —— 只吃快照落笔，浏览器端才被调用。
  */
 import { sound } from '../../engine/sound.js';
+import { assetLoader } from '../../engine/asset_loader.js';
 import {
   ModalBase, PALETTE, planBar, barRatio, lerp, easeOutCubic,
   fontCss, drawBar, drawAvatar, avatarFaceFor,
@@ -507,10 +508,17 @@ export class CombatExchange extends ModalBase {
 
   /* ---------- 内部：绘制 ---------- */
 
-  /** 中轴 VS 徽章：外环淡金 + 纸底金框圆 + accent 大字（整卡界面中轴对称锚） */
+  /** 中轴 VS 徽章：优先贴图（ui_vs_badge.png），缺失回落程序绘制（外环淡金 + 纸底金框圆 + VS） */
   _renderVs() {
     const ctx = this.ctx;
     const vs = this.cards.vs;
+    const img = assetLoader.getImage('assets/ui/ui_vs_badge.png');
+    if (img) {
+      // 贴图 64×64 内主体直径 48，按 vs.r 等比缩放（含四周 8px 光晕余量）
+      const size = vs.r * 8 / 3;
+      ctx.drawImage(img, vs.cx - size / 2, vs.cy - size / 2, size, size);
+      return;
+    }
     ctx.save();
     ctx.beginPath();
     ctx.arc(vs.cx, vs.cy, vs.r + 6, 0, Math.PI * 2);
