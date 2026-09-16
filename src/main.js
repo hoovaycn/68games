@@ -13,17 +13,26 @@ import { ActionMenu, planActionMenuItems } from './ui/components/action_menu.js'
 import { TutorialPanelModal } from './ui/components/tutorial_panel.js';
 import { UnitDetailModal } from './ui/components/unit_detail.js';
 import { InventoryPanelModal } from './ui/components/inventory_panel.js';
-import { gainExp, expForKill, expForAction } from './systems/growth.js';
+import { SaveMenuModal } from './ui/components/save_menu_modal.js';
+import { gainExp, expForKill, expForAction, createEnemyUnit } from './systems/growth.js';
 import { createStash } from './systems/stash.js';
 import { settleLoot, summarizeLoots } from './systems/loot.js';
+import {
+  createNewGame, getPartyUnit, commitRuntimeUnit,
+  advanceTo, markChapterCleared, tickPlaytime
+} from './systems/game_state.js';
+import { createSaveManager } from './systems/save_manager.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
-import { UNITS } from './data/units.js';
-import { ENEMIES } from './data/enemies.js';
-import { CLASSES } from './data/classes.js';
 import { WEAPONS } from './data/weapons.js';
+
+// 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
+const CHAPTERS = {
+  ch0_battle1: CH0_BATTLE1,
+  ch0_battle2: CH0_BATTLE2
+};
 
 class GameApp {
   constructor() {
@@ -38,12 +47,27 @@ class GameApp {
 
     this.selectedRoute = 'male';
     this.activePlayerUnitId = 'zhangzixiao';
+    // 游戏进度（gameState = 存档唯一载体）与存档管理器（3+1 槽 localStorage）
+    this.gameState = null;
+    this.saveManager = createSaveManager();
+    this.saveMenuModal = null; // 存档界面模态（标题页「存档管理」/ 剧情内 Esc 呼出）
 
-    this.titleScreen = new TitleScreen(this.canvas, (routeId) => this.onCharacterSelected(routeId));
+    // D5 标题主菜单：continue → 读最新档续玩；manage → 存档管理界面
+    // （'new' 由 TitleScreen 内部白幕转场处理，不经过这里）
+    this.titleScreen = new TitleScreen(
+      this.canvas,
+      (routeId) => this.onCharacterSelected(routeId),
+      (action) => this.handleTitleMenuAction(action)
+    );
     this.dialogueSystem = new DialogueSystem(this.canvas, (transition) => this.handleSceneTransition(transition));
     this.epilogueScreen = new EpilogueScreen(this.canvas, () => this.enterTitleScreen());
 
     this.stage = 'STAGE_TITLE';
+
+    // 游玩时长节流累计：每满一整秒才 tickPlaytime 一次（STATE_SCHEMA playtimeSec）
+    this._playtimeAccumMs = 0;
+    this._lastLoopTs =
+      typeof performance !== 'undefined' ? performance.now() : Date.now();
 
     this.battleState = {
       chapter: null,
@@ -101,11 +125,83 @@ class GameApp {
       // 兼容旧版 title_screen (无 enter 方法)
       sound.playBgm('bgm_suspense');
     }
+    // 回标题刷新「继续游戏」可用性（打过一仗 / 删过档 / 导入档都可能变化）
+    if (typeof this.titleScreen.setContinueAvailable === 'function') {
+      this.titleScreen.setContinueAvailable(this.saveManager.hasAnySave());
+    }
+  }
+
+  /** T5/D5 标题主菜单分发（TitleScreen onMenuAction 回调入口） */
+  handleTitleMenuAction(action) {
+    if (action === 'continue') {
+      this.loadMostRecentAndResume();
+    } else if (action === 'manage') {
+      this.openSaveMenu('load');
+    }
+  }
+
+  /** 「继续游戏」：取所有槽（含自动档）里最新的一档恢复现场 */
+  loadMostRecentAndResume() {
+    const recent = this.saveManager.mostRecentSave();
+    if (!recent || !recent.state) {
+      // 兜底：无档时「继续游戏」置灰不可点，万一进来直接给存档界面
+      this.openSaveMenu('load');
+      return;
+    }
+    this.gameState = recent.state;
+    this.resumeFromGameState();
+  }
+
+  /**
+   * 打开存档界面模态：
+   *  mode 'load' —— 标题页「存档管理」：槽位 [auto,1,2,3]，读档即恢复现场
+   *  mode 'save' —— 剧情场景 Esc 呼出：槽位 [1,2,3]，把当前进度写入手动槽
+   * 打开期间独占全部输入（bindEvents 三链最前端拦截），关闭后回原场景。
+   */
+  openSaveMenu(mode) {
+    this.saveMenuModal = new SaveMenuModal(this.canvas, {
+      mode,
+      saveManager: this.saveManager,
+      getState: () => this.gameState,
+      describeAnchor: (meta) => this.describeSaveAnchor(meta),
+      onLoaded: (state) => {
+        this.saveMenuModal = null; // 先关面板再切场景，防止旧模态再吃一帧渲染
+        this.gameState = state;
+        this.resumeFromGameState();
+      },
+      onSaved: () => {
+        // 存入成功只提示不关界面，可继续存其它槽（提示逻辑在组件内部）
+      },
+      onClosed: () => {
+        this.saveMenuModal = null;
+        // 删档回标题时同步「继续游戏」可用性（把全部存档删光后应置灰）
+        if (this.stage === 'STAGE_TITLE'
+            && typeof this.titleScreen.setContinueAvailable === 'function') {
+          this.titleScreen.setContinueAvailable(this.saveManager.hasAnySave());
+        }
+      }
+    });
+  }
+
+  /** 存档行锚点中文描述：战斗章名 / 剧情场景标题（SaveMenuModal 行内显示） */
+  describeSaveAnchor(meta) {
+    if (!meta) return '';
+    if (meta.chapterId && CHAPTERS[meta.chapterId]) {
+      return `战斗 · ${CHAPTERS[meta.chapterId].name}`;
+    }
+    if (meta.sceneId) {
+      const scene = (PROLOGUE_STORY[meta.route] || PROLOGUE_STORY.male)[meta.sceneId];
+      if (scene && scene.title) return `剧情 · ${scene.title}`;
+    }
+    return '';
   }
 
   onCharacterSelected(routeId) {
-    this.selectedRoute = routeId;
-    this.activePlayerUnitId = routeId === 'male' ? 'zhangzixiao' : 'shiyunuo';
+    this.selectedRoute = routeId === 'female' ? 'female' : 'male';
+    this.activePlayerUnitId = this.selectedRoute === 'male' ? 'zhangzixiao' : 'shiyunuo';
+    // 新开局：服务层创建完整游戏进度（roster 档案 / flags / stash / 剧情锚点）
+    // 之后所有战斗、剧情、仓库读写都作用在这份 gameState 上
+    this.gameState = createNewGame({ route: this.selectedRoute });
     this.startStoryScene('scene_classroom');
   }
 
@@ -115,6 +211,13 @@ class GameApp {
 
     this.canvas.width = 960;
     this.canvas.height = 540;
+
+    // A2 锚点推进：进入剧情场景即脱离战斗，读档从此处恢复；随剧情节流自动存档
+    // （此时若有战斗结算，roster 已由 checkBattleEnd 的 commit 写回，存档即最新）
+    if (this.gameState) {
+      advanceTo(this.gameState, { sceneId: sceneKey, chapterId: null });
+      this.saveManager.autosave(this.gameState);
+    }
 
     const routeData = PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male;
     const sceneData = routeData[sceneKey];
@@ -128,7 +231,7 @@ class GameApp {
     if (!transition) return;
 
     if (transition.isBattleTrigger || transition.battleId) {
-      const bMap = transition.battleId === 'ch0_battle2' ? CH0_BATTLE2 : CH0_BATTLE1;
+      const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
       this.enterBattleMap(bMap, bMap.nextStorySceneOnWin);
     } else if (transition.targetScene) {
       this.startStoryScene(transition.targetScene);
@@ -147,47 +250,14 @@ class GameApp {
     if (!config || !config.units) return;
 
     for (const ru of config.units) {
-      const template = ENEMIES[ru.enemyId];
-      if (!template) continue;
-      const cls = CLASSES[template.classId];
-
-      const newUnit = {
-        id: ru.instanceId,
-        name: template.name,
-        faction: 'enemy',
+      // 数值工厂统一造敌：肖像/成长/掉落全部来自 ENEMIES 模板，drops 深拷贝可安全 splice
+      const newUnit = createEnemyUnit(ru.enemyId, {
+        instanceId: ru.instanceId,
         x: ru.x,
         y: ru.y,
-        level: template.level,
-        classId: template.classId,
-        equippedWeapon: template.equippedWeapon,
-        walkSprite: template.walkSprite,
-        portrait: `assets/portraits/${template.id}_default.png`,
-        facing: 'left',
-        ai: template.ai,
-        drops: template.drops,
-        title: template.title || '',
-        bio: template.bio || '',
-        themeColor: template.themeColor || '',
-        personalSkill: template.personalSkill || null,
-        quotes: { ...(template.quotes || {}) },
-        stats: {
-          maxHp: cls.base.hp,
-          str: cls.base.str,
-          mag: cls.base.mag,
-          skl: cls.base.skl,
-          spd: cls.base.spd,
-          luk: cls.base.luk,
-          def: cls.base.def,
-          res: cls.base.res,
-          mov: cls.base.mov
-        },
-        currentHp: cls.base.hp,
-        isAlive: true,
-        hasActed: false,
-        animOffsetX: 0,
-        animOffsetY: 0,
-        isFlashing: false
-      };
+        facing: 'left'
+      });
+      if (!newUnit) continue;
       bs.units.push(newUnit);
       this.addFloatingText('援军!', ru.x, ru.y, '#ef4444');
     }
@@ -225,6 +295,12 @@ class GameApp {
     this.topBar.style.display = 'flex';
     this.nextStorySceneOnWin = nextStoryScene;
 
+    // A3 锚点推进：开战即落盘 —— 战败/中途退出后读档回到本章开头重打（D1 语义）
+    if (this.gameState) {
+      advanceTo(this.gameState, { chapterId: chapterData.id });
+      this.saveManager.autosave(this.gameState);
+    }
+
     // ★ 战斗画面统一为 960×540 设计分辨率，与标题/对话/结算画面一致
     // renderer.resize 不再设置 canvas 尺寸，只更新内部地图偏移
     this.canvas.width = 960;
@@ -243,94 +319,34 @@ class GameApp {
     const mapW = chapter.mapWidth || chapter.width || 12;
     const mapH = chapter.mapHeight || chapter.height || 9;
     this.renderer.resize(mapW, mapH);
+    // 渲染器按战场区可用空间自适应了格子尺寸，main 侧坐标换算同步跟随
+    this.tileSize = this.renderer.tileSize;
 
     const units = [];
 
-    const playerTpl = UNITS[this.activePlayerUnitId];
-    const pCls = CLASSES[playerTpl.classId];
-    const deployPos = chapter.playerDeploy[0] || { x: 2, y: 4 };
-
-    units.push({
-      id: playerTpl.id,
-      name: playerTpl.name,
-      faction: 'player',
-      x: deployPos.x,
-      y: deployPos.y,
-      level: playerTpl.level,
-      exp: playerTpl.exp,
-      classId: playerTpl.classId,
-      equippedWeapon: playerTpl.equippedWeapon,
-      walkSprite: playerTpl.walkSprite,
-      inventory: JSON.parse(JSON.stringify(playerTpl.inventory || [])),
-      portrait: `assets/portraits/${playerTpl.id}_default.png`,
-      facing: 'right',
-      title: playerTpl.title || '',
-      bio: playerTpl.bio || '',
-      themeColor: playerTpl.themeColor || '',
-      personalSkill: playerTpl.personalSkill || null,
-      quotes: { ...(playerTpl.quotes || {}) },
-      stats: {
-        maxHp: pCls.base.hp,
-        maxMp: pCls.base.mp,
-        str: pCls.base.str,
-        mag: pCls.base.mag,
-        skl: pCls.base.skl,
-        spd: pCls.base.spd,
-        luk: pCls.base.luk,
-        def: pCls.base.def,
-        res: pCls.base.res,
-        mov: pCls.base.mov
-      },
-      personalGrowth: { ...(playerTpl.personalGrowth || {}) },
-      currentHp: pCls.base.hp,
-      currentMp: pCls.base.mp,
-      isAlive: true,
-      hasActed: false,
-      animOffsetX: 0,
-      animOffsetY: 0,
-      isFlashing: false
+    // 出战名单 = gameState.roster 全员：档案从进度里来（等级/经验/装备/背包
+    // 都是上一场战斗 commit 回来的真实状态），不再每场从 UNITS 模板重造
+    Object.keys(this.gameState.roster).forEach((unitId, i) => {
+      const pos = chapter.playerDeploy[i] || { x: 2 + i, y: 4 };
+      const unit = getPartyUnit(this.gameState, unitId);
+      if (!unit) return;
+      unit.x = pos.x;
+      unit.y = pos.y;
+      unit.facing = 'right';
+      units.push(unit);
     });
 
+    const deployPos = chapter.playerDeploy[0] || { x: 2, y: 4 };
+
     for (const e of chapter.enemyDeploy) {
-      const template = ENEMIES[e.enemyId];
-      const cls = CLASSES[template.classId];
-      units.push({
-        id: e.instanceId,
-        name: template.name,
-        faction: 'enemy',
+      // 数值工厂统一造敌：与援军同一工厂，数值口径一致
+      const unit = createEnemyUnit(e.enemyId, {
+        instanceId: e.instanceId,
         x: e.x,
         y: e.y,
-        level: template.level,
-        classId: template.classId,
-        equippedWeapon: template.equippedWeapon,
-        walkSprite: template.walkSprite,
-        portrait: `assets/portraits/${template.id}_default.png`,
-        facing: 'left',
-        ai: template.ai,
-        drops: template.drops,
-        title: template.title || '',
-        bio: template.bio || '',
-        themeColor: template.themeColor || '',
-        personalSkill: template.personalSkill || null,
-        quotes: { ...(template.quotes || {}) },
-        stats: {
-          maxHp: cls.base.hp,
-          str: cls.base.str,
-          mag: cls.base.mag,
-          skl: cls.base.skl,
-          spd: cls.base.spd,
-          luk: cls.base.luk,
-          def: cls.base.def,
-          res: cls.base.res,
-          mov: cls.base.mov
-        },
-        currentHp: cls.base.hp,
-        isAlive: true,
-        hasActed: false,
-        animOffsetX: 0,
-        animOffsetY: 0,
-        isFlashing: false
+        facing: 'left'
       });
+      if (unit) units.push(unit);
     }
 
     this.battleState.units = units;
@@ -360,8 +376,9 @@ class GameApp {
     this.battleState.phaseBanner = null;
     this.battleState.reinforcementNotice = null;
 
-    // 全队共享仓库：跨战斗新建？（本期每场独立；未来接 game_state 后改持久化）
-    this.battleState.stash = createStash();
+    // 全队共享仓库：直接引用 gameState.stash —— 战斗中的存/取实时写进进度，
+    // 胜利 commit 后随档持久化，跨战斗不再清空
+    this.battleState.stash = this.gameState.stash;
     this.battleState.collectedLoots = [];
 
     // 初始化援军配置
@@ -413,10 +430,10 @@ class GameApp {
    * path 为 findPath 的「不含起点」格式；空数组或原地则跳过动画。
    * msPerTile 取 150：慢过菜单弹出直觉、快过拖沓（移 5 格约 0.8s）。
    */
-  playWalkAnimation(unit, fromX, fromY, path, msPerTile = 150) {
+  playWalkAnimation(unit, fromX, fromY, path, msPerTile = 130) {
     return new Promise((resolve) => {
       const full = [{ x: fromX, y: fromY }, ...(path || [])];
-      if (full.length < 2) { setTimeout(resolve, 60); return; }
+      if (full.length < 2) { setTimeout(resolve, 50); return; }
       const ts = this.tileSize;
       let seg = 0;
 
@@ -424,14 +441,13 @@ class GameApp {
         if (seg >= full.length - 1) {
           unit.animOffsetX = 0;
           unit.animOffsetY = 0;
-          // 到位小停顿：走稳、构图稳定，再交给后续流程（开菜单 / 进攻击）
-          setTimeout(resolve, 60);
+          setTimeout(resolve, 50);
           return;
         }
         const a = full[seg];
         const b = full[seg + 1];
 
-        // 分段转向 + 步声：朝向跟当前步的方向走，每格一声脚步
+        // 分段转向 + 步声
         const dx = b.x - a.x;
         const dy = b.y - a.y;
         if (dx > 0) unit.facing = 'right';
@@ -440,19 +456,22 @@ class GameApp {
         else if (dy < 0) unit.facing = 'up';
         sound.playSfx('sfx_step');
 
-        const startX = (a.x - unit.x) * ts;
-        const startY = (a.y - unit.y) * ts;
         const startTime = performance.now();
 
         const doStep = () => {
           const elapsed = performance.now() - startTime;
           if (elapsed < msPerTile) {
-            const t = elapsed / msPerTile;
-            const ease = 1 - (1 - t) * (1 - t); // easeOutQuad：起步即走、到格缓收
-            unit.animOffsetX = startX * (1 - ease);
-            unit.animOffsetY = startY * (1 - ease);
+            const t = Math.min(1, elapsed / msPerTile);
+            // 线性匀速移动，连接各段形成连贯步伐
+            const currX = a.x + dx * t;
+            const currY = a.y + dy * t;
+            unit.animOffsetX = (currX - unit.x) * ts;
+            unit.animOffsetY = (currY - unit.y) * ts;
             requestAnimationFrame(doStep);
           } else {
+            // 本段结束，精准对齐到 b 格点
+            unit.animOffsetX = (b.x - unit.x) * ts;
+            unit.animOffsetY = (b.y - unit.y) * ts;
             seg += 1;
             nextSeg();
           }
@@ -512,13 +531,19 @@ class GameApp {
 
   bindEvents() {
     this.canvas.addEventListener('mousemove', (e) => {
-      if (this.battleState.isAnimatingCombat) return;
-
       const rect = this.canvas.getBoundingClientRect();
       const scaleX = rect.width ? (this.canvas.width / rect.width) : 1;
       const scaleY = rect.height ? (this.canvas.height / rect.height) : 1;
       const mouseX = (e.clientX - rect.left) * scaleX;
       const mouseY = (e.clientY - rect.top) * scaleY;
+
+      // ★ 存档界面模态独占 hover（任何 stage 之上，行高亮联动）
+      if (this.saveMenuModal) {
+        this.saveMenuModal.handleMouseMove(mouseX, mouseY);
+        return;
+      }
+
+      if (this.battleState.isAnimatingCombat) return;
 
       if (this.stage === 'STAGE_TITLE') {
         this.titleScreen.handleMouseMove(mouseX, mouseY);
@@ -571,6 +596,12 @@ class GameApp {
       const scaleY = rect.height ? (this.canvas.height / rect.height) : 1;
       const clickX = (e.clientX - rect.left) * scaleX;
       const clickY = (e.clientY - rect.top) * scaleY;
+
+      // ★ 存档界面模态独占点击（标题侧/剧情侧打开都拦在最前，防穿透到场景）
+      if (this.saveMenuModal) {
+        this.saveMenuModal.handleClick(clickX, clickY);
+        return;
+      }
 
       // ★ 胜利结算模态框组件捕获
       if (this.battleState.victoryModal) {
@@ -667,6 +698,12 @@ class GameApp {
     window.addEventListener('keydown', (e) => {
       sound.unlock();
 
+      // ★ 存档界面模态独占按键（方向导航/确认/Esc/D删/E导/I导 全在组件内消化）
+      if (this.saveMenuModal) {
+        this.saveMenuModal.handleKeyDown(e);
+        return;
+      }
+
       // ★ 胜利结算模态框按键捕获 (回车/空格/Esc)
       if (this.battleState.victoryModal) {
         if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
@@ -738,6 +775,12 @@ class GameApp {
       }
 
       if (this.stage === 'STAGE_STORY') {
+        if (e.key === 'Escape') {
+          // T5/D5：剧情场景呼出存档界面（手动存档 / 读档 / 删除 / 导出导入一体）
+          sound.playSfx('sfx_menu_open');
+          this.openSaveMenu('save');
+          return;
+        }
         if (e.key === ' ' || e.key === 'Enter') {
           this.dialogueSystem.next();
         }
@@ -874,11 +917,17 @@ class GameApp {
    */
   async confirmUnitMove() {
     const bs = this.battleState;
+    if (bs.isAnimatingCombat) return; // 防重复触发位移
+
     const u = bs.selectedUnit;
+    if (!u) return;
+
     const oldX = u.x;
     const oldY = u.y;
     // 拷贝后再复位：动画期间 currentPath 被清空也不影响播放轨迹
-    const path = bs.currentPath.slice();
+    const path = (bs.currentPath && bs.currentPath.length > 0)
+      ? bs.currentPath.slice()
+      : bs.gridSystem.findPath(oldX, oldY, bs.cursor.x, bs.cursor.y, u.faction, bs.units);
 
     bs.isAnimatingCombat = true; // 锁输入：步行中不接受任何操作
 
@@ -1445,9 +1494,14 @@ class GameApp {
         },
         () => {
           bs.victoryModal = null;
+          // A1/T4：胜利确认 → 全队档案写回（等级/经验/装备/背包/血蓝）+ 登记通关；
+          // 随后 startStoryScene 的 A2 存档天然带上结算后的最新状态
+          this.commitBattleResults();
           if (this.nextStorySceneOnWin) {
             this.startStoryScene(this.nextStorySceneOnWin);
           } else {
+            // 无后续剧情的兜底分支：也落一次盘再回标题
+            this.saveManager.autosave(this.gameState);
             this.enterTitleScreen();
           }
         }
@@ -1455,13 +1509,68 @@ class GameApp {
     } else if (alivePlayers.length === 0) {
       sound.playSfx('sfx_shock_sting');
       setTimeout(() => {
-        alert('战斗失利，退回校内！');
-        this.enterTitleScreen();
+        alert('战斗失利……全员倒下。\n\n回到本章开头重新挑战。\n（本次战斗中升的级、获得的经验与道具都不会保留）');
+        // D1/T6：战败不 commit——roster 从未被战场污染（getPartyUnit 出的是深拷贝），
+        // 直接按 gameState 锚点重建战斗 = 回到本章开头
+        this.resumeFromGameState();
       }, 500);
     }
   }
 
+  /**
+   * T4 胜利结算：把战场上我方全体单位（等级/经验/装备/背包/血蓝）写回进度档案，
+   * 并登记本章通关。仓库 stash 与 gameState 引用共享，战场上的存取已实时生效，无需写回。
+   */
+  commitBattleResults() {
+    const bs = this.battleState;
+    bs.units
+      .filter(u => u.faction === 'player')
+      .forEach(u => commitRuntimeUnit(this.gameState, u));
+    if (bs.chapter && bs.chapter.id) {
+      markChapterCleared(this.gameState, bs.chapter.id);
+    }
+  }
+
+  /**
+   * 按 gameState 恢复现场（战败重开 / 读档继续共用）：
+   * chapterId 非空 → 直接重开该章战斗；否则回到 sceneId 剧情节点。
+   */
+  resumeFromGameState() {
+    if (!this.gameState) {
+      this.enterTitleScreen();
+      return;
+    }
+    this.selectedRoute = this.gameState.route;
+    this.activePlayerUnitId = this.gameState.leadUnitId;
+    const chapterData = CHAPTERS[this.gameState.chapterId];
+    if (chapterData) {
+      this.enterBattleMap(chapterData, chapterData.nextStorySceneOnWin);
+    } else {
+      const sceneData = (PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male)[this.gameState.sceneId];
+      if (sceneData) {
+        this.startStoryScene(this.gameState.sceneId);
+      } else {
+        this.enterTitleScreen();
+      }
+    }
+  }
+
+  /** 游玩时长累计：跳过标题屏（挂机不算游戏时间）；每满整秒写 gameState.playtimeSec */
+  tickPlaytimeClock() {
+    const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
+    const dt = now - this._lastLoopTs;
+    this._lastLoopTs = now;
+    if (!this.gameState || this.stage === 'STAGE_TITLE' || dt <= 0) return;
+    this._playtimeAccumMs += dt;
+    if (this._playtimeAccumMs >= 1000) {
+      const sec = Math.floor(this._playtimeAccumMs / 1000);
+      tickPlaytime(this.gameState, sec);
+      this._playtimeAccumMs -= sec * 1000;
+    }
+  }
+
   loop() {
+    this.tickPlaytimeClock();
     if (this.stage === 'STAGE_TITLE') {
       this.titleScreen.render();
     } else if (this.stage === 'STAGE_STORY') {
@@ -1514,6 +1623,10 @@ class GameApp {
       if (this.battleState.victoryModal && typeof this.battleState.victoryModal.render === 'function') {
         this.battleState.victoryModal.render();
       }
+    }
+    // ★ 存档界面模态渲染在所有 stage 之上（load 模式盖标题屏，save 模式盖剧情屏）
+    if (this.saveMenuModal && typeof this.saveMenuModal.render === 'function') {
+      this.saveMenuModal.render();
     }
     requestAnimationFrame(() => this.loop());
   }

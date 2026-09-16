@@ -19,6 +19,7 @@
  */
 
 import { STATE_SCHEMA, summarizeState } from './game_state.js';
+import { createStash } from './stash.js';
 
 export const MANUAL_SLOTS = [1, 2, 3];
 export const ALL_SLOTS = ['auto', 1, 2, 3];
@@ -51,10 +52,17 @@ function isSaveableBlob(obj) {
     && typeof obj.sceneId === 'string');
 }
 
-/** 未来 schema 升级的迁移钩子（现在只有 v2，占位直通） */
+/** schema 升级迁移：2 → 3 补空仓；更高版本只告警不拒读（宽进） */
 function migrate(blob) {
   if (blob.schema > STATE_SCHEMA) {
     console.warn('[save_manager] 存档 schema=' + blob.schema + ' 来自更新版本，可能有兼容风险');
+  }
+  if (blob.schema < 3) {
+    // schema 3 起 gameState 带 stash；旧档没有仓库 → 补个空仓
+    if (!blob.stash || !Array.isArray(blob.stash.items)) {
+      blob.stash = createStash();
+    }
+    blob.schema = 3;
   }
   return blob;
 }

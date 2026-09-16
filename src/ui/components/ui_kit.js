@@ -179,7 +179,7 @@ export function fontCss(size, weight) {
 /* ══════════════════════ 3. 绘制（浏览器端落笔，单测不覆盖） ══════════════════════ */
 
 /** roundRect 兼容路径：无原生 API 的环境走 arcTo 手绘 */
-function pathRoundRect(ctx, x, y, w, h, r) {
+export function pathRoundRect(ctx, x, y, w, h, r) {
   if (typeof ctx.roundRect === 'function') {
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, r);

@@ -13,7 +13,7 @@
  *  张子骁（擅长国际象棋）/ 石予诺（擅长绘画）均为「学酥」——看着像学霸，一碰全是渣。
  *  两主 classId 迁入 xuesu，靠 personalGrowth + personalSkill 分化棋手 / 画手人设。
  *  xuesu.base 十维刻意对齐 primary_student（str 锁 7），保证两大回归关卡不被打破：
- *  [回归1] 男线第二战：张子骁 str 7 + 铅笔 6 − 混混 def 2 = 反击 11 伤 ≥ 混混残血 3（attacker 位击杀弹窗路径保留）
+ *  [回归1] 男线第二战：张子骁 str 7 + 铅笔 6 − 混混 def 2 = 11 伤/击，三击 ≥ 混混 HP 24（spd 抬升后无双击秒杀；attacker 位击杀弹窗路径保留）
  *  [回归2] 女线第一战：石予诺 str 7 + 铅笔 6 − 商贩 def 1 = 12 ≥ 商贩 HP 11（one-shot 守位击杀路径保留）
  *  xuesu.growth 是全表第一梯队（潜力型：学酥前期突飞猛进，后期露馅）——用户定稿：
  *  双主都是学酥，成长值要高，升级正反馈拉满。
@@ -112,7 +112,8 @@ export const CLASSES = {
   },
 
   /* ══════════════════ legacy 职业（V1 遗留，数值冻结） ══════════════════ */
-  // 说明：旧章节模板（ENEMIES.vendor/punk）仍引用，保留原数值不动仅补 mp 基线；
+  // 说明：旧章节模板（ENEMIES.vendor/punk）仍引用，保留原数值不动仅补 mp 基线
+  //   （唯一例外：school_punk 经男线第二战平衡轮解封微调，见该条目内注释）；
   // 新内容禁止再引用 legacy 职业，注册中心仅告警不报错。
 
   calligrapher: {
@@ -145,8 +146,13 @@ export const CLASSES = {
   school_punk: {
     id: 'school_punk',
     name: '高年级混混',
-    desc: '旧章节模板 enemy:punk 引用中。新敌人请用 street_loafer。',
-    base: { hp: 14, mp: 6, str: 5, mag: 0, skl: 4, spd: 5, luk: 2, def: 2, res: 0, mov: 4 },
+    desc: '旧章节模板 enemy:punk 引用中（男线第二战平衡轮解封调整）。新敌人请用 street_loafer。',
+    // ★ 平衡纪要（任务 #6/#7，男线第二战）：
+    //  hp 24 → 张子骁 11 伤/击需三击收头（攻速克制后 22 追击双击也秒不掉）
+    //  spd 7 → AS 2→4，封死张子骁追击（旧值 AS 差恰踩 5 双击秒杀）
+    //  str 8 + skl 8 → 反击 7 伤 / 62% 命中，两名混混围殴总伤越线，
+    //  逼玩家用烤肠（+16）回血才赢；双击杀经验保底 128 ≥ 100，战后必升级
+    base: { hp: 24, mp: 6, str: 8, mag: 0, skl: 8, spd: 7, luk: 2, def: 2, res: 0, mov: 4 },
     growth: { hp: 65, mp: 15, str: 45, mag: 5, skl: 35, spd: 40, luk: 20, def: 25, res: 10 },
     families: ['钝器'],
     legacy: true

@@ -213,17 +213,19 @@ export class ActionMenu {
     return (idx >= 0 && idx < this.items.length) ? idx : -1;
   }
 
-  /** 自绘浮窗（视觉基调见文件头注释） */
+  /** 自绘浮窗（深色战棋风格，黑底金框白字高对比度） */
   render(ctx) {
     if (!ctx) return;
     const { x, y, w, h, itemH, pad } = this.rect;
 
-    ctx.fillStyle = '#fffdfa';
+    // 深色半透明底板
+    ctx.fillStyle = 'rgba(20, 20, 24, 0.96)';
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, 8);
     ctx.fill();
 
-    ctx.strokeStyle = '#292524';
+    // 金色细外框
+    ctx.strokeStyle = '#facc15';
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -233,19 +235,27 @@ export class ActionMenu {
       const rowH = itemH - 4;
 
       if (isSelected) {
-        ctx.fillStyle = '#292524';
+        // 选中态：金黑渐变高亮
+        const grad = ctx.createLinearGradient(x + 5, iy, x + w - 5, iy);
+        grad.addColorStop(0, '#d97706');
+        grad.addColorStop(1, '#f59e0b');
+        ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.roundRect(x + 5, iy, w - 10, rowH, 4);
         ctx.fill();
+
+        ctx.strokeStyle = '#fef08a';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
       }
 
       ctx.save();
       if (isSelected) {
-        ctx.fillStyle = '#ffffff';
-      } else if (item.enabled) {
         ctx.fillStyle = '#1c1917';
+      } else if (item.enabled) {
+        ctx.fillStyle = '#f8fafc';
       } else {
-        ctx.fillStyle = '#a8a29e';
+        ctx.fillStyle = '#64748b';
       }
       ctx.font = 'bold 16px sans-serif';
       ctx.textAlign = 'center';

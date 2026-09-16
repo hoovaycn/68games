@@ -4,3 +4,28 @@ node_modules/
 Thumbs.db
 # 手工快照备份目录：版本职责已由 git 承担，避免仓库膨胀
 backup/
+
+# 构建产物
+dist/
+
+# 工作参考 / 素材母版 / Tiled 源 / 切图目录（体量大，不进版本库）
+work_ref/
+Tilemap/
+
+# 下载的原始素材与压缩包（处理后已落盘到 assets/）
+docs/audio/
+docs/*.zip
+
+# 一次性调试/分析脚本（地图切图、tile 巡检等）
+scripts/analyze_tiles.mjs
+scripts/ascii_inspect.mjs
+scripts/debug_skip.mjs
+scripts/extract_urban_pack.mjs
+scripts/find_*.mjs
+scripts/identify_tiles.mjs
+scripts/inspect_*.mjs
+scripts/make_catalog.mjs
+scripts/render_map_preview.mjs
+
+# 地图预览图
+preview_*.png

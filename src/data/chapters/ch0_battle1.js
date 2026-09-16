@@ -24,21 +24,32 @@ export const CH0_BATTLE1 = {
     { x: 5, y: 4, type: 'crosswalk' }, { x: 6, y: 4, type: 'crosswalk' },
     { x: 5, y: 5, type: 'crosswalk' }, { x: 6, y: 5, type: 'crosswalk' },
 
+    // 校门前红砖广场 (y=1, 2 中间区域)
+    { x: 4, y: 1, type: 'brick' }, { x: 5, y: 1, type: 'brick' }, { x: 6, y: 1, type: 'brick' }, { x: 7, y: 1, type: 'brick' },
+    { x: 4, y: 2, type: 'brick' }, { x: 5, y: 2, type: 'brick' }, { x: 6, y: 2, type: 'brick' }, { x: 7, y: 2, type: 'brick' },
+
     // 绿化草地 (顶部与底部边缘)
-    { x: 0, y: 0, type: 'grass' }, { x: 1, y: 0, type: 'grass' }, { x: 7, y: 0, type: 'grass' }, { x: 8, y: 0, type: 'grass' }, { x: 9, y: 0, type: 'grass' },
-    { x: 7, y: 8, type: 'grass' }, { x: 8, y: 8, type: 'grass' }, { x: 9, y: 8, type: 'grass' }
+    { x: 0, y: 0, type: 'grass' }, { x: 1, y: 0, type: 'grass' }, { x: 2, y: 0, type: 'grass' },
+    { x: 9, y: 0, type: 'grass' }, { x: 10, y: 0, type: 'grass' }, { x: 11, y: 0, type: 'grass' },
+    { x: 0, y: 8, type: 'grass' }, { x: 1, y: 8, type: 'grass' },
+    { x: 10, y: 8, type: 'grass' }, { x: 11, y: 8, type: 'grass' }
   ],
 
-  // Kenney 街具物件装饰与碰撞阻挡
+  // Kenney RPG Urban 街具物件装饰与碰撞阻挡
   props: [
-    { id: 'lamp_3_2', type: 'street_lamp', x: 3, y: 2, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 3, blocks: true },
-    { id: 'lamp_8_6', type: 'street_lamp', x: 8, y: 6, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 3, blocks: true },
-    { id: 'tree_0_1', type: 'tree', x: 0, y: 1, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_1_1', type: 'tree', x: 1, y: 1, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_8_1', type: 'tree', x: 8, y: 1, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'hydrant_6_8', type: 'hydrant', x: 6, y: 8, img: 'assets/props/kenney/kc_hydrant.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 2, blocks: true },
+    { id: 'lamp_8_1', type: 'street_lamp', x: 8, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 2, blocks: true },
+    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 3, blocks: true },
+    { id: 'tree_11_0', type: 'tree', x: 11, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 3, blocks: true },
+    { id: 'bush_1_0', type: 'bush', x: 1, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_10_0', type: 'bush', x: 10, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_0_8', type: 'bush', x: 0, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_11_8', type: 'bush', x: 11, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_9_2', type: 'bench', x: 9, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_0_3', type: 'barrier', x: 0, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'hydrant_7_6', type: 'hydrant', x: 7, y: 6, img: 'assets/props/kenney/kc_hydrant.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'crate_4_6', type: 'crate', x: 4, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_11_7', type: 'dumpster', x: 11, y: 7, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 2, blocks: true }
+    { id: 'dumpster_11_6', type: 'dumpster', x: 11, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 2, blocks: true }
   ],
 
   // 我方出场点
@@ -76,7 +87,7 @@ export const CH0_BATTLE1 = {
       },
       {
         title: '行动菜单',
-        body: '落位后弹出行动菜单，四项：详情（查看人物数值）、攻击（选择目标交战）、道具（背包·全队仓库）、待机（结束这个人的行动）。',
+        body: '落位后弹出菜单：详情（查看数值）、攻击（交战）、道具（背包仓库）、待机（结束本轮行动）。',
         hint: '本关胜利条件：击败流动商贩'
       }
     ]

@@ -6,12 +6,15 @@
  * 四分类页签：GOODS_KINDS（道具/武器/防具/重要）——顺序与 goods 表约定同源；
  * key_item（剧情道具）禁存入仓库：重要物件锁死在持有者身上，面板按钮对其置灰。
  *
- * 键盘模型（小白友好，一屏可说明）：
- *   ↑ ↓ 选行 · ← → 切分类 · Tab 切背包/仓库 ·
- *   Shift+← → 在底部动作键间换焦点 · Enter 执行焦点动作（×1） · Escape 关闭
+ * 键盘模型（两区导航，符合玩家直觉，取代旧 1-4/Q/E 数字切页）：
+ *   列表区 —— ↑↓ 选行（第一行再按 ↑ 上移进分类页签区）·
+ *              ←→ 在背包/仓库两列间穿梭（此时不切分类）；
+ *   页签区 —— ←→ 循环切换四分类 · ↓ 返回道具列表区 ·
+ *              ↑ 已在顶行（无内容）/ Enter 无操作。
+ *   Enter 打开操作子菜单 · Escape 关闭；鼠标点分类页签 = 直接切换。
  *   动作组随选中行动态变化：武器/防具→[装备,存入] · 消耗品→[使用,存入] ·
  *   使用中武器/防具→锁定（无动作） · key_item→锁定 · 仓库行→[取出]。
- * 鼠标：点视图签/分类签/行/底部按钮等效。
+ * 鼠标：点分类签/行/底部按钮等效。
  *
  * 分层原则（与 ui_kit / unit_detail 一致）：
  *   INVENTORY_VIEWS / planInventoryRows / planKindTabs / planTradeAction /
@@ -41,8 +44,8 @@ export const INVENTORY_VIEWS = [
 /** 默认落在第一个分类（consumable「道具」），与 GOODS_KINDS 顺序同源 */
 export const INV_DEFAULT_KIND = GOODS_KINDS[0].kind;
 
-/** 列表可视行数（超过此数联调轮接滚动窗口；当前数据规模不会触顶） */
-export const INV_VISIBLE_ROWS = 7;
+/** 列表可视行数（5 行：压缩列表高度，给描述区/提示区/关闭按钮留出净空） */
+export const INV_VISIBLE_ROWS = 5;
 
 /** 消耗品 category → 短语（growth/restore/battle 三大类） */
 const CONSUMABLE_CATEGORY_LABELS = { growth: '成长', restore: '回复', battle: '战斗' };
@@ -165,21 +168,32 @@ export function planInvDesc(row, measure, maxWidth, maxLines = 2) {
 
 /**
  * 盒 760×500（与 unit_detail / level_up 同尺寸，视觉统一）。
- * 纵向预算：标题(42) → 持有者区(头像 r=28 y+88 / 姓名 / 副行)
- *   → 视图签(y+124 h30) → 分类签(y+162 h28)
- *   → 列表区(y+196，7 行×24=168) → 描述区(y+372，2 行×20)
- *   → 底部按钮走 ModalBase 默认 y = 盒底-76（y+424），各区不重叠。
+ * 垂直分区（列表压缩为 5 行，消除描述/提示/按钮的层叠重叠）：
+ *   标题 y+42 → 持有人行（头像/名字/双仓计数）58~106 →
+ *   分类页签 112~140 → 列头文字 ~159 → 双列清单 172~302（5 行 × 26）→
+ *   描述/反馈框 322~370 → 帮助提示 388 → 底部关闭按钮 424~476
+ * 主体：左右双列（左列背包 w344 / 右列仓库 w344，gap16），5 行 × 26
  */
 export function planInventoryLayout(box) {
+  const colW = 344;
+  const colGap = 16;
+  const leftX = box.x + 28;
+  const rightX = leftX + colW + colGap;
+  const listY = box.y + 172;
+  const rowH = 26;
+
   return {
-    avatar: { cx: box.x + 66, cy: box.y + 88, r: 28 },
-    nameX: box.x + 106, nameY: box.y + 78,
-    subY: box.y + 106,
-    viewTabs: { x: box.x + 40, y: box.y + 124, w: 150, h: 30, gap: 14 },
-    kindTabs: { x: box.x + 40, y: box.y + 162, w: 164, h: 28, gap: 8 },
-    list: { x: box.x + 24, y: box.y + 196, w: box.w - 48, rowH: 24, maxRows: INV_VISIBLE_ROWS },
+    avatar: { cx: box.x + 62, cy: box.y + 82, r: 24 },
+    nameX: box.x + 100, nameY: box.y + 72,
+    subY: box.y + 98,
+    // 分类页签整行水平居中（4×160 + 3×10 = 670）
+    kindTabs: { x: box.x + 45, y: box.y + 112, w: 160, h: 28, gap: 10 },
+    list: { x: leftX, y: listY, w: box.w - 56, rowH: 24, maxRows: INV_VISIBLE_ROWS },
+    listLeft: { x: leftX, y: listY, w: colW, rowH, maxRows: INV_VISIBLE_ROWS, headerH: 26 },
+    listRight: { x: rightX, y: listY, w: colW, rowH, maxRows: INV_VISIBLE_ROWS, headerH: 26 },
     iconSize: 18,
-    desc: { x: box.x + 40, y: box.y + 372, w: box.w - 80, lineH: 20, maxLines: 2 },
+    desc: { x: box.x + 28, y: box.y + 322, w: 680, lineH: 20, maxLines: 2 },
+    helpY: box.y + 388,
   };
 }
 
@@ -203,7 +217,7 @@ function rrPath(ctx, x, y, w, h, r) {
  * config: { unit, stash } ——
  *   unit  运行时单位（V1/V2 形态均可；null → 「？？？」持有者，背包恒空）
  *   stash 仓库对象 { items:[] }（null / 缺省 → 内部空仓库，仓库签零行但可安全浏览）
- * 存取动作每按一次 ×1 件，成功即刷新全快照（行消失自动 clamp 选中态）。
+ * 左右双列分栏交互：左背包、右仓库，方向键平滑切换，回车呼出操作菜单，底部大按钮仅有关闭。
  */
 export class InventoryPanelModal extends ModalBase {
   constructor(canvas, config, onClose) {
@@ -215,9 +229,12 @@ export class InventoryPanelModal extends ModalBase {
     this.unit = cfg.unit || null;
     this.stash = (cfg.stash && Array.isArray(cfg.stash.items)) ? cfg.stash : createStash();
 
-    this.view = 'unit';                 // 'unit' | 'stash'
+    this.view = 'unit';                 // 'unit' | 'stash' (当前光标所在列)
     this.kind = INV_DEFAULT_KIND;       // GOODS_KINDS 之一
-    this.rowIndex = 0;                  // 当前分类内的选中行
+    this.rowIndices = { unit: 0, stash: 0 };
+    this.focusArea = 'list';            // 'list' 道具列表区 | 'tabs' 分类页签区（键盘两区导航）
+    this.activeMenu = null;             // 操作子菜单 { col, row, actions, focusIndex }
+    this.feedback = null;               // 实时操作反馈 Toast { text, time }
 
     const ctx = this.ctx;
     if (typeof ctx.measureText === 'function') {
@@ -232,13 +249,34 @@ export class InventoryPanelModal extends ModalBase {
     this._refresh();
   }
 
+  get rowIndex() {
+    return this.rowIndices[this.view] || 0;
+  }
+
+  set rowIndex(val) {
+    this.rowIndices[this.view] = Math.max(0, val);
+  }
+
+  get rows() {
+    return this.view === 'unit' ? (this.unitRows || []) : (this.stashRows || []);
+  }
+
+  get row() {
+    const list = this.rows;
+    return list[this.rowIndex] || null;
+  }
+
   render() {
     this.renderFrame('道具与仓库');
     this._renderOwner();
-    this._renderTabs();
-    this._renderList();
-    this._renderDesc();
+    this._renderKindTabs();
+    this._renderColumns();
+    this._renderDescAndFeedback();
+    this._renderHelpHint();
     this.renderButtons();
+    if (this.activeMenu) {
+      this._renderActionMenu();
+    }
   }
 
   /* ---------- 视图 / 分类 / 行（状态变更唯一入口 _refresh） ---------- */
@@ -248,53 +286,66 @@ export class InventoryPanelModal extends ModalBase {
     const unitEntries = summarizeItems(this.unit && this.unit.inventory);
     const stashEntries = stashSummary(this.stash);
     this.viewCounts = { unit: unitEntries.length, stash: stashEntries.length };
-    this.entries = this.view === 'stash' ? stashEntries : unitEntries;
-    this.kindTabs = planKindTabs(this.entries, this.kind);
-    this.rows = planInventoryRows(this.entries, this.kind);
-    if (this.rowIndex >= this.rows.length) {
-      this.rowIndex = Math.max(0, this.rows.length - 1);
+    
+    this.unitRows = planInventoryRows(unitEntries, this.kind);
+    this.stashRows = planInventoryRows(stashEntries, this.kind);
+
+    // 计算当前分类下双侧合计总数做页签计数
+    this.kindTabs = GOODS_KINDS.map(({ kind, label }) => {
+      const uCount = unitEntries.filter((e) => e && e.kind === kind).length;
+      const sCount = stashEntries.filter((e) => e && e.kind === kind).length;
+      return {
+        kind, label,
+        count: uCount + sCount,
+        unitCount: uCount,
+        stashCount: sCount,
+        active: kind === this.kind,
+      };
+    });
+
+    // clamp 行索引
+    if (this.rowIndices.unit >= this.unitRows.length) {
+      this.rowIndices.unit = Math.max(0, this.unitRows.length - 1);
     }
-    this.row = this.rows[this.rowIndex] || null;
+    if (this.rowIndices.stash >= this.stashRows.length) {
+      this.rowIndices.stash = Math.max(0, this.stashRows.length - 1);
+    }
+
     this.descBlock = planInvDesc(
       this.row, this.measure, this.layout.desc.w, this.layout.desc.maxLines);
-    this._applyButtons();   // 行/视图变了 → 动作组可能翻转（装备中锁定 / use 可用性）
+    this._applyButtons();
   }
 
   /**
-   * 底部动作按钮随「视图 + 选中行 + 装备快照」动态重建（装备/使用/存入并列给出）。
-   * 动作组签名没变时跳过重建——保住用户已把焦点移到第 2、3 个键的位置，
-   * 不被每次换行弹回第一个键。
+   * 底部大按钮遵循需求第 8 条：只需要是「关闭」
    */
   _applyButtons() {
-    const acts = planItemActions(this.view, this.row, {
-      equippedWeaponId: (this.unit && this.unit.equippedWeapon) || null,
-      equippedArmorIds: this.unit && this.unit.equippedArmors ? this.unit.equippedArmors.slice() : [],
-    }) || [];
-    const defs = [...acts, { id: 'close', label: '关闭' }];
-    const sig = defs.map((d) => d.id).join('|');
-    if (this._btnSig === sig) return;
-    this._btnSig = sig;
-    this.setButtons(defs);
+    this.setButtons([{ id: 'close', label: '关闭 (ESC)' }]);
+    this.focusIndex = 0;
   }
 
   _setView(view) {
     if (this.view === view) return;
     this.view = view;
-    this.rowIndex = 0;
     this._refresh();
   }
 
   _setKind(kind) {
     if (this.kind === kind) return;
     this.kind = kind;
-    this.rowIndex = 0;
+    this.rowIndices.unit = 0;
+    this.rowIndices.stash = 0;
     this._refresh();
   }
 
+  /** 区内平移选中行（到顶/到底不再循环；从行 0 上移/切换区域的判定由 handleKeyDown 处理） */
   _moveRow(delta) {
-    if (!this.rows.length) return false;
-    const n = this.rows.length;
-    this.rowIndex = ((this.rowIndex + delta) % n + n) % n;
+    const list = this.rows;
+    if (!list.length) return false;
+    const n = list.length;
+    const next = Math.max(0, Math.min(n - 1, (this.rowIndex || 0) + delta));
+    if (next === (this.rowIndex || 0)) return false;
+    this.rowIndex = next;
     this._refresh();
     return true;
   }
@@ -303,150 +354,378 @@ export class InventoryPanelModal extends ModalBase {
     const kinds = GOODS_KINDS.map((k) => k.kind);
     const i = kinds.indexOf(this.kind);
     this.kind = kinds[((i + delta) % kinds.length + kinds.length) % kinds.length];
-    this.rowIndex = 0;
+    this.rowIndices.unit = 0;
+    this.rowIndices.stash = 0;
     this._refresh();
     return true;
   }
 
-  /** 存/取 1 件（失败/禁存静默返回，绝不关面板——关面板只有 close/Escape 两条路） */
-  _trade(isDeposit) {
-    const row = this.rows[this.rowIndex];
-    if (!row) return;
-    if (isDeposit && row.disabled) return;
-    const result = isDeposit
-      ? deposit(this.unit, this.stash, row.itemId, 1)
-      : withdraw(this.stash, this.unit, row.itemId, 1);
-    if (!result.ok) return;
-    this._refresh();
+  setFeedback(text, type = 'success') {
+    this.feedback = { text, time: Date.now(), type };
   }
 
-  /** 换装（武器/防具各单槽）：替换即脱下旧的；道具本体不离开背包 */
-  _equipSelected() {
-    const row = this.rows[this.rowIndex];
-    if (!row || this.view !== 'unit' || !this.unit) return;
-    if (row.kind === 'weapon') {
-      this.unit.equippedWeapon = row.itemId;
-    } else if (row.kind === 'armor') {
-      this.unit.equippedArmors = [row.itemId];
+  /* ---------- 动作交互菜单（Action Popover） ---------- */
+
+  _openActionMenu() {
+    const row = this.row;
+    if (!row) return;
+    const isUnit = this.view === 'unit';
+    const isEquipped = this._isRowEquipped(row);
+    const acts = [];
+
+    if (isUnit) {
+      // 背包内的物品
+      if (row.kind === 'consumable') {
+        const g = getGoodsById(row.itemId);
+        if (g && g.use_in_battle) {
+          acts.push({ id: 'use', label: '使用' });
+        }
+      } else if (row.kind === 'weapon' || row.kind === 'armor') {
+        if (isEquipped) {
+          acts.push({ id: 'unequip', label: '卸下' });
+        } else {
+          acts.push({ id: 'equip', label: '装备' });
+        }
+      }
+
+      if (!row.disabled) {
+        acts.push({ id: 'deposit', label: '移入仓库' });
+      }
+
+      if (row.kind !== 'key_item') {
+        acts.push({ id: 'drop', label: '丢弃' });
+      }
     } else {
+      // 仓库内的物品
+      acts.push({ id: 'withdraw', label: '移入背包' });
+      acts.push({ id: 'drop', label: '丢弃' });
+    }
+
+    acts.push({ id: 'cancel', label: '取消' });
+
+    this.activeMenu = {
+      col: this.view,
+      row,
+      actions: acts,
+      focusIndex: 0,
+      get index() { return this.focusIndex; },
+      set index(v) { this.focusIndex = v; },
+    };
+    sound.playSfx('sfx_cursor');
+  }
+
+  _closeActionMenu() {
+    this.activeMenu = null;
+  }
+
+  _executeMenuAction(actId) {
+    if (!this.activeMenu) return;
+    const { row, col } = this.activeMenu;
+    this.activeMenu = null;
+
+    if (actId === 'cancel') return;
+
+    if (actId === 'use') {
+      if (!this.unit) return;
+      const res = CombatSystem.useItem(this.unit, row.itemId);
+      if (res && res.success) {
+        sound.playSfx('sfx_confirm');
+        this.setFeedback(`使用【${row.name}】：${res.appliedMsg || '使用成功！'}`);
+      } else {
+        this.setFeedback(`使用失败：${res ? res.msg : '无法使用'}`);
+      }
+      this._refresh();
       return;
     }
-    sound.playSfx('sfx_confirm');
-    this._refresh();
-  }
 
-  /** 战场内使用消耗品：走 CombatSystem.useItem（效果解释 + 自动扣件） */
-  _useSelected() {
-    const row = this.rows[this.rowIndex];
-    if (!row || this.view !== 'unit' || !this.unit) return;
-    const result = CombatSystem.useItem(this.unit, row.itemId);
-    if (result && result.success) {
+    if (actId === 'equip') {
+      if (!this.unit) return;
+      if (row.kind === 'weapon') {
+        this.unit.equippedWeapon = row.itemId;
+      } else if (row.kind === 'armor') {
+        this.unit.equippedArmors = [row.itemId];
+      }
       sound.playSfx('sfx_confirm');
+      this.setFeedback(`已为【${this.unit.name || '角色'}】装备【${row.name}】！`);
       this._refresh();
+      return;
+    }
+
+    if (actId === 'unequip') {
+      if (!this.unit) return;
+      if (row.kind === 'weapon' && this.unit.equippedWeapon === row.itemId) {
+        this.unit.equippedWeapon = null;
+      } else if (row.kind === 'armor') {
+        this.unit.equippedArmors = (this.unit.equippedArmors || []).filter(id => id !== row.itemId);
+      }
+      sound.playSfx('sfx_confirm');
+      this.setFeedback(`已卸下【${row.name}】。`);
+      this._refresh();
+      return;
+    }
+
+    if (actId === 'deposit') {
+      if (row.disabled) {
+        this.setFeedback(`【${row.name}】是重要物品，无法存入仓库！`);
+        return;
+      }
+      const res = deposit(this.unit, this.stash, row.itemId, 1);
+      if (res.ok) {
+        sound.playSfx('sfx_confirm');
+        this.setFeedback(`已将【${row.name}】×1 存入全队仓库。`);
+        this._refresh();
+      }
+      return;
+    }
+
+    if (actId === 'withdraw') {
+      const res = withdraw(this.stash, this.unit, row.itemId, 1);
+      if (res.ok) {
+        sound.playSfx('sfx_confirm');
+        this.setFeedback(`已从仓库取出【${row.name}】×1 放入背包。`);
+        this._refresh();
+      }
+      return;
+    }
+
+    if (actId === 'drop') {
+      if (col === 'unit' && this.unit && Array.isArray(this.unit.inventory)) {
+        const slot = this.unit.inventory.find(i => i && i.id === row.itemId);
+        if (slot) {
+          slot.count -= 1;
+          if (slot.count <= 0) {
+            this.unit.inventory = this.unit.inventory.filter(i => i.id !== row.itemId);
+          }
+          sound.playSfx('sfx_confirm');
+          this.setFeedback(`已丢弃【${row.name}】×1。`);
+          this._refresh();
+        }
+      } else if (col === 'stash' && this.stash && Array.isArray(this.stash.items)) {
+        const slot = this.stash.items.find(i => i && i.id === row.itemId);
+        if (slot) {
+          slot.count -= 1;
+          if (slot.count <= 0) {
+            this.stash.items = this.stash.items.filter(i => i.id !== row.itemId);
+          }
+          sound.playSfx('sfx_confirm');
+          this.setFeedback(`已从仓库丢弃【${row.name}】×1。`);
+          this._refresh();
+        }
+      }
     }
   }
 
-  /* ---------- ModalBase 覆写：分支动作 + 列表键盘 ---------- */
+  /* ---------- ModalBase 覆写：键盘与鼠标交互 ---------- */
 
   trigger(id) {
-    if (id === 'equip') { this._equipSelected(); return; }
-    if (id === 'use') { this._useSelected(); return; }
-    if (id === 'deposit') { this._trade(true); return; }
-    if (id === 'withdraw') { this._trade(false); return; }
+    if (id === 'close') {
+      this.close();
+      return;
+    }
     this.close();
   }
 
   handleKeyDown(e) {
     const k = e && e.key;
     if (!k) return false;
-    // Shift+← →：底部动作键间换焦点（裸 ←→ 仍归分类切换，两套导航不抢键）
-    if (e.shiftKey && (k === 'ArrowLeft' || k === 'ArrowRight')
-      && this.selectable && this.buttons.length > 1) {
-      return this.moveFocus(k === 'ArrowLeft' ? -1 : 1);
-    }
-    if (k === 'ArrowUp') return this._moveRow(-1);
-    if (k === 'ArrowDown') return this._moveRow(1);
-    if (k === 'ArrowLeft') return this._cycleKind(-1);
-    if (k === 'ArrowRight') return this._cycleKind(1);
-    if (k === 'Tab') {
-      this._setView(this.view === 'unit' ? 'stash' : 'unit');
+
+    // 若动作子菜单打开中
+    if (this.activeMenu) {
+      const menu = this.activeMenu;
+      if (k === 'ArrowUp') {
+        menu.focusIndex = (menu.focusIndex - 1 + menu.actions.length) % menu.actions.length;
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      if (k === 'ArrowDown') {
+        menu.focusIndex = (menu.focusIndex + 1) % menu.actions.length;
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      if (k === 'Enter' || k === ' ') {
+        const act = menu.actions[menu.focusIndex];
+        if (act) this._executeMenuAction(act.id);
+        return true;
+      }
+      if (k === 'Escape') {
+        this._closeActionMenu();
+        sound.playSfx('sfx_cancel');
+        return true;
+      }
       return true;
     }
+
+    // ===== 分类页签区（focusArea='tabs'）：←→ 循环切分类 · ↓ 返回列表 =====
+    if (this.focusArea === 'tabs') {
+      if (k === 'ArrowLeft') {
+        this._cycleKind(-1);
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      if (k === 'ArrowRight') {
+        this._cycleKind(1);
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      if (k === 'ArrowDown') {
+        this.focusArea = 'list';
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      if (k === 'ArrowUp') return true;            // 已在顶行，上方无内容
+      if (k === 'Enter' || k === ' ') return true; // 页签区无确认操作，也不打开行菜单
+    }
+
+    // ===== 道具列表区（focusArea='list'） =====
+    // ← →：在左列（背包）与右列（仓库）之间穿梭（此时不切分类）
+    if (k === 'ArrowLeft') {
+      if (this.view === 'stash') {
+        this._setView('unit');
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      return false;
+    }
+    if (k === 'ArrowRight') {
+      if (this.view === 'unit') {
+        this._setView('stash');
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      return false;
+    }
+
+    // ↑：当前列已是最上一行 → 键盘焦点上移进分类页签区
+    if (k === 'ArrowUp') {
+      if ((this.rowIndex || 0) === 0) {
+        this.focusArea = 'tabs';
+        sound.playSfx('sfx_cursor');
+        return true;
+      }
+      this._moveRow(-1);
+      sound.playSfx('sfx_cursor');
+      return true;
+    }
+
+    // ↓：区内下移（到底不再循环）
+    if (k === 'ArrowDown') {
+      const moved = this._moveRow(1);
+      if (moved) sound.playSfx('sfx_cursor');
+      return true;
+    }
+
+    // Enter / 空格：打开操作菜单
     if (k === 'Enter' || k === ' ') {
-      // 焦点若停在 close 上/无按钮（空列表）→ 静默吞掉，杜绝"连按 Enter 误关"；
-      // 关面板只走 Escape/鼠标。焦点在动作键上则原样执行。
-      const btn = this.buttons && this.buttons[this.focusIndex];
-      if (btn && btn.id !== 'close') this.trigger(btn.id);
+      if (this.row) {
+        this._openActionMenu();
+      }
       return true;
     }
+
+    // Escape：退出关闭
     if (k === 'Escape') {
       this.close();
       return true;
     }
+
     return false;
   }
 
   handleClick(px, py) {
-    // 1) 底部按钮（ModalBase 原生行为 + 焦点联动）
+    // 1) 动作子菜单激活时的点击
+    if (this.activeMenu) {
+      const menu = this.activeMenu;
+      const box = this._calcMenuRect();
+      if (inRect(px, py, box)) {
+        const itemH = 34;
+        const relY = py - (box.y + 36);
+        const idx = Math.floor(relY / itemH);
+        if (idx >= 0 && idx < menu.actions.length) {
+          this._executeMenuAction(menu.actions[idx].id);
+          return true;
+        }
+      } else {
+        this._closeActionMenu();
+        return true;
+      }
+    }
+
+    // 2) 底部按钮（关闭）
     const btn = this.hitButton(px, py);
     if (btn) {
-      if (this.selectable) {
-        this.focusIndex = this.buttons.findIndex((b) => b.id === btn.id);
-      }
       this.trigger(btn.id);
       return true;
     }
-    // 2) 视图签
-    for (let i = 0; i < INVENTORY_VIEWS.length; i++) {
-      if (inRect(px, py, this._tabRect(this.layout.viewTabs, i))) {
-        this._setView(INVENTORY_VIEWS[i].view);
-        return true;
-      }
-    }
-    // 3) 分类签
+
+    // 3) 分类页签点击
     for (let i = 0; i < this.kindTabs.length; i++) {
-      if (inRect(px, py, this._tabRect(this.layout.kindTabs, i))) {
+      if (inRect(px, py, this._kindTabRect(i))) {
         this._setKind(this.kindTabs[i].kind);
+        sound.playSfx('sfx_cursor');
         return true;
       }
     }
-    // 4) 列表行（点选中行暂不动作；双击存取留给联调轮）
-    const idx = this._rowAt(px, py);
-    if (idx >= 0) {
-      if (idx !== this.rowIndex) {
-        this.rowIndex = idx;
-        this._refresh();
-      }
+
+    // 4) 左列（背包）列表点击
+    const leftIdx = this._rowAtCol(px, py, this.layout.listLeft, this.unitRows);
+    if (leftIdx >= 0) {
+      this.view = 'unit';
+      this.rowIndices.unit = leftIdx;
+      this.focusArea = 'list';
+      this._refresh();
+      this._openActionMenu();
       return true;
     }
+
+    // 5) 右列（仓库）列表点击
+    const rightIdx = this._rowAtCol(px, py, this.layout.listRight, this.stashRows);
+    if (rightIdx >= 0) {
+      this.view = 'stash';
+      this.rowIndices.stash = rightIdx;
+      this.focusArea = 'list';
+      this._refresh();
+      this._openActionMenu();
+      return true;
+    }
+
     return false;
   }
 
-  /* ---------- 几何小工具 ---------- */
+  /* ---------- 几何与辅助 ---------- */
 
-  _tabRect(meta, i) {
-    return { x: meta.x + i * (meta.w + meta.gap), y: meta.y, w: meta.w, h: meta.h };
+  _kindTabRect(i) {
+    const kt = this.layout.kindTabs;
+    return { x: kt.x + i * (kt.w + kt.gap), y: kt.y, w: kt.w, h: kt.h };
   }
 
-  _rowAt(px, py) {
-    const R = this.layout.list;
-    if (!this.rows.length) return -1;
-    if (px < R.x || px > R.x + R.w) return -1;
-    const rel = py - R.y;
-    const visible = Math.min(this.rows.length, R.maxRows);
-    if (rel < 0 || rel >= visible * R.rowH) return -1;
-    return Math.floor(rel / R.rowH);
+  _rowAtCol(px, py, colLayout, rows) {
+    if (!rows || !rows.length) return -1;
+    if (px < colLayout.x || px > colLayout.x + colLayout.w) return -1;
+    const rel = py - colLayout.y;
+    const visible = Math.min(rows.length, colLayout.maxRows);
+    if (rel < 0 || rel >= visible * colLayout.rowH) return -1;
+    return Math.floor(rel / colLayout.rowH);
   }
 
-  /** 行是否正处于装备槽内（武器=equippedWeapon / 防具=equippedArmors 单槽） */
+  _calcMenuRect() {
+    const w = 220;
+    const h = 42 + (this.activeMenu ? this.activeMenu.actions.length * 36 : 0);
+    return {
+      x: this.box.cx - w / 2,
+      y: this.box.cy - h / 2,
+      w,
+      h,
+    };
+  }
+
   _isRowEquipped(row) {
-    if (this.view !== 'unit' || !row || !this.unit) return false;
+    if (!row || !this.unit) return false;
     if (row.kind === 'weapon') return this.unit.equippedWeapon === row.itemId;
     if (row.kind === 'armor') return (this.unit.equippedArmors || []).includes(row.itemId);
     return false;
   }
 
-  /* ---------- 渲染 ---------- */
+  /* ---------- 渲染呈现 ---------- */
 
   _renderOwner() {
     const ctx = this.ctx;
@@ -454,163 +733,282 @@ export class InventoryPanelModal extends ModalBase {
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
 
-    if (this.view === 'unit') {
-      const face = this.unit ? avatarFaceFor(this.unit) : { img: null, fallbackName: '？' };
-      drawAvatar(ctx, { ...L.avatar, ...face, faction: (this.unit && this.unit.faction) || 'player' });
-      ctx.font = fontCss(20, 'bold');
-      ctx.fillStyle = PALETTE.ink;
-      ctx.fillText(this.unit ? (this.unit.name || '？？？') : '？？？', L.nameX, L.nameY);
-      ctx.font = fontCss(14);
-      ctx.fillStyle = PALETTE.text;
-      ctx.fillText(`私人持有 · ${this.viewCounts.unit} 类道具`, L.nameX, L.subY);
-    } else {
-      drawAvatar(ctx, { ...L.avatar, faction: 'neutral', fallbackName: '仓库' });
-      ctx.font = fontCss(20, 'bold');
-      ctx.fillStyle = PALETTE.ink;
-      ctx.fillText('全队仓库', L.nameX, L.nameY);
-      ctx.font = fontCss(14);
-      ctx.fillStyle = PALETTE.text;
-      ctx.fillText(`全队共享 · 存放 ${this.viewCounts.stash} 类道具`, L.nameX, L.subY);
-    }
+    const face = this.unit ? avatarFaceFor(this.unit) : { img: null, fallbackName: '？' };
+    drawAvatar(ctx, { ...L.avatar, ...face, faction: (this.unit && this.unit.faction) || 'player' });
+
+    ctx.font = fontCss(18, 'bold');
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillText(this.unit ? (this.unit.name || '？？？') : '？？？', L.nameX, L.nameY);
+
+    ctx.font = fontCss(13);
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(`持有人背包 (${this.viewCounts.unit} 件)  |  全队共享仓库 (${this.viewCounts.stash} 件)`, L.nameX, L.subY);
   }
 
-  _drawTab(rect, label, active, color) {
+  _renderKindTabs() {
     const ctx = this.ctx;
-    if (active) {
-      ctx.fillStyle = color || PALETTE.gold;
-      rrPath(ctx, rect.x, rect.y, rect.w, rect.h, 7);
-      ctx.fill();
-      ctx.fillStyle = PALETTE.paper;
-      ctx.font = fontCss(15, 'bold');
-    } else {
-      ctx.fillStyle = 'rgba(28, 26, 25, 0.55)';
-      rrPath(ctx, rect.x, rect.y, rect.w, rect.h, 7);
-      ctx.fill();
-      ctx.strokeStyle = color || PALETTE.gold;
+
+    // 键盘焦点在页签区时，整条页签带加金色虚线框提示当前位置
+    if (this.focusArea === 'tabs') {
+      const kt = this.layout.kindTabs;
+      const n = this.kindTabs.length;
+      ctx.strokeStyle = PALETTE.gold;
       ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 5]);
+      rrPath(ctx, kt.x - 8, kt.y - 6, n * kt.w + (n - 1) * kt.gap + 16, kt.h + 12, 8);
       ctx.stroke();
-      ctx.fillStyle = PALETTE.goldText;
-      ctx.font = fontCss(15);
+      ctx.setLineDash([]);
     }
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(label, rect.x + rect.w / 2, rect.y + rect.h / 2 + 1);
-  }
 
-  _renderTabs() {
-    // 视图签（背包/仓库）——当前视图金底反白
-    INVENTORY_VIEWS.forEach((v, i) => {
-      const n = v.view === 'unit' ? this.viewCounts.unit : this.viewCounts.stash;
-      this._drawTab(this._tabRect(this.layout.viewTabs, i), `${v.label} ${n}`, v.view === this.view);
-    });
-    // 分类签（道具/武器/防具/重要）——当前分类金底反白
-    this.kindTabs.forEach((t, i) => {
-      this._drawTab(this._tabRect(this.layout.kindTabs, i), t.label + (t.count > 0 ? ' ' + t.count : ''),
-        t.active);
-    });
-  }
-
-  _renderList() {
-    const ctx = this.ctx;
-    const R = this.layout.list;
-    const B = this.box;
-
-    if (!this.rows.length) {
-      ctx.font = fontCss(15);
-      ctx.fillStyle = PALETTE.text;
+    this.kindTabs.forEach((tab, i) => {
+      const rect = this._kindTabRect(i);
+      if (tab.active) {
+        ctx.fillStyle = PALETTE.gold;
+        rrPath(ctx, rect.x, rect.y, rect.w, rect.h, 6);
+        ctx.fill();
+        ctx.fillStyle = '#1e1b18';
+        ctx.font = fontCss(15, 'bold');
+      } else {
+        ctx.fillStyle = 'rgba(30, 41, 59, 0.7)';
+        rrPath(ctx, rect.x, rect.y, rect.w, rect.h, 6);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = '#cbd5e1';
+        ctx.font = fontCss(14);
+      }
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('（这一类没有道具）', B.cx, R.y + R.rowH * 2);
+      const label = `${tab.label} (${tab.count})`;
+      ctx.fillText(label, rect.x + rect.w / 2, rect.y + rect.h / 2 + 1);
+    });
+  }
+
+  _renderColumns() {
+    const ctx = this.ctx;
+    const L = this.layout;
+
+    // 绘制左列（个人背包）
+    this._renderOneColumn(
+      L.listLeft,
+      `个人背包 · ${this.unit ? this.unit.name : '主角'}`,
+      this.unitRows,
+      this.view === 'unit',
+      this.rowIndices.unit
+    );
+
+    // 绘制右列（全队仓库）
+    this._renderOneColumn(
+      L.listRight,
+      '全队共享仓库',
+      this.stashRows,
+      this.view === 'stash',
+      this.rowIndices.stash
+    );
+  }
+
+  _renderOneColumn(colLayout, title, rows, isActiveCol, activeRowIdx) {
+    const ctx = this.ctx;
+    const { x, y, w, rowH, maxRows } = colLayout;
+
+    // 列头：普通文字（活动列金色、非活动灰），不做可点击 tab 样式
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.font = fontCss(13, 'bold');
+    ctx.fillStyle = isActiveCol ? PALETTE.gold : '#94a3b8';
+    ctx.fillText(title, x + 2, y - 16);
+
+    // 列背景底框
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.55)';
+    rrPath(ctx, x, y, w, maxRows * rowH, 6);
+    ctx.fill();
+    ctx.strokeStyle = isActiveCol ? 'rgba(250, 204, 21, 0.4)' : 'rgba(51, 65, 85, 0.5)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    if (!rows.length) {
+      ctx.font = fontCss(13);
+      ctx.fillStyle = '#64748b';
+      ctx.textAlign = 'center';
+      ctx.fillText('（空无一物）', x + w / 2, y + 40);
       return;
     }
 
-    const visible = Math.min(this.rows.length, R.maxRows);
+    const visible = Math.min(rows.length, maxRows);
     for (let i = 0; i < visible; i++) {
-      const row = this.rows[i];
-      const y = R.y + i * R.rowH;
-      const cy = y + R.rowH / 2;
+      const row = rows[i];
+      const ry = y + i * rowH;
+      const cy = ry + rowH / 2;
+      const isSelected = isActiveCol && i === activeRowIdx;
       const isEquipped = this._isRowEquipped(row);
 
-      // 选中行：金色底 + 金框（与按钮焦点同语言）
-      if (i === this.rowIndex) {
-        ctx.fillStyle = 'rgba(250, 204, 21, 0.18)';
-        rrPath(ctx, R.x, y, R.w, R.rowH, 6);
+      // 高亮选中行
+      if (isSelected) {
+        ctx.fillStyle = 'rgba(250, 204, 21, 0.22)';
+        rrPath(ctx, x + 2, ry + 1, w - 4, rowH - 2, 4);
         ctx.fill();
         ctx.strokeStyle = PALETTE.gold;
-        ctx.lineWidth = 2;
-        rrPath(ctx, R.x, y, R.w, R.rowH, 6);
+        ctx.lineWidth = 1.5;
         ctx.stroke();
       }
 
-      // 分类 icon 色块 + 单字（真图标联调轮替换）
-      const size = this.layout.iconSize;
-      ctx.fillStyle = KIND_COLORS[row.kind] || '#888888';
-      rrPath(ctx, R.x + 18, y + (R.rowH - size) / 2, size, size, 4);
+      // 分类微标
+      const size = 16;
+      ctx.fillStyle = KIND_COLORS[row.kind] || '#64748b';
+      rrPath(ctx, x + 8, ry + (rowH - size) / 2, size, size, 3);
       ctx.fill();
       ctx.fillStyle = '#ffffff';
-      ctx.font = fontCss(11, 'bold');
+      ctx.font = fontCss(10, 'bold');
       ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(KIND_SHORT[row.kind] || '？', R.x + 18 + size / 2, y + R.rowH / 2);
+      ctx.fillText(KIND_SHORT[row.kind] || '物', x + 8 + size / 2, cy);
 
-      // 名称（禁存/装备中行降灰提示锁定态）
+      // 物品名称
       ctx.textAlign = 'left';
-      ctx.font = fontCss(16, 'bold');
-      ctx.fillStyle = (row.disabled || isEquipped) ? PALETTE.title : PALETTE.ink;
-      ctx.fillText(row.name, R.x + 48, cy);
+      ctx.font = fontCss(13, isSelected ? 'bold' : 'normal');
+      ctx.fillStyle = isEquipped ? PALETTE.ok : (isSelected ? '#ffffff' : '#e2e8f0');
+      ctx.fillText(row.name, x + 30, cy);
 
-      // 数量徽标
+      // 数量
       if (row.countText) {
-        ctx.font = fontCss(14, 'bold');
+        ctx.font = fontCss(12, 'bold');
         ctx.fillStyle = PALETTE.goldText;
-        ctx.fillText(row.countText, R.x + R.w - 176, cy);
+        ctx.fillText(row.countText, x + w - 100, cy);
       }
 
-      // 右侧短提示（装备中亮绿；key_item 红字锁定）
+      // 右侧状态与提示
       ctx.textAlign = 'right';
-      ctx.font = fontCss(13);
+      ctx.font = fontCss(11);
       if (isEquipped) {
         ctx.fillStyle = PALETTE.ok;
-        ctx.fillText('装备中 · ' + (row.hint || ''), R.x + R.w - 14, cy);
+        ctx.fillText('已装 · ' + (row.hint || ''), x + w - 8, cy);
       } else {
-        ctx.fillStyle = row.disabled ? PALETTE.danger : PALETTE.title;
-        ctx.fillText(row.hint || (row.disabled ? '不可存入' : ''), R.x + R.w - 14, cy);
+        ctx.fillStyle = row.disabled ? PALETTE.danger : '#94a3b8';
+        ctx.fillText(row.disabled ? '锁死' : (row.hint || ''), x + w - 8, cy);
       }
-      ctx.textAlign = 'left';
     }
   }
 
-  _renderDesc() {
+  _renderDescAndFeedback() {
     const ctx = this.ctx;
     const D = this.layout.desc;
+
+    // 底板
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.7)';
+    rrPath(ctx, D.x, D.y, D.w, 48, 6);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
 
+    // 优先显示即时反馈 Toast
+    if (this.feedback && (Date.now() - this.feedback.time < 3000)) {
+      ctx.font = fontCss(14, 'bold');
+      ctx.fillStyle = this.feedback.type === 'error' ? PALETTE.danger : PALETTE.ok;
+      ctx.fillText(`⚡ ${this.feedback.text}`, D.x + 12, D.y + 24);
+      return;
+    }
+
     if (!this.row) {
-      ctx.font = fontCss(14);
-      ctx.fillStyle = PALETTE.text;
-      ctx.fillText('（↑↓ 选行 · ←→ 切分类 · Tab 切背包/仓库 · Shift+←→ 换动作 · Enter 执行）', D.x, D.y + 10);
+      ctx.font = fontCss(13);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('移动光标选中道具，按【回车】或【点击】弹出操作菜单（使用/装备/移入仓库/取出/丢弃）', D.x + 12, D.y + 24);
       return;
     }
 
-    ctx.font = fontCss(16, 'bold');
-    ctx.fillStyle = PALETTE.ink;
-    ctx.fillText(this.descBlock.title, D.x, D.y + 10);
+    ctx.font = fontCss(14, 'bold');
+    ctx.fillStyle = PALETTE.goldText;
+    ctx.fillText(this.descBlock.title, D.x + 12, D.y + 16);
 
-    if (!this.descBlock.lines.length) {
-      ctx.font = fontCss(14);
-      ctx.fillStyle = PALETTE.text;
-      const lockText = this._isRowEquipped(this.row)
-        ? '（装备中——想换装/存入仓库，先装备别的同类物品）'
-        : (this.row.disabled ? '（剧情道具，锁在持有者身上，不可存入仓库）' : '（暂无描述）');
-      ctx.fillText(lockText, D.x, D.y + 34);
-      return;
+    ctx.font = fontCss(12);
+    ctx.fillStyle = '#cbd5e1';
+    const descText = (this.descBlock.lines && this.descBlock.lines[0]) || '（无附加说明）';
+    ctx.fillText(descText, D.x + 12, D.y + 34);
+  }
+
+  _renderHelpHint() {
+    const ctx = this.ctx;
+    const L = this.layout;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = fontCss(12);
+    if (this.focusArea === 'tabs') {
+      ctx.fillStyle = PALETTE.goldText;
+      ctx.fillText(
+        '【←/→】切换分类 | 【↓】返回道具列表 | 【ESC】关闭',
+        this.box.cx,
+        L.helpY
+      );
+    } else {
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText(
+        '【←/→】背包↔仓库 | 【↑/↓】选道具（最上行再↑进入分类页签） | 【回车/点击】操作 | 【ESC】关闭',
+        this.box.cx,
+        L.helpY
+      );
     }
-    drawWrappedLines(ctx, this.descBlock.lines, D.x, D.y + 24, {
-      font: fontCss(14),
-      color: PALETTE.text,
-      align: 'left',
-      lineHeight: D.lineH,
+  }
+
+  _renderActionMenu() {
+    const ctx = this.ctx;
+    const menu = this.activeMenu;
+    if (!menu) return;
+
+    // 半透明遮罩
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
+    ctx.fillRect(this.box.x, this.box.y, this.box.w, this.box.h);
+
+    const rect = this._calcMenuRect();
+
+    // 菜单容器
+    ctx.fillStyle = 'rgba(20, 24, 33, 0.96)';
+    rrPath(ctx, rect.x, rect.y, rect.w, rect.h, 8);
+    ctx.fill();
+    ctx.strokeStyle = PALETTE.gold;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // 标题
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = fontCss(14, 'bold');
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillText(`【${menu.row.name}】`, rect.x + rect.w / 2, rect.y + 18);
+
+    // 分隔线
+    ctx.strokeStyle = 'rgba(250, 204, 21, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(rect.x + 12, rect.y + 32);
+    ctx.lineTo(rect.x + rect.w - 12, rect.y + 32);
+    ctx.stroke();
+
+    // 菜单项
+    const itemH = 34;
+    const startY = rect.y + 36;
+    menu.actions.forEach((act, idx) => {
+      const iy = startY + idx * itemH;
+      const isFocused = idx === menu.focusIndex;
+
+      if (isFocused) {
+        ctx.fillStyle = PALETTE.gold;
+        rrPath(ctx, rect.x + 10, iy + 2, rect.w - 20, itemH - 4, 4);
+        ctx.fill();
+        ctx.fillStyle = '#1e1b18';
+        ctx.font = fontCss(13, 'bold');
+      } else {
+        ctx.fillStyle = 'rgba(30, 41, 59, 0.5)';
+        rrPath(ctx, rect.x + 10, iy + 2, rect.w - 20, itemH - 4, 4);
+        ctx.fill();
+        ctx.fillStyle = act.id === 'cancel' ? '#94a3b8' : (act.id === 'drop' ? '#f87171' : '#e2e8f0');
+        ctx.font = fontCss(13);
+      }
+
+      ctx.textAlign = 'center';
+      ctx.fillText(act.label, rect.x + rect.w / 2, iy + itemH / 2);
     });
   }
 }

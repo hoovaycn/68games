@@ -98,6 +98,42 @@ export const CONSUMABLES = {
     use_in_field: true,
     stack: 9
   },
+  sudoku: {
+    id: 'sudoku',
+    name: '数独九宫格',
+    kind: 'consumable',
+    category: 'growth',
+    desc: '一本越涂越厚的数独题册。填满九个格子的时候，脑子里像装了台小电脑。永久 智慧+2。',
+    effects: [{ stat: 'skl', value: 2, permanent: true }],
+    use_in_battle: false,
+    use_in_field: true,
+    stack: 9
+  },
+  jump_rope: {
+    id: 'jump_rope',
+    name: '跳皮筋',
+    kind: 'consumable',
+    category: 'growth',
+    desc: '女生跳皮筋时扯到后脑勺的那根红绳。跟着节奏跳三天，腿脚利索得能躲粉笔头。永久 敏捷+2。',
+    effects: [{ stat: 'spd', value: 2, permanent: true }],
+    use_in_battle: false,
+    use_in_field: true,
+    stack: 9
+  },
+  eye_patch: {
+    id: 'eye_patch',
+    name: '蒸汽眼罩',
+    kind: 'consumable',
+    category: 'growth',
+    desc: '午休时敷上的发热眼罩。蒸汽散尽，眼前和心头都亮堂堂的。永久 HP上限+3、魔防+1。',
+    effects: [
+      { stat: 'hp', value: 3, permanent: true },
+      { stat: 'res', value: 1, permanent: true }
+    ],
+    use_in_battle: false,
+    use_in_field: true,
+    stack: 9
+  },
 
   /* ══════════ 回复道具 ══════════ */
   sausage: {
@@ -165,6 +201,42 @@ export const CONSUMABLES = {
     use_in_field: true,
     stack: 3
   },
+  candied_haw: {
+    id: 'candied_haw',
+    name: '冰糖葫芦',
+    kind: 'consumable',
+    category: 'restore',
+    desc: '裹着亮晶晶糖壳的山楂串。咬开糖衣，酸甜的汁水顺着喉咙往下淌。恢复 20 HP。',
+    effects: [{ stat: 'hp', value: 20 }],
+    use_in_battle: true,
+    use_in_field: true,
+    stack: 9
+  },
+  honey_tea: {
+    id: 'honey_tea',
+    name: '蜂蜜柚子茶',
+    kind: 'consumable',
+    category: 'restore',
+    desc: '保温杯里泡开的蜂蜜柚子茶，甜里带一点苦。嗓子润了，念咒也顺了。恢复 25 MP。',
+    effects: [{ stat: 'mp', value: 25 }],
+    use_in_battle: true,
+    use_in_field: true,
+    stack: 9
+  },
+  moms_lunchbox: {
+    id: 'moms_lunchbox',
+    name: '妈妈做的便当',
+    kind: 'consumable',
+    category: 'restore',
+    desc: '早上出门前妈妈塞进书包的保温饭盒。饭菜还热着，是那种不会让你输的味道。恢复 30 HP、15 MP。',
+    effects: [
+      { stat: 'hp', value: 30 },
+      { stat: 'mp', value: 15 }
+    ],
+    use_in_battle: true,
+    use_in_field: true,
+    stack: 3
+  },
 
   /* ══════════ 战斗道具（增益） ══════════ */
   bastard_soda: {
@@ -221,6 +293,42 @@ export const CONSUMABLES = {
     category: 'battle',
     desc: '掌心大小、六号字排版的密写小抄。看一眼答案，出手格外笃定。本回合命中 +15。',
     effects: [{ stat: 'hit', value: 15, duration: 'turn' }],
+    use_in_battle: true,
+    use_in_field: false,
+    stack: 9
+  },
+  scream_chicken: {
+    id: 'scream_chicken',
+    name: '尖叫鸡',
+    kind: 'consumable',
+    category: 'battle',
+    desc: '一捏就发出凄厉尖叫的橡胶鸡。它一嗓子，对面的破绽全露出来了。本回合 暴击+20。',
+    effects: [{ stat: 'crit', value: 20, duration: 'turn' }],
+    use_in_battle: true,
+    use_in_field: false,
+    stack: 9
+  },
+  cooling_oil: {
+    id: 'cooling_oil',
+    name: '清凉油',
+    kind: 'consumable',
+    category: 'battle',
+    desc: '小铁盒里的绿色药膏，抹在太阳穴凉得发颤。脑子一激灵，咒语格外狠。下次攻击 魔力+4。',
+    effects: [{ stat: 'mag', value: 4, duration: 'nextAttack' }],
+    use_in_battle: true,
+    use_in_field: false,
+    stack: 9
+  },
+  earplug: {
+    id: 'earplug',
+    name: '隔音耳塞',
+    kind: 'consumable',
+    category: 'battle',
+    desc: '橙色的泡沫耳塞，捏扁塞进耳朵，世界瞬间安静。听不见吼声，就只剩自己稳稳的心跳。本回合 防御+3、魔防+3。',
+    effects: [
+      { stat: 'def', value: 3, duration: 'turn' },
+      { stat: 'res', value: 3, duration: 'turn' }
+    ],
     use_in_battle: true,
     use_in_field: false,
     stack: 9

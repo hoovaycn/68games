@@ -18,7 +18,7 @@
 import { sound } from '../../engine/sound.js';
 import {
   ModalBase, PALETTE, planBar, barRatio, clamp01, lerp, easeOutCubic,
-  fontCss, drawBar, drawAvatar, avatarFaceFor,
+  fontCss, drawBar, drawAvatar, avatarFaceFor, drawOverlay, pathRoundRect,
 } from './ui_kit.js';
 
 /* ══════════════════════ 1. 时间轴节拍与文案表（纯常量） ══════════════════════ */
@@ -258,30 +258,58 @@ function rowSnapshot(row, state, t, anchor) {
   };
 }
 
-/* ══════════════════════ 5. 纯计算：弹层布局几何 ══════════════════════ */
+/* ══════════════════════ 5. 纯计算：全屏布局几何 ══════════════════════ */
 
 /**
- * 盒 760×500（与 combat_exchange 同尺寸，视觉统一）。
- * 垂直预算：标题 → 头像行（头像/名/等级行）→ 层标/合计 → 九行区 → 确认按钮贴底。
+ * 全屏布局（960×540 设计画布；box 需为全屏盒，即 setupBox(canvas.w, canvas.h, 0)）。
+ *   左侧 ~57%：LEVEL UP 大标题 + 副题 + 数值面板卡（单列九行，行更宽更高档）；
+ *   右侧 ~35%：336px 大立绘（金色描边圆角裁切）+ 径向金色光晕 + 姓名名牌；
+ *   中间竖向双金线分区；底部"确认"按钮由 finish() 落位到左面板中轴。
+ * 几何全部由 box 原点推导（box.x/box.y 位移即可整体平移），offset 为 960×540 基准。
  */
 export function planLevelUpLayout(box) {
-  const rowsX = box.x + 118;
-  const barX = rowsX + 92;
-  const barW = 250;
+  const x0 = box.x, y0 = box.y;
   return {
-    headline: { x: box.cx, y: box.y + 78 },                       // "等级提升！"
-    avatar: { cx: box.x + 86, cy: box.y + 172, r: 38 },
-    nameX: box.x + 152, nameY: box.y + 158,                      // 名字（左对齐）
-    levelLineY: box.y + 196,                                     // "Lv.3 → Lv.4 · 合计 +5"
-    layerTagX: box.cx, layerTagY: box.y + 236,                   // 层标居中（连环升级第 2/3 层切换提示）
-    rows: { x: rowsX, y: box.y + 264, w: 524, rowH: 26, count: 9 },
-    bar: { x: barX, w: barW, h: 12 },
-    deltaTextX: barX + barW + 24,
+    // 左侧仪式区（标题块 + 数值面板卡）
+    panel: {
+      x: x0 + 44, y: y0 + 176, w: 548, h: 294,          // 数值面板卡 176~470
+      cx: x0 + 318,
+      titleX: x0 + 318, titleY: y0 + 74,                 // LEVEL UP 大标题
+      subY: y0 + 114, gainY: y0 + 144, tagY: y0 + 166,   // 中文副题 / 合计 / 层标
+      rowsTop: y0 + 190, rowH: 30,                       // 九行 190~460
+      labelX: x0 + 146, barX: x0 + 158, barW: 236,       // 属性名右缘 / 条 / 条宽
+      deltaX: x0 + 406, valueRightX: x0 + 568,           // +1 徽章左缘 / 数值右缘
+    },
+    // 右侧立绘区
+    stage: {
+      cx: x0 + 778, cy: y0 + 204,
+      y: y0 + 36, size: 336,                             // 立绘 610~946 × 36~372
+      nameY: y0 + 410, lvY: y0 + 438, subY: y0 + 460,
+    },
+    dividerX: x0 + 597,
+    glowR: 330,
+    btn: { w: 200, h: 40 },
     valueMax: GROWTH_BAR_MAX,
   };
 }
 
 /* ══════════════════════ 6. 组件（浏览器端落笔，单测走纯函数与假时钟） ══════════════════════ */
+
+/** 模块级小工具：一笔线段（自带色/宽，避免反复设置 stroke 样式） */
+function line(ctx, x1, y1, x2, y2, color, width) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+/** 屏幕四角切角饰：sx/sy ∈ {1,-1} 控制朝向 */
+function drawCorner(ctx, x, y, sx, sy) {
+  line(ctx, x, y, x + 22 * sx, y, PALETTE.gold, 2);
+  line(ctx, x, y, x, y + 22 * sy, PALETTE.gold, 2);
+}
 
 const defaultNow = () => (typeof performance !== 'undefined' && typeof performance.now === 'function')
   ? performance.now()
@@ -301,7 +329,8 @@ export class LevelUpModal extends ModalBase {
   constructor(canvas, config, onClose) {
     const cfg = config || {};
     super(canvas, cfg, onClose);
-    this.box = this.setupBox(760, 500);
+    // 全屏弹层：margin 0 即占满画布（背景自绘夜幕渐变，不走 renderFrame 纸盒）
+    this.box = this.setupBox(this.canvas.width, this.canvas.height, 0);
     this.layout = planLevelUpLayout(this.box);
 
     this.name = cfg.unit?.name || cfg.name || '升级';
@@ -346,7 +375,14 @@ export class LevelUpModal extends ModalBase {
     if (this._timelineEnded) return;
     this._timelineEnded = true;
     this.selectable = true;
-    this.setButtons([{ id: 'ok', label: '确认' }]);
+    this.setButtons([{ id: 'ok', label: '确认' }], {
+      btnW: this.layout.btn.w,
+      btnH: this.layout.btn.h,
+      anchorY: this.box.y + this.box.h - 48,
+    });
+    // 全屏盒下自动布局会居中到整幅画面：手动挪回左面板中轴（避开右侧立绘名牌）
+    const btn = this.buttons[0];
+    if (btn) btn.rect.x = this.layout.panel.cx - btn.rect.w / 2;
   }
 
   /** 时间轴未完时吞掉一切输入（升级演出不可跳过/不可误关） */
@@ -367,95 +403,225 @@ export class LevelUpModal extends ModalBase {
     // 时间轴走完自动出确认按钮（只触发一次；再往后时钟冻结在 _lastEnd）
     if (v.timelineDone && !this._timelineEnded) this.finish();
 
-    this.renderFrame('等级提升');
-    this._renderHeader(v);
-    this._renderLayerTag(v);
-    this._renderRows(v);
+    this._renderBackdrop();   // 全屏夜幕 + 金色光晕 + 分隔线 + 角饰
+    this._renderStage(v);     // 右侧大立绘 + 姓名名牌
+    this._renderTitle(v);     // 左侧 LEVEL UP 标题块
+    this._renderRows(v);      // 左侧数值面板卡（九维单列）
     this.renderButtons();
   }
 
   /* ---------- 内部：绘制 ---------- */
 
-  _renderHeader(v) {
+  /** 全屏背景：暗金夜幕渐变 + 立绘径向金晕 + 左右分隔双金线 + 四角切角饰 */
+  _renderBackdrop() {
     const ctx = this.ctx;
-    const L = this.layout;
-    const face = avatarFaceFor(this.unit || { name: this.name, faction: this.faction });
-    drawAvatar(ctx, { ...L.avatar, ...face, faction: this.faction });
+    const W = this.canvas.width, H = this.canvas.height;
+    const L = this.layout, S = L.stage;
 
-    ctx.textAlign = 'left';
+    drawOverlay(ctx, W, H);   // 先压暗下方战场
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, '#281e12');
+    g.addColorStop(0.55, '#181207');
+    g.addColorStop(1, '#0f0c07');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    // 立绘身后径向金晕（视线焦点推向右侧）
+    const rg = ctx.createRadialGradient(S.cx, S.cy, 30, S.cx, S.cy, L.glowR);
+    rg.addColorStop(0, 'rgba(253,224,71,0.32)');
+    rg.addColorStop(0.55, 'rgba(180,130,40,0.12)');
+    rg.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, W, H);
+
+    // 分隔双金线（主亮 + 副暗，衬层次）
+    line(ctx, L.dividerX, 36, L.dividerX, H - 36, 'rgba(251,191,36,0.75)', 2);
+    line(ctx, L.dividerX + 5, 44, L.dividerX + 5, H - 44, 'rgba(251,191,36,0.28)', 1);
+
+    drawCorner(ctx, 18, 18, 1, 1);
+    drawCorner(ctx, W - 18, 18, -1, 1);
+    drawCorner(ctx, 18, H - 18, 1, -1);
+    drawCorner(ctx, W - 18, H - 18, -1, -1);
+  }
+
+  /** 右侧立绘：入场浮起 + 微缩放；金边圆角裁切大图（无素材退大号圆形头像）。 */
+  _renderStage(v) {
+    const ctx = this.ctx;
+    const S = this.layout.stage;
+
+    const p = clamp01(this._vm / 420);          // 入场 420ms
+    const e = easeOutCubic(p);
+    const dy = (1 - e) * 26;
+    const size = S.size * (0.94 + 0.06 * e);
+    const px = S.cx - size / 2, py = S.y + (S.size - size) / 2 + dy;
+
+    ctx.save();
+    ctx.globalAlpha = p;
+    const face = avatarFaceFor(this.unit || { name: this.name, faction: this.faction }, { density: '2x' });
+    if (face.img) {
+      ctx.save();
+      pathRoundRect(ctx, px, py, size, size, 18);
+      ctx.clip();
+      ctx.drawImage(face.img, px, py, size, size);
+      ctx.restore();
+      ctx.strokeStyle = PALETTE.gold;
+      ctx.lineWidth = 3;
+      pathRoundRect(ctx, px, py, size, size, 18);
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,251,235,0.35)';
+      ctx.lineWidth = 1;
+      pathRoundRect(ctx, px + 6, py + 6, size - 12, size - 12, 13);
+      ctx.stroke();
+    } else {
+      drawAvatar(ctx, { cx: S.cx, cy: S.cy + dy, r: size / 2 - 12, ...face, faction: this.faction });
+    }
+    ctx.restore();
+
+    // 姓名名牌：名字 + 等级跨度（连升时附合计行）
+    ctx.save();
+    ctx.globalAlpha = p;
+    ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = fontCss(24, 'bold');
     ctx.fillStyle = PALETTE.ink;
-    ctx.fillText(this.name, L.nameX, L.nameY);
-
-    // 等级行 + 合计（连环升级展示 from → to 全跨度）
-    ctx.font = fontCss(17, 'bold');
-    ctx.fillStyle = PALETTE.title;
-    const lv = v.layerCount > 1 ? `（连升 ${v.layerCount} 级）` : '';
-    ctx.fillText(`Lv.${v.levelFrom} → Lv.${v.levelTo}${lv}`, L.nameX, L.levelLineY);
-    if (v.totalGainText) {
-      ctx.textAlign = 'right';
-      ctx.fillStyle = PALETTE.warn;
-      ctx.fillText(v.totalGainText, this.box.x + this.box.w - 40, L.levelLineY);
+    ctx.shadowColor = 'rgba(0,0,0,0.6)';
+    ctx.shadowBlur = 4;
+    ctx.fillText(this.name, S.cx, S.nameY);
+    ctx.shadowBlur = 0;
+    ctx.font = fontCss(18, 'bold');
+    ctx.fillStyle = PALETTE.gold;
+    ctx.fillText(`Lv.${v.levelFrom} → Lv.${v.levelTo}`, S.cx, S.lvY);
+    if (v.layerCount > 1) {
+      ctx.font = fontCss(14, 'normal');
+      ctx.fillStyle = 'rgba(251,191,36,0.75)';
+      ctx.fillText(`连升 ${v.layerCount} 级 · 合计 +${v.totalGain}`, S.cx, S.subY);
     }
+    ctx.restore();
   }
 
-  _renderLayerTag(v) {
-    if (v.phase === 'head') return;
+  /** 左侧标题块：LEVEL UP 渐变大字（金辉描罩）+ 中文副题 + 合计与层标。 */
+  _renderTitle(v) {
     const ctx = this.ctx;
-    const L = this.layout;
+    const P = this.layout.panel;
+    const p = clamp01(this._vm / 380);          // 入场 380ms：自上落下
+    const e = easeOutCubic(p);
+
+    ctx.save();
+    ctx.globalAlpha = p;
+    ctx.translate(0, (1 - e) * -22);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    const tag = v.layerCount > 1
-      ? `第 ${Math.min(v.layerIndex + 1, v.layerCount)} 次升级 · Lv.${v.levelFrom} → Lv.${v.levelTo}`
-      : `Lv.${v.levelFrom} → Lv.${v.levelTo}`;
-    ctx.font = fontCss(16, 'bold');
-    ctx.fillStyle = PALETTE.text;
-    ctx.fillText(tag, L.layerTagX, L.layerTagY);
+
+    const g = ctx.createLinearGradient(0, P.titleY - 26, 0, P.titleY + 26);
+    g.addColorStop(0, '#fff7d6');
+    g.addColorStop(0.55, '#fbbf24');
+    g.addColorStop(1, '#b45309');
+    ctx.font = fontCss(46, 'bold');
+    ctx.shadowColor = 'rgba(251,191,36,0.65)';
+    ctx.shadowBlur = 26;
+    ctx.fillStyle = g;
+    ctx.fillText('L E V E L  U P', P.titleX, P.titleY);
+    ctx.shadowBlur = 0;
+
+    ctx.font = fontCss(19, 'bold');
+    ctx.fillStyle = PALETTE.gold;
+    ctx.fillText('—— 等级提升 ——', P.titleX, P.subY);
+
+    if (v.phase !== 'head' && v.totalGainText) {
+      ctx.font = fontCss(15, 'normal');
+      ctx.fillStyle = PALETTE.text;
+      ctx.fillText(`九维合计 +${v.totalGain}`, P.titleX, P.gainY);
+    }
+    if (v.layerCount > 1 && v.phase !== 'head') {
+      ctx.font = fontCss(14, 'bold');
+      ctx.fillStyle = PALETTE.warn;
+      ctx.fillText(`第 ${Math.min(v.layerIndex + 1, v.layerCount)}/${v.layerCount} 次升级`, P.titleX, P.tagY);
+    }
+    ctx.restore();
   }
 
+  /** 左侧数值面板：半透明暗金边卡片 + 九维单列宽行（条 236px、+1 徽章、右缘数值滚动）。 */
   _renderRows(v) {
     const ctx = this.ctx;
-    const L = this.layout;
-    const R = L.rows;
+    const P = this.layout.panel;
+    const barW = P.barW, barH = 11;
+
+    // 面板卡淡入（比标题迟 100ms，错落登场）
+    const cp = clamp01((this._vm - 100) / 360);
+    if (cp <= 0) return;
+    ctx.save();
+    ctx.globalAlpha = cp;
+
+    pathRoundRect(ctx, P.x, P.y, P.w, P.h, 12);
+    ctx.fillStyle = 'rgba(22,17,11,0.78)';
+    ctx.fill();
+    ctx.strokeStyle = PALETTE.frame;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(251,191,36,0.30)';
+    ctx.lineWidth = 1;
+    pathRoundRect(ctx, P.x + 5, P.y + 5, P.w - 10, P.h - 10, 9);
+    ctx.stroke();
+
     for (let i = 0; i < v.rows.length; i++) {
       const row = v.rows[i];
       if (row.state === 'pending') continue;   // 未到揭示时刻：整行不出现
 
-      const rowY = R.y + i * R.rowH + R.rowH / 2;
+      const rowY = P.rowsTop + i * P.rowH + P.rowH / 2;
       const isFlat = row.state === 'flat';     // 未涨项：整体灰、条不画、delta 位"——"
 
-      // 行名（右对齐条头）
+      // 属性名（右对齐到进度条左侧）
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
-      ctx.font = fontCss(17, isFlat ? 'normal' : 'bold');
+      ctx.font = fontCss(15, isFlat ? 'normal' : 'bold');
       ctx.fillStyle = isFlat ? PALETTE.ghost : PALETTE.ink;
-      ctx.fillText(row.label, L.bar.x - 14, rowY);
+      ctx.fillText(row.label, P.labelX, rowY);
 
       // 数值条（涨项 reveal：ghost 残影在左端 = 旧值，新值缓动盖上去）
       if (!isFlat && row.barShown != null && row.ghostShown != null) {
         drawBar(ctx, planBar({
           kind: 'stat',
-          x: L.bar.x, y: rowY - L.bar.h / 2, w: L.bar.w, h: L.bar.h,
-          ratio: barRatio(row.barShown, L.valueMax),
-          ghostRatio: barRatio(row.ghostShown, L.valueMax),
+          x: P.barX, y: rowY - barH / 2, w: barW, h: barH,
+          ratio: barRatio(row.barShown, this.layout.valueMax),
+          ghostRatio: barRatio(row.ghostShown, this.layout.valueMax),
         }));
-      } else if (!isFlat && row.barShown == null) {
+      } else if (!isFlat) {
         // 纯数字模式（statsBefore 缺失）：画一条静止细线占位
-        ctx.strokeStyle = PALETTE.ghost;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(L.bar.x, rowY);
-        ctx.lineTo(L.bar.x + L.bar.w * 0.6, rowY);
-        ctx.stroke();
+        line(ctx, P.barX, rowY, P.barX + barW * 0.6, rowY, PALETTE.ghost, 2);
       }
 
-      // +1 / "——"
-      ctx.textAlign = 'left';
-      ctx.font = fontCss(21, 'bold');
-      ctx.fillStyle = isFlat ? PALETTE.ghost : PALETTE.gold;
-      ctx.fillText(row.deltaText || '', L.deltaTextX, rowY);
+      if (isFlat) {
+        // 未涨项：灰色"——"占位
+        ctx.textAlign = 'center';
+        ctx.font = fontCss(14, 'normal');
+        ctx.fillStyle = PALETTE.ghost;
+        ctx.fillText('——', P.deltaX + 20, rowY);
+      } else {
+        // +1 金徽章（小圆角框内金字，凸显成长）
+        pathRoundRect(ctx, P.deltaX, rowY - 11, 40, 22, 6);
+        ctx.fillStyle = 'rgba(251,191,36,0.14)';
+        ctx.fill();
+        ctx.strokeStyle = PALETTE.gold;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.textAlign = 'center';
+        ctx.font = fontCss(13, 'bold');
+        ctx.fillStyle = PALETTE.gold;
+        ctx.fillText('+1', P.deltaX + 20, rowY + 1);
+      }
+
+      // 右缘数值：revealing 实时滚动，revealed 定格"旧 → 新"
+      if (!isFlat && row.barShown != null) {
+        ctx.textAlign = 'right';
+        ctx.font = fontCss(15, 'bold');
+        ctx.fillStyle = PALETTE.title;
+        const txt = row.state === 'revealed'
+          ? `${Math.round(row.ghostShown)} → ${Math.round(row.barShown)}`
+          : `${Math.round(row.barShown)}`;
+        ctx.fillText(txt, P.valueRightX, rowY);
+      }
     }
+    ctx.restore();
   }
 
   /* ---------- 内部：虚拟时钟（与 combat_exchange 同款机制） ---------- */

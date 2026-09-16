@@ -3,7 +3,7 @@
  *
  * 一局游戏（gameState）= 纯可 JSON 序列化的普通对象，是存档的唯一载体：
  * {
- *   schema: 2,
+ *   schema: 3,
  *   route: 'male' | 'female',        // 线路：男主线(张子骁) / 女主线(石予诺)
  *   leadUnitId: 'zhangzixiao',       // 线路主角（对应 main.js selectedRoute）
  *   sceneId: 'scene_classroom',      // 当前剧情节点（读档恢复点）
@@ -11,6 +11,7 @@
  *   flags: {},                       // 剧情旗标（自由键值，供剧本分支判定）
  *   clearedChapters: [],             // 已通关章节 id 列表
  *   roster: { [unitId]: {...} },     // 队伍全员档案（成长状态全持久化）
+ *   stash: { items: [] },            // 全队共享仓库（schema 3 起；跨战斗保持）
  *   playtimeSec: 0,                  // 累计游玩秒数
  *   savedAt: 0                       // 写档时间戳（save_manager 负责）
  * }
@@ -24,8 +25,9 @@
  */
 
 import { createPlayerUnit } from './growth.js';
+import { createStash } from './stash.js';
 
-export const STATE_SCHEMA = 2;
+export const STATE_SCHEMA = 3;
 
 const deepCopy = (x) => (x == null ? x : JSON.parse(JSON.stringify(x)));
 
@@ -78,6 +80,7 @@ export function createNewGame({ route = 'male', partyUnitIds = null } = {}) {
     flags: {},
     clearedChapters: [],
     roster,
+    stash: createStash(),
     playtimeSec: 0,
     savedAt: 0
   };
@@ -132,10 +135,10 @@ export function markChapterCleared(state, chapterId) {
   return true;
 }
 
-/** 推进存档锚点：传哪个更新哪个（sceneId=剧情节点 / chapterId=战斗） */
-export function advanceTo(state, { sceneId = null, chapterId = null } = {}) {
-  if (sceneId !== null) state.sceneId = sceneId;
-  if (chapterId !== null) state.chapterId = chapterId;
+/** 推进存档锚点：传哪个更新哪个（sceneId=剧情节点 / chapterId=战斗，显式传 null 可清空对应锚点） */
+export function advanceTo(state, { sceneId, chapterId } = {}) {
+  if (sceneId !== undefined) state.sceneId = sceneId;
+  if (chapterId !== undefined) state.chapterId = chapterId;
   return state;
 }
 

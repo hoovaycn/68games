@@ -36,6 +36,48 @@
 | suspicious_snack.png/@2x | 可疑零食（关键道具，不可用） |
 | newbie_pencil.png/@2x | 新手铅笔（初始武器，额外补） |
 
+### assets/items/　新增道具/武器图标（批量出图需求，16×16 + @2x 32，同上规格）
+> 本次数据层新增 21 件（12 武器 + 9 消耗品），请出图 agent 一次性批量生成。
+> 统一要求：单一主体居中、轮廓清晰、GBA 像素风、#FF00FF 纯色底；文件名即数据 id（研发按 id 直接引用）。
+
+| 文件 | 名称（数据 id） | 视觉要点 |
+| --- | --- | --- |
+| recorder.png/@2x | 竖笛（recorder） | 米色塑料竖笛斜放，一排音孔，管身反光 |
+| harmonica.png/@2x | 口琴（harmonica） | 银色金属小口琴横向，中央一排吹孔 |
+| color_chalk.png/@2x | 彩色粉笔（color_chalk） | 粉/蓝/黄/绿四色粉笔斜并排，短圆柱 |
+| chalk_dust.png/@2x | 粉笔灰（chalk_dust） | 一小团白色粉笔灰雾，底部散落细粉 |
+| blackboard_eraser.png/@2x | 黑板擦（blackboard_eraser） | 棕色木柄黑板擦，灰白毛毡面沾粉笔灰 |
+| chalk_box.png/@2x | 粉笔盒（chalk_box） | 浅绿铁皮粉笔盒，盒身印乘法口诀字样 |
+| pompom_deluxe.png/@2x | 应援花球（pompom_deluxe） | 红金双色花球，长须散开，亮片反光 |
+| cheer_stick.png/@2x | 啦啦棒（cheer_stick） | 两根红金充气棒交叉，鼓鼓的塑料质感 |
+| eraser.png/@2x | 橡皮擦（eraser） | 白色半透明橡皮，一角磨圆，带纸屑 |
+| correction_tape.png/@2x | 修正带（correction_tape） | 蓝白壳修正带，拉出一截白色胶带 |
+| mop.png/@2x | 拖把（mop） | 木杆拖把，深色湿拖把头，滴水 |
+| broom.png/@2x | 扫帚（broom） | 高粱扫帚，棕黄帚头，倒置立起 |
+| sudoku.png/@2x | 数独九宫格（sudoku） | 翻开的题册，九宫格数字与铅笔痕迹 |
+| jump_rope.png/@2x | 跳皮筋（jump_rope） | 红色弹力皮筋，松松绕成一圈 |
+| eye_patch.png/@2x | 蒸汽眼罩（eye_patch） | 白色蒸汽眼罩，边缘蓬松，热气微散 |
+| candied_haw.png/@2x | 冰糖葫芦（candied_haw） | 三颗红山楂串，晶亮糖壳反光 |
+| honey_tea.png/@2x | 蜂蜜柚子茶（honey_tea） | 玻璃杯盛金黄柚子茶，杯壁水珠 |
+| moms_lunchbox.png/@2x | 妈妈做的便当（moms_lunchbox） | 打开的双层保温饭盒，饭菜热气腾腾 |
+| scream_chicken.png/@2x | 尖叫鸡（scream_chicken） | 黄色橡胶鸡，圆滚滚，捏扁的嘴 |
+| cooling_oil.png/@2x | 清凉油（cooling_oil） | 小圆铁盒清凉油，绿色膏体露出 |
+| earplug.png/@2x | 隔音耳塞（earplug） | 橙色泡沫耳塞两枚，捏成锥形 |
+
+### assets/ui/　战斗 UI 装饰图标（#FF00FF 纯色底，同全局色键规则；每张配 @2x）
+
+新增目录（战斗 UI 美术轮需求）。两套图标当前均为代码程序绘制，出图后研发替换为贴图、失败自动回落程序绘制。
+
+| 文件 | 尺寸（基础/@2x） | 用途（接入点） | 规格 |
+| --- | --- | --- | --- |
+| ui_vs_badge.png/@2x | 64×64 / 128×128 | 交战弹层中轴 VS 徽章（`combat_exchange.js` _renderVs，渲染位 r=24 圆 + r=30 外环光晕） | 正圆徽章居中主体直径 48，四周留 8px 光晕余量；羊皮纸底圆牌 #FFFDF9 + 金描边 #FACC15，中央「VS」艺术字（粗衬线/金属质感，可掺深红棕 #7C2D12）；外圈一圈淡金光环。无方向性（中轴对称锚点，不可歪） |
+| ui_rank_ss.png/@2x | 96×96 / 192×192 | 胜利结算评级印章 SS（turns ≤ 2） | 圆形印章/蜡封质感，主体直径 68 居中；印泥红 #DC2626 双圈描边，中央「SS」大字；**SS 顶格**：鎏金渐变字 + 金色星光点缀，与 S 拉开档次 |
+| ui_rank_s.png/@2x | 96×96 / 192×192 | 胜利结算评级印章 S（turns ≤ 4） | 同上壳形；「S」大字朱红实心，外圈加一道金色环（红金双圈） |
+| ui_rank_a.png/@2x | 96×96 / 192×192 | 胜利结算评级印章 A（其余） | 同上壳形；「A」大字素红单圈，最朴素一档 |
+
+> 印章统一要求：粗衬线字居中；「EVALUATION」小字与评级规则（SS/S/A 判定）由代码叠画，**出图不含小字**；三档壳形同构、仅质感与配饰递进，摆在一起要有明确强度阶梯。
+> 色键安全：#DC2626 印泥红与键色 #FF00FF 距离充足，色键容差 20 内无互吃风险。
+
 ### assets/backgrounds/　剧情场景背景（16:9，不透明整幅，无需抠图；480×270 基础档 + @2x 960×540）
 | 文件 | 场景 | 剧本用途 / 配套 BGM |
 | --- | --- | --- |
@@ -92,7 +134,7 @@ sfx_phone_msg / sfx_shock_sting
 授权明细统一登记在 `data/credits.js`，游戏鸣谢页直接读取；CC-BY 两首必须在鸣谢中署名。
 
 ### 目录规则（唯一来源，避免研发混淆）
-* **`assets/` 是唯一交付目录**：portraits/art/items 里的图片全部统一为 **#FF00FF 纯色底**，文件名与尺寸不变，研发直接按 ID 引用；后期统一色键 #FF00FF 即得透明底（角色配色中无此色，容差 20 内即可抠净）
+* **`assets/` 是唯一交付目录**：portraits/art/items/ui 里的图片全部统一为 **#FF00FF 纯色底**，文件名与尺寸不变，研发直接按 ID 引用；后期统一色键 #FF00FF 即得透明底（角色配色中无此色，容差 20 内即可抠净）
 * **`backup/transparent_v1/`**：早期色键透明底版本，仅留档备份，研发不要引用
 * 不再保留任何并行图片目录；全部纯色底均从 1024 母版直接生成（头像边缘泛洪、立绘/道具按主体包围盒贴洋红画布），脚本 `work_ref/make_solid.py` 可复跑
 

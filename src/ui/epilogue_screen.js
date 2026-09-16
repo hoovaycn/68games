@@ -128,17 +128,21 @@ export class EpilogueScreen {
       ctx.fillText(ev.name, ex + 27, ey + 11);
     });
 
-    // 总结文案
+    // 总结文案与交流群
     ctx.fillStyle = '#44403c';
     ctx.font = '12px sans-serif';
     const summaryText = isMale
       ? '书桌上的三无荧光零食只是冰山一角，操纵小默做题的神秘意志仍在蔓延。'
       : '背词便利贴下隐藏着不可名状的催促声，妍熹的哭喊揭示了更深的阴谋。';
-    ctx.fillText(`• 案件侦查进展：${summaryText}`, cardX + 20, cardY + 186);
+    ctx.fillText(`• 案件侦查进展：${summaryText}`, cardX + 20, cardY + 184);
+
+    ctx.fillStyle = '#1e3a8a';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.fillText('• 官方 QQ 交流群：875723019（欢迎入群交流反馈、捉虫催更！）', cardX + 20, cardY + 206);
 
     ctx.fillStyle = '#78716c';
     ctx.font = 'italic 12px sans-serif';
-    ctx.fillText('下回预告：第一章《晚自习的第 25 个座位》敬请期待！', cardX + 20, cardY + 216);
+    ctx.fillText('下回预告：第一章《晚自习的第 25 个座位》敬请期待！', cardX + 20, cardY + 228);
     ctx.restore();
 
     // 5. 底部大按钮 (重新开始 · 体验另一角色视角)

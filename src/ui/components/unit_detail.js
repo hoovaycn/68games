@@ -158,22 +158,24 @@ export function planDetailBio(snapshot, measure, maxWidth, maxLines = 5) {
  *   → 「关闭」按钮贴底（planButtonRow 默认贴底）。
  */
 export function planUnitDetailLayout(box) {
+  const padLeft = box.x + 52;
+  const padRight = box.x + box.w - 52;
   return {
-    avatar: { cx: box.x + 84, cy: box.y + 135, r: 46 },
-    nameX: box.x + 146, nameY: box.y + 90,        // 姓名（23b，themeColor 优先）
-    titleY: box.y + 120,                          // 称号（15 title 色）
-    infoLine1Y: box.y + 150,                       // 「学酥 · Lv.1 · 移动力 5」
-    infoLine2Y: box.y + 180,                       // 「装备：新手铅笔 · 威力 6」
-    bars: { x: box.x + 490, w: 172, h: 15, firstY: box.y + 72, step: 36 }, // HP/MP/EXP
-    dividerH: { y: box.y + 196, x0: box.x + 40, x1: box.x + 720 }, // 身份区/主区分隔
-    dividerV: { x: box.x + 430, y0: box.y + 206, y1: box.y + 416 }, // 左栏/九维列分隔
-    classLineY: box.y + 210,                       // 「职业 · 学酥」（=九维首行中心）
-    skillLineY: box.y + 240,                       // 「个人技 · 弃兵争先」
-    bioTitleY: box.y + 272,                        // 「简介」
-    bio: { x: box.x + 40, y: box.y + 298, w: 344, lineH: 21, maxLines: 5 },
-    statRows: { labelRightX: box.x + 534, y: box.y + 198, rowH: 24, count: DETAIL_STAT_ROWS.length },
-    statBar: { x: box.x + 544, w: 118, h: 11 },    // 右缘 662 与资源条右缘对齐
-    statValueRight: box.x + 720,                   // 数值右对齐锚点（与盒右距 40 对称）
+    avatar: { cx: padLeft + 42, cy: box.y + 120, r: 42 },
+    nameX: padLeft + 104, nameY: box.y + 84,        // 姓名（20b，themeColor 优先）
+    titleY: box.y + 108,                           // 称号（13 title 色）
+    infoLine1Y: box.y + 132,                       // 「学酥 · Lv.1 · 移动力 5」
+    infoLine2Y: box.y + 156,                       // 「装备：新手铅笔 · 威力 6」
+    bars: { x: box.x + 494, w: 160, h: 11, firstY: box.y + 80, step: 28 }, // HP/MP/EXP
+    dividerH: { y: box.y + 180, x0: padLeft, x1: padRight }, // 身份区/主区分隔
+    dividerV: { x: box.x + 418, y0: box.y + 192, y1: box.y + 390 }, // 左栏/九维列分隔
+    classLineY: box.y + 204,                       // 「职业 · 学酥」（=九维首行中心：194 + 10 = 204）
+    skillLineY: box.y + 232,                       // 「个人技 · 弃兵争先」
+    bioTitleY: box.y + 262,                        // 「简介」
+    bio: { x: padLeft, y: box.y + 284, w: 330, lineH: 20, maxLines: 5 },
+    statRows: { labelRightX: box.x + 524, y: box.y + 194, rowH: 20, count: DETAIL_STAT_ROWS.length },
+    statBar: { x: box.x + 534, w: 120, h: 8 },      // 右缘 654 与资源条右缘对齐
+    statValueRight: padRight,                      // 数值右对齐锚点
     valueMax: GROWTH_BAR_MAX,                      // 与 level_up 九维条同基准
   };
 }
@@ -252,15 +254,15 @@ export class UnitDetailModal extends ModalBase {
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
 
-    ctx.font = fontCss(23, 'bold');
+    ctx.font = fontCss(20, 'bold');
     ctx.fillStyle = (this.unit && this.unit.themeColor) || PALETTE.ink;
     ctx.fillText(s.name, L.nameX, L.nameY);
 
-    ctx.font = fontCss(15);
+    ctx.font = fontCss(13);
     ctx.fillStyle = PALETTE.title;
     ctx.fillText(s.title || '—', L.nameX, L.titleY);
 
-    ctx.font = fontCss(14);
+    ctx.font = fontCss(13);
     ctx.fillStyle = PALETTE.text;
     ctx.fillText(`${s.className} · Lv.${s.level} · 移动力 ${s.mov}`, L.nameX, L.infoLine1Y);
     ctx.fillText(`装备：${s.weaponLine}`, L.nameX, L.infoLine2Y);
@@ -294,7 +296,7 @@ export class UnitDetailModal extends ModalBase {
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
 
-    ctx.font = fontCss(16, 'bold');
+    ctx.font = fontCss(14, 'bold');
     ctx.fillStyle = PALETTE.ink;
     ctx.fillText(`职业 · ${s.className}`, X, L.classLineY);
     ctx.fillText(`个人技 · ${s.personalSkillName || '无'}`, X, L.skillLineY);
@@ -303,13 +305,13 @@ export class UnitDetailModal extends ModalBase {
     ctx.fillText('简介', X, L.bioTitleY);
 
     if (this.bioBlock.empty) {
-      ctx.font = fontCss(14);
+      ctx.font = fontCss(13);
       ctx.fillStyle = PALETTE.text;
       ctx.fillText('（暂无简介）', X, L.bio.y + L.bio.lineH / 2);
       return;
     }
     drawWrappedLines(ctx, this.bioBlock, X, L.bio.y, {
-      font: fontCss(14),
+      font: fontCss(13),
       color: PALETTE.text,
       align: 'left',
       lineHeight: L.bio.lineH,
@@ -328,7 +330,7 @@ export class UnitDetailModal extends ModalBase {
       const rowY = R.y + i * R.rowH + R.rowH / 2;
 
       ctx.textAlign = 'right';
-      ctx.font = fontCss(16);
+      ctx.font = fontCss(13);
       ctx.fillStyle = PALETTE.ink;
       ctx.fillText(row.label, R.labelRightX, rowY);
 
@@ -339,7 +341,7 @@ export class UnitDetailModal extends ModalBase {
       }));
 
       ctx.textAlign = 'right';
-      ctx.font = fontCss(15, 'bold');
+      ctx.font = fontCss(13, 'bold');
       ctx.fillStyle = PALETTE.ink;
       ctx.fillText(row.valueText, L.statValueRight, rowY);
     }

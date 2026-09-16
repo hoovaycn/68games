@@ -13,6 +13,8 @@
  *   §4 save_manager    localStorage 3+1 槽（注入内存存储 + 时钟可控）
  *   §5 avatar          头像统一解析（URL 约定 / 别名 / 兜底 / fs 守门）
  *   §6 ui_kit          视觉基座（调色盘锚定 / 条形计划 / 布局几何 / 折行 / ModalBase）
+ *   §7-§12             战斗演出 / 升级面板 / 仓库 / 档案 / 背包 / 行动菜单·教学 等渲染层
+ *   §13-§15 M1 持久化联调：存档往返字段保真 / 存档界面双模式 / 战败不回退（D1/D3）
  *
  * 断言套路：一律「动态镜像」而不是硬编码数值——镜像从 UNITS/CLASSES/ENEMIES
  * 等配置源现场计算期望值，配置改数值不需要改测试（chenpinxuan.level 断言
@@ -89,6 +91,8 @@ import {
   normalizeTutorialSteps, planTutorialButtons, TutorialPanelModal
 } from '../src/ui/components/tutorial_panel.js';
 import { CH0_BATTLE1 } from '../src/data/chapters/ch0_battle1.js';
+import { CH0_BATTLE2 } from '../src/data/chapters/ch0_battle2.js';
+import { SaveMenuModal } from '../src/ui/components/save_menu_modal.js';
 
 /* ══════════ 测试记录器 ══════════ */
 let passed = 0;
@@ -265,8 +269,11 @@ check('summarizeLoots 直接吃 settleLoot 结算单', summarizeLoots(sl) === sl
 /* ══════════ §3 game_state 进度模型 ══════════ */
 section('3 game_state 进度模型');
 const st = createNewGame({ route: 'female' });
-check('新档锚点：schema/线路/主角/场景/章节', st.schema === STATE_SCHEMA && STATE_SCHEMA === 2 && st.route === 'female'
+check('新档锚点：schema/线路/主角/场景/章节', st.schema === STATE_SCHEMA && STATE_SCHEMA === 3 && st.route === 'female'
   && st.leadUnitId === 'shiyunuo' && st.sceneId === 'scene_classroom' && st.chapterId === null && st.playtimeSec === 0);
+check('新档带全队仓库（stash 空仓数组；两局各自独立不共享）',
+  Array.isArray(st.stash.items) && st.stash.items.length === 0
+  && (() => { const st2 = createNewGame({ route: 'male' }); return st2.stash !== st.stash && st2.stash.items.length === 0; })());
 check('缺省队伍只含线路主角', Object.keys(st.roster).length === 1 && !!st.roster.shiyunuo && !st.roster.chenpinxuan);
 const blob = st.roster.shiyunuo;
 check('档案白名单：战场字段（x/y/facing/isAlive/anim*）被剥掉',
@@ -367,6 +374,23 @@ try {
     && imp.state.roster.chenpinxuan.equippedWeapon === st.roster.chenpinxuan.equippedWeapon);
   check('导入非法文本：乱码/空串/非存档形状 → {ok:false} 不抛',
     sm.importSaveText('garbage{{{').ok === false && sm.importSaveText('').ok === false && sm.importSaveText('{"schema":9}').ok === false);
+  // v2 旧档（无 stash）读入自动升级 schema 3 + 补空仓（T1 migrate 钩子锚点）
+  const legacyBlob = JSON.parse(JSON.stringify(st));
+  legacyBlob.schema = 2;
+  delete legacyBlob.stash;
+  const v3Res = sm.importSaveText(JSON.stringify(legacyBlob));
+  check('v2 旧档 migrate：升 schema 3 + 补空仓 + 数值随档保留（loadSlot 同一 migrate 管道）',
+    v3Res.ok === true && v3Res.state.schema === 3
+    && Array.isArray(v3Res.state.stash.items) && v3Res.state.stash.items.length === 0
+    && v3Res.state.roster.chenpinxuan.level === st.roster.chenpinxuan.level
+    && v3Res.state.sceneId === st.sceneId);
+  mem._m.set('fx_save_v2_slot_3', JSON.stringify(legacyBlob));
+  const viaLoad = sm.loadSlot(3);
+  check('loadSlot 也走 migrate：盘上 v2 档读出即 schema 3 带空仓',
+    !!viaLoad && viaLoad.schema === 3 && Array.isArray(viaLoad.stash.items) && viaLoad.stash.items.length === 0);
+  check('migrate 不改写盘上原档（仍是原字符串），下次读档幂等',
+    sm.loadSlot(3).schema === 3 && JSON.parse(mem._m.get('fx_save_v2_slot_3')).schema === 2);
+  mem._m.set('fx_save_v2_slot_3', '{"schema":9,"route":"female"}');
   check('导出空槽 → null', sm.exportSlot(3) === null);
   // 配额满：setItem 恒抛 QuotaExceededError
   const quota = {
@@ -947,16 +971,17 @@ let luClosed = 0;
 const lum = new LevelUpModal(fakeCanvas, {
   unit: su, fromLevel: 1, toLevel: 2, gainsByLevel: [luG1], statsBefore: suSnap,
 }, () => luClosed++);
-check('组件初建：盒 760×500、计划就位、虚拟时钟 0 起步、时间轴未完吞一切输入',
-  lum.box.w === 760 && lum.box.h === 500
+check('组件初建：全屏盒 1280×720（任务#10 全屏改版）、计划就位、虚拟时钟 0 起步、时间轴未完吞一切输入',
+  lum.box.w === 1280 && lum.box.h === 720
   && lum.plan.layers.length === 1 && lum._vm === 0 && lum._timelineEnded === false
   && lum.handleClick(1, 1) === true && lum.handleKeyDown({ key: 'Enter' }) === true);
-check('布局几何：九行区 + 条宽 + valueMax=GROWTH_BAR_MAX',
+check('布局几何：左侧数值面板卡 + 右侧 336 大立绘 + 中缝分隔线 + valueMax=GROWTH_BAR_MAX',
   (() => {
     const L = planLevelUpLayout(lum.box);
-    const GROWTH_ROW_COUNT = 9;
-    return L.rows.count === GROWTH_ROW_COUNT && L.rows.rowH === 26
-      && L.bar.w === 250 && L.valueMax === GROWTH_BAR_MAX;
+    return L.panel.w === 548 && L.panel.rowH === 30 && L.panel.barW === 236
+      && L.stage.size === 336 && L.stage.cx === lum.box.x + 778
+      && L.dividerX === lum.box.x + 597 && L.btn.w === 200
+      && L.valueMax === GROWTH_BAR_MAX;
   })());
 let luDone = 0;
 const pLuDone = lum.whenDone().then(() => luDone++);
@@ -1271,13 +1296,13 @@ check('planUnitDetailLayout：九行区/条宽/头像/简介区几何齐备 + �
     const L = planUnitDetailLayout({ x: 100, y: 50, w: 760, h: 500 });
     const statBottom = L.statRows.y + L.statRows.count * L.statRows.rowH;
     return L.valueMax === GROWTH_BAR_MAX && L.statRows.count === 9
-      && L.statBar.w === 118 && L.statBar.h === 11
-      && L.bars.w === 172 && L.bars.step === 36
-      && L.avatar.r === 46 && L.bio.w === 344 && L.bio.maxLines === 5
+      && L.statBar.w === 120 && L.statBar.h === 8
+      && L.bars.w === 160 && L.bars.step === 28
+      && L.avatar.r === 42 && L.bio.w === 330 && L.bio.maxLines === 5
       // 整齐化契约：资源条与九维条条身右缘一列、九维数值锚点收在盒右内
       && L.bars.x + L.bars.w === L.statBar.x + L.statBar.w
       && L.statValueRight > L.statBar.x + L.statBar.w && L.dividerH.x1 >= L.statValueRight
-      // 左栏首行（职业行）与九维首行中心同高；身份四行等距 30
+      // 左栏首行（职业行）与九维首行中心同高；身份四行等距 24
       && L.statRows.y + L.statRows.rowH / 2 === L.classLineY
       && L.titleY - L.nameY === L.infoLine1Y - L.titleY
       && L.infoLine1Y - L.titleY === L.infoLine2Y - L.infoLine1Y
@@ -1340,7 +1365,7 @@ const tradeEntries = summarizeItems(tradeUnit.inventory);
 check('INVENTORY_VIEWS 背包/仓库双视图 + INV_DEFAULT_KIND=首个分类 + 四签序（道具/武器/防具/重要）',
   INVENTORY_VIEWS.length === 2
   && INVENTORY_VIEWS[0].view === 'unit' && INVENTORY_VIEWS[1].view === 'stash'
-  && INV_DEFAULT_KIND === GOODS_KINDS[0].kind && INV_VISIBLE_ROWS === 7
+  && INV_DEFAULT_KIND === GOODS_KINDS[0].kind && INV_VISIBLE_ROWS === 5
   && GOODS_KINDS.map((k) => k.label).join(',') === '道具,武器,防具,重要'
   && GOODS_KINDS.length === 4);
 
@@ -1427,89 +1452,110 @@ check('planInvDesc：null 行 empty / 标题「烤肠 · 回复」/ 37 字 desc 
       && planInvDesc({ name: 'x', hint: '', desc: '' }, m, 680, 2).lines.length === 0;
   })());
 
-// 11.6 布局：760×500 盒内纵向预算不重叠（列表≤desc、desc≤按钮默认 y=盒底-76）
-check('planInventoryLayout：列表 7×24 + desc 2 行贴底不与按钮区（盒底-76）重叠、签区顺序正确',
+// 11.6 布局：760×500 盒内左右双列（背包/仓库）与描述区不重叠
+// 任务 3 重排后：avatar.r 28→24、双列新增 headerH 26、列宽 344 + 间距 16
+// 背包迭代后：可视行 7→5（压缩列表高度，杜绝 desc/帮助行/底部按钮层叠）
+check('planInventoryLayout：双列 listLeft/listRight 5×26(w344·headerH26) + desc 2 行不与底部重叠',
   (() => {
     const L = planInventoryLayout({ x: 10, y: 20, w: 760, h: 500 });
-    return L.list.maxRows === INV_VISIBLE_ROWS && L.list.rowH === 24
-      && L.list.y + L.list.maxRows * L.list.rowH <= L.desc.y
+    return L.listLeft.maxRows === INV_VISIBLE_ROWS
+      && L.listRight.maxRows === INV_VISIBLE_ROWS
+      && L.listLeft.w === 344 && L.listRight.w === 344
+      && L.listRight.x - (L.listLeft.x + L.listLeft.w) === 16
+      && L.kindTabs.y < L.listLeft.y
+      && L.listLeft.y - L.listLeft.headerH >= L.kindTabs.y + L.kindTabs.h
+      && L.listLeft.y + L.listLeft.maxRows * L.listLeft.rowH <= L.desc.y
       && L.desc.y + L.desc.maxLines * L.desc.lineH <= 20 + 500 - 76
-      && L.viewTabs.y < L.kindTabs.y && L.kindTabs.y + L.kindTabs.h < L.list.y
-      && L.avatar.r === 28 && L.desc.w === 680;
+      && L.avatar.r === 24 && L.desc.w === 680;
   })());
 
-// 11.7 组件构造：默认背包/道具分类/首行选中/双按钮/双视图计数
+// 11.7 组件构造：默认背包视图 / 道具分类 / 首行选中 / 底部大按钮仅关闭 / 双视图计数
 const ip = new InventoryPanelModal(fakeCanvas, { unit: tradeUnit, stash: tradeStash }, () => {});
-check('组件初建：默认 unit 视图 + consumable 分类 + 首行烤肠选中 + 动作组 [使用,存入仓库×1,关闭] 焦点停首键',
+check('组件初建：默认 unit 列 + consumable 分类 + 首行烤肠 + 底部大按钮仅关闭 + 双列行与计数准确',
   ip.box.w === 760 && ip.box.h === 500
   && ip.view === 'unit' && ip.kind === 'consumable' && ip.rowIndex === 0
-  && ip.rows.length === 2 && ip.row.itemId === 'sausage'
-  && ip.buttons.length === 3 && ip.buttons[0].id === 'use' && ip.buttons[0].label === '使用'
-  && ip.buttons[1].id === 'deposit' && ip.buttons[1].label === '存入仓库 ×1'
-  && ip.buttons[2].id === 'close' && ip.selectable === true && ip.focusIndex === 0
+  && ip.unitRows.length === 2 && ip.row.itemId === 'sausage'
+  && ip.buttons.length === 1 && ip.buttons[0].id === 'close'
   && ip.viewCounts.unit === 6 && ip.viewCounts.stash === 0
   && ip.kindTabs.map((t) => t.count).join(',') === '2,1,2,1');
 
-// 11.8 键盘导航：↓ 两行循环 / → 连切三档到重要（key_item 单行禁存）/ ← 回防具
-check('键盘导航：↓ 循环选行 → 连切至重要（dirty_sock 禁存行）← 回防具，切分类重置首行',
+// 11.8 键盘两区导航（背包迭代）：取代旧 1~4 数字切分类
+//   列表区：↓ 选行（末行不再循环）· 行0 ↑ 进页签区 · ←→ 背包↔仓库两列穿梭（不切分类）
+//   页签区：←→ 循环切四分类 · ↓ 返回列表区 · 数字键全部废弃
+check('键盘两区导航：↓ 末行不循环、行0 ↑ 进页签区、页签 ←→ 循环切分类、↓ 返回列表、列表 ←→ 背包↔仓库、数字键废弃',
   (() => {
     ip.handleKeyDown({ key: 'ArrowDown' });      // rowIndex 0→1（数学卷子）
     const downOk = ip.rowIndex === 1 && ip.row.itemId === 'math_exam' && ip.row.hint === '成长';
-    ip.handleKeyDown({ key: 'ArrowDown' });      // 循环回 0
-    const wrapOk = ip.rowIndex === 0 && ip.row.itemId === 'sausage';
-    ip.handleKeyDown({ key: 'ArrowRight' });     // consumable→weapon
-    ip.handleKeyDown({ key: 'ArrowRight' });     // weapon→armor
-    ip.handleKeyDown({ key: 'ArrowRight' });     // armor→key_item
-    const kindOk = ip.kind === 'key_item' && ip.rows.length === 1
-      && ip.rows[0].disabled === true && ip.rowIndex === 0;
-    ip.handleKeyDown({ key: 'ArrowLeft' });      // key_item→armor
-    return downOk && wrapOk && kindOk && ip.kind === 'armor' && ip.rowIndex === 0;
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 已在末行：不再循环
+    const noWrapOk = ip.rowIndex === 1;
+    ip.handleKeyDown({ key: 'ArrowUp' });        // 回行 0（烤肠）
+    const upOk = ip.rowIndex === 0 && ip.row.itemId === 'sausage';
+    ip.handleKeyDown({ key: 'ArrowUp' });        // 行 0 再 ↑：焦点进分类页签区
+    const enterTabsOk = ip.focusArea === 'tabs';
+    ip.handleKeyDown({ key: 'ArrowRight' });     // 页签区 →：道具→武器
+    ip.handleKeyDown({ key: 'ArrowRight' });     // →：武器→防具
+    const tabsCycleOk = ip.kind === 'armor' && ip.unitRows.length === 2;
+    ip.handleKeyDown({ key: '2' });              // 数字键已废弃：任何状态都不再切分类
+    const numberDeadOk = ip.kind === 'armor';
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 页签区 ↓：返回列表区
+    const backListOk = ip.focusArea === 'list';
+    ip.handleKeyDown({ key: 'ArrowRight' });     // 列表区 →：切到仓库列
+    const rightOk = ip.view === 'stash' && ip.row === null; // stash 无该分类道具
+    ip.handleKeyDown({ key: 'ArrowLeft' });      // 列表区 ←：切回背包列
+    const leftOk = ip.view === 'unit' && ip.rowIndex === 0
+      && ip.row.itemId === 'school_bag';         // 分类已随页签区切到 armor：恢复行 0
+    return downOk && noWrapOk && upOk && enterTabsOk && tabsCycleOk
+      && numberDeadOk && backListOk && rightOk && leftOk;
   })());
 
-// 11.9 动作组全链路：装备锁定→换装顶掉旧防具→Shift+→ 焦点导航到「存入」→ Enter 存仓 → Tab 仓库 Enter 取回
-check('动作组链路：Enter 装书包(行锁只剩关闭) ↓ 装红领巾(顶掉书包) ↑ 书包行复活[装备|存入|关闭] Shift+→ 聚焦存入 → Enter 存 ×1 → Tab 仓库 Enter 取回',
+// 11.9 动作菜单交互：Enter 呼出操作浮层 → 上下选动作 → Enter 装备/存仓/取出，带反馈
+check('动作菜单交互：Enter 呼出操作菜单 → 装备书包 → 再按 Enter 呼出菜单选「存入仓库」→ 切到仓库 Enter「移入背包」取回',
   (() => {
-    ip.handleKeyDown({ key: 'Enter' });          // 焦点=首键「装备」→ school_bag 上身
-    const lockA = JSON.stringify(tradeUnit.equippedArmors) === '["school_bag"]'
-      && ip.row.itemId === 'school_bag'
-      && ip.buttons.map((b) => b.id).join(',') === 'close';    // 装备中 → 动作组只剩关闭
-    ip.handleKeyDown({ key: 'ArrowDown' });      // 选 red_scarf
-    ip.handleKeyDown({ key: 'Enter' });          // 装红领巾 → 书包脱下（单槽顶替）
-    const lockB = JSON.stringify(tradeUnit.equippedArmors) === '["red_scarf"]'
-      && ip.row.itemId === 'red_scarf'
-      && ip.buttons.map((b) => b.id).join(',') === 'close';
-    ip.handleKeyDown({ key: 'ArrowUp' });        // 回书包行（已脱下 → 动作组复活）
-    const bagActs = ip.buttons.map((b) => b.id).join(',') === 'equip,deposit,close'
-      && ip.focusIndex === 0;
-    ip.handleKeyDown({ key: 'ArrowRight', shiftKey: true });  // Shift+→ 焦点 0→1：装备→存入
-    const focusMoved = ip.focusIndex === 1;
-    ip.handleKeyDown({ key: 'Enter' });          // 执行 deposit ×1
+    ip.handleKeyDown({ key: 'Enter' });          // 呼出菜单 (首项为「装备」)
+    const menuOpen1 = ip.activeMenu !== null && ip.activeMenu.actions[0].id === 'equip';
+    ip.handleKeyDown({ key: 'Enter' });          // 执行装备
+    const equipped = JSON.stringify(tradeUnit.equippedArmors) === '["school_bag"]';
+
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 选红领巾
+    ip.handleKeyDown({ key: 'Enter' });          // 呼出红领巾菜单
+    ip.handleKeyDown({ key: 'Enter' });          // 装备红领巾，顶替书包
+    const reEquipped = JSON.stringify(tradeUnit.equippedArmors) === '["red_scarf"]';
+
+    ip.handleKeyDown({ key: 'ArrowUp' });        // 回书包行
+    ip.handleKeyDown({ key: 'Enter' });          // 呼出书包菜单（有 装备、存入仓库、丢弃）
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 移动到「存入仓库」
+    const menuDeposit = ip.activeMenu.actions[ip.activeMenu.index].id === 'deposit';
+    ip.handleKeyDown({ key: 'Enter' });          // 执行存入
     const saved = countItem(tradeUnit.inventory, 'school_bag') === 0
-      && countItem(tradeStash.items, 'school_bag') === 1
-      && ip.viewCounts.unit === 5;
-    ip.handleKeyDown({ key: 'Tab' });            // → stash 视图
-    const viewOk = ip.view === 'stash' && ip.rows.length === 1
-      && ip.buttons[0].id === 'withdraw' && ip.buttons[0].label === '取出 ×1';
-    ip.handleKeyDown({ key: 'Enter' });          // 取回 school_bag
+      && countItem(tradeStash.items, 'school_bag') === 1;
+
+    ip.handleKeyDown({ key: 'ArrowRight' });     // 切换到 stash 列
+    const inStash = ip.view === 'stash' && ip.row.itemId === 'school_bag';
+    ip.handleKeyDown({ key: 'Enter' });          // 呼出仓库道具菜单（首项为「移入背包」）
+    ip.handleKeyDown({ key: 'Enter' });          // 执行取出
     const backOk = countItem(tradeUnit.inventory, 'school_bag') === 1
-      && countItem(tradeStash.items, 'school_bag') === 0 && ip.rows.length === 0;
-    return lockA && lockB && bagActs && focusMoved && saved && viewOk && backOk;
+      && countItem(tradeStash.items, 'school_bag') === 0;
+
+    return menuOpen1 && equipped && reEquipped && menuDeposit && saved && inStash && backOk;
   })());
 
-// 11.10 key_item 禁存入仓：选中禁存行 Enter 数据不动、面板不关
-check('key_item 禁存：切回背包+重要分类，Enter 后臭袜子仍在单位包、面板不关',
+// 11.10 key_item 禁存入仓与丢弃：选中重要物品呼出菜单无存入与丢弃
+check('key_item 禁存禁丢：重要分类下的 dirty_sock 菜单不含 deposit 与 drop 动作',
   (() => {
-    ip.handleKeyDown({ key: 'Tab' });            // stash → unit
-    ip.handleKeyDown({ key: 'ArrowRight' });     // armor → key_item
-    const guard = ip.view === 'unit' && ip.rows.length === 1 && ip.rows[0].itemId === 'dirty_sock';
-    ip.handleKeyDown({ key: 'Enter' });
-    return guard && countItem(tradeUnit.inventory, 'dirty_sock') === 1
-      && countItem(tradeStash.items, 'dirty_sock') === 0
-      && ip.buttons.length === 1 && ip.finished === false;   // 仅 close：Enter 吞掉不误关
+    ip.handleKeyDown({ key: 'ArrowLeft' });      // 回 unit 列（仍 armor 分类，行 0）
+    ip.handleKeyDown({ key: 'ArrowUp' });        // 行 0 ↑：进分类页签区
+    ip.handleKeyDown({ key: 'ArrowRight' });     // 页签区 →：防具→重要
+    ip.handleKeyDown({ key: 'ArrowDown' });      // 页签区 ↓：返回列表区
+    const guard = ip.view === 'unit' && ip.unitRows.length === 1 && ip.unitRows[0].itemId === 'dirty_sock';
+    ip.handleKeyDown({ key: 'Enter' });          // 呼出菜单
+    const acts = ip.activeMenu ? ip.activeMenu.actions.map((a) => a.id) : [];
+    const noDepositOrDrop = !acts.includes('deposit') && !acts.includes('drop');
+    ip.handleKeyDown({ key: 'Escape' });         // 关闭菜单
+    return guard && noDepositOrDrop && ip.activeMenu === null;
   })());
 
-// 11.11 空背包：零行 + Enter 不误关 + Escape 关闭回调一次
-check('空背包组件：行 0 + 连按 Enter 不误关（吞键不触发）+ Escape 关闭且回调恰好一次',
+// 11.11 空背包：零行 + Enter 不误呼出菜单 + Escape 关闭回调一次
+check('空背包组件：行 0 + Enter 不误开菜单 + Escape 关闭且回调恰好一次',
   (() => {
     const fresh = createPlayerUnit('shiyunuo');
     fresh.inventory = [];
@@ -1517,22 +1563,21 @@ check('空背包组件：行 0 + 连按 Enter 不误关（吞键不触发）+ Es
     const fm = new InventoryPanelModal(fakeCanvas, { unit: fresh, stash: createStash() }, () => n++);
     const shape = fm.rows.length === 0 && fm.row === null && fm.descBlock.empty === true;
     fm.handleKeyDown({ key: 'Enter' });
-    fm.handleKeyDown({ key: 'Enter' });
-    const stillOpen = fm.finished === false;
+    const noMenu = fm.activeMenu === null;
     fm.handleKeyDown({ key: 'Escape' });
-    return shape && stillOpen && fm.finished === true && n === 1;
+    return shape && noMenu && fm.finished === true && n === 1;
   })());
 
-// 11.12 极端 config null：「？？？］持有者 + 内部空仓库 + Tab 也能安全切 + 关闭回调一次
+// 11.12 极端 config null：「？？？］持有者 + 内部空仓库 + 方向键也能安全切 + 关闭回调一次
 check('null config：unit 空背包 / 内置空仓库可切视图浏览（counts 双 0）+ Escape 安全关闭',
   (() => {
     let n = 0;
     const nm = new InventoryPanelModal(fakeCanvas, null, () => n++);
     const shape = nm.rows.length === 0 && nm.viewCounts.unit === 0 && nm.viewCounts.stash === 0;
-    nm.handleKeyDown({ key: 'Tab' });
-    const tabSafe = nm.view === 'stash' && nm.rows.length === 0;
+    nm.handleKeyDown({ key: 'ArrowRight' });
+    const switchSafe = nm.view === 'stash' && nm.rows.length === 0;
     nm.handleKeyDown({ key: 'Escape' });
-    return shape && tabSafe && nm.finished === true && n === 1;
+    return shape && switchSafe && nm.finished === true && n === 1;
   })());
 
 /* ══════════ §12 action_menu 行动菜单 + tutorial_panel 教学面板 ══════════ */
@@ -1741,6 +1786,274 @@ check('12.15 ch0_battle1.tutorial：三步引导配置 · title/body/hint 全非
     const hintGiven = steps.filter(s => s.hint.length > 0).length >= 2;
     return cfgOk && steps.length === tut.steps.length && everyFilled && genderNeutral && hintGiven;
   })());
+
+/* ══════════ §13 持久化组：存档往返字段保真（M1/T7 · 文档 §9.1）══════════ */
+section('13 持久化：存档往返字段保真');
+const mem13 = makeMem();
+const sm13 = createSaveManager(mem13);
+const rt13 = createNewGame({ route: 'male' });
+// 模拟一段真实进度：入队 → 战场成长（升级/换武器/残血/捡道具）commit →
+// 锚点推进 → 旗标 + 通关登记 + 游玩时长 → 仓库存取，然后整档落盘再读回
+joinParty(rt13, 'qinruiyi');
+const u13 = getPartyUnit(rt13, 'zhangzixiao');
+applyLevelUp(u13, { hp: 1 });
+u13.equippedWeapon = 'basketball';
+u13.currentHp = 2;
+grantItems(u13.inventory, [{ itemId: 'sausage', count: 5, stack: 9 }]);
+commitRuntimeUnit(rt13, u13);
+deposit(rt13.roster.zhangzixiao, rt13.stash, 'sausage', 3);
+setFlag(rt13, 'met_chen', true);
+markChapterCleared(rt13, 'ch0_battle1');
+advanceTo(rt13, { sceneId: 'scene_after_vendor', chapterId: 'ch0_battle2' });
+tickPlaytime(rt13, 321.8);
+const snap13 = {};
+for (const id13 of Object.keys(rt13.roster)) snap13[id13] = serializeUnit(rt13.roster[id13]);
+
+const realNow13 = Date.now;
+let clock13 = 5000;
+Date.now = () => clock13;
+try {
+  const sv13 = sm13.saveToSlot(2, rt13);
+  check('13.1 落盘：ok + savedAt 走可控时钟 + meta 摘要（队伍2人/锚点/通关1章）',
+    sv13.ok === true && sv13.savedAt === 5000 && sv13.meta.partySize === 2
+    && sv13.meta.sceneId === 'scene_after_vendor' && sv13.meta.clearedCount === 1);
+  check('13.2 落盘不突变原 state（rt13.savedAt 仍 0）', rt13.savedAt === 0);
+
+  const ld13 = sm13.loadSlot(2);
+  check('13.3 读档还原档头：schema/线路/主角/场景/章节/时长/savedAt',
+    ld13.schema === 3 && ld13.route === 'male' && ld13.leadUnitId === 'zhangzixiao'
+    && ld13.sceneId === 'scene_after_vendor' && ld13.chapterId === 'ch0_battle2'
+    && ld13.playtimeSec === 321 && ld13.savedAt === 5000);
+  check('13.4 读档还原旗标与通关章（深比较无丢失）',
+    deepEq(ld13.flags, { met_chen: true }) && deepEq(ld13.clearedChapters, ['ch0_battle1']));
+  check('13.5 读档还原全队档案：白名单字段逐项镜像（升级+1/换武器/残血全带回）',
+    Object.keys(snap13).length === 2
+    && Object.keys(snap13).every((id) => deepEq(serializeUnit(ld13.roster[id]), snap13[id]))
+    && ld13.roster.zhangzixiao.level === UNITS.zhangzixiao.level + 1
+    && ld13.roster.zhangzixiao.equippedWeapon === 'basketball'
+    && ld13.roster.zhangzixiao.currentHp === 2);
+  check('13.6 读档还原背包与仓库：主角包 2 烤肠 + 全队仓 3 烤肠（deposit 的量）',
+    countItem(ld13.roster.zhangzixiao.inventory, 'sausage') === 2
+    && countItem(ld13.stash.items, 'sausage') === 3
+    && ld13.stash.items !== rt13.stash.items);
+  ld13.roster.zhangzixiao.level = 99;    // 故意改坏读出来的档
+  ld13.stash.items.length = 0;
+  check('13.7 读档返回独立副本：改坏不回写（再读完好）',
+    sm13.loadSlot(2).roster.zhangzixiao.level === UNITS.zhangzixiao.level + 1
+    && countItem(sm13.loadSlot(2).stash.items, 'sausage') === 3);
+  clock13 = 6000;
+  advanceTo(rt13, { sceneId: 'scene_corridor' });
+  sm13.saveToSlot(3, rt13);                          // 槽3 = 中途快照
+  clock13 = 7000;
+  advanceTo(rt13, { sceneId: 'scene_before_home' });
+  sm13.saveToSlot(2, rt13);                          // 槽2 覆盖 = 最新
+  const l2a13 = sm13.loadSlot(2), l3a13 = sm13.loadSlot(3);
+  check('13.8 同槽覆盖后写顶前写；跨槽互不串；mostRecent=最新槽2',
+    l2a13.sceneId === 'scene_before_home' && l2a13.savedAt === 7000
+    && l3a13.sceneId === 'scene_corridor' && l3a13.savedAt === 6000
+    && sm13.mostRecentSave().slot === 2);
+} finally {
+  Date.now = realNow13;
+}
+check('13.9 Date.now 已恢复原实现', Date.now === realNow13);
+
+/* ══════════ §14 存档界面组：SaveMenuModal 双模式（M1/T5+T7）══════════ */
+section('14 存档界面：SaveMenuModal 双模式');
+const mem14 = makeMem();
+const sm14 = createSaveManager(mem14);
+const saved14 = [], loaded14 = [];
+let holder14 = null;      // save 模式注入的「当前进度」
+let closed14 = 0;
+const smSave = new SaveMenuModal(fakeCanvas, {
+  mode: 'save', saveManager: sm14,
+  getState: () => holder14,
+  onSaved: (slot) => saved14.push(slot),
+  onClosed: () => {}
+});
+const smLoad = new SaveMenuModal(fakeCanvas, {
+  mode: 'load', saveManager: sm14,
+  onLoaded: (state, slot) => loaded14.push([state, slot]),
+  onClosed: () => { closed14++; }
+});
+
+// 14.1 双模式槽位形状
+check('14.1 双模式：save=[1,2,3] 不含 auto；load=[auto,1,2,3]；初始全空全反射',
+  deepEq(smSave.slotList, [1, 2, 3]) && smSave.slotList.includes('auto') === false
+  && deepEq(smLoad.slotList, ['auto', 1, 2, 3])
+  && smSave.slotInfos.length === 3 && smLoad.slotInfos.length === 4
+  && smSave.slotInfos.every((s) => s.exists === false) && smLoad.slotInfos.every((s) => s.exists === false));
+
+// 14.2 save 模式无进度：提示不落盘不回调
+smSave.activateRow(0);
+check('14.2 无进度拒绝存档：提示 + 不写槽1 + onSaved 零回调',
+  smSave.statusText === '当前没有可存档的进度' && sm14.loadSlot(1) === null && saved14.length === 0);
+
+// 14.3 save 模式正常存入槽2：写盘 + 行刷新 + onSaved 恰一次 + auto 不被手动写
+holder14 = createNewGame({ route: 'female' });
+tickPlaytime(holder14, 777);
+smSave.activateRow(1);
+check('14.3 存入槽2：提示【存档二】+ 槽位刷新带 meta + onSaved(2) 恰一次 + auto 槽未动',
+  smSave.statusText === '已存入【存档二】' && smSave.slotInfos[1].exists === true
+  && smSave.slotInfos[1].meta.leadName === UNITS.shiyunuo.name
+  && smSave.slotInfos[1].meta.playtimeSec === 777
+  && saved14.join(',') === '2' && sm14.loadSlot('auto') === null);
+smLoad.refreshSlots();   // 外部写入后 UI 需主动刷新快照（组件不监听存储层）
+
+// 14.4 load 模式空槽
+smLoad.activateRow(3);
+check('14.4 空槽读取拒绝：提示 + onLoaded 零回调',
+  smLoad.statusText === '该槽位没有存档' && loaded14.length === 0);
+
+// 14.5 load 模式正常读档：回调带深拷贝状态 + 槽号；one-shot 只消费一次
+smLoad.activateRow(2);   // 槽2
+const ld14 = loaded14[0] && loaded14[0][0];
+check('14.5 读档回调：onLoaded(状态, 槽=2) + 回调入参是深拷贝（改它不回写槽位）',
+  loaded14.length === 1 && loaded14[0][1] === 2
+  && ld14.route === 'female' && ld14.leadUnitId === 'shiyunuo' && ld14.playtimeSec === 777
+  && (() => { ld14.playtimeSec = 99999; ld14.roster.shiyunuo.level = 99;
+    return sm14.loadSlot(2).playtimeSec === 777 && sm14.loadSlot(2).roster.shiyunuo.level === UNITS.shiyunuo.level; })());
+smLoad.activateRow(2);
+check('14.5b onLoaded one-shot：二次读取不再回调（防 main.js 双触发 resume）', loaded14.length === 1);
+
+// 14.6 load 模式损坏档：先造有效档让快照 exists=true，再把存储层写坏 → 点击时解析失败走降级分支
+sm14.saveToSlot(1, holder14);
+smLoad.refreshSlots();
+mem14._m.set('fx_save_v2_slot_1', '{corrupt-json');
+silenced(() => smLoad.activateRow(1));   // 槽1：快照说有档 → loadSlot JSON 解析失败
+check('14.6 损坏存档：『读取失败』提示 + 仍零回调',
+  smLoad.statusText === '读取失败：存档数据损坏' && loaded14.length === 1);
+sm14.deleteSlot(1);   // 清掉坏档，后续 refreshSlots/listSlots 不再触发解析报错
+
+// 14.7 删除（Node 无 window.confirm 守门 → 直接真删；浏览器里才有二次确认）
+smLoad.deleteRow(3);
+check('14.7a 空槽删除：仅提示不动作', smLoad.statusText === '该槽位没有存档' && smLoad.slotInfos[2].exists === true);
+smLoad.deleteRow(2);
+check('14.7b 删档：槽2 清空 + 行刷新 + 不抛',
+  smLoad.slotInfos[2].exists === false && smLoad.statusText === '已删除【存档二】' && sm14.loadSlot(2) === null);
+
+// 14.8 键盘导航 + 未识别键 + Esc one-shot
+smLoad.focusIndex = 0;
+const kd14 = smLoad.handleKeyDown({ key: 'ArrowUp' });
+smLoad.handleKeyDown({ key: 'ArrowDown' });
+smLoad.handleKeyDown({ key: 'w' });
+check('14.8a ↑/↓/W 循环导航（0 →↑ 3 →↓ 0 →w 3）+ 返回 true 消费按键',
+  kd14 === true && smLoad.focusIndex === 3);
+check('14.8b 未识别键返回 false（透传给外层输入链）', smLoad.handleKeyDown({ key: 'x' }) === false);
+smLoad.handleKeyDown({ key: 'Escape' });
+const escOnce14 = closed14 === 1;
+smLoad.close();
+check('14.8c Esc 触发 onClosed 恰一次（重复 close 零回调，回调置 null）',
+  escOnce14 && closed14 === 1 && smLoad.onClosed === null);
+
+// 14.9 鼠标联动（rowRects/buttonRects 由 render() 每帧写入，此处镜像命中区）
+smLoad.onClosed = () => { closed14++; };     // 重新武装（one-shot 语义上面已验证）
+smLoad.rowRects = [0, 1, 2, 3].map((i) => ({ x: 300, y: 100 + i * 74, w: 640, h: 64 }));
+smLoad.buttonRects = { close: { x: 900, y: 500, w: 108, h: 36 } };
+smLoad.focusIndex = 0;
+smLoad.handleMouseMove(400, 100 + 2 * 74 + 30);
+const hover14 = smLoad.focusIndex === 2;
+smLoad.statusText = '';
+const blank14 = smLoad.handleClick(10, 10) === true && smLoad.focusIndex === 2 && smLoad.statusText === '';
+smLoad.handleClick(950, 518);                // 关闭按钮
+smLoad.close();
+check('14.9a 鼠标：行 hover 联动换焦点 · 空白点击吞事件不穿透 · 关闭按钮触发 close（仍 one-shot）',
+  hover14 && blank14 && closed14 === 2);
+smLoad.focusIndex = 3;
+const rowClick14 = smLoad.handleClick(400, 130) === true
+  && smLoad.focusIndex === 0 && smLoad.statusText === '该槽位没有存档';
+check('14.9b 鼠标：点击行先聚焦再执行主操作（空槽提示；onLoaded 已消费不再回调）', rowClick14);
+
+// 14.10 导入/导出边界：auto 槽拒手动导入 · Node 静默 · 外部写入反射
+smLoad.focusIndex = 0;
+smLoad.importToRow(0);
+const autoImport14 = smLoad.statusText === '自动存档槽由系统写入，请选择手动槽导入';
+let importNoThrow14 = true;
+try { smLoad.importToRow(2); } catch (e) { importNoThrow14 = false; }   // Node 无 window.prompt → 静默
+sm14.autosave(holder14);                       // 模拟外部（A1 胜利）写入 auto 槽
+smLoad.refreshSlots();
+let exportNoThrow14 = true;
+try { smLoad.exportRow(0); } catch (e) { exportNoThrow14 = false; }    // 有档导出：浏览器走下载，Node 降级不抛
+check('14.10 导入导出边界：auto 槽拒手动导入 · 手动槽导入 Node 静默不炸 · 有档导出非浏览器降级不抛',
+  autoImport14 && importNoThrow14 && exportNoThrow14);
+check('14.10b 外部写入反射：refreshSlots 后 auto 槽 exists + meta 与 saveManager 同源',
+  smLoad.slotInfos[0].exists === true && smLoad.slotInfos[0].meta.leadName === UNITS.shiyunuo.name);
+
+// 14.11 anchorText：注入优先，默认兜底（章节/场景/新档）
+check('14.11 anchorText 兜底：战斗·id / 剧情·id / 空 meta → 空',
+  smLoad.anchorText({ chapterId: 'ch0_battle1' }) === '战斗 · ch0_battle1'
+  && smLoad.anchorText({ sceneId: 'scene_corridor' }) === '剧情 · scene_corridor'
+  && smLoad.anchorText(null) === '');
+smSave.describeAnchor = (meta) => '锚点：' + (meta.sceneId || meta.chapterId || '?');
+check('14.11b 注入 describeAnchor 优先（main.js 用章节名定制行内文案）',
+  smSave.anchorText({ sceneId: 's1' }) === '锚点：s1' && smSave.anchorText({}) === '锚点：?');
+
+/* ══════════ §15 战败不回退组：D1 零提交锚点语义（M1/T6）══════════ */
+section('15 战败不回退：零提交 + 锚点重建');
+const g15 = createNewGame({ route: 'male' });
+const born15 = JSON.stringify(getPartyUnit(g15, 'zhangzixiao'));
+const mirror15 = g15.roster.zhangzixiao;
+const lv15 = mirror15.level, w15x = mirror15.equippedWeapon, hp15 = mirror15.currentHp;
+const inv15 = JSON.stringify(mirror15.inventory);
+
+// 战场副本干一票大的：升级 + 换武器 + 残血 + 移动 + 倒地 + 战场上捡道具
+const f15 = getPartyUnit(g15, 'zhangzixiao');
+applyLevelUp(f15, { hp: 1 });
+f15.equippedWeapon = 'basketball';
+f15.currentHp = 1; f15.x = 42; f15.isAlive = false;
+grantItems(f15.inventory, [{ itemId: 'sausage', count: 2, stack: 9 }]);
+
+// D1：战败/中途退出 = 什么都不 commit —— roster 从未被战场污染
+check('15.1 战败零提交：等级/武器/血量/背包全部原样（战场暴走不渗档）',
+  mirror15.level === lv15 && mirror15.level === UNITS.zhangzixiao.level
+  && mirror15.equippedWeapon === w15x && mirror15.currentHp === hp15
+  && JSON.stringify(mirror15.inventory) === inv15);
+check('15.2 锚点重开（=main.js resumeFromGameState）：getPartyUnit 拿回出厂单位（含战位复位）',
+  (() => { const a15 = getPartyUnit(g15, 'zhangzixiao');
+    return JSON.stringify(a15) === born15 && a15.x === 0 && a15.isAlive === true; })());
+
+// 对照组：胜利路径 commitRuntimeUnit 才落档，战场字段剥除、重复提交幂等
+const c15 = commitRuntimeUnit(g15, f15);
+const c15b = commitRuntimeUnit(g15, f15);
+check('15.3 胜利写回：升级+1/换武器/残血/捡的道具入包 + 战场字段剥离 + 重复提交幂等',
+  c15.level === lv15 + 1 && c15.equippedWeapon === 'basketball' && c15.currentHp === 1
+  && countItem(c15.inventory, 'sausage') === 2
+  && ['x', 'isAlive'].every((k) => c15[k] === undefined)
+  && deepEq(c15b, c15));
+
+// D3：战场仓库与档案仓库引用共享（main.js 集成方式：bs.stash = gameState.stash）
+const g15b = createNewGame({ route: 'female' });
+const bs15 = { stash: g15b.stash };
+const carrier15 = getPartyUnit(g15b, 'shiyunuo');
+grantItems(carrier15.inventory, [{ itemId: 'sausage', count: 5, stack: 9 }]);
+deposit(carrier15, bs15.stash, 'sausage', 3);
+check('15.4 仓库引用共享：战斗里存仓实时反映到 gameState.stash（半场仓不丢）',
+  countItem(g15b.stash.items, 'sausage') === 3 && countItem(carrier15.inventory, 'sausage') === 2);
+
+// 端到端：锚点重建与 main.js 的 CHAPTERS 查表同构（敌部署/胜利条件/接续剧情）
+const CHAPTERS_15 = { ch0_battle1: CH0_BATTLE1, ch0_battle2: CH0_BATTLE2 };
+advanceTo(g15b, { chapterId: 'ch0_battle1' });
+const ch15 = CHAPTERS_15[g15b.chapterId];
+check('15.5 锚点重建端到端：chapterId 查得到章节配置（敌部署/胜利条件/接续剧情），回本章开头重打成立',
+  !!ch15 && ch15.id === 'ch0_battle1' && Array.isArray(ch15.enemyDeploy) && ch15.enemyDeploy.length >= 1
+  && !!ch15.objective && ch15.nextStorySceneOnWin === 'scene_after_vendor');
+
+// A3×D1 对偶：开战存过档 → 战败零落盘 → auto 槽仍逐字节是开战锚点
+const mem15 = makeMem();
+const sm15 = createSaveManager(mem15);
+sm15.autosave(g15b);                       // A3：开战锚点
+const snap15 = JSON.stringify(sm15.loadSlot('auto'));
+const w15b = getPartyUnit(g15b, 'shiyunuo');
+applyLevelUp(w15b, { hp: 1 }); w15b.currentHp = 1;   // 战场里升级残血
+// ……战败：main.js 直接 resumeFromGameState —— 零 commit 零新增落盘……
+check('15.6 战败不落盘：auto 槽仍是 A3 开战锚点（等级为工厂出厂值），读档 = 回本章开头',
+  JSON.stringify(sm15.loadSlot('auto')) === snap15
+  && sm15.loadSlot('auto').roster.shiyunuo.level === UNITS.shiyunuo.level);
+// 对照：胜利路径 commit + autosave（A1）才把等级写进存档
+commitRuntimeUnit(g15b, w15b);
+sm15.autosave(g15b);
+check('15.7 胜利对照：commit 后 autosave 等级落盘（A1），与 15.6 形成镜像',
+  sm15.loadSlot('auto').roster.shiyunuo.level === UNITS.shiyunuo.level + 1
+  && JSON.stringify(sm15.loadSlot('auto')) !== snap15);
 
 /* ══════════ 汇总 ══════════ */
 console.log('\n══════════════════════════════════');

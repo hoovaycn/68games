@@ -47,8 +47,6 @@ export class Renderer {
     const h = heightTiles || 9;
     this.mapWidthTiles = w;
     this.mapHeightTiles = h;
-    this.mapWidthPx = w * this.tileSize;
-    this.mapHeightPx = h * this.tileSize;
 
     // canvas 尺寸由 main.js 在 enterBattleMap 中统一设为 960×540
     // ★ 全出血一体化面板：面板铺满整个画布，无外部边距、无黑底外露
@@ -58,14 +56,25 @@ export class Renderer {
     this.panelW = this.canvas.width;
     this.panelH = this.canvas.height;
 
-    // 地图区：左内边距 28px，垂直方向在面板内居中
-    this.offsetX = this.panelX + 28;
-    this.offsetY = this.panelY + Math.max(16, Math.floor((this.panelH - this.mapHeightPx) / 2));
+    // 中缝分隔线与右侧信息栏内容区（右侧面板适当收窄至 214px，让出视觉重心给战场）
+    this.hudW = 214;
+    this.hudX = this.panelX + this.panelW - 24 - this.hudW;
+    this.hudDividerX = this.hudX - 18;
 
-    // 中缝分隔线与右侧信息栏内容区
-    this.hudDividerX = this.offsetX + this.mapWidthPx + 30;
-    this.hudX = this.hudDividerX + 20;
-    this.hudW = this.panelX + this.panelW - 28 - this.hudX;
+    // ★ 左侧战场区自适应缩放：在「面板左缘 ~ 中缝分隔线」区域内尽量铺满并居中
+    //   基准 48px/格，按可用空间等比放大（封顶 64）或缩小（下限 36）
+    const BASE_TILE = 48;
+    const mapPad = 8;
+    const availW = Math.max(120, this.hudDividerX - this.panelX - mapPad * 2);
+    const availH = Math.max(120, this.panelH - mapPad * 2);
+    const scale = Math.min(availW / (w * BASE_TILE), availH / (h * BASE_TILE));
+    this.tileSize = Math.max(36, Math.min(64, Math.floor(BASE_TILE * scale)));
+    this.mapWidthPx = w * this.tileSize;
+    this.mapHeightPx = h * this.tileSize;
+
+    // 战场区水平 + 垂直双向居中（少量边距呼吸感）
+    this.offsetX = this.panelX + mapPad + Math.floor((availW - this.mapWidthPx) / 2);
+    this.offsetY = this.panelY + mapPad + Math.floor((availH - this.mapHeightPx) / 2);
 
     this.ctx.imageSmoothingEnabled = false;
   }
@@ -134,127 +143,137 @@ export class Renderer {
   drawMapFrame(state) {
     const ctx = this.ctx;
 
-    // ★ 全出血一体化底板：铺满画布，无卡片感、无黑底
-    ctx.fillStyle = '#f5eedf';
+    // ★ 全出血一体化深色战棋底板（深灰碳素色调，具有专业战棋游戏质感，避免像软件UI）
+    ctx.fillStyle = '#141416';
     ctx.fillRect(this.panelX, this.panelY, this.panelW, this.panelH);
 
-    // (地图边框在 drawMap 之后由 drawMapBorder 绘制，避免被地砖覆盖)
+    // 右侧 HUD 信息栏半透明暗色背板
+    ctx.fillStyle = 'rgba(28, 28, 32, 0.75)';
+    ctx.beginPath();
+    ctx.roundRect(this.hudX - 10, this.panelY + 12, this.hudW + 20, this.panelH - 24, 8);
+    ctx.fill();
 
     // ★ 阶段卡片 (信息栏顶部，章节名下方)
     const isPlayer = state.phase === 'PLAYER_PHASE';
     const phaseCardW = this.hudW;
-    const phaseCardH = 60;
+    const phaseCardH = 56;
     const phaseCardX = this.hudX;
     const phaseCardY = this.panelY + 40;
 
-    ctx.fillStyle = isPlayer ? '#2563eb' : '#dc2626';
+    ctx.fillStyle = isPlayer ? '#1e3a8a' : '#991b1b';
     ctx.beginPath();
     ctx.roundRect(phaseCardX, phaseCardY, phaseCardW, phaseCardH, 6);
     ctx.fill();
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 13px sans-serif';
+    ctx.strokeStyle = isPlayer ? '#60a5fa' : '#f87171';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#93c5fd';
+    ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText('当前阶段', phaseCardX + 14, phaseCardY + 18);
-    ctx.font = 'bold 20px sans-serif';
-    ctx.fillText(isPlayer ? '我方回合' : '敌方回合', phaseCardX + 14, phaseCardY + 42);
+    ctx.fillText('当前阶段', phaseCardX + 12, phaseCardY + 16);
+    ctx.font = 'bold 18px sans-serif';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(isPlayer ? '我方回合' : '敌方回合', phaseCardX + 12, phaseCardY + 38);
     ctx.textAlign = 'right';
-    ctx.font = 'bold 13px sans-serif';
-    ctx.fillText(`第 ${state.turn} 回合`, phaseCardX + phaseCardW - 14, phaseCardY + 18);
+    ctx.font = 'bold 12px sans-serif';
+    ctx.fillStyle = '#e2e8f0';
+    ctx.fillText(`第 ${state.turn} 回合`, phaseCardX + phaseCardW - 12, phaseCardY + 16);
 
-    // ★ 中缝分隔线：竖直细分隔，上下留 16px 内边距，仅区分不可见边界
+    // ★ 中缝分隔线：竖直细分隔，上下留 16px 内边距
     const divTop = this.panelY + 16;
     const divBottom = this.panelY + this.panelH - 16;
-    ctx.strokeStyle = 'rgba(120, 105, 80, 0.25)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(this.hudDividerX, divTop);
     ctx.lineTo(this.hudDividerX, divBottom);
     ctx.stroke();
 
-    // ★ 章节名 (信息栏最顶部，接替被隐藏的原顶栏)
-    ctx.fillStyle = '#a8a29e';
+    // ★ 章节名 (信息栏最顶部)
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
     const chapterName = (state.chapter && state.chapter.name) || '';
-    ctx.fillText(chapterName.replace(/^第[一二三四五六七八九十0-9]+战[：:]/, ''), this.hudX + 4, this.panelY + 18);
+    ctx.fillText(chapterName.replace(/^第[一二三四五六七八九十0-9]+战[：:]/, ''), this.hudX + 2, this.panelY + 18);
 
     // ★ 操作提示
-    const tipY = phaseCardY + phaseCardH + 22;
-    ctx.fillStyle = '#78716c';
+    const tipY = phaseCardY + phaseCardH + 18;
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
-    ctx.fillText('操作提示', this.hudX + 4, tipY);
+    ctx.fillText('操作提示', this.hudX + 2, tipY);
 
-    ctx.fillStyle = '#1c1917';
+    ctx.fillStyle = '#e2e8f0';
     ctx.font = '12px sans-serif';
     const tips = [
-      '鼠标移动 / WASD  光标',
-      '左键 / Enter  确认',
-      '右键 / Esc  撤销',
-      '滚轮  菜单上下选'
+      '方向键 / WASD  移动',
+      'Enter / 点击  确认',
+      'ESC / 右键  取消撤销',
+      '滚轮  菜单切换'
     ];
     tips.forEach((t, i) => {
-      ctx.fillText(t, this.hudX + 4, tipY + 22 + i * 20);
+      ctx.fillText(t, this.hudX + 2, tipY + 22 + i * 19);
     });
 
     // ★ 胜利条件
-    const objY = tipY + 22 + tips.length * 20 + 16;
-    ctx.fillStyle = '#78716c';
+    const objY = tipY + 22 + tips.length * 19 + 14;
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText('胜利目标', this.hudX + 4, objY);
+    ctx.fillText('胜利目标', this.hudX + 2, objY);
 
-    ctx.fillStyle = '#7c4a21';
-    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#fef08a';
+    ctx.font = 'bold 13px sans-serif';
     const objText = (state.chapter && state.chapter.objective && state.chapter.objective.text) || '击败所有敌人';
-    this.wrapText(ctx, objText, this.hudX + 4, objY + 22, this.hudW - 8, 18);
+    this.wrapText(ctx, objText, this.hudX + 2, objY + 22, this.hudW - 4, 18);
 
-    // ★ 我方 / 敌方剩余单位统计 —— 锚定面板底部，右栏内容纵向铺满与左侧地图齐高
-    const statRowH = 68;
+    // ★ 我方 / 敌方剩余单位统计 —— 锚定面板底部
+    const statRowH = 64;
     const statsY = this.panelY + this.panelH - statRowH - 16;
     const alivePlayers = state.units.filter(u => u.isAlive && u.faction === 'player').length;
     const aliveEnemies = state.units.filter(u => u.isAlive && u.faction === 'enemy').length;
 
-    ctx.fillStyle = '#78716c';
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
-    ctx.fillText('战场单位', this.hudX + 4, statsY);
+    ctx.fillText('战场单位', this.hudX + 2, statsY);
 
     // 我方 (左) / 敌方 (右) 并排
     const statRowY = statsY + 22;
     ctx.fillStyle = '#2563eb';
     ctx.beginPath();
-    ctx.roundRect(this.hudX + 4, statRowY, 24, 24, 4);
+    ctx.roundRect(this.hudX + 2, statRowY, 22, 22, 4);
     ctx.fill();
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 14px sans-serif';
+    ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('我', this.hudX + 16, statRowY + 12);
-    ctx.fillStyle = '#1c1917';
-    ctx.font = 'bold 16px sans-serif';
+    ctx.fillText('我', this.hudX + 13, statRowY + 11);
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 15px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(`${alivePlayers} 人`, this.hudX + 36, statRowY + 12);
+    ctx.fillText(`${alivePlayers} 人`, this.hudX + 30, statRowY + 11);
 
-    const enemyStatX = this.hudX + Math.floor(this.hudW / 2) + 8;
+    const enemyStatX = this.hudX + Math.floor(this.hudW / 2) + 6;
     ctx.fillStyle = '#dc2626';
     ctx.beginPath();
-    ctx.roundRect(enemyStatX, statRowY, 24, 24, 4);
+    ctx.roundRect(enemyStatX, statRowY, 22, 22, 4);
     ctx.fill();
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 14px sans-serif';
+    ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('敌', enemyStatX + 12, statRowY + 12);
-    ctx.fillStyle = '#1c1917';
-    ctx.font = 'bold 16px sans-serif';
+    ctx.fillText('敌', enemyStatX + 11, statRowY + 11);
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 15px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(`${aliveEnemies} 人`, enemyStatX + 32, statRowY + 12);
+    ctx.fillText(`${aliveEnemies} 人`, enemyStatX + 28, statRowY + 11);
   }
 
   // ==================== 地砖层 ====================
@@ -794,31 +813,53 @@ export class Renderer {
     ctx.fillText(line, x, currY);
   }
 
+  /** 迷你资源条（光标信息卡内）：圆角底槽 + 按比例填充，数值显示在条右侧 */
+  drawMiniBar(ctx, x, y, w, h, ratio, fillColor) {
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.14)';
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, h / 2);
+    ctx.fill();
+    const r = Math.max(0, Math.min(1, ratio || 0));
+    if (r > 0) {
+      ctx.fillStyle = fillColor;
+      ctx.beginPath();
+      ctx.roundRect(x, y, Math.max(h, w * r), h, h / 2);
+      ctx.fill();
+      // 高光提亮线，增加战棋质感
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.beginPath();
+      ctx.roundRect(x + 1, y + 1, Math.max(2, w * r - 2), Math.max(2, h / 3), h / 4);
+      ctx.fill();
+    }
+  }
+
   drawTileInfoCard(state) {
     const ctx = this.ctx;
     const terrain = state.gridSystem.getTerrain(state.cursor.x, state.cursor.y);
     const unit = state.units.find(u => u.isAlive && u.x === state.cursor.x && u.y === state.cursor.y);
 
-    const w = 200;
-    const h = unit ? 84 : 40;
+    const maxMp = (unit && unit.stats && unit.stats.maxMp) || 0;
+    const hasMp = maxMp > 0;
+    const w = 232;
+    const h = unit ? (hasMp ? 122 : 100) : 42;
 
     // ★ 智能避让：光标在上半屏 → 面板放底部；下半屏 → 面板放顶部
-    // 留 12px 边距，并预留 8px 防止遮挡光标所在瓦片
     const cursorPy = state.cursor.y * this.tileSize + this.offsetY;
     const isCursorLower = cursorPy > this.canvas.height / 2;
     const x = this.offsetX + 4;
     const y = isCursorLower ? this.offsetY + 4 : (this.offsetY + this.mapHeightPx - h - 4);
 
-    ctx.fillStyle = 'rgba(255, 253, 250, 0.94)';
+    // 深色战棋悬浮框底色
+    ctx.fillStyle = 'rgba(20, 20, 24, 0.92)';
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, 8);
     ctx.fill();
 
-    ctx.strokeStyle = '#d6c8b4';
+    ctx.strokeStyle = 'rgba(250, 204, 21, 0.45)';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#78716c';
+    ctx.fillStyle = '#cbd5e1';
     ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
@@ -826,17 +867,44 @@ export class Renderer {
 
     if (unit) {
       const isPlayer = unit.faction === 'player';
-      ctx.fillStyle = isPlayer ? '#2563eb' : '#dc2626';
+      ctx.fillStyle = isPlayer ? '#60a5fa' : '#f87171';
       ctx.font = 'bold 14px sans-serif';
       ctx.fillText(`${unit.name} Lv.${unit.level}`, x + 12, y + 38);
 
-      ctx.fillStyle = '#1c1917';
+      // ★ HP / MP 条状展示（条 + 右侧数值，替代纯文本数字）
+      const maxHp = (unit.stats && unit.stats.maxHp) || 1;
+      const hpRatio = (unit.currentHp || 0) / maxHp;
+      const hpColor = hpRatio > 0.5 ? '#22c55e' : (hpRatio > 0.25 ? '#facc15' : '#ef4444');
+      const barX = x + 44;
+      const barW = w - 128;
+
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText('HP', x + 12, y + 60);
+      this.drawMiniBar(ctx, barX, y + 54, barW, 11, hpRatio, hpColor);
+      ctx.textAlign = 'right';
       ctx.font = 'bold 12px monospace';
-      ctx.fillText(`HP: ${unit.currentHp}/${unit.stats.maxHp}`, x + 12, y + 56);
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillText(`${unit.currentHp}/${maxHp}`, x + w - 12, y + 60);
+
+      if (hasMp) {
+        const mpRatio = Math.max(0, Math.min(1, (unit.currentMp || 0) / maxMp));
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#bae6fd';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText('MP', x + 12, y + 82);
+        this.drawMiniBar(ctx, barX, y + 76, barW, 11, mpRatio, '#38bdf8');
+        ctx.textAlign = 'right';
+        ctx.font = 'bold 12px monospace';
+        ctx.fillStyle = '#bae6fd';
+        ctx.fillText(`${unit.currentMp || 0}/${maxMp}`, x + w - 12, y + 82);
+      }
 
       const weapon = WEAPONS[unit.equippedWeapon] || { name: '无' };
-      ctx.fillStyle = '#57534e';
-      ctx.fillText(`武器: ${weapon.name}`, x + 12, y + 74);
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText(`武器: ${weapon.name}`, x + 12, y + (hasMp ? 104 : 84));
     }
   }
 
@@ -851,7 +919,7 @@ export class Renderer {
     const def = preview.defender;
 
     const w = 380;
-    const h = 136;
+    const h = 138;
     const x = (this.canvas.width - w) / 2;
 
     // ★ 智能避让：守方在上半屏 → 面板放底部；下半屏 → 面板放顶部
@@ -859,53 +927,54 @@ export class Renderer {
     const isDefLower = defPy > this.offsetY + this.mapHeightPx / 2;
     const y = isDefLower ? this.offsetY + 4 : (this.offsetY + this.mapHeightPx - h - 4);
 
-    ctx.fillStyle = '#fffdf9';
+    // 深色战棋半透明面板底色
+    ctx.fillStyle = 'rgba(18, 18, 22, 0.95)';
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, 10);
     ctx.fill();
 
-    ctx.strokeStyle = '#292524';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#facc15';
+    ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#78716c';
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('—— 战前预测 (点击攻击 / 右键撤销) ——', x + w / 2, y + 22);
+    ctx.fillText('—— 战前预测 (点击/Enter攻击 · ESC/右键撤销) ——', x + w / 2, y + 22);
 
     // 攻方
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#2563eb';
+    ctx.fillStyle = '#60a5fa';
     ctx.font = 'bold 15px sans-serif';
     ctx.fillText(atk.unit.name, x + 18, y + 48);
 
-    ctx.fillStyle = '#1c1917';
+    ctx.fillStyle = '#f8fafc';
     ctx.font = 'bold 13px monospace';
     ctx.fillText(`HP: ${atk.unit.currentHp} -> ${Math.max(0, atk.unit.currentHp - (def.canCounter ? def.damage : 0))}`, x + 18, y + 70);
     ctx.fillText(`伤害: ${atk.damage} ${atk.isDouble ? '×2(追击)' : ''}`, x + 18, y + 90);
     ctx.fillText(`命中: ${atk.hit}%  必杀: ${atk.crit}%`, x + 18, y + 110);
 
     // VS
-    ctx.fillStyle = '#dc2626';
+    ctx.fillStyle = '#ef4444';
     ctx.font = 'italic bold 22px serif';
     ctx.textAlign = 'center';
     ctx.fillText('VS', x + w / 2, y + 80);
 
     // 守方
     ctx.textAlign = 'right';
-    ctx.fillStyle = '#dc2626';
+    ctx.fillStyle = '#f87171';
     ctx.font = 'bold 15px sans-serif';
     ctx.fillText(def.unit.name, x + w - 18, y + 48);
 
-    ctx.fillStyle = '#1c1917';
+    ctx.fillStyle = '#f8fafc';
     ctx.font = 'bold 13px monospace';
     ctx.fillText(`HP: ${def.unit.currentHp} -> ${Math.max(0, def.unit.currentHp - atk.damage)}`, x + w - 18, y + 70);
     if (def.canCounter) {
       ctx.fillText(`反击: ${def.damage} ${def.isDouble ? '×2' : ''}`, x + w - 18, y + 90);
       ctx.fillText(`命中: ${def.hit}%  必杀: ${def.crit}%`, x + w - 18, y + 110);
     } else {
-      ctx.fillStyle = '#a8a29e';
+      ctx.fillStyle = '#64748b';
       ctx.fillText(`(无法反击)`, x + w - 18, y + 90);
       ctx.fillText(`-`, x + w - 18, y + 110);
     }

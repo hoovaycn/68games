@@ -246,6 +246,17 @@ export class DialogueSystem {
     ctx.textBaseline = 'top';
     this.wrapText(ctx, this.displayedText, x + 32, y + 36, boxW - 64, 34);
 
+    // 常驻提示：左下角「按 ESC 进入存档菜单」（STAGE_STORY 的 Esc 已接 openSaveMenu('save')）
+    if (!this.showingChoice) {
+      ctx.save();
+      ctx.fillStyle = 'rgba(120, 113, 108, 0.85)';
+      ctx.font = '13px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('按 ESC 可呼出存档/读档菜单', x + 28, y + boxH - 12);
+      ctx.restore();
+    }
+
     // 底部推进提示符
     if (this.isLineComplete) {
       const pulse = Math.sin(Date.now() / 160) > 0;

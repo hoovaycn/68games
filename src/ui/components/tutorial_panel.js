@@ -156,13 +156,13 @@ export class TutorialPanelModal extends ModalBase {
       });
     }
 
-    // 底部操作提示条
+    // 底部操作提示条（向上拉开与底部按钮的间距）
     if (step.hint) {
       const hw = w - 96;
-      const hy = y + this.box.h - 118;
+      const hy = y + this.box.h - 144;
       ctx.fillStyle = 'rgba(217, 119, 6, 0.10)';
       ctx.beginPath();
-      ctx.roundRect(cx - hw / 2, hy, hw, 44, 8);
+      ctx.roundRect(cx - hw / 2, hy, hw, 42, 8);
       ctx.fill();
       ctx.strokeStyle = 'rgba(217, 119, 6, 0.35)';
       ctx.lineWidth = 1.5;
@@ -171,7 +171,7 @@ export class TutorialPanelModal extends ModalBase {
       ctx.font = fontCss(15, 'bold');
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(step.hint, cx, hy + 22);
+      ctx.fillText(step.hint, cx, hy + 21);
     }
 
     this.renderButtons();

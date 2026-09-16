@@ -165,6 +165,7 @@ export function exchangeViewAt(segments, elapsed, initial) {
     phase: 'idle', activeIndex: -1, strikingSide: null,
     attackerHp: st.attackerHp, defenderHp: st.defenderHp,
     attackerGhost: null, defenderGhost: null,
+    attackerShake: 0, defenderShake: 0,   // 受击震动强度 0~1（被击侧整卡抖动，命中帧峰值→随掉血衰减）
     reportText: null, damageText: null, damageKind: null,
     expVisible: !!init.exp, expShown: st.expShown, expGhost: null,
     expGained: null, expLevel: st.expLevel,
@@ -237,7 +238,8 @@ function strikeSegmentView(seg, t, st, base) {
     v.phase = 'windup';
     v.reportText = `${seg.srcName}${label}发起攻击`;
   } else if (t < seg.dropAt) {
-    v.phase = 'impact';
+    v.phase = 'impact';                        // 命中帧：震动峰值（暴击更猛）
+    v[seg.dstSide + 'Shake'] = seg.isCrit ? 1 : 0.75;
     applyHitText();
   } else if (t < seg.settleAt) {
     v.phase = 'drop';
@@ -245,6 +247,7 @@ function strikeSegmentView(seg, t, st, base) {
     const p = easeOutCubic((t - seg.dropAt) / span);
     v[seg.dstSide + 'Hp'] = lerp(seg.hpBefore, seg.hpAfter, p);
     v[seg.dstSide + 'Ghost'] = seg.hpBefore;
+    v[seg.dstSide + 'Shake'] = (1 - p) * (seg.isCrit ? 1 : 0.75);   // 震动随 HP 掉落同步衰减
     applyHitText();
   } else {
     v.phase = 'settle';
@@ -536,6 +539,16 @@ export class CombatExchange extends ModalBase {
     const hp = v[side + 'Hp'];
     const ghost = v[side + 'Ghost'];
 
+    // 受击震动：命中帧整卡高频抖动（水平主震 + 弱纵向副震=椭圆轨迹），
+    // 幅度随掉血段同步衰减；伤害数字不震（保读数）。出招光圈不震（它是攻击方指示）。
+    const shake = v[side + 'Shake'] || 0;
+    let ox = 0, oy = 0;
+    if (shake > 0) {
+      const amp = shake * 8;                                    // 峰值 8px（crit 强度 1，普攻 0.75→6px）
+      ox = Math.round(amp * Math.sin(this._vm / 12));           // ~13Hz 水平主震
+      oy = Math.round(amp * 0.45 * Math.cos(this._vm / 10 + 1.1)); // 弱纵向副震
+    }
+
     // 出招方金色光圈（进攻指示）
     if (v.strikingSide === side) {
       ctx.save();
@@ -550,7 +563,7 @@ export class CombatExchange extends ModalBase {
     }
 
     const face = avatarFaceFor(cfg.unit || { name: cfg.name, faction: cfg.faction });
-    drawAvatar(ctx, { ...card.avatar, ...face, faction: cfg.faction });
+    drawAvatar(ctx, { ...card.avatar, cx: card.avatar.cx + ox, cy: card.avatar.cy + oy, ...face, faction: cfg.faction });
 
     // 名字（主 21 深）/ 等级（副 14 琥珀，经验段升级后实时跟走）—— 主大副小分层
     const lv = (this.playerSide === side && v.expLevel != null) ? v.expLevel : cfg.level;
@@ -558,15 +571,15 @@ export class CombatExchange extends ModalBase {
     ctx.textBaseline = 'middle';
     ctx.font = fontCss(21, 'bold');
     ctx.fillStyle = PALETTE.ink;
-    ctx.fillText(cfg.name, card.avatar.cx, card.nameY);
+    ctx.fillText(cfg.name, card.avatar.cx + ox, card.nameY + oy);
     ctx.font = fontCss(14, 'bold');
     ctx.fillStyle = PALETTE.title;
-    ctx.fillText(`Lv.${lv}`, card.avatar.cx, card.levelY);
+    ctx.fillText(`Lv.${lv}`, card.avatar.cx + ox, card.levelY + oy);
 
     // HP 条（ghost = 掉血前残影）。条身不带条外文字，避免两卡文字顶出弹框边线
     drawBar(ctx, planBar({
       kind: 'hp',
-      x: card.hpBar.x, y: card.hpBar.y, w: card.hpBar.w, h: card.hpBar.h,
+      x: card.hpBar.x + ox, y: card.hpBar.y + oy, w: card.hpBar.w, h: card.hpBar.h,
       ratio: barRatio(hp, cfg.maxHp),
       ghostRatio: ghost != null ? barRatio(ghost, cfg.maxHp) : null,
       label: '',
@@ -578,11 +591,11 @@ export class CombatExchange extends ModalBase {
     if (side === 'attacker') {
       ctx.textAlign = 'left';
       ctx.fillText(`${Math.round(hp)}/${cfg.maxHp}`,
-        card.hpBar.x + card.hpBar.w + 8, card.hpBar.y + card.hpBar.h / 2);
+        card.hpBar.x + card.hpBar.w + 8 + ox, card.hpBar.y + card.hpBar.h / 2 + oy);
     } else {
       ctx.textAlign = 'right';
       ctx.fillText(`${Math.round(hp)}/${cfg.maxHp}`,
-        card.hpBar.x - 8, card.hpBar.y + card.hpBar.h / 2);
+        card.hpBar.x - 8 + ox, card.hpBar.y + card.hpBar.h / 2 + oy);
     }
 
     // 伤害数字（只画在被击侧）

@@ -7,7 +7,7 @@ import { sound } from '../engine/sound.js';
  *
  * 子状态:
  *  - OPENING:        首次启动叙事开场，4 页打字机文案 + 末页白闪转场
- *  - TITLE:          标题屏，主标逐字弹入 + "点击屏幕开始" 呼吸闪烁
+ *  - TITLE:          标题屏，主标入场 + 三项主菜单（继续游戏/新的开始/存档管理）
  *  - CHARACTER_SELECT: 双卡角色选择，键盘/鼠标均可，焦点外发光
  *
  * 验收要点:
@@ -17,10 +17,12 @@ import { sound } from '../engine/sound.js';
  *  4. S3 立绘用 assets/art/{id}_default.png 色键贴入，外发光用角色色系
  */
 export class TitleScreen {
-  constructor(canvas, onSelectCharacter) {
+  constructor(canvas, onSelectCharacter, onMenuAction) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.onSelectCharacter = onSelectCharacter;
+    // D5 标题主菜单回调：'continue' | 'manage'（'new' 组件内部处理，走白幕进角色选择）
+    this.onMenuAction = onMenuAction || null;
 
     // 子状态: 'OPENING' | 'TITLE' | 'CHARACTER_SELECT' | 'FADE_OUT'
     this.subStage = 'OPENING';
@@ -49,8 +51,17 @@ export class TitleScreen {
     this.titleMainCharRevealed = 0;  // 逐字弹入进度 (canvas 回退版使用)
     this.titleSubShown = false;
     this.titleClicked = false;
-    this.titleFadeWhiteStart = 0;    // 点击后白幕淡入
+    this.titleFadeWhiteStart = 0;    // 「新的开始」点选后白幕淡入
     this.titleBgmSwitched = false;
+    // D5 主菜单：继续游戏 / 新的开始 / 存档管理（焦点 + 每帧刷新的命中区）
+    this.titleMenuItems = [
+      { id: 'continue', label: '继续游戏' },
+      { id: 'new', label: '新的开始' },
+      { id: 'manage', label: '存档管理' }
+    ];
+    this.titleMenuIndex = 0;
+    this.titleMenuRects = [];
+    this.hasContinue = false;   // 由 main.js setContinueAvailable 注入（无存档时置灰不可点）
 
     // ---------- S3 CHARACTER_SELECT 状态 ----------
     this.hoveredHero = null;
@@ -220,23 +231,26 @@ export class TitleScreen {
     ctx.textAlign = 'right';
     ctx.fillText(`${this.openingPageIndex + 1} / ${this.openingPages.length}`, w - 60, boxY + 12);
 
-    // 4. 右上角 "点击跳过"
-    const skipX = w - 130;
-    const skipY = 24;
-    const skipW = 100;
-    const skipH = 28;
-    ctx.fillStyle = 'rgba(20, 18, 16, 0.7)';
+    // 4. 右上角 "点击跳过"（hover 高亮 + Esc 提示；命中区与视觉框同一来源）
+    const skipX = w - 144;
+    const skipY = 18;
+    const skipW = 124;
+    const skipH = 34;
+    ctx.fillStyle = this.hoveredSkip ? 'rgba(64, 52, 36, 0.92)' : 'rgba(20, 18, 16, 0.7)';
     ctx.beginPath();
-    ctx.roundRect(skipX, skipY, skipW, skipH, 14);
+    ctx.roundRect(skipX, skipY, skipW, skipH, 17);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(245, 233, 208, 0.4)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = this.hoveredSkip ? 'rgba(245, 233, 208, 0.95)' : 'rgba(245, 233, 208, 0.4)';
+    ctx.lineWidth = 1.5;
     ctx.stroke();
-    ctx.fillStyle = 'rgba(245, 233, 208, 0.85)';
-    ctx.font = 'bold 12px sans-serif';
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.9)';
+    ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('点击跳过 ▶', skipX + skipW / 2, skipY + skipH / 2);
+    ctx.fillText('点击跳过 ▶', skipX + skipW / 2, skipY + skipH / 2 - 3);
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.45)';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('或按 Esc', skipX + skipW / 2, skipY + skipH - 11);
     this.skipRect = { x: skipX, y: skipY, w: skipW, h: skipH };
 
     // 5. 末页 sting 白闪
@@ -262,6 +276,14 @@ export class TitleScreen {
   // ============================================================
   // S2 TITLE
   // ============================================================
+  /** 外部注入「有无存档」——决定「继续游戏」是否可点（回标题/删档后都会刷新） */
+  setContinueAvailable(v) {
+    this.hasContinue = !!v;
+    if (!this.hasContinue && this.titleMenuIndex === 0) {
+      this.titleMenuIndex = 1; // 焦点停在灰项上时顺移到「新的开始」
+    }
+  }
+
   enterTitle() {
     this.subStage = 'TITLE';
     this.titleEnterTime = performance.now();
@@ -270,6 +292,8 @@ export class TitleScreen {
     this.titleClicked = false;
     this.titleFadeWhiteStart = 0;
     this.titleBgmSwitched = false;
+    this.titleMenuIndex = this.hasContinue ? 0 : 1;
+    this.titleMenuRects = [];
     if (!this.titleBgmSwitched) {
       sound.playBgm('bgm_suspense');
     }
@@ -278,8 +302,8 @@ export class TitleScreen {
   updateTitle(now) {
     const elapsed = now - this.titleEnterTime;
 
-    // ★ logo 图版主标：700ms 整体入场；完毕后 250ms 显示"点击屏幕开始"
-    // (titleSubShown 现在只控制开始提示的出现时机；canvas 文字回退版仍走逐字节奏)
+    // ★ logo 图版主标：700ms 整体入场；完毕后 250ms 出现三项主菜单
+    // (titleSubShown = 菜单就绪标志；canvas 文字回退版仍走逐字节奏)
     const logoReady = assetLoader.getImage('assets/backgrounds/title_logo@2x.png');
     if (logoReady) {
       if (!this.titleSubShown && elapsed > 700 + 250) {
@@ -298,7 +322,7 @@ export class TitleScreen {
       }
     }
 
-    // 点击后白幕淡入 0.4s 进 S3
+    // 「新的开始」点选后白幕淡入 0.4s 进 S3
     if (this.titleClicked && this.titleFadeWhiteStart) {
       if (now - this.titleFadeWhiteStart > 400) {
         this.enterCharacterSelect();
@@ -306,11 +330,82 @@ export class TitleScreen {
     }
   }
 
-  handleTitleAdvance() {
-    if (this.titleClicked) return;
-    this.titleClicked = true;
-    this.titleFadeWhiteStart = performance.now();
+  /** 焦点项是否不可用（无存档时的「继续游戏」） */
+  isTitleMenuDisabled(index) {
+    const item = this.titleMenuItems[index];
+    return !!item && item.id === 'continue' && !this.hasContinue;
+  }
+
+  /** 键盘 ↑↓ 循环导航，自动跳过灰显项 */
+  moveTitleMenu(dir) {
+    if (!this.titleSubShown || this.titleClicked) return;
+    const n = this.titleMenuItems.length;
+    let idx = this.titleMenuIndex;
+    for (let step = 0; step < n; step++) {
+      idx = (idx + dir + n) % n;
+      if (!this.isTitleMenuDisabled(idx)) break;
+    }
+    if (idx !== this.titleMenuIndex) {
+      this.titleMenuIndex = idx;
+      sound.playSfx('sfx_cursor');
+    }
+  }
+
+  /**
+   * 激活主菜单项：
+   *  - new     → 白幕转场进角色选择（组件内自闭环）
+   *  - continue / manage → 交 onMenuAction 由 main.js 分发（读最新档 / 打开存档界面）
+   */
+  activateTitleMenu(index) {
+    if (!this.titleSubShown || this.titleClicked) return;
+    const item = this.titleMenuItems[index];
+    if (!item) return;
+    if (this.isTitleMenuDisabled(index)) {
+      sound.playSfx('sfx_cancel');
+      return;
+    }
     sound.playSfx('sfx_confirm');
+    if (item.id === 'new') {
+      this.titleClicked = true;
+      this.titleFadeWhiteStart = performance.now();
+    } else if (this.onMenuAction) {
+      this.onMenuAction(item.id);
+    }
+  }
+
+  handleTitleMouseMove(mouseX, mouseY) {
+    for (let i = 0; i < this.titleMenuRects.length; i++) {
+      const r = this.titleMenuRects[i];
+      if (mouseX >= r.x && mouseX <= r.x + r.w && mouseY >= r.y && mouseY <= r.y + r.h) {
+        if (this.titleMenuIndex !== i && !this.isTitleMenuDisabled(i)) {
+          this.titleMenuIndex = i;
+          sound.playSfx('sfx_cursor');
+        }
+        return;
+      }
+    }
+  }
+
+  handleTitleClick(mouseX, mouseY) {
+    for (let i = 0; i < this.titleMenuRects.length; i++) {
+      const r = this.titleMenuRects[i];
+      if (mouseX >= r.x && mouseX <= r.x + r.w && mouseY >= r.y && mouseY <= r.y + r.h) {
+        this.activateTitleMenu(i);
+        return;
+      }
+    }
+    // logo 未入场完（菜单未出现）或点空白 → 不做事，防止误触开局
+  }
+
+  handleTitleKeyDown(e) {
+    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+      this.moveTitleMenu(-1);
+    } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+      this.moveTitleMenu(1);
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      this.activateTitleMenu(this.titleMenuIndex);
+    }
+    // 其它按键不再触发「任意键开始」—— 回车/点击才生效，防止误触开局
   }
 
   renderTitle() {
@@ -345,14 +440,14 @@ export class TitleScreen {
       // easeOutCubic 缓动
       const eased = 1 - Math.pow(1 - animT, 3);
 
-      // 目标尺寸：宽 520 (画布 960 的一半以上)，等比缩放
-      const targetW = 520;
+      // 目标尺寸：宽 380，等比缩小并置于画面上半部，与下方菜单留出充裕空间
+      const targetW = 380;
       const targetH = Math.round(targetW * (logoImg.height / logoImg.width));
-      const scale = 1.15 - 0.15 * eased;
+      const scale = 1.12 - 0.12 * eased;
       const drawW = targetW * scale;
       const drawH = targetH * scale;
       const logoX = (w - drawW) / 2;
-      const logoYBase = 118;
+      const logoYBase = 68;
       const logoY = logoYBase - eased * 6;
 
       ctx.save();
@@ -379,15 +474,15 @@ export class TitleScreen {
     } else {
       // 回退: 无 logo 图时沿用 canvas 文字版标题
       ctx.save();
-      ctx.font = 'bold 64px -apple-system, "PingFang SC", "STKaiti", serif';
+      ctx.font = 'bold 50px -apple-system, "PingFang SC", "STKaiti", serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
       const shown = this.titleMainText.substring(0, this.titleMainCharRevealed);
       const titleX = w / 2;
-      const titleY = 120;
+      const titleY = 100;
 
-      ctx.lineWidth = 8;
+      ctx.lineWidth = 6;
       ctx.strokeStyle = '#7A1F1F';
       ctx.lineJoin = 'round';
       ctx.strokeText(shown, titleX, titleY);
@@ -397,18 +492,58 @@ export class TitleScreen {
       ctx.restore();
     }
 
-    // ★ 副标题已移除 (美术 logo 大标题独立呈现)
-    // 底部 "点击屏幕开始" 呼吸闪烁 (titleSubShown 控制: logo 动画播完后出现)
+    // ★ 三项主菜单（D5）：logo 入场完成后出现，取代旧版「点击屏幕开始」
+    //   「继续游戏」无存档时置灰不可点；焦点项金色描边 + 呼吸光晕 + ▶ 前缀
+    this.titleMenuRects = [];
     if (this.titleSubShown && !this.titleClicked) {
-      const pulse = Math.sin(now / 480) * 0.4 + 0.6;
-      ctx.save();
-      ctx.globalAlpha = pulse;
-      ctx.fillStyle = '#f5e9d0';
-      ctx.font = 'bold 18px sans-serif';
+      const menuW = 280;
+      const menuH = 46;
+      const menuGap = 12;
+      const menuX = (w - menuW) / 2;
+      const menuY0 = 310;
+
+      for (let i = 0; i < this.titleMenuItems.length; i++) {
+        const item = this.titleMenuItems[i];
+        const by = menuY0 + i * (menuH + menuGap);
+        const focused = i === this.titleMenuIndex;
+        const disabled = this.isTitleMenuDisabled(i);
+        this.titleMenuRects.push({ x: menuX, y: by, w: menuW, h: menuH });
+
+        ctx.save();
+        if (focused && !disabled) {
+          ctx.shadowColor = 'rgba(250, 204, 21, 0.45)';
+          ctx.shadowBlur = 16 + Math.sin(now / 300) * 6;
+        }
+        ctx.fillStyle = disabled ? 'rgba(20, 18, 16, 0.55)' : 'rgba(20, 18, 16, 0.88)';
+        ctx.beginPath();
+        ctx.roundRect(menuX, by, menuW, menuH, 10);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = focused && !disabled
+          ? '#facc15'
+          : (disabled ? 'rgba(214, 200, 180, 0.22)' : 'rgba(214, 200, 180, 0.55)');
+        ctx.lineWidth = focused && !disabled ? 2.5 : 1.5;
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.fillStyle = disabled
+          ? 'rgba(245, 233, 208, 0.32)'
+          : (focused ? '#fef08a' : '#f5e9d0');
+        ctx.font = (focused && !disabled
+          ? 'bold 20px' : 'bold 18px') + ' -apple-system, "PingFang SC", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const label = disabled ? `${item.label}（暂无存档）` : item.label;
+        const prefix = focused && !disabled ? '▶ ' : '';
+        ctx.fillText(prefix + label, menuX + menuW / 2, by + menuH / 2);
+      }
+
+      // 底部操作提示：写明上下左右操作，回车/点击确认，ESC取消
+      ctx.fillStyle = 'rgba(245, 233, 208, 0.8)';
+      ctx.font = '13px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('▶  点击屏幕开始  ◀', w / 2, h - 60);
-      ctx.restore();
+      ctx.fillText('键盘 ↑ ↓ / WASD 选择 · 回车 / 点击 确认 · ESC 取消', w / 2, h - 22);
     }
 
     // 点击后白幕淡入
@@ -512,11 +647,11 @@ export class TitleScreen {
     this.lastCardConfirmRects['female'] = femaleCfg.confirmButtonRect;
 
     // 4. 底部操作提示
-    ctx.fillStyle = 'rgba(245, 233, 208, 0.75)';
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.85)';
     ctx.font = '13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('← / → 切换 · 回车确认 · Esc 返回标题', w / 2, h - 24);
+    ctx.fillText('键盘 ← → / AD 切换 · 回车 / 点击 确认 · ESC 取消返回', w / 2, h - 24);
   }
 
   drawCharacterCard(cfg) {
@@ -667,6 +802,21 @@ export class TitleScreen {
   // 事件分发
   // ============================================================
   handleMouseMove(mouseX, mouseY) {
+    if (this.subStage === 'OPENING') {
+      // 跳过按钮 hover 高亮（视觉反馈：让用户确认按钮"活着"可点）
+      const r = this.skipRect;
+      const hit = !!(r && mouseX >= r.x && mouseX <= r.x + r.w
+        && mouseY >= r.y && mouseY <= r.y + r.h);
+      if (hit !== this.hoveredSkip) {
+        this.hoveredSkip = hit;
+        if (hit) sound.playSfx('sfx_cursor');
+      }
+      return;
+    }
+    if (this.subStage === 'TITLE') {
+      this.handleTitleMouseMove(mouseX, mouseY);
+      return;
+    }
     if (this.subStage !== 'CHARACTER_SELECT') return;
     let hovered = null;
     for (const c of this.heroCards) {
@@ -692,6 +842,8 @@ export class TitleScreen {
       if (this.skipRect &&
           mouseX >= this.skipRect.x && mouseX <= this.skipRect.x + this.skipRect.w &&
           mouseY >= this.skipRect.y && mouseY <= this.skipRect.y + this.skipRect.h) {
+        // DevTools 可见日志：用户报障时可直接把这条贴回来定位链路
+        console.info(`[opening] skip hit @(${mouseX|0},${mouseY|0}) -> TITLE`);
         this.handleOpeningSkip();
         return true;
       }
@@ -708,7 +860,7 @@ export class TitleScreen {
     }
 
     if (this.subStage === 'TITLE') {
-      this.handleTitleAdvance();
+      this.handleTitleClick(mouseX, mouseY);
       return true;
     }
 
@@ -762,8 +914,7 @@ export class TitleScreen {
     }
 
     if (this.subStage === 'TITLE') {
-      // 任意键开始
-      this.handleTitleAdvance();
+      this.handleTitleKeyDown(e);
       return true;
     }
 
@@ -786,13 +937,14 @@ export class TitleScreen {
         }
       }
       if (e.key === 'Escape') {
-        // Esc 回标题
+        // Esc 回标题（菜单直接就绪，不重播 logo 入场）
         this.subStage = 'TITLE';
         this.titleEnterTime = performance.now();
         this.titleMainCharRevealed = this.titleMainText.length;
         this.titleSubShown = true;
         this.titleClicked = false;
         this.titleFadeWhiteStart = 0;
+        this.titleMenuIndex = this.hasContinue ? 0 : 1;
         return true;
       }
     }
