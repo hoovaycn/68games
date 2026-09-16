@@ -288,27 +288,41 @@ export function drawButton(ctx, rect, label, opts = {}) {
   const r = 10;
 
   if (focused) {
+    // 双层光晕：外圈大而柔 + 内圈亮而实，远距离也能一眼锁定焦点
     ctx.save();
-    ctx.shadowColor = 'rgba(250, 204, 21, 0.85)';
-    ctx.shadowBlur = 18;
-    ctx.fillStyle = 'rgba(250, 204, 21, 0.28)';
-    pathRoundRect(ctx, x - 5, y - 5, w + 10, h + 10, r + 5);
+    ctx.shadowColor = 'rgba(250, 204, 21, 0.95)';
+    ctx.shadowBlur = 26;
+    ctx.fillStyle = 'rgba(250, 204, 21, 0.16)';
+    pathRoundRect(ctx, x - 7, y - 7, w + 14, h + 14, r + 7);
+    ctx.fill();
+    ctx.restore();
+    ctx.save();
+    ctx.shadowColor = 'rgba(250, 204, 21, 0.65)';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = 'rgba(250, 204, 21, 0.45)';
+    pathRoundRect(ctx, x - 2, y - 2, w + 4, h + 4, r + 2);
     ctx.fill();
     ctx.restore();
   }
 
+  // 焦点态反白配色：金底深字（常态黑底金字），选中项与未选项形成强对比
   const g = ctx.createLinearGradient(0, y, 0, y + h);
-  g.addColorStop(0, PALETTE.ink);
-  g.addColorStop(1, PALETTE.inkDeep);
+  if (focused) {
+    g.addColorStop(0, '#fde047');
+    g.addColorStop(1, '#f59e0b');
+  } else {
+    g.addColorStop(0, PALETTE.ink);
+    g.addColorStop(1, PALETTE.inkDeep);
+  }
   ctx.fillStyle = g;
   pathRoundRect(ctx, x, y, w, h, r);
   ctx.fill();
 
-  ctx.strokeStyle = PALETTE.gold;
-  ctx.lineWidth = focused ? 3.5 : 2;
+  ctx.strokeStyle = focused ? '#fffbeb' : PALETTE.gold;
+  ctx.lineWidth = focused ? 3 : 2;
   ctx.stroke();
 
-  ctx.fillStyle = PALETTE.goldText;
+  ctx.fillStyle = focused ? PALETTE.inkDeep : PALETTE.goldText;
   ctx.font = fontCss(opts.fontSize || 20, 'bold');
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';

@@ -165,6 +165,11 @@ class GameApp {
         facing: 'left',
         ai: template.ai,
         drops: template.drops,
+        title: template.title || '',
+        bio: template.bio || '',
+        themeColor: template.themeColor || '',
+        personalSkill: template.personalSkill || null,
+        quotes: { ...(template.quotes || {}) },
         stats: {
           maxHp: cls.base.hp,
           str: cls.base.str,
@@ -259,6 +264,11 @@ class GameApp {
       inventory: JSON.parse(JSON.stringify(playerTpl.inventory || [])),
       portrait: `assets/portraits/${playerTpl.id}_default.png`,
       facing: 'right',
+      title: playerTpl.title || '',
+      bio: playerTpl.bio || '',
+      themeColor: playerTpl.themeColor || '',
+      personalSkill: playerTpl.personalSkill || null,
+      quotes: { ...(playerTpl.quotes || {}) },
       stats: {
         maxHp: pCls.base.hp,
         maxMp: pCls.base.mp,
@@ -298,6 +308,11 @@ class GameApp {
         facing: 'left',
         ai: template.ai,
         drops: template.drops,
+        title: template.title || '',
+        bio: template.bio || '',
+        themeColor: template.themeColor || '',
+        personalSkill: template.personalSkill || null,
+        quotes: { ...(template.quotes || {}) },
         stats: {
           maxHp: cls.base.hp,
           str: cls.base.str,
@@ -388,6 +403,63 @@ class GameApp {
       color,
       startTime: Date.now(),
       duration: 1200
+    });
+  }
+
+  /**
+   * 单位步行动画 (b3)：先看见棋盘上的人走动，再出菜单 / 战斗界面。
+   * 逻辑坐标先行就位 (u.x/u.y 落终点 —— 攻击范围 / 菜单锚点以终点计算，无中间态)，
+   * 视觉用 animOffset 从起点偏移逐格衰减到 0，drawUnits 按「u.x + animOffset」渲染。
+   * path 为 findPath 的「不含起点」格式；空数组或原地则跳过动画。
+   * msPerTile 取 150：慢过菜单弹出直觉、快过拖沓（移 5 格约 0.8s）。
+   */
+  playWalkAnimation(unit, fromX, fromY, path, msPerTile = 150) {
+    return new Promise((resolve) => {
+      const full = [{ x: fromX, y: fromY }, ...(path || [])];
+      if (full.length < 2) { setTimeout(resolve, 60); return; }
+      const ts = this.tileSize;
+      let seg = 0;
+
+      const nextSeg = () => {
+        if (seg >= full.length - 1) {
+          unit.animOffsetX = 0;
+          unit.animOffsetY = 0;
+          // 到位小停顿：走稳、构图稳定，再交给后续流程（开菜单 / 进攻击）
+          setTimeout(resolve, 60);
+          return;
+        }
+        const a = full[seg];
+        const b = full[seg + 1];
+
+        // 分段转向 + 步声：朝向跟当前步的方向走，每格一声脚步
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        if (dx > 0) unit.facing = 'right';
+        else if (dx < 0) unit.facing = 'left';
+        else if (dy > 0) unit.facing = 'down';
+        else if (dy < 0) unit.facing = 'up';
+        sound.playSfx('sfx_step');
+
+        const startX = (a.x - unit.x) * ts;
+        const startY = (a.y - unit.y) * ts;
+        const startTime = performance.now();
+
+        const doStep = () => {
+          const elapsed = performance.now() - startTime;
+          if (elapsed < msPerTile) {
+            const t = elapsed / msPerTile;
+            const ease = 1 - (1 - t) * (1 - t); // easeOutQuad：起步即走、到格缓收
+            unit.animOffsetX = startX * (1 - ease);
+            unit.animOffsetY = startY * (1 - ease);
+            requestAnimationFrame(doStep);
+          } else {
+            seg += 1;
+            nextSeg();
+          }
+        };
+        requestAnimationFrame(doStep);
+      };
+      nextSeg();
     });
   }
 
@@ -774,24 +846,7 @@ class GameApp {
       );
 
       if (isValidTile) {
-        const u = bs.selectedUnit;
-        const oldX = u.x;
-        const oldY = u.y;
-        u.x = bs.cursor.x;
-        u.y = bs.cursor.y;
-        // 根据移动方向更新 facing
-        const dx = u.x - oldX;
-        const dy = u.y - oldY;
-        if (Math.abs(dx) >= Math.abs(dy)) {
-          if (dx !== 0) u.facing = dx > 0 ? 'right' : 'left';
-        } else {
-          u.facing = dy > 0 ? 'down' : 'up';
-        }
-        bs.reachableTiles = [];
-        bs.currentPath = [];
-
-        sound.playSfx('sfx_step');
-        this.openActionMenu();
+        this.confirmUnitMove();
       } else {
         this.handleBattleCancel();
       }
@@ -810,6 +865,35 @@ class GameApp {
       }
       return;
     }
+  }
+
+  /**
+   * 确认移动落点（b3）：逻辑坐标先行就位 + 等步行动画走完再弹行动菜单。
+   * 旧版在这直接改 u.x/u.y（玩家眼里是「闪现」），随后 openActionMenu 与
+   * 交战弹层几乎同时砸出来，战斗开始时人已在终点——过程完全看不清。
+   */
+  async confirmUnitMove() {
+    const bs = this.battleState;
+    const u = bs.selectedUnit;
+    const oldX = u.x;
+    const oldY = u.y;
+    // 拷贝后再复位：动画期间 currentPath 被清空也不影响播放轨迹
+    const path = bs.currentPath.slice();
+
+    bs.isAnimatingCombat = true; // 锁输入：步行中不接受任何操作
+
+    // 逻辑坐标先行就位：攻击范围 / 菜单锚点 / 后续 PathFinder 全部以终点计算，无中间态
+    u.x = bs.cursor.x;
+    u.y = bs.cursor.y;
+
+    bs.reachableTiles = [];
+    bs.currentPath = [];
+
+    // ★ b3 核心：先看见棋盘上的人一步步走过去，走完才弹菜单
+    await this.playWalkAnimation(u, oldX, oldY, path);
+
+    bs.isAnimatingCombat = false;
+    this.openActionMenu();
   }
 
   handleBattleCancel() {
@@ -1238,9 +1322,22 @@ class GameApp {
           this.battleState.cursor.y = enemy.y;
           this.updateHUD();
 
-          // 移动后更新 facing 朝向最近玩家
+          // b3：敌方移动同样走步行动画——先看见棋盘上的人走，再出交战弹层
+          //   与玩家侧 confirmUnitMove 同协议（逻辑坐标先行 + animOffset 衰减）
+          const oldX = enemy.x;
+          const oldY = enemy.y;
           enemy.x = decision.targetTile.x;
           enemy.y = decision.targetTile.y;
+          await this.playWalkAnimation(
+            enemy,
+            oldX,
+            oldY,
+            this.battleState.gridSystem.findPath(
+              oldX, oldY, enemy.x, enemy.y, enemy.faction, this.battleState.units
+            )
+          );
+
+          // 到位后 facing 朝向最近玩家（预备攻击姿态，覆盖步行朝向）
           const nearest = EnemyAI.findNearestPlayer(enemy, playerUnits);
           if (nearest) {
             if (Math.abs(nearest.x - enemy.x) >= Math.abs(nearest.y - enemy.y)) {

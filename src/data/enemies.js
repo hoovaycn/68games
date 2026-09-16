@@ -12,6 +12,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/vendor_default.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
     themeColor: '#e11d48',
+    bio: '推着一辆嘎吱作响的小车，在校门口卖了三年「考前保过零食」。没人知道他从哪进货，也没人知道他为什么总在放学前十分钟才出现。传说买过他东西的人第二天考试都迷之顺利——也可能只是心理作用。',
     ai: {
       type: 'passive_guard', // 守摊型：不主动远距离追击，进入射程必打
       aggroRadius: 4
@@ -36,6 +37,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/punk_default.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
     themeColor: '#b91c1c',
+    bio: '六年级升学压力最大的倒霉蛋，成绩越掉脾气越大，把火全撒在低年级头上。书包里塞着三套没写完的卷子，走路横得像只螃蟹。其实他半夜也会偷偷躲在被子里哭——但白天，谁都别想从他嘴里听到一句好话。',
     ai: {
       type: 'aggressive_chase', // 凶狠追击型：主动靠近并围剿
       aggroRadius: 6

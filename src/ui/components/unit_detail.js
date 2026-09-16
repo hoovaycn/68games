@@ -147,25 +147,33 @@ export function planDetailBio(snapshot, measure, maxWidth, maxLines = 5) {
 
 /**
  * 盒 760×500（与 combat_exchange / level_up 同尺寸，视觉统一）。
- * 垂直预算：标题(42) → 身份区(58~190：头像/名/称号/两行信息/右侧三条资源条)
- *   → 左栏文字(206~402：职业/个人技/简介标题 + bio 折行区) + 右栏九维条(208~404)
- *   → 「关闭」按钮贴底（ModalBase 默认 y = box 底-76）。
+ * 整齐化契约（改动几何时同步 selftest §10.10）：
+ *   - 身份四行等距 30：姓名90 / 称号120 / 信息一150 / 信息二180，头像 cy=135 居中共轴；
+ *   - 双列条身右缘一列：资源条 x+w === 九维条 x+w（=box.x+662），
+ *     条右数值（drawBar 条外右侧）与九维数值右缘（statValueRight）都收在 box.x+720 内；
+ *   - 左右栏首行同高：statRows 首行中心 === classLineY（=box.y+210）；
+ *   - dividerH（y=196，40→720）分隔身份区与主区，dividerV（x=430，206→416）分隔左栏与九维列。
+ * 垂直预算：标题(42) → 身份区(72~187：头像/名/称号/两行信息 + 右侧三条资源条)
+ *   → 分隔线(196) → 左栏文字(210~403：职业/个人技/简介 + bio 折行区) + 九维列(198~414)
+ *   → 「关闭」按钮贴底（planButtonRow 默认贴底）。
  */
 export function planUnitDetailLayout(box) {
   return {
-    avatar: { cx: box.x + 84, cy: box.y + 128, r: 46 },
-    nameX: box.x + 146, nameY: box.y + 96,        // 姓名（23b，themeColor 优先）
-    titleY: box.y + 128,                          // 称号（15 title 色）
-    infoLine1Y: box.y + 158,                       // 「学酥 · Lv.1 · 移动力 5」
-    infoLine2Y: box.y + 184,                       // 「装备：新手铅笔 · 威力 6」
-    bars: { x: box.x + 464, w: 172, h: 15, firstY: box.y + 72, step: 36 }, // HP/MP/EXP
-    classLineY: box.y + 206,                       // 「职业 · 学酥」
-    skillLineY: box.y + 232,                       // 「个人技 · 弃兵争先」
-    bioTitleY: box.y + 264,                        // 「简介」
-    bio: { x: box.x + 40, y: box.y + 290, w: 344, lineH: 21, maxLines: 5 },
-    statRows: { labelRightX: box.x + 504, y: box.y + 208, rowH: 23, count: DETAIL_STAT_ROWS.length },
-    statBar: { x: box.x + 514, w: 118, h: 11 },
-    statValueX: box.x + 642,
+    avatar: { cx: box.x + 84, cy: box.y + 135, r: 46 },
+    nameX: box.x + 146, nameY: box.y + 90,        // 姓名（23b，themeColor 优先）
+    titleY: box.y + 120,                          // 称号（15 title 色）
+    infoLine1Y: box.y + 150,                       // 「学酥 · Lv.1 · 移动力 5」
+    infoLine2Y: box.y + 180,                       // 「装备：新手铅笔 · 威力 6」
+    bars: { x: box.x + 490, w: 172, h: 15, firstY: box.y + 72, step: 36 }, // HP/MP/EXP
+    dividerH: { y: box.y + 196, x0: box.x + 40, x1: box.x + 720 }, // 身份区/主区分隔
+    dividerV: { x: box.x + 430, y0: box.y + 206, y1: box.y + 416 }, // 左栏/九维列分隔
+    classLineY: box.y + 210,                       // 「职业 · 学酥」（=九维首行中心）
+    skillLineY: box.y + 240,                       // 「个人技 · 弃兵争先」
+    bioTitleY: box.y + 272,                        // 「简介」
+    bio: { x: box.x + 40, y: box.y + 298, w: 344, lineH: 21, maxLines: 5 },
+    statRows: { labelRightX: box.x + 534, y: box.y + 198, rowH: 24, count: DETAIL_STAT_ROWS.length },
+    statBar: { x: box.x + 544, w: 118, h: 11 },    // 右缘 662 与资源条右缘对齐
+    statValueRight: box.x + 720,                   // 数值右对齐锚点（与盒右距 40 对称）
     valueMax: GROWTH_BAR_MAX,                      // 与 level_up 九维条同基准
   };
 }
@@ -210,9 +218,25 @@ export class UnitDetailModal extends ModalBase {
     this.renderFrame('人物详情');
     this._renderIdentity();
     this._renderBars();
+    this._renderDividers();
     this._renderInfoLines();
     this._renderStatRows();
     this.renderButtons();
+  }
+
+  /* ---------- 内部：分隔线（横：身份区/主区 · 纵：左栏/九维列） ---------- */
+
+  _renderDividers() {
+    const ctx = this.ctx;
+    const { dividerH: h, dividerV: v } = this.layout;
+    ctx.strokeStyle = PALETTE.frameInner;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(h.x0, h.y);
+    ctx.lineTo(h.x1, h.y);
+    ctx.moveTo(v.x, v.y0);
+    ctx.lineTo(v.x, v.y1);
+    ctx.stroke();
   }
 
   /* ---------- 内部：身份区（头像/姓名/称号/两行信息） ---------- */
@@ -314,10 +338,10 @@ export class UnitDetailModal extends ModalBase {
         ratio: row.ratio,
       }));
 
-      ctx.textAlign = 'left';
+      ctx.textAlign = 'right';
       ctx.font = fontCss(15, 'bold');
       ctx.fillStyle = PALETTE.ink;
-      ctx.fillText(row.valueText, L.statValueX, rowY);
+      ctx.fillText(row.valueText, L.statValueRight, rowY);
     }
   }
 }

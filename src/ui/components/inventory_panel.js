@@ -7,18 +7,23 @@
  * key_item（剧情道具）禁存入仓库：重要物件锁死在持有者身上，面板按钮对其置灰。
  *
  * 键盘模型（小白友好，一屏可说明）：
- *   ↑ ↓ 选行 · ← → 切分类 · Tab 切背包/仓库 · Enter 执行存取（×1） · Escape 关闭
+ *   ↑ ↓ 选行 · ← → 切分类 · Tab 切背包/仓库 ·
+ *   Shift+← → 在底部动作键间换焦点 · Enter 执行焦点动作（×1） · Escape 关闭
+ *   动作组随选中行动态变化：武器/防具→[装备,存入] · 消耗品→[使用,存入] ·
+ *   使用中武器/防具→锁定（无动作） · key_item→锁定 · 仓库行→[取出]。
  * 鼠标：点视图签/分类签/行/底部按钮等效。
  *
  * 分层原则（与 ui_kit / unit_detail 一致）：
  *   INVENTORY_VIEWS / planInventoryRows / planKindTabs / planTradeAction /
- *   planInvDesc / planInventoryLayout —— 纯计算，Node 可单测；
+ *   planItemActions / planInvDesc / planInventoryLayout —— 纯计算，Node 可单测；
  *   InventoryPanelModal.render* —— 只吃快照落笔，浏览器端才被调用。
  */
 import {
   ModalBase, PALETTE, fontCss, wrapLines, inRect,
   drawAvatar, avatarFaceFor, drawWrappedLines,
 } from './ui_kit.js';
+import { sound } from '../../engine/sound.js';
+import { CombatSystem } from '../../systems/combat.js';
 import { GOODS_KINDS, getGoodsById } from '../../data/goods/index.js';
 import { clipLines } from './unit_detail.js';
 import {
@@ -109,6 +114,40 @@ export function planTradeAction(view, row) {
   if (!row) return null;
   if (view === 'unit') return row.disabled ? null : { id: 'deposit', label: '存入仓库' };
   return { id: 'withdraw', label: '从仓库取出' };
+}
+
+/**
+ * 「当前视图 + 选中行 + 装备快照」→ 可执行动作序列（存入只是并列选项之一）。
+ * - unit 视图：
+ *     装备中的武器/防具 → null（槽位锁定：换装后才可存/换）；
+ *     未装备 weapon / armor → 前插 {id:'equip'}；
+ *     consumable → use_in_battle=true（本面板只在战场弹出）→ 前插 {id:'use'}，
+ *       growth 类卷子（use_in_battle:false，地图专用）战场不给 use；
+ *     key_item → null（剧情道具锁死在持有者身上）；
+ *   上述可用行一律附带 {id:'deposit'} 存入选项。
+ * - stash 视图 → [{id:'withdraw'}]（能进仓库的都能出）；
+ * - 无行 → null。
+ * 与 planTradeAction（单动作旧契约，外部脚本/旧断言仍消费）并行存在。
+ */
+export function planItemActions(view, row, opts = {}) {
+  if (!row) return null;
+  if (view !== 'unit') return [{ id: 'withdraw', label: '取出 ×1' }];
+  if (row.disabled) return null;
+  const equippedWeaponId = opts.equippedWeaponId || null;
+  const equippedArmorIds = Array.isArray(opts.equippedArmorIds) ? opts.equippedArmorIds : [];
+  const acts = [];
+  if (row.kind === 'weapon') {
+    if (equippedWeaponId === row.itemId) return null;
+    acts.push({ id: 'equip', label: '装备' });
+  } else if (row.kind === 'armor') {
+    if (equippedArmorIds.includes(row.itemId)) return null;
+    acts.push({ id: 'equip', label: '装备' });
+  } else if (row.kind === 'consumable') {
+    const g = getGoodsById(row.itemId);
+    if (g && g.use_in_battle) acts.push({ id: 'use', label: '使用' });
+  }
+  acts.push({ id: 'deposit', label: '存入仓库 ×1' });
+  return acts;
 }
 
 /**
@@ -218,21 +257,30 @@ export class InventoryPanelModal extends ModalBase {
     this.row = this.rows[this.rowIndex] || null;
     this.descBlock = planInvDesc(
       this.row, this.measure, this.layout.desc.w, this.layout.desc.maxLines);
+    this._applyButtons();   // 行/视图变了 → 动作组可能翻转（装备中锁定 / use 可用性）
   }
 
-  /** 主操作按钮随视图翻转：背包=存入仓库 / 仓库=取出；关闭恒在 */
+  /**
+   * 底部动作按钮随「视图 + 选中行 + 装备快照」动态重建（装备/使用/存入并列给出）。
+   * 动作组签名没变时跳过重建——保住用户已把焦点移到第 2、3 个键的位置，
+   * 不被每次换行弹回第一个键。
+   */
   _applyButtons() {
-    const main = this.view === 'unit'
-      ? { id: 'deposit', label: '存入仓库 ×1' }
-      : { id: 'withdraw', label: '取出 ×1' };
-    this.setButtons([main, { id: 'close', label: '关闭' }]);
+    const acts = planItemActions(this.view, this.row, {
+      equippedWeaponId: (this.unit && this.unit.equippedWeapon) || null,
+      equippedArmorIds: this.unit && this.unit.equippedArmors ? this.unit.equippedArmors.slice() : [],
+    }) || [];
+    const defs = [...acts, { id: 'close', label: '关闭' }];
+    const sig = defs.map((d) => d.id).join('|');
+    if (this._btnSig === sig) return;
+    this._btnSig = sig;
+    this.setButtons(defs);
   }
 
   _setView(view) {
     if (this.view === view) return;
     this.view = view;
     this.rowIndex = 0;
-    this._applyButtons();
     this._refresh();
   }
 
@@ -272,9 +320,37 @@ export class InventoryPanelModal extends ModalBase {
     this._refresh();
   }
 
+  /** 换装（武器/防具各单槽）：替换即脱下旧的；道具本体不离开背包 */
+  _equipSelected() {
+    const row = this.rows[this.rowIndex];
+    if (!row || this.view !== 'unit' || !this.unit) return;
+    if (row.kind === 'weapon') {
+      this.unit.equippedWeapon = row.itemId;
+    } else if (row.kind === 'armor') {
+      this.unit.equippedArmors = [row.itemId];
+    } else {
+      return;
+    }
+    sound.playSfx('sfx_confirm');
+    this._refresh();
+  }
+
+  /** 战场内使用消耗品：走 CombatSystem.useItem（效果解释 + 自动扣件） */
+  _useSelected() {
+    const row = this.rows[this.rowIndex];
+    if (!row || this.view !== 'unit' || !this.unit) return;
+    const result = CombatSystem.useItem(this.unit, row.itemId);
+    if (result && result.success) {
+      sound.playSfx('sfx_confirm');
+      this._refresh();
+    }
+  }
+
   /* ---------- ModalBase 覆写：分支动作 + 列表键盘 ---------- */
 
   trigger(id) {
+    if (id === 'equip') { this._equipSelected(); return; }
+    if (id === 'use') { this._useSelected(); return; }
     if (id === 'deposit') { this._trade(true); return; }
     if (id === 'withdraw') { this._trade(false); return; }
     this.close();
@@ -283,6 +359,11 @@ export class InventoryPanelModal extends ModalBase {
   handleKeyDown(e) {
     const k = e && e.key;
     if (!k) return false;
+    // Shift+← →：底部动作键间换焦点（裸 ←→ 仍归分类切换，两套导航不抢键）
+    if (e.shiftKey && (k === 'ArrowLeft' || k === 'ArrowRight')
+      && this.selectable && this.buttons.length > 1) {
+      return this.moveFocus(k === 'ArrowLeft' ? -1 : 1);
+    }
     if (k === 'ArrowUp') return this._moveRow(-1);
     if (k === 'ArrowDown') return this._moveRow(1);
     if (k === 'ArrowLeft') return this._cycleKind(-1);
@@ -292,8 +373,10 @@ export class InventoryPanelModal extends ModalBase {
       return true;
     }
     if (k === 'Enter' || k === ' ') {
-      // 空列表不误关：吞掉按键但不动数据；有行则执行当前视图的主操作
-      this.trigger(this.view === 'unit' ? 'deposit' : 'withdraw');
+      // 焦点若停在 close 上/无按钮（空列表）→ 静默吞掉，杜绝"连按 Enter 误关"；
+      // 关面板只走 Escape/鼠标。焦点在动作键上则原样执行。
+      const btn = this.buttons && this.buttons[this.focusIndex];
+      if (btn && btn.id !== 'close') this.trigger(btn.id);
       return true;
     }
     if (k === 'Escape') {
@@ -353,6 +436,14 @@ export class InventoryPanelModal extends ModalBase {
     const visible = Math.min(this.rows.length, R.maxRows);
     if (rel < 0 || rel >= visible * R.rowH) return -1;
     return Math.floor(rel / R.rowH);
+  }
+
+  /** 行是否正处于装备槽内（武器=equippedWeapon / 防具=equippedArmors 单槽） */
+  _isRowEquipped(row) {
+    if (this.view !== 'unit' || !row || !this.unit) return false;
+    if (row.kind === 'weapon') return this.unit.equippedWeapon === row.itemId;
+    if (row.kind === 'armor') return (this.unit.equippedArmors || []).includes(row.itemId);
+    return false;
   }
 
   /* ---------- 渲染 ---------- */
@@ -438,6 +529,7 @@ export class InventoryPanelModal extends ModalBase {
       const row = this.rows[i];
       const y = R.y + i * R.rowH;
       const cy = y + R.rowH / 2;
+      const isEquipped = this._isRowEquipped(row);
 
       // 选中行：金色底 + 金框（与按钮焦点同语言）
       if (i === this.rowIndex) {
@@ -461,10 +553,10 @@ export class InventoryPanelModal extends ModalBase {
       ctx.textBaseline = 'middle';
       ctx.fillText(KIND_SHORT[row.kind] || '？', R.x + 18 + size / 2, y + R.rowH / 2);
 
-      // 名称（禁存行降灰提示「剧情」定位）
+      // 名称（禁存/装备中行降灰提示锁定态）
       ctx.textAlign = 'left';
       ctx.font = fontCss(16, 'bold');
-      ctx.fillStyle = row.disabled ? PALETTE.title : PALETTE.ink;
+      ctx.fillStyle = (row.disabled || isEquipped) ? PALETTE.title : PALETTE.ink;
       ctx.fillText(row.name, R.x + 48, cy);
 
       // 数量徽标
@@ -474,11 +566,16 @@ export class InventoryPanelModal extends ModalBase {
         ctx.fillText(row.countText, R.x + R.w - 176, cy);
       }
 
-      // 右侧短提示
+      // 右侧短提示（装备中亮绿；key_item 红字锁定）
       ctx.textAlign = 'right';
       ctx.font = fontCss(13);
-      ctx.fillStyle = row.disabled ? PALETTE.danger : PALETTE.title;
-      ctx.fillText(row.hint || (row.disabled ? '不可存入' : ''), R.x + R.w - 14, cy);
+      if (isEquipped) {
+        ctx.fillStyle = PALETTE.ok;
+        ctx.fillText('装备中 · ' + (row.hint || ''), R.x + R.w - 14, cy);
+      } else {
+        ctx.fillStyle = row.disabled ? PALETTE.danger : PALETTE.title;
+        ctx.fillText(row.hint || (row.disabled ? '不可存入' : ''), R.x + R.w - 14, cy);
+      }
       ctx.textAlign = 'left';
     }
   }
@@ -492,7 +589,7 @@ export class InventoryPanelModal extends ModalBase {
     if (!this.row) {
       ctx.font = fontCss(14);
       ctx.fillStyle = PALETTE.text;
-      ctx.fillText('（↑ ↓ 选行 · ← → 切换分类 · Tab 切换背包/仓库 · Enter 存取）', D.x, D.y + 10);
+      ctx.fillText('（↑↓ 选行 · ←→ 切分类 · Tab 切背包/仓库 · Shift+←→ 换动作 · Enter 执行）', D.x, D.y + 10);
       return;
     }
 
@@ -503,8 +600,10 @@ export class InventoryPanelModal extends ModalBase {
     if (!this.descBlock.lines.length) {
       ctx.font = fontCss(14);
       ctx.fillStyle = PALETTE.text;
-      ctx.fillText(this.row.disabled ? '（剧情道具，锁在持有者身上，不可存入仓库）' : '（暂无描述）',
-        D.x, D.y + 34);
+      const lockText = this._isRowEquipped(this.row)
+        ? '（装备中——想换装/存入仓库，先装备别的同类物品）'
+        : (this.row.disabled ? '（剧情道具，锁在持有者身上，不可存入仓库）' : '（暂无描述）');
+      ctx.fillText(lockText, D.x, D.y + 34);
       return;
     }
     drawWrappedLines(ctx, this.descBlock.lines, D.x, D.y + 24, {

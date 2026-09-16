@@ -320,38 +320,45 @@ function expSegmentView(seg, t, st, base) {
 
 /**
  * 弹层内双方交战卡 + 战报 + 经验条布局（相对 box 计算，自适应收缩画布）。
- * 垂直预算（500 高基准）：标题 → 头像行 → 名字 → HP 条 → 伤害数字 →
- * 升级横幅/战报 → EXP 条 → 确认按钮（planButtonRow 默认贴底）。
+ * 垂直预算（500 高基准）：标题 → 头像行（中轴 VS 徽章）→ 名字/等级（主副分层）→
+ * HP 条 → 伤害数字 → 升级横幅/战报 → +N/EXP 条区 → 确认按钮（planButtonRow 贴底）。
+ * 卡内节奏统一 28：头像缘→名 / 名行→等级副行 / 名区→条 25 / 条底→伤害数字 28。
  */
 export function planExchangeCards(box) {
   const cardCy = box.y + Math.round(box.h * 0.30);
   const r = Math.max(34, Math.min(52, Math.round(box.w * 0.068)));
   const half = Math.round(box.w * 0.29);
   const barW = Math.min(280, Math.round(box.w * 0.38));
+  const expBar = {
+    x: box.x + Math.round(box.w * 0.15),
+    y: box.y + Math.round(box.h * 0.76),
+    w: Math.round(box.w * 0.70),
+    h: 16,
+  };
 
   const mk = (dir) => {
     const cx = box.cx + dir * half;
-    const barY = cardCy + r + 56;
+    const nameY = cardCy + r + 28;
+    const levelY = nameY + 21;
+    const hpBar = { x: cx - barW / 2, y: levelY + 25, w: barW, h: 20 };
     return {
       avatar: { cx, cy: cardCy, r },
-      nameY: cardCy + r + 30,
-      hpBar: { x: cx - barW / 2, y: barY, w: barW, h: 20 },
-      damageY: barY + 20 + 30,
+      nameY,
+      levelY,
+      hpBar,
+      damageY: hpBar.y + hpBar.h + 28,
     };
   };
 
   return {
     attacker: mk(-1),
     defender: mk(1),
-    vs: { x: box.cx, y: cardCy },
+    vs: { cx: box.cx, cy: cardCy, r: Math.max(16, Math.min(24, Math.round(r * 0.48))) },
     levelUpY: box.y + Math.round(box.h * 0.60),
     reportY: box.y + Math.round(box.h * 0.66),
-    expBar: {
-      x: box.x + Math.round(box.w * 0.15),
-      y: box.y + Math.round(box.h * 0.716),
-      w: Math.round(box.w * 0.70),
-      h: 16,
-    },
+    expBar,
+    // +N 数字几何锚（条上方 20）：与报告行拉开净空，不与 18px 战报带重叠
+    expLabelY: expBar.y - 20,
   };
 }
 
@@ -487,6 +494,7 @@ export class CombatExchange extends ModalBase {
     this._advanceReal();
     const v = this.view;
     this.renderFrame(`${this.sides.attacker.name} VS ${this.sides.defender.name}`);
+    this._renderVs();
     this._renderSide('attacker', v);
     this._renderSide('defender', v);
     this._renderReport(v);
@@ -495,6 +503,31 @@ export class CombatExchange extends ModalBase {
   }
 
   /* ---------- 内部：绘制 ---------- */
+
+  /** 中轴 VS 徽章：外环淡金 + 纸底金框圆 + accent 大字（整卡界面中轴对称锚） */
+  _renderVs() {
+    const ctx = this.ctx;
+    const vs = this.cards.vs;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(vs.cx, vs.cy, vs.r + 6, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(250, 204, 21, 0.45)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(vs.cx, vs.cy, vs.r, 0, Math.PI * 2);
+    ctx.fillStyle = PALETTE.paper;
+    ctx.fill();
+    ctx.strokeStyle = PALETTE.gold;
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    ctx.font = fontCss(18, 'bold');
+    ctx.fillStyle = PALETTE.accent;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('VS', vs.cx, vs.cy + 1);
+    ctx.restore();
+  }
 
   _renderSide(side, v) {
     const ctx = this.ctx;
@@ -519,22 +552,38 @@ export class CombatExchange extends ModalBase {
     const face = avatarFaceFor(cfg.unit || { name: cfg.name, faction: cfg.faction });
     drawAvatar(ctx, { ...card.avatar, ...face, faction: cfg.faction });
 
-    // 名字 + 等级（经验段升级后等级实时跟走）
+    // 名字（主 21 深）/ 等级（副 14 琥珀，经验段升级后实时跟走）—— 主大副小分层
     const lv = (this.playerSide === side && v.expLevel != null) ? v.expLevel : cfg.level;
-    ctx.font = fontCss(21, 'bold');
-    ctx.fillStyle = PALETTE.ink;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(`${cfg.name}  Lv.${lv}`, card.avatar.cx, card.nameY);
+    ctx.font = fontCss(21, 'bold');
+    ctx.fillStyle = PALETTE.ink;
+    ctx.fillText(cfg.name, card.avatar.cx, card.nameY);
+    ctx.font = fontCss(14, 'bold');
+    ctx.fillStyle = PALETTE.title;
+    ctx.fillText(`Lv.${lv}`, card.avatar.cx, card.levelY);
 
-    // HP 条（ghost = 掉血前残影）
+    // HP 条（ghost = 掉血前残影）。条身不带条外文字，避免两卡文字顶出弹框边线
     drawBar(ctx, planBar({
       kind: 'hp',
       x: card.hpBar.x, y: card.hpBar.y, w: card.hpBar.w, h: card.hpBar.h,
       ratio: barRatio(hp, cfg.maxHp),
       ghostRatio: ghost != null ? barRatio(ghost, cfg.maxHp) : null,
-      valueText: `${Math.round(hp)}/${cfg.maxHp}`,
+      label: '',
     }));
+
+    // 数值镜像面向中轴：攻方画条右外（朝中）、守方画条左外（朝中），整行对称
+    ctx.font = fontCss(16, 'bold');
+    ctx.fillStyle = PALETTE.ink;
+    if (side === 'attacker') {
+      ctx.textAlign = 'left';
+      ctx.fillText(`${Math.round(hp)}/${cfg.maxHp}`,
+        card.hpBar.x + card.hpBar.w + 8, card.hpBar.y + card.hpBar.h / 2);
+    } else {
+      ctx.textAlign = 'right';
+      ctx.fillText(`${Math.round(hp)}/${cfg.maxHp}`,
+        card.hpBar.x - 8, card.hpBar.y + card.hpBar.h / 2);
+    }
 
     // 伤害数字（只画在被击侧）
     const seg = this.segments[v.activeIndex];
@@ -542,6 +591,8 @@ export class CombatExchange extends ModalBase {
       ctx.font = fontCss(26, 'bold');
       ctx.fillStyle = v.damageKind === 'crit' ? PALETTE.danger
         : (v.damageKind === 'miss' ? PALETTE.text : PALETTE.warn);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
       ctx.fillText(v.damageText, card.avatar.cx, card.damageY);
     }
   }
@@ -571,13 +622,14 @@ export class CombatExchange extends ModalBase {
       ctx.fillStyle = PALETTE.warn;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(`+${v.expGained}`, this.box.cx, eb.y - 16);
+      ctx.fillText(`+${v.expGained}`, this.box.cx, this.cards.expLabelY);
     }
     drawBar(ctx, planBar({
       kind: 'exp',
       x: eb.x, y: eb.y, w: eb.w, h: eb.h,
       ratio: barRatio(v.expShown, this.expMax),
       ghostRatio: v.expGhost != null ? barRatio(v.expGhost, this.expMax) : null,
+      label: '经验',
       valueText: `${Math.round(v.expShown)}/${this.expMax}`,
     }));
   }

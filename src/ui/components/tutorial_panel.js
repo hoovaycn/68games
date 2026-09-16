@@ -88,6 +88,12 @@ export class TutorialPanelModal extends ModalBase {
   _applyStep() {
     const step = this.step || { title: '', body: '', hint: '' };
     this.setButtons(planTutorialButtons(this.stepIndex, this.steps.length));
+    // 默认焦点落在「下一步/开始行动」——回车语义即"推进"，
+    // 按钮序里 prev 在前导致 setButtons 的 focusIndex=0 总落在「上一步」，
+    // 这里翻页/切步后统一纠偏到推进键。
+    const preferIds = ['next', 'finish'];
+    const prefer = this.buttons.findIndex((b) => preferIds.includes(b.id));
+    if (prefer >= 0) this.focusIndex = prefer;
     this.bodyBlock = planWrappedBlock(step.body, this.measure, this.box.w - 96, 28);
   }
 
