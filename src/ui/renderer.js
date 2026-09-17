@@ -444,18 +444,6 @@ export class Renderer {
         ctx.fillRect(barX, barY, barW * hpPct, barH);
       }
 
-      // 6. 阵营角标 (我方蓝/敌方红)
-      if (!isDying) {
-        const isPlayer = u.faction === 'player';
-        ctx.fillStyle = isPlayer ? '#2563eb' : '#dc2626';
-        ctx.beginPath();
-        ctx.arc(px + 8, py + 8, 5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-      }
-
       ctx.restore();
     }
   }
@@ -491,9 +479,9 @@ export class Renderer {
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
     ctx.fill();
 
-    // 白色外环
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 2;
+    // 阵营边框（我方蓝 / 敌方红，替代左上角小点标志）
+    ctx.strokeStyle = isPlayer ? '#2563eb' : '#dc2626';
+    ctx.lineWidth = 3;
     ctx.stroke();
 
     // 内圈裁剪绘制头像
@@ -515,6 +503,27 @@ export class Renderer {
     }
 
     ctx.restore();
+
+    // 攻击距离角标（右上角小徽章）：让玩家一眼看出该单位武器的射程（近战=1，远程=1-2）
+    const wInfo = WEAPONS[u.equippedWeapon];
+    const range = (wInfo && Array.isArray(wInfo.range)) ? wInfo.range : [1, 1];
+    const rangeText = range[0] === range[1] ? String(range[0]) : `${range[0]}-${range[1]}`;
+    const badgeW = 24;
+    const badgeH = 15;
+    const bx = cx + r - badgeW + 1;
+    const by = cy - r + 1;
+    ctx.fillStyle = 'rgba(10, 10, 14, 0.92)';
+    ctx.beginPath();
+    ctx.roundRect(bx, by, badgeW, badgeH, 4);
+    ctx.fill();
+    ctx.strokeStyle = '#facc15';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = '#fef08a';
+    ctx.font = 'bold 10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`射${rangeText}`, bx + badgeW / 2, by + badgeH / 2 + 0.5);
   }
 
   // ==================== 章节标题横幅 ====================

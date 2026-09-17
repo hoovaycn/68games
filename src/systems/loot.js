@@ -49,7 +49,7 @@ function snapshot(itemId, count = 1) {
     desc: g.desc || '',
     kind: g.kind,
     stack: g.stack ?? 1,
-    iconPath: 'assets/items/' + itemId + '.png'
+    iconPath: g.icon || ('assets/items/' + itemId + '.png')
   };
 }
 

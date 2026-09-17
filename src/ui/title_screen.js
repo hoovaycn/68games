@@ -484,7 +484,7 @@ export class TitleScreen {
     this.titleMenuIndex = this.hasContinue ? 0 : 1;
     this.titleMenuRects = [];
     if (!this.titleBgmSwitched) {
-      sound.playBgm('bgm_suspense');
+      sound.playBgm('bgm_title');
     }
   }
 

@@ -309,6 +309,8 @@
 
 ### 5.15 音频系统（BGM / SFX / MIDI）
 
+> 选曲规则与素材池见 [`docs/audio_guidelines.md`](audio_guidelines.md)：场景按情绪对号入座取「槽位」默认曲，新曲进备选池，用到的才进 `assets/audio/` 并登记 `credits.js`。
+
 
 
 * 推荐档：CC0 芯片音乐存 ogg，HTMLAudioElement 循环 + 统一 AudioManager（场景切换淡入淡出、BGM/SFX 分轨音量、静音、首次交互后解锁音频）

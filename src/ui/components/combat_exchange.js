@@ -79,18 +79,18 @@ export function planStrikeSegment(info, startAt = 0) {
 
   let duration, impactAt, dropAt = null, settleAt = null;
   if (!isHit) {
-    impactAt = STRIKE_TIMING.WINDUP + STRIKE_TIMING.DODGE;         // 280：闪避定格点
-    duration = impactAt + STRIKE_TIMING.SETTLE_MISS;               // 500
+    impactAt = STRIKE_TIMING.WINDUP + STRIKE_TIMING.DODGE;         // 290：闪避定格点
+    duration = impactAt + STRIKE_TIMING.SETTLE_MISS;               // 990
   } else if (isCrit) {
     impactAt = STRIKE_TIMING.WINDUP;                               // 170
     dropAt = impactAt + STRIKE_TIMING.IMPACT;                      // 260
     settleAt = dropAt + STRIKE_TIMING.DROP_CRIT;                   // 660
-    duration = settleAt + STRIKE_TIMING.SETTLE_CRIT;               // 860
+    duration = settleAt + STRIKE_TIMING.SETTLE_CRIT;               // 1360
   } else {
     impactAt = STRIKE_TIMING.WINDUP;                               // 170
     dropAt = impactAt + STRIKE_TIMING.IMPACT;                      // 260
     settleAt = dropAt + STRIKE_TIMING.DROP;                        // 580
-    duration = settleAt + STRIKE_TIMING.SETTLE;                    // 710
+    duration = settleAt + STRIKE_TIMING.SETTLE;                    // 1080
   }
 
   return {
@@ -655,11 +655,7 @@ export class CombatExchange extends ModalBase {
     const ctx = this.ctx;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    if (v.levelUpText) {
-      ctx.font = fontCss(24, 'bold');
-      ctx.fillStyle = PALETTE.warn;
-      ctx.fillText(v.levelUpText, this.box.cx, this.cards.levelUpY);
-    } else if (v.reportText) {
+    if (v.reportText) {
       ctx.font = fontCss(18, 'bold');
       ctx.fillStyle = PALETTE.ink;
       ctx.fillText(v.reportText, this.box.cx, this.cards.reportY);

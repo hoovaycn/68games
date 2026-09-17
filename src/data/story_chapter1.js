@@ -24,7 +24,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二天上午阳光洒满操场，昨夜的惊悚仿佛只是一场梦。',
+        text: '第二天上午，全校同学在操场上集合准备午休练操。阳光把跑道晒得发白，昨夜那场惊悚仿佛只是一场梦。跑道边，校队前锋张希哲正颠着足球，拉拉操队长覃瑞怡带着队员在旁压腿热身。',
         sfx: 'sfx_confirm'
       },
       {
@@ -53,6 +53,15 @@ export const CHAPTER1_STORY = {
         activeSide: 'left',
         text: '我摸了摸书包兜，昨晚带回来的零食仿佛正透着丝丝寒意。',
         sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '只是阳光亮得有些刺眼，跑道尽头却像蒙着一层化不开的灰。空气里，隐约飘来一股发甜的怪味——和昨晚那包零食一模一样。',
+        sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
@@ -91,6 +100,15 @@ export const CHAPTER1_STORY = {
       },
       {
         id: 3,
+        speaker: '外校体育生',
+        leftPortrait: 'assets/art/senior_athlete_default.png',
+        rightPortrait: 'assets/art/zhangxizhe_default.png',
+        activeSide: 'left',
+        text: '就这胳膊还想当校队？我们体校的六年级，抱着五十公斤哑铃能绕操场跑三圈！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '张希哲',
         leftPortrait: 'assets/art/teacher_pe_default.png',
         rightPortrait: 'assets/art/zhangxizhe_default.png',
@@ -99,7 +117,7 @@ export const CHAPTER1_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default.png',
         rightPortrait: 'assets/art/teacher_pe_default.png',
@@ -108,28 +126,31 @@ export const CHAPTER1_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '体育老师',
         leftPortrait: 'assets/art/teacher_xu_default.png',
         rightPortrait: 'assets/art/teacher_pe_corrupted.png',
         activeSide: 'right',
+        bgImg: 'assets/backgrounds/bg_playground_eerie.png',
         text: '六年级怎么了？！不喝特训饮料怎么冲第一？！——给我滚开！！',
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 6,
+        id: 7,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_pe_corrupted.png',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_playground_eerie.png',
         text: '体育老师双眼泛起青黑凶光，外校生也僵硬地举着哑铃逼近！',
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
-      type: 'CHOICE',
-      prompt: '魔化体育老师吹响了刺耳的铁哨！全体同伴准备迎战！',
-      buttonText: '【展开战斗 · 击破加测狂潮】',
+      type: 'JOIN_PARTY',
+      unitIds: ['zhangxizhe', 'qinruiyi'],
+      prompt: '张希哲与覃瑞怡挺身加入队伍，结阵迎击加测狂潮！',
+      buttonText: '【结成小队 · 击破加测狂潮】',
       battleId: 'ch1_battle1',
       isBattleTrigger: true
     }
@@ -179,6 +200,7 @@ export const CHAPTER1_STORY = {
         activeSide: 'left',
         bgImg: 'assets/backgrounds/cg_pickup_bottle.png',
         text: '徐老师弯下腰，悄悄把空饮料瓶塞进了自己的公文包，并未上交。',
+        highlight: true,
         sfx: 'sfx_confirm'
       },
       {
@@ -201,9 +223,8 @@ export const CHAPTER1_STORY = {
       }
     ],
     transition: {
-      type: 'JOIN_PARTY',
-      unitId: 'zhangxizhe',
-      prompt: '校队前锋张希哲与拉拉操队长覃瑞怡加入队伍！',
+      type: 'CHOICE',
+      prompt: '战后大家重新聚拢，一起朝教学楼走去。',
       buttonText: '【整队回航 · 望向教务处】',
       targetScene: 'ch1_scene_office_shadow'
     }
@@ -251,6 +272,7 @@ export const CHAPTER1_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '真正的宴席……才刚刚开场。',
+        highlight: true,
         sfx: 'sfx_text_blip'
       }
     ],

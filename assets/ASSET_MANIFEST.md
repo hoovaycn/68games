@@ -26,8 +26,8 @@
 | fanwenmo_corrupted.png/@2x | 范文默·异变 | 青光眼、狂笑、物理书 |
 | heyanxi_default.png/@2x | 何妍熹·正常 | 热情活泼双眼睁开笑，白外套白裙，黑高马尾白蝴蝶结；**银竖笛竖直捧胸前**（原横吹左右溢出，已重画为竖持） |
 | heyanxi_corrupted.png/@2x | 何妍熹·异变 | 苍白、空洞青蓝发光眼、冷笑、冷青调；同脸同衣，**银竖笛竖直捧胸前**（同改竖持） |
-| zhangxizhe_default.png/@2x | 张希哲 | 寸头眼镜，蓝运动服，抱黑白足球 |
-| qinruiyi_default.png/@2x | 覃瑞怡 | 蓝双马尾+红蝴蝶结，红白啦啦队服；**单手高举一个蓝金花球、另一手叉腰、马尾下垂**（原双手各举一花球左右溢出，已重画） |
+| zhangxizhe_default.png/@2x | 张希哲 | 利落短发（短碎刘海、非寸头）、圆眼镜，蓝运动服，抱黑白足球（2026-09-17 由寸头加短发，头像同步重裁） |
+| qinruiyi_default.png/@2x | 覃瑞怡 | **深棕双马尾**+红蝴蝶结，红白啦啦队服；**单手高举一个蓝金花球、另一手叉腰、马尾下垂**（原双手各举一花球左右溢出，已重画） |
 | zhuyanze_default.png/@2x | 朱晏泽·正常 | 褐色短发、方脸小眼帅气，白+绿 polo，富二代 |
 | zhuyanze_corrupted.png/@2x | 朱晏泽·异变 | 同脸同衣，青蓝发光眼、冷笑、冷青调（第三章 boss） |
 | teacher_pe_default.png/@2x | 体育老师·正常 | 凯式刺猬头、中年刚毅，白蓝运动服 |
@@ -51,7 +51,9 @@
 
 ### assets/items/　道具/武器图标（**32×32，#FF00FF 纯色底，另附 @2x 64**）
 
-> **2026-09-17 规格上调**：由原 16/32 放大两号到 **32/64**，主体占画布约 90%，像素硬边放大。共 27 件。
+> **2026-09-17 规格上调**：由原 16/32 放大两号到 **32/64**，主体占画布约 90%，像素硬边放大。
+> **2026-09-17 装备 id 批**：按研发武器/消耗品/关键/防具四类共 39 个 id 补齐，其中 37 个新画、2 个由现有图复制同图（flute←recorder、pom_pom←pompom_deluxe）。目录现共 **69 个 id**（原 30 + 新画 37 + 复制 2），全部 32/64 洋红底。对照见下方「研发装备 id 对照」。
+> **2026-09-17 精度统一重画**：bastard_soda、blackboard_eraser、chalk_box、cooling_oil、eraser、honey_tea、moms_lunchbox、mop、recorder、sausage 共 10 件按最新像素精度重绘（主题 / 配色 / 文件名不变，仍 32/64 洋红底）；其中 bastard_soda 修正为紫蓝罐（原误成橙色长条）、sausage 改为单根弯烤肠（原与 candied_haw 糖葫芦撞形）。
 
 | 文件 | 名称 | 视觉 / 配色备注 |
 | --- | --- | --- |
@@ -59,6 +61,9 @@
 | sausage.png/@2x | 烤肠 | 回 12HP，棕黄烤肠 |
 | bastard_soda.png/@2x | 混蛋汽水 | 回 6HP+攻速，紫蓝罐 |
 | suspicious_snack.png/@2x | 可疑零食 | 关键道具不可用，绿包装 |
+| suspicious_drink.png/@2x | 可疑运动饮料 | 关键道具不可用，青蓝荧光运动水壶+怪 logo，与可疑零食同套媒介物（第二章） |
+| discarded_snack.png/@2x | 已丢弃的零食 | 关键剧情物证，同款绿荧光零食袋被揉皱、沾灰、挂枯叶、未拆封（第三章垃圾桶找回） |
+| milk_candy.png/@2x | 大白兔奶糖 | 米白+蓝扭结蜡纸圆柱奶糖、蓝色小兔，蓝白配色刻意避开红粉 |
 | recorder.png/@2x | 竖笛 | 米色塑料竖笛 |
 | harmonica.png/@2x | 口琴 | 银色金属小口琴 |
 | color_chalk.png/@2x | 彩色粉笔 | 白/蓝/黄/绿四色（**去掉需求里的粉色**） |
@@ -82,6 +87,50 @@
 | earplug.png/@2x | 隔音耳塞 | 橙色泡沫耳塞两枚 |
 | dirty_sock.png/@2x | 脏袜子 | 白袜+绿渍（研发新增） |
 | pe_teacher_brain.png/@2x | 体育老师的脑子 | **黄绿发光脑子**（原粉色脑子顺色，已重做；研发新增） |
+
+#### 研发装备 id 对照（2026-09-17，文件名 = id.png / id@2x.png）
+
+| 研发 id | 中文 | 类别 | 来源 / 视觉备注 |
+| --- | --- | --- | --- |
+| calligraphy_brush | 毛笔 | 武器 | 新增，竹杆黑锋 |
+| vocab_cards | 单词卡 | 武器 | 新增，白卡扇+ABC |
+| snack_throw | 投掷零食 | 武器 | 新增，蓝黄零食袋 |
+| exercise_bat | 球棒 | 武器 | 新增，蓝银金属棒 |
+| triangular_ruler | 三角尺 | 武器 | 新增，浅蓝透明三角板 |
+| compass_needle | 圆规 | 武器 | 新增，银蓝圆规 |
+| fountain_pen | 钢笔 | 武器 | 新增，深蓝金尖 |
+| basketball | 篮球 | 武器 | 新增，橙色黑纹 |
+| ping_pong_paddle | 乒乓球拍 | 武器 | 新增，**蓝胶皮**（常规红胶皮改蓝防顺色） |
+| football | 足球 | 武器 | 新增，黑白足球 |
+| flute | 笛子 | 武器 | **复用 recorder**（同图复制为 flute，角色何妍熹用竖笛） |
+| water_bottle | 运动水壶 | 武器 | 新增，普通透明蓝盖水壶；区别于剧情道具 suspicious_drink |
+| paper_plane | 纸飞机 | 武器 | 新增，白纸飞机 |
+| whistle | 哨子 | 武器 | 新增，银哨+蓝挂绳 |
+| dumbbell | 哑铃 | 武器 | 新增，蓝色哑铃 |
+| chalk_head | 粉笔头 | 武器 | 新增，两截白粉笔头+粉尘 |
+| teaching_pointer | 教鞭 | 武器 | 新增，深蓝柄伸缩教鞭 |
+| pom_pom | 花球 | 武器 | **复用 pompom_deluxe**（同图复制为 pom_pom） |
+| math_exam | 数学试卷 | 消耗品 | 新增，蓝头卷+公式几何 |
+| chinese_exam | 语文试卷 | 消耗品 | 新增，绿头卷+**蓝绿田字格**（不用红格） |
+| english_exam | 英语试卷 | 消耗品 | 新增，黄头卷+ABC |
+| teacher_thermos | 老师保温杯 | 消耗品 | 新增，银黑保温杯（徐老师） |
+| olympiad_medal | 奥数奖牌 | 消耗品 | 新增，金牌 π+**蓝绶带** |
+| durian_cake | 榴莲酥 | 消耗品 | 新增，金黄榴莲糕 |
+| sanitary_pad | 卫生巾 | 消耗品 | 新增，蓝白中性独立包装 |
+| grandmas_chicken | 奶奶炖鸡 | 消耗品 | 新增，碗装炖鸡腿+热气 |
+| grandpas_dentures | 爷爷的假牙 | 消耗品 | 新增，白牙+浅蓝牙托（不用粉牙龈） |
+| snot_paper | 鼻涕纸 | 消耗品 | 新增，白纸团 |
+| merit_certificate | 奖状 | 消耗品 | 新增，米黄卷+蓝边金印 |
+| cheat_sheet | 小抄 | 消耗品 | 新增，折角密字纸条 |
+| class_photo | 班级合影 | 关键道具 | 新增，拍立得+小人合影 |
+| teachers_office_key | 教务处钥匙 | 关键道具 | 新增，黄铜钥匙+蓝牌 |
+| class_roll_book | 点名册 | 关键道具 | 新增，青绿封面名册 |
+| school_bag | 书包 | 防具 | 新增，蓝色双肩书包 |
+| red_scarf | 红领巾 | 防具 | 新增，**橙红/正红（低蓝通道，刻意偏橙，非品红，色键安全）** |
+| hooded_trashcan | 带盖垃圾桶 | 防具 | 新增，绿色带盖塑料桶 |
+| sport_kneepad | 运动护膝 | 防具 | 新增，蓝黑护膝 |
+| student_badge | 学生证/校徽 | 防具 | 新增，蓝白胸牌+蓝挂绳 |
+| strong_will | 坚强的意志 | 防具 | 新增，发光金拳头（抽象意志力） |
 
 ### assets/ui/　战斗 UI 图标（#FF00FF 纯色底，每张配 @2x）
 
@@ -111,6 +160,7 @@
 | bg_title.png/@2x | 黄昏教室·铅笔如剑插课桌，黑板区留空 |
 | title_logo.png/@2x | 标题 Logo（代码叠标题用） |
 | bg_classroom.png/@2x | 六8班教室·早读暖阳 |
+| bg_classroom_eerie.png/@2x | 六8班教室·异变（与日常教室同源构图：冷青蓝暮光、窗外鬼影与幽绿雾、黑板粉笔画异变成发光青螺旋、日光灯惨白、荧光粒子薄雾，第三章朱晏泽异化战斗用） |
 | bg_street.png/@2x | 校外小巷·黄昏（含流动小吃车） |
 | bg_home.png/@2x | 同学家·日常暖光（男/女线共用） |
 | bg_home_eerie.png/@2x | 同学家·异变（绿灯、书山、漂浮纸张） |
@@ -118,7 +168,8 @@
 | bg_neighborhood.png/@2x | 老小区街道·傍晚 |
 | bg_office.png/@2x | 教务处·办公桌堆文件 |
 | bg_playground.png/@2x | 操场·黄昏足球场（教学楼+绿茵场） |
-| cg_pickup_bottle.png/@2x | CG 特写：女老师纤细的手捡起荧光瓶子 |
+| bg_playground_eerie.png/@2x | 操场·异变（与日常操场同源构图：冷青蓝紫暮色、满窗青光、病态草地、荧光粒子薄雾，第二章魔化用） |
+| cg_pickup_bottle.png/@2x | CG 特写：女老师（深灰西装白衬衣袖口、纤细的手）捡起青蓝荧光运动瓶；**手与瓶整体位于画面上半，下半净空留给对话框** |
 | bg_auditorium.png/@2x | 学校礼堂/体育馆·全校大会（舞台+空白红横幅+排长椅+篮球架，第三章） |
 | bg_school_night.png/@2x | 夜晚校园·黑灯教学楼一扇亮窗+一盏路灯+跑道剪影（第三章末密会） |
 

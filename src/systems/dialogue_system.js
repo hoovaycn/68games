@@ -239,9 +239,12 @@ export class DialogueSystem {
       ctx.fillText(this.activeLine.speaker, nameX + nameW / 2, nameY + nameH / 2);
     }
 
-    // 放大加粗的纯黑暖灰正文台词 (24px, 行高 34px)
-    ctx.fillStyle = '#1c1917';
-    ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
+    // 正文台词：钩子句（highlight）用红色大字突出，普通句用纯黑暖灰
+    const isHighlight = !!(this.activeLine && this.activeLine.highlight);
+    ctx.fillStyle = isHighlight ? '#b91c1c' : '#1c1917';
+    ctx.font = isHighlight
+      ? 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
+      : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
     this.wrapText(ctx, this.displayedText, x + 32, y + 36, boxW - 64, 34);

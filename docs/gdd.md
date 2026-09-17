@@ -760,6 +760,8 @@
 
 ### 11.3 音乐需求（可先用现有曲库，缺则补）
 
+> 选曲规则与素材池见 [`docs/audio_guidelines.md`](audio_guidelines.md)——配乐查表即用，不再逐章临时想曲。
+
 
 
 * 第三章：礼堂大会用 bgm\_suspense（压抑）；教室起哄可用 bgm\_classroom 变调 / 压低；夜晚密会用 bgm\_eerie\_revelation。

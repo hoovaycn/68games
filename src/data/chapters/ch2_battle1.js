@@ -11,6 +11,7 @@
 export const CH2_BATTLE1 = {
   id: 'ch2_battle1',
   name: '第五战：六 8 班教室 · 破除猜疑风暴',
+  bgm: 'bgm_battle_boss',
   mapWidth: 9,
   mapHeight: 7,
   defaultTerrain: 'tile_floor',

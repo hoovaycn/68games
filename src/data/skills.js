@@ -42,6 +42,7 @@ export const SKILLS = {
   review_notes: {
     id: 'review_notes',
     name: '考前划重点',
+    unlockLevel: 5,
     scope: 'class',
     ownerClass: 'primary_student',
     mpCost: 3,
@@ -65,19 +66,6 @@ export const SKILLS = {
     effect: { kind: 'buff', stats: { spd: 3, mov: 1 } },
     desc: '起跑器蹬出去的那一下。四百米能追回来，一个操场算什么。'
   },
-  blood_rally: {
-    id: 'blood_rally',
-    name: '热血宣言',
-    scope: 'class',
-    ownerClass: 'sports_star',
-    mpCost: 5,
-    target: 'self',
-    range: [0, 0],
-    duration: 'nextAttack',
-    effect: { kind: 'buff', stats: { str: 4 } },
-    desc: '当着全班的面喊出「下一球一定进」。喊出去的话，泼出去的水。'
-  },
-
   /* ══════════ 职业技：学习委员（魔法师） ══════════ */
   dictation_storm: {
     id: 'dictation_storm',
@@ -94,6 +82,7 @@ export const SKILLS = {
   evening_lullaby: {
     id: 'evening_lullaby',
     name: '晚自习催眠曲',
+    unlockLevel: 6,
     scope: 'class',
     ownerClass: 'study_committee',
     mpCost: 4,
@@ -117,19 +106,19 @@ export const SKILLS = {
     effect: { kind: 'buff', stats: { crit: 25 } },
     desc: '眯眼一瞥三行答案。抄得快的人，运气也是实力。'
   },
-  cram_prayer: {
-    id: 'cram_prayer',
-    name: '临时抱佛脚',
+  /* ══════════ 职业技：怪力少年（物理战士） ══════════ */
+  mighty_swing: {
+    id: 'mighty_swing',
+    name: '蛮力一挥',
     scope: 'class',
-    ownerClass: 'xuesu',
-    mpCost: 2,
-    target: 'self',
-    range: [0, 0],
-    duration: 'turn',
-    effect: { kind: 'buff', stats: { skl: 3, spd: 3 } },
-    desc: '考前一晚把整本书翻出响。头悬梁锥刺股，就管这一回合。'
+    ownerClass: 'strong_boy',
+    mpCost: 4,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 5 },
+    desc: '抡圆了胳膊砸下去。平时写作业手抖的人，这一下稳得吓人。'
   },
-
   /* ══════════ 职业技：拉拉操队员（奶妈 · 治疗组） ══════════ */
   cheer_song: {
     id: 'cheer_song',
@@ -146,6 +135,7 @@ export const SKILLS = {
   wave_cheer: {
     id: 'wave_cheer',
     name: '人浪加油',
+    unlockLevel: 5,
     scope: 'class',
     ownerClass: 'cheerleader',
     mpCost: 3,
@@ -158,6 +148,7 @@ export const SKILLS = {
   spirit_burst: {
     id: 'spirit_burst',
     name: '元气大爆发',
+    unlockLevel: 8,
     scope: 'class',
     ownerClass: 'cheerleader',
     mpCost: 6,
@@ -184,6 +175,7 @@ export const SKILLS = {
   sudden_rollcall: {
     id: 'sudden_rollcall',
     name: '突然点名',
+    unlockLevel: 6,
     scope: 'class',
     ownerClass: 'teacher',
     mpCost: 4,
@@ -210,6 +202,7 @@ export const SKILLS = {
   wall_hugger: {
     id: 'wall_hugger',
     name: '溜墙根',
+    unlockLevel: 5,
     scope: 'class',
     ownerClass: 'street_loafer',
     mpCost: 2,

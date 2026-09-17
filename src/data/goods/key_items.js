@@ -56,6 +56,7 @@ export const KEY_ITEMS = {
     use_in_battle: false,
     use_in_field: false,
     stack: 1,
+    icon: 'assets/items/suspicious_drink.png',
     storyTag: 'ch1_battle1_victory'
   },
   discarded_snack: {

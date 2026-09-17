@@ -180,7 +180,7 @@ export function planInventoryLayout(box) {
   const leftX = box.x + 28;
   const rightX = leftX + colW + colGap;
   const listY = box.y + 172;
-  const rowH = 26;
+  const rowH = 30;
 
   return {
     avatar: { cx: box.x + 62, cy: box.y + 82, r: 24 },
@@ -188,11 +188,11 @@ export function planInventoryLayout(box) {
     subY: box.y + 98,
     // 分类页签整行水平居中（4×160 + 3×10 = 670）
     kindTabs: { x: box.x + 45, y: box.y + 112, w: 160, h: 28, gap: 10 },
-    list: { x: leftX, y: listY, w: box.w - 56, rowH: 24, maxRows: INV_VISIBLE_ROWS },
+    list: { x: leftX, y: listY, w: box.w - 56, rowH: 30, maxRows: INV_VISIBLE_ROWS },
     listLeft: { x: leftX, y: listY, w: colW, rowH, maxRows: INV_VISIBLE_ROWS, headerH: 26 },
     listRight: { x: rightX, y: listY, w: colW, rowH, maxRows: INV_VISIBLE_ROWS, headerH: 26 },
     iconSize: 18,
-    desc: { x: box.x + 28, y: box.y + 322, w: 680, lineH: 20, maxLines: 2 },
+    desc: { x: box.x + 28, y: box.y + 330, w: 680, lineH: 20, maxLines: 2 },
     helpY: box.y + 388,
   };
 }
@@ -820,7 +820,7 @@ export class InventoryPanelModal extends ModalBase {
     // 列头：普通文字（活动列金色、非活动灰），不做可点击 tab 样式
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.font = fontCss(13, 'bold');
+    ctx.font = fontCss(14, 'bold');
     ctx.fillStyle = isActiveCol ? PALETTE.gold : '#94a3b8';
     ctx.fillText(title, x + 2, y - 16);
 
@@ -833,8 +833,8 @@ export class InventoryPanelModal extends ModalBase {
     ctx.stroke();
 
     if (!rows.length) {
-      ctx.font = fontCss(13);
-      ctx.fillStyle = '#64748b';
+      ctx.font = fontCss(14, 'bold');
+      ctx.fillStyle = '#ffffff';
       ctx.textAlign = 'center';
       ctx.fillText('（空无一物）', x + w / 2, y + 40);
       return;
@@ -859,31 +859,31 @@ export class InventoryPanelModal extends ModalBase {
       }
 
       // 分类微标
-      const size = 16;
+      const size = 20;
       ctx.fillStyle = KIND_COLORS[row.kind] || '#64748b';
       rrPath(ctx, x + 8, ry + (rowH - size) / 2, size, size, 3);
       ctx.fill();
       ctx.fillStyle = '#ffffff';
-      ctx.font = fontCss(10, 'bold');
+      ctx.font = fontCss(12, 'bold');
       ctx.textAlign = 'center';
       ctx.fillText(KIND_SHORT[row.kind] || '物', x + 8 + size / 2, cy);
 
       // 物品名称
       ctx.textAlign = 'left';
-      ctx.font = fontCss(13, isSelected ? 'bold' : 'normal');
+      ctx.font = fontCss(15, isSelected ? 'bold' : 'normal');
       ctx.fillStyle = isEquipped ? PALETTE.ok : (isSelected ? '#ffffff' : '#e2e8f0');
-      ctx.fillText(row.name, x + 30, cy);
+      ctx.fillText(row.name, x + 32, cy);
 
       // 数量
       if (row.countText) {
-        ctx.font = fontCss(12, 'bold');
+        ctx.font = fontCss(13, 'bold');
         ctx.fillStyle = PALETTE.goldText;
         ctx.fillText(row.countText, x + w - 100, cy);
       }
 
       // 右侧状态与提示
       ctx.textAlign = 'right';
-      ctx.font = fontCss(11);
+      ctx.font = fontCss(12);
       if (isEquipped) {
         ctx.fillStyle = PALETTE.ok;
         ctx.fillText('已装 · ' + (row.hint || ''), x + w - 8, cy);

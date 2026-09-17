@@ -27,17 +27,19 @@ export const ACTION_MENU_W = 136;
 export const ACTION_MENU_ITEM_H = 42;
 
 /**
- * 四项恒定菜单计划：
- * @param {{enemiesInRange?: number, hasItems?: boolean}} ctx
+ * 五项恒定菜单计划：
+ * @param {{enemiesInRange?: number, hasItems?: boolean, hasSkills?: boolean}} ctx
  *  - enemiesInRange：当前武器射程内存活敌人数（0 → 攻击灰显）
  *  - hasItems：单位背包是否非空（空 → 道具灰显）
+ *  - hasSkills：单位是否有可用技能（无 → 技能灰显）
  * 详情 / 待机恒可用（看面板和结束行动不需要前置条件）。
  */
-export function planActionMenuItems({ enemiesInRange = 0, hasItems = false } = {}) {
+export function planActionMenuItems({ enemiesInRange = 0, hasItems = false, hasSkills = false } = {}) {
   return [
-    { id: 'detail', label: '详情', enabled: true },
     { id: 'attack', label: '攻击', enabled: enemiesInRange > 0 },
+    { id: 'skill', label: '技能', enabled: hasSkills },
     { id: 'item', label: '道具', enabled: hasItems },
+    { id: 'detail', label: '详情', enabled: true },
     { id: 'wait', label: '待机', enabled: true }
   ];
 }

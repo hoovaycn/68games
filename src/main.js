@@ -12,6 +12,7 @@ import { JoinPartyModal } from './ui/components/join_party_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
 import { LevelUpModal, snapshotGrowthStats } from './ui/components/level_up.js';
 import { ActionMenu, planActionMenuItems } from './ui/components/action_menu.js';
+import { SkillMenu } from './ui/components/skill_menu.js';
 import { TutorialPanelModal } from './ui/components/tutorial_panel.js';
 import { UnitDetailModal } from './ui/components/unit_detail.js';
 import { InventoryPanelModal } from './ui/components/inventory_panel.js';
@@ -19,6 +20,7 @@ import { SaveMenuModal } from './ui/components/save_menu_modal.js';
 import { gainExp, expForKill, expForAction, createEnemyUnit } from './systems/growth.js';
 import { createStash } from './systems/stash.js';
 import { settleLoot, summarizeLoots } from './systems/loot.js';
+import { getUnitSkills, canCastSkill, applySkill, clearTurnBuffs } from './systems/skill_service.js';
 import {
   createNewGame, getPartyUnit, commitRuntimeUnit,
   advanceTo, markChapterCleared, tickPlaytime, joinParty
@@ -44,6 +46,14 @@ const CHAPTERS = {
   ch1_battle1: CH1_BATTLE1,
   ch2_battle1: CH2_BATTLE1
 };
+
+// 章节入口场景注册表（按章节序号）：开发者秘籍 Ctrl+N / `~`+N 跳转到该章开头剧情。
+// 加新章节时，只需在数组末尾追加该章的入口场景 key（第 4 章 = 数组下标 3，以此类推）。
+const CHAPTER_ENTRY_SCENES = [
+  'scene_classroom',       // 第 1 章（序章）
+  'ch1_scene_playground',  // 第 2 章
+  'ch2_scene_auditorium'   // 第 3 章
+];
 
 class GameApp {
   constructor() {
@@ -76,6 +86,10 @@ class GameApp {
 
     this.stage = 'STAGE_TITLE';
 
+    // 开发者秘籍：按 `~` 进入秘籍输入，输入 01/02/03 跳转对应章节
+    this.devMode = false;
+    this.devBuffer = '';
+
     // 章节标题覆盖层（跨标题/剧情/战斗阶段全屏展示，进入章节剧情前显示【序章】等）
     this.chapterBanner = null;       // { label, title, startTime, duration }
     this.chapterBannerOnDone = null; // 章节标题展示结束后的回调（如：真正开始剧情）
@@ -99,7 +113,10 @@ class GameApp {
       attackableTiles: [],
       currentPath: [],
       actionMenu: null,
+      skillMenu: null,
+      skillPending: null,
       targetEnemies: [],
+      targetUnits: [],
       targetIndex: 0,
       battlePreview: null,
       floatingTexts: [],
@@ -230,6 +247,33 @@ class GameApp {
   }
 
   /**
+   * 开发者秘籍：跳转到指定章节的开头剧情（章节号对应 CHAPTER_ENTRY_SCENES 注册表）。
+   * Ctrl+1~9 快捷跳转；`~`+数字+回车 可跳任意编号章节（如第 10 章）。
+   */
+  debugJumpToChapter(chapterNum) {
+    const sceneKey = CHAPTER_ENTRY_SCENES[Number(chapterNum) - 1];
+    if (!sceneKey) return;
+
+    // 未选角时兜底初始化 male 线进度（便于直接跳过标题/选人）
+    if (!this.gameState) {
+      this.selectedRoute = 'male';
+      this.activePlayerUnitId = 'zhangzixiao';
+      this.gameState = createNewGame({ route: 'male' });
+    }
+
+    // 清空可能残留的战斗/弹层状态，干净进入剧情场景
+    this.battleState.mode = 'IDLE';
+    this.battleState.actionMenu = null;
+    this.battleState.skillMenu = null;
+    this.battleState.skillPending = null;
+    this.battleState.isAnimatingCombat = false;
+    this.battleState.victoryModal = null;
+    this.battleState.victoryModalShown = false;
+
+    this.startStoryScene(sceneKey);
+  }
+
+  /**
    * 显示全屏章节标题覆盖层（进入章节剧情前展示【序章】/【第一章】等），
    * 展示结束后触发 onDone 回调（如：真正开始该章节的第一段剧情）。
    */
@@ -297,12 +341,15 @@ class GameApp {
   handleSceneTransition(transition) {
     if (!transition) return;
 
-    // 剧情入队事件拦截：先加入队伍名册，再弹出仪式感入队组件，确认后再推进下一步
-    if (transition.type === 'JOIN_PARTY' && transition.unitId) {
+    // 剧情入队事件拦截：先加入队伍名册，再逐个弹出仪式感入队组件，确认后再推进下一步
+    if (transition.type === 'JOIN_PARTY') {
+      const unitIds = (Array.isArray(transition.unitIds) && transition.unitIds.length > 0)
+        ? transition.unitIds
+        : (transition.unitId ? [transition.unitId] : []);
       if (this.gameState) {
-        joinParty(this.gameState, transition.unitId);
+        unitIds.forEach((id) => joinParty(this.gameState, id));
       }
-      this.joinPartyModal.show(transition.unitId, () => {
+      const proceed = () => {
         if (transition.isBattleTrigger || transition.battleId) {
           const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
           this.enterBattleMap(bMap, bMap.nextStorySceneOnWin);
@@ -311,7 +358,13 @@ class GameApp {
         } else if (transition.type === 'CHAPTER_CLEAR') {
           this.enterEpilogueScreen();
         }
-      });
+      };
+      const queue = [...unitIds];
+      const showNext = () => {
+        if (queue.length === 0) { proceed(); return; }
+        this.joinPartyModal.show(queue.shift(), showNext);
+      };
+      showNext();
       return;
     }
 
@@ -406,7 +459,8 @@ class GameApp {
 
     this.initBattle(chapterData);
 
-    sound.playBgm('bgm_battle_normal');
+    // 战斗 BGM 支持关卡数据自定义（如 boss 战用诡异专用曲），未配置则回退常规战斗曲
+    sound.playBgm(chapterData.bgm || 'bgm_battle_normal');
     sound.playSfx('sfx_confirm');
   }
 
@@ -488,7 +542,7 @@ class GameApp {
     // ★ 诉求6：地图战斗开始的时候，全员满血满魔，不继承上一次战斗的血量
     units.filter(u => u.faction === 'player').forEach(u => {
       u.currentHp = u.stats.maxHp;
-      u.currentSp = u.stats.maxSp;
+      u.currentMp = u.stats.maxMp;
       u.isAlive = true;
       u.hasActed = false;
     });
@@ -503,6 +557,9 @@ class GameApp {
     this.battleState.attackableTiles = [];
     this.battleState.currentPath = [];
     this.battleState.actionMenu = null;
+    this.battleState.skillMenu = null;
+    this.battleState.skillPending = null;
+    this.battleState.targetUnits = [];
     this.battleState.battlePreview = null;
     this.battleState.isAnimatingCombat = false;
 
@@ -562,14 +619,15 @@ class GameApp {
     }
   }
 
-  addFloatingText(text, x, y, color = '#facc15') {
+  addFloatingText(text, x, y, color = '#facc15', opts = {}) {
     this.battleState.floatingTexts.push({
       text,
       x: x * this.tileSize + this.tileSize / 2,
       y: y * this.tileSize + this.tileSize / 2,
       color,
+      font: opts.font || null,
       startTime: Date.now(),
-      duration: 1200
+      duration: opts.duration || 1200
     });
   }
 
@@ -715,6 +773,13 @@ class GameApp {
         return;
       }
 
+      if (this.battleState.mode === 'SKILL_MENU') {
+        if (this.battleState.skillMenu) {
+          this.battleState.skillMenu.handleMouseMove(mouseX, mouseY);
+        }
+        return;
+      }
+
       const gx = Math.floor((mouseX - this.renderer.offsetX) / this.tileSize);
       const gy = Math.floor((mouseY - this.renderer.offsetY) / this.tileSize);
 
@@ -735,6 +800,12 @@ class GameApp {
         // 委托行动菜单组件（moveSelection 循环滚动且自动跳过灰项）
         if (this.battleState.actionMenu) {
           this.battleState.actionMenu.moveSelection(e.deltaY > 0 ? 1 : -1);
+        }
+      }
+
+      if (this.battleState.mode === 'SKILL_MENU') {
+        if (this.battleState.skillMenu) {
+          this.battleState.skillMenu.moveSelection(e.deltaY > 0 ? 1 : -1);
         }
       }
     }, { passive: false });
@@ -849,6 +920,13 @@ class GameApp {
         return;
       }
 
+      if (this.battleState.mode === 'SKILL_MENU' && this.battleState.skillMenu) {
+        if (!this.battleState.skillMenu.handleClick(clickX, clickY)) {
+          this.handleSkillMenuCancel();
+        }
+        return;
+      }
+
       this.handleBattleConfirm(clickX, clickY);
     });
 
@@ -861,6 +939,43 @@ class GameApp {
 
     window.addEventListener('keydown', (e) => {
       sound.unlock();
+
+      // ★ 开发者秘籍（任意位置可用，支持任意章节号）：
+      //   Ctrl+1~9 直接跳对应章节；`~`+数字+回车 跳任意编号章节（如第 10 章）
+      if (e.ctrlKey && !e.altKey && !e.shiftKey) {
+        const n = Number(e.key);
+        if (n >= 1 && n <= 9) {
+          e.preventDefault();
+          this.debugJumpToChapter(n);
+          return;
+        }
+      }
+      if (e.code === 'Backquote') {
+        this.devMode = !this.devMode;
+        this.devBuffer = '';
+        e.preventDefault();
+        return;
+      }
+      if (this.devMode) {
+        if (e.key >= '0' && e.key <= '9') {
+          this.devBuffer += e.key;
+          return;
+        }
+        if (e.key === 'Enter') {
+          if (this.devBuffer) {
+            this.debugJumpToChapter(this.devBuffer);
+            this.devMode = false;
+            this.devBuffer = '';
+          }
+          return;
+        }
+        if (e.key === 'Escape') {
+          this.devMode = false;
+          this.devBuffer = '';
+          return;
+        }
+        return;
+      }
 
       // ★ 章节标题覆盖层展示期间吞掉按键（自动播放，展示结束才放行）
       if (this.chapterBanner) return;
@@ -885,13 +1000,9 @@ class GameApp {
         return;
       }
 
-      // ★ 战斗失败模态框按键捕获 (回车/空格/Esc)
+      // ★ 战斗失败模态框：←→ 切换选项，Enter/空格确认，Esc 返回主菜单
       if (this.battleState.gameOverModal) {
-        if (e.key === ' ' || e.key === 'Enter') {
-          this.battleState.gameOverModal.handleClick(this.battleState.gameOverModal.retryBtnRect.x + 5, this.battleState.gameOverModal.retryBtnRect.y + 5);
-        } else if (e.key === 'Escape') {
-          this.battleState.gameOverModal.handleClick(this.battleState.gameOverModal.titleBtnRect.x + 5, this.battleState.gameOverModal.titleBtnRect.y + 5);
-        }
+        this.battleState.gameOverModal.handleKeyDown(e);
         return;
       }
 
@@ -977,6 +1088,12 @@ class GameApp {
         return;
       }
 
+      // ★ 技能菜单组件独占（同行动菜单，自闭环）
+      if (this.battleState.mode === 'SKILL_MENU' && this.battleState.skillMenu) {
+        this.battleState.skillMenu.handleKeyDown(e);
+        return;
+      }
+
       switch (e.key) {
         case 'ArrowUp':
         case 'w':
@@ -1022,22 +1139,33 @@ class GameApp {
   }
 
   onCursorMove() {
-    if (this.battleState.mode === 'UNIT_SELECTED') {
-      const u = this.battleState.selectedUnit;
-      const isReachable = this.battleState.reachableTiles.some(
-        t => t.x === this.battleState.cursor.x && t.y === this.battleState.cursor.y
+    const bs = this.battleState;
+    if (bs.mode === 'UNIT_SELECTED') {
+      const u = bs.selectedUnit;
+      const isReachable = bs.reachableTiles.some(
+        t => t.x === bs.cursor.x && t.y === bs.cursor.y
       );
       if (isReachable) {
-        this.battleState.currentPath = this.battleState.gridSystem.findPath(
+        bs.currentPath = bs.gridSystem.findPath(
           u.x,
           u.y,
-          this.battleState.cursor.x,
-          this.battleState.cursor.y,
+          bs.cursor.x,
+          bs.cursor.y,
           u.faction,
-          this.battleState.units
+          bs.units
         );
       } else {
-        this.battleState.currentPath = [];
+        bs.currentPath = [];
+      }
+    } else if (bs.mode === 'TARGET_SELECT') {
+      // 技能选目标用 targetUnits，攻击选目标用 targetEnemies
+      const pool = bs.skillPending ? bs.targetUnits : bs.targetEnemies;
+      const idx = pool.findIndex(
+        e => e.isAlive && e.x === bs.cursor.x && e.y === bs.cursor.y
+      );
+      if (idx >= 0 && idx !== bs.targetIndex) {
+        bs.targetIndex = idx;
+        if (!bs.skillPending) this.updateBattlePreview();
       }
     }
   }
@@ -1085,9 +1213,24 @@ class GameApp {
     //   道具的「使用」交互后续迭代并入面板。
 
     if (bs.mode === 'TARGET_SELECT') {
-      const target = bs.targetEnemies[bs.targetIndex];
+      const isSkill = !!bs.skillPending;
+      const pool = isSkill ? bs.targetUnits : bs.targetEnemies;
+      // 鼠标点击：以点击格子上的目标为准；键盘确认：以当前 targetIndex 为准
+      if (typeof clickX === 'number' && typeof clickY === 'number') {
+        const tile = this.renderer.screenToTile(clickX, clickY);
+        const clicked = tile
+          ? pool.find(e => e.x === tile.x && e.y === tile.y)
+          : null;
+        if (clicked) {
+          if (isSkill) this.executeSkill(bs.selectedUnit, clicked, bs.skillPending);
+          else this.executeCombatSequence(bs.selectedUnit, clicked);
+        }
+        return;
+      }
+      const target = pool[bs.targetIndex];
       if (target) {
-        this.executeCombatSequence(bs.selectedUnit, target);
+        if (isSkill) this.executeSkill(bs.selectedUnit, target, bs.skillPending);
+        else this.executeCombatSequence(bs.selectedUnit, target);
       }
       return;
     }
@@ -1164,11 +1307,15 @@ class GameApp {
     }
 
     if (bs.mode === 'TARGET_SELECT') {
-      // 攻击选中取消 → 回到行动菜单（菜单在进入选敌时已销毁，原地重建四项重算）
+      // 技能选目标取消 → 回技能菜单；攻击选目标取消 → 回行动菜单
       bs.battlePreview = null;
       bs.attackableTiles = [];
+      bs.targetUnits = [];
+      const wasSkill = !!bs.skillPending;
+      bs.skillPending = null;
       sound.playSfx('sfx_cancel');
-      this.openActionMenu();
+      if (wasSkill) this.openSkillMenu();
+      else this.openActionMenu();
       return;
     }
   }
@@ -1190,6 +1337,7 @@ class GameApp {
         && atkRangeTiles.some(t => t.x === enemy.x && t.y === enemy.y)
     );
     const hasItems = u.inventory && u.inventory.length > 0;
+    const hasSkills = getUnitSkills(u).length > 0;
 
     // 菜单锚点 = 单位格的像素矩形（含地图偏移，与 renderer 绘制同一坐标系）
     const anchorRect = {
@@ -1200,7 +1348,7 @@ class GameApp {
     };
 
     bs.actionMenu = new ActionMenu({
-      items: planActionMenuItems({ enemiesInRange: enemiesInRange.length, hasItems }),
+      items: planActionMenuItems({ enemiesInRange: enemiesInRange.length, hasItems, hasSkills }),
       anchorRect,
       canvasW: this.canvas.width,
       canvasH: this.canvas.height,
@@ -1238,6 +1386,12 @@ class GameApp {
       return;
     }
 
+    if (id === 'skill') {
+      bs.actionMenu = null;   // 进入技能菜单，行动菜单销毁
+      this.openSkillMenu();
+      return;
+    }
+
     if (id === 'item') {
       bs.inventoryModal = new InventoryPanelModal(
         this.canvas,
@@ -1247,8 +1401,11 @@ class GameApp {
           onUseItem: (targetUnit, row, res) => {
             bs.inventoryModal = null;
             const hpGain = res.hpRestored || 0;
-            const text = hpGain > 0 ? `使用${row.name} HP+${hpGain}` : `使用${row.name}成功`;
-            this.addFloatingText(text, targetUnit.x, targetUnit.y, '#22c55e');
+            if (hpGain > 0) {
+              this.addFloatingText(`HP +${hpGain}`, targetUnit.x, targetUnit.y, '#4ade80', { font: 'bold 26px sans-serif', duration: 1800 });
+            } else {
+              this.addFloatingText(`使用${row.name}成功`, targetUnit.x, targetUnit.y, '#22c55e');
+            }
             bs.actionMenu = null;
             this.endUnitTurn();
           }
@@ -1263,6 +1420,118 @@ class GameApp {
       this.endUnitTurn();
       return;
     }
+  }
+
+  // 打开技能菜单（列出个人技 + 职业技，MP 不足灰显）
+  openSkillMenu() {
+    const bs = this.battleState;
+    const u = bs.selectedUnit;
+    if (!u) return;
+
+    const anchorRect = {
+      x: u.x * this.tileSize + this.renderer.offsetX,
+      y: u.y * this.tileSize + this.renderer.offsetY,
+      w: this.tileSize,
+      h: this.tileSize
+    };
+
+    bs.skillMenu = new SkillMenu({
+      unit: u,
+      anchorRect,
+      canvasW: this.canvas.width,
+      canvasH: this.canvas.height,
+      onSelect: (skill) => this.startSkillCast(skill),
+      onCancel: () => this.handleSkillMenuCancel()
+    });
+    bs.mode = 'SKILL_MENU';
+    sound.playSfx('sfx_menu_open');
+  }
+
+  // 技能菜单取消：回到行动菜单
+  handleSkillMenuCancel() {
+    this.battleState.skillMenu = null;
+    this.openActionMenu();
+  }
+
+  // 释放技能：self 直接结算；ally/enemy 进入选目标
+  startSkillCast(skill) {
+    const bs = this.battleState;
+    const u = bs.selectedUnit;
+    if (!u || !skill) return;
+
+    bs.skillMenu = null;
+
+    if (skill.target === 'self') {
+      this.executeSkill(u, u, skill);
+      return;
+    }
+
+    // ally / enemy：进入选目标（getAttackableTiles 取曼哈顿距离范围）
+    const rangeTiles = bs.gridSystem.getAttackableTiles(u.x, u.y, skill.range[0], skill.range[1]);
+    const faction = skill.target === 'enemy' ? 'enemy' : 'player';
+    bs.skillPending = skill;
+    bs.attackableTiles = rangeTiles; // 复用攻击范围高亮，标出技能可选范围
+    bs.targetUnits = bs.units.filter(t =>
+      t.isAlive && t.faction === faction && t !== u &&
+      rangeTiles.some(tile => tile.x === t.x && tile.y === t.y)
+    );
+    bs.targetIndex = 0;
+    bs.mode = 'TARGET_SELECT';
+    sound.playSfx('sfx_confirm');
+  }
+
+  // 结算技能（扣 MP + 效果 + 音效浮字 + 击杀经验掉落 + 结束行动）
+  async executeSkill(caster, target, skill) {
+    const bs = this.battleState;
+    if (!canCastSkill(caster, skill)) return;
+
+    bs.isAnimatingCombat = true;
+    bs.skillPending = null;
+    bs.targetUnits = [];
+    bs.attackableTiles = [];
+
+    // 扣 MP
+    caster.currentMp = Math.max(0, caster.currentMp - skill.mpCost);
+
+    // 朝向目标（self 目标 dx/dy 均为 0，朝向不变）
+    const dx = target.x - caster.x;
+    const dy = target.y - caster.y;
+    if (Math.abs(dx) >= Math.abs(dy)) {
+      if (dx !== 0) caster.facing = dx > 0 ? 'right' : 'left';
+    } else if (dy !== 0) {
+      caster.facing = dy > 0 ? 'down' : 'up';
+    }
+
+    // 结算效果
+    const res = applySkill(caster, target, skill);
+
+    // 演出：光标聚焦目标 + 浮字 + 音效
+    bs.cursor.x = target.x;
+    bs.cursor.y = target.y;
+    const color = (res.kind === 'heal' || res.hpChange > 0) ? '#4ade80' : (res.hpChange < 0 ? '#f87171' : '#facc15');
+    this.addFloatingText(res.text, target.x, target.y, color, { font: 'bold 26px sans-serif', duration: 1600 });
+    sound.playSfx('sfx_confirm');
+    await new Promise(r => setTimeout(r, 600));
+
+    // 死亡判定
+    if (target.currentHp <= 0) {
+      target.isAlive = false;
+      target.deathAnim = { startTime: performance.now(), duration: 800 };
+    }
+
+    // 技能击杀敌人：结算经验与掉落（掉落入 collectedLoots，胜利结算统一展示）
+    if (target.faction === 'enemy' && !target.isAlive && caster.faction === 'player') {
+      gainExp(caster, expForKill(caster.level, target.level));
+      const { loots } = settleLoot(target, caster);
+      if (loots.length > 0) bs.collectedLoots.push(...loots);
+    }
+
+    bs.isAnimatingCombat = false;
+
+    this.checkBattleEnd();
+    if (bs.victoryModal || bs.victoryModalShown) return;
+
+    this.endUnitTurn();
   }
 
   enterTargetSelect() {
@@ -1639,9 +1908,12 @@ class GameApp {
 
     this.battleState.units.forEach(u => {
       u.hasActed = false;
-      if (u.tempBuffs && u.tempBuffs.spd) {
-        u.stats.spd -= u.tempBuffs.spd;
-        u.tempBuffs.spd = 0;
+      // 回合开始：清除 turn/nextAttack 的临时 buff（还原对应属性，兼容无 duration 的道具 buff）
+      clearTurnBuffs(u);
+      // 每回合自动回蓝（混合 MP 恢复：低费技每回合可放，高费技需攒或吃道具）
+      if (u.isAlive && u.currentMp !== undefined) {
+        const mpRegen = Math.max(1, Math.floor((u.stats.maxMp || 0) * 0.1));
+        u.currentMp = Math.min(u.stats.maxMp, u.currentMp + mpRegen);
       }
     });
 
@@ -1825,6 +2097,10 @@ class GameApp {
       // 渲染行动菜单组件（非模态浮窗：无遮罩、与地图渲染并存，模态弹层在其上盖住）
       if (this.battleState.mode === 'ACTION_MENU' && this.battleState.actionMenu) {
         this.battleState.actionMenu.render(this.renderer.ctx);
+      }
+      // 渲染技能菜单组件（非模态浮窗，与行动菜单同层）
+      if (this.battleState.mode === 'SKILL_MENU' && this.battleState.skillMenu) {
+        this.battleState.skillMenu.render(this.renderer.ctx);
       }
       // 渲染教学 / 人物详情 / 道具·仓库三个模态弹层（行动菜单打开的弹层盖在菜单上）
       if (this.battleState.tutorialModal && typeof this.battleState.tutorialModal.render === 'function') {

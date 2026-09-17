@@ -15,6 +15,14 @@ export const CREDITS = {
       note: "另转 ogg 供无缝循环"
     },
     {
+      file: "bgm_battle_boss",
+      title: "Chiptune Adventures - 3. Boss Fight",
+      author: "Juhani Junkala",
+      license: "CC0 1.0",
+      url: "https://opengameart.org/content/4-chiptunes-adventure",
+      note: "第三章心魔 boss 战（诡异）"
+    },
+    {
       file: "bgm_street",
       title: "Retro Game Music Pack - Level 1",
       author: "Juhani Junkala",
@@ -24,11 +32,11 @@ export const CREDITS = {
     },
     {
       file: "bgm_eerie_revelation",
-      title: "Post Apocalyptic Wastelands [Loop Ready]",
+      title: "JRPG Pack 3 Evil - Ancient Evil Awakens",
       author: "Juhani Junkala",
       license: "CC0 1.0",
-      url: "https://opengameart.org/content/horror-atmosphere",
-      note: "P1 反转高潮"
+      url: "https://opengameart.org/content/jrpg-pack-3-evil",
+      note: "P1 反转高潮；原 horror 曲前导空白过长，改用诡异芯片曲替代"
     },
     {
       file: "bgm_classroom",
@@ -50,6 +58,14 @@ export const CREDITS = {
       author: "本项目（豆包合成，随项目 CC0）",
       license: "CC0 1.0",
       url: ""
+    },
+    {
+      file: "bgm_title",
+      title: "JRPG Theme [Loop Ready]",
+      author: "Juhani Junkala",
+      license: "CC0 1.0",
+      url: "https://opengameart.org/content/jrpg-trailer-theme",
+      note: "标题画面主题曲"
     }
   ],
   sfx: [
@@ -60,6 +76,14 @@ export const CREDITS = {
       license: "CC0 1.0",
       url: "",
       note: "cursor/confirm/cancel/text_blip/menu_open/step/attack_swing/hit_normal/hit_crit/miss/item_use/item_get/level_up/unit_down/phone_msg/shock_sting"
+    },
+    {
+      file: "sfx_fanfare, sfx_suspense",
+      title: "512 Sound Effects (8-bit style) - Fanfare / Weird",
+      author: "Juhani Junkala",
+      license: "CC0 1.0",
+      url: "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      note: "fanfare=胜利号角；suspense=机械噪音悬疑氛围"
     },
     {
       file: "备用拟音库（未直接入包）",

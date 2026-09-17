@@ -36,6 +36,7 @@ export const WEAPONS = {
     uses: 45,
     levelReq: 1,
     stack: 1,
+    icon: 'assets/items/newbie_pencil.png',
     desc: '用得只剩半截的中华铅笔，橡皮头都磨平了，虽然朴素但十分趁手。'
   },
   calligraphy_brush: {
@@ -276,7 +277,7 @@ export const WEAPONS = {
     kind: 'weapon',
     type: 'magic',
     damageType: 'magic',
-    family: '杂物',
+    family: '教具',
     might: 8,
     hit: 90,
     crit: 5,

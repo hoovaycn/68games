@@ -535,7 +535,8 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '“……只要吃一口，就能算清后面十步棋……就能考上九十分么……”',
+          text: '“……我上次数学才考了六十二分。要是偷偷吃一口这个零食，是不是考试成绩就能提上去？没准能满分呢……而且，也不会有人知道吧……”',
+          highlight: true,
           sfx: 'sfx_text_blip'
         },
         {
@@ -930,8 +931,10 @@ export const PROLOGUE_STORY = {
           id: 5,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_default.png',
+          rightPortrait: 'assets/art/heyanxi_corrupted.png',
           activeSide: 'right',
+          bgImg: 'assets/backgrounds/bg_home_eerie.png',
+          bgm: 'bgm_eerie_revelation',
           text: '……升C……降E……只要练完这本练习曲，耳朵里的虫鸣声就会停下吧……嘻嘻……',
           sfx: 'sfx_shock_sting'
         },
@@ -939,8 +942,9 @@ export const PROLOGUE_STORY = {
           id: 6,
           speaker: '石予诺',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_default.png',
+          rightPortrait: 'assets/art/heyanxi_corrupted.png',
           activeSide: 'left',
+          bgImg: 'assets/backgrounds/bg_home_eerie.png',
           text: '妍熹！快停下！你的手指全在流血啊！',
           sfx: 'sfx_text_blip'
         },
@@ -948,8 +952,9 @@ export const PROLOGUE_STORY = {
           id: 7,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_default.png',
+          rightPortrait: 'assets/art/heyanxi_corrupted.png',
           activeSide: 'right',
+          bgImg: 'assets/backgrounds/bg_home_eerie.png',
           text: '予诺……快捂上耳朵！别喝校门口的怪汽水……它们顺着网线爬过来了啊啊啊——！！',
           sfx: 'sfx_unit_down'
         },
@@ -957,8 +962,9 @@ export const PROLOGUE_STORY = {
           id: 8,
           speaker: '石予诺',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_default.png',
+          rightPortrait: 'assets/art/heyanxi_corrupted.png',
           activeSide: 'left',
+          bgImg: 'assets/backgrounds/bg_home_eerie.png',
           text: '（桌上放着一包泛着幽绿荧光的怪零食……那个摊贩到底是给谁做事的？！）',
           sfx: 'sfx_shock_sting'
         }
@@ -1121,7 +1127,8 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '“……只要吃一口，就能画出所有人都惊叹的名画……就能稳拿第一么……”',
+          text: '“……我上次考试也考得不怎么样。要是偷偷吃一口这个零食，是不是考试成绩就能提上去？没准能满分呢……而且，也不会有人知道吧……”',
+          highlight: true,
           sfx: 'sfx_text_blip'
         },
         {

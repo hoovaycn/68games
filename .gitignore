@@ -29,3 +29,6 @@ scripts/render_map_preview.mjs
 
 # 地图预览图
 preview_*.png
+
+# 音频素材池（下载的原始 zip + 解压音频，体量大仅本地留档；精选已落盘到 assets/audio/）
+docs/music_pool/

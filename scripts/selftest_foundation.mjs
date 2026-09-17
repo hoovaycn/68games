@@ -466,7 +466,15 @@ check('非法密度（3x / 缺省）按 1x 组装，不带 @2x',
   && resolvePortrait('shiyunuo', { density: '3x' }).density === '1x');
 
 // —— 5.4 数据表守门：UNITS ∪ ENEMIES 全员已登记 ——
-const uncovered = [...Object.keys(UNITS), ...Object.keys(ENEMIES)].filter((id) => !hasActor(id));
+// 敌人模板以 {base}_corrupted 命名：base 已登记且含 corrupted 态即视为已登记
+const uncovered = [...Object.keys(UNITS), ...Object.keys(ENEMIES)].filter((id) => {
+  if (hasActor(id)) return false;
+  if (id.endsWith('_corrupted')) {
+    const base = id.slice(0, -'_corrupted'.length);
+    return !(hasActor(base) && listStates(base).includes('corrupted'));
+  }
+  return true;
+});
 if (uncovered.length > 0) console.log('    下列角色未登记头像表：' + uncovered.join(', '));
 check('UNITS ∪ ENEMIES 全员登记（新增角色须同步登记表，漏掉由本项抓出）', uncovered.length === 0);
 check('listStates 镜像：fanwenmo 双态 / vendor 单态',
@@ -657,8 +665,8 @@ section('7 combat_exchange 交战弹层');
 check('STRIKE_TIMING / EXP_TIMING 节拍全量锚定（改一处时序就同步改一处断言）',
   STRIKE_TIMING.WINDUP === 170 && STRIKE_TIMING.IMPACT === 90
   && STRIKE_TIMING.DROP === 320 && STRIKE_TIMING.DROP_CRIT === 400
-  && STRIKE_TIMING.SETTLE === 130 && STRIKE_TIMING.SETTLE_CRIT === 200
-  && STRIKE_TIMING.DODGE === 110 && STRIKE_TIMING.SETTLE_MISS === 220
+  && STRIKE_TIMING.SETTLE === 500 && STRIKE_TIMING.SETTLE_CRIT === 700
+  && STRIKE_TIMING.DODGE === 120 && STRIKE_TIMING.SETTLE_MISS === 700
   && EXP_TIMING.CHARGE === 180 && EXP_TIMING.GROWTH === 420
   && EXP_TIMING.GROWTH_WRAP === 300 && EXP_TIMING.BANNER === 480
   && EXP_TIMING.REFILL === 320 && EXP_TIMING.SETTLE === 120);
@@ -666,13 +674,13 @@ check('STRIKE_TIMING / EXP_TIMING 节拍全量锚定（改一处时序就同步�
 const segMiss0 = planStrikeSegment({ isHit: false, damage: 99, dstHpBefore: 10, dstMaxHp: 48 });
 const segNorm0 = planStrikeSegment({ isHit: true, damage: 7, dstHpBefore: 34, dstMaxHp: 48 }, 710);
 const segCrit0 = planStrikeSegment({ srcSide: 'defender', isHit: true, isCrit: true, damage: 50, dstHpBefore: 34, dstMaxHp: 48 });
-check('交击计划三型：MISS 500 / 普通 710 / 暴击 860，锚点与 src/dst 镜像齐全',
-  segMiss0.duration === 500 && segMiss0.impactAt === 280
+check('交击计划三型：MISS 990 / 普通 1080 / 暴击 1360，锚点与 src/dst 镜像齐全',
+  segMiss0.duration === 990 && segMiss0.impactAt === 290
   && segMiss0.damage === 99 && segMiss0.hpAfter === 10 && segMiss0.hpBefore === 10
   && segNorm0.impactAt === 170 && segNorm0.dropAt === 260 && segNorm0.settleAt === 580
-  && segNorm0.start === 710 && segNorm0.end === 1420
+  && segNorm0.start === 710 && segNorm0.end === 1790
   && segNorm0.srcSide === 'attacker' && segNorm0.dstSide === 'defender' && segNorm0.hpAfter === 27
-  && segCrit0.duration === 860 && segCrit0.settleAt === 660
+  && segCrit0.duration === 1360 && segCrit0.settleAt === 660
   && segCrit0.srcSide === 'defender' && segCrit0.dstSide === 'attacker' && segCrit0.hpAfter === 0);
 check('hpAfter 公式与 main.js 同源：伤害炸穿夹 0 / 血量超上限夹 maxHp / 负伤害归 0',
   planStrikeSegment({ isHit: true, damage: 999, dstHpBefore: 10, dstMaxHp: 48 }).hpAfter === 0
@@ -752,18 +760,18 @@ check('exp 普通两相：growth 中点 27.75 + ghost 残影 → settle 到 afte
 
 // —— 7.4 多段累计（同一时间轴：先手 → 反击 → 经验）——
 const c1 = planStrikeSegment({ srcSide: 'attacker', srcName: '张子骁', dstName: '流动商贩', label: '先手', isHit: true, damage: 7, dstHpBefore: 34, dstMaxHp: 48 }, 0);
-const c2 = planStrikeSegment({ srcSide: 'defender', srcName: '流动商贩', dstName: '张子骁', label: '反击', isHit: true, damage: 5, dstHpBefore: 40, dstMaxHp: 40 }, 710);
-const c3 = planExpSegment({ name: '张子骁', amount: 18, before: 12, after: 30, maxExp: 100 }, 1420);
-const vLink = exchangeViewAt([c1, c2], 710, init0);
+const c2 = planStrikeSegment({ srcSide: 'defender', srcName: '流动商贩', dstName: '张子骁', label: '反击', isHit: true, damage: 5, dstHpBefore: 40, dstMaxHp: 40 }, 1080);
+const c3 = planExpSegment({ name: '张子骁', amount: 18, before: 12, after: 30, maxExp: 100 }, 2160);
+const vLink = exchangeViewAt([c1, c2], 1080, init0);
 check('累计效应：第二段起点处守方 HP 已吸收第一段终态（27）',
   vLink.phase === 'windup' && vLink.strikingSide === 'defender' && vLink.activeIndex === 1
   && vLink.defenderHp === 27 && vLink.attackerHp === 40
   && vLink.reportText === '流动商贩【反击】发起攻击');
-const vGrowth = exchangeViewAt([c1, c2, c3], 1810, initG);
+const vGrowth = exchangeViewAt([c1, c2, c3], 2550, initG);
 check('三段串联中段：交击终态 + exp growth 中点（27.75）双轨同时成立',
   vGrowth.phase === 'exp-growth' && vGrowth.attackerHp === 35 && vGrowth.defenderHp === 27
   && vGrowth.expShown === 27.75 && vGrowth.expGhost === 12 && vGrowth.timelineDone === false);
-const vEnd = exchangeViewAt([c1, c2, c3], 2140, initG);
+const vEnd = exchangeViewAt([c1, c2, c3], 2880, initG);
 check('时间轴整体走完：全部终态吸收 + timelineDone=true',
   vEnd.timelineDone === true && vEnd.attackerHp === 35 && vEnd.defenderHp === 27 && vEnd.expShown === 30);
 
@@ -802,7 +810,7 @@ check('时间轴未结束：弹层吞掉一切输入（点击/Enter/Escape 全�
   ce.handleClick(1, 1) === true && ce.handleKeyDown({ key: 'Enter' }) === true
   && ce.handleKeyDown({ key: 'Escape' }) === true && ce.finished === false
   && ce._pending.length === 1 && strikeResolved === 0);
-ce._advanceVirtual(370);
+ce._advanceVirtual(740);
 await pStrike;
 check('playStrike 的 Promise 过段末后 resolve（once），终态 27 落地',
   strikeResolved === 1 && ce._pending.length === 0
@@ -835,14 +843,14 @@ check('finish 后输入解锁：Enter → trigger(ok) → close（onClose one-sh
   ce.handleKeyDown({ key: 'Enter' }) === true && ce.finished === true && ceClosed === 1);
 
 // —— 7.6 异常与边界防御 ——
-check('plan 系 null/undefined 入参不抛（退化为 MISS 500 / exp 720 defaults 语义）',
+check('plan 系 null/undefined 入参不抛（退化为 MISS 990 / exp 720 defaults 语义）',
   (() => {
     const a = planStrikeSegment(null);
     const b = planStrikeSegment(undefined);
     const c = planExpSegment(null);
     const d = planExpSegment(undefined);
-    return a.kind === 'strike' && a.isHit === false && a.duration === 500
-      && b.duration === 500
+    return a.kind === 'strike' && a.isHit === false && a.duration === 990
+      && b.duration === 990
       && c.kind === 'exp' && c.duration === 720 && c.maxExp === 100 && c.leveledUp === false
       && d.duration === 720;
   })());
@@ -1164,7 +1172,7 @@ check('summarizeItems：合并同 id 摞；category/use_in_battle 字段透传�
       && sausage.count === 5 && sausage.kind === 'consumable'
       && sausage.stack === 9
       && getGoodsById('sausage').use_in_battle === sausage.use_in_battle
-      && candy.iconPath === 'assets/items/white_rabbit_candy.png'
+      && candy.iconPath === 'assets/items/milk_candy.png'
       && summarizeItems(null).length === 0;
   })());
 
@@ -1455,7 +1463,7 @@ check('planInvDesc：null 行 empty / 标题「烤肠 · 回复」/ 37 字 desc 
 // 11.6 布局：760×500 盒内左右双列（背包/仓库）与描述区不重叠
 // 任务 3 重排后：avatar.r 28→24、双列新增 headerH 26、列宽 344 + 间距 16
 // 背包迭代后：可视行 7→5（压缩列表高度，杜绝 desc/帮助行/底部按钮层叠）
-check('planInventoryLayout：双列 listLeft/listRight 5×26(w344·headerH26) + desc 2 行不与底部重叠',
+check('planInventoryLayout：双列 listLeft/listRight 5×30(w344·headerH26) + desc 2 行不与底部重叠',
   (() => {
     const L = planInventoryLayout({ x: 10, y: 20, w: 760, h: 500 });
     return L.listLeft.maxRows === INV_VISIBLE_ROWS
@@ -1588,12 +1596,12 @@ check('12.1 行动菜单常量：ACTION_MENU_W=136 / ACTION_MENU_ITEM_H=42',
   ACTION_MENU_W === 136 && ACTION_MENU_ITEM_H === 42);
 
 // 12.2 四项恒定结构：默认态（射程内无敌 / 背包空）攻击+道具灰显，详情+待机恒可用
-check('12.2 planActionMenuItems 默认态：四项恒定 detail→attack→item→wait，仅详情/待机启用',
+check('12.2 planActionMenuItems 默认态：四项恒定 attack→item→detail→wait，攻击/道具灰、详情/待机亮',
   (() => {
     const d = planActionMenuItems();
-    const order = d.map(i => i.id).join(',') === 'detail,attack,item,wait';
-    const labels = d.map(i => i.label).join(',') === '详情,攻击,道具,待机';
-    const marks = d.map(i => i.enabled).join(',') === 'true,false,false,true';
+    const order = d.map(i => i.id).join(',') === 'attack,item,detail,wait';
+    const labels = d.map(i => i.label).join(',') === '攻击,道具,详情,待机';
+    const marks = d.map(i => i.enabled).join(',') === 'false,false,true,true';
     return order && labels && marks;
   })());
 
@@ -1637,7 +1645,7 @@ check('12.6 ActionMenu 构造：四项落位 / 初始焦点 = 首个启用项（
       anchorRect: { x: 400, y: 300, w: 48, h: 48 },
       canvasW: 1280, canvasH: 720
     });
-    const shape = m.items.length === 4 && m.rect.w === 136 && m.selectedIndex === 0;
+    const shape = m.items.length === 4 && m.rect.w === 136 && m.selectedIndex === 2;
     const m2 = new ActionMenu({
       items: [{ id: 'a', label: '灰', enabled: false }, { id: 'b', label: '亮', enabled: true }],
       anchorRect: { x: 0, y: 0, w: 48, h: 48 },
@@ -1657,7 +1665,7 @@ check('12.7 键盘导航：ArrowDown 0→wait(3) 跳过攻击/道具 · ArrowUp 
     m.handleKeyDown({ key: 'ArrowDown' });
     const down = m.selectedIndex === 3;
     m.handleKeyDown({ key: 'ArrowUp' });
-    return down && m.selectedIndex === 0;
+    return down && m.selectedIndex === 2;
   })());
 
 // 12.8 确认灰项：cancel 音不回调，菜单保持打开（选中态可继续移动）
@@ -1670,10 +1678,10 @@ check('12.8 Enter 灰项不触发：回调 0 次、菜单开着、焦点还能�
       canvasW: 1280, canvasH: 720,
       onSelect: (id) => calls.push(id)
     });
-    m.selectedIndex = 1;                 // 攻击（灰）
+    m.selectedIndex = 1;                 // 道具（灰）
     const noFire = m.confirm() === false && calls.length === 0;
     m.handleKeyDown({ key: 'ArrowDown' });
-    return noFire && m.selectedIndex === 3 && calls.length === 0;
+    return noFire && m.selectedIndex === 2 && calls.length === 0;
   })());
 
 // 12.9 确认启用项 + 取消回调：onSelect('wait') 一次 · onCancel 恰好一次
@@ -1704,7 +1712,7 @@ check('12.10 鼠标：盒外点击返回 false · 灰行点击 true 但零回调
       onSelect: (id) => calls.push(id)
     });
     const outside = m.handleClick(0, 0) === false;
-    // 落位矩形：x=456 y=233 行区 [240, 408)，第 2 行(攻击,灰)中线 y≈261
+    // 落位矩形：x=456 y=233 行区 [240, 408)，第 2 行(道具,灰)中线 y≈303
     const greyRow = m.handleClick(456 + 68, 240 + 42 + 21) === true;
     return outside && greyRow && m.selectedIndex === 1 && calls.length === 0;
   })());
@@ -1722,8 +1730,8 @@ check('12.11 鼠标：点启用行(待机)即触发 · hover 另一启用行联�
     // 第 4 行(待机,亮)中线 y≈240+3×42+21
     m.handleClick(456 + 68, 240 + 3 * 42 + 21);
     const clickFire = calls.join(',') === 'wait' && m.selectedIndex === 3;
-    m.handleMouseMove(456 + 68, 240 + 21);                     // hover 首行(详情,亮)
-    return clickFire && m.selectedIndex === 0;
+    m.handleMouseMove(456 + 68, 240 + 2 * 42 + 21);             // hover 第 3 行(详情,亮)
+    return clickFire && m.selectedIndex === 2;
   })());
 
 // 12.12 normalizeTutorialSteps 归一：null 兜底单步 · 残条过滤 · hint 补空 · 数字标题字符串化
@@ -1832,8 +1840,8 @@ try {
     && ld13.roster.zhangzixiao.level === UNITS.zhangzixiao.level + 1
     && ld13.roster.zhangzixiao.equippedWeapon === 'basketball'
     && ld13.roster.zhangzixiao.currentHp === 2);
-  check('13.6 读档还原背包与仓库：主角包 2 烤肠 + 全队仓 3 烤肠（deposit 的量）',
-    countItem(ld13.roster.zhangzixiao.inventory, 'sausage') === 2
+  check('13.6 读档还原背包与仓库：主角包 5 烤肠 + 全队仓 3 烤肠（deposit 的量）',
+    countItem(ld13.roster.zhangzixiao.inventory, 'sausage') === 5
     && countItem(ld13.stash.items, 'sausage') === 3
     && ld13.stash.items !== rt13.stash.items);
   ld13.roster.zhangzixiao.level = 99;    // 故意改坏读出来的档
@@ -2016,7 +2024,7 @@ const c15 = commitRuntimeUnit(g15, f15);
 const c15b = commitRuntimeUnit(g15, f15);
 check('15.3 胜利写回：升级+1/换武器/残血/捡的道具入包 + 战场字段剥离 + 重复提交幂等',
   c15.level === lv15 + 1 && c15.equippedWeapon === 'basketball' && c15.currentHp === 1
-  && countItem(c15.inventory, 'sausage') === 2
+  && countItem(c15.inventory, 'sausage') === 5
   && ['x', 'isAlive'].every((k) => c15[k] === undefined)
   && deepEq(c15b, c15));
 
@@ -2027,7 +2035,7 @@ const carrier15 = getPartyUnit(g15b, 'shiyunuo');
 grantItems(carrier15.inventory, [{ itemId: 'sausage', count: 5, stack: 9 }]);
 deposit(carrier15, bs15.stash, 'sausage', 3);
 check('15.4 仓库引用共享：战斗里存仓实时反映到 gameState.stash（半场仓不丢）',
-  countItem(g15b.stash.items, 'sausage') === 3 && countItem(carrier15.inventory, 'sausage') === 2);
+  countItem(g15b.stash.items, 'sausage') === 3 && countItem(carrier15.inventory, 'sausage') === 5);
 
 // 端到端：锚点重建与 main.js 的 CHAPTERS 查表同构（敌部署/胜利条件/接续剧情）
 const CHAPTERS_15 = { ch0_battle1: CH0_BATTLE1, ch0_battle2: CH0_BATTLE2 };

@@ -15,6 +15,9 @@ export class GameOverModal {
 
     this.retryBtnRect = null;
     this.titleBtnRect = null;
+
+    // 键盘选中态：0 = 重新挑战，1 = 返回主菜单（左右方向键切换）
+    this.selectedIndex = 0;
   }
 
   render() {
@@ -125,6 +128,16 @@ export class GameOverModal {
     ctx.fillStyle = '#e4e4e7';
     ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     ctx.fillText('⌂  返回主菜单', titleX + btnW / 2, btnY + btnH / 2);
+
+    // 4. 键盘选中态高亮外框（醒目金框 + 轻微放大描边）
+    const selRect = this.selectedIndex === 0 ? this.retryBtnRect : this.titleBtnRect;
+    if (selRect) {
+      ctx.strokeStyle = '#facc15';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.roundRect(selRect.x - 3, selRect.y - 3, selRect.w + 6, selRect.h + 6, 10);
+      ctx.stroke();
+    }
   }
 
   handleClick(mouseX, mouseY) {
@@ -134,6 +147,38 @@ export class GameOverModal {
       return true;
     }
     if (this.titleBtnRect && this._isInRect(mouseX, mouseY, this.titleBtnRect)) {
+      sound.playSfx('sfx_cancel');
+      if (this.onTitle) this.onTitle();
+      return true;
+    }
+    return false;
+  }
+
+  /** 键盘导航：←→ 切换选项 · Enter/空格确认 · Esc 返回主菜单 */
+  handleKeyDown(e) {
+    const k = e && e.key;
+    if (!k) return false;
+    if (k === 'ArrowLeft' || k === 'a' || k === 'A') {
+      this.selectedIndex = 0;
+      sound.playSfx('sfx_cursor');
+      return true;
+    }
+    if (k === 'ArrowRight' || k === 'd' || k === 'D') {
+      this.selectedIndex = 1;
+      sound.playSfx('sfx_cursor');
+      return true;
+    }
+    if (k === 'Enter' || k === ' ') {
+      if (this.selectedIndex === 0) {
+        sound.playSfx('sfx_confirm');
+        if (this.onRetry) this.onRetry();
+      } else {
+        sound.playSfx('sfx_cancel');
+        if (this.onTitle) this.onTitle();
+      }
+      return true;
+    }
+    if (k === 'Escape') {
       sound.playSfx('sfx_cancel');
       if (this.onTitle) this.onTitle();
       return true;

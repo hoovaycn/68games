@@ -114,11 +114,14 @@ export class VictoryModal {
     ctx.fillText(`击败单位：${enemyName}`, infoX, currY);
     currY += 44;
 
-    // 4. 战利品展示区 (加高内衬卡)
+    // 4. 战利品展示区 (加高内衬卡，水平居中)
     if (this.config.lootName) {
+      const lootW = boxW - 210;
+      const lootX = x + Math.round((boxW - lootW) / 2);
+
       ctx.fillStyle = '#f5eedf';
       ctx.beginPath();
-      ctx.roundRect(infoX, currY, boxW - 210, 54, 9);
+      ctx.roundRect(lootX, currY, lootW, 54, 9);
       ctx.fill();
 
       ctx.strokeStyle = '#e2d5bd';
@@ -127,8 +130,9 @@ export class VictoryModal {
 
       ctx.fillStyle = '#7c2d12';
       ctx.font = 'bold 18px sans-serif';
+      ctx.textAlign = 'center';
       // 战利品过多时按卡宽截断，尾部省略号，避免文字溢出面板
-      const lootMaxW = (boxW - 210) - 40;   // 卡内可用文字宽度（左右各留 20）
+      const lootMaxW = lootW - 40;   // 卡内可用文字宽度（左右各留 20）
       let lootText = `获得战利品：【${this.config.lootName}】`;
       if (ctx.measureText(lootText).width > lootMaxW) {
         while (lootText.length > 1 && ctx.measureText(lootText + '…').width > lootMaxW) {
@@ -136,7 +140,7 @@ export class VictoryModal {
         }
         lootText += '…';
       }
-      ctx.fillText(lootText, infoX + 20, currY + 27);
+      ctx.fillText(lootText, lootX + lootW / 2, currY + 27);
       currY += 54;
     }
 

@@ -49,7 +49,8 @@ export const UNITS = {
     equippedWeapon: 'pencil',
     inventory: [
       { id: 'paper_plane', count: 1 },
-      { id: 'white_rabbit_candy', count: 2 }
+      { id: 'white_rabbit_candy', count: 2 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '开学第一周就把全班拖进「放学杀一盘」的死循环。算棋的时候眼里只有六十四个格子，考试的时候草稿纸比谁都白。一看是学霸，一碰全是渣——但没人敢小看他：能同时算三步之后的人，掀棋盘都比你快。',
     personalGrowth: { skl: 10, luk: 10 },   // 棋手底子：算度 + 棋运
@@ -77,7 +78,8 @@ export const UNITS = {
     equippedWeapon: 'pencil',
     inventory: [
       { id: 'water_bottle', count: 1 },
-      { id: 'white_rabbit_candy', count: 2 }
+      { id: 'white_rabbit_candy', count: 2 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '美术教室的钉子户，速写本上全是同学的后脑勺。外号「人形打印机」——看一眼就能画个七八分像。可惜文化课也是照着画的：看着像会了，一上手全是渣。铅笔是她的武器，画得越像，挨得越准。',
     personalGrowth: { skl: 15, spd: 10 },    // 画手底子：观察 + 手速
@@ -104,7 +106,7 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'basketball',
     inventory: [
-      { id: 'sausage', count: 1 }
+      { id: 'sausage', count: 3 }
     ],
     bio: '六 8 班个子最高的女生，校运动会铅球纪录保持者，兼职全班情报中心。谁家有事她第一个知道，谁想瞒事先过她这一关。力气大、嗓门大、消息灵——「八卦特派员」这名号，是她自己封的。',
     personalGrowth: { spd: 15, luk: 10 },    // 大块头反向灵敏：追人追得快
@@ -131,7 +133,7 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'exercise_bat',
     inventory: [
-      { id: 'sausage', count: 2 },
+      { id: 'sausage', count: 3 },
       { id: 'white_rabbit_candy', count: 1 }
     ],
     bio: '全班个子最小的男生，校服像挂在衣架上。但开学搬书大战里，他一个人摞起了全班的新课本。话少、作业本常年空白——力气都替脑子长了。瘦小是伪装，掰手腕没输过。',
@@ -159,7 +161,8 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'chalk_head',
     inventory: [
-      { id: 'cheat_sheet', count: 1 }
+      { id: 'cheat_sheet', count: 1 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '成绩单干净得像刚洗过的黑板，脑子却比谁都野。笔记本里三分是笔记、七分是歪点子：谁的糗事、哪的漫画、怎么躲课间操，全都门儿清。古灵精怪，鬼主意比作业多——而且鬼主意从来不扣分。',
     personalGrowth: { mag: 15, skl: 10 },    // 脑子活：学得杂、用得刁
@@ -186,7 +189,8 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'flute',
     inventory: [
-      { id: 'white_rabbit_candy', count: 2 }
+      { id: 'white_rabbit_candy', count: 2 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '校乐队首席长笛，成绩常年班级前五，琴声和成绩单一样漂亮。头发永远一丝不苟，说话永远客客气气——连给你挖坑的时候都带着礼貌的微笑。学习好是真的，不好惹也是真的。',
     personalGrowth: { mag: 10, res: 15 },    // 学霸心防：稳得住
@@ -213,7 +217,8 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'teaching_pointer',
     inventory: [
-      { id: 'teacher_thermos', count: 1 }
+      { id: 'teacher_thermos', count: 1 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '教了三十年数学的老班主任。讲台是他的城堡，粉笔头是他的狙击枪，教室后门玻璃上的那双眼睛是全班公敌。口头禅：「这道题我讲过没有？讲过没有？」——讲过，真讲过。',
     personalGrowth: { str: 10, mag: 10 },    // 三十年教龄，文武双修
@@ -240,7 +245,8 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'pom_pom',
     inventory: [
-      { id: 'white_rabbit_candy', count: 3 }
+      { id: 'white_rabbit_candy', count: 3 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '拉拉操队长，成绩好得让体育老师都意外——训练间隙永远抱着课本。嗓门能穿透整个操场，队友摔倒第一个冲过去，书包里创可贴和单词本一样多。学习好、体力好、心眼好，全班的「编外班主任」。',
     personalGrowth: { mp: 15, luk: 10 },     // 奶妈底子：蓝条厚、手气好
@@ -267,7 +273,8 @@ export const UNITS = {
     exp: 0,
     equippedWeapon: 'football',
     inventory: [
-      { id: 'bastard_soda', count: 2 }
+      { id: 'bastard_soda', count: 2 },
+      { id: 'sausage', count: 3 }
     ],
     bio: '校队前锋，期末成绩单和比赛获奖证书并排贴在冰箱上。老师口中「别人家的孩子」：球踢得进、题解得开，体育课后从不喊累。唯一的烦恼是——借作业的同学从教室排到走廊。',
     personalGrowth: { str: 10, spd: 10 },    // 体育生：又快又硬

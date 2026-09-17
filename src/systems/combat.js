@@ -26,19 +26,19 @@ export class CombatSystem {
   static getAvoid(unit, terrain) {
     const as = this.getAttackSpeed(unit);
     const terrainAvoid = (terrain && terrain.avoid) || 0;
-    return as * 2 + unit.stats.luk + terrainAvoid;
+    return as * 2 + unit.stats.luk + terrainAvoid + (unit.tempBuffs?.avoid || 0);
   }
 
   // 计算命中率 (Hit)
   static getHitRate(unit) {
     const weapon = WEAPONS[unit.equippedWeapon] || WEAPONS.pencil;
-    return weapon.hit + unit.stats.skl * 2 + Math.floor(unit.stats.luk / 2);
+    return weapon.hit + unit.stats.skl * 2 + Math.floor(unit.stats.luk / 2) + (unit.tempBuffs?.hit || 0);
   }
 
   // 计算必杀率 (Crit)
   static getCritRate(unit) {
     const weapon = WEAPONS[unit.equippedWeapon] || WEAPONS.pencil;
-    return weapon.crit + Math.floor(unit.stats.skl / 2);
+    return weapon.crit + Math.floor(unit.stats.skl / 2) + (unit.tempBuffs?.crit || 0);
   }
 
   // 曼哈顿距离

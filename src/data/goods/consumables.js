@@ -159,7 +159,8 @@ export const CONSUMABLES = {
     ],
     use_in_battle: true,
     use_in_field: true,
-    stack: 9
+    stack: 9,
+    icon: 'assets/items/milk_candy.png'
   },
   durian_cake: {
     id: 'durian_cake',

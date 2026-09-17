@@ -16,6 +16,7 @@
  *   LevelUpModal.render* —— 只吃快照落笔，浏览器端才被调用。
  */
 import { sound } from '../../engine/sound.js';
+import { assetLoader } from '../../engine/asset_loader.js';
 import {
   ModalBase, PALETTE, planBar, barRatio, clamp01, lerp, easeOutCubic,
   fontCss, drawBar, drawAvatar, avatarFaceFor, drawOverlay, pathRoundRect,
@@ -455,10 +456,31 @@ export class LevelUpModal extends ModalBase {
     const size = S.size * (0.94 + 0.06 * e);
     const px = S.cx - size / 2, py = S.y + (S.size - size) / 2 + dy;
 
+    // 半身立绘为 240×320（3:4 竖幅）：按高度占满原立绘区，宽度收窄为 3/4，避免被拉成正方形而纵向压扁
+    const artW = size * 3 / 4;
+    const artPx = S.cx - artW / 2;
+
     ctx.save();
     ctx.globalAlpha = p;
+    // 右侧优先用半身立绘（assets/art/{id}_default.png），缺失再退回头像
+    const actorId = this.unit?.unitId || this.unit?.enemyId || this.unit?.id;
+    const artImg = actorId ? assetLoader.getImage(`assets/art/${actorId}_default.png`) : null;
     const face = avatarFaceFor(this.unit || { name: this.name, faction: this.faction }, { density: '2x' });
-    if (face.img) {
+    if (artImg) {
+      ctx.save();
+      pathRoundRect(ctx, artPx, py, artW, size, 18);
+      ctx.clip();
+      ctx.drawImage(artImg, artPx, py, artW, size);
+      ctx.restore();
+      ctx.strokeStyle = PALETTE.gold;
+      ctx.lineWidth = 3;
+      pathRoundRect(ctx, artPx, py, artW, size, 18);
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,251,235,0.35)';
+      ctx.lineWidth = 1;
+      pathRoundRect(ctx, artPx + 6, py + 6, artW - 12, size - 12, 13);
+      ctx.stroke();
+    } else if (face.img) {
       ctx.save();
       pathRoundRect(ctx, px, py, size, size, 18);
       ctx.clip();

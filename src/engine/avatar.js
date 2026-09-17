@@ -54,14 +54,16 @@ const ACTOR_STATES = {
   heyanxi: ['default', 'corrupted'],
   qinruiyi: ['default'],
   zhangxizhe: ['default'],
-  zhuyanze: ['default'],
+  zhuyanze: ['default', 'corrupted'],
   xu_laoshi: ['default'],
-  /* 敌方（含表外剧情单位：senior_athlete / teacher_pe / teacher_xu） */
+  /* 敌方（含表外剧情单位：senior_athlete / teacher_pe / teacher_xu / classmate_*） */
   vendor: ['default'],
   punk: ['default'],
   senior_athlete: ['default', 'corrupted'],
   teacher_pe: ['default', 'corrupted'],
-  teacher_xu: ['default']
+  teacher_xu: ['default'],
+  classmate_boy: ['default', 'corrupted'],
+  classmate_girl: ['default', 'corrupted']
 };
 
 /* ───────────── 内部工具 ───────────── */
