@@ -1,9 +1,8 @@
 import { sound } from '../engine/sound.js';
-import { assetLoader } from '../engine/asset_loader.js';
 
 /**
- * 序章终幕结算与“未完待续”结束画面 (Epilogue Screen)
- * 浅黄纸质极简复古风 + 校园悬疑调查手账风格
+ * 序章/第一章终幕“未完待续”结束画面 (Epilogue Screen)
+ * 简约深色风格 · 悬疑留白 · 保留官方交流群
  */
 export class EpilogueScreen {
   constructor(canvas, onRestart) {
@@ -16,7 +15,7 @@ export class EpilogueScreen {
   }
 
   show(route) {
-    this.selectedRoute = route;
+    this.selectedRoute = route || 'male';
     sound.playBgm('bgm_victory', false);
   }
 
@@ -25,148 +24,113 @@ export class EpilogueScreen {
     const w = this.canvas.width;
     const h = this.canvas.height;
 
-    // 1. 柔和浅米黄背景
-    ctx.fillStyle = '#f5eedf';
+    // 1. 深色沉浸背景渐变 (深邃蓝黑)
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+    bgGrad.addColorStop(0, '#090d16');
+    bgGrad.addColorStop(0.5, '#0f172a');
+    bgGrad.addColorStop(1, '#05070d');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
 
-    // 双层古典内框
-    ctx.strokeStyle = '#dfd2bc';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(12, 12, w - 24, h - 24);
+    // 细致内边框
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.12)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(18, 18, w - 36, h - 36);
 
-    ctx.strokeStyle = '#292524';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(16, 16, w - 32, h - 32);
+    ctx.strokeStyle = 'rgba(234, 179, 8, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(22, 22, w - 44, h - 44);
 
-    // 2. 顶部徽章标题
+    // 2. 顶部微弱小标
     ctx.save();
-    ctx.fillStyle = '#78716c';
-    ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('—— 校园奇幻悬疑战棋 · 垂直切片试玩 ——', w / 2, 38);
 
-    ctx.fillStyle = '#1c1917';
-    ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
-    ctx.fillText('《 六 8 班 异 闻 录 》', w / 2, 66);
-    ctx.restore();
+    ctx.fillStyle = '#64748b';
+    ctx.font = '13px sans-serif';
+    ctx.fillText('—— 《 六 8 班 异 闻 录 》 试 玩 结 算 ——', w / 2, 70);
 
-    // 3. 核心未完待续大横幅 (To Be Continued)
-    ctx.save();
-    const bannerW = 320;
-    const bannerH = 40;
-    const bannerX = (w - bannerW) / 2;
-    const bannerY = 88;
-
-    ctx.fillStyle = '#292524';
-    ctx.beginPath();
-    ctx.roundRect(bannerX, bannerY, bannerW, bannerH, 6);
-    ctx.fill();
-
+    // 3. 核心大标题：TO BE CONTINUED
+    ctx.shadowColor = 'rgba(250, 204, 21, 0.35)';
+    ctx.shadowBlur = 12;
     ctx.fillStyle = '#fef08a'; // 浅金黄
-    ctx.font = 'bold 18px "Courier New", Courier, monospace, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('★  T O   B E   C O N T I N U E D  ★', w / 2, bannerY + bannerH / 2);
-    ctx.restore();
+    ctx.font = 'bold 34px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    ctx.fillText('T O   B E   C O N T I N U E D', w / 2, 122);
+    ctx.shadowBlur = 0;
 
-    // 4. 调查档案纸质手账 (中间卡片)
+    // 副标题
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '15px sans-serif';
+    ctx.fillText('第一章 · 终 幕 完 结', w / 2, 162);
+
+    // 4. 简明剧情悬疑留白（简约一两句，不冗长不溢出）
+    const isMale = this.selectedRoute === 'male';
+    const quote = isMale
+      ? '小默被暂时唤醒，但书桌抽屉里的怪味零食……似乎只是冰山一角。'
+      : '妍熹的哭喊渐渐平息，但画室窗外微弱的乐音……仍在暗处回荡。';
+
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = 'italic 14px sans-serif';
+    ctx.fillText(`“ ${quote} ”`, w / 2, 212);
+
+    // 5. 简约深色 QQ 群展示卡片（清晰居中，不占过多高度）
     const cardW = 500;
-    const cardH = 246;
+    const cardH = 92;
     const cardX = (w - cardW) / 2;
-    const cardY = 138;
+    const cardY = 252;
 
-    ctx.fillStyle = '#fffdf9';
+    ctx.fillStyle = 'rgba(30, 41, 59, 0.55)';
     ctx.beginPath();
     ctx.roundRect(cardX, cardY, cardW, cardH, 8);
     ctx.fill();
 
-    ctx.strokeStyle = '#d6c8b4';
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+    ctx.lineWidth = 1;
     ctx.stroke();
 
-    // 档案手账内容
-    ctx.save();
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'middle';
+    // QQ 群文字排版
+    ctx.fillStyle = '#38bdf8'; // 天蓝高亮
+    ctx.font = 'bold 16px sans-serif';
+    ctx.fillText('官方交流 QQ 群 ： 875723019', w / 2, cardY + 34);
 
-    ctx.fillStyle = '#b45309';
-    ctx.font = 'bold 14px sans-serif';
-    ctx.fillText('【调查初报 · 异常事件收拢】', cardX + 20, cardY + 24);
-
-    const isMale = this.selectedRoute === 'male';
-    const heroName = isMale ? '张子骁 (国际象棋 · 男主)' : '石予诺 (绘画特长 · 女主)';
-    const victimName = isMale ? '范文默 (同桌 / 物理异变)' : '何妍熹 (闺蜜 / 长笛异变)';
-
-    ctx.fillStyle = '#292524';
+    ctx.fillStyle = '#94a3b8';
     ctx.font = '13px sans-serif';
-    ctx.fillText(`• 本期调查视角：${heroName}`, cardX + 20, cardY + 52);
-    ctx.fillText(`• 异化核心目标：${victimName}`, cardX + 20, cardY + 74);
+    ctx.fillText('欢迎入群交流剧情攻略、反馈问题与催更后续章节！', w / 2, cardY + 62);
 
-    // 战利品展示栏 (标签一行 + 证物两行两列：烤肠 / 混蛋汽水 / 臭袜子 / 体育老师的脑子)
-    ctx.fillStyle = '#57534e';
-    ctx.fillText('• 截获全部证物：', cardX + 20, cardY + 104);
-
-    const evidences = [
-      { img: 'sausage.png', name: '淀粉烤肠×1', color: '#b45309' },
-      { img: 'bastard_soda.png', name: '混蛋汽水×1', color: '#2563eb' },
-      { img: 'dirty_sock.png', name: '张子骁的臭袜子×1', color: '#b45309' },
-      { img: 'pe_teacher_brain.png', name: '体育老师的脑子×1', color: '#dc2626' }
-    ];
-    ctx.font = 'bold 12px sans-serif';
-    evidences.forEach((ev, i) => {
-      const col = i % 2;
-      const row = Math.floor(i / 2);
-      const ex = cardX + 30 + col * 235;
-      const ey = cardY + 118 + row * 28;
-      const evImg = assetLoader.getImage('assets/items/' + ev.img);
-      if (evImg) {
-        ctx.drawImage(evImg, ex, ey, 22, 22);
-      }
-      ctx.fillStyle = ev.color;
-      ctx.textAlign = 'left';
-      ctx.fillText(ev.name, ex + 27, ey + 11);
-    });
-
-    // 总结文案与交流群
-    ctx.fillStyle = '#44403c';
-    ctx.font = '12px sans-serif';
-    const summaryText = isMale
-      ? '书桌上的三无荧光零食只是冰山一角，操纵小默做题的神秘意志仍在蔓延。'
-      : '背词便利贴下隐藏着不可名状的催促声，妍熹的哭喊揭示了更深的阴谋。';
-    ctx.fillText(`• 案件侦查进展：${summaryText}`, cardX + 20, cardY + 184);
-
-    ctx.fillStyle = '#1e3a8a';
-    ctx.font = 'bold 12px sans-serif';
-    ctx.fillText('• 官方 QQ 交流群：875723019（欢迎入群交流反馈、捉虫催更！）', cardX + 20, cardY + 206);
-
-    ctx.fillStyle = '#78716c';
-    ctx.font = 'italic 12px sans-serif';
-    ctx.fillText('下回预告：第一章《晚自习的第 25 个座位》敬请期待！', cardX + 20, cardY + 228);
-    ctx.restore();
-
-    // 5. 底部大按钮 (重新开始 · 体验另一角色视角)
-    const btnW = 340;
-    const btnH = 44;
+    // 6. 底部返回按钮（简约深色高亮，无违和感）
+    const btnW = 260;
+    const btnH = 42;
     const btnX = (w - btnW) / 2;
-    const btnY = cardY + cardH + 16;
+    const btnY = 380;
     this.restartButtonRect = { x: btnX, y: btnY, w: btnW, h: btnH };
 
-    ctx.fillStyle = this.isHovered ? '#b45309' : '#292524';
-    ctx.beginPath();
-    ctx.roundRect(btnX, btnY, btnW, btnH, 8);
-    ctx.fill();
+    if (this.isHovered) {
+      ctx.fillStyle = '#d97706'; // 琥珀金
+      ctx.strokeStyle = '#fde68a';
+    } else {
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+    }
 
-    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(btnX, btnY, btnW, btnH, 6);
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 15px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+    ctx.font = 'bold 14px sans-serif';
     ctx.fillText(
-      this.isHovered ? '▶ 点击重新开始 · 体验另一线视角' : '【 重新开始 · 体验另一视角 】',
+      this.isHovered ? '▶ 返回标题界面' : '返回标题界面',
       w / 2,
       btnY + btnH / 2
     );
+
+    // 快捷键提示
+    ctx.fillStyle = '#64748b';
+    ctx.font = '12px sans-serif';
+    ctx.fillText('[ 点击按钮 或 按 Space / Enter / Esc 返回 ]', w / 2, btnY + btnH + 28);
+
     ctx.restore();
   }
 

@@ -51,5 +51,55 @@ export const ENEMIES = {
       attack: '这道题你解得开吗？！',
       death: '可恶……我还要……刷完这套卷子……'
     }
+  },
+  fanwenmo_corrupted: {
+    id: 'fanwenmo_corrupted',
+    name: '狂暴的小默',
+    title: '被题海侵蚀的同学',
+    classId: 'strong_boy',
+    level: 3,
+    equippedWeapon: 'exercise_bat',
+    portrait: 'assets/portraits/fanwenmo_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    themeColor: '#7c3aed',
+    bio: '双眼泛着幽异青光，嘴里反复念叨着“动量守恒”、“洛伦兹力”。平时连乘法口诀都费劲的他，此刻正狂暴地挥舞着厚重的冲刺题集！',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'suspicious_snack', chance: 1.0 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '洛伦兹力……动量守恒……为什么对不上？！',
+      attack: '做完这套五三！“它们”就把脑子还给我！',
+      death: '（剧烈咳嗽）……我……我刚才在干什么……满地都是草稿纸……'
+    }
+  },
+  heyanxi_corrupted: {
+    id: 'heyanxi_corrupted',
+    name: '失常的妍熹',
+    title: '被循环音律困住的同学',
+    classId: 'study_committee',
+    level: 3,
+    equippedWeapon: 'recorder',
+    portrait: 'assets/portraits/heyanxi_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    themeColor: '#0891b2',
+    bio: '双眼空洞泛着冷青光，机械地重复按压着竖笛音孔，嘴里念叨着错乱音阶。刺耳的音浪在房间里回荡，令人头痛欲裂！',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'suspicious_snack', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '升 C…… 降 E…… 只要不按错……',
+      attack: '别关灯！门外……门外有脏东西在看着！',
+      death: '（竖笛滑落）……手好酸……予诺，你怎么会在这里……？'
+    }
   }
 };

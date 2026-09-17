@@ -616,6 +616,39 @@ export class CombatExchange extends ModalBase {
       ctx.textBaseline = 'middle';
       ctx.fillText(v.damageText, card.avatar.cx, card.damageY);
     }
+
+    // 命中特效贴图（暴击/命中/MISS 闪动显示，覆盖在被击侧头像上方）
+    if (seg && seg.kind === 'strike' && seg.dstSide === side && v.damageKind) {
+      this._drawStrikeImage(v.damageKind, card);
+    }
+  }
+
+  /** 命中特效贴图：暴击/命中/MISS 三种美术元素闪动显示（缺失时回落文字伤害数字） */
+  _drawStrikeImage(kind, card) {
+    const srcMap = {
+      crit: 'assets/ui/ui_crit.png',
+      hit: 'assets/ui/ui_hit.png',
+      miss: 'assets/ui/ui_miss.png',
+    };
+    const src = srcMap[kind];
+    if (!src) return;
+    const img = assetLoader.getImage(src);
+    if (!img) return; // 无图回落：文字伤害数字已在 _renderSide 绘制
+
+    const ctx = this.ctx;
+    // 闪动：透明度 + 缩放双脉冲（用虚拟时钟，与受击震动同源，不受帧率抖动影响）
+    const pulse = Math.sin(this._vm / 85);
+    const alpha = 0.78 + 0.22 * pulse;
+    const scale = 1 + 0.08 * pulse;
+    const w = Math.round(132 * scale);
+    const h = Math.round(w * (img.height / img.width));
+    const cx = card.avatar.cx;
+    const cy = card.avatar.cy - card.avatar.r - 26;
+
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+    ctx.drawImage(img, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
   }
 
   _renderReport(v) {

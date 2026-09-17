@@ -66,7 +66,7 @@ export class DialogueSystem {
 
   onDialoguesEnd() {
     const transition = this.currentScene.transition;
-    if (transition && (transition.type === 'CHOICE' || transition.type === 'SPAWN_REINFORCEMENT')) {
+    if (transition && (transition.type === 'CHOICE' || transition.type === 'SPAWN_REINFORCEMENT' || transition.type === 'JOIN_PARTY')) {
       this.showingChoice = true;
       sound.playSfx('sfx_menu_open');
     } else {
@@ -290,7 +290,8 @@ export class DialogueSystem {
     ctx.font = 'bold 22px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('—— 场景行动选择 ——', w / 2, y + 40);
+    const titleText = tr.type === 'JOIN_PARTY' ? '—— 伙伴同行与前路 ——' : '—— 场景行动选择 ——';
+    ctx.fillText(titleText, w / 2, y + 40);
 
     ctx.fillStyle = '#57534e';
     ctx.font = 'bold 18px sans-serif';

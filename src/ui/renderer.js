@@ -483,6 +483,67 @@ export class Renderer {
     ctx.restore();
   }
 
+  // ==================== 章节标题横幅 ====================
+
+  /** 章节标题横幅：进入战斗前全屏展示【序章】/【第一章】等章节标识 + 章节名 */
+  drawChapterBanner(banner) {
+    if (!banner) return;
+    const ctx = this.ctx;
+    const now = Date.now();
+    const elapsed = now - banner.startTime;
+    const duration = banner.duration || 2000;
+    if (elapsed > duration) return;
+
+    const w = this.canvas.width;
+    const h = this.canvas.height;
+
+    // 全屏暗黑遮罩（比回合横幅更深，让章节标题成为唯一视觉焦点）
+    ctx.fillStyle = 'rgba(5, 6, 10, 0.94)';
+    ctx.fillRect(0, 0, w, h);
+
+    // 淡入淡出
+    const fadeIn = 350;
+    const fadeOut = 350;
+    let alpha = 1;
+    if (elapsed < fadeIn) {
+      alpha = elapsed / fadeIn;
+    } else if (elapsed > duration - fadeOut) {
+      alpha = Math.max(0, (duration - elapsed) / fadeOut);
+    }
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+
+    // 黄金装饰横线（上下两条，强化章节感）
+    ctx.strokeStyle = 'rgba(250, 204, 21, 0.55)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(w / 2 - 190, h / 2 - 82);
+    ctx.lineTo(w / 2 + 190, h / 2 - 82);
+    ctx.moveTo(w / 2 - 190, h / 2 + 72);
+    ctx.lineTo(w / 2 + 190, h / 2 + 72);
+    ctx.stroke();
+
+    // 主标题：【序章】/【第一章】
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fef08a';
+    ctx.font = 'bold 54px -apple-system, "PingFang SC", "STKaiti", serif';
+    ctx.shadowColor = 'rgba(234, 179, 8, 0.6)';
+    ctx.shadowBlur = 18;
+    ctx.fillText(`【 ${banner.label} 】`, w / 2, h / 2 - 22);
+    ctx.shadowBlur = 0;
+
+    // 副标题：章节名
+    if (banner.title) {
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = 'bold 20px -apple-system, "PingFang SC", sans-serif';
+      ctx.fillText(banner.title, w / 2, h / 2 + 34);
+    }
+
+    ctx.restore();
+  }
+
   // ==================== 阶段切换横幅 ====================
 
   drawPhaseBanner(banner) {

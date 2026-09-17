@@ -378,9 +378,180 @@ export const PROLOGUE_STORY = {
         }
       ],
       transition: {
+        type: 'CHOICE',
+        prompt: '小默彻底被怪异控制，随时准备扑上来！门外突然传来急促的砸门声！',
+        buttonText: '【回头查看门外动静】',
+        targetScene: 'scene_home_reinforce'
+      }
+    },
+
+    // 男线 s5：张瀚瑜破门支援 + 首次入队弹窗
+    scene_home_reinforce: {
+      id: 'scene_home_reinforce',
+      title: '范文默家 · 队友破门支援',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home_eerie.png',
+      bgm: 'bgm_battle_normal',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '张瀚瑜',
+          leftPortrait: 'assets/art/zhanghanyu_default.png',
+          rightPortrait: 'assets/art/zhangzixiao_default.png',
+          activeSide: 'left',
+          text: '砰——！子骁！我就知道你会一个人逞能跑过来！我问了三个路人才追上你——我操这什么情况？！',
+          sfx: 'sfx_hit_crit'
+        },
+        {
+          id: 2,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhanghanyu_default.png',
+          rightPortrait: 'assets/art/zhangzixiao_default.png',
+          activeSide: 'right',
+          text: '瀚瑜？！你怎么跟来了！别靠近，小默现在神志不清，力气大得吓人！',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '张瀚瑜',
+          leftPortrait: 'assets/art/zhanghanyu_default.png',
+          rightPortrait: 'assets/art/zhangzixiao_default.png',
+          activeSide: 'left',
+          text: '我是学委，班上同学掉队了能不管吗！我包里有粉笔头和小测验重点，咱俩配合，物理把他打醒！',
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'JOIN_PARTY',
+        unitId: 'zhanghanyu',
+        prompt: '同桌铁哥们张瀚瑜赶到了身边！',
+        buttonText: '【结成双人小队 · 唤醒小默】',
+        battleId: 'ch0_battle3',
+        isBattleTrigger: true
+      }
+    },
+
+    // 男线 s6：战后打醒恢复 + 范文默入队
+    scene_home_recover: {
+      id: 'scene_home_recover',
+      title: '范文默家 · 清醒与说漏嘴',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home.png',
+      bgm: 'bgm_suspense',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '范文默',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'right',
+          text: '（剧烈喘息，眼瞳中的青光逐渐散去）……咳咳……子骁……瀚瑜……？你们怎么都在我家书房……？满地怎么都是草稿纸……',
+          sfx: 'sfx_unit_down'
+        },
+        {
+          id: 2,
+          speaker: '张瀚瑜',
+          leftPortrait: 'assets/art/zhanghanyu_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'left',
+          text: '呼——！终于打醒了！你刚才跟吃了大力丸似的，挥着大厚书追着我们满屋跑！到底怎么回事？！',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '范文默',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'right',
+          text: '我……我昨天放学在校门口，那个推车商贩说只要吃下一口……就能把整本冲刺题背下来……',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '范文默',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'right',
+          text: '然后我的脑袋里全是算式的尖叫声……根本停不下来……它们说……下周一……还要来学校……',
+          sfx: 'sfx_shock_sting'
+        },
+        {
+          id: 5,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'left',
+          text: '果然是那个推车商贩搞的鬼！小默，这包剩下的怪味零食我先收下了。下周一，我们绝不能坐视不管！',
+          sfx: 'sfx_item_get'
+        },
+        {
+          id: 6,
+          speaker: '范文默',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: 'assets/art/fanwenmo_default.png',
+          activeSide: 'right',
+          text: '谢谢你们把我打醒……以后查探校外怪事，算我一个，我虽然成绩差，但搬砖力气管够！',
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'JOIN_PARTY',
+        unitId: 'fanwenmo',
+        prompt: '恢复理智的小默决定加入异闻调查队！',
+        buttonText: '【收纳物证 · 深夜回访】',
+        targetScene: 'scene_home_night'
+      }
+    },
+
+    // 男线 s7：主角家深夜 · 零食留白收尾
+    scene_home_night: {
+      id: 'scene_home_night',
+      title: '深夜 · 张子骁房间',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home_mc.png',
+      bgm: 'bgm_suspense',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '深夜十一点半，台灯下只有秒针滴答走动的声响。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 2,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '那包从小默书桌上带回来的怪异零食，正静静躺在我的棋盘旁，表面泛着若隐若现的幽暗荧光。',
+          sfx: 'sfx_shock_sting'
+        },
+        {
+          id: 3,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '“……只要吃一口，就能算清后面十步棋……就能考上九十分么……”',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '张子骁',
+          leftPortrait: 'assets/art/zhangzixiao_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '我的手指不由自主地触碰到了包装袋的一角……冰凉刺骨……',
+          sfx: 'sfx_text_blip'
+        }
+      ],
+      transition: {
         type: 'CHAPTER_CLEAR',
-        prompt: '序章《小默同学的异常》剧情告一段落！',
-        buttonText: '【进入序章结案与线索收拢】'
+        prompt: '第一章《失踪同学的异变》完结！黑暗中的谜团才刚刚露出冰山一角……',
+        buttonText: '【第一章结案 · 查看调查总结】'
       }
     }
   },
@@ -797,9 +968,180 @@ export const PROLOGUE_STORY = {
         }
       ],
       transition: {
+        type: 'CHOICE',
+        prompt: '妍熹彻底被错乱音律控制，握紧竖笛步步逼近！门外忽然传来咚咚咚的砸门声！',
+        buttonText: '【回头查看门外动静】',
+        targetScene: 'scene_home_reinforce'
+      }
+    },
+
+    // 女线 s5：陈品璇破门支援 + 首次入队弹窗
+    scene_home_reinforce: {
+      id: 'scene_home_reinforce',
+      title: '何妍熹家 · 队友破门支援',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home_eerie.png',
+      bgm: 'bgm_battle_normal',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '陈品璇',
+          leftPortrait: 'assets/art/chenpinxuan_default.png',
+          rightPortrait: 'assets/art/shiyunuo_default.png',
+          activeSide: 'left',
+          text: '哐当——！予诺！我就知道你一个人偷偷溜过来了！我一路小跑，书包里的篮球差点颠飞出来！——哇啊！妍熹怎么变这样了？！',
+          sfx: 'sfx_hit_crit'
+        },
+        {
+          id: 2,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/chenpinxuan_default.png',
+          rightPortrait: 'assets/art/shiyunuo_default.png',
+          activeSide: 'right',
+          text: '品璇！别大意，妍熹被怪异音波控制了，吹出来的音浪能震碎玻璃！',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '陈品璇',
+          leftPortrait: 'assets/art/chenpinxuan_default.png',
+          rightPortrait: 'assets/art/shiyunuo_default.png',
+          activeSide: 'left',
+          text: '哼，管她什么音浪，在我面前都得趴下！姐可是全校铅球第一名，咱俩一起上，先把她制伏打醒！',
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'JOIN_PARTY',
+        unitId: 'chenpinxuan',
+        prompt: '情报特派员陈品璇赶到了身边！',
+        buttonText: '【结成双人小队 · 唤醒妍熹】',
+        battleId: 'ch0_battle3',
+        isBattleTrigger: true
+      }
+    },
+
+    // 女线 s6：战后打醒恢复 + 何妍熹入队
+    scene_home_recover: {
+      id: 'scene_home_recover',
+      title: '何妍熹家 · 清醒与说漏嘴',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home.png',
+      bgm: 'bgm_suspense',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '何妍熹',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'right',
+          text: '（长笛当啷落地，眼神恢复清亮）……唔……予诺……品璇……？你们怎么会跑到我房间里来了……？我的手好酸……',
+          sfx: 'sfx_unit_down'
+        },
+        {
+          id: 2,
+          speaker: '陈品璇',
+          leftPortrait: 'assets/art/chenpinxuan_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'left',
+          text: '累死我了！你刚才吹笛子跟催命似的，追着我们满屋子跑！快老实交代，到底怎么回事？！',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '何妍熹',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'right',
+          text: '我……我昨天放学在校门口，那个推车商贩塞给我一包东西，说只要吃一口，这次升学选拔赛的长笛曲目就能闭着眼睛吹出来……',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '何妍熹',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'right',
+          text: '然后我的脑袋就像被电波控制了一样……根本停不下来……它们说……下周一……还要来学校接管大家……',
+          sfx: 'sfx_shock_sting'
+        },
+        {
+          id: 5,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'left',
+          text: '果然是校门口推车商贩搞的鬼！这包吃剩的怪零食我先扣下了。下周一，我们必须查个水落石出！',
+          sfx: 'sfx_item_get'
+        },
+        {
+          id: 6,
+          speaker: '何妍熹',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
+          activeSide: 'right',
+          text: '谢谢你们把我唤醒……下周一调查，带上我一起吧，我的长笛能发出安抚心灵的音律！',
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'JOIN_PARTY',
+        unitId: 'heyanxi',
+        prompt: '恢复清醒的妍熹决定加入异闻调查小队！',
+        buttonText: '【收纳物证 · 深夜回访】',
+        targetScene: 'scene_home_night'
+      }
+    },
+
+    // 女线 s7：主角家深夜 · 零食留白收尾
+    scene_home_night: {
+      id: 'scene_home_night',
+      title: '深夜 · 石予诺画室',
+      bgType: 'classroom',
+      bgImg: 'assets/backgrounds/bg_home_mc.png',
+      bgm: 'bgm_suspense',
+      dialogues: [
+        {
+          id: 1,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '深夜十一点半，台灯静静照在画架上，窗外的城市一片漆黑。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 2,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '那包从妍熹书桌带回来的怪异零食，正摆在我的调色盘旁，散发着若有若无的冷光。',
+          sfx: 'sfx_shock_sting'
+        },
+        {
+          id: 3,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '“……只要吃一口，就能画出所有人都惊叹的名画……就能稳拿第一么……”',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '石予诺',
+          leftPortrait: 'assets/art/shiyunuo_default.png',
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '我的画笔不由自主地朝着包装袋探去……指尖一阵莫名的冰凉刺痛……',
+          sfx: 'sfx_text_blip'
+        }
+      ],
+      transition: {
         type: 'CHAPTER_CLEAR',
-        prompt: '序章《小熹同学的异常》剧情告一段落！',
-        buttonText: '【进入序章结案与线索收拢】'
+        prompt: '第一章《失踪同学的异变》完结！黑心商贩背后的阴谋才刚刚露出冰山一角……',
+        buttonText: '【第一章结案 · 查看调查总结】'
       }
     }
   }

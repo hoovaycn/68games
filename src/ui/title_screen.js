@@ -24,8 +24,22 @@ export class TitleScreen {
     // D5 标题主菜单回调：'continue' | 'manage'（'new' 组件内部处理，走白幕进角色选择）
     this.onMenuAction = onMenuAction || null;
 
-    // 子状态: 'OPENING' | 'TITLE' | 'CHARACTER_SELECT' | 'FADE_OUT'
-    this.subStage = 'OPENING';
+    // 子状态: 'DISCLAIMER' | 'OPENING' | 'TITLE' | 'CHARACTER_SELECT' | 'FADE_OUT'
+    this.subStage = 'DISCLAIMER';
+
+    // ---------- S0 DISCLAIMER 状态（游戏最前：虚构声明黑屏） ----------
+    this.disclaimerLines = [
+      '本故事纯属虚构。',
+      '所有人物、地点与事件，均为虚构，',
+      '如有雷同，纯属巧合。',
+      '……至少，我们是这么被告诉的。'
+    ];
+    this.disclaimerLineIndex = 0;
+    this.disclaimerDisplayedText = '';
+    this.disclaimerCharIndex = 0;
+    this.disclaimerLastCharTime = 0;
+    this.disclaimerEnterTime = 0;
+    this.disclaimerTypingSpeed = 55;   // ms / char（比 OPENING 稍慢，营造迟疑感）
 
     // ---------- S1 OPENING 状态 ----------
     this.openingPages = [
@@ -77,10 +91,148 @@ export class TitleScreen {
   }
 
   /**
-   * 进入标题流程入口：每次都从 OPENING 开始
+   * 进入标题流程入口：每次都从 DISCLAIMER（虚构声明黑屏）开始
    */
   enter() {
+    this.enterDisclaimer();
+  }
+
+  // ============================================================
+  // S0 DISCLAIMER（游戏最前的虚构声明黑屏）
+  // ============================================================
+  enterDisclaimer() {
+    this.subStage = 'DISCLAIMER';
+    this.disclaimerLineIndex = 0;
+    this.disclaimerDisplayedText = '';
+    this.disclaimerCharIndex = 0;
+    this.disclaimerLastCharTime = performance.now();
+    this.disclaimerEnterTime = performance.now();
+    this.hoveredSkip = false;
+    this.skipRect = null;
+    // 黑屏声明静默开场（不播 BGM）：进入 OPENING 后再切 bgm_suspense，营造悬疑迟疑
+  }
+
+  updateDisclaimer(now) {
+    const line = this.disclaimerLines[this.disclaimerLineIndex];
+    if (!line) return;
+    if (this.disclaimerCharIndex < line.length) {
+      if (now - this.disclaimerLastCharTime > this.disclaimerTypingSpeed) {
+        this.disclaimerCharIndex += 1;
+        this.disclaimerDisplayedText = line.substring(0, this.disclaimerCharIndex);
+        this.disclaimerLastCharTime = now;
+        if (this.disclaimerCharIndex % 2 === 0) {
+          sound.playSfx('sfx_text_blip');
+        }
+      }
+    }
+  }
+
+  handleDisclaimerAdvance() {
+    const line = this.disclaimerLines[this.disclaimerLineIndex];
+    // 打字未完 → 直接显示整行
+    if (this.disclaimerCharIndex < line.length) {
+      this.disclaimerDisplayedText = line;
+      this.disclaimerCharIndex = line.length;
+      return;
+    }
+    // 还有下一行 → 翻行
+    if (this.disclaimerLineIndex < this.disclaimerLines.length - 1) {
+      this.disclaimerLineIndex += 1;
+      this.disclaimerDisplayedText = '';
+      this.disclaimerCharIndex = 0;
+      this.disclaimerLastCharTime = performance.now();
+      return;
+    }
+    // 最后一行已完整显示 → 进入 OPENING
     this.enterOpening();
+  }
+
+  handleDisclaimerSkip() {
+    this.enterOpening();
+  }
+
+  renderDisclaimer() {
+    const ctx = this.ctx;
+    const w = this.canvas.width;
+    const h = this.canvas.height;
+    const now = performance.now();
+
+    // 1. 纯黑背景
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, w, h);
+
+    // 2. 边缘暗红晕（悬疑氛围，不破坏"黑屏"基调）
+    const vignette = ctx.createRadialGradient(w / 2, h / 2, h * 0.18, w / 2, h / 2, h * 0.9);
+    vignette.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    vignette.addColorStop(1, 'rgba(120, 18, 18, 0.22)');
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0, 0, w, h);
+
+    // 3. 文字逐行打字机 + 整体入场淡入
+    const fadeIn = Math.min(1, (now - this.disclaimerEnterTime) / 500);
+    ctx.save();
+    ctx.globalAlpha = fadeIn;
+
+    const lineHeight = 44;
+    const startY = h / 2 - (this.disclaimerLines.length * lineHeight) / 2 + lineHeight / 2;
+
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = 'bold 24px -apple-system, "PingFang SC", sans-serif';
+
+    for (let i = 0; i < this.disclaimerLines.length; i++) {
+      let text;
+      if (i < this.disclaimerLineIndex) {
+        text = this.disclaimerLines[i];
+      } else if (i === this.disclaimerLineIndex) {
+        text = this.disclaimerDisplayedText;
+      } else {
+        break; // 尚未到达的行不显示
+      }
+      // 末行悬疑句用更冷更暗的色调，制造"到底是不是真的"的迟疑感
+      const isLast = i === this.disclaimerLines.length - 1;
+      ctx.fillStyle = isLast ? 'rgba(196, 186, 170, 0.95)' : 'rgba(236, 229, 214, 0.95)';
+      ctx.fillText(text, w / 2, startY + i * lineHeight);
+
+      // 当前行打字中的闪烁光标
+      if (i === this.disclaimerLineIndex
+          && this.disclaimerCharIndex < this.disclaimerLines[i].length
+          && Math.floor(now / 450) % 2 === 0) {
+        const textW = ctx.measureText(text).width;
+        ctx.fillStyle = 'rgba(236, 229, 214, 0.85)';
+        ctx.fillText('|', w / 2 + textW / 2 + 10, startY + i * lineHeight);
+      }
+    }
+    ctx.restore();
+
+    // 4. 右上角跳过提示（复用 skipRect / hoveredSkip，与 OPENING 同款）
+    const skipX = w - 144;
+    const skipY = 18;
+    const skipW = 124;
+    const skipH = 46;
+    ctx.fillStyle = this.hoveredSkip ? 'rgba(64, 52, 36, 0.92)' : 'rgba(20, 18, 16, 0.7)';
+    ctx.beginPath();
+    ctx.roundRect(skipX, skipY, skipW, skipH, 17);
+    ctx.fill();
+    ctx.strokeStyle = this.hoveredSkip ? 'rgba(245, 233, 208, 0.95)' : 'rgba(245, 233, 208, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.9)';
+    ctx.font = 'bold 13px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('点击跳过 ▶', skipX + skipW / 2, skipY + 17);
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.45)';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('或按 Esc', skipX + skipW / 2, skipY + 35);
+    this.skipRect = { x: skipX, y: skipY, w: skipW, h: skipH };
+
+    // 5. 底部操作提示
+    ctx.fillStyle = 'rgba(245, 233, 208, 0.5)';
+    ctx.font = '13px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('点击 / 回车 继续', w / 2, h - 30);
   }
 
   // ============================================================
@@ -235,7 +387,7 @@ export class TitleScreen {
     const skipX = w - 144;
     const skipY = 18;
     const skipW = 124;
-    const skipH = 34;
+    const skipH = 46;
     ctx.fillStyle = this.hoveredSkip ? 'rgba(64, 52, 36, 0.92)' : 'rgba(20, 18, 16, 0.7)';
     ctx.beginPath();
     ctx.roundRect(skipX, skipY, skipW, skipH, 17);
@@ -247,10 +399,10 @@ export class TitleScreen {
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('点击跳过 ▶', skipX + skipW / 2, skipY + skipH / 2 - 3);
+    ctx.fillText('点击跳过 ▶', skipX + skipW / 2, skipY + 17);
     ctx.fillStyle = 'rgba(245, 233, 208, 0.45)';
     ctx.font = '10px sans-serif';
-    ctx.fillText('或按 Esc', skipX + skipW / 2, skipY + skipH - 11);
+    ctx.fillText('或按 Esc', skipX + skipW / 2, skipY + 35);
     this.skipRect = { x: skipX, y: skipY, w: skipW, h: skipH };
 
     // 5. 末页 sting 白闪
@@ -787,7 +939,10 @@ export class TitleScreen {
   // ============================================================
   render() {
     const now = performance.now();
-    if (this.subStage === 'OPENING') {
+    if (this.subStage === 'DISCLAIMER') {
+      this.updateDisclaimer(now);
+      this.renderDisclaimer();
+    } else if (this.subStage === 'OPENING') {
       this.updateOpening(now);
       this.renderOpening();
     } else if (this.subStage === 'TITLE') {
@@ -802,7 +957,7 @@ export class TitleScreen {
   // 事件分发
   // ============================================================
   handleMouseMove(mouseX, mouseY) {
-    if (this.subStage === 'OPENING') {
+    if (this.subStage === 'DISCLAIMER' || this.subStage === 'OPENING') {
       // 跳过按钮 hover 高亮（视觉反馈：让用户确认按钮"活着"可点）
       const r = this.skipRect;
       const hit = !!(r && mouseX >= r.x && mouseX <= r.x + r.w
@@ -837,6 +992,20 @@ export class TitleScreen {
   }
 
   handleClick(mouseX, mouseY) {
+    if (this.subStage === 'DISCLAIMER') {
+      // 检查是否点中跳过
+      if (this.skipRect &&
+          mouseX >= this.skipRect.x && mouseX <= this.skipRect.x + this.skipRect.w &&
+          mouseY >= this.skipRect.y && mouseY <= this.skipRect.y + this.skipRect.h) {
+        console.info(`[disclaimer] skip hit @(${mouseX|0},${mouseY|0}) -> OPENING`);
+        this.handleDisclaimerSkip();
+        return true;
+      }
+      // 点击空白处推进文案
+      this.handleDisclaimerAdvance();
+      return true;
+    }
+
     if (this.subStage === 'OPENING') {
       // 检查是否点中跳过
       if (this.skipRect &&
@@ -896,6 +1065,19 @@ export class TitleScreen {
   }
 
   handleKeyDown(e) {
+    if (this.subStage === 'DISCLAIMER') {
+      // 空格/回车推进，Esc 跳过
+      if (e.key === ' ' || e.key === 'Enter') {
+        this.handleDisclaimerAdvance();
+        return true;
+      }
+      if (e.key === 'Escape') {
+        this.handleDisclaimerSkip();
+        return true;
+      }
+      return false;
+    }
+
     if (this.subStage === 'OPENING') {
       // 空格/回车推进，Esc 跳过
       if (e.key === ' ' || e.key === 'Enter') {

@@ -10,6 +10,7 @@ export class AssetLoader {
 
   loadWithChromaKey(src) {
     if (!src) return null;
+    if (typeof window === 'undefined' || typeof Image === 'undefined') return null;
     if (this.cache[src]) return this.cache[src];
 
     const img = new Image();

@@ -7,6 +7,7 @@ import { TitleScreen } from './ui/title_screen.js';
 import { EpilogueScreen } from './ui/epilogue_screen.js';
 import { VictoryModal } from './ui/components/victory_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
+import { JoinPartyModal } from './ui/components/join_party_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
 import { LevelUpModal, snapshotGrowthStats } from './ui/components/level_up.js';
 import { ActionMenu, planActionMenuItems } from './ui/components/action_menu.js';
@@ -19,19 +20,21 @@ import { createStash } from './systems/stash.js';
 import { settleLoot, summarizeLoots } from './systems/loot.js';
 import {
   createNewGame, getPartyUnit, commitRuntimeUnit,
-  advanceTo, markChapterCleared, tickPlaytime
+  advanceTo, markChapterCleared, tickPlaytime, joinParty
 } from './systems/game_state.js';
 import { createSaveManager } from './systems/save_manager.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
+import { CH0_BATTLE3 } from './data/chapters/ch0_battle3.js';
 import { WEAPONS } from './data/weapons.js';
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
 const CHAPTERS = {
   ch0_battle1: CH0_BATTLE1,
-  ch0_battle2: CH0_BATTLE2
+  ch0_battle2: CH0_BATTLE2,
+  ch0_battle3: CH0_BATTLE3
 };
 
 class GameApp {
@@ -51,6 +54,7 @@ class GameApp {
     this.gameState = null;
     this.saveManager = createSaveManager();
     this.saveMenuModal = null; // 存档界面模态（标题页「存档管理」/ 剧情内 Esc 呼出）
+    this.joinPartyModal = new JoinPartyModal(this.canvas); // 剧情环节新伙伴入队弹窗模态
 
     // D5 标题主菜单：continue → 读最新档续玩；manage → 存档管理界面
     // （'new' 由 TitleScreen 内部白幕转场处理，不经过这里）
@@ -63,6 +67,10 @@ class GameApp {
     this.epilogueScreen = new EpilogueScreen(this.canvas, () => this.enterTitleScreen());
 
     this.stage = 'STAGE_TITLE';
+
+    // 章节标题覆盖层（跨标题/剧情/战斗阶段全屏展示，进入章节剧情前显示【序章】等）
+    this.chapterBanner = null;       // { label, title, startTime, duration }
+    this.chapterBannerOnDone = null; // 章节标题展示结束后的回调（如：真正开始剧情）
 
     // 游玩时长节流累计：每满一整秒才 tickPlaytime 一次（STATE_SCHEMA playtimeSec）
     this._playtimeAccumMs = 0;
@@ -202,7 +210,29 @@ class GameApp {
     // 新开局：服务层创建完整游戏进度（roster 档案 / flags / stash / 剧情锚点）
     // 之后所有战斗、剧情、仓库读写都作用在这份 gameState 上
     this.gameState = createNewGame({ route: this.selectedRoute });
-    this.startStoryScene('scene_classroom');
+
+    // 进入序章剧情前，先全屏展示【序章】章节标题，展示结束再开始讲故事
+    const chapterTitle = PROLOGUE_STORY.chapterTitle || '序章';
+    const colon = chapterTitle.indexOf('：');
+    const label = colon > 0 ? chapterTitle.slice(0, colon) : chapterTitle;
+    const title = colon > 0 ? chapterTitle.slice(colon + 1) : '';
+    this.showChapterBanner(label, title, () => {
+      this.startStoryScene('scene_classroom');
+    });
+  }
+
+  /**
+   * 显示全屏章节标题覆盖层（进入章节剧情前展示【序章】/【第一章】等），
+   * 展示结束后触发 onDone 回调（如：真正开始该章节的第一段剧情）。
+   */
+  showChapterBanner(label, title, onDone, duration = 2200) {
+    this.chapterBanner = {
+      label: label || '章节',
+      title: title || '',
+      startTime: Date.now(),
+      duration
+    };
+    this.chapterBannerOnDone = onDone || null;
   }
 
   startStoryScene(sceneKey) {
@@ -229,6 +259,24 @@ class GameApp {
 
   handleSceneTransition(transition) {
     if (!transition) return;
+
+    // 剧情入队事件拦截：先加入队伍名册，再弹出仪式感入队组件，确认后再推进下一步
+    if (transition.type === 'JOIN_PARTY' && transition.unitId) {
+      if (this.gameState) {
+        joinParty(this.gameState, transition.unitId);
+      }
+      this.joinPartyModal.show(transition.unitId, () => {
+        if (transition.isBattleTrigger || transition.battleId) {
+          const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
+          this.enterBattleMap(bMap, bMap.nextStorySceneOnWin);
+        } else if (transition.targetScene) {
+          this.startStoryScene(transition.targetScene);
+        } else if (transition.type === 'CHAPTER_CLEAR') {
+          this.enterEpilogueScreen();
+        }
+      });
+      return;
+    }
 
     if (transition.isBattleTrigger || transition.battleId) {
       const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
@@ -307,6 +355,7 @@ class GameApp {
     this.canvas.height = 540;
 
     this.chapterTitleEl.textContent = chapterData.name;
+
     this.initBattle(chapterData);
 
     sound.playBgm('bgm_battle_normal');
@@ -339,8 +388,13 @@ class GameApp {
     const deployPos = chapter.playerDeploy[0] || { x: 2, y: 4 };
 
     for (const e of chapter.enemyDeploy) {
+      let enemyId = e.enemyId;
+      // 序章 Boss 战男女线动态适配
+      if (chapter.id === 'ch0_battle3' && e.instanceId === 'boss_corrupted') {
+        enemyId = this.selectedRoute === 'female' ? 'heyanxi_corrupted' : 'fanwenmo_corrupted';
+      }
       // 数值工厂统一造敌：与援军同一工厂，数值口径一致
-      const unit = createEnemyUnit(e.enemyId, {
+      const unit = createEnemyUnit(enemyId, {
         instanceId: e.instanceId,
         x: e.x,
         y: e.y,
@@ -591,6 +645,8 @@ class GameApp {
 
     this.canvas.addEventListener('click', (e) => {
       sound.unlock();
+      // ★ 章节标题覆盖层展示期间吞掉点击（自动播放，展示结束才放行）
+      if (this.chapterBanner) return;
       const rect = this.canvas.getBoundingClientRect();
       const scaleX = rect.width ? (this.canvas.width / rect.width) : 1;
       const scaleY = rect.height ? (this.canvas.height / rect.height) : 1;
@@ -600,6 +656,12 @@ class GameApp {
       // ★ 存档界面模态独占点击（标题侧/剧情侧打开都拦在最前，防穿透到场景）
       if (this.saveMenuModal) {
         this.saveMenuModal.handleClick(clickX, clickY);
+        return;
+      }
+
+      // ★ 新伙伴入队弹窗独占点击
+      if (this.joinPartyModal && this.joinPartyModal.isOpen) {
+        this.joinPartyModal.handleClick(clickX, clickY);
         return;
       }
 
@@ -698,9 +760,18 @@ class GameApp {
     window.addEventListener('keydown', (e) => {
       sound.unlock();
 
+      // ★ 章节标题覆盖层展示期间吞掉按键（自动播放，展示结束才放行）
+      if (this.chapterBanner) return;
+
       // ★ 存档界面模态独占按键（方向导航/确认/Esc/D删/E导/I导 全在组件内消化）
       if (this.saveMenuModal) {
         this.saveMenuModal.handleKeyDown(e);
+        return;
+      }
+
+      // ★ 新伙伴入队弹窗独占按键 (Space / Enter / Escape)
+      if (this.joinPartyModal && this.joinPartyModal.isOpen) {
+        this.joinPartyModal.handleKeyDown(e);
         return;
       }
 
@@ -1116,17 +1187,27 @@ class GameApp {
     this.battleState.isAnimatingCombat = true;
     this.battleState.battlePreview = null;
     this.battleState.attackableTiles = [];
+    this.battleState.targetEnemies = [];
 
     // 攻击发起前根据目标位置更新朝向
-    if (attacker.faction === 'player') {
-      const dx = defender.x - attacker.x;
-      const dy = defender.y - attacker.y;
-      if (Math.abs(dx) >= Math.abs(dy)) {
-        if (dx !== 0) attacker.facing = dx > 0 ? 'right' : 'left';
-      } else {
-        attacker.facing = dy > 0 ? 'down' : 'up';
-      }
+    const dx = defender.x - attacker.x;
+    const dy = defender.y - attacker.y;
+    if (Math.abs(dx) >= Math.abs(dy)) {
+      if (dx !== 0) attacker.facing = dx > 0 ? 'right' : 'left';
+    } else {
+      attacker.facing = dy > 0 ? 'down' : 'up';
     }
+
+    // 1. 进攻方在单元格内停留 0.5s：光标聚焦进攻方单元格，清楚展示是谁、走到哪儿
+    this.battleState.cursor.x = attacker.x;
+    this.battleState.cursor.y = attacker.y;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // 2. 光标移动到受击单位单元格停留 0.5s：播放光标锁定音效，清楚展示打了谁
+    this.battleState.cursor.x = defender.x;
+    this.battleState.cursor.y = defender.y;
+    sound.playSfx('sfx_cursor');
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const preview = CombatSystem.predictBattle(
       attacker,
@@ -1624,9 +1705,24 @@ class GameApp {
         this.battleState.victoryModal.render();
       }
     }
+    // ★ 新伙伴入队弹窗组件渲染（剧情环节弹窗，盖在当前 stage 上）
+    if (this.joinPartyModal && this.joinPartyModal.isOpen) {
+      this.joinPartyModal.render();
+    }
+
     // ★ 存档界面模态渲染在所有 stage 之上（load 模式盖标题屏，save 模式盖剧情屏）
     if (this.saveMenuModal && typeof this.saveMenuModal.render === 'function') {
       this.saveMenuModal.render();
+    }
+    // ★ 章节标题覆盖层：跨标题/剧情/战斗阶段全屏展示（最上层），展示结束清理并触发 onDone
+    if (this.chapterBanner) {
+      this.renderer.drawChapterBanner(this.chapterBanner);
+      if (Date.now() - this.chapterBanner.startTime > this.chapterBanner.duration) {
+        const done = this.chapterBannerOnDone;
+        this.chapterBanner = null;
+        this.chapterBannerOnDone = null;
+        if (done) done();
+      }
     }
     requestAnimationFrame(() => this.loop());
   }
