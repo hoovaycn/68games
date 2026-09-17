@@ -430,7 +430,12 @@ export class InventoryPanelModal extends ModalBase {
       const res = CombatSystem.useItem(this.unit, row.itemId);
       if (res && res.success) {
         sound.playSfx('sfx_confirm');
-        this.setFeedback(`使用【${row.name}】：${res.appliedMsg || '使用成功！'}`);
+        if (typeof this.config.onUseItem === 'function') {
+          this.close();
+          this.config.onUseItem(this.unit, row, res);
+          return;
+        }
+        this.setFeedback(`使用【${row.name}】：${res.msg || '使用成功！'}`);
       } else {
         this.setFeedback(`使用失败：${res ? res.msg : '无法使用'}`);
       }

@@ -6,6 +6,7 @@ import { DialogueSystem } from './systems/dialogue_system.js';
 import { TitleScreen } from './ui/title_screen.js';
 import { EpilogueScreen } from './ui/epilogue_screen.js';
 import { VictoryModal } from './ui/components/victory_modal.js';
+import { GameOverModal } from './ui/components/game_over_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
 import { JoinPartyModal } from './ui/components/join_party_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
@@ -484,6 +485,14 @@ class GameApp {
       if (unit) units.push(unit);
     }
 
+    // ★ 诉求6：地图战斗开始的时候，全员满血满魔，不继承上一次战斗的血量
+    units.filter(u => u.faction === 'player').forEach(u => {
+      u.currentHp = u.stats.maxHp;
+      u.currentSp = u.stats.maxSp;
+      u.isAlive = true;
+      u.hasActed = false;
+    });
+
     this.battleState.units = units;
     this.battleState.turn = 1;
     this.battleState.phase = 'PLAYER_PHASE';
@@ -496,7 +505,13 @@ class GameApp {
     this.battleState.actionMenu = null;
     this.battleState.battlePreview = null;
     this.battleState.isAnimatingCombat = false;
-    this.battleState.cursor = { x: deployPos.x, y: deployPos.y };
+
+    // ★ 诉求9：开局进入战斗初始状态，光标自动停留在主角身上
+    const leadUnit = units.find(u => u.isAlive && u.faction === 'player' && u.id === this.activePlayerUnitId)
+      || units.find(u => u.isAlive && u.faction === 'player');
+    const initCursorX = leadUnit ? leadUnit.x : deployPos.x;
+    const initCursorY = leadUnit ? leadUnit.y : deployPos.y;
+    this.battleState.cursor = { x: initCursorX, y: initCursorY };
 
     // ★ 关键重置：清空上一场战斗残留的胜利/战利品模态框状态
     // (否则第二场战斗 checkBattleEnd 会因 victoryModalShown 残留而永不弹窗，回合无限空转)
@@ -752,6 +767,12 @@ class GameApp {
         return;
       }
 
+      // ★ 战斗失败模态框组件捕获
+      if (this.battleState.gameOverModal) {
+        this.battleState.gameOverModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ 战利品弹窗组件捕获
       if (this.battleState.itemRewardModal) {
         this.battleState.itemRewardModal.handleClick(clickX, clickY);
@@ -860,6 +881,16 @@ class GameApp {
       if (this.battleState.victoryModal) {
         if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
           this.battleState.victoryModal.handleKeyDown(e);
+        }
+        return;
+      }
+
+      // ★ 战斗失败模态框按键捕获 (回车/空格/Esc)
+      if (this.battleState.gameOverModal) {
+        if (e.key === ' ' || e.key === 'Enter') {
+          this.battleState.gameOverModal.handleClick(this.battleState.gameOverModal.retryBtnRect.x + 5, this.battleState.gameOverModal.retryBtnRect.y + 5);
+        } else if (e.key === 'Escape') {
+          this.battleState.gameOverModal.handleClick(this.battleState.gameOverModal.titleBtnRect.x + 5, this.battleState.gameOverModal.titleBtnRect.y + 5);
         }
         return;
       }
@@ -1210,7 +1241,18 @@ class GameApp {
     if (id === 'item') {
       bs.inventoryModal = new InventoryPanelModal(
         this.canvas,
-        { unit: u, stash: bs.stash || createStash() },
+        {
+          unit: u,
+          stash: bs.stash || createStash(),
+          onUseItem: (targetUnit, row, res) => {
+            bs.inventoryModal = null;
+            const hpGain = res.hpRestored || 0;
+            const text = hpGain > 0 ? `使用${row.name} HP+${hpGain}` : `使用${row.name}成功`;
+            this.addFloatingText(text, targetUnit.x, targetUnit.y, '#22c55e');
+            bs.actionMenu = null;
+            this.endUnitTurn();
+          }
+        },
         () => { bs.inventoryModal = null; }
       );
       return; // 菜单保持打开，弹层盖在其上；关闭后继续选
@@ -1366,8 +1408,14 @@ class GameApp {
     }
 
     // 5. 存活判定与结算
-    if (attacker.currentHp <= 0) attacker.isAlive = false;
-    if (defender.currentHp <= 0) defender.isAlive = false;
+    if (attacker.currentHp <= 0) {
+      attacker.isAlive = false;
+      attacker.deathAnim = { startTime: performance.now(), duration: 800 };
+    }
+    if (defender.currentHp <= 0) {
+      defender.isAlive = false;
+      defender.deathAnim = { startTime: performance.now(), duration: 800 };
+    }
 
     // ★ 统一击杀结算：本次交战中阵亡的敌方单位，无论它是守方（被我方主动攻击击杀）
     //   还是攻方（敌方回合扑向我方时被我方反击击杀），都必须一致地结算经验、掉落与弹窗。
@@ -1597,6 +1645,14 @@ class GameApp {
       }
     });
 
+    // ★ 诉求9：每个回合开始，光标自动停留在主角身上
+    const leadUnit = this.battleState.units.find(u => u.isAlive && u.faction === 'player' && u.id === this.activePlayerUnitId)
+      || this.battleState.units.find(u => u.isAlive && u.faction === 'player');
+    if (leadUnit) {
+      this.battleState.cursor.x = leadUnit.x;
+      this.battleState.cursor.y = leadUnit.y;
+    }
+
     // 显示我方回合横幅 (若包含回合增加，先出一级【第 X 回合】，再出二级【我方行动】)
     this.showPhaseBanner('PLAYER_PHASE', this.battleState.turn, isTurnIncrement);
 
@@ -1669,13 +1725,24 @@ class GameApp {
         }
       );
     } else if (alivePlayers.length === 0) {
+      if (bs.gameOverModal) return;
       sound.playSfx('sfx_shock_sting');
       setTimeout(() => {
-        alert('战斗失利……全员倒下。\n\n回到本章开头重新挑战。\n（本次战斗中升的级、获得的经验与道具都不会保留）');
-        // D1/T6：战败不 commit——roster 从未被战场污染（getPartyUnit 出的是深拷贝），
-        // 直接按 gameState 锚点重建战斗 = 回到本章开头
-        this.resumeFromGameState();
-      }, 500);
+        bs.gameOverModal = new GameOverModal(
+          this.canvas,
+          {},
+          () => {
+            bs.gameOverModal = null;
+            // D1/T6：战败不 commit——roster 从未被战场污染（getPartyUnit 出的是深拷贝），
+            // 直接按 gameState 锚点重建战斗 = 回到本章开头
+            this.resumeFromGameState();
+          },
+          () => {
+            bs.gameOverModal = null;
+            this.enterTitleScreen();
+          }
+        );
+      }, 700);
     }
   }
 
@@ -1784,6 +1851,10 @@ class GameApp {
       // 渲染胜利结算模态框组件
       if (this.battleState.victoryModal && typeof this.battleState.victoryModal.render === 'function') {
         this.battleState.victoryModal.render();
+      }
+      // 渲染战斗失利模态框组件
+      if (this.battleState.gameOverModal && typeof this.battleState.gameOverModal.render === 'function') {
+        this.battleState.gameOverModal.render();
       }
     }
     // ★ 新伙伴入队弹窗组件渲染（剧情环节弹窗，盖在当前 stage 上）

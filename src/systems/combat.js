@@ -243,12 +243,20 @@ export class CombatSystem {
     }
 
     let appliedMsg = '';
+    let hpRestored = 0;
     for (const eff of item.effects) {
       if (eff.stat === 'hp') {
         const oldHp = unit.currentHp;
         unit.currentHp = Math.min(unit.stats.maxHp, unit.currentHp + eff.value);
         const restored = unit.currentHp - oldHp;
+        hpRestored += restored;
         appliedMsg += `恢复了 ${restored} 点 HP！`;
+      } else if (eff.stat === 'mp') {
+        const oldSp = unit.currentSp || 0;
+        const maxSp = unit.stats.maxSp || 20;
+        unit.currentSp = Math.min(maxSp, oldSp + eff.value);
+        const restoredSp = unit.currentSp - oldSp;
+        appliedMsg += ` 恢复了 ${restoredSp} 点 MP！`;
       } else if (eff.stat === 'spd') {
         unit.tempBuffs = unit.tempBuffs || {};
         unit.tempBuffs.spd = (unit.tempBuffs.spd || 0) + eff.value;
@@ -263,6 +271,6 @@ export class CombatSystem {
       unit.inventory = unit.inventory.filter(i => i.id !== itemId);
     }
 
-    return { success: true, msg: appliedMsg };
+    return { success: true, msg: appliedMsg, hpRestored, itemName: item.name };
   }
 }

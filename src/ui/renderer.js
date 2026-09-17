@@ -367,13 +367,41 @@ export class Renderer {
     const oy = this.offsetY;
 
     for (const u of units) {
-      if (!u.isAlive) continue;
+      let isDying = false;
+      let deathAlpha = 1;
+      let deathShakeX = 0;
+      let deathShakeY = 0;
 
-      // 结合受击抖动偏移与攻击突进偏移
-      const shakeX = u.animOffsetX || 0;
-      const shakeY = u.animOffsetY || 0;
+      if (!u.isAlive) {
+        if (u.deathAnim) {
+          const elapsed = performance.now() - u.deathAnim.startTime;
+          if (elapsed < u.deathAnim.duration) {
+            isDying = true;
+            deathAlpha = Math.max(0, 1 - (elapsed / u.deathAnim.duration));
+            // 振动衰减动效
+            const shakeMag = Math.max(0, 1 - (elapsed / 450)) * 6;
+            deathShakeX = Math.sin(elapsed / 20) * shakeMag;
+            deathShakeY = Math.cos(elapsed / 25) * (shakeMag * 0.5);
+          } else {
+            u.deathAnim = null;
+            continue;
+          }
+        } else {
+          continue;
+        }
+      }
+
+      // 结合受击抖动偏移、阵亡振动与攻击突进偏移
+      const shakeX = (u.animOffsetX || 0) + deathShakeX;
+      const shakeY = (u.animOffsetY || 0) + deathShakeY;
       const px = u.x * ts + ox + shakeX;
       const py = u.y * ts + oy + shakeY;
+
+      ctx.save();
+      if (isDying) {
+        ctx.globalAlpha = deathAlpha;
+        ctx.filter = 'grayscale(100%) brightness(85%)';
+      }
 
       // 1. 阴影投影 (椭圆半透明)
       ctx.fillStyle = 'rgba(0, 0, 0, 0.32)';
@@ -382,7 +410,7 @@ export class Renderer {
       ctx.fill();
 
       // 2. 选中光晕 (脉动黄圈)
-      if (selectedUnit && selectedUnit.id === u.id) {
+      if (!isDying && selectedUnit && selectedUnit.id === u.id) {
         const pulse = Math.sin(Date.now() / 140) * 3;
         ctx.fillStyle = 'rgba(250, 204, 21, 0.5)';
         ctx.beginPath();
@@ -394,35 +422,41 @@ export class Renderer {
       this.drawUnitToken(u, px, py, ts);
 
       // 4. 已行动指示 (变灰外框)
-      if (u.hasActed) {
+      if (!isDying && u.hasActed) {
         ctx.fillStyle = 'rgba(28, 25, 23, 0.45)';
         ctx.beginPath();
         ctx.roundRect(px + 2, py + 2, ts - 4, ts - 4, 6);
         ctx.fill();
       }
 
-      // 5. 血条
-      const hpPct = Math.max(0, u.currentHp / u.stats.maxHp);
-      const barW = ts - 10;
-      const barH = 5;
-      const barX = px + 5;
-      const barY = py + ts - 9;
+      // 5. 血条（阵亡消退中不显示血条）
+      if (!isDying) {
+        const hpPct = Math.max(0, u.currentHp / u.stats.maxHp);
+        const barW = ts - 10;
+        const barH = 5;
+        const barX = px + 5;
+        const barY = py + ts - 9;
 
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-      ctx.fillRect(barX - 1, barY - 1, barW + 2, barH + 2);
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+        ctx.fillRect(barX - 1, barY - 1, barW + 2, barH + 2);
 
-      ctx.fillStyle = hpPct > 0.5 ? '#22c55e' : (hpPct > 0.25 ? '#f59e0b' : '#ef4444');
-      ctx.fillRect(barX, barY, barW * hpPct, barH);
+        ctx.fillStyle = hpPct > 0.5 ? '#22c55e' : (hpPct > 0.25 ? '#f59e0b' : '#ef4444');
+        ctx.fillRect(barX, barY, barW * hpPct, barH);
+      }
 
       // 6. 阵营角标 (我方蓝/敌方红)
-      const isPlayer = u.faction === 'player';
-      ctx.fillStyle = isPlayer ? '#2563eb' : '#dc2626';
-      ctx.beginPath();
-      ctx.arc(px + 8, py + 8, 5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
+      if (!isDying) {
+        const isPlayer = u.faction === 'player';
+        ctx.fillStyle = isPlayer ? '#2563eb' : '#dc2626';
+        ctx.beginPath();
+        ctx.arc(px + 8, py + 8, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+
+      ctx.restore();
     }
   }
 

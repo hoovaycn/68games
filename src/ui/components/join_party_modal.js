@@ -160,10 +160,13 @@ export class JoinPartyModal {
     // 绘制半身立绘
     const portraitPath = this._getPortraitPath(this.unit.id);
     const portraitImg = assetLoader.getImage(portraitPath);
-    if (portraitImg && portraitImg.complete && portraitImg.naturalWidth > 0) {
+    const imgW = portraitImg ? (portraitImg.naturalWidth || portraitImg.width || 0) : 0;
+    const imgH = portraitImg ? (portraitImg.naturalHeight || portraitImg.height || 0) : 0;
+
+    if (portraitImg && imgW > 0 && imgH > 0) {
       // 保持比例居中
       const pw = 210;
-      const ph = Math.round(pw * (portraitImg.naturalHeight / portraitImg.naturalWidth));
+      const ph = Math.round(pw * (imgH / imgW));
       const px = haloCx - pw / 2;
       const py = leftY + (leftH - ph) / 2 - 8;
       ctx.drawImage(portraitImg, px, py, pw, ph);
@@ -204,7 +207,7 @@ export class JoinPartyModal {
     const rightY = leftY + 2;
     const rightW = boxW - (rightX - boxX) - 24;
 
-    // 5.1 称号与战斗定位标签
+    // 5.1 称号与战斗定位标签（分行呈现，避免称号过长导致标签与文字叠压）
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
 
@@ -213,14 +216,26 @@ export class JoinPartyModal {
     ctx.fillStyle = '#1c1917';
     ctx.fillText(this.unit.title || '同伴', rightX, rightY);
 
-    // 角色定位 Tag Badge
+    // 角色定位 Tag Badge（放在称号右侧合适间距，若称号较长则换行自适应或控制在同一视觉行）
+    const titleWidth = ctx.measureText(this.unit.title || '同伴').width;
     const tagText = this._getRoleTag(this.unit);
     ctx.font = '12px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     const tagW = ctx.measureText(tagText).width + 16;
-    const tagX = rightX + ctx.measureText(this.unit.title || '同伴').width + 12;
+    
+    // 如果称号宽度 + 标签宽度超过了可用区域的一半以上，折到第二行显示
+    let tagX = rightX + titleWidth + 14;
+    let tagY = rightY + 1;
+    let infoY = rightY + 36;
+    if (titleWidth > 150) {
+      // 另起一行排列 Tag
+      tagX = rightX;
+      tagY = rightY + 28;
+      infoY = tagY + 30;
+    }
+
     ctx.fillStyle = '#fef3c7';
     ctx.beginPath();
-    ctx.roundRect(tagX, rightY + 1, tagW, 22, 6);
+    ctx.roundRect(tagX, tagY, tagW, 22, 6);
     ctx.fill();
     ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 1;
@@ -228,13 +243,12 @@ export class JoinPartyModal {
 
     ctx.fillStyle = '#92400e';
     ctx.textBaseline = 'middle';
-    ctx.fillText(tagText, tagX + 8, rightY + 12);
+    ctx.fillText(tagText, tagX + 8, tagY + 11);
 
     // 5.2 基础配备：初始装备与职业
     const clsName = this.unitConfig.cls ? this.unitConfig.cls.name : '普通小学生';
     const wepName = this.unitConfig.weapon ? this.unitConfig.weapon.name : '初始文具';
 
-    const infoY = rightY + 32;
     ctx.font = '13px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     ctx.fillStyle = '#57534e';
     ctx.textBaseline = 'top';
@@ -248,7 +262,7 @@ export class JoinPartyModal {
     ctx.fillText(wepName, rightX + 232, infoY);
 
     // 5.3 专属个人技卡片 (Personal Skill)
-    const skillBoxY = infoY + 28;
+    const skillBoxY = infoY + 26;
     const skillBoxH = 68;
     ctx.fillStyle = '#f8fafc';
     ctx.beginPath();
