@@ -39,7 +39,9 @@ export class TitleScreen {
     this.disclaimerCharIndex = 0;
     this.disclaimerLastCharTime = 0;
     this.disclaimerEnterTime = 0;
-    this.disclaimerTypingSpeed = 55;   // ms / char（比 OPENING 稍慢，营造迟疑感）
+    this.disclaimerTypingSpeed = 45;   // ms / char
+    this.disclaimerAllDone = false;    // 全文是否出完
+    this.disclaimerPauseUntil = 0;     // 末行出完前的悬疑停顿时刻
 
     // ---------- S1 OPENING 状态 ----------
     this.openingPages = [
@@ -107,14 +109,30 @@ export class TitleScreen {
     this.disclaimerCharIndex = 0;
     this.disclaimerLastCharTime = performance.now();
     this.disclaimerEnterTime = performance.now();
+    this.disclaimerAllDone = false;
+    this.disclaimerPauseUntil = 0;
     this.hoveredSkip = false;
     this.skipRect = null;
     // 黑屏声明静默开场（不播 BGM）：进入 OPENING 后再切 bgm_suspense，营造悬疑迟疑
   }
 
   updateDisclaimer(now) {
+    if (this.disclaimerAllDone) return;
+
+    // 如果处于最后一行出现前的悬疑停顿中（1 秒）
+    if (this.disclaimerPauseUntil > 0) {
+      if (now < this.disclaimerPauseUntil) {
+        return;
+      }
+      // 停顿结束，开始打最后一行
+      this.disclaimerPauseUntil = 0;
+      this.disclaimerLastCharTime = now;
+    }
+
     const line = this.disclaimerLines[this.disclaimerLineIndex];
     if (!line) return;
+
+    // 当前行逐字打印
     if (this.disclaimerCharIndex < line.length) {
       if (now - this.disclaimerLastCharTime > this.disclaimerTypingSpeed) {
         this.disclaimerCharIndex += 1;
@@ -124,26 +142,43 @@ export class TitleScreen {
           sound.playSfx('sfx_text_blip');
         }
       }
+    } else {
+      // 当前行已打印完毕，判断是否翻到下一行
+      if (this.disclaimerLineIndex < this.disclaimerLines.length - 1) {
+        const nextIdx = this.disclaimerLineIndex + 1;
+        // 如果即将出现最后一行，停顿 1 秒营造悬疑感
+        if (nextIdx === this.disclaimerLines.length - 1) {
+          this.disclaimerLineIndex = nextIdx;
+          this.disclaimerDisplayedText = '';
+          this.disclaimerCharIndex = 0;
+          this.disclaimerPauseUntil = now + 1000;
+        } else {
+          // 普通行切换，自然连贯（停顿 250ms）
+          if (now - this.disclaimerLastCharTime > 250) {
+            this.disclaimerLineIndex = nextIdx;
+            this.disclaimerDisplayedText = '';
+            this.disclaimerCharIndex = 0;
+            this.disclaimerLastCharTime = now;
+          }
+        }
+      } else {
+        // 全部行已完全打印完毕
+        this.disclaimerAllDone = true;
+      }
     }
   }
 
   handleDisclaimerAdvance() {
-    const line = this.disclaimerLines[this.disclaimerLineIndex];
-    // 打字未完 → 直接显示整行
-    if (this.disclaimerCharIndex < line.length) {
-      this.disclaimerDisplayedText = line;
-      this.disclaimerCharIndex = line.length;
+    // 若文字未全出完 → 点击/按键直接快速展示全部文字
+    if (!this.disclaimerAllDone) {
+      this.disclaimerLineIndex = this.disclaimerLines.length - 1;
+      this.disclaimerDisplayedText = this.disclaimerLines[this.disclaimerLineIndex];
+      this.disclaimerCharIndex = this.disclaimerDisplayedText.length;
+      this.disclaimerPauseUntil = 0;
+      this.disclaimerAllDone = true;
       return;
     }
-    // 还有下一行 → 翻行
-    if (this.disclaimerLineIndex < this.disclaimerLines.length - 1) {
-      this.disclaimerLineIndex += 1;
-      this.disclaimerDisplayedText = '';
-      this.disclaimerCharIndex = 0;
-      this.disclaimerLastCharTime = performance.now();
-      return;
-    }
-    // 最后一行已完整显示 → 进入 OPENING
+    // 文字已全部出完 → 点击进入下一个画面（OPENING）
     this.enterOpening();
   }
 
@@ -227,12 +262,14 @@ export class TitleScreen {
     ctx.fillText('或按 Esc', skipX + skipW / 2, skipY + 35);
     this.skipRect = { x: skipX, y: skipY, w: skipW, h: skipH };
 
-    // 5. 底部操作提示
-    ctx.fillStyle = 'rgba(245, 233, 208, 0.5)';
+    // 5. 底部操作提示（根据打字是否完成呈现不同文案，全部出完后突出"点击进入下一个画面"）
+    ctx.fillStyle = this.disclaimerAllDone
+      ? 'rgba(245, 233, 208, 0.85)'
+      : 'rgba(245, 233, 208, 0.45)';
     ctx.font = '13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('点击 / 回车 继续', w / 2, h - 30);
+    ctx.fillText(this.disclaimerAllDone ? '点击任意处 / 回车 进入下一个画面 ▶' : '点击 / 回车 快速显示', w / 2, h - 30);
   }
 
   // ============================================================
