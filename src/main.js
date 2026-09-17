@@ -25,16 +25,23 @@ import {
 import { createSaveManager } from './systems/save_manager.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
+import { CHAPTER1_STORY } from './data/story_chapter1.js';
+import { CHAPTER2_STORY } from './data/story_chapter2.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
 import { CH0_BATTLE3 } from './data/chapters/ch0_battle3.js';
+import { CH1_BATTLE1 } from './data/chapters/ch1_battle1.js';
+import { CH2_BATTLE1 } from './data/chapters/ch2_battle1.js';
 import { WEAPONS } from './data/weapons.js';
+import { UNITS } from './data/units.js';
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
 const CHAPTERS = {
   ch0_battle1: CH0_BATTLE1,
   ch0_battle2: CH0_BATTLE2,
-  ch0_battle3: CH0_BATTLE3
+  ch0_battle3: CH0_BATTLE3,
+  ch1_battle1: CH1_BATTLE1,
+  ch2_battle1: CH2_BATTLE1
 };
 
 class GameApp {
@@ -249,10 +256,39 @@ class GameApp {
       this.saveManager.autosave(this.gameState);
     }
 
+    // 动态适配全三章场景：PROLOGUE_STORY / CHAPTER1_STORY / CHAPTER2_STORY
     const routeData = PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male;
-    const sceneData = routeData[sceneKey];
+    let rawSceneData = routeData[sceneKey] || CHAPTER1_STORY[sceneKey] || CHAPTER2_STORY[sceneKey];
 
-    if (sceneData) {
+    if (rawSceneData) {
+      // 深度拷贝并注入男女主专属变量替换（{MC_NAME}, {MC_PORTRAIT}, {ALLY_1_NAME}, {ALLY_2_NAME} 等）
+      const isMale = this.selectedRoute === 'male';
+      const mcName = isMale ? '张子骁' : '石予诺';
+      const mcPortrait = isMale ? 'assets/art/zhangzixiao_default.png' : 'assets/art/shiyunuo_default.png';
+      const ally1Name = isMale ? '张瀚瑜' : '陈品璇';
+      const ally1Portrait = isMale ? 'assets/art/zhanghanyu_default.png' : 'assets/art/chenpinxuan_default.png';
+      const ally2Name = isMale ? '范文默' : '何妍熹';
+      const ally2Portrait = isMale ? 'assets/art/fanwenmo_default.png' : 'assets/art/heyanxi_default.png';
+
+      const sceneData = JSON.parse(JSON.stringify(rawSceneData));
+      if (Array.isArray(sceneData.dialogues)) {
+        sceneData.dialogues.forEach(dlg => {
+          if (dlg.speaker === '{MC_NAME}') dlg.speaker = mcName;
+          if (dlg.speaker === '{ALLY_1_NAME}') dlg.speaker = ally1Name;
+          if (dlg.speaker === '{ALLY_2_NAME}') dlg.speaker = ally2Name;
+          if (dlg.leftPortrait === '{MC_PORTRAIT}') dlg.leftPortrait = mcPortrait;
+          if (dlg.rightPortrait === '{MC_PORTRAIT}') dlg.rightPortrait = mcPortrait;
+          if (dlg.leftPortrait === '{ALLY_1_PORTRAIT}') dlg.leftPortrait = ally1Portrait;
+          if (dlg.rightPortrait === '{ALLY_1_PORTRAIT}') dlg.rightPortrait = ally1Portrait;
+          if (dlg.leftPortrait === '{ALLY_2_PORTRAIT}') dlg.leftPortrait = ally2Portrait;
+          if (dlg.rightPortrait === '{ALLY_2_PORTRAIT}') dlg.rightPortrait = ally2Portrait;
+          if (dlg.text) {
+            dlg.text = dlg.text.replace(/\{MC_NAME\}/g, mcName)
+                               .replace(/\{ALLY_1_NAME\}/g, ally1Name)
+                               .replace(/\{ALLY_2_NAME\}/g, ally2Name);
+          }
+        });
+      }
       this.dialogueSystem.startScene(sceneData);
     }
   }
@@ -282,7 +318,18 @@ class GameApp {
       const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
       this.enterBattleMap(bMap, bMap.nextStorySceneOnWin);
     } else if (transition.targetScene) {
-      this.startStoryScene(transition.targetScene);
+      // 跨章节横幅检测：进入第二章或第三章首个场景前弹出全屏章节横幅
+      if (transition.targetScene === 'ch1_scene_playground') {
+        this.showChapterBanner('第二章', '操场上来的人', () => {
+          this.startStoryScene(transition.targetScene);
+        });
+      } else if (transition.targetScene === 'ch2_scene_auditorium') {
+        this.showChapterBanner('第三章', '谁是下一个', () => {
+          this.startStoryScene(transition.targetScene);
+        });
+      } else {
+        this.startStoryScene(transition.targetScene);
+      }
     } else if (transition.type === 'CHAPTER_CLEAR') {
       this.enterEpilogueScreen();
     }
@@ -373,17 +420,51 @@ class GameApp {
 
     const units = [];
 
-    // 出战名单 = gameState.roster 全员：档案从进度里来（等级/经验/装备/背包
-    // 都是上一场战斗 commit 回来的真实状态），不再每场从 UNITS 模板重造
-    Object.keys(this.gameState.roster).forEach((unitId, i) => {
-      const pos = chapter.playerDeploy[i] || { x: 2 + i, y: 4 };
-      const unit = getPartyUnit(this.gameState, unitId);
-      if (!unit) return;
-      unit.x = pos.x;
-      unit.y = pos.y;
-      unit.facing = 'right';
-      units.push(unit);
-    });
+    // 出战名单：优先按当前关卡 chapter.playerDeploy 的 unitId 部署；若无指定则按 roster 排布
+    const deployedIds = new Set();
+    if (Array.isArray(chapter.playerDeploy)) {
+      chapter.playerDeploy.forEach((dep, idx) => {
+        let uId = dep.unitId;
+        // 动态适配主角与特定线
+        if (uId === 'zhangzixiao' && this.selectedRoute === 'female') {
+          uId = 'shiyunuo';
+        } else if (uId === 'zhanghanyu' && this.selectedRoute === 'female') {
+          uId = 'chenpinxuan';
+        } else if (uId === 'fanwenmo' && this.selectedRoute === 'female') {
+          uId = 'heyanxi';
+        }
+
+        let unit = getPartyUnit(this.gameState, uId);
+        // 若该剧情关卡有特定角色临时助阵但尚未正式永久入队（如徐老师在第二章操场前排助阵），自动按 UNITS 临时入编
+        if (!unit && UNITS[uId]) {
+          joinParty(this.gameState, uId);
+          unit = getPartyUnit(this.gameState, uId);
+        }
+        if (unit) {
+          unit.x = dep.x;
+          unit.y = dep.y;
+          unit.facing = 'right';
+          units.push(unit);
+          deployedIds.add(uId);
+        }
+      });
+    }
+
+    // 兜底：若 roster 中有其他角色且 deploy 还有空余位置，依次补足
+    const maxDeploy = (chapter.playerDeploy && chapter.playerDeploy.length) || 1;
+    if (units.length < maxDeploy) {
+      Object.keys(this.gameState.roster).forEach((unitId) => {
+        if (deployedIds.has(unitId) || units.length >= maxDeploy) return;
+        const pos = chapter.playerDeploy[units.length] || { x: 2 + units.length, y: 4 };
+        const unit = getPartyUnit(this.gameState, unitId);
+        if (!unit) return;
+        unit.x = pos.x;
+        unit.y = pos.y;
+        unit.facing = 'right';
+        units.push(unit);
+        deployedIds.add(unitId);
+      });
+    }
 
     const deployPos = chapter.playerDeploy[0] || { x: 2, y: 4 };
 

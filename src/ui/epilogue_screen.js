@@ -61,7 +61,7 @@ export class EpilogueScreen {
     // 副标题
     ctx.fillStyle = '#94a3b8';
     ctx.font = '15px sans-serif';
-    ctx.fillText('第一章 · 终 幕 完 结', w / 2, 162);
+    ctx.fillText('全三章 · 试玩篇章完结', w / 2, 162);
 
     // 4. 简明剧情悬疑留白（简约一两句，不冗长不溢出）
     const isMale = this.selectedRoute === 'male';

@@ -549,9 +549,10 @@ export const PROLOGUE_STORY = {
         }
       ],
       transition: {
-        type: 'CHAPTER_CLEAR',
-        prompt: '第一章《失踪同学的异变》完结！黑暗中的谜团才刚刚露出冰山一角……',
-        buttonText: '【第一章结案 · 查看调查总结】'
+        type: 'CHOICE',
+        prompt: '第一章《失踪同学的异变》完结！清晨阳光穿透操场，新的异动已然开始……',
+        buttonText: '【开启第二章 · 操场上来的人】',
+        targetScene: 'ch1_scene_playground'
       }
     }
   },
@@ -1139,9 +1140,10 @@ export const PROLOGUE_STORY = {
         }
       ],
       transition: {
-        type: 'CHAPTER_CLEAR',
-        prompt: '第一章《失踪同学的异变》完结！黑心商贩背后的阴谋才刚刚露出冰山一角……',
-        buttonText: '【第一章结案 · 查看调查总结】'
+        type: 'CHOICE',
+        prompt: '第一章《失踪同学的异变》完结！清晨阳光穿透操场，新的异动已然开始……',
+        buttonText: '【开启第二章 · 操场上来的人】',
+        targetScene: 'ch1_scene_playground'
       }
     }
   }

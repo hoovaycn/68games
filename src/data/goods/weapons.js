@@ -270,6 +270,40 @@ export const WEAPONS = {
   },
 
   // —— 人民教师系列（粉笔族=魔攻 / 教具族=物理） ——
+  whistle: {
+    id: 'whistle',
+    name: '铁哨子',
+    kind: 'weapon',
+    type: 'magic',
+    damageType: 'magic',
+    family: '杂物',
+    might: 8,
+    hit: 90,
+    crit: 5,
+    range: [1, 2],
+    weight: 1,
+    uses: 40,
+    levelReq: 1,
+    stack: 1,
+    desc: '体育老师挂在脖子上的老铁哨。一声哨响，全场立正，音波震荡带有强烈的压迫感。'
+  },
+  dumbbell: {
+    id: 'dumbbell',
+    name: '生锈铁哑铃',
+    kind: 'weapon',
+    type: 'melee',
+    damageType: 'phys',
+    family: '钝器',
+    might: 11,
+    hit: 80,
+    crit: 8,
+    range: [1, 1],
+    weight: 5,
+    uses: 35,
+    levelReq: 2,
+    stack: 1,
+    desc: '体育器材室深处的铸铁哑铃。加测加练的沉重化身，砸在地上就是一个坑。'
+  },
   chalk_head: {
     id: 'chalk_head',
     name: '粉笔头',

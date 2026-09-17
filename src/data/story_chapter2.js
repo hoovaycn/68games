@@ -1,0 +1,297 @@
+/**
+ * 第三章《谁是下一个》剧情脚本数据表
+ *
+ * 流程结构（按 GDD §7 定稿）：
+ * - ch2_scene_auditorium: 全校大会，徐老师举物证警告荧光食品，全校人心惶惶、互猜互疑
+ * - ch2_scene_exam_result: 教室发成绩，主角超常发挥，全班起哄质疑吃了荧光零食
+ * - ch2_scene_confrontation: 朱晏泽反常带头诬陷，同伴挺身护短，心魔爆发开战
+ * - ch2_battle1: 教室 3v3 战役（主角 + 两位第一章同伴 VS 魔化朱晏泽 + 起哄男女生）
+ * - ch2_scene_recover: 打醒朱晏泽，反常印证中邪，垃圾桶找到未拆封零食彻底洗清冤屈，朱晏泽入队
+ * - ch2_scene_school_night: 深夜校园密会，徐老师手提物证对峙黑影女子，第三章留白完结
+ */
+
+export const CHAPTER2_STORY = {
+  // s1: 全校大会 · 人心惶惶
+  ch2_scene_auditorium: {
+    id: 'ch2_scene_auditorium',
+    title: '校大礼堂 · 紧急全校食品安全大会',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_auditorium.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '全体同学！今天召集大家，只强调一件极其严肃的事。最近校外出现了一种会发荧光的怪异零食和运动饮料！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 2,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '凡是吃了喝了的人，都会像中了邪一样疯狂加练、精神狂暴！谁要是见到了，一律不准吃，立刻上交给老师！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 3,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '台下一片哗然。人群中开始飘散起不安的窃窃私语，同学之间看彼此的眼神，第一次带上了提防与怀疑。',
+        sfx: 'sfx_text_blip'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '全校大会解散，大家神色凝重地走回六 8 班教室。',
+      buttonText: '【回到教室 · 准备突击小测发卷】',
+      targetScene: 'ch2_scene_exam_result'
+    }
+  },
+
+  // s2: 教室发成绩 · 起哄与猜疑
+  ch2_scene_exam_result: {
+    id: 'ch2_scene_exam_result',
+    title: '六 8 班教室 · 突击小测与猜忌目光',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_classroom.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '下面公布昨天突击小测成绩。第一名……{MC_NAME}，满分！',
+        sfx: 'sfx_fanfare'
+      },
+      {
+        id: 2,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（咦？！我昨晚因为调查的事折腾到半夜，根本没复习……怎么可能考满分？！）',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '男同学',
+        leftPortrait: 'assets/art/classmate_boy_default.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '哟呵，平时六十多分的学酥，突然考满分？太阳从西边出来了？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '女同学',
+        leftPortrait: 'assets/art/classmate_boy_default.png',
+        rightPortrait: 'assets/art/classmate_girl_default.png',
+        activeSide: 'right',
+        text: '该不会……是吃了徐老师刚才说的那个荧光零食吧？！为了成绩居然碰那种东西！',
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '教室后排的桌椅被粗暴掀开，最令人意想不到的人竟然带头走了出来！',
+      buttonText: '【面对指责 · 抬头对质】',
+      targetScene: 'ch2_scene_confrontation'
+    }
+  },
+
+  // s3: 朱晏泽反常带头诬陷 · 同伴护短
+  ch2_scene_confrontation: {
+    id: 'ch2_scene_confrontation',
+    title: '教室走道 · 义气富二代的反常指控',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_classroom.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_corrupted.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '老师！我亲眼看见了！昨晚放学就是他偷偷在校门口从小贩手里拿了荧光零食！他现在的满分全是作弊来的！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 2,
+        speaker: '{MC_NAME}',
+        leftPortrait: 'assets/art/zhuyanze_corrupted.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'right',
+        text: '朱晏泽？！你平时最讲义气、最讨厌打小报告了，今天怎么睁着眼说瞎话？！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_corrupted.png',
+        activeSide: 'left',
+        text: '胡说八道！昨晚我们一直在一块儿，{MC_NAME} 根本没碰过那东西！你们眼睛瞎了吗？！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_corrupted.png',
+        activeSide: 'left',
+        text: '我自己中过招，我最清楚中邪的人什么样！{MC_NAME} 眼神清澈，反倒是你们几个，眼睛里冒着吓人的青光！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_corrupted.png',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
+        activeSide: 'left',
+        text: '闭嘴！你们全都中招了！今天我就替全班把你们这些作弊的家伙赶出学校！！',
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '朱晏泽掏出了昂贵的金尖钢笔狂暴挥舞！伙伴们立刻结阵迎战！',
+      buttonText: '【展开战斗 · 击破猜疑心魔】',
+      battleId: 'ch2_battle1',
+      isBattleTrigger: true
+    }
+  },
+
+  // s4: 战后打醒 · 洗清冤屈 · 朱晏泽入队
+  ch2_scene_recover: {
+    id: 'ch2_scene_recover',
+    title: '教室讲台 · 真相大白与义气同盟',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_classroom.png',
+    bgm: 'bgm_classroom',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_default.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（钢笔当啷掉在地上，拼命揉着太阳穴）……痛死了……我刚才在胡说些什么？！我怎么可能背后告状诬陷同学？！',
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 2,
+        speaker: '男同学',
+        leftPortrait: 'assets/art/classmate_boy_default.png',
+        rightPortrait: 'assets/art/zhuyanze_default.png',
+        activeSide: 'left',
+        text: '对……对不起！我们刚才也是脑子一热，听大家都在传，就跟着瞎起哄了……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_default.png',
+        activeSide: 'left',
+        text: '那包零食我确实从小贩手里收缴了，但我没有吃。昨晚回家后，我直接把它扔进了小区楼下的不可回收垃圾桶！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '走！为师亲自陪你们去取证。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 5,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '十分钟后，徐老师当着全班的面，从垃圾桶底层取出了那袋封口完好、积满灰尘的荧光零食，真相大白！',
+        sfx: 'sfx_item_get'
+      },
+      {
+        id: 6,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_default.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '好哥们！我朱晏泽欠你一个大人情！以后调查什么校外黑影，我出钱出力，限量球鞋和零花钱全包了！',
+        sfx: 'sfx_confirm'
+      }
+    ],
+    transition: {
+      type: 'JOIN_PARTY',
+      unitId: 'zhuyanze',
+      prompt: '重获清醒的义气大少朱晏泽加入队伍！',
+      buttonText: '【全员集结 · 窥探夜晚校园】',
+      targetScene: 'ch2_scene_school_night'
+    }
+  },
+
+  // s5: 夜晚校园密会 · 第三章深色完结留白
+  ch2_scene_school_night: {
+    id: 'ch2_scene_school_night',
+    title: '深夜校园 · 阴影中的密谈',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_school_night.png',
+    bgm: 'bgm_eerie_revelation',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '深夜十一点，校园里一片死寂。教学楼黑黢黢的剪影如同一头潜伏在夜色中的巨兽。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 2,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: 'assets/art/shadow_woman_default.png',
+        activeSide: 'left',
+        text: '手里的零食和饮料瓶……我都扣下了。但他们已经开始互相猜忌了，这比怪味零食扩散得更快。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '黑影女子',
+        leftPortrait: 'assets/art/teacher_xu_default.png',
+        rightPortrait: 'assets/art/shadow_woman_default.png',
+        activeSide: 'right',
+        text: '呵呵呵……徐老师，你还是这么心软。不过……它们最饿的时候，还没真正到来呢。',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '路灯在夜风中剧烈摇晃了一下，阴影再度将一切吞噬……',
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHAPTER_CLEAR',
+      prompt: '第三章《谁是下一个》完结！幕后黑手即将浮出水面！',
+      buttonText: '【第三章终幕 · 查看试玩总结】'
+    }
+  }
+};

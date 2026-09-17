@@ -101,5 +101,128 @@ export const ENEMIES = {
       attack: '别关灯！门外……门外有脏东西在看着！',
       death: '（竖笛滑落）……手好酸……予诺，你怎么会在这里……？'
     }
+  },
+  teacher_pe_corrupted: {
+    id: 'teacher_pe_corrupted',
+    name: '魔化体育老师',
+    title: '被体测指标侵蚀的教官',
+    classId: 'teacher',
+    level: 5,
+    equippedWeapon: 'whistle',
+    portrait: 'assets/portraits/teacher_pe_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    themeColor: '#dc2626',
+    bio: '凯式刺猬头高高竖起，青黑色的血管在脖颈上暴起。嘴里紧咬着生锈铁哨，厉声呵斥着所有学生必须达标成人级极限体能！',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'suspicious_beverage', chance: 1.0 },
+      { itemId: 'pe_teacher_brain', chance: 1.0 }
+    ],
+    quotes: {
+      move: '哨声一响！全体加练一百组！谁也不准停！',
+      attack: '六年级怎么了？！六年级也要跑马拉松！',
+      death: '（哨子吐落）……我……我刚才在干什么……我的秒表怎么捏碎了……'
+    }
+  },
+  senior_athlete_corrupted: {
+    id: 'senior_athlete_corrupted',
+    name: '魔化外校体育生',
+    title: '被焦虑饮料驱使的冲锋手',
+    classId: 'sports_star',
+    level: 3,
+    equippedWeapon: 'dumbbell',
+    portrait: 'assets/portraits/senior_athlete_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    themeColor: '#b91c1c',
+    bio: '身穿外校红白校服，双眼失神泛着青芒，机械地举着铸铁哑铃冲锋，口中念叨着体校教练给的特训饮料。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 5
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 0.8 },
+      { itemId: 'sausage', chance: 0.8 }
+    ],
+    quotes: {
+      move: '教练说……只要喝了这罐……体测就能拿第一……',
+      attack: '不要挡我拿冠军！',
+      death: '（跪倒在地）……肚子好胀……那饮料根本不是体校发的……'
+    }
+  },
+  zhuyanze_corrupted: {
+    id: 'zhuyanze_corrupted',
+    name: '反常的朱晏泽',
+    title: '被猜疑心魔操控的富二代',
+    classId: 'primary_student',
+    level: 5,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/zhuyanze_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    themeColor: '#4f46e5',
+    bio: '平日里最讲义气护短的朱大少爷，此刻眼神阴鸷泛着荧绿青光。手里紧捏着金尖钢笔，反常地带头指控同学作弊与中招。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'discarded_snack', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '我全都看见了……你们一个个都在说谎！',
+      attack: '血口喷人？！我朱晏泽才不会冤枉好人！',
+      death: '（猛按太阳穴）……痛……我怎么会带头指责自己的同桌……这根本不是我！'
+    }
+  },
+  classmate_boy_corrupted: {
+    id: 'classmate_boy_corrupted',
+    name: '魔化男同学',
+    title: '盲从起哄的附和者',
+    classId: 'primary_student',
+    level: 3,
+    equippedWeapon: 'triangular_ruler',
+    portrait: 'assets/portraits/classmate_boy_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green.png',
+    themeColor: '#15803d',
+    bio: '双眼泛着暗绿，在教室里煽风点火、随声附和。谣言与猜忌成了他的助燃剂。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 5
+    },
+    drops: [
+      { itemId: 'sausage', chance: 0.6 }
+    ],
+    quotes: {
+      move: '他平时六十分！今天凭什么考前几名？！',
+      attack: '肯定是他偷吃了怪零食！',
+      death: '对不起……我只是脑子一热跟着瞎喊的……'
+    }
+  },
+  classmate_girl_corrupted: {
+    id: 'classmate_girl_corrupted',
+    name: '魔化女同学',
+    title: '添油加醋的传谣者',
+    classId: 'primary_student',
+    level: 3,
+    equippedWeapon: 'compass_needle',
+    portrait: 'assets/portraits/classmate_girl_corrupted.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    themeColor: '#be185d',
+    bio: '脸色惨白，尖叫着四处指认同窗，手中圆规挥舞，让教室内的猜疑恐慌不断扩散。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 5
+    },
+    drops: [
+      { itemId: 'white_rabbit_candy', chance: 0.6 }
+    ],
+    quotes: {
+      move: '大家都看见了！徐老师说的怪零食就是他吃的！',
+      attack: '离我们远点！你这个中了邪的作弊者！',
+      death: '呜呜呜……我根本没看见……我只是害怕……'
+    }
   }
 };

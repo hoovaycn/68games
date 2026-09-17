@@ -47,7 +47,28 @@ export const KEY_ITEMS = {
     storyTag: 'ch0_battle2_drop'
   },
 
-  /* ══════════ 计划中的剧情关键道具（章节落地时启用） ══════════ */
+  suspicious_beverage: {
+    id: 'suspicious_beverage',
+    name: '可疑运动饮料',
+    kind: 'key_item',
+    desc: '从操场外校体育生手里缴获的空饮料瓶，瓶身泛着荧光，贴着无任何厂址信息的体测冲刺标签。不可食用。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    storyTag: 'ch1_battle1_victory'
+  },
+  discarded_snack: {
+    id: 'discarded_snack',
+    name: '已丢弃的零食物证',
+    kind: 'key_item',
+    desc: '在小区垃圾桶底层翻出的未拆封可疑零食，袋身覆满灰尘，最终由徐老师收缴作为全班洗清冤屈的铁证。不可食用。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    storyTag: 'ch2_battle1_victory'
+  },
   class_photo: {
     id: 'class_photo',
     name: '班级合影',
