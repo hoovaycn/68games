@@ -24,7 +24,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二天上午，阳光洒满操场，昨夜书房里的惊悚与荧光仿佛只是一场幻梦。',
+        text: '第二天上午阳光洒满操场，昨夜的惊悚仿佛只是一场梦。',
         sfx: 'sfx_confirm'
       },
       {
@@ -33,7 +33,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default.png',
         rightPortrait: 'assets/art/qinruiyi_default.png',
         activeSide: 'left',
-        text: '覃瑞怡，你们拉拉队今天这口号喊得怎么跟蚊子哼似的？待会儿对抗赛我射门可不留情啊！',
+        text: '覃瑞怡，你们拉拉队今天喊得跟蚊子哼似的！待会儿看我暴射入网！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default.png',
         rightPortrait: 'assets/art/qinruiyi_default.png',
         activeSide: 'right',
-        text: '切！张希哲你少得意，你那脚法要不是我带着全班喊加油，早踢到隔壁幼儿园去了！',
+        text: '切！张希哲你少得意，没有我们加油，你早踢隔壁幼儿园去了！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -51,7 +51,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_default.png',
         activeSide: 'left',
-        text: '看着绿茵场上打闹的大家，我下意识摸了摸书包侧兜。昨晚从小默家带回来的那包零食，仿佛正透着一股冰凉的冷意。',
+        text: '我摸了摸书包兜，昨晚带回来的零食仿佛正透着丝丝寒意。',
         sfx: 'sfx_text_blip'
       }
     ],
@@ -77,7 +77,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/teacher_pe_default.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '全体立正！都给我听好了！今天区里临时抽测体能，全体加练，所有人达标前不准吃午饭！',
+        text: '全体立正！今天临时抽测，所有人达标前不准吃午饭！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -86,7 +86,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/teacher_pe_default.png',
         rightPortrait: 'assets/art/zhangxizhe_default.png',
         activeSide: 'left',
-        text: '张希哲！你，把这副五十公斤铁哑铃推举一百次！达不到不准参加校运会！',
+        text: '张希哲！把这副五十公斤铁哑铃推举一百次！不然取消校运会资格！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -95,7 +95,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/teacher_pe_default.png',
         rightPortrait: 'assets/art/zhangxizhe_default.png',
         activeSide: 'right',
-        text: '老师……我们才六年级啊！这是成年举重队的器械，胳膊会拉伤的！',
+        text: '老师……这是成年人的器械，胳膊会拉伤的！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -113,7 +113,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default.png',
         rightPortrait: 'assets/art/teacher_pe_corrupted.png',
         activeSide: 'right',
-        text: '六年级怎么了？！外校的体校生早就在练了！不喝特训饮料、不达极限怎么冲第一？！——给我滚开！！',
+        text: '六年级怎么了？！不喝特训饮料怎么冲第一？！——给我滚开！！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -122,7 +122,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_pe_corrupted.png',
         activeSide: 'left',
-        text: '体育老师的双眼忽然爆发出青黑色的凶光，身后的外校体育生也举着铁哑铃僵硬地逼近过来！',
+        text: '体育老师双眼泛起青黑凶光，外校生也僵硬地举着哑铃逼近！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -149,7 +149,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/senior_athlete_default.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '（铁哑铃哐当砸地，捂着肚子痛哭）……是我们教练给的……说喝了这种发荧光的运动饮料，体测就能跑全区第一……',
+        text: '（捂肚子痛哭）是我们教练给的！说喝了这种发光饮料就能跑第一……',
         sfx: 'sfx_unit_down'
       },
       {
@@ -158,7 +158,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/teacher_pe_default.png',
         rightPortrait: 'assets/art/teacher_xu_default.png',
         activeSide: 'left',
-        text: '咳咳……我的头好炸……这空饮料瓶……上周教育处王主任桌上就摆着一模一样的……说是外面赞助的……',
+        text: '咳咳……头好痛。这饮料瓶……上周王主任桌上也摆着一模一样的……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -178,7 +178,7 @@ export const CHAPTER1_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/cg_pickup_bottle.png',
-        text: '徐老师一言不发，弯下腰，将滚落在草皮上的可疑饮料空瓶捡了起来，紧紧塞进了自己的黑色公文包里，并未上交学校。',
+        text: '徐老师弯下腰，悄悄把空饮料瓶塞进了自己的公文包，并未上交。',
         sfx: 'sfx_confirm'
       },
       {
@@ -187,7 +187,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default.png',
         rightPortrait: 'assets/art/qinruiyi_default.png',
         activeSide: 'left',
-        text: '刚才真的多亏了大家！这所学校肯定被什么脏东西盯上了，查探怪事，算我一个！我的足球随叫随到！',
+        text: '刚才多亏大家！学校肯定被脏东西盯上了，查怪事算我一个！',
         sfx: 'sfx_confirm'
       },
       {
@@ -196,7 +196,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default.png',
         rightPortrait: 'assets/art/qinruiyi_default.png',
         activeSide: 'right',
-        text: '我也加入！拉拉队的创可贴和活力应援管够！我们绝不让那些歪门邪道欺负咱们班同学！',
+        text: '我也加入！拉拉队创可贴管够！绝不能让歪门邪道欺负咱们班！',
         sfx: 'sfx_confirm'
       }
     ],

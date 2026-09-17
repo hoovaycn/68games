@@ -25,7 +25,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '全体同学！今天召集大家，只强调一件极其严肃的事。最近校外出现了一种会发荧光的怪异零食和运动饮料！',
+        text: '全体注意！最近校外出现了一种会发荧光的怪异零食和饮料！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -34,7 +34,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '凡是吃了喝了的人，都会像中了邪一样疯狂加练、精神狂暴！谁要是见到了，一律不准吃，立刻上交给老师！',
+        text: '食用后精神会狂暴失控！任何人见到，一律严禁碰触，立刻上交！',
         sfx: 'sfx_confirm'
       },
       {
@@ -43,7 +43,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '台下一片哗然。人群中开始飘散起不安的窃窃私语，同学之间看彼此的眼神，第一次带上了提防与怀疑。',
+        text: '台下一片哗然。人群窃窃私语，看彼此的眼神第一次带上了提防。',
         sfx: 'sfx_text_blip'
       }
     ],
@@ -122,7 +122,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_corrupted.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '老师！我亲眼看见了！昨晚放学就是他偷偷在校门口从小贩手里拿了荧光零食！他现在的满分全是作弊来的！',
+        text: '老师！昨晚就是他偷偷从小贩手里拿了荧光零食！他满分全是作弊来的！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -131,7 +131,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_corrupted.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '朱晏泽？！你平时最讲义气、最讨厌打小报告了，今天怎么睁着眼说瞎话？！',
+        text: '朱晏泽？！你平时最讲义气，今天怎么睁眼说瞎话？！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -140,7 +140,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_corrupted.png',
         activeSide: 'left',
-        text: '胡说八道！昨晚我们一直在一块儿，{MC_NAME} 根本没碰过那东西！你们眼睛瞎了吗？！',
+        text: '放屁！昨晚我们一直在一块，{MC_NAME} 根本没碰过那东西！',
         sfx: 'sfx_confirm'
       },
       {
@@ -149,7 +149,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_corrupted.png',
         activeSide: 'left',
-        text: '我自己中过招，我最清楚中邪的人什么样！{MC_NAME} 眼神清澈，反倒是你们几个，眼睛里冒着吓人的青光！',
+        text: '我自己中过招，最清楚中邪的样子！{MC_NAME} 眼神清澈，倒是你们眼里在冒青光！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -158,7 +158,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_corrupted.png',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '闭嘴！你们全都中招了！今天我就替全班把你们这些作弊的家伙赶出学校！！',
+        text: '闭嘴！今天我就替全班把你们这些作弊的家伙赶出学校！！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -185,7 +185,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（钢笔当啷掉在地上，拼命揉着太阳穴）……痛死了……我刚才在胡说些什么？！我怎么可能背后告状诬陷同学？！',
+        text: '（揉着头）头好痛……我刚才在胡扯什么？我怎么可能诬陷同学？！',
         sfx: 'sfx_unit_down'
       },
       {
@@ -194,7 +194,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/classmate_boy_default.png',
         rightPortrait: 'assets/art/zhuyanze_default.png',
         activeSide: 'left',
-        text: '对……对不起！我们刚才也是脑子一热，听大家都在传，就跟着瞎起哄了……',
+        text: '对不起！我们刚才也是脑子一热跟着瞎喊的……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -203,7 +203,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default.png',
         activeSide: 'left',
-        text: '那包零食我确实从小贩手里收缴了，但我没有吃。昨晚回家后，我直接把它扔进了小区楼下的不可回收垃圾桶！',
+        text: '零食我确实从小贩手里收缴了，但我没吃，直接扔进了楼下垃圾桶！',
         sfx: 'sfx_confirm'
       },
       {
@@ -221,7 +221,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '十分钟后，徐老师当着全班的面，从垃圾桶底层取出了那袋封口完好、积满灰尘的荧光零食，真相大白！',
+        text: '十分钟后，徐老师当众从垃圾桶底层翻出了那袋未拆封的积灰零食，真相大白！',
         sfx: 'sfx_item_get'
       },
       {
@@ -230,7 +230,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '好哥们！我朱晏泽欠你一个大人情！以后调查什么校外黑影，我出钱出力，限量球鞋和零花钱全包了！',
+        text: '好哥们！以后查案我出钱出力，零花钱和装备我全包了！',
         sfx: 'sfx_confirm'
       }
     ],

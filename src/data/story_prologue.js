@@ -21,7 +21,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '我叫张子骁，人大附小六（8）班的学生。课间棋盘上的常胜将军，人送外号“六 8 班棋王”，信奉“走一步，看三步”。',
+          text: '我是张子骁。大家都叫我“六8班棋王”，下棋做事，我习惯走一步看三步。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -30,7 +30,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '新学期开学第三周，早读、默写、抢乒乓球台……一切本该和往常一样平淡无奇。',
+          text: '新学期刚开学，早读、默写、抢乒乓球台……一切本该很平常。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -39,7 +39,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'left',
-          text: '直到今天清晨，教室里的气氛突然变得有些诡异。徐老师站在讲台前，脸色比平时严肃得多……',
+          text: '但今天清晨气氛不对。徐老师站在讲台前，脸色异常凝重。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -48,7 +48,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'right',
-          text: '子骁，早读点名范文默又没来。昨晚他爸爸给我发了一条特别反常的微信……',
+          text: '子骁，范文默今天又没来。昨晚他爸爸给我发了条很反常的微信……',
           sfx: 'sfx_text_blip'
         },
         {
@@ -57,7 +57,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'left',
-          text: '（奇怪……徐老师平时最反感把家长私信给学生看的，今天脸色居然这么严肃……）',
+          text: '（奇怪，徐老师平时从不轻易向学生透露家长私信的……）',
           sfx: 'sfx_text_blip'
         },
         {
@@ -66,7 +66,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'right',
-          text: '【微信消息】“徐老师您好，小默昨晚非要我给他报高三冲刺班，一边狂做电磁学一边哭着说‘它们要来了’……这孩子平时连数学作业都抄别人的，昨晚却跟魔怔了一样……”',
+          text: '【微信】“徐老师！小默昨晚狂刷高三物理，边哭边喊它们要来了……平时他连作业都抄别人的！”',
           sfx: 'sfx_phone_msg'
         },
         {
@@ -75,7 +75,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'left',
-          text: '小默？他连九九乘法表都要掰手指头，去通宵刷高三电磁学？！',
+          text: '小默？他连九九乘法表都费劲，去通宵刷高三电磁学？！',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -84,7 +84,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/zhanghanyu_default.png',
           activeSide: 'left',
-          text: '（这时，同桌张瀚瑜神色慌张地冲了过来。他是我最要好的铁哥们儿，平时消息最灵通……）',
+          text: '（这时，同桌张瀚瑜慌慌张张地冲了过来，他是我的死党。）',
           sfx: 'sfx_text_blip'
         },
         {
@@ -94,7 +94,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/zhanghanyu_default.png',
           activeSide: 'right',
           bgm: 'bgm_suspense',
-          text: '子骁子骁！我昨天放学看见小默在校门口被一个推小车的大叔拦住了！那大叔笑得跟假人似的，还塞给他一包会发荧光的怪异零食！',
+          text: '子骁！昨天校门口有个怪大叔拦住小默，塞给他一包发绿光的零食，笑得跟纸人一样！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -343,7 +343,7 @@ export const PROLOGUE_STORY = {
           activeSide: 'right',
           bgImg: 'assets/backgrounds/bg_home_eerie.png',
           bgm: 'bgm_eerie_revelation',
-          text: '……动量守恒……麦克斯韦方程组……嘻嘻……为什么路程差算不出来？！只要刷完这套五三……“它们”就会把脑子还给我……嘻嘻嘻……',
+          text: '……动量守恒……麦克斯韦……只要刷完五三，“它们”就会把脑子还我……嘻嘻嘻……',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -363,7 +363,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/fanwenmo_corrupted.png',
           activeSide: 'right',
           bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '不能停下……“它们”在书桌下面看着呢……（突然惊恐抱头痛苦大喊）……子骁快走！千万别吃校门口推车的零食……“它们”会吃掉你的脑子！快走啊！！',
+          text: '“它们”在书桌下看着呢……（抱头大喊）子骁快跑！别吃校门口怪零食，会吃脑子！快跑！！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -373,7 +373,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/fanwenmo_corrupted.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '（书桌阴影里赫然摆着一包撕开的荧光“三无怪味零食”……和小吃摊贩卖的一模一样！“它们”究竟是什么？！）',
+          text: '（桌上放着一包吃剩的发光零食……和小贩卖的一模一样！“它们”到底是什么？！）',
           sfx: 'sfx_shock_sting'
         }
       ],
@@ -445,7 +445,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'right',
-          text: '（剧烈喘息，眼瞳中的青光逐渐散去）……咳咳……子骁……瀚瑜……？你们怎么都在我家书房……？满地怎么都是草稿纸……',
+          text: '（剧烈喘息，青光散去）……咳咳……子骁……瀚瑜……？你们怎么在我家书房……？',
           sfx: 'sfx_unit_down'
         },
         {
@@ -454,7 +454,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhanghanyu_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'left',
-          text: '呼——！终于打醒了！你刚才跟吃了大力丸似的，挥着大厚书追着我们满屋跑！到底怎么回事？！',
+          text: '呼——！终于打醒了！你刚才挥着大厚书追着我们满屋跑！到底怎么回事？！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -463,7 +463,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'right',
-          text: '我……我昨天放学在校门口，那个推车商贩说只要吃下一口……就能把整本冲刺题背下来……',
+          text: '昨天校门口小贩塞给我一包东西，说吃一口就能把整本冲刺题背下来……',
           sfx: 'sfx_text_blip'
         },
         {
@@ -472,7 +472,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'right',
-          text: '然后我的脑袋里全是算式的尖叫声……根本停不下来……它们说……下周一……还要来学校……',
+          text: '然后脑子里全是算式尖叫声……根本停不下来……它们说下周一还要来学校……',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -481,7 +481,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'left',
-          text: '果然是那个推车商贩搞的鬼！小默，这包剩下的怪味零食我先收下了。下周一，我们绝不能坐视不管！',
+          text: '果然是那个商贩搞的鬼！剩下的怪味零食我先收下了。下周一必须查清楚！',
           sfx: 'sfx_item_get'
         },
         {
@@ -490,7 +490,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default.png',
           rightPortrait: 'assets/art/fanwenmo_default.png',
           activeSide: 'right',
-          text: '谢谢你们把我打醒……以后查探校外怪事，算我一个，我虽然成绩差，但搬砖力气管够！',
+          text: '谢谢你们打醒我！查探怪事算我一个，我力气管够！',
           sfx: 'sfx_confirm'
         }
       ],
@@ -572,7 +572,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '我是石予诺，六（8）班的美术课代表。我的速写本上没有“画不下去”这一页！',
+          text: '我是石予诺，六（8）班美术课代表。我的速写本上没有“画不下去”这一页！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -581,7 +581,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '新学期刚开学不久，大家都在为了升学打拼，教室里每天都是狂背英语单词和默写公式的声音。',
+          text: '新学期刚开学，大家都在背单词和公式，教室里每天都很热闹。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -590,7 +590,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'left',
-          text: '不过今天早上气氛有些不对劲……徐老师正在讲台上焦急地查看着手机，把我叫了过去……',
+          text: '但今天清晨气氛不对。徐老师站在讲台上焦急地看手机，把我叫了过去。',
           sfx: 'sfx_text_blip'
         },
         {
@@ -599,7 +599,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'right',
-          text: '予诺，妍熹今天早自习没来。她妈妈昨晚深夜给我发了一条微信请假……',
+          text: '予诺，何妍熹今天早自习没来。她妈妈昨晚深夜发了条请假微信……',
           sfx: 'sfx_text_blip'
         },
         {
@@ -608,7 +608,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'left',
-          text: '徐老师，妍熹昨天放学还约我一起看动漫呢，她生病了吗？',
+          text: '徐老师，妍熹昨天放学还约我画画呢，她生病了吗？',
           sfx: 'sfx_text_blip'
         },
         {
@@ -617,7 +617,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/teacher_xu_default.png',
           activeSide: 'right',
-          text: '【微信消息】“老师，妍熹昨晚抱着长笛不肯撒手，同一个音翻来覆去练到凌晨三点，关灯就哭着说‘外面有脏东西’……今天把自己锁在房间里不肯出门……”',
+          text: '【微信】“徐老师！妍熹练长笛练到凌晨三点，关灯就哭喊外面有脏东西，今天还把自己反锁了！”',
           sfx: 'sfx_phone_msg'
         },
         {
@@ -626,7 +626,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/chenpinxuan_default.png',
           activeSide: 'left',
-          text: '（走廊尽头，陈品璇急匆匆地跑了过来。她是我的贴心好闺蜜，也是班上的八卦特派员。）',
+          text: '（闺蜜陈品璇急匆匆地跑了过来，她平时消息最灵通。）',
           sfx: 'sfx_text_blip'
         },
         {
@@ -636,7 +636,7 @@ export const PROLOGUE_STORY = {
           rightPortrait: 'assets/art/chenpinxuan_default.png',
           activeSide: 'right',
           bgm: 'bgm_suspense',
-          text: '予诺！昨天体育课我就觉得妍熹不对劲！平时看见我就叽叽喳喳的，昨天一个人蹲在墙角抱着长笛发疯一样比划，眼神直勾勾的！',
+          text: '予诺！昨天我就觉得妍熹不对劲！一个人蹲在墙角发疯一样比划长笛，眼神直勾勾的！',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -923,48 +923,43 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '品璇那个贪吃鬼，又在瞎编了……我真的只是太困了……只要再练熟这一个小节……（手指开始剧烈颤抖）',
+          text: '品璇又在瞎编了……我只是太困了，练完这一节就好……（手指颤抖）',
           sfx: 'sfx_text_blip'
         },
         {
           id: 5,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_corrupted.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          bgm: 'bgm_eerie_revelation',
-          text: '……升C……降E……练完这一整本练习曲……耳朵里的那些虫鸣声……就会停下来了吧……嘻嘻……嘻嘻嘻……',
+          text: '……升C……降E……只要练完这本练习曲，耳朵里的虫鸣声就会停下吧……嘻嘻……',
           sfx: 'sfx_shock_sting'
         },
         {
           id: 6,
           speaker: '石予诺',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_corrupted.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'left',
-          bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '妍熹？！你的瞳孔为什么在散发幽蓝冷光！满墙满床贴的都是写满乐句的便利贴！',
-          sfx: 'sfx_shock_sting'
+          text: '妍熹！快停下！你的手指全在流血啊！',
+          sfx: 'sfx_text_blip'
         },
         {
           id: 7,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_corrupted.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '予诺……快闭上耳朵！“它们”顺着网线和电波爬过来了……千万别喝校门口商贩的汽水……别听它们的声音啊啊啊——！！',
-          sfx: 'sfx_shock_sting'
+          text: '予诺……快捂上耳朵！别喝校门口的怪汽水……它们顺着网线爬过来了啊啊啊——！！',
+          sfx: 'sfx_unit_down'
         },
         {
           id: 8,
           speaker: '石予诺',
           leftPortrait: 'assets/art/shiyunuo_default.png',
-          rightPortrait: 'assets/art/heyanxi_corrupted.png',
+          rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'left',
-          bgImg: 'assets/backgrounds/bg_home_eerie.png',
-          text: '（书桌阴影里赫然摆着一包泛着诡异荧光的“三无怪味零食”……那个流动商贩到底是给谁做事的？！）',
+          text: '（桌上放着一包泛着幽绿荧光的怪零食……那个摊贩到底是给谁做事的？！）',
           sfx: 'sfx_shock_sting'
         }
       ],
@@ -990,7 +985,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/chenpinxuan_default.png',
           rightPortrait: 'assets/art/shiyunuo_default.png',
           activeSide: 'left',
-          text: '哐当——！予诺！我就知道你一个人偷偷溜过来了！我一路小跑，书包里的篮球差点颠飞出来！——哇啊！妍熹怎么变这样了？！',
+          text: '哐当——！予诺！果然被我逮到了！——哇！妍熹怎么变成这样了？！',
           sfx: 'sfx_hit_crit'
         },
         {
@@ -999,7 +994,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/chenpinxuan_default.png',
           rightPortrait: 'assets/art/shiyunuo_default.png',
           activeSide: 'right',
-          text: '品璇！别大意，妍熹被怪异音波控制了，吹出来的音浪能震碎玻璃！',
+          text: '品璇小心！妍熹被怪音波控制了，音浪能震碎玻璃！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -1008,7 +1003,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/chenpinxuan_default.png',
           rightPortrait: 'assets/art/shiyunuo_default.png',
           activeSide: 'left',
-          text: '哼，管她什么音浪，在我面前都得趴下！姐可是全校铅球第一名，咱俩一起上，先把她制伏打醒！',
+          text: '哼，管她什么音浪！我俩一起上，先把她制伏打醒！',
           sfx: 'sfx_confirm'
         }
       ],
@@ -1036,7 +1031,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '（长笛当啷落地，眼神恢复清亮）……唔……予诺……品璇……？你们怎么会跑到我房间里来了……？我的手好酸……',
+          text: '（长笛落地，眼神恢复清亮）……唔……予诺……品璇……？你们怎么在我房间？',
           sfx: 'sfx_unit_down'
         },
         {
@@ -1045,7 +1040,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/chenpinxuan_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'left',
-          text: '累死我了！你刚才吹笛子跟催命似的，追着我们满屋子跑！快老实交代，到底怎么回事？！',
+          text: '累死我了！你刚才吹笛子跟催命似的追着我们跑！快交代，到底怎么回事？！',
           sfx: 'sfx_text_blip'
         },
         {
@@ -1054,7 +1049,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '我……我昨天放学在校门口，那个推车商贩塞给我一包东西，说只要吃一口，这次升学选拔赛的长笛曲目就能闭着眼睛吹出来……',
+          text: '昨天放学……摊贩塞给我一包东西，说吃一口就能闭着眼吹出比赛曲目……',
           sfx: 'sfx_text_blip'
         },
         {
@@ -1063,7 +1058,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '然后我的脑袋就像被电波控制了一样……根本停不下来……它们说……下周一……还要来学校接管大家……',
+          text: '然后脑袋像被电波控制了一样……它们说明天还要来学校接管大家……',
           sfx: 'sfx_shock_sting'
         },
         {
@@ -1072,7 +1067,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'left',
-          text: '果然是校门口推车商贩搞的鬼！这包吃剩的怪零食我先扣下了。下周一，我们必须查个水落石出！',
+          text: '果然是摊贩搞的鬼！这包剩的怪零食我先扣下了。下周一必须查清楚！',
           sfx: 'sfx_item_get'
         },
         {
@@ -1081,7 +1076,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default.png',
           rightPortrait: 'assets/art/heyanxi_default.png',
           activeSide: 'right',
-          text: '谢谢你们把我唤醒……下周一调查，带上我一起吧，我的长笛能发出安抚心灵的音律！',
+          text: '谢谢你们打醒我！调查怪事带上我吧，我的长笛能安抚心灵！',
           sfx: 'sfx_confirm'
         }
       ],
