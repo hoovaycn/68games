@@ -252,11 +252,13 @@ export class CombatSystem {
         hpRestored += restored;
         appliedMsg += `恢复了 ${restored} 点 HP！`;
       } else if (eff.stat === 'mp') {
-        const oldSp = unit.currentSp || 0;
-        const maxSp = unit.stats.maxSp || 20;
-        unit.currentSp = Math.min(maxSp, oldSp + eff.value);
-        const restoredSp = unit.currentSp - oldSp;
-        appliedMsg += ` 恢复了 ${restoredSp} 点 MP！`;
+        const oldMp = unit.currentMp ?? unit.currentSp ?? 0;
+        const maxMp = unit.stats.maxMp ?? unit.stats.maxSp ?? 20;
+        const newMp = Math.min(maxMp, oldMp + eff.value);
+        unit.currentMp = newMp;
+        unit.currentSp = newMp;
+        const restoredMp = newMp - oldMp;
+        appliedMsg += ` 恢复了 ${restoredMp} 点 MP！`;
       } else if (eff.stat === 'spd') {
         unit.tempBuffs = unit.tempBuffs || {};
         unit.tempBuffs.spd = (unit.tempBuffs.spd || 0) + eff.value;

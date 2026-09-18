@@ -18,8 +18,9 @@ export const ENEMIES = {
       aggroRadius: 4
     },
     drops: [
-      { itemId: 'sausage', chance: 1.0 },   // 消耗品烤肠
-      { itemId: 'dirty_sock', chance: 1.0 } // 关键道具：张子骁的臭袜子
+      { itemId: 'sausage', chance: 1.0 },           // 消耗品烤肠 (+16 HP)
+      { itemId: 'white_rabbit_candy', chance: 1.0 }, // 消耗品大白兔奶糖 (+8 HP, +5 MP) 首战补给
+      { itemId: 'dirty_sock', chance: 1.0 }         // 关键道具：张子骁的臭袜子
     ],
     quotes: {
       move: '同学……买包零食吗？保你考第一……',
@@ -43,7 +44,8 @@ export const ENEMIES = {
       aggroRadius: 6
     },
     drops: [
-      { itemId: 'bastard_soda', chance: 1.0 },       // 100% 掉落混蛋汽水
+      { itemId: 'bastard_soda', chance: 1.0 },       // 100% 掉落混蛋汽水 (+6 HP, 本回合攻速+3)
+      { itemId: 'white_rabbit_candy', chance: 0.8 }, // 80% 掉落大白兔奶糖 (+8 HP, +5 MP)，给物理系续航
       { itemId: 'pe_teacher_brain', chance: 1.0 }    // 100% 掉落体育老师的脑子
     ],
     quotes: {
@@ -69,7 +71,8 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'suspicious_snack', chance: 1.0 },
-      { itemId: 'sausage', chance: 1.0 }
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
     ],
     quotes: {
       move: '洛伦兹力……动量守恒……为什么对不上？！',
@@ -94,7 +97,7 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'suspicious_snack', chance: 1.0 },
-      { itemId: 'bastard_soda', chance: 1.0 }
+      { itemId: 'honey_tea', chance: 1.0 }          // 掉落蜂蜜柚子茶 (+25 MP)，法系核心补给
     ],
     quotes: {
       move: '升 C…… 降 E…… 只要不按错……',
@@ -119,6 +122,7 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'suspicious_beverage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 1.0 },           // 掉落蜂蜜柚子茶 (+25 MP)，回满或高额补充 MP
       { itemId: 'pe_teacher_brain', chance: 1.0 }
     ],
     quotes: {
@@ -144,7 +148,8 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'bastard_soda', chance: 0.8 },
-      { itemId: 'sausage', chance: 0.8 }
+      { itemId: 'white_rabbit_candy', chance: 0.8 }, // 掉落大白兔奶糖 (+8 HP, +5 MP)
+      { itemId: 'sausage', chance: 0.5 }
     ],
     quotes: {
       move: '教练说……只要喝了这罐……体测就能拿第一……',
@@ -169,7 +174,7 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'discarded_snack', chance: 1.0 },
-      { itemId: 'white_rabbit_candy', chance: 1.0 }
+      { itemId: 'moms_lunchbox', chance: 1.0 }       // 豪华掉落：妈妈做的便当 (+30 HP, +15 MP)
     ],
     quotes: {
       move: '我全都看见了……你们一个个都在说谎！',
