@@ -30,15 +30,52 @@ import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CHAPTER1_STORY } from './data/story_chapter1.js';
 import { CHAPTER2_STORY } from './data/story_chapter2.js';
+import { CHAPTER3_STORY } from './data/story_chapter3.js';
+import { CHAPTER4_STORY } from './data/story_chapter4.js';
+import { CHAPTER5_STORY } from './data/story_chapter5.js';
+import { CHAPTER6_STORY } from './data/story_chapter6.js';
+import { CHAPTER7_STORY } from './data/story_chapter7.js';
+import { CHAPTER8_STORY } from './data/story_chapter8.js';
+import { CHAPTER9_STORY } from './data/story_chapter9.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
 import { CH0_BATTLE3 } from './data/chapters/ch0_battle3.js';
 import { CH1_BATTLE1 } from './data/chapters/ch1_battle1.js';
 import { CH2_BATTLE1 } from './data/chapters/ch2_battle1.js';
+import { CH3_BATTLE1 } from './data/chapters/ch3_battle1.js';
+import { CH4_BATTLE1 } from './data/chapters/ch4_battle1.js';
+import { CH5_BATTLE1 } from './data/chapters/ch5_battle1.js';
+import { CH6_BATTLE1 } from './data/chapters/ch6_battle1.js';
+import { CH8_BATTLE1 } from './data/chapters/ch8_battle1.js';
+import { CH9_BATTLE1 } from './data/chapters/ch9_battle1.js';
 import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
 import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
+
+const LINEAR_STORY = {
+  ...CHAPTER1_STORY,
+  ...CHAPTER2_STORY,
+  ...CHAPTER3_STORY,
+  ...CHAPTER4_STORY,
+  ...CHAPTER5_STORY,
+  ...CHAPTER6_STORY,
+  ...CHAPTER7_STORY,
+  ...CHAPTER8_STORY,
+  ...CHAPTER9_STORY
+};
+
+const CHAPTER_BANNERS = {
+  ch1_scene_playground: { label: '第二章', title: '操场上来的人' },
+  ch2_scene_auditorium: { label: '第三章', title: '谁是下一个' },
+  ch3_scene_exhibition: { label: '第四章', title: '参展名单' },
+  ch4_scene_team_meeting: { label: '第五章', title: '旧冠军' },
+  ch5_scene_parent_meeting: { label: '第六章', title: '家长会前夜' },
+  ch6_scene_corridor: { label: '第七章', title: '楼道里全是熟人' },
+  ch7_scene_flashback: { label: '第八章', title: '很久以前她们也没赢过' },
+  ch8_scene_warehouse: { label: '第九章', title: '老仓库' },
+  ch9_scene_exam: { label: '第十章', title: '大考' }
+};
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
 const CHAPTERS = {
@@ -46,7 +83,13 @@ const CHAPTERS = {
   ch0_battle2: CH0_BATTLE2,
   ch0_battle3: CH0_BATTLE3,
   ch1_battle1: CH1_BATTLE1,
-  ch2_battle1: CH2_BATTLE1
+  ch2_battle1: CH2_BATTLE1,
+  ch3_battle1: CH3_BATTLE1,
+  ch4_battle1: CH4_BATTLE1,
+  ch5_battle1: CH5_BATTLE1,
+  ch6_battle1: CH6_BATTLE1,
+  ch8_battle1: CH8_BATTLE1,
+  ch9_battle1: CH9_BATTLE1
 };
 
 // 章节入口场景注册表（按章节序号）：开发者秘籍 Ctrl+N / `~`+N 跳转到该章开头剧情。
@@ -54,7 +97,14 @@ const CHAPTERS = {
 const CHAPTER_ENTRY_SCENES = [
   'scene_classroom',       // 第 1 章（序章）
   'ch1_scene_playground',  // 第 2 章
-  'ch2_scene_auditorium'   // 第 3 章
+  'ch2_scene_auditorium',  // 第 3 章
+  'ch3_scene_exhibition',  // 第 4 章
+  'ch4_scene_team_meeting',// 第 5 章
+  'ch5_scene_parent_meeting', // 第 6 章
+  'ch6_scene_corridor',    // 第 7 章
+  'ch7_scene_flashback',   // 第 8 章
+  'ch8_scene_warehouse',   // 第 9 章
+  'ch9_scene_exam'         // 第 10 章
 ];
 
 class GameApp {
@@ -306,9 +356,9 @@ class GameApp {
       this.saveManager.autosave(this.gameState);
     }
 
-    // 动态适配全三章场景：PROLOGUE_STORY / CHAPTER1_STORY / CHAPTER2_STORY
+    // 动态适配序章双线场景 + 后续线性章节数据表
     const routeData = PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male;
-    let rawSceneData = routeData[sceneKey] || CHAPTER1_STORY[sceneKey] || CHAPTER2_STORY[sceneKey];
+    let rawSceneData = routeData[sceneKey] || LINEAR_STORY[sceneKey];
 
     if (rawSceneData) {
       // 深度拷贝并注入男女主专属变量替换（{MC_NAME}, {MC_PORTRAIT}, {ALLY_1_NAME}, {ALLY_2_NAME} 等）
@@ -377,13 +427,9 @@ class GameApp {
       const bMap = CHAPTERS[transition.battleId] || CH0_BATTLE1;
       this.enterBattleMap(bMap, bMap.nextStorySceneOnWin);
     } else if (transition.targetScene) {
-      // 跨章节横幅检测：进入第二章或第三章首个场景前弹出全屏章节横幅
-      if (transition.targetScene === 'ch1_scene_playground') {
-        this.showChapterBanner('第二章', '操场上来的人', () => {
-          this.startStoryScene(transition.targetScene);
-        });
-      } else if (transition.targetScene === 'ch2_scene_auditorium') {
-        this.showChapterBanner('第三章', '谁是下一个', () => {
+      const banner = CHAPTER_BANNERS[transition.targetScene];
+      if (banner) {
+        this.showChapterBanner(banner.label, banner.title, () => {
           this.startStoryScene(transition.targetScene);
         });
       } else {
@@ -533,6 +579,14 @@ class GameApp {
       // 序章 Boss 战男女线动态适配
       if (chapter.id === 'ch0_battle3' && e.instanceId === 'boss_corrupted') {
         enemyId = this.selectedRoute === 'female' ? 'heyanxi_corrupted' : 'fanwenmo_corrupted';
+      } else if (this.selectedRoute === 'female') {
+        if (enemyId === 'zhangzixiao_corrupted') {
+          enemyId = 'shiyunuo_corrupted';
+        } else if (enemyId === 'zhanghanyu_corrupted') {
+          enemyId = 'chenpinxuan_corrupted';
+        } else if (enemyId === 'fanwenmo_corrupted') {
+          enemyId = 'heyanxi_corrupted';
+        }
       }
       // 数值工厂统一造敌：与援军同一工厂，数值口径一致
       const unit = createEnemyUnit(enemyId, {
@@ -2192,7 +2246,8 @@ class GameApp {
     if (chapterData) {
       this.enterBattleMap(chapterData, chapterData.nextStorySceneOnWin);
     } else {
-      const sceneData = (PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male)[this.gameState.sceneId];
+      const routeData = PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male;
+      const sceneData = routeData[this.gameState.sceneId] || LINEAR_STORY[this.gameState.sceneId];
       if (sceneData) {
         this.startStoryScene(this.gameState.sceneId);
       } else {

@@ -207,11 +207,38 @@ export const UNITS = {
   },
 
   /* ══════════ 人民教师（后期敌转友） ══════════ */
+  liu_laoshi: {
+    id: 'liu_laoshi',
+    name: '刘老师',
+    title: '六 8 班语文老师',
+    gender: 'female',
+    classId: 'teacher',
+    level: 8,
+    exp: 0,
+    equippedWeapon: 'teaching_pointer',
+    inventory: [
+      { id: 'teacher_thermos', count: 1 },
+      { id: 'honey_tea', count: 2 }
+    ],
+    bio: '总是先看见学生脸色不对的语文老师，嘴上温和，护起孩子来却比谁都硬。她不太会说大道理，但很会把人从快要掉下去的边上拽回来。',
+    personalGrowth: { mag: 10, res: 10 },
+    personalSkill: 'authoritative_gaze',
+    joinsAt: 'merged_route_ch5',
+    portrait: 'assets/portraits/adult_liu_default.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white.png',
+    themeColor: '#0f766e',
+    quotes: {
+      move: '慢一点，先把气喘匀。',
+      attack: '先把话听完。',
+      death: '孩子们……别在这儿倒下……'
+    }
+  },
+
   xu_laoshi: {
     id: 'xu_laoshi',
     name: '徐老师',
     title: '六 8 班班主任',
-    gender: 'male',
+    gender: 'female',
     classId: 'teacher',
     level: 8,
     exp: 0,
