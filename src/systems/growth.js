@@ -129,16 +129,16 @@ export function createPlayerUnit(unitId, { x = 0, y = 0, facing = 'right', expOv
   if (!tpl) return null;
   const stats = computeBaseStats(tpl.classId);
 
-  // ★ 主角光环：我方单位在入队创建时，全基础属性获得额外加强，以抵消“敌众我寡”的劣势
-  stats.maxHp += 5;
-  stats.maxMp += 5;
-  stats.str += 1;
-  stats.mag += 1;
-  stats.skl += 1;
+  // ★ 主角光环：我方单位在入队创建时，全基础属性获得微量额外加强，以抵消“敌众我寡”的劣势，但保持微弱优势不至于完全碾压
+  stats.maxHp += 2;
+  stats.maxMp += 2;
+  stats.str += 0;
+  stats.mag += 0;
+  stats.skl += 0;
   stats.spd += 1;
-  stats.luk += 2;
+  stats.luk += 1;
   stats.def += 1;
-  stats.res += 1;
+  stats.res += 0;
   
   return {
     // —— 来源档案 ——
