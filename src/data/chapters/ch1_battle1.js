@@ -34,7 +34,7 @@ export const CH1_BATTLE1 = {
   ],
 
   props: [
-    { id: 'goal_post', type: 'post', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 2, blocks: true },
+    { id: 'goal_post', type: 'post', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bench_3_2', type: 'bench', x: 3, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_6_5', type: 'bush', x: 6, y: 4, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true }
   ],
@@ -47,11 +47,13 @@ export const CH1_BATTLE1 = {
     { unitId: 'qinruiyi', x: 1, y: 4 }
   ],
 
-  // 敌方布阵：魔化体育老师居中，外校体育生左右两翼包夹
+  // 敌方布阵（5 人）：魔化体育老师在球门前压阵，外校体育生组成前锋、侧翼与掩护梯次
   enemyDeploy: [
     { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 7, y: 3 },
     { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 6, y: 1 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 6, y: 5 }
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 6, y: 6 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 5, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 7, y: 5 }
   ],
 
   objective: {

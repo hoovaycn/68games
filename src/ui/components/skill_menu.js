@@ -28,33 +28,25 @@ const STAT_NAMES = {
 
 const PERCENT_STATS = new Set(['avoid', 'hit', 'crit']);
 
-/**
- * 格式化技能作用机制（目标、射程、持续时间、数值变化）
- */
-export function formatSkillMechanism(skill) {
+export function getTargetTag(skill) {
+  if (!skill) return '';
+  if (skill.target === 'self') return '作用自身';
+  if (skill.target === 'ally') return '辅助我方';
+  if (skill.target === 'enemy') return '攻击敌方';
+  return '';
+}
+
+export function getRangeTag(skill) {
+  if (!skill) return '';
+  if (skill.range && (skill.range[0] > 0 || skill.range[1] > 0)) {
+    return skill.range[0] === skill.range[1] ? `${skill.range[0]}` : `${skill.range[0]}~${skill.range[1]}`;
+  }
+  return '';
+}
+
+export function getEffectDesc(skill) {
   if (!skill) return '';
   const eff = skill.effect;
-
-  // 1. 作用目标、射程与持续时间
-  let targetTag = '';
-  if (skill.target === 'self') targetTag = '自身';
-  else if (skill.target === 'ally') targetTag = '友方';
-  else if (skill.target === 'enemy') targetTag = '敌方';
-
-  let rangeTag = '';
-  if (skill.range && (skill.range[0] > 0 || skill.range[1] > 0)) {
-    rangeTag = skill.range[0] === skill.range[1] ? `射程${skill.range[0]}` : `射程${skill.range[0]}-${skill.range[1]}`;
-  }
-
-  let durTag = '';
-  if (skill.duration === 'turn') durTag = '1回合';
-  else if (skill.duration === 'nextAttack') durTag = '下次攻击';
-  else if (skill.duration === 'battle') durTag = '整场';
-
-  const tagList = [targetTag, rangeTag, durTag].filter(Boolean);
-  const prefix = tagList.length > 0 ? `[${tagList.join('·')}] ` : '';
-
-  // 2. 数值机制说明
   let effectDesc = '';
   if (eff) {
     if (eff.kind === 'heal') {
@@ -74,7 +66,12 @@ export function formatSkillMechanism(skill) {
     }
   }
 
-  return `${prefix}${effectDesc}`.trim();
+  let durTag = '';
+  if (skill.duration === 'turn') durTag = '1回合';
+  else if (skill.duration === 'nextAttack') durTag = '下次攻击';
+  else if (skill.duration === 'battle') durTag = '整场';
+
+  return `${durTag}${effectDesc}`.trim();
 }
 
 /**
@@ -82,7 +79,15 @@ export function formatSkillMechanism(skill) {
  */
 export function formatSkillSummary(skill) {
   if (!skill) return '';
-  const mech = formatSkillMechanism(skill);
+  const targetTag = getTargetTag(skill);
+  const rangeTag = getRangeTag(skill);
+  const effectDesc = getEffectDesc(skill);
+  
+  let mech = '';
+  if (targetTag) mech += `【${targetTag}】`;
+  if (rangeTag) mech += `【射程】${rangeTag}`;
+  if (effectDesc) mech += `【效果】${effectDesc}`;
+  
   const desc = (skill.desc || '').trim();
   if (mech && desc) return `${mech} · ${desc}`;
   return mech || desc || '暂无说明';
@@ -99,7 +104,9 @@ export class SkillMenu {
       const unlocked = isSkillUnlocked(unit, s);
       return {
         skill: s,
-        mechanism: formatSkillMechanism(s),
+        targetTag: getTargetTag(s),
+        rangeTag: getRangeTag(s),
+        effectDesc: getEffectDesc(s),
         desc: (s.desc || '').trim(),
         summary: formatSkillSummary(s),
         unlocked,
@@ -258,7 +265,12 @@ export class SkillMenu {
       ctx.textAlign = 'left';
       ctx.font = 'bold 15px sans-serif';
       ctx.fillStyle = isSel ? '#1c1917' : (item.enabled ? '#f8fafc' : '#64748b');
-      ctx.fillText(s.name, x + 14, row1Y);
+      
+      let nameText = s.name;
+      if (item.targetTag) {
+        nameText += `【${item.targetTag}】`;
+      }
+      ctx.fillText(nameText, x + 14, row1Y);
 
       ctx.textAlign = 'right';
       ctx.font = 'bold 13px sans-serif';
@@ -279,7 +291,13 @@ export class SkillMenu {
       ctx.textAlign = 'left';
       ctx.font = 'bold 12px sans-serif';
       ctx.fillStyle = isSel ? '#78350f' : (item.enabled ? '#fbbf24' : '#94a3b8');
-      ctx.fillText(item.mechanism || '主动技能', x + 14, row2Y);
+      
+      let mechText = '';
+      if (item.rangeTag) mechText += `【射程】${item.rangeTag}`;
+      if (item.effectDesc) mechText += `【效果】${item.effectDesc}`;
+      if (!mechText) mechText = '主动技能';
+      
+      ctx.fillText(mechText, x + 14, row2Y);
 
       // ── 第三行及后续：完整风味描述（按可用宽度折行展示，绝不截断出省略号） ──
       if (item.desc) {

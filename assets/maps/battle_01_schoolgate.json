@@ -1,0 +1,331 @@
+{
+  "id": "battle_01_schoolgate",
+  "name": "第一战·校门外",
+  "width": 12,
+  "height": 9,
+  "tileSize": 48,
+  "bgm": "bgm_battle_normal",
+  "background": "bg_street",
+  "tilesets": [
+    {
+      "firstgid": 1,
+      "name": "ground_48",
+      "tilewidth": 48,
+      "tileheight": 48,
+      "image": "../tiles/tileset_ground_48.png",
+      "tilecount": 7,
+      "tileNames": [
+        "kc_asphalt",
+        "kc_sidewalk",
+        "kc_brick_red",
+        "kc_grass",
+        "kc_crosswalk",
+        "tile_pavement",
+        "tile_brick"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "name": "ground",
+      "type": "tilelayer",
+      "data": [
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          2,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "props",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "prop_school_gate",
+          "x": 4,
+          "y": 0,
+          "w": 3,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "prop_snack_cart",
+          "x": 8,
+          "y": 4,
+          "w": 2,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "kc_streetlight",
+          "x": 2,
+          "y": 1,
+          "w": 1,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "kc_tree_dark",
+          "x": 10,
+          "y": 1,
+          "w": 1,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "kc_crate",
+          "x": 3,
+          "y": 7,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_bollard",
+          "x": 7,
+          "y": 7,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_barrier_stripe",
+          "x": 6,
+          "y": 3,
+          "w": 1,
+          "h": 3,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spawns",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "player",
+          "type": "unit",
+          "x": 1,
+          "y": 7,
+          "facing": "right"
+        },
+        {
+          "name": "vendor",
+          "type": "enemy",
+          "x": 9,
+          "y": 6,
+          "facing": "left",
+          "drop": "sausage"
+        }
+      ]
+    },
+    {
+      "name": "exits",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "gate_exit",
+          "x": 5,
+          "y": 2
+        }
+      ]
+    }
+  ]
+}

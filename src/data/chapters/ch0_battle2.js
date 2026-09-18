@@ -32,11 +32,11 @@ export const CH0_BATTLE2 = {
   ],
 
   props: [
-    { id: 'lamp_2_1', type: 'street_lamp', x: 2, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 2, blocks: true },
+    { id: 'lamp_2_1', type: 'street_lamp', x: 2, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'barrier_7_2', type: 'barrier', x: 7, y: 2, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'crate_6_6', type: 'crate', x: 6, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'crate_7_6', type: 'crate', x: 7, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_10_6', type: 'dumpster', x: 10, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 2, blocks: true },
+    { id: 'dumpster_10_6', type: 'dumpster', x: 10, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bench_1_6', type: 'bench', x: 1, y: 6, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_0_0', type: 'bush', x: 0, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_11_0', type: 'bush', x: 11, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },

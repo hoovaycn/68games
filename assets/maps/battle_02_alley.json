@@ -1,0 +1,342 @@
+{
+  "id": "battle_02_alley",
+  "name": "第二战·红砖小巷",
+  "width": 12,
+  "height": 9,
+  "tileSize": 48,
+  "bgm": "bgm_battle_normal",
+  "background": "bg_street",
+  "tilesets": [
+    {
+      "firstgid": 1,
+      "name": "ground_48",
+      "tilewidth": 48,
+      "tileheight": 48,
+      "image": "../tiles/tileset_ground_48.png",
+      "tilecount": 7,
+      "tileNames": [
+        "kc_asphalt",
+        "kc_sidewalk",
+        "kc_brick_red",
+        "kc_grass",
+        "kc_crosswalk",
+        "tile_pavement",
+        "tile_brick"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "name": "ground",
+      "type": "tilelayer",
+      "data": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          1,
+          1,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "props",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "kc_dumpster_green",
+          "x": 1,
+          "y": 1,
+          "w": 1,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "prop_trash_bin",
+          "x": 4,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_streetlight",
+          "x": 10,
+          "y": 1,
+          "w": 1,
+          "h": 2,
+          "cells": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "kc_barrier_stripe",
+          "x": 9,
+          "y": 2,
+          "w": 1,
+          "h": 3,
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "name": "kc_hydrant",
+          "x": 5,
+          "y": 2,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_crate",
+          "x": 6,
+          "y": 5,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_crate",
+          "x": 2,
+          "y": 6,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "prop_bicycle",
+          "x": 7,
+          "y": 7,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_trashbag",
+          "x": 8,
+          "y": 7,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "kc_trashbag",
+          "x": 3,
+          "y": 4,
+          "w": 1,
+          "h": 1,
+          "cells": [
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spawns",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "player",
+          "type": "unit",
+          "x": 1,
+          "y": 7,
+          "facing": "right"
+        },
+        {
+          "name": "punk",
+          "type": "enemy",
+          "x": 10,
+          "y": 3,
+          "facing": "left",
+          "drop": "bastard_soda"
+        }
+      ]
+    },
+    {
+      "name": "exits",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "name": "alley_exit",
+          "x": 11,
+          "y": 4
+        }
+      ]
+    }
+  ]
+}

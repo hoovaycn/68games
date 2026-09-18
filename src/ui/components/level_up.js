@@ -26,11 +26,11 @@ import {
 
 /** 升级揭示节拍（ms） */
 export const LEVEL_UP_TIMING = {
-  HEADLINE: 320,   // 首层大标题缓冲（"等级提升！"定格期）
-  ROW_STAGGER: 95, // 相邻行出现间隔（九行从上往下逐行揭示）
-  REVEAL: 260,     // 单行 +1 条增长时长
-  TAIL: 340,       // 一层末尾停留
-  SWITCH: 240,     // 连环升级层间切换
+  HEADLINE: 220,   // 首层大标题缓冲（"等级提升！"定格期）
+  ROW_STAGGER: 0,  // 九行同时就绪，不再逐行拖沓滞后
+  REVEAL: 360,     // 数值条平滑增长时长
+  TAIL: 280,       // 一层末尾停留
+  SWITCH: 200,     // 连环升级层间切换
 };
 
 /** 单层时长 = 8×STAGGER + REVEAL + TAIL = 1360（推导常量，供单测锚定） */
@@ -270,16 +270,18 @@ function rowSnapshot(row, state, t, anchor) {
  */
 export function planLevelUpLayout(box) {
   const x0 = box.x, y0 = box.y;
+  // 分隔线位于 597（全宽 960 场景下）。左面板右缘给分割线留出充足间距（597 - 528 = 69px 呼吸空间）
+  // 面板容器宽度设为 484，x 为 44，右缘落于 528，距离中线分割线有近 70px 内间距，不再紧贴拥挤。
   return {
     // 左侧仪式区（标题块 + 数值面板卡）
     panel: {
-      x: x0 + 44, y: y0 + 176, w: 548, h: 294,          // 数值面板卡 176~470
-      cx: x0 + 318,
-      titleX: x0 + 318, titleY: y0 + 74,                 // LEVEL UP 大标题
+      x: x0 + 44, y: y0 + 176, w: 484, h: 294,          // 数值面板卡 44~528，远离 597 分隔线
+      cx: x0 + 286,                                      // 左侧中轴
+      titleX: x0 + 286, titleY: y0 + 74,                 // LEVEL UP 大标题
       subY: y0 + 114, gainY: y0 + 144, tagY: y0 + 166,   // 中文副题 / 合计 / 层标
       rowsTop: y0 + 190, rowH: 30,                       // 九行 190~460
-      labelX: x0 + 146, barX: x0 + 158, barW: 236,       // 属性名右缘 / 条 / 条宽
-      deltaX: x0 + 406, valueRightX: x0 + 568,           // +1 徽章左缘 / 数值右缘
+      labelX: x0 + 126, barX: x0 + 138, barW: 190,       // 适度收窄进度条（236 -> 190），紧凑高档
+      deltaX: x0 + 340, valueRightX: x0 + 510,           // +1 徽章与右缘数值合理收缩在面板内
     },
     // 右侧立绘区
     stage: {

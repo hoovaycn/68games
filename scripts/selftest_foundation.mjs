@@ -875,9 +875,9 @@ check('组件极端 config：null 整包构造出 "?" 双方各 1 血的可渲�
 section('8 level_up 升级明细弹层');
 
 // —— 8.1 节拍与九维表锚定 ——
-check('节拍推导：单层时长 = 8×STAGGER + REVEAL + TAIL = 1360',
+check('节拍推导：单层时长 = 8×STAGGER + REVEAL + TAIL = 640',
   LEVEL_UP_LAYER_LEN === LEVEL_UP_TIMING.ROW_STAGGER * 8 + LEVEL_UP_TIMING.REVEAL + LEVEL_UP_TIMING.TAIL
-  && LEVEL_UP_LAYER_LEN === 1360);
+  && LEVEL_UP_LAYER_LEN === 640);
 check('九维行序完整：hp→mp→str→mag→skl→spd→luk→def→res（mov 不入成长）',
   GROWTH_ROWS.length === 9 && GROWTH_ROWS[0].key === 'hp' && GROWTH_ROWS[1].key === 'mp'
   && GROWTH_ROWS[8].key === 'res' && !GROWTH_ROWS.some(r => r.key === 'mov'));
@@ -948,9 +948,9 @@ check('未涨项：flat 态、文字"——"、条定格旧值',
     const r = v.rows[2];
     return r.state === 'flat' && r.deltaText === '——' && r.barShown === 7 && r.ghostShown === 7;
   })());
-check('未到揭示时刻：pending 态 deltaText=null（渲染层整行不画）',
+check('未到揭示时刻：head 相 pending 态 deltaText=null（渲染层整行不画）',
   (() => {
-    const v = levelUpViewAt(p1, LEVEL_UP_TIMING.HEADLINE + 8 * LEVEL_UP_TIMING.ROW_STAGGER - 10);
+    const v = levelUpViewAt(p1, LEVEL_UP_TIMING.HEADLINE - 10);
     return v.rows[8].state === 'pending' && v.rows[8].deltaText === null;
   })());
 check('时间轴走完：done 相、九行全 revealed 定格 barAfter、合计文案',
@@ -960,11 +960,11 @@ check('时间轴走完：done 相、九行全 revealed 定格 barAfter、合计�
       && v.rows.every(r => r.state === 'revealed')
       && v.rows[0].barShown === 24 && v.totalGainText === '合计 +4';
   })());
-check('层间切换到 L2：layerIndex/levelFrom/levelTo 跟随第 2 层、其行重新从 pending 起步',
+check('层间切换到 L2：layerIndex/levelFrom/levelTo 跟随第 2 层、其行在 revealAt 之前为 revealing 或 flat',
   (() => {
     const v = levelUpViewAt(p2, p2.layers[1].start + 5);
     return v.phase === 'layer' && v.layerIndex === 1
-      && v.levelFrom === 2 && v.levelTo === 3 && v.rows[8].state === 'pending';
+      && v.levelFrom === 2 && v.levelTo === 3 && v.rows[0].state === 'revealing';
   })());
 check('纯数字模式视图：行条 null（渲染层画占位线）但 +1 / "——" 语义不变',
   (() => {
@@ -986,17 +986,17 @@ check('组件初建：全屏盒 1280×720（任务#10 全屏改版）、计划�
 check('布局几何：左侧数值面板卡 + 右侧 336 大立绘 + 中缝分隔线 + valueMax=GROWTH_BAR_MAX',
   (() => {
     const L = planLevelUpLayout(lum.box);
-    return L.panel.w === 548 && L.panel.rowH === 30 && L.panel.barW === 236
+    return L.panel.w === 484 && L.panel.rowH === 30 && L.panel.barW === 190
       && L.stage.size === 336 && L.stage.cx === lum.box.x + 778
       && L.dividerX === lum.box.x + 597 && L.btn.w === 200
       && L.valueMax === GROWTH_BAR_MAX;
   })());
 let luDone = 0;
 const pLuDone = lum.whenDone().then(() => luDone++);
-lum._advanceVirtual(LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_TIMING.REVEAL + 20);
-check('虚拟时钟推进中：whenDone 在途、层内视图生效（行0 已揭示完成、末行未到）',
+lum._advanceVirtual(LEVEL_UP_TIMING.HEADLINE + LEVEL_UP_TIMING.REVEAL / 2);
+check('虚拟时钟推进中：whenDone 在途、层内视图生效（行0 正在平滑揭示）',
   luDone === 0 && lum._pending.length === 1 && lum.view.phase === 'layer'
-  && lum.view.rows[0].state === 'revealed' && lum.view.rows[8].state === 'pending');
+  && lum.view.rows[0].state === 'revealing');
 lum._advanceVirtual(lum.plan.end + 100);
 await pLuDone;
 check('时间轴走完：whenDone resolve（once）+ 视图定 done 相',

@@ -37,19 +37,36 @@ export const CH0_BATTLE1 = {
 
   // Kenney RPG Urban 街具物件装饰与碰撞阻挡
   props: [
-    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 2, blocks: true },
-    { id: 'lamp_8_1', type: 'street_lamp', x: 8, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 2, blocks: true },
-    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 3, blocks: true },
-    { id: 'tree_11_0', type: 'tree', x: 11, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 3, blocks: true },
+    // 路灯与树木 (默认居中)
+    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_8_1', type: 'street_lamp', x: 8, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_11_0', type: 'tree', x: 11, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
+    
+    // 灌木丛
     { id: 'bush_1_0', type: 'bush', x: 1, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_10_0', type: 'bush', x: 10, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_0_8', type: 'bush', x: 0, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_11_8', type: 'bush', x: 11, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    
+    // 长椅与消防栓
     { id: 'bench_9_2', type: 'bench', x: 9, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_0_3', type: 'barrier', x: 0, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'hydrant_7_6', type: 'hydrant', x: 7, y: 6, img: 'assets/props/kenney/kc_hydrant.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_4_6', type: 'crate', x: 4, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_11_6', type: 'dumpster', x: 11, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 2, blocks: true }
+    { id: 'hydrant_7_6', type: 'hydrant', x: 7, y: 6, img: 'assets/props/kenney/kc_hydrant.png', gridW: 1, gridH: 1, blocks: true, subX: 2, subY: 1 }, // 消防栓靠右侧放置
+    
+    // 垃圾桶与隔离柱 (利用 subX/subY 进行非对称堆叠)
+    { id: 'dumpster_11_6', type: 'dumpster', x: 11, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'trashbag_11_6', type: 'trashbag', x: 11, y: 6, img: 'assets/props/kenney/kc_trashbag.png', gridW: 1, gridH: 1, blocks: false, subX: 0, subY: 2 }, // 垃圾袋堆在垃圾桶左下角
+    { id: 'trashbag_11_6_2', type: 'trashbag', x: 11, y: 6, img: 'assets/props/kenney/kc_trashbag.png', gridW: 1, gridH: 1, blocks: false, subX: 0, subY: 1 }, // 垃圾袋堆在垃圾桶左侧
+    
+    // 斑马线入口处的隔离柱 (防止车辆开上人行道，放置在格子边缘)
+    { id: 'bollard_4_3_r', type: 'bollard', x: 4, y: 3, img: 'assets/props/kenney/kc_bollard.png', gridW: 1, gridH: 1, blocks: true, subX: 2, subY: 2 },
+    { id: 'bollard_7_3_l', type: 'bollard', x: 7, y: 3, img: 'assets/props/kenney/kc_bollard.png', gridW: 1, gridH: 1, blocks: true, subX: 0, subY: 2 },
+    
+    // 自动售货机
+    { id: 'vending_1_2', type: 'vending', x: 1, y: 2, img: 'assets/props/kenney/kc_vending_machine.png', gridW: 1, gridH: 1, blocks: true },
+    
+    // 流动商贩的摊车！(完美契合剧情，放在敌人商贩附近)
+    { id: 'food_stall_8_3', type: 'food_stall', x: 8, y: 3, img: 'assets/props/kenney/kc_food_stall.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 我方出场点

@@ -14,7 +14,7 @@ import { SKILLS } from '../data/skills.js';
 // 可直接写入 unit.stats 的基础属性；avoid/hit/crit 是派生值，只进 tempBuffs 由 combat 公式读
 const BASE_STATS = new Set(['str', 'mag', 'skl', 'spd', 'luk', 'def', 'res', 'mov']);
 
-/** 单位可用技能：个人技（ownerUnit 匹配）+ 职业技（ownerClass 匹配） */
+/** 单位可用技能：个人技（ownerUnit 匹配）+ 职业技（ownerClass 匹配），按解锁等级升序（低级在前，高级在后） */
 export function getUnitSkills(unit) {
   if (!unit) return [];
   const skills = [];
@@ -22,6 +22,13 @@ export function getUnitSkills(unit) {
     if (s.scope === 'personal' && s.ownerUnit === unit.id) skills.push(s);
     else if (s.scope === 'class' && s.ownerClass === unit.classId) skills.push(s);
   }
+  // 低级技能在前（先解锁/最先能用的置顶），相同等级按 MP 消耗升序
+  skills.sort((a, b) => {
+    const lvA = a.unlockLevel || 1;
+    const lvB = b.unlockLevel || 1;
+    if (lvA !== lvB) return lvA - lvB;
+    return (a.mpCost || 0) - (b.mpCost || 0);
+  });
   return skills;
 }
 

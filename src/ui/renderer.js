@@ -1,5 +1,6 @@
 import { WEAPONS } from '../data/weapons.js';
 import { assetLoader } from '../engine/asset_loader.js';
+import { ATLAS_CONFIG, TERRAIN_ATLAS_MAP, renderCell3x3 } from '../systems/tilemap_atlas.js';
 
 /**
  * 战棋主渲染器与交互 UI
@@ -284,7 +285,10 @@ export class Renderer {
     const ox = this.offsetX;
     const oy = this.offsetY;
 
-    // 旧版的纯色 fallback 调色板（仅当纹理图未加载时使用）
+    // 预尝试获取 3x3 原生复合图集图片
+    const sheetImg = assetLoader.getImage(ATLAS_CONFIG.sheetSrc);
+
+    // 旧版的纯色 fallback 调色板（仅当纹理与图集均未就绪时使用）
     const terrainPalette = {
       road: '#52525b',
       crosswalk: '#71717a',
@@ -292,7 +296,13 @@ export class Renderer {
       brick: '#a16207',
       flowerbed: '#166534',
       bench: '#854d0e',
-      lamppost: '#44403c'
+      lamppost: '#44403c',
+      grass: '#16a34a',
+      track: '#9c6257',
+      sand_pit: '#c1b191',
+      wood_floor: '#b5a589',
+      tile_floor: '#787a7e',
+      carpet: '#885247'
     };
 
     for (let y = 0; y < gridSystem.height; y++) {
@@ -303,16 +313,28 @@ export class Renderer {
         const px = x * ts + ox;
         const py = y * ts + oy;
 
-        // 先铺底色作为 fallback
-        ctx.fillStyle = terrainPalette[terrainKey] || terrain.color || '#a8a29e';
+        // 1. 底色铺底（平滑过渡底色）
+        const atlasConf = TERRAIN_ATLAS_MAP[terrainKey];
+        ctx.fillStyle = (atlasConf && atlasConf.fallbackColor) || terrainPalette[terrainKey] || terrain.color || '#a8a29e';
         ctx.fillRect(px, py, ts, ts);
 
-        // 若该地形配置了 Kenney 地砖纹理，叠加绘制
-        const tileImgSrc = terrain.tileImg;
-        if (tileImgSrc) {
-          const tileImg = assetLoader.getImage(tileImgSrc);
-          if (tileImg) {
-            ctx.drawImage(tileImg, px, py, ts, ts);
+        // 2. 核心：如果大图集已就绪，使用 3×3 原生复合九宫格与自然变体渲染
+        if (sheetImg) {
+          const neighbors = {
+            t: y > 0 ? gridSystem.tiles[y - 1][x] : null,
+            b: y < gridSystem.height - 1 ? gridSystem.tiles[y + 1][x] : null,
+            l: x > 0 ? gridSystem.tiles[y][x - 1] : null,
+            r: x < gridSystem.width - 1 ? gridSystem.tiles[y][x + 1] : null
+          };
+          renderCell3x3(ctx, sheetImg, terrainKey, neighbors, x, y, px, py, ts);
+        } else {
+          // Fallback：若大图集加载中，降级为单张旧贴图
+          const tileImgSrc = terrain.tileImg;
+          if (tileImgSrc) {
+            const tileImg = assetLoader.getImage(tileImgSrc);
+            if (tileImg) {
+              ctx.drawImage(tileImg, px, py, ts, ts);
+            }
           }
         }
 
@@ -321,9 +343,9 @@ export class Renderer {
         ctx.lineWidth = 1;
         ctx.strokeRect(px, py, ts, ts);
 
-        // 地形标签（仅在草地等特殊地形显示）
+        // 地形标签（仅在草地、沙坑等需要提示战术消耗的地形显示）
         if (terrain.label) {
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
           ctx.font = 'bold 10px sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
@@ -350,11 +372,25 @@ export class Renderer {
       const px = prop.x * ts + ox;
       const py = prop.y * ts + oy;
 
-      // 多格街具的图像高度 = gridH * ts，宽度 = gridW * ts
-      const drawW = prop.gridW * ts;
-      const drawH = prop.gridH * ts;
+      // 还原街具的原生像素尺寸（因为素材图是 3x 放大版，而地表采用了 3x3 的原生 1x 拼接）
+      // 避免出现“16x16 贴图被拉伸占满 48x48 导致像素巨大不匹配”的问题。
+      // 注意：不能写死像素，需要跟随当前的 tileSize 缩放。
+      // 素材的基准尺寸是 48 对应 1 个战棋格（占满时）。
+      // 既然素材放大了 3 倍，我们要缩小 3 倍，所以比例是 1/3。
+      const drawW = (img.width / 48) * (ts / 3);
+      const drawH = (img.height / 48) * (ts / 3);
 
-      ctx.drawImage(img, px, py, drawW, drawH);
+      // 默认：完美居中放置在它所占用的单元格区域内
+      // 对于 1x1 原生图块（如消火栓），它将精准落在 3x3 的正中间（即第二行第二列）
+      let cx = px + (prop.gridW * ts - drawW) / 2;
+      let cy = py + (prop.gridH * ts - drawH) / 2;
+
+      // 构图调整：支持九宫格子网格偏移 (subX, subY 取值 0~2)
+      // 允许在地图数据中指定小物件靠边放置，比如轮胎叠放右下角 (subX: 1, subY: 1)
+      if (prop.subX !== undefined) cx = px + prop.subX * (ts / 3);
+      if (prop.subY !== undefined) cy = py + prop.subY * (ts / 3);
+
+      ctx.drawImage(img, cx, cy, drawW, drawH);
     }
   }
 

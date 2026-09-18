@@ -50,8 +50,8 @@ export const CLASSES = {
     id: 'study_committee',
     name: '学习委员',
     desc: '收作业时气场两米八。知识点在他们嘴里都是现成的武器。',
-    base: { hp: 22, mp: 22, str: 3, mag: 8, skl: 7, spd: 5, luk: 6, def: 3, res: 8, mov: 5 },
-    growth: { hp: 45, mp: 55, str: 15, mag: 60, skl: 45, spd: 30, luk: 40, def: 15, res: 55 },
+    base: { hp: 22, mp: 22, str: 3, mag: 8, skl: 7, spd: 6, luk: 7, def: 3, res: 8, mov: 5 },
+    growth: { hp: 45, mp: 55, str: 15, mag: 60, skl: 45, spd: 45, luk: 50, def: 15, res: 55 },
     families: ['乐器', '粉笔'],
     legacy: false
   },
@@ -83,8 +83,8 @@ export const CLASSES = {
     id: 'cheerleader',
     name: '拉拉操队员',
     desc: '运动会必到场的颜值担当。嗓子就是治疗术，节拍就是增益术。',
-    base: { hp: 24, mp: 20, str: 4, mag: 6, skl: 6, spd: 7, luk: 8, def: 5, res: 9, mov: 5 },
-    growth: { hp: 55, mp: 50, str: 20, mag: 45, skl: 40, spd: 45, luk: 50, def: 20, res: 60 },
+    base: { hp: 24, mp: 20, str: 4, mag: 6, skl: 6, spd: 9, luk: 10, def: 5, res: 9, mov: 5 },
+    growth: { hp: 55, mp: 50, str: 20, mag: 45, skl: 40, spd: 65, luk: 65, def: 20, res: 60 },
     families: ['彩球'],
     legacy: false
   },

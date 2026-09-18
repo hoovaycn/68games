@@ -37,6 +37,8 @@ import { CH1_BATTLE1 } from './data/chapters/ch1_battle1.js';
 import { CH2_BATTLE1 } from './data/chapters/ch2_battle1.js';
 import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
+import { assetLoader } from './engine/asset_loader.js';
+import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
 const CHAPTERS = {
@@ -83,6 +85,9 @@ class GameApp {
     );
     this.dialogueSystem = new DialogueSystem(this.canvas, (transition) => this.handleSceneTransition(transition));
     this.epilogueScreen = new EpilogueScreen(this.canvas, () => this.enterTitleScreen());
+
+    // 预加载核心 3×3 地图大图集
+    assetLoader.loadWithChromaKey(ATLAS_CONFIG.sheetSrc);
 
     this.stage = 'STAGE_TITLE';
 
@@ -977,6 +982,22 @@ class GameApp {
         return;
       }
 
+      // ★ 开发者秘籍：F8 或 Ctrl+0 直接在战斗中秒杀所有敌人并通关
+      if ((e.code === 'F8' || (e.ctrlKey && e.key === '0')) && this.stage === 'STAGE_BATTLE') {
+        e.preventDefault();
+        console.log("【开发者秘籍】秒杀所有敌人！");
+        if (this.battleState && this.battleState.units) {
+          this.battleState.units.forEach(u => {
+            if (u.faction === 'enemy') {
+              u.currentHp = 0;
+              u.isAlive = false;
+            }
+          });
+          this.checkBattleEnd();
+        }
+        return;
+      }
+
       // ★ 章节标题覆盖层展示期间吞掉按键（自动播放，展示结束才放行）
       if (this.chapterBanner) return;
 
@@ -1313,6 +1334,10 @@ class GameApp {
       bs.targetUnits = [];
       const wasSkill = !!bs.skillPending;
       bs.skillPending = null;
+      if (bs.selectedUnit) {
+        bs.cursor.x = bs.selectedUnit.x;
+        bs.cursor.y = bs.selectedUnit.y;
+      }
       sound.playSfx('sfx_cancel');
       if (wasSkill) this.openSkillMenu();
       else this.openActionMenu();
@@ -1471,11 +1496,38 @@ class GameApp {
     const faction = skill.target === 'enemy' ? 'enemy' : 'player';
     bs.skillPending = skill;
     bs.attackableTiles = rangeTiles; // 复用攻击范围高亮，标出技能可选范围
-    bs.targetUnits = bs.units.filter(t =>
+    const candidates = bs.units.filter(t =>
       t.isAlive && t.faction === faction && t !== u &&
       rangeTiles.some(tile => tile.x === t.x && tile.y === t.y)
     );
+
+    // ★ 智能聚焦最优/最近目标：
+    // 回复/治疗类：优先血量百分比最低的残血队友，同百分比取最近；
+    // 攻击/伤害类：优先血量最少可斩杀的目标，其次取距离施法者最近的敌人
+    candidates.sort((a, b) => {
+      const distA = Math.abs(a.x - u.x) + Math.abs(a.y - u.y);
+      const distB = Math.abs(b.x - u.x) + Math.abs(b.y - u.y);
+      const isHeal = skill.type === 'heal' || skill.effects?.some(e => e.stat === 'hp' && e.value > 0);
+
+      if (isHeal) {
+        const hpRateA = a.currentHp / (a.stats?.maxHp || a.currentHp);
+        const hpRateB = b.currentHp / (b.stats?.maxHp || b.currentHp);
+        // 残血程度相差 > 0.05 优先奶残血
+        if (Math.abs(hpRateA - hpRateB) > 0.05) return hpRateA - hpRateB;
+        return distA - distB;
+      } else {
+        // 攻击类：同等情况下优先最近敌人，距离相同时优先更虚弱敌人
+        if (distA !== distB) return distA - distB;
+        return a.currentHp - b.currentHp;
+      }
+    });
+
+    bs.targetUnits = candidates;
     bs.targetIndex = 0;
+    if (candidates.length > 0) {
+      bs.cursor.x = candidates[0].x;
+      bs.cursor.y = candidates[0].y;
+    }
     bs.mode = 'TARGET_SELECT';
     sound.playSfx('sfx_confirm');
   }
@@ -1519,14 +1571,49 @@ class GameApp {
       target.deathAnim = { startTime: performance.now(), duration: 800 };
     }
 
-    // 技能击杀敌人：结算经验与掉落（掉落入 collectedLoots，胜利结算统一展示）
-    if (target.faction === 'enemy' && !target.isAlive && caster.faction === 'player') {
-      gainExp(caster, expForKill(caster.level, target.level));
-      const { loots } = settleLoot(target, caster);
-      if (loots.length > 0) bs.collectedLoots.push(...loots);
+    // 技能经验结算与击杀掉落
+    let levelUpPending = null;
+    if (caster.faction === 'player') {
+      let expGained = 0;
+      if (target.faction === 'enemy' && !target.isAlive) {
+        expGained = expForKill(caster.level, target.level);
+        const { loots } = settleLoot(target, caster);
+        if (loots.length > 0) bs.collectedLoots.push(...loots);
+      } else {
+        expGained = expForAction();
+      }
+
+      if (expGained > 0) {
+        const statsBefore = snapshotGrowthStats(caster);
+        const levelBefore = caster.level;
+        const result = gainExp(caster, expGained);
+        
+        // 浮字提示经验
+        this.addFloatingText(`EXP +${expGained}`, caster.x, caster.y, '#60a5fa', { font: 'bold 20px sans-serif', duration: 1200 });
+        
+        if (result.levelsGained > 0) {
+          levelUpPending = {
+            unit: caster,
+            fromLevel: levelBefore,
+            toLevel: caster.level,
+            gainsByLevel: result.gainsByLevel,
+            statsBefore,
+          };
+        }
+      }
     }
 
     bs.isAnimatingCombat = false;
+
+    // 如果技能导致了升级，等待升级弹窗完成
+    if (levelUpPending) {
+      await new Promise((resolve) => {
+        this.battleState.levelUpModal = new LevelUpModal(this.canvas, levelUpPending, () => {
+          this.battleState.levelUpModal = null;
+          resolve();
+        });
+      });
+    }
 
     this.checkBattleEnd();
     if (bs.victoryModal || bs.victoryModalShown) return;
@@ -1545,12 +1632,24 @@ class GameApp {
     );
 
     this.battleState.attackableTiles = atkRangeTiles;
-    this.battleState.targetEnemies = this.battleState.units.filter(
+    const enemies = this.battleState.units.filter(
       enemy => enemy.isAlive && enemy.faction === 'enemy' && atkRangeTiles.some(t => t.x === enemy.x && t.y === enemy.y)
     );
 
+    // 优先最近的敌人，相同距离优先残血
+    enemies.sort((a, b) => {
+      const distA = Math.abs(a.x - u.x) + Math.abs(a.y - u.y);
+      const distB = Math.abs(b.x - u.x) + Math.abs(b.y - u.y);
+      if (distA !== distB) return distA - distB;
+      return a.currentHp - b.currentHp;
+    });
+
+    this.battleState.targetEnemies = enemies;
+
     if (this.battleState.targetEnemies.length > 0) {
       this.battleState.targetIndex = 0;
+      this.battleState.cursor.x = this.battleState.targetEnemies[0].x;
+      this.battleState.cursor.y = this.battleState.targetEnemies[0].y;
       this.updateBattlePreview();
       this.battleState.mode = 'TARGET_SELECT';
       sound.playSfx('sfx_confirm');

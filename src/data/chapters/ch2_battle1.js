@@ -43,11 +43,13 @@ export const CH2_BATTLE1 = {
     { unitId: 'fanwenmo', x: 2, y: 4 }
   ],
 
-  // 敌方布阵：朱晏泽带头挑衅，两名盲从同学在后排煽风点火
+  // 敌方布阵（5 人）：朱晏泽带头挑衅，两名男同学与两名女同学在课桌间煽风点火、推波助澜
   enemyDeploy: [
     { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 6, y: 3 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob', x: 7, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob', x: 7, y: 5 }
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 7, y: 1 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 4, y: 1 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 7, y: 5 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 4, y: 5 }
   ],
 
   objective: {
