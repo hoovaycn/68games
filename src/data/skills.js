@@ -27,6 +27,18 @@
 
 export const SKILLS = {
   /* ══════════ 职业技：普通小学生（学生通用） ══════════ */
+  desperate_strike: {
+    id: 'desperate_strike',
+    name: '绝命一搏',
+    scope: 'class',
+    ownerClass: 'primary_student',
+    mpCost: 8,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 25 },
+    desc: '耗尽全部力气的绝命一击！平时看起来普通，但兔子急了也会咬人。'
+  },
   morning_reading: {
     id: 'morning_reading',
     name: '早读的力量',
@@ -36,7 +48,7 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { skl: 2 } },
+    effect: { kind: 'buff', stats: { skl: 10, hit: 40 } },
     desc: '放声朗读十分钟。声音越哑，脑子越清楚。'
   },
   review_notes: {
@@ -49,11 +61,23 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { avoid: 10 } },
+    effect: { kind: 'buff', stats: { avoid: 50, def: 5 } },
     desc: '递给同桌自己整理的重点小抄。看一眼，躲老师的粉笔头就有数了。'
   },
 
   /* ══════════ 职业技：体育健将（战士） ══════════ */
+  meteor_smash: {
+    id: 'meteor_smash',
+    name: '流星重扣',
+    scope: 'class',
+    ownerClass: 'sports_star',
+    mpCost: 6,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 28 },
+    desc: '将所有体力汇聚在这一击，如同排球赛点上的绝杀重扣！'
+  },
   full_sprint: {
     id: 'full_sprint',
     name: '全力冲刺',
@@ -64,7 +88,7 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { spd: 3, mov: 1 } },
+    effect: { kind: 'buff', stats: { spd: 10, mov: 3, avoid: 30 } },
     desc: '起跑器蹬出去的那一下。四百米能追回来，一个操场算什么。'
   },
   /* ══════════ 职业技：学习委员（魔法师） ══════════ */
@@ -77,7 +101,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: null,
-    effect: { kind: 'damage', power: 'mag', might: 6 },
+    effect: { kind: 'damage', power: 'mag', might: 20 },
     desc: '把整页单词表砸向目标。会拼的疼在身上，不会拼的疼在心里。'
   },
   evening_lullaby: {
@@ -90,11 +114,23 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { skl: -3, spd: -3 } },
+    effect: { kind: 'debuff', stats: { skl: -10, spd: -10, avoid: -50 } },
     desc: '一段能让趴倒一片的旋律。被点中的人眼皮当场变四斤重。'
   },
 
   /* ══════════ 职业技：学酥（双主角进阶技能，Lv.3解锁） ══════════ */
+  desperate_gamble: {
+    id: 'desperate_gamble',
+    name: '考前押题',
+    scope: 'class',
+    ownerClass: 'xuesu',
+    mpCost: 7,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 25 },
+    desc: '耗尽全部蓝量发动的致命一击！如果押不中，那就全完了。'
+  },
   quick_peek: {
     id: 'quick_peek',
     name: '快速抄袭',
@@ -105,21 +141,20 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { crit: 25 } },
+    effect: { kind: 'buff', stats: { crit: 80, hit: 50 } },
     desc: '眯眼一瞥三行答案。抄得快的人，运气也是实力。'
   },
   /* ══════════ 职业技：怪力少年（物理重战士，Lv.3解锁） ══════════ */
   mighty_swing: {
     id: 'mighty_swing',
     name: '蛮力一挥',
-    unlockLevel: 3,
     scope: 'class',
     ownerClass: 'strong_boy',
-    mpCost: 5,
+    mpCost: 6,
     target: 'enemy',
     range: [1, 1],
     duration: null,
-    effect: { kind: 'damage', power: 'str', might: 5 },
+    effect: { kind: 'damage', power: 'str', might: 25 },
     desc: '抡圆了胳膊砸下去。平时写作业手抖的人，这一下稳得吓人。'
   },
   /* ══════════ 职业技：拉拉操队员（奶妈 · 治疗组） ══════════ */
@@ -132,7 +167,7 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: null,
-    effect: { kind: 'heal', amount: 15 },
+    effect: { kind: 'heal', amount: 45 },
     desc: '卡在半空的声线稳稳落下来。被喊到名字的人，伤口好像没那么疼了。'
   },
   wave_cheer: {
@@ -145,7 +180,7 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { spd: 3, avoid: 15 } },
+    effect: { kind: 'buff', stats: { spd: 10, avoid: 60 } },
     desc: '一排人跟着节拍起伏。踩着浪的人，脚步都轻。'
   },
   spirit_burst: {
@@ -157,8 +192,8 @@ export const SKILLS = {
     mpCost: 7,
     target: 'ally',
     range: [1, 2],
-    duration: 'nextAttack',
-    effect: { kind: 'buff', stats: { str: 2, mag: 2 } },
+    duration: 'turn',
+    effect: { kind: 'buff', stats: { str: 10, mag: 10 } },
     desc: '彩球哗啦一声甩上天。受到声援的人，下一击带着全场的分贝。'
   },
 
@@ -172,7 +207,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: null,
-    effect: { kind: 'damage', power: 'mag', might: 7 },
+    effect: { kind: 'damage', power: 'mag', might: 25 },
     desc: '从讲台上不动声色地出手。三十年的教龄，三十年的准头。'
   },
   sudden_rollcall: {
@@ -185,11 +220,23 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { skl: -3, spd: -3, luk: -3 } },
+    effect: { kind: 'debuff', stats: { skl: -10, spd: -10, luk: -10, avoid: -50 } },
     desc: '「最后一排那位同学，你来回答。」被点名者当机三秒。'
   },
 
   /* ══════════ 职业技：社会闲散人员（敌方共用） ══════════ */
+  street_brawl: {
+    id: 'street_brawl',
+    name: '街头霸王拳',
+    scope: 'class',
+    ownerClass: 'street_loafer',
+    mpCost: 6,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 25 },
+    desc: '在街头摸爬滚打磨炼出的搏命一招，狠辣无情！'
+  },
   shake_down: {
     id: 'shake_down',
     name: '敲竹杠',
@@ -199,7 +246,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { def: -3 } },
+    effect: { kind: 'debuff', stats: { def: -10, res: -10 } },
     desc: '围着人转两圈，啧啧两声。被盯上的人下意识抱紧了书包。'
   },
   wall_hugger: {
@@ -212,7 +259,7 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { avoid: 20 } },
+    effect: { kind: 'buff', stats: { avoid: 60 } },
     desc: '贴着墙根走，影子都懒得跟。想逮住他先蹲下。'
   },
 
@@ -227,7 +274,7 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { def: 4, avoid: 10 } },
+    effect: { kind: 'buff', stats: { def: 15, avoid: 40 } },
     desc: '棋盘上保命的第一手。王先躲进安全角——想将死我？再算三步。'
   },
   art_vision: {
@@ -239,7 +286,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { hit: -15, skl: -2 } },
+    effect: { kind: 'debuff', stats: { hit: -50, skl: -10 } },
     desc: '盯你三秒，破绽全被画进写生本。被看穿的人，出手都是慢半拍的败笔。'
   },
   gossip_report: {
@@ -251,7 +298,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { hit: -20 } },
+    effect: { kind: 'debuff', stats: { hit: -60 } },
     desc: '「你们还不知道吧——」一句话让对面当场走神。六 8 班特派员的独家武器。'
   },
   hidden_might: {
@@ -262,8 +309,8 @@ export const SKILLS = {
     mpCost: 5,
     target: 'self',
     range: [0, 0],
-    duration: 'nextAttack',
-    effect: { kind: 'buff', stats: { str: 4 } },
+    duration: 'turn',
+    effect: { kind: 'buff', stats: { str: 15 } },
     desc: '平时连书包带都懒得系紧的瘦小个子，攥拳的那一刻全班突然安静。'
   },
   witty_notes: {
@@ -275,7 +322,7 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { mag: 3, skl: 2 } },
+    effect: { kind: 'buff', stats: { mag: 10, skl: 10 } },
     desc: '笔记本里三分笔记、七分歪点子。被借阅的人成绩没涨，主意倒是多了一堆。'
   },
   flute_serenade: {
@@ -287,7 +334,7 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { def: 3, res: 3 } },
+    effect: { kind: 'buff', stats: { def: 12, res: 12 } },
     desc: '校乐队首席的一段温柔旋律。听到的人心定了，肩膀也硬了。'
   },
   authoritative_gaze: {
@@ -299,7 +346,7 @@ export const SKILLS = {
     target: 'enemy',
     range: [1, 2],
     duration: 'turn',
-    effect: { kind: 'debuff', stats: { hit: -25 } },
+    effect: { kind: 'debuff', stats: { hit: -80 } },
     desc: '扶了扶眼镜，看过来一眼。对面的准头当场矮了半截。'
   },
   full_energy: {
@@ -311,7 +358,7 @@ export const SKILLS = {
     target: 'self',
     range: [0, 0],
     duration: 'turn',
-    effect: { kind: 'buff', stats: { mov: 2 } },
+    effect: { kind: 'buff', stats: { mov: 4, spd: 8 } },
     desc: '原地蹦了两下，拍拍手上的粉笔灰。跑起来像一阵小旋风。'
   },
   bicycle_kick: {
@@ -322,8 +369,8 @@ export const SKILLS = {
     mpCost: 5,
     target: 'self',
     range: [0, 0],
-    duration: 'nextAttack',
-    effect: { kind: 'buff', stats: { str: 3, spd: 2 } },
+    duration: 'turn',
+    effect: { kind: 'buff', stats: { str: 15, spd: 10 } },
     desc: '禁区里腾空倒勾的招牌动作。作业写得完的人，球也踢得进。'
   },
   pocket_treat: {
@@ -335,7 +382,7 @@ export const SKILLS = {
     target: 'ally',
     range: [1, 2],
     duration: null,
-    effect: { kind: 'heal', amount: 12 },
+    effect: { kind: 'heal', amount: 40 },
     desc: '「放学都别走，今天我请！」钱包一拍，伤口都好得快了三分。'
   }
 };

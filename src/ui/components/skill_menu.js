@@ -67,9 +67,9 @@ export function getEffectDesc(skill) {
   }
 
   let durTag = '';
-  if (skill.duration === 'turn') durTag = '1回合';
-  else if (skill.duration === 'nextAttack') durTag = '下次攻击';
-  else if (skill.duration === 'battle') durTag = '整场';
+  if (skill.duration === 'turn') durTag = '本轮(含反击) ';
+  else if (skill.duration === 'nextAttack') durTag = '下次攻击 ';
+  else if (skill.duration === 'battle') durTag = '整场 ';
 
   return `${durTag}${effectDesc}`.trim();
 }
