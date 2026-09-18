@@ -12,8 +12,8 @@ export const CH2_BATTLE1 = {
   id: 'ch2_battle1',
   name: '第五战：六 8 班教室 · 破除猜疑风暴',
   bgm: 'bgm_battle_boss',
-  mapWidth: 9,
-  mapHeight: 7,
+  mapWidth: 12,
+  mapHeight: 10,
   defaultTerrain: 'tile_floor',
 
   terrainTypes: {
@@ -25,31 +25,33 @@ export const CH2_BATTLE1 = {
     // 讲台区域
     { x: 0, y: 1, type: 'wood_floor' }, { x: 0, y: 2, type: 'wood_floor' },
     { x: 0, y: 3, type: 'wood_floor' }, { x: 0, y: 4, type: 'wood_floor' },
-    { x: 0, y: 5, type: 'wood_floor' }
+    { x: 0, y: 5, type: 'wood_floor' }, { x: 0, y: 6, type: 'wood_floor' },
+    { x: 0, y: 7, type: 'wood_floor' }, { x: 0, y: 8, type: 'wood_floor' }
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 3, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_3_2', type: 'desk', x: 3, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_3_4', type: 'desk', x: 3, y: 4, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_5_2', type: 'desk', x: 5, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_5_4', type: 'desk', x: 5, y: 4, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 玩家 3 人站位（main.js 会根据主角线动态拉取当前主力铁三角）
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 3 },
-    { unitId: 'zhanghanyu', x: 2, y: 2 },
-    { unitId: 'fanwenmo', x: 2, y: 4 }
+    { unitId: 'zhangzixiao', x: 2, y: 5 },
+    { unitId: 'zhanghanyu', x: 2, y: 3 },
+    { unitId: 'fanwenmo', x: 2, y: 7 }
   ],
 
   // 敌方布阵（5 人）：朱晏泽带头挑衅，两名男同学与两名女同学在课桌间煽风点火、推波助澜
   enemyDeploy: [
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 6, y: 3 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 7, y: 1 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 4, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 7, y: 5 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 4, y: 5 }
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 9, y: 5 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 10, y: 2 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 6, y: 1 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 10, y: 8 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 6, y: 9 }
   ],
 
   objective: {

@@ -5,8 +5,8 @@
 export const CH0_BATTLE1 = {
   id: 'ch0_battle1',
   name: '第一战：校外街道 · 遭遇流动商贩',
-  mapWidth: 12,
-  mapHeight: 9,
+  mapWidth: 16,
+  mapHeight: 10,
   defaultTerrain: 'sidewalk',
 
   // 特殊地形覆盖
@@ -15,58 +15,48 @@ export const CH0_BATTLE1 = {
     { x: 0, y: 4, type: 'asphalt' }, { x: 1, y: 4, type: 'asphalt' }, { x: 2, y: 4, type: 'asphalt' }, { x: 3, y: 4, type: 'asphalt' },
     { x: 4, y: 4, type: 'asphalt' }, { x: 5, y: 4, type: 'asphalt' }, { x: 6, y: 4, type: 'asphalt' }, { x: 7, y: 4, type: 'asphalt' },
     { x: 8, y: 4, type: 'asphalt' }, { x: 9, y: 4, type: 'asphalt' }, { x: 10, y: 4, type: 'asphalt' }, { x: 11, y: 4, type: 'asphalt' },
+    { x: 12, y: 4, type: 'asphalt' }, { x: 13, y: 4, type: 'asphalt' }, { x: 14, y: 4, type: 'asphalt' }, { x: 15, y: 4, type: 'asphalt' },
 
     { x: 0, y: 5, type: 'asphalt' }, { x: 1, y: 5, type: 'asphalt' }, { x: 2, y: 5, type: 'asphalt' }, { x: 3, y: 5, type: 'asphalt' },
     { x: 4, y: 5, type: 'asphalt' }, { x: 5, y: 5, type: 'asphalt' }, { x: 6, y: 5, type: 'asphalt' }, { x: 7, y: 5, type: 'asphalt' },
     { x: 8, y: 5, type: 'asphalt' }, { x: 9, y: 5, type: 'asphalt' }, { x: 10, y: 5, type: 'asphalt' }, { x: 11, y: 5, type: 'asphalt' },
+    { x: 12, y: 5, type: 'asphalt' }, { x: 13, y: 5, type: 'asphalt' }, { x: 14, y: 5, type: 'asphalt' }, { x: 15, y: 5, type: 'asphalt' },
 
-    // 斑马线 (跨越马路 x=5,6)
-    { x: 5, y: 4, type: 'crosswalk' }, { x: 6, y: 4, type: 'crosswalk' },
-    { x: 5, y: 5, type: 'crosswalk' }, { x: 6, y: 5, type: 'crosswalk' },
+    // 斑马线 (跨越马路 x=7,8)
+    { x: 7, y: 4, type: 'crosswalk' }, { x: 8, y: 4, type: 'crosswalk' },
+    { x: 7, y: 5, type: 'crosswalk' }, { x: 8, y: 5, type: 'crosswalk' },
 
     // 校门前红砖广场 (y=1, 2 中间区域)
-    { x: 4, y: 1, type: 'brick' }, { x: 5, y: 1, type: 'brick' }, { x: 6, y: 1, type: 'brick' }, { x: 7, y: 1, type: 'brick' },
-    { x: 4, y: 2, type: 'brick' }, { x: 5, y: 2, type: 'brick' }, { x: 6, y: 2, type: 'brick' }, { x: 7, y: 2, type: 'brick' },
+    { x: 6, y: 1, type: 'brick' }, { x: 7, y: 1, type: 'brick' }, { x: 8, y: 1, type: 'brick' }, { x: 9, y: 1, type: 'brick' },
+    { x: 6, y: 2, type: 'brick' }, { x: 7, y: 2, type: 'brick' }, { x: 8, y: 2, type: 'brick' }, { x: 9, y: 2, type: 'brick' },
 
     // 绿化草地 (顶部与底部边缘)
     { x: 0, y: 0, type: 'grass' }, { x: 1, y: 0, type: 'grass' }, { x: 2, y: 0, type: 'grass' },
-    { x: 9, y: 0, type: 'grass' }, { x: 10, y: 0, type: 'grass' }, { x: 11, y: 0, type: 'grass' },
-    { x: 0, y: 8, type: 'grass' }, { x: 1, y: 8, type: 'grass' },
-    { x: 10, y: 8, type: 'grass' }, { x: 11, y: 8, type: 'grass' }
+    { x: 13, y: 0, type: 'grass' }, { x: 14, y: 0, type: 'grass' }, { x: 15, y: 0, type: 'grass' },
+    { x: 0, y: 9, type: 'grass' }, { x: 1, y: 9, type: 'grass' },
+    { x: 14, y: 9, type: 'grass' }, { x: 15, y: 9, type: 'grass' }
   ],
 
   // Kenney RPG Urban 街具物件装饰与碰撞阻挡
   props: [
     // 路灯与树木 (默认居中)
-    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'lamp_8_1', type: 'street_lamp', x: 8, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_5_1', type: 'street_lamp', x: 5, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_10_1', type: 'street_lamp', x: 10, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_11_0', type: 'tree', x: 11, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_15_0', type: 'tree', x: 15, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
     
     // 灌木丛
     { id: 'bush_1_0', type: 'bush', x: 1, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_10_0', type: 'bush', x: 10, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_0_8', type: 'bush', x: 0, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_11_8', type: 'bush', x: 11, y: 8, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    
-    // 长椅与消防栓
-    { id: 'bench_9_2', type: 'bench', x: 9, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'hydrant_7_6', type: 'hydrant', x: 7, y: 6, img: 'assets/props/kenney/kc_hydrant.png', gridW: 1, gridH: 1, blocks: true, subX: 2, subY: 1 }, // 消防栓靠右侧放置
-    
-    // 垃圾桶与隔离柱 (利用 subX/subY 进行非对称堆叠)
-    { id: 'dumpster_11_6', type: 'dumpster', x: 11, y: 6, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'trashbag_11_6', type: 'trashbag', x: 11, y: 6, img: 'assets/props/kenney/kc_trashbag.png', gridW: 1, gridH: 1, blocks: false, subX: 0, subY: 2 }, // 垃圾袋堆在垃圾桶左下角
-    { id: 'trashbag_11_6_2', type: 'trashbag', x: 11, y: 6, img: 'assets/props/kenney/kc_trashbag.png', gridW: 1, gridH: 1, blocks: false, subX: 0, subY: 1 }, // 垃圾袋堆在垃圾桶左侧
-    
-    // 斑马线入口处的隔离柱 (防止车辆开上人行道，放置在格子边缘)
-    { id: 'bollard_4_3_r', type: 'bollard', x: 4, y: 3, img: 'assets/props/kenney/kc_bollard.png', gridW: 1, gridH: 1, blocks: true, subX: 2, subY: 2 },
-    { id: 'bollard_7_3_l', type: 'bollard', x: 7, y: 3, img: 'assets/props/kenney/kc_bollard.png', gridW: 1, gridH: 1, blocks: true, subX: 0, subY: 2 },
-    
-    // 自动售货机
-    { id: 'vending_1_2', type: 'vending', x: 1, y: 2, img: 'assets/props/kenney/kc_vending_machine.png', gridW: 1, gridH: 1, blocks: true },
-    
-    // 流动商贩的摊车！(完美契合剧情，放在敌人商贩附近)
-    { id: 'food_stall_8_3', type: 'food_stall', x: 8, y: 3, img: 'assets/props/kenney/kc_food_stall.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'bush_14_0', type: 'bush', x: 14, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+
+    // 垃圾桶与自动售货机 (靠边堆叠)
+    { id: 'trash_4_2', type: 'trash_bin', x: 4, y: 2, img: 'assets/props/kenney/kc_trash.png', gridW: 1, gridH: 1, subX: 2, subY: 2, blocks: true },
+    { id: 'vending_11_2', type: 'vending_machine', x: 11, y: 2, img: 'assets/props/kenney/kc_vending_machine.png', gridW: 1, gridH: 1, subX: 0, subY: 1, blocks: true },
+
+    // 报刊亭 / 小吃摊车 (摊车拉长视觉但逻辑占 1 格)
+    { id: 'cart_12_3', type: 'food_cart', x: 12, y: 3, img: 'assets/props/kenney/kc_food_cart.png', gridW: 1, gridH: 1, subX: 1, subY: 0, blocks: true }
   ],
 
   // 我方出场点
@@ -76,7 +66,7 @@ export const CH0_BATTLE1 = {
 
   // 敌方部署（只有 1 个流动商贩）
   enemyDeploy: [
-    { enemyId: 'vendor', instanceId: 'vendor_1', x: 8, y: 4 }
+    { enemyId: 'vendor', instanceId: 'vendor_1', x: 13, y: 4 }
   ],
 
   // 胜利条件

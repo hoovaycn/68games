@@ -12,8 +12,8 @@
 export const CH1_BATTLE1 = {
   id: 'ch1_battle1',
   name: '第四战：操场加测 · 击破魔化狂潮',
-  mapWidth: 10,
-  mapHeight: 8,
+  mapWidth: 16,
+  mapHeight: 10,
   defaultTerrain: 'grass',
 
   terrainTypes: {
@@ -24,36 +24,36 @@ export const CH1_BATTLE1 = {
 
   terrainTiles: [
     // 外圈红色跑道
-    { x: 0, y: 0, type: 'track' }, { x: 1, y: 0, type: 'track' }, { x: 2, y: 0, type: 'track' }, { x: 3, y: 0, type: 'track' }, { x: 4, y: 0, type: 'track' }, { x: 5, y: 0, type: 'track' }, { x: 6, y: 0, type: 'track' }, { x: 7, y: 0, type: 'track' }, { x: 8, y: 0, type: 'track' }, { x: 9, y: 0, type: 'track' },
-    { x: 0, y: 7, type: 'track' }, { x: 1, y: 7, type: 'track' }, { x: 2, y: 7, type: 'track' }, { x: 3, y: 7, type: 'track' }, { x: 4, y: 7, type: 'track' }, { x: 5, y: 7, type: 'track' }, { x: 6, y: 7, type: 'track' }, { x: 7, y: 7, type: 'track' }, { x: 8, y: 7, type: 'track' }, { x: 9, y: 7, type: 'track' },
-    { x: 0, y: 1, type: 'track' }, { x: 0, y: 2, type: 'track' }, { x: 0, y: 3, type: 'track' }, { x: 0, y: 4, type: 'track' }, { x: 0, y: 5, type: 'track' }, { x: 0, y: 6, type: 'track' },
-    { x: 9, y: 1, type: 'track' }, { x: 9, y: 2, type: 'track' }, { x: 9, y: 3, type: 'track' }, { x: 9, y: 4, type: 'track' }, { x: 9, y: 5, type: 'track' }, { x: 9, y: 6, type: 'track' },
+    { x: 0, y: 0, type: 'track' }, { x: 1, y: 0, type: 'track' }, { x: 2, y: 0, type: 'track' }, { x: 3, y: 0, type: 'track' }, { x: 4, y: 0, type: 'track' }, { x: 5, y: 0, type: 'track' }, { x: 6, y: 0, type: 'track' }, { x: 7, y: 0, type: 'track' }, { x: 8, y: 0, type: 'track' }, { x: 9, y: 0, type: 'track' }, { x: 10, y: 0, type: 'track' }, { x: 11, y: 0, type: 'track' }, { x: 12, y: 0, type: 'track' }, { x: 13, y: 0, type: 'track' }, { x: 14, y: 0, type: 'track' }, { x: 15, y: 0, type: 'track' },
+    { x: 0, y: 9, type: 'track' }, { x: 1, y: 9, type: 'track' }, { x: 2, y: 9, type: 'track' }, { x: 3, y: 9, type: 'track' }, { x: 4, y: 9, type: 'track' }, { x: 5, y: 9, type: 'track' }, { x: 6, y: 9, type: 'track' }, { x: 7, y: 9, type: 'track' }, { x: 8, y: 9, type: 'track' }, { x: 9, y: 9, type: 'track' }, { x: 10, y: 9, type: 'track' }, { x: 11, y: 9, type: 'track' }, { x: 12, y: 9, type: 'track' }, { x: 13, y: 9, type: 'track' }, { x: 14, y: 9, type: 'track' }, { x: 15, y: 9, type: 'track' },
+    { x: 0, y: 1, type: 'track' }, { x: 0, y: 2, type: 'track' }, { x: 0, y: 3, type: 'track' }, { x: 0, y: 4, type: 'track' }, { x: 0, y: 5, type: 'track' }, { x: 0, y: 6, type: 'track' }, { x: 0, y: 7, type: 'track' }, { x: 0, y: 8, type: 'track' },
+    { x: 15, y: 1, type: 'track' }, { x: 15, y: 2, type: 'track' }, { x: 15, y: 3, type: 'track' }, { x: 15, y: 4, type: 'track' }, { x: 15, y: 5, type: 'track' }, { x: 15, y: 6, type: 'track' }, { x: 15, y: 7, type: 'track' }, { x: 15, y: 8, type: 'track' },
 
     // 沙坑区域
-    { x: 4, y: 5, type: 'sand_pit' }, { x: 5, y: 5, type: 'sand_pit' }
+    { x: 6, y: 7, type: 'sand_pit' }, { x: 7, y: 7, type: 'sand_pit' }, { x: 8, y: 7, type: 'sand_pit' }
   ],
 
   props: [
-    { id: 'goal_post', type: 'post', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_3_2', type: 'bench', x: 3, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_6_5', type: 'bush', x: 6, y: 4, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 我方出战（4 人）：徐老师顶在前排，主角与张希哲、覃瑞怡并肩协作
   playerDeploy: [
-    { unitId: 'xu_laoshi', x: 2, y: 3 },
-    { unitId: 'zhangzixiao', x: 1, y: 3 },
-    { unitId: 'zhangxizhe', x: 1, y: 2 },
-    { unitId: 'qinruiyi', x: 1, y: 4 }
+    { unitId: 'xu_laoshi', x: 2, y: 4 },
+    { unitId: 'zhangzixiao', x: 1, y: 4 },
+    { unitId: 'zhangxizhe', x: 1, y: 3 },
+    { unitId: 'qinruiyi', x: 1, y: 5 }
   ],
 
   // 敌方布阵（5 人）：魔化体育老师在球门前压阵，外校体育生组成前锋、侧翼与掩护梯次
   enemyDeploy: [
-    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 7, y: 3 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 6, y: 1 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 6, y: 6 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 5, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 7, y: 5 }
+    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 13, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 11, y: 3 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 11, y: 5 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 10, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 10, y: 6 }
   ],
 
   objective: {

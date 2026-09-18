@@ -39,7 +39,7 @@ export const CLASSES = {
     id: 'sports_star',
     name: '体育健将',
     desc: '校运会的主力队员。课堂上的能量没处使，全攒在了操场上。',
-    base: { hp: 26, mp: 6, str: 8, mag: 0, skl: 5, spd: 7, luk: 4, def: 6, res: 1, mov: 6 },
+    base: { hp: 26, mp: 6, str: 8, mag: 0, skl: 5, spd: 7, luk: 4, def: 6, res: 1, mov: 4 },
     growth: { hp: 80, mp: 15, str: 55, mag: 10, skl: 35, spd: 50, luk: 30, def: 40, res: 15 },
     families: ['球', '钝器'],
     legacy: false
@@ -50,7 +50,7 @@ export const CLASSES = {
     id: 'study_committee',
     name: '学习委员',
     desc: '收作业时气场两米八。知识点在他们嘴里都是现成的武器。',
-    base: { hp: 22, mp: 22, str: 3, mag: 8, skl: 7, spd: 6, luk: 7, def: 3, res: 8, mov: 5 },
+    base: { hp: 22, mp: 22, str: 3, mag: 8, skl: 7, spd: 6, luk: 7, def: 3, res: 8, mov: 6 },
     growth: { hp: 45, mp: 55, str: 15, mag: 60, skl: 45, spd: 45, luk: 50, def: 15, res: 55 },
     families: ['乐器', '粉笔'],
     legacy: false
@@ -72,7 +72,7 @@ export const CLASSES = {
     id: 'strong_boy',
     name: '怪力少年',
     desc: '个头骗不了题目，但骗得了对手。写作业手抖的人，掰手腕全班投降。',
-    base: { hp: 28, mp: 6, str: 10, mag: 0, skl: 5, spd: 6, luk: 5, def: 7, res: 1, mov: 5 },
+    base: { hp: 28, mp: 6, str: 10, mag: 0, skl: 5, spd: 6, luk: 5, def: 7, res: 1, mov: 4 },
     growth: { hp: 75, mp: 10, str: 60, mag: 5, skl: 30, spd: 40, luk: 25, def: 45, res: 10 },
     families: ['球', '钝器'],
     legacy: false
@@ -83,7 +83,7 @@ export const CLASSES = {
     id: 'cheerleader',
     name: '拉拉操队员',
     desc: '运动会必到场的颜值担当。嗓子就是治疗术，节拍就是增益术。',
-    base: { hp: 24, mp: 20, str: 4, mag: 6, skl: 6, spd: 9, luk: 10, def: 5, res: 9, mov: 5 },
+    base: { hp: 24, mp: 20, str: 4, mag: 6, skl: 6, spd: 9, luk: 10, def: 5, res: 9, mov: 6 },
     growth: { hp: 55, mp: 50, str: 20, mag: 45, skl: 40, spd: 65, luk: 65, def: 20, res: 60 },
     families: ['彩球'],
     legacy: false
@@ -94,7 +94,7 @@ export const CLASSES = {
     id: 'teacher',
     name: '人民教师',
     desc: '讲台就是高地，粉笔就是射程。一个眼神沉默一个班级。',
-    base: { hp: 30, mp: 24, str: 9, mag: 6, skl: 8, spd: 6, luk: 7, def: 8, res: 8, mov: 5 },
+    base: { hp: 30, mp: 24, str: 9, mag: 6, skl: 8, spd: 6, luk: 7, def: 8, res: 8, mov: 6 },
     growth: { hp: 70, mp: 40, str: 50, mag: 40, skl: 45, spd: 35, luk: 40, def: 50, res: 50 },
     families: ['粉笔', '教具'],
     legacy: false
@@ -105,7 +105,7 @@ export const CLASSES = {
     id: 'street_loafer',
     name: '社会闲散人员',
     desc: '在校门口和街角晃荡的散人。不好好上课，日子照样过得很凶。',
-    base: { hp: 16, mp: 6, str: 6, mag: 1, skl: 4, spd: 5, luk: 3, def: 3, res: 1, mov: 5 },
+    base: { hp: 16, mp: 6, str: 6, mag: 1, skl: 4, spd: 5, luk: 3, def: 3, res: 1, mov: 4 },
     growth: { hp: 55, mp: 15, str: 40, mag: 10, skl: 30, spd: 35, luk: 20, def: 25, res: 15 },
     families: ['钝器', '杂物'],
     legacy: false

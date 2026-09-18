@@ -159,6 +159,23 @@ export class GridSystem {
     return tiles;
   }
 
+  // 计算全局威胁范围（基于所有可达格子的所有攻击范围并集）
+  getThreatTiles(reachableTiles, minRange = 1, maxRange = 1) {
+    const threatSet = new Set();
+    const result = [];
+    for (const rt of reachableTiles) {
+      const atkTiles = this.getAttackableTiles(rt.x, rt.y, minRange, maxRange);
+      for (const at of atkTiles) {
+        const key = `${at.x},${at.y}`;
+        if (!threatSet.has(key)) {
+          threatSet.add(key);
+          result.push(at);
+        }
+      }
+    }
+    return result;
+  }
+
   // A* 寻路算法（从起点到目标点的最短连通路径）
   findPath(startX, startY, targetX, targetY, unitFaction, allUnits) {
     if (startX === targetX && startY === targetY) return [];

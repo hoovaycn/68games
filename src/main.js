@@ -1194,23 +1194,60 @@ class GameApp {
   handleBattleConfirm(clickX, clickY) {
     const bs = this.battleState;
 
-    if (bs.mode === 'IDLE') {
+    if (bs.mode === 'IDLE' || bs.mode === 'ENEMY_DANGER_ZONE') {
       const unit = bs.units.find(
         u => u.isAlive && u.x === bs.cursor.x && u.y === bs.cursor.y
       );
 
-      if (unit && unit.faction === 'player' && !unit.hasActed) {
-        bs.selectedUnit = unit;
-        bs.originalPos = { x: unit.x, y: unit.y };
-        bs.reachableTiles = bs.gridSystem.getReachableTiles(
-          unit.x,
-          unit.y,
-          unit.stats.mov,
-          unit.faction,
-          bs.units
-        );
-        bs.mode = 'UNIT_SELECTED';
-        sound.playSfx('sfx_confirm');
+      if (unit) {
+        if (unit.faction === 'player' && !unit.hasActed) {
+          // 清除之前的危险区域显示
+          if (bs.mode === 'ENEMY_DANGER_ZONE') {
+            bs.selectedEnemy = null;
+            bs.attackableTiles = [];
+          }
+          
+          bs.selectedUnit = unit;
+          bs.originalPos = { x: unit.x, y: unit.y };
+          bs.reachableTiles = bs.gridSystem.getReachableTiles(
+            unit.x,
+            unit.y,
+            unit.stats.mov,
+            unit.faction,
+            bs.units
+          );
+          bs.mode = 'UNIT_SELECTED';
+          sound.playSfx('sfx_confirm');
+        } else if (unit.faction === 'enemy') {
+          if (bs.mode === 'ENEMY_DANGER_ZONE' && bs.selectedEnemy === unit) {
+            // 点击已经选中的敌人，取消显示
+            this.handleBattleCancel();
+          } else {
+            // 显示敌人的危险区域（移动范围+攻击范围）
+            bs.mode = 'ENEMY_DANGER_ZONE';
+            bs.selectedEnemy = unit;
+            
+            bs.reachableTiles = bs.gridSystem.getReachableTiles(
+              unit.x,
+              unit.y,
+              unit.stats.mov,
+              unit.faction,
+              bs.units
+            );
+            
+            const weapon = WEAPONS[unit.equippedWeapon] || WEAPONS.pencil;
+            bs.attackableTiles = bs.gridSystem.getThreatTiles(
+              bs.reachableTiles,
+              weapon.range[0],
+              weapon.range[1]
+            );
+            
+            sound.playSfx('sfx_confirm');
+          }
+        }
+      } else if (bs.mode === 'ENEMY_DANGER_ZONE') {
+        // 点击空地，取消危险区域显示
+        this.handleBattleCancel();
       }
       return;
     }
@@ -1300,6 +1337,15 @@ class GameApp {
       bs.originalPos = null;
       bs.reachableTiles = [];
       bs.currentPath = [];
+      bs.mode = 'IDLE';
+      sound.playSfx('sfx_cancel');
+      return;
+    }
+
+    if (bs.mode === 'ENEMY_DANGER_ZONE') {
+      bs.selectedEnemy = null;
+      bs.reachableTiles = [];
+      bs.attackableTiles = [];
       bs.mode = 'IDLE';
       sound.playSfx('sfx_cancel');
       return;

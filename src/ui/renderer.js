@@ -57,10 +57,10 @@ export class Renderer {
     this.panelW = this.canvas.width;
     this.panelH = this.canvas.height;
 
-    // 中缝分隔线与右侧信息栏内容区（右侧面板适当收窄至 214px，让出视觉重心给战场）
-    this.hudW = 214;
+    // 中缝分隔线与右侧信息栏内容区（右侧面板适当收窄，让出视觉重心给战场）
+    this.hudW = 170;
     this.hudX = this.panelX + this.panelW - 24 - this.hudW;
-    this.hudDividerX = this.hudX - 18;
+    this.hudDividerX = this.hudX - 16;
 
     // ★ 左侧战场区自适应缩放：在「面板左缘 ~ 中缝分隔线」区域内尽量铺满并居中
     //   基准 48px/格，按可用空间等比放大（封顶 64）或缩小（下限 36）
@@ -261,7 +261,7 @@ export class Renderer {
     ctx.textAlign = 'left';
     ctx.fillText(`${alivePlayers} 人`, this.hudX + 30, statRowY + 11);
 
-    const enemyStatX = this.hudX + Math.floor(this.hudW / 2) + 6;
+    const enemyStatX = this.hudX + Math.floor(this.hudW / 2) + 2;
     ctx.fillStyle = '#dc2626';
     ctx.beginPath();
     ctx.roundRect(enemyStatX, statRowY, 22, 22, 4);
