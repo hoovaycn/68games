@@ -7,8 +7,8 @@ export const CHAPTER8_STORY = {
     id: 'ch8_scene_warehouse',
     title: '旧仓库外 · 顺线摸过去',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_warehouse.png',
-    bgm: 'bgm_suspense',
+    bgImg: 'assets/backgrounds/bg_warehouse@2x.png',
+    bgm: 'bgm_army_approaching',
     dialogues: [
       {
         id: 1,
@@ -16,34 +16,34 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿沅走后，两个小姑娘没有停。她们每救醒一个异化同学，就抓着人家的胳膊追问一句“谁给你的、在哪拿的”，顺着那些零零碎碎的指认，一路从学校摸到了城郊旧仓库。',
+        text: '阿瑶走后，两个小姑娘没有停。她们每救醒一个异化同学，就抓着人家的胳膊追问一句“谁给你的、在哪拿的”，顺着那些零零碎碎的指认，一路从学校摸到了城郊旧仓库。',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
         speaker: '被救醒的同学',
         leftPortrait: null,
-        rightPortrait: 'assets/art/young_xu_default.png',
+        rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'right',
         text: '我、我看见他们往那边搬箱子……一个破仓库，有个穿花西装、戴金链子的男的，大家都叫他哥……',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 3,
+        id: 7,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/young_liu_default.png',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/young_liu_default@2x.png',
         activeSide: 'left',
-        text: '走，过去看看。阿沅肯定也在那儿。',
-        sfx: 'sfx_confirm'
+        text: '走，过去看看。阿瑶肯定也在那儿。',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 4,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/young_liu_default.png',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/young_liu_default@2x.png',
         activeSide: 'right',
-        text: '这次不对劲。他们不是零散发东西了，是成箱成箱往各个学校送，像有组织的一样。',
+        text: '这次不对劲。他们不是小打小闹，是成箱成箱地往各个学校送，背后肯定有个大组织。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -52,26 +52,26 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两个人趴在仓库窗户边往里看，印着怪 logo 的纸箱子堆得老高，不同学校校服的学生进进出出搬货。那一刻她们第一次意识到：这根本不是一两个小贩，而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
+        text: '两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。那一刻她们第一次意识到：这根本不是一两个小贩，而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 6,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/young_xu_default.png',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '如果真是这样，就算今晚这一个仓库端了，外面也未必只有这一处。',
+        text: '如果真是这样，就算我们今晚砸了这一个仓库，外面肯定还有别的供货点。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 7,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/young_xu_default.png',
-        activeSide: 'right',
-        text: '先别管几处。阿沅还在里头，我就先把眼前这扇门砸开。',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        activeSide: 'left',
+        text: '先别管几处。阿瑶还在里头，我就先把眼前这扇门砸开。',
         sfx: 'sfx_confirm'
       }
     ],
@@ -87,8 +87,8 @@ export const CHAPTER8_STORY = {
     id: 'ch8_scene_confront',
     title: '仓库深处 · 打赢了也抓不住',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_warehouse.png',
-    bgm: 'bgm_suspense',
+    bgImg: 'assets/backgrounds/bg_warehouse@2x.png',
+    bgm: 'bgm_gojira_battle',
     dialogues: [
       {
         id: 1,
@@ -101,36 +101,36 @@ export const CHAPTER8_STORY = {
       },
       {
         id: 2,
-        speaker: '神秘男子',
-        leftPortrait: 'assets/art/mystery_man_corrupted.png',
-        rightPortrait: 'assets/art/young_xu_default.png',
+        speaker: '幻境坏家长',
+        leftPortrait: 'assets/art/mystery_man_default@2x.png',
+        rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '两个小丫头，胆子不小。一路跟到这儿，是觉得自己能把这摊子事一把掀了？',
+        text: '分数就是一切！考不上重点，你们这辈子就完了！吃吧，吃了就能拿第一！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted.png',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_default@2x.png',
         activeSide: 'left',
-        text: '阿沅呢？你们给她吃了什么？',
-        sfx: 'sfx_shock_sting'
+        text: '阿瑶呢？你们给她吃了什么？',
+        sfx: 'sfx_confirm'
       },
       {
         id: 4,
-        speaker: '神秘男子',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted.png',
+        speaker: '幻境坏家长',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_default@2x.png',
         activeSide: 'right',
-        text: '我可没逼任何人。东西放在这儿，谁想要，谁就自己伸手拿。你们这些好学生，不也最懂“结果值不值钱”吗？',
+        text: '你们懂什么？只要能把分数提上去，这点代价算什么？等你们长大了就知道，没人会问你分数是怎么来的，他们只看你站得有多高！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 5,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted.png',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
         text: '你把一群要考试的小孩当货架前的客人，还说不是逼？',
         sfx: 'sfx_confirm'
@@ -141,7 +141,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '男人抬了抬手，周围那些异化学生立刻全扑了上来。两个小姑娘拼着一整夜剩下的最后一点劲，硬生生把仓库深处打出一条路。',
+        text: '幻境坏家长抬了抬手，周围那些异化学生立刻全扑了上来。两个小姑娘拼着一整夜剩下的最后一点劲，硬生生把仓库深处打出一条路。',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -158,7 +158,7 @@ export const CHAPTER8_STORY = {
     id: 'ch8_scene_after',
     title: '仓库门口 · 她不跟你们走',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_warehouse.png',
+    bgImg: 'assets/backgrounds/bg_warehouse@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -167,7 +167,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '神秘男子的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下一个印着怪 logo 的空信封。',
+        text: '幻境坏家长的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -176,32 +176,32 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她们顾不上追，转身就往仓库门口跑。阿沅就站在那片天光里，眼睛还是青的，却没有失控，站得很稳，表情甚至平静得有些可怕。',
+        text: '她们顾不上追，转身就往仓库门口跑。阿瑶就站在那片天光里，眼睛还是青的，却没有失控，站得很稳，表情甚至平静得有些可怕。',
         sfx: 'sfx_confirm'
       },
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/ayuan_corrupted.png',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'left',
-        text: '阿沅！我们打赢了！快跟我们走，我们能把你喊醒！',
+        text: '阿瑶！我们打赢了！快跟我们走，我们能把你喊醒！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 4,
-        speaker: '异化阿沅',
-        leftPortrait: 'assets/art/young_xu_default.png',
-        rightPortrait: 'assets/art/ayuan_corrupted.png',
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
         text: '我没疯，我清醒得很。我本来就想变成这样。',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 5,
-        speaker: '异化阿沅',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/ayuan_corrupted.png',
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
         text: '我考了第一，我爸妈终于不骂我了，老师都夸我，所有人都喜欢我。我不需要你们救。',
         sfx: 'sfx_text_blip'
@@ -209,17 +209,17 @@ export const CHAPTER8_STORY = {
       {
         id: 6,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/ayuan_corrupted.png',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'left',
         text: '你看看我们！你以前不是这样的！你说过要跟我们一起毕业的！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 7,
-        speaker: '异化阿沅',
-        leftPortrait: 'assets/art/young_liu_default.png',
-        rightPortrait: 'assets/art/ayuan_corrupted.png',
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
         text: '那是以前的我不懂事。你们别再来找我了。',
         highlight: true,
@@ -253,18 +253,18 @@ export const CHAPTER8_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 11,
+        id: 9,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default.png',
+        leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '当年我们打赢了架，可什么都没拦住。boss 跑了，我们要救的人，自己不想回来。这个轮子转了二十年，还是转到了你们这一届。',
+        text: '当年我们打赢了架，可什么都没拦住。Boss 跑了，我们要救的人，自己不想回来。这个轮子转了二十年，还是转到了你们这一届。这一次……换你们。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 12,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default.png',
+        leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '这一次……换你们。',

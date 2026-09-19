@@ -38,32 +38,46 @@ const FALLBACK_URL_2X = PORTRAITS_DIR + '/_default@2x.png';
  * V1 遗留：徐老师的数据键叫 xu_laoshi，画作一直叫 teacher_xu——
  * 没有这张别名表时 units.js 的 portrait 字段会静默 404。 */
 const FILE_KEYS = {
-  xu_laoshi: 'teacher_xu'
+  xu_laoshi: 'teacher_xu',
+  liu_laoshi: 'adult_liu'
 };
 
 /* 头像登记表：角色 → 拥有的 state 列表（至少含 default）。
  * 补新图的动作序列：此处加 state → 放 png 与 @2x → 跑 selftest 守门。 */
 const ACTOR_STATES = {
   /* 双主线主角 */
-  zhangzixiao: ['default'],
-  shiyunuo: ['default'],
+  zhangzixiao: ['default', 'corrupted'],
+  shiyunuo: ['default', 'corrupted'],
   /* 各线伙伴 / 敌转友 */
-  chenpinxuan: ['default'],
+  chenpinxuan: ['default', 'corrupted'],
   fanwenmo: ['default', 'corrupted'],
-  zhanghanyu: ['default'],
+  zhanghanyu: ['default', 'corrupted'],
   heyanxi: ['default', 'corrupted'],
-  qinruiyi: ['default'],
-  zhangxizhe: ['default'],
+  qinruiyi: ['default', 'corrupted'],
+  zhangxizhe: ['default', 'corrupted'],
   zhuyanze: ['default', 'corrupted'],
   xu_laoshi: ['default'],
-  /* 敌方（含表外剧情单位：senior_athlete / teacher_pe / teacher_xu / classmate_*） */
-  vendor: ['default'],
+  liu_laoshi: ['default'],
+  /* 敌方（含表外剧情单位，senior_athlete / teacher_pe / teacher_xu / classmate_*等） */
+  vendor: ['default', 'sad'],
   punk: ['default'],
   senior_athlete: ['default', 'corrupted'],
+  senior_athlete_leader: ['corrupted'],
   teacher_pe: ['default', 'corrupted'],
   teacher_xu: ['default'],
   classmate_boy: ['default', 'corrupted'],
-  classmate_girl: ['default', 'corrupted']
+  classmate_girl: ['default', 'corrupted'],
+  adult_liu: ['default'],
+  ayao: ['default', 'corrupted'],
+  coach: ['default', 'corrupted', 'sad'],
+  grade1_student: ['default'],
+  mystery_man: ['default', 'corrupted'],
+  parent_rep: ['default'],
+  shadow_woman: ['default'],
+  young_liu: ['default'],
+  young_xu: ['default'],
+  senior_student: ['default', 'corrupted'],
+  janitor: ['default', 'corrupted']
 };
 
 /* ───────────── 内部工具 ───────────── */

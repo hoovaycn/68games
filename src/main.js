@@ -46,6 +46,7 @@ import { CH3_BATTLE1 } from './data/chapters/ch3_battle1.js';
 import { CH4_BATTLE1 } from './data/chapters/ch4_battle1.js';
 import { CH5_BATTLE1 } from './data/chapters/ch5_battle1.js';
 import { CH6_BATTLE1 } from './data/chapters/ch6_battle1.js';
+import { CH7_BATTLE1 } from './data/chapters/ch7_battle1.js';
 import { CH8_BATTLE1 } from './data/chapters/ch8_battle1.js';
 import { CH9_BATTLE1 } from './data/chapters/ch9_battle1.js';
 import { WEAPONS } from './data/weapons.js';
@@ -68,12 +69,12 @@ const LINEAR_STORY = {
 const CHAPTER_BANNERS = {
   ch1_scene_playground: { label: '第二章', title: '操场上来的人' },
   ch2_scene_auditorium: { label: '第三章', title: '谁是下一个' },
-  ch3_scene_exhibition: { label: '第四章', title: '参展名单' },
-  ch4_scene_team_meeting: { label: '第五章', title: '旧冠军' },
-  ch5_scene_parent_meeting: { label: '第六章', title: '家长会前夜' },
-  ch6_scene_corridor: { label: '第七章', title: '楼道里全是熟人' },
-  ch7_scene_flashback: { label: '第八章', title: '很久以前她们也没赢过' },
-  ch8_scene_warehouse: { label: '第九章', title: '老仓库' },
+  ch3_scene_exhibition: { label: '第四章', title: '她是谁' },
+  ch4_scene_team_meeting: { label: '第五章', title: '全国第一' },
+  ch5_scene_parent_meeting: { label: '第六章', title: '家长会' },
+  ch6_scene_corridor: { label: '第七章', title: '大溃败' },
+  ch7_scene_flashback: { label: '第八章', title: '从前那一班-上' },
+  ch8_scene_warehouse: { label: '第九章', title: '从前那一班-下' },
   ch9_scene_exam: { label: '第十章', title: '大考' }
 };
 
@@ -88,6 +89,7 @@ const CHAPTERS = {
   ch4_battle1: CH4_BATTLE1,
   ch5_battle1: CH5_BATTLE1,
   ch6_battle1: CH6_BATTLE1,
+  ch7_battle1: CH7_BATTLE1,
   ch8_battle1: CH8_BATTLE1,
   ch9_battle1: CH9_BATTLE1
 };
@@ -364,11 +366,11 @@ class GameApp {
       // 深度拷贝并注入男女主专属变量替换（{MC_NAME}, {MC_PORTRAIT}, {ALLY_1_NAME}, {ALLY_2_NAME} 等）
       const isMale = this.selectedRoute === 'male';
       const mcName = isMale ? '张子骁' : '石予诺';
-      const mcPortrait = isMale ? 'assets/art/zhangzixiao_default.png' : 'assets/art/shiyunuo_default.png';
+      const mcPortrait = isMale ? 'assets/art/zhangzixiao_default@2x.png' : 'assets/art/shiyunuo_default@2x.png';
       const ally1Name = isMale ? '张瀚瑜' : '陈品璇';
-      const ally1Portrait = isMale ? 'assets/art/zhanghanyu_default.png' : 'assets/art/chenpinxuan_default.png';
+      const ally1Portrait = isMale ? 'assets/art/zhanghanyu_default@2x.png' : 'assets/art/chenpinxuan_default@2x.png';
       const ally2Name = isMale ? '范文默' : '何妍熹';
-      const ally2Portrait = isMale ? 'assets/art/fanwenmo_default.png' : 'assets/art/heyanxi_default.png';
+      const ally2Portrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_default@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));
       if (Array.isArray(sceneData.dialogues)) {
@@ -999,45 +1001,19 @@ class GameApp {
     window.addEventListener('keydown', (e) => {
       sound.unlock();
 
-      // ★ 开发者秘籍（任意位置可用，支持任意章节号）：
-      //   Ctrl+1~9 直接跳对应章节；`~`+数字+回车 跳任意编号章节（如第 10 章）
-      if (e.ctrlKey && !e.altKey && !e.shiftKey) {
-        const n = Number(e.key);
-        if (n >= 1 && n <= 9) {
+      // ★ 开发者秘籍（任意位置可用）：F1~F12 直接跳对应章节
+      const fMatch = e.code.match(/^F(\d+)$/);
+      if (fMatch) {
+        const n = parseInt(fMatch[1], 10);
+        if (n >= 1 && n <= 12) {
           e.preventDefault();
           this.debugJumpToChapter(n);
           return;
         }
       }
-      if (e.code === 'Backquote') {
-        this.devMode = !this.devMode;
-        this.devBuffer = '';
-        e.preventDefault();
-        return;
-      }
-      if (this.devMode) {
-        if (e.key >= '0' && e.key <= '9') {
-          this.devBuffer += e.key;
-          return;
-        }
-        if (e.key === 'Enter') {
-          if (this.devBuffer) {
-            this.debugJumpToChapter(this.devBuffer);
-            this.devMode = false;
-            this.devBuffer = '';
-          }
-          return;
-        }
-        if (e.key === 'Escape') {
-          this.devMode = false;
-          this.devBuffer = '';
-          return;
-        }
-        return;
-      }
 
-      // ★ 开发者秘籍：F8 或 Ctrl+0 直接在战斗中秒杀所有敌人并通关
-      if ((e.code === 'F8' || (e.ctrlKey && e.key === '0')) && this.stage === 'STAGE_BATTLE') {
+      // ★ 开发者秘籍：Ctrl+0 直接在战斗中秒杀所有敌人并通关
+      if (e.ctrlKey && e.key === '0' && this.stage === 'STAGE_BATTLE') {
         e.preventDefault();
         console.log("【开发者秘籍】秒杀所有敌人！");
         if (this.battleState && this.battleState.units) {

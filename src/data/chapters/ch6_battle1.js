@@ -4,6 +4,7 @@
 export const CH6_BATTLE1 = {
   id: 'ch6_battle1',
   name: '第八战：夜楼道 · 先把熟人拦下来',
+  bgm: 'bgm_victory',
   mapWidth: 16,
   mapHeight: 8,
   defaultTerrain: 'hall',
@@ -20,9 +21,9 @@ export const CH6_BATTLE1 = {
   ],
 
   props: [
-    { id: 'bench_5_0', type: 'bench', x: 5, y: 0, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_10_7', type: 'bench', x: 10, y: 7, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_8_3', type: 'barrier', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'bench_5_0', type: 'bench', x: 5, y: 0, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_10_7', type: 'bench', x: 10, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_8_3', type: 'barrier', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

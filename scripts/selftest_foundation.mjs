@@ -209,7 +209,7 @@ check('createEnemyUnit：faction/id/enemyId/等级镜像', ev1.faction === 'enem
   && ev1.level === ENEMIES.vendor.level && ev1.drops.length === ENEMIES.vendor.drops.length);
 const ev2 = createEnemyUnit('punk', { instanceId: 'e_p1', levelOverride: 9 });
 ev2.drops.length = 0;   // 模拟结算清空
-check('drops 深拷贝：清空单位不污染 ENEMIES 模板', ENEMIES.vendor.drops.length === 2 && ev2.drops.length === 0);
+check('drops 深拷贝：清空单位不污染 ENEMIES 模板', ENEMIES.vendor.drops.length === 3 && ev2.drops.length === 0);
 check('createEnemyUnit levelOverride=9', ev2.level === 9);
 check('createEnemyUnit 未知 id → null（不抛）', createEnemyUnit('no_such_enemy', { instanceId: 'x' }) === null);
 
@@ -478,7 +478,7 @@ const uncovered = [...Object.keys(UNITS), ...Object.keys(ENEMIES)].filter((id) =
 if (uncovered.length > 0) console.log('    下列角色未登记头像表：' + uncovered.join(', '));
 check('UNITS ∪ ENEMIES 全员登记（新增角色须同步登记表，漏掉由本项抓出）', uncovered.length === 0);
 check('listStates 镜像：fanwenmo 双态 / vendor 单态',
-  deepEq(listStates('fanwenmo'), ['default', 'corrupted']) && deepEq(listStates('vendor'), ['default']));
+  deepEq(listStates('fanwenmo'), ['default', 'corrupted']) && deepEq(listStates('vendor'), ['default', 'sad']));
 
 // —— 5.5 registerActorStates 动态增行（在 fs 守门之后）——
 registerActorStates('newkid', ['smile', 'hurt']);
@@ -1172,7 +1172,7 @@ check('summarizeItems：合并同 id 摞；category/use_in_battle 字段透传�
       && sausage.count === 5 && sausage.kind === 'consumable'
       && sausage.stack === 9
       && getGoodsById('sausage').use_in_battle === sausage.use_in_battle
-      && candy.iconPath === 'assets/items/milk_candy.png'
+      && candy.iconPath === 'assets/items/milk_candy@2x.png'
       && summarizeItems(null).length === 0;
   })());
 

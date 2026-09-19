@@ -22,10 +22,10 @@ export const CH5_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

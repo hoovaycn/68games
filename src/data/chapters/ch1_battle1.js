@@ -17,7 +17,7 @@ export const CH1_BATTLE1 = {
   defaultTerrain: 'grass',
 
   terrainTypes: {
-    grass: { name: '草坪', def: 0, avoid: 0, cost: 1, color: '#16a34a', tileImg: 'assets/props/kenney/kc_grass.png' },
+    grass: { name: '草坪', def: 0, avoid: 0, cost: 1, color: '#16a34a', tileImg: 'assets/props/kenney/kc_grass@2x.png' },
     track: { name: '塑胶跑道', def: 0, avoid: 0, cost: 1, color: '#b91c1c', tileImg: null },
     sand_pit: { name: '跳远沙坑', def: 1, avoid: -10, cost: 2, color: '#d97706', tileImg: null }
   },
@@ -34,9 +34,9 @@ export const CH1_BATTLE1 = {
   ],
 
   props: [
-    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 我方出战（4 人）：徐老师顶在前排，主角与张希哲、覃瑞怡并肩协作

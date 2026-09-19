@@ -17,9 +17,9 @@ export const CH0_BATTLE3 = {
   defaultTerrain: 'wood_floor',
 
   terrainTypes: {
-    wood_floor: { name: '木地板', def: 0, avoid: 0, cost: 1, color: '#b45309', tileImg: 'assets/props/kenney/kc_brick_red.png' },
-    carpet: { name: '地毯', def: 0, avoid: 5, cost: 1, color: '#78350f', tileImg: 'assets/props/kenney/kc_sidewalk.png' },
-    tile_floor: { name: '瓷砖走道', def: 0, avoid: 0, cost: 1, color: '#e2e8f0', tileImg: 'assets/props/kenney/kc_crosswalk.png' }
+    wood_floor: { name: '木地板', def: 0, avoid: 0, cost: 1, color: '#b45309', tileImg: 'assets/props/kenney/kc_brick_red@2x.png' },
+    carpet: { name: '地毯', def: 0, avoid: 5, cost: 1, color: '#78350f', tileImg: 'assets/props/kenney/kc_sidewalk@2x.png' },
+    tile_floor: { name: '瓷砖走道', def: 0, avoid: 0, cost: 1, color: '#e2e8f0', tileImg: 'assets/props/kenney/kc_crosswalk@2x.png' }
   },
 
   terrainTiles: [
@@ -41,9 +41,9 @@ export const CH0_BATTLE3 = {
   ],
 
   props: [
-    { id: 'desk_6_2', type: 'desk', x: 6, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_10_2', type: 'bookshelf', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'shelf_10_7', type: 'shelf', x: 10, y: 7, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'desk_6_2', type: 'desk', x: 6, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bookshelf_10_2', type: 'bookshelf', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'shelf_10_7', type: 'shelf', x: 10, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 玩家双人站位：主角与新加入队友并肩

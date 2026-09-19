@@ -1,9 +1,10 @@
 /**
- * 第五章关卡：废弃训练馆后厅 · 击退旧冠军
+ * 第五章关卡：废弃训练馆后厨 · 击退坏教练
  */
 export const CH4_BATTLE1 = {
   id: 'ch4_battle1',
-  name: '第六战：旧冠军后厅 · 拦住供货线',
+  name: '第六战：坏教练后厨 · 拦住供货线',
+  bgm: 'bgm_intense_boss',
   mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'tile_floor',
@@ -21,10 +22,10 @@ export const CH4_BATTLE1 = {
   ],
 
   props: [
-    { id: 'crate_4_2', type: 'crate', x: 4, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_4_6', type: 'crate', x: 4, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'crate_4_2', type: 'crate', x: 4, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_4_6', type: 'crate', x: 4, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

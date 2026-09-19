@@ -52,7 +52,7 @@ export const CLASSES = {
     desc: '收作业时气场两米八。知识点在他们嘴里都是现成的武器。',
     base: { hp: 22, mp: 22, str: 3, mag: 8, skl: 7, spd: 6, luk: 7, def: 3, res: 8, mov: 4 },
     growth: { hp: 45, mp: 55, str: 15, mag: 60, skl: 45, spd: 45, luk: 50, def: 15, res: 55 },
-    families: ['乐器', '粉笔'],
+    families: ['笔', '乐器', '粉笔'],
     legacy: false
   },
 

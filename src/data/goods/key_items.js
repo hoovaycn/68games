@@ -31,7 +31,7 @@ export const KEY_ITEMS = {
     use_in_battle: false,
     use_in_field: false,
     stack: 1,
-    icon: 'assets/items/dirty_sock.png',
+    icon: 'assets/items/dirty_sock@2x.png',
     storyTag: 'ch0_battle1_drop'
   },
   pe_teacher_brain: {
@@ -43,7 +43,7 @@ export const KEY_ITEMS = {
     use_in_battle: false,
     use_in_field: false,
     stack: 1,
-    icon: 'assets/items/pe_teacher_brain.png',
+    icon: 'assets/items/pe_teacher_brain@2x.png',
     storyTag: 'ch0_battle2_drop'
   },
 
@@ -56,7 +56,7 @@ export const KEY_ITEMS = {
     use_in_battle: false,
     use_in_field: false,
     stack: 1,
-    icon: 'assets/items/suspicious_drink.png',
+    icon: 'assets/items/suspicious_drink@2x.png',
     storyTag: 'ch1_battle1_victory'
   },
   discarded_snack: {

@@ -40,23 +40,23 @@ export const CH0_BATTLE1 = {
   // Kenney RPG Urban 街具物件装饰与碰撞阻挡
   props: [
     // 路灯与树木 (默认居中)
-    { id: 'lamp_5_1', type: 'street_lamp', x: 5, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'lamp_10_1', type: 'street_lamp', x: 10, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_15_0', type: 'tree', x: 15, y: 0, img: 'assets/props/kenney/kc_tree_dark.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_5_1', type: 'street_lamp', x: 5, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'lamp_10_1', type: 'street_lamp', x: 10, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_15_0', type: 'tree', x: 15, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true },
     
     // 灌木丛
-    { id: 'bush_1_0', type: 'bush', x: 1, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_14_0', type: 'bush', x: 14, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_1_0', type: 'bush', x: 1, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_14_0', type: 'bush', x: 14, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
 
     // 垃圾桶与自动售货机 (靠边堆叠)
-    { id: 'trash_4_2', type: 'trash_bin', x: 4, y: 2, img: 'assets/props/kenney/kc_trash.png', gridW: 1, gridH: 1, subX: 2, subY: 2, blocks: true },
-    { id: 'vending_11_2', type: 'vending_machine', x: 11, y: 2, img: 'assets/props/kenney/kc_vending_machine.png', gridW: 1, gridH: 1, subX: 0, subY: 1, blocks: true },
+    { id: 'trash_4_2', type: 'trash_bin', x: 4, y: 2, img: 'assets/props/kenney/kc_trash@2x.png', gridW: 1, gridH: 1, subX: 2, subY: 2, blocks: true },
+    { id: 'vending_11_2', type: 'vending_machine', x: 11, y: 2, img: 'assets/props/kenney/kc_vending_machine@2x.png', gridW: 1, gridH: 1, subX: 0, subY: 1, blocks: true },
 
     // 报刊亭 / 小吃摊车 (摊车拉长视觉但逻辑占 1 格)
-    { id: 'cart_12_3', type: 'food_cart', x: 12, y: 3, img: 'assets/props/kenney/kc_food_cart.png', gridW: 1, gridH: 1, subX: 1, subY: 0, blocks: true }
+    { id: 'cart_12_3', type: 'food_cart', x: 12, y: 3, img: 'assets/props/kenney/kc_food_cart@2x.png', gridW: 1, gridH: 1, subX: 1, subY: 0, blocks: true }
   ],
 
   // 我方出场点

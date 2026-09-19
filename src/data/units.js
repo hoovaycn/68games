@@ -27,7 +27,7 @@
  *  覃瑞怡：拉拉操奶妈，学习好（替占位卡沈嘉禾上岗）
  *  张希哲：男生，体育生，踢足球，学习好
  *  朱晏泽：帅气的富二代
- *  头像规范：assets/portraits/{unitId}_default.png（缺失走默认兜底，用户统一补图）
+ *  头像规范：assets/portraits/{unitId}_default@2x.png（缺失走默认兜底，用户统一补图）
  *
  * ── 双线入队时序（用户计划，story service 落地时按此接线） ──
  *  男线：张子骁 → 张瀚瑜(ch0_male_aid) → 击败范文默后收编
@@ -56,8 +56,8 @@ export const UNITS = {
     personalGrowth: { skl: 10, luk: 10 },   // 棋手底子：算度 + 棋运
     personalSkill: 'chess_gambit',
     joinsAt: 'prologue_male',
-    portrait: 'assets/portraits/zhangzixiao_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue.png',
+    portrait: 'assets/portraits/zhangzixiao_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
     themeColor: '#2563eb',
     quotes: {
       move: '让我算算这步棋……',
@@ -85,8 +85,8 @@ export const UNITS = {
     personalGrowth: { skl: 15, spd: 10 },    // 画手底子：观察 + 手速
     personalSkill: 'art_vision',
     joinsAt: 'prologue_female',
-    portrait: 'assets/portraits/shiyunuo_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    portrait: 'assets/portraits/shiyunuo_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#db2777',
     quotes: {
       move: '这个角度的光线不错。',
@@ -112,8 +112,8 @@ export const UNITS = {
     personalGrowth: { spd: 15, luk: 10 },    // 大块头反向灵敏：追人追得快
     personalSkill: 'gossip_report',
     joinsAt: 'ch0_female_aid',
-    portrait: 'assets/portraits/chenpinxuan_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/chenpinxuan_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#ea580c',
     quotes: {
       move: '最新的消息我全都知道。',
@@ -140,8 +140,8 @@ export const UNITS = {
     personalGrowth: { str: 15, def: 10 },    // 怪力本力
     personalSkill: 'hidden_might',
     joinsAt: 'ch0_male_boss_defeat',
-    portrait: 'assets/portraits/fanwenmo_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/fanwenmo_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#7c3aed',
     quotes: {
       move: '……',
@@ -168,8 +168,8 @@ export const UNITS = {
     personalGrowth: { mag: 15, skl: 10 },    // 脑子活：学得杂、用得刁
     personalSkill: 'witty_notes',
     joinsAt: 'ch0_male_aid',
-    portrait: 'assets/portraits/zhanghanyu_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green.png',
+    portrait: 'assets/portraits/zhanghanyu_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green@2x.png',
     themeColor: '#059669',
     quotes: {
       move: '跟我来，我熟路。',
@@ -196,8 +196,8 @@ export const UNITS = {
     personalGrowth: { mag: 10, res: 15 },    // 学霸心防：稳得住
     personalSkill: 'flute_serenade',
     joinsAt: 'ch0_female_boss_defeat',
-    portrait: 'assets/portraits/heyanxi_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white.png',
+    portrait: 'assets/portraits/heyanxi_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white@2x.png',
     themeColor: '#0891b2',
     quotes: {
       move: '请跟上我的节奏。',
@@ -224,8 +224,8 @@ export const UNITS = {
     personalGrowth: { mag: 10, res: 10 },
     personalSkill: 'authoritative_gaze',
     joinsAt: 'merged_route_ch5',
-    portrait: 'assets/portraits/adult_liu_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white.png',
+    portrait: 'assets/portraits/adult_liu_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white@2x.png',
     themeColor: '#0f766e',
     quotes: {
       move: '慢一点，先把气喘匀。',
@@ -251,8 +251,8 @@ export const UNITS = {
     personalGrowth: { str: 10, mag: 10 },    // 三十年教龄，文武双修
     personalSkill: 'authoritative_gaze',
     joinsAt: 'merged_route_ch1',
-    portrait: 'assets/portraits/teacher_xu_default.png', // 画作键是 teacher_xu（见 engine/avatar.js FILE_KEYS）
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/teacher_xu_default@2x.png', // 画作键是 teacher_xu（见 engine/avatar.js FILE_KEYS）
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#57534e',
     quotes: {
       move: '都坐好，我要讲了。',
@@ -279,8 +279,8 @@ export const UNITS = {
     personalGrowth: { mp: 15, luk: 10 },     // 奶妈底子：蓝条厚、手气好
     personalSkill: 'full_energy',
     joinsAt: 'merged_route_join',
-    portrait: 'assets/portraits/qinruiyi_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/qinruiyi_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#e11d48',
     quotes: {
       move: '预备——跑！',
@@ -307,8 +307,8 @@ export const UNITS = {
     personalGrowth: { str: 10, spd: 10 },    // 体育生：又快又硬
     personalSkill: 'bicycle_kick',
     joinsAt: 'merged_route_join',
-    portrait: 'assets/portraits/zhangxizhe_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue.png',
+    portrait: 'assets/portraits/zhangxizhe_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
     themeColor: '#16a34a',
     quotes: {
       move: '球场见！',
@@ -334,13 +334,82 @@ export const UNITS = {
     personalGrowth: { luk: 15, res: 5 },     // 含着金汤匙出生：运气好、皮实
     personalSkill: 'pocket_treat',
     joinsAt: 'merged_route_join',
-    portrait: 'assets/portraits/zhuyanze_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white.png',
+    portrait: 'assets/portraits/zhuyanze_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white@2x.png',
     themeColor: '#ca8a04',
     quotes: {
       move: '都让让，今天我请客。',
       attack: '这可是限量款！',
       death: '账单……怎么这么长……'
+    }
+  },
+  young_xu: {
+    id: 'young_xu',
+    name: '少年徐老师',
+    classId: 'primary_student',
+    level: 5,
+    exp: 0,
+    equippedWeapon: 'fountain_pen',
+    inventory: [
+      { id: 'sausage', count: 2 }
+    ],
+    bio: '少年时代的徐老师，满脸不服输，脾气火爆。',
+    personalGrowth: { hp: 10, str: 8 },
+    personalSkill: 'never_give_up',
+    joinsAt: 'chapter7_flashback',
+    portrait: 'assets/portraits/young_xu_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#e11d48',
+    quotes: {
+      move: '别怕，我来挡！',
+      attack: '看招！',
+      death: '可恶……明明答应过……'
+    }
+  },
+  young_liu: {
+    id: 'young_liu',
+    name: '少年刘老师',
+    classId: 'primary_student',
+    level: 5,
+    exp: 0,
+    equippedWeapon: 'fountain_pen',
+    inventory: [
+      { id: 'sausage', count: 2 }
+    ],
+    bio: '少年时代的刘老师，总是默默在后面支撑着大家。',
+    personalGrowth: { def: 8, res: 8 },
+    personalSkill: 'calm_mind',
+    joinsAt: 'chapter7_flashback',
+    portrait: 'assets/portraits/young_liu_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#0ea5e9',
+    quotes: {
+      move: '大家冷静点。',
+      attack: '别乱来！',
+      death: '抱歉……我撑不住了……'
+    }
+  },
+  ayao: {
+    id: 'ayao',
+    name: '阿瑶',
+    classId: 'study_committee',
+    level: 5,
+    exp: 0,
+    equippedWeapon: 'fountain_pen',
+    inventory: [
+      { id: 'sausage', count: 3 }
+    ],
+    bio: '全班雷打不动的第一名，性格温和。',
+    personalGrowth: { mag: 10, res: 10 },
+    personalSkill: 'healing_words',
+    joinsAt: 'chapter7_flashback',
+    portrait: 'assets/portraits/ayao_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#f472b6',
+    quotes: {
+      move: '这次换我保护你们！',
+      attack: '走开！',
+      death: '对不起……徐徐……刘……'
     }
   }
 };

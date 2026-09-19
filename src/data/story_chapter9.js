@@ -7,7 +7,7 @@ export const CHAPTER9_STORY = {
     id: 'ch9_scene_exam',
     title: '大考开始 · 灯闪了三下',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_exam_realm.png',
+    bgImg: 'assets/backgrounds/bg_exam_realm@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -25,7 +25,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '我再一抬头，眼前还是桌椅、试卷、黑板，可四周空得没有边，像是整个考场被谁掏空了，只剩下我们最怕输的那部分还被摊在这里。',
+        text: '我再一抬头，还是在考场里，但周围空荡荡的，就好像整个世界只剩下我们这几个人，还有我们心里最怕考砸的那种感觉。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -34,7 +34,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刘老师之前说过的那句“它不只在零食里，它也在你心里等你自己伸手”，到这一刻才真正落地。这里不是外面的战场，是一次被摊开来的精神对话。',
+        text: '我这才明白刘老师说的“它也在你心里等你自己伸手”是什么意思。这里根本不是现实，这是在我们自己的精神世界里！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -51,8 +51,8 @@ export const CHAPTER9_STORY = {
     id: 'ch9_scene_realm',
     title: '精神考场 · 面对异化自我',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_exam_realm.png',
-    bgm: 'bgm_suspense',
+    bgImg: 'assets/backgrounds/bg_exam_realm@2x.png',
+    bgm: 'bgm_retro_level3',
     dialogues: [
       {
         id: 1,
@@ -60,31 +60,31 @@ export const CHAPTER9_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '按当前游玩路线进入终章：当前主角团、张希哲、覃瑞怡、朱晏泽六个人抬起头，正对面都站着一个和自己一模一样、却更冷、更空、更像“只剩结果”的异化自我。',
+        text: '小伙伴们、张希哲、覃瑞怡、朱晏泽六个人抬起头，正对面都站着一个和自己一模一样、却更冷、更空、更像“只剩结果”的异化自我。',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
         speaker: '张希哲的影子',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted.png',
-        rightPortrait: 'assets/art/qinruiyi_corrupted.png',
+        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_corrupted@2x.png',
         activeSide: 'left',
-        text: '喝了就能一直护住别人。你不是最怕看着别人往前冲，自己却拦不住吗？',
+        text: '喝了就能一直保护别人。你不是最怕看着同伴受伤，自己却帮不上忙吗？',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '覃瑞怡的影子',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted.png',
-        rightPortrait: 'assets/art/qinruiyi_corrupted.png',
+        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_corrupted@2x.png',
         activeSide: 'right',
-        text: '只要你一直赢，大家就会一直喜欢你、一直围着你转。你不是最怕他们失望吗？',
+        text: '只要你一直考第一，大家就会一直围着你转。你不是最怕让大家失望吗？',
         sfx: 'sfx_text_blip'
       },
       {
         id: 4,
         speaker: '朱晏泽的影子',
-        leftPortrait: 'assets/art/zhuyanze_corrupted.png',
+        leftPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '你不是最讲义气吗？那你就更该赢。赢的人才有资格护别人，输的人连说话都像借口。',
@@ -94,7 +94,7 @@ export const CHAPTER9_STORY = {
         id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_corrupted.png',
+        rightPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
         activeSide: 'left',
         text: '你说得像是全懂，可你根本不是答案。我们怕输，怕考差，怕被说不行，可那也不是把自己整个换掉的理由。',
         sfx: 'sfx_confirm'
@@ -105,7 +105,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '少挨两句说、少丢一点脸、少让爸妈失望，这些想法谁没有？可真把它当成天条，就只剩一副壳了。',
+        text: '谁不想少挨几句骂、少丢点脸、不让爸妈失望？可要是为了这些连命都不要了，那活着还有什么意思！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -114,7 +114,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'right',
-        text: '你们不就是想让我们自己承认：只要能赢，怎么换掉自己都值吗？我不认。',
+        text: '你们不就是想逼我们承认，只要能赢，变成怪物也无所谓吗？我呸！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -130,7 +130,7 @@ export const CHAPTER9_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '这一仗打的不是分数，是每个人心里那个最想抄近道、最想拿结果换掉自己的影子。',
+      prompt: '这一仗打的不是分数，而是我们心里那个想走捷径、想靠吃零食拿高分的自己。',
       buttonText: '【团战异化自我】',
       battleId: 'ch9_battle1',
       isBattleTrigger: true
@@ -141,8 +141,8 @@ export const CHAPTER9_STORY = {
     id: 'ch9_scene_relief',
     title: '白屏之后 · 田野傍晚',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_field_relief.png',
-    bgm: 'bgm_classroom',
+    bgImg: 'assets/backgrounds/bg_field_relief@2x.png',
+    bgm: 'bgm_home_town',
     dialogues: [
       {
         id: 1,
@@ -176,8 +176,8 @@ export const CHAPTER9_STORY = {
     id: 'ch9_scene_ending',
     title: '田野尽头 · 第一幕终',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_field_relief.png',
-    bgm: 'bgm_classroom',
+    bgImg: 'assets/backgrounds/bg_field_relief@2x.png',
+    bgm: 'bgm_home_town',
     dialogues: [
       {
         id: 1,
@@ -185,7 +185,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '反正写成啥样都写完了。至少这回不是拿别的东西换来的。',
+        text: '反正考都考完了。至少这次的分数是咱们自己凭本事考的。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -194,7 +194,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'right',
-        text: '我这次估计也就那样。算了，我还是我就行。',
+        text: '我这次估计考得也就那样。算了，没变成怪物就行。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -203,34 +203,34 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '我也没突然开窍到飞起来。可没飞起来就没飞起来吧，天又不会因为这次分数低一点就塌下来。',
+        text: '我也没觉得自己突然变聪明了。没考好就没考好吧，天又不会塌下来。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 4,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '考差就补呗。球还能踢，腿还能跑，天也没塌。说到底，能站在这儿就挺好了。',
+        text: '考差了再补呗。球还能踢，人还好好的。能平平安安站在这儿就比什么都强。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 5,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'right',
-        text: '没一直赢也没关系。大家都还在，比什么都强。要是真为了一个名次把人弄丢了，那才亏大了。',
+        text: '没考第一也没关系。只要大家都没事，比什么都强。要是为了个名次变成怪物，那才亏大了。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 6,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default.png',
+        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '第一名又不会替你过日子。人没丢，脑子没丢，朋友也没丢，已经赚了。',
+        text: '第一名又不能当饭吃。脑子还在，朋友还在，咱们已经赚了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -239,7 +239,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '对。成绩当然重要，可比成绩更要紧的，不是“赢”，是自己还完整，身边的人也还在。',
+        text: '对。成绩固然重要，但只要咱们还好好的，比什么考第一都强。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -258,7 +258,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '这一次，他们没有让轮子顺着惯性再转下去。哪怕只是让这一届的孩子都保住了自己的魂，也已经好过一代代人跟着上一辈的轨迹，伸手、接下、再递给下一个人，永远循环下去。',
+        text: '这一次，大家终于没有重蹈覆辙。能保住咱们这一届的人，也总比像以前那样，一代代人都为了分数变成怪物要强得多。',
         sfx: 'sfx_confirm'
       }
     ],

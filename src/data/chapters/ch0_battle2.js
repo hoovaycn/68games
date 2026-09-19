@@ -34,16 +34,16 @@ export const CH0_BATTLE2 = {
   ],
 
   props: [
-    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_10_2', type: 'barrier', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_8_7', type: 'crate', x: 8, y: 7, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_9_7', type: 'crate', x: 9, y: 7, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_13_7', type: 'dumpster', x: 13, y: 7, img: 'assets/props/kenney/kc_dumpster_green.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_2_7', type: 'bench', x: 2, y: 7, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_0_0', type: 'bush', x: 0, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_15_0', type: 'bush', x: 15, y: 0, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_10_2', type: 'barrier', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_8_7', type: 'crate', x: 8, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_9_7', type: 'crate', x: 9, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'dumpster_13_7', type: 'dumpster', x: 13, y: 7, img: 'assets/props/kenney/kc_dumpster_green@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_2_7', type: 'bench', x: 2, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_0_0', type: 'bush', x: 0, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_15_0', type: 'bush', x: 15, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

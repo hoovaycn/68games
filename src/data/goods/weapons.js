@@ -36,7 +36,7 @@ export const WEAPONS = {
     uses: 45,
     levelReq: 1,
     stack: 1,
-    icon: 'assets/items/newbie_pencil.png',
+    icon: 'assets/items/newbie_pencil@2x.png',
     desc: '用得只剩半截的中华铅笔，橡皮头都磨平了，虽然朴素但十分趁手。'
   },
   calligraphy_brush: {

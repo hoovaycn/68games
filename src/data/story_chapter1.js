@@ -15,7 +15,7 @@ export const CHAPTER1_STORY = {
     id: 'ch1_scene_playground',
     title: '第二天上午 · 阳光操场',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_playground.png',
+    bgImg: 'assets/backgrounds/bg_playground@2x.png',
     bgm: 'bgm_classroom',
     dialogues: [
       {
@@ -30,8 +30,8 @@ export const CHAPTER1_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
         text: '覃瑞怡，你们拉拉队今天喊得跟蚊子哼似的！待会儿看我暴射入网！',
         sfx: 'sfx_text_blip'
@@ -39,8 +39,8 @@ export const CHAPTER1_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'right',
         text: '切！张希哲你少得意，没有我们加油，你早踢隔壁幼儿园去了！',
         sfx: 'sfx_text_blip'
@@ -49,7 +49,7 @@ export const CHAPTER1_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/zhangxizhe_default.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
         text: '我摸了摸书包兜，昨晚带回来的零食仿佛正透着丝丝寒意。',
         sfx: 'sfx_text_blip'
@@ -77,13 +77,13 @@ export const CHAPTER1_STORY = {
     id: 'ch1_scene_pe_test',
     title: '操场跑道 · 突如其来的超负荷加测',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_playground.png',
+    bgImg: 'assets/backgrounds/bg_playground@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
         speaker: '体育老师',
-        leftPortrait: 'assets/art/teacher_pe_default.png',
+        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '全体立正！今天临时抽测，所有人达标前不准吃午饭！',
@@ -92,8 +92,8 @@ export const CHAPTER1_STORY = {
       {
         id: 2,
         speaker: '体育老师',
-        leftPortrait: 'assets/art/teacher_pe_default.png',
-        rightPortrait: 'assets/art/zhangxizhe_default.png',
+        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
         text: '张希哲！把这副五十公斤铁哑铃推举一百次！不然取消校运会资格！',
         sfx: 'sfx_text_blip'
@@ -101,8 +101,8 @@ export const CHAPTER1_STORY = {
       {
         id: 3,
         speaker: '外校体育生',
-        leftPortrait: 'assets/art/senior_athlete_default.png',
-        rightPortrait: 'assets/art/zhangxizhe_default.png',
+        leftPortrait: 'assets/art/senior_athlete_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
         text: '就这胳膊还想当校队？我们体校的六年级，抱着五十公斤哑铃能绕操场跑三圈！',
         sfx: 'sfx_text_blip'
@@ -110,8 +110,8 @@ export const CHAPTER1_STORY = {
       {
         id: 4,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/teacher_pe_default.png',
-        rightPortrait: 'assets/art/zhangxizhe_default.png',
+        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'right',
         text: '老师……这是成年人的器械，胳膊会拉伤的！',
         sfx: 'sfx_text_blip'
@@ -119,8 +119,8 @@ export const CHAPTER1_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default.png',
-        rightPortrait: 'assets/art/teacher_pe_default.png',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
         activeSide: 'left',
         text: '住手！他们才六年级。',
         sfx: 'sfx_confirm'
@@ -128,10 +128,10 @@ export const CHAPTER1_STORY = {
       {
         id: 6,
         speaker: '体育老师',
-        leftPortrait: 'assets/art/teacher_xu_default.png',
-        rightPortrait: 'assets/art/teacher_pe_corrupted.png',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_pe_corrupted@2x.png',
         activeSide: 'right',
-        bgImg: 'assets/backgrounds/bg_playground_eerie.png',
+        bgImg: 'assets/backgrounds/bg_playground_eerie@2x.png',
         text: '六年级怎么了？！不喝特训饮料怎么冲第一？！——给我滚开！！',
         sfx: 'sfx_shock_sting'
       },
@@ -139,9 +139,9 @@ export const CHAPTER1_STORY = {
         id: 7,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_corrupted.png',
+        rightPortrait: 'assets/art/teacher_pe_corrupted@2x.png',
         activeSide: 'left',
-        bgImg: 'assets/backgrounds/bg_playground_eerie.png',
+        bgImg: 'assets/backgrounds/bg_playground_eerie@2x.png',
         text: '体育老师双眼泛起青黑凶光，外校生也僵硬地举着哑铃逼近！',
         sfx: 'sfx_shock_sting'
       }
@@ -161,13 +161,13 @@ export const CHAPTER1_STORY = {
     id: 'ch1_scene_recover',
     title: '操场草坪 · 恢复神智与可疑空瓶',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_playground.png',
+    bgImg: 'assets/backgrounds/bg_playground@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
         speaker: '外校体育生',
-        leftPortrait: 'assets/art/senior_athlete_default.png',
+        leftPortrait: 'assets/art/senior_athlete_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '（捂肚子痛哭）是我们教练给的！说喝了这种发光饮料就能跑第一……',
@@ -176,8 +176,8 @@ export const CHAPTER1_STORY = {
       {
         id: 2,
         speaker: '体育老师',
-        leftPortrait: 'assets/art/teacher_pe_default.png',
-        rightPortrait: 'assets/art/teacher_xu_default.png',
+        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '咳咳……头好痛。这饮料瓶……上周王主任桌上也摆着一模一样的……',
         sfx: 'sfx_text_blip'
@@ -185,10 +185,10 @@ export const CHAPTER1_STORY = {
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default.png',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        bgImg: 'assets/backgrounds/cg_pickup_bottle.png',
+        bgImg: 'assets/backgrounds/cg_pickup_bottle@2x.png',
         text: '……',
         sfx: 'sfx_item_get'
       },
@@ -198,7 +198,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        bgImg: 'assets/backgrounds/cg_pickup_bottle.png',
+        bgImg: 'assets/backgrounds/cg_pickup_bottle@2x.png',
         text: '徐老师弯下腰，悄悄把空饮料瓶塞进了自己的公文包，并未上交。',
         highlight: true,
         sfx: 'sfx_confirm'
@@ -206,8 +206,8 @@ export const CHAPTER1_STORY = {
       {
         id: 5,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
         text: '刚才多亏大家！学校肯定被脏东西盯上了，查怪事算我一个！',
         sfx: 'sfx_confirm'
@@ -215,8 +215,8 @@ export const CHAPTER1_STORY = {
       {
         id: 6,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default.png',
-        rightPortrait: 'assets/art/qinruiyi_default.png',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'right',
         text: '我也加入！拉拉队创可贴管够！绝不能让歪门邪道欺负咱们班！',
         sfx: 'sfx_confirm'
@@ -235,7 +235,7 @@ export const CHAPTER1_STORY = {
     id: 'ch1_scene_office_shadow',
     title: '行政楼三楼 · 教务处的逆光长发',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_office.png',
+    bgImg: 'assets/backgrounds/bg_office@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -259,7 +259,7 @@ export const CHAPTER1_STORY = {
       {
         id: 3,
         speaker: '神秘女子',
-        leftPortrait: 'assets/art/shadow_woman_default.png',
+        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '呵……真是几个精力充沛的小家伙呢。不过，当恐惧与猜疑在他们心底生根发芽的时候……',
@@ -268,7 +268,7 @@ export const CHAPTER1_STORY = {
       {
         id: 4,
         speaker: '神秘女子',
-        leftPortrait: 'assets/art/shadow_woman_default.png',
+        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '真正的宴席……才刚刚开场。',

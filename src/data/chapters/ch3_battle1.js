@@ -4,6 +4,7 @@
 export const CH3_BATTLE1 = {
   id: 'ch3_battle1',
   name: '第五战：训练馆门口 · 护住参展名单',
+  bgm: 'bgm_victory',
   mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'tile_floor',
@@ -22,10 +23,10 @@ export const CH3_BATTLE1 = {
   ],
 
   props: [
-    { id: 'crate_3_2', type: 'crate', x: 3, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_3_7', type: 'crate', x: 3, y: 7, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'crate_3_2', type: 'crate', x: 3, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_3_7', type: 'crate', x: 3, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

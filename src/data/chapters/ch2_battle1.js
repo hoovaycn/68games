@@ -17,8 +17,8 @@ export const CH2_BATTLE1 = {
   defaultTerrain: 'tile_floor',
 
   terrainTypes: {
-    tile_floor: { name: '水磨石地', def: 0, avoid: 0, cost: 1, color: '#e2e8f0', tileImg: 'assets/props/kenney/kc_crosswalk.png' },
-    wood_floor: { name: '木质讲台', def: 1, avoid: 5, cost: 1, color: '#b45309', tileImg: 'assets/props/kenney/kc_brick_red.png' }
+    tile_floor: { name: '水磨石地', def: 0, avoid: 0, cost: 1, color: '#e2e8f0', tileImg: 'assets/props/kenney/kc_crosswalk@2x.png' },
+    wood_floor: { name: '木质讲台', def: 1, avoid: 5, cost: 1, color: '#b45309', tileImg: 'assets/props/kenney/kc_brick_red@2x.png' }
   },
 
   terrainTiles: [
@@ -30,12 +30,12 @@ export const CH2_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 玩家 3 人站位（main.js 会根据主角线动态拉取当前主力铁三角）

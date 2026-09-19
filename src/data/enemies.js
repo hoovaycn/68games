@@ -9,8 +9,8 @@ export const ENEMIES = {
     classId: 'vendor_mob',
     level: 1,
     equippedWeapon: 'snack_throw',
-    portrait: 'assets/portraits/vendor_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/vendor_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#e11d48',
     bio: '推着一辆嘎吱作响的小车，在校门口卖了三年「考前保过零食」。没人知道他从哪进货，也没人知道他为什么总在放学前十分钟才出现。传说买过他东西的人第二天考试都迷之顺利——也可能只是心理作用。',
     ai: {
@@ -35,8 +35,8 @@ export const ENEMIES = {
     classId: 'school_punk',
     level: 2,
     equippedWeapon: 'exercise_bat',
-    portrait: 'assets/portraits/punk_default.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/punk_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#b91c1c',
     bio: '六年级升学压力最大的倒霉蛋，成绩越掉脾气越大，把火全撒在低年级头上。书包里塞着三套没写完的卷子，走路横得像只螃蟹。其实他半夜也会偷偷躲在被子里哭——但白天，谁都别想从他嘴里听到一句好话。',
     ai: {
@@ -61,8 +61,8 @@ export const ENEMIES = {
     classId: 'strong_boy',
     level: 3,
     equippedWeapon: 'exercise_bat',
-    portrait: 'assets/portraits/fanwenmo_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/fanwenmo_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#7c3aed',
     bio: '双眼泛着幽异青光，嘴里反复念叨着“动量守恒”、“洛伦兹力”。平时连乘法口诀都费劲的他，此刻正狂暴地挥舞着厚重的冲刺题集！',
     ai: {
@@ -87,8 +87,8 @@ export const ENEMIES = {
     classId: 'study_committee',
     level: 3,
     equippedWeapon: 'recorder',
-    portrait: 'assets/portraits/heyanxi_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    portrait: 'assets/portraits/heyanxi_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#0891b2',
     bio: '双眼空洞泛着冷青光，机械地重复按压着竖笛音孔，嘴里念叨着错乱音阶。刺耳的音浪在房间里回荡，令人头痛欲裂！',
     ai: {
@@ -112,8 +112,8 @@ export const ENEMIES = {
     classId: 'teacher',
     level: 5,
     equippedWeapon: 'whistle',
-    portrait: 'assets/portraits/teacher_pe_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/teacher_pe_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#dc2626',
     bio: '凯式刺猬头高高竖起，青黑色的血管在脖颈上暴起。嘴里紧咬着生锈铁哨，厉声呵斥着所有学生必须达标成人级极限体能！',
     ai: {
@@ -138,8 +138,8 @@ export const ENEMIES = {
     classId: 'sports_star',
     level: 3,
     equippedWeapon: 'dumbbell',
-    portrait: 'assets/portraits/senior_athlete_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/senior_athlete_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#b91c1c',
     bio: '身穿外校红白校服，双眼失神泛着青芒，机械地举着铸铁哑铃冲锋，口中念叨着体校教练给的特训饮料。',
     ai: {
@@ -164,8 +164,8 @@ export const ENEMIES = {
     classId: 'primary_student',
     level: 5,
     equippedWeapon: 'fountain_pen',
-    portrait: 'assets/portraits/zhuyanze_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/zhuyanze_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#4f46e5',
     bio: '平日里最讲义气护短的朱大少爷，此刻眼神阴鸷泛着荧绿青光。手里紧捏着金尖钢笔，反常地带头指控同学作弊与中招。',
     ai: {
@@ -188,9 +188,9 @@ export const ENEMIES = {
     title: '盲从起哄的附和者',
     classId: 'primary_student',
     level: 3,
-    equippedWeapon: 'triangular_ruler',
-    portrait: 'assets/portraits/classmate_boy_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green.png',
+    equippedWeapon: 'pencil',
+    portrait: 'assets/portraits/classmate_boy_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green@2x.png',
     themeColor: '#15803d',
     bio: '双眼泛着暗绿，在教室里煽风点火、随声附和。谣言与猜忌成了他的助燃剂。',
     ai: {
@@ -213,8 +213,8 @@ export const ENEMIES = {
     classId: 'primary_student',
     level: 3,
     equippedWeapon: 'compass_needle',
-    portrait: 'assets/portraits/classmate_girl_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    portrait: 'assets/portraits/classmate_girl_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#be185d',
     bio: '脸色惨白，尖叫着四处指认同窗，手中圆规挥舞，让教室内的猜疑恐慌不断扩散。',
     ai: {
@@ -237,8 +237,8 @@ export const ENEMIES = {
     classId: 'sports_star',
     level: 5,
     equippedWeapon: 'dumbbell',
-    portrait: 'assets/portraits/senior_athlete_leader_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/senior_athlete_leader_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#991b1b',
     bio: '明明自己也中过招，却还是站在校门外把同样的东西往别人手里塞。青蓝色的眼睛里只剩下“冠军”和“达标”两个字。',
     ai: {
@@ -255,6 +255,26 @@ export const ENEMIES = {
       death: '我……我是不是又把这东西递给别人了……'
     }
   },
+
+  classmate_girl_corrupted: {
+    id: 'classmate_girl_corrupted',
+    name: '异化女生',
+    title: '被零食控制的女生',
+    classId: 'primary_student',
+    level: 3,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/classmate_girl_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#be185d',
+    bio: '被异化零食控制，眼神空洞。',
+    ai: { type: 'aggressive_chase', aggroRadius: 5 },
+    drops: [],
+    quotes: {
+      move: '还要……',
+      attack: '走开！',
+      death: '头好痛……'
+    }
+  },
   zhangxizhe_corrupted: {
     id: 'zhangxizhe_corrupted',
     name: '异化张希哲',
@@ -262,8 +282,8 @@ export const ENEMIES = {
     classId: 'sports_star',
     level: 6,
     equippedWeapon: 'football',
-    portrait: 'assets/portraits/zhangxizhe_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue.png',
+    portrait: 'assets/portraits/zhangxizhe_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
     themeColor: '#15803d',
     bio: '眼睛里只剩下“我要更强”“我要护住别人”的念头，连最熟的同伴都认不出来了。',
     ai: {
@@ -286,8 +306,8 @@ export const ENEMIES = {
     classId: 'cheerleader',
     level: 6,
     equippedWeapon: 'pom_pom',
-    portrait: 'assets/portraits/qinruiyi_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/qinruiyi_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#be185d',
     bio: '还挂着笑，可那笑已经空了。她还在给所有人加油，只是连自己也被“不能输”这句话困住了。',
     ai: {
@@ -305,13 +325,13 @@ export const ENEMIES = {
   },
   coach_corrupted: {
     id: 'coach_corrupted',
-    name: '坏教练',
-    title: '把捷径当饭碗的旧冠军',
+    name: '异化坏教练',
+    title: '把捷径当饭碗的坏教练',
     classId: 'teacher',
     level: 7,
     equippedWeapon: 'whistle',
-    portrait: 'assets/portraits/coach_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/coach_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#7f1d1d',
     bio: '当年靠这东西拿了第一，如今又靠它养活自己。嘴上说着“都是为了赢”，其实早就分不清自己是受害者还是加害者。',
     ai: {
@@ -328,17 +348,17 @@ export const ENEMIES = {
       death: '没了这东西……我还剩什么……'
     }
   },
-  mystery_man_corrupted: {
-    id: 'mystery_man_corrupted',
-    name: '神秘男子',
-    title: '旧供货链里的家长样男人',
+  mystery_man: {
+    id: 'mystery_man',
+    name: '幻境坏家长',
+    title: '十几年前的幕后黑手',
     classId: 'primary_student',
     level: 8,
     equippedWeapon: 'fountain_pen',
-    portrait: 'assets/portraits/mystery_man_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black.png',
+    portrait: 'assets/portraits/mystery_man_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#312e81',
-    bio: '像家长、像老板、也像早年间某个被拽歪的大人。他从不解释，只负责把东西一箱箱送进学校。',
+    bio: '他也是那个组织的成员，二十年前曾用同样的手段控制了上一代学生。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 7
@@ -360,8 +380,8 @@ export const ENEMIES = {
     classId: 'xuesu',
     level: 8,
     equippedWeapon: 'pencil',
-    portrait: 'assets/portraits/zhangzixiao_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue.png',
+    portrait: 'assets/portraits/zhangzixiao_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
     themeColor: '#1d4ed8',
     bio: '所有表情都被压平了，只剩下一张在脑子里不断推演的答题网格。为了赢，他想把自己也变成一道标准答案。',
     ai: {
@@ -384,8 +404,8 @@ export const ENEMIES = {
     classId: 'xuesu',
     level: 8,
     equippedWeapon: 'pencil',
-    portrait: 'assets/portraits/shiyunuo_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink.png',
+    portrait: 'assets/portraits/shiyunuo_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#db2777',
     bio: '她还捏着铅笔，只是眼里已经没有光了，像把自己也涂成了一张必须交卷的标准图。',
     ai: {
@@ -408,8 +428,8 @@ export const ENEMIES = {
     classId: 'study_committee',
     level: 8,
     equippedWeapon: 'chalk_head',
-    portrait: 'assets/portraits/zhanghanyu_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green.png',
+    portrait: 'assets/portraits/zhanghanyu_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_green@2x.png',
     themeColor: '#047857',
     bio: '本来最会变通的脑子，这会儿只剩“我得比别人聪明”这一根绷紧的弦。',
     ai: {
@@ -432,8 +452,8 @@ export const ENEMIES = {
     classId: 'strong_boy',
     level: 8,
     equippedWeapon: 'basketball',
-    portrait: 'assets/portraits/chenpinxuan_corrupted.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red.png',
+    portrait: 'assets/portraits/chenpinxuan_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#c2410c',
     bio: '看起来比平时更能打，可那股劲已经不是底气，而是把“我不能不行”硬顶在肩上的执拗。',
     ai: {
@@ -447,6 +467,50 @@ export const ENEMIES = {
       move: '我不能掉链子。',
       attack: '谁说我不行！',
       death: '好吧……偶尔承认自己不行，也不会怎么样。'
+    }
+  },
+  senior_student_corrupted: {
+    id: 'senior_student_corrupted',
+    name: '异化学长',
+    title: '被公式逼疯的高年级',
+    classId: 'school_punk',
+    level: 7,
+    equippedWeapon: 'exercise_bat',
+    portrait: 'assets/portraits/senior_student_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#4c1d95',
+    bio: '穿着旧校服，嘴里疯狂念叨着考试公式，像野兽一样扑过来。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [],
+    quotes: {
+      move: '公式……公式……',
+      attack: '别拦着我复习！',
+      death: '我……全忘了……'
+    }
+  },
+  janitor_corrupted: {
+    id: 'janitor_corrupted',
+    name: '异化大爷',
+    title: '传达室的绝望守卫',
+    classId: 'vendor_mob',
+    level: 7,
+    equippedWeapon: 'snack_throw',
+    portrait: 'assets/portraits/janitor_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#78350f',
+    bio: '原本是拦住一切危险的传达室大爷，现在却被异化零食吞噬，成为了走廊上的绝望守卫。',
+    ai: {
+      type: 'passive_guard',
+      aggroRadius: 5
+    },
+    drops: [],
+    quotes: {
+      move: '谁也不许出去……',
+      attack: '回去背书！',
+      death: '我连大门……都看不好……'
     }
   }
 };

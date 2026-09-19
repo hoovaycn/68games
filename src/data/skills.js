@@ -384,5 +384,43 @@ export const SKILLS = {
     duration: null,
     effect: { kind: 'heal', amount: 40 },
     desc: '「放学都别走，今天我请！」钱包一拍，伤口都好得快了三分。'
+  },
+
+  // ══════════ 少年专属个人技 ══════════
+  never_give_up: {
+    id: 'never_give_up',
+    name: '死磕到底',
+    scope: 'personal',
+    ownerUnit: 'young_xu',
+    mpCost: 3,
+    target: 'self',
+    range: [0, 0],
+    duration: 'turn',
+    effect: { kind: 'buff', stats: { def: 10 } },
+    desc: '绝不认输。咬紧牙关，防御提升。'
+  },
+  calm_mind: {
+    id: 'calm_mind',
+    name: '冷静分析',
+    scope: 'personal',
+    ownerUnit: 'young_liu',
+    mpCost: 3,
+    target: 'self',
+    range: [0, 0],
+    duration: 'turn',
+    effect: { kind: 'buff', stats: { skl: 10 } },
+    desc: '关键时刻总能找到破局的方法。'
+  },
+  healing_words: {
+    id: 'healing_words',
+    name: '治愈话语',
+    scope: 'personal',
+    ownerUnit: 'ayao',
+    mpCost: 5,
+    target: 'ally',
+    range: [1, 2],
+    duration: null,
+    effect: { kind: 'heal', amount: 30 },
+    desc: '用温柔的话语抚慰同伴的心灵，恢复少量HP。'
   }
 };

@@ -337,17 +337,17 @@ export class JoinPartyModal {
 
   _getPortraitPath(unitId) {
     const map = {
-      zhanghanyu: 'assets/art/zhanghanyu_default.png',
-      chenpinxuan: 'assets/art/chenpinxuan_default.png',
-      fanwenmo: 'assets/art/fanwenmo_default.png',
-      heyanxi: 'assets/art/heyanxi_default.png',
-      zhangzixiao: 'assets/art/zhangzixiao_default.png',
-      shiyunuo: 'assets/art/shiyunuo_default.png',
-      zhangxizhe: 'assets/art/zhangxizhe_default.png',
-      qinruiyi: 'assets/art/qinruiyi_default.png',
-      zhuyanze: 'assets/art/zhuyanze_default.png'
+      zhanghanyu: 'assets/art/zhanghanyu_default@2x.png',
+      chenpinxuan: 'assets/art/chenpinxuan_default@2x.png',
+      fanwenmo: 'assets/art/fanwenmo_default@2x.png',
+      heyanxi: 'assets/art/heyanxi_default@2x.png',
+      zhangzixiao: 'assets/art/zhangzixiao_default@2x.png',
+      shiyunuo: 'assets/art/shiyunuo_default@2x.png',
+      zhangxizhe: 'assets/art/zhangxizhe_default@2x.png',
+      qinruiyi: 'assets/art/qinruiyi_default@2x.png',
+      zhuyanze: 'assets/art/zhuyanze_default@2x.png'
     };
-    return map[unitId] || `assets/art/${unitId}_default.png`;
+    return map[unitId] || `assets/art/${unitId}_default@2x.png`;
   }
 
   _getRoleTag(unit) {

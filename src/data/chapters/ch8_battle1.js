@@ -4,6 +4,7 @@
 export const CH8_BATTLE1 = {
   id: 'ch8_battle1',
   name: '第九战：旧仓库 · 最后一车',
+  bgm: 'bgm_gojira_battle',
   mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'concrete',
@@ -21,11 +22,11 @@ export const CH8_BATTLE1 = {
   ],
 
   props: [
-    { id: 'crate_4_2', type: 'crate', x: 4, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_5_2', type: 'crate', x: 5, y: 2, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_10_6', type: 'crate', x: 10, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_11_6', type: 'crate', x: 11, y: 6, img: 'assets/props/kenney/kc_crate.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_8_1', type: 'barrier', x: 8, y: 1, img: 'assets/props/kenney/kc_barrier_stripe.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'crate_4_2', type: 'crate', x: 4, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_5_2', type: 'crate', x: 5, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_10_6', type: 'crate', x: 10, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'crate_11_6', type: 'crate', x: 11, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'barrier_8_1', type: 'barrier', x: 8, y: 1, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [
@@ -40,7 +41,7 @@ export const CH8_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'mystery_man_corrupted', instanceId: 'mystery_boss', x: 13, y: 4 },
+    { enemyId: 'mystery_man', instanceId: 'mystery_boss', x: 13, y: 4 },
     { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 12, y: 2 },
     { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 12, y: 6 },
     { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 9, y: 2 },
