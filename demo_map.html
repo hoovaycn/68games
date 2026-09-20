@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>新瓦片素材测试 Demo</title>
+  <style>
+    body {
+      background-color: #0e0d0c;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: -apple-system, "PingFang SC", sans-serif;
+    }
+    .panel {
+      background-color: #141416;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+    }
+    canvas {
+      background-color: #1a1a1c;
+      border: 1px solid rgba(120, 105, 80, 0.45);
+      border-radius: 4px;
+      image-rendering: pixelated;
+    }
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+    }
+    button {
+      background: #1e3a8a;
+      color: #93c5fd;
+      border: 1px solid #2563eb;
+      padding: 8px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    button.active {
+      background: #facc15;
+      color: #1c1917;
+      border-color: #ca8a04;
+    }
+    .instructions {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <canvas id="gameCanvas" width="768" height="480"></canvas>
+    <div class="controls">
+      <button id="btn-village" class="active">静谧村庄风格 (Serene Village)</button>
+    </div>
+    <div class="instructions">
+      该 Demo 采用 16x10 战棋网格 (48x48 像素/格) 渲染<br/>
+      通过直接读取新瓦片素材包，模拟实际战斗地图中的渲染效果，供您评估美术表现。
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // 关闭平滑以保持像素风
+    ctx.imageSmoothingEnabled = false;
+
+    const TILE_SIZE = 48;
+    const COLS = 16;
+    const ROWS = 10;
+
+    let currentMode = 'village';
+
+    // 预加载图片
+    const assets = {
+      villageBg: 'docs/map/SERENE_VILLAGE_REVAMPED/Serene_Village_48x48.png',
+      villageProp: 'docs/map/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Houses_TILESET_B-C-D-E.png',
+      villageOutside: 'docs/map/SERENE_VILLAGE_REVAMPED/RPG_MAKER_MV/Outside_Stuff_TILESET_B-C-D-E.png',
+      char1: 'docs/map/Modern tiles_Free/Characters_free/Adam_idle_anim_16x16.png',
+      char2: 'docs/map/Modern tiles_Free/Characters_free/Amelia_idle_anim_16x16.png'
+    };
+
+    const images = {};
+    let loadedCount = 0;
+    const totalImages = Object.keys(assets).length;
+
+    for (const [key, src] of Object.entries(assets)) {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          draw();
+        }
+      };
+      img.src = src;
+      images[key] = img;
+    }
+
+    function switchTileset(mode) {
+      currentMode = mode;
+      document.getElementById('btn-village').className = 'active';
+      draw();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const bgImg = images.villageBg;
+      
+      // 1. 绘制底层地砖 (纯草地底图)
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          const px = x * TILE_SIZE;
+          const py = y * TILE_SIZE;
+          
+          // 纯草地 (4, 0)
+          let sx = 4 * TILE_SIZE; 
+          let sy = 0 * TILE_SIZE;
+          
+          // 偶尔加一点草丛变化
+          if ((x * 7 + y * 13) % 5 === 0) {
+            sx = 3 * TILE_SIZE;
+            sy = 0 * TILE_SIZE;
+          }
+
+          ctx.drawImage(bgImg, sx, sy, TILE_SIZE, TILE_SIZE, px, py, TILE_SIZE, TILE_SIZE);
+        }
+      }
+      
+      // 2. 绘制水池 (在草地之上)
+      // 假设在左下角画一个 3x3 的水池
+      const waterStartX = 1;
+      const waterStartY = 6;
+      for (let wy = 0; wy < 3; wy++) {
+        for (let wx = 0; wx < 3; wx++) {
+          const px = (waterStartX + wx) * TILE_SIZE;
+          const py = (waterStartY + wy) * TILE_SIZE;
+          // 水面通常在图集的特定位置，这里暂时用图集里的浅水区域模拟 (0, 4) 到 (2, 6)
+          let wsx = (wx % 3) * TILE_SIZE;
+          let wsy = (4 + (wy % 3)) * TILE_SIZE;
+          ctx.drawImage(bgImg, wsx, wsy, TILE_SIZE, TILE_SIZE, px, py, TILE_SIZE, TILE_SIZE);
+        }
+      }
+
+      // 3. 绘制装饰物 (Prop)
+      
+      // 画几棵树 (从 Outside_Stuff 里取)
+      // 假设树的素材在 (0, 0) 大小是 2x3 格
+      ctx.drawImage(images.villageOutside, 0, 0, TILE_SIZE*2, TILE_SIZE*3, 3 * TILE_SIZE, 1 * TILE_SIZE, TILE_SIZE*2, TILE_SIZE*3);
+      ctx.drawImage(images.villageOutside, 0, 0, TILE_SIZE*2, TILE_SIZE*3, 11 * TILE_SIZE, 1 * TILE_SIZE, TILE_SIZE*2, TILE_SIZE*3);
+      
+      // 画一个小房子 (从 Houses 里取)
+      // 假设房子在 (0, 0) 大小是 3x4 格
+      ctx.drawImage(images.villageProp, 0, 0, TILE_SIZE*3, TILE_SIZE*4, 7 * TILE_SIZE, 2 * TILE_SIZE, TILE_SIZE*3, TILE_SIZE*4);
+      
+      // 画点小物件，比如木桶或栅栏 (从 Outside_Stuff 取)
+      // 假设木桶在 (4, 0)
+      ctx.drawImage(images.villageOutside, 4*TILE_SIZE, 0, TILE_SIZE, TILE_SIZE, 6 * TILE_SIZE, 5 * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+
+      // 画网格线 (在所有地形之上，角色之下)
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          const px = x * TILE_SIZE;
+          const py = y * TILE_SIZE;
+          ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(px, py, TILE_SIZE, TILE_SIZE);
+        }
+      }
+
+      // 4. 绘制角色
+      drawCharacter(2, 4, images.char1, '阿瑶', true);
+      drawCharacter(2, 5, images.char2, '徐老师', true);
+      
+      drawCharacter(13, 4, images.char1, '阴影', false);
+      drawCharacter(13, 5, images.char2, '敌人', false);
+    }
+
+    function drawCharacter(x, y, charImg, name, isPlayer) {
+      const px = x * TILE_SIZE;
+      const py = y * TILE_SIZE;
+
+      // 1. 阴影
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.beginPath();
+      ctx.ellipse(px + TILE_SIZE/2, py + TILE_SIZE - 4, TILE_SIZE/2 - 6, 4, 0, 0, Math.PI*2);
+      ctx.fill();
+
+      // 2. 圆形头像底座 (与 renderer 一致)
+      const cx = px + TILE_SIZE / 2;
+      const cy = py + TILE_SIZE / 2 + 2;
+      const r = TILE_SIZE / 2 - 5;
+      
+      const grad = ctx.createRadialGradient(cx - 4, cy - 4, 2, cx, cy, r);
+      if (isPlayer) {
+        grad.addColorStop(0, '#60a5fa');
+        grad.addColorStop(1, '#1e3a8a');
+      } else {
+        grad.addColorStop(0, '#f87171');
+        grad.addColorStop(1, '#7f1d1d');
+      }
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI*2);
+      ctx.fill();
+
+      ctx.strokeStyle = isPlayer ? '#2563eb' : '#dc2626';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // 3. 角色动画帧（由于素材是16x16，在此放大绘制在底座上方）
+      // 画在正中间
+      const animFrame = Math.floor(Date.now() / 200) % 3; // 简单的 3 帧循环
+      // 取原图第一行，每帧 16px 宽
+      ctx.drawImage(charImg, animFrame * 16, 0, 16, 16, px + 8, py - 4, 32, 32);
+
+      // 4. 名字浮窗
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.shadowColor = 'black';
+      ctx.shadowBlur = 4;
+      ctx.fillText(name, px + TILE_SIZE/2, py - 6);
+      ctx.shadowBlur = 0;
+    }
+    
+    // 启动动画循环以更新角色空闲动作
+    setInterval(draw, 200);
+
+  </script>
+</body>
+</html>
