@@ -294,6 +294,9 @@ class GameApp {
     // 之后所有战斗、剧情、仓库读写都作用在这份 gameState 上
     this.gameState = createNewGame({ route: this.selectedRoute });
 
+    // 确保选人与前言彻底静音
+    sound.stopBgm();
+
     // 直接进入前言（黑屏文字），前言结束后会自动触发 scene_classroom 的章节 Banner
     this.startStoryScene('scene_prelude');
   }
@@ -525,14 +528,11 @@ class GameApp {
   }
 
   initBattle(chapter) {
-    // 根据参战人数动态调整地图大小
-    const deployCount = chapter.playerDeploy ? chapter.playerDeploy.length : 0;
-    if (deployCount < 3) {
-      chapter.mapWidth = 11;
-      chapter.mapHeight = 7;
-    } else {
-      chapter.mapWidth = 16;
-      chapter.mapHeight = 10;
+    // 地图尺寸由 Tiled 决定（sync 已写入 mapWidth/mapHeight）；仅在缺失时按人数兜底
+    if (!chapter.mapWidth) {
+      const deployCount = chapter.playerDeploy ? chapter.playerDeploy.length : 0;
+      chapter.mapWidth = deployCount < 3 ? 11 : 16;
+      chapter.mapHeight = deployCount < 3 ? 7 : 10;
     }
 
     this.battleState.chapter = chapter;
@@ -550,11 +550,11 @@ class GameApp {
     if (Array.isArray(chapter.playerDeploy)) {
       chapter.playerDeploy.forEach((dep, idx) => {
         let uId = dep.unitId;
-        // 动态适配主角与特定线
-        if (uId === 'zhangzixiao' && this.selectedRoute === 'female') {
-          uId = 'shiyunuo';
-        } else if (uId === 'zhanghanyu' && this.selectedRoute === 'female') {
-          uId = 'chenpinxuan';
+        // 动态适配占位符与男女主特定线
+        if (uId === '{MC_ID}' || uId === 'zhangzixiao') {
+          uId = this.selectedRoute === 'female' ? 'shiyunuo' : 'zhangzixiao';
+        } else if (uId === '{ALLY_ID}' || uId === 'zhanghanyu') {
+          uId = this.selectedRoute === 'female' ? 'chenpinxuan' : 'zhanghanyu';
         } else if (uId === 'fanwenmo' && this.selectedRoute === 'female') {
           uId = 'heyanxi';
         }
@@ -596,7 +596,7 @@ class GameApp {
     for (const e of chapter.enemyDeploy) {
       let enemyId = e.enemyId;
       // 序章 Boss 战男女线动态适配
-      if (chapter.id === 'ch0_battle3' && e.instanceId === 'boss_corrupted') {
+      if (enemyId === '{BOSS_ID}' || (chapter.id === 'ch0_battle3' && (e.instanceId === 'boss_corrupted' || e.instanceId === 'boss_1'))) {
         enemyId = this.selectedRoute === 'female' ? 'heyanxi_corrupted' : 'fanwenmo_corrupted';
       } else if (this.selectedRoute === 'female') {
         if (enemyId === 'zhangzixiao_corrupted') {
@@ -1461,8 +1461,8 @@ class GameApp {
     const anchorRect = {
       x: u.x * this.tileSize + this.renderer.offsetX,
       y: u.y * this.tileSize + this.renderer.offsetY,
-      w: this.tileSize,
-      h: this.tileSize
+      w: this.tileSize * 1,
+      h: this.tileSize * 1
     };
 
     bs.actionMenu = new ActionMenu({
@@ -1549,8 +1549,8 @@ class GameApp {
     const anchorRect = {
       x: u.x * this.tileSize + this.renderer.offsetX,
       y: u.y * this.tileSize + this.renderer.offsetY,
-      w: this.tileSize,
-      h: this.tileSize
+      w: this.tileSize * 1,
+      h: this.tileSize * 1
     };
 
     bs.skillMenu = new SkillMenu({

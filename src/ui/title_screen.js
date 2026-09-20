@@ -750,7 +750,7 @@ export class TitleScreen {
   enterCharacterSelect() {
     this.subStage = 'CHARACTER_SELECT';
     this.focusedHero = 'male';
-    sound.playBgm('bgm_classroom');
+    sound.stopBgm(); // 选人界面静音
   }
 
   renderCharacterSelect() {

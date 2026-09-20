@@ -15,34 +15,21 @@ export const CH8_BATTLE1 = {
     wet_floor: { name: '积水地', def: 0, avoid: 10, cost: 1, color: '#0f766e', tileImg: null }
   },
 
-  terrainTiles: [
-    { x: 3, y: 1, type: 'box_lane' }, { x: 4, y: 1, type: 'box_lane' },
-    { x: 3, y: 2, type: 'box_lane' }, { x: 4, y: 2, type: 'box_lane' },
-    { x: 7, y: 4, type: 'box_lane' }, { x: 8, y: 4, type: 'box_lane' },
-    { x: 7, y: 5, type: 'box_lane' }, { x: 8, y: 5, type: 'box_lane' },
-    { x: 5, y: 3, type: 'wet_floor' }, { x: 6, y: 3, type: 'wet_floor' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'crate_3_1', type: 'crate', x: 3, y: 1, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_4_1', type: 'crate', x: 4, y: 1, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_7_4', type: 'crate', x: 7, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_8_4', type: 'crate', x: 8, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_8_1', type: 'dumpster', x: 8, y: 1, img: 'assets/props/kenney/kc_dumpster_green@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_5_0', type: 'barrier', x: 5, y: 0, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
-  ],
+  props: [],
 
   playerDeploy: [
     { unitId: 'young_xu', x: 1, y: 2 },
-    { unitId: 'young_liu', x: 1, y: 4 }
+    { unitId: 'young_liu', x: 1, y: 5 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'mystery_man', instanceId: 'mystery_boss', x: 10, y: 3 },
-    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 9, y: 2 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 9, y: 5 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 7, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 7, y: 6 }
+    { enemyId: 'mystery_man', instanceId: 'mystery_boss', x: 7, y: 1 },
+    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 7, y: 5 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 8, y: 2 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 8, y: 4 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 9, y: 3 }
   ],
 
   objective: {
@@ -50,5 +37,230 @@ export const CH8_BATTLE1 = {
     text: '击破仓库里的供货首脑'
   },
 
-  nextStorySceneOnWin: 'ch8_scene_after'
+  nextStorySceneOnWin: 'ch8_scene_after',
+  tiledData: {
+  "visualWidth": 11,
+  "visualHeight": 7,
+  "bgGrid": [
+    [
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716
+    ],
+    [
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326
+    ],
+    [
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326
+    ],
+    [
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326
+    ],
+    [
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326
+    ],
+    [
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326,
+      2326
+    ],
+    [
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716,
+      3758098716
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      937,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      953,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1002,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1003,
+      0,
+      0,
+      0,
+      1018,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1019,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      904,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      920,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 2,
+      "y": 4
+    },
+    {
+      "x": 5,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "y": 1
+    },
+    {
+      "x": 6,
+      "y": 2
+    },
+    {
+      "x": 6,
+      "y": 3
+    },
+    {
+      "x": 8,
+      "y": 5
+    },
+    {
+      "x": 8,
+      "y": 6
+    }
+  ],
+  "zones": {}
+}
 };

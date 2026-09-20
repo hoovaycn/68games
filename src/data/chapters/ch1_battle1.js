@@ -22,39 +22,25 @@ export const CH1_BATTLE1 = {
     sand_pit: { name: '跳远沙坑', def: 1, avoid: -10, cost: 2, color: '#d97706', tileImg: null }
   },
 
-  terrainTiles: [
-    // 外圈红色跑道
-    { x: 0, y: 0, type: 'track' }, { x: 1, y: 0, type: 'track' }, { x: 2, y: 0, type: 'track' }, { x: 3, y: 0, type: 'track' }, { x: 4, y: 0, type: 'track' }, { x: 5, y: 0, type: 'track' }, { x: 6, y: 0, type: 'track' }, { x: 7, y: 0, type: 'track' }, { x: 8, y: 0, type: 'track' }, { x: 9, y: 0, type: 'track' }, { x: 10, y: 0, type: 'track' }, { x: 11, y: 0, type: 'track' }, { x: 12, y: 0, type: 'track' }, { x: 13, y: 0, type: 'track' }, { x: 14, y: 0, type: 'track' }, { x: 15, y: 0, type: 'track' },
-    { x: 0, y: 9, type: 'track' }, { x: 1, y: 9, type: 'track' }, { x: 2, y: 9, type: 'track' }, { x: 3, y: 9, type: 'track' }, { x: 4, y: 9, type: 'track' }, { x: 5, y: 9, type: 'track' }, { x: 6, y: 9, type: 'track' }, { x: 7, y: 9, type: 'track' }, { x: 8, y: 9, type: 'track' }, { x: 9, y: 9, type: 'track' }, { x: 10, y: 9, type: 'track' }, { x: 11, y: 9, type: 'track' }, { x: 12, y: 9, type: 'track' }, { x: 13, y: 9, type: 'track' }, { x: 14, y: 9, type: 'track' }, { x: 15, y: 9, type: 'track' },
-    { x: 0, y: 1, type: 'track' }, { x: 0, y: 2, type: 'track' }, { x: 0, y: 3, type: 'track' }, { x: 0, y: 4, type: 'track' }, { x: 0, y: 5, type: 'track' }, { x: 0, y: 6, type: 'track' }, { x: 0, y: 7, type: 'track' }, { x: 0, y: 8, type: 'track' },
-    { x: 15, y: 1, type: 'track' }, { x: 15, y: 2, type: 'track' }, { x: 15, y: 3, type: 'track' }, { x: 15, y: 4, type: 'track' }, { x: 15, y: 5, type: 'track' }, { x: 15, y: 6, type: 'track' }, { x: 15, y: 7, type: 'track' }, { x: 15, y: 8, type: 'track' },
+  terrainTiles: [],
 
-    // 沙坑区域
-    { x: 6, y: 7, type: 'sand_pit' }, { x: 7, y: 7, type: 'sand_pit' }, { x: 8, y: 7, type: 'sand_pit' }
-  ],
-
-  props: [
-    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bench_4_7', type: 'bench', x: 4, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   // 我方出战（4 人）：徐老师顶在前排，主角与张希哲、覃瑞怡并肩协作
   playerDeploy: [
-    { unitId: 'xu_laoshi', x: 2, y: 4 },
-    { unitId: 'zhangzixiao', x: 1, y: 4 },
-    { unitId: 'zhangxizhe', x: 1, y: 3 },
-    { unitId: 'qinruiyi', x: 1, y: 5 }
+    { unitId: 'xu_laoshi', x: 2, y: 5 },
+    { unitId: 'zhangzixiao', x: 4, y: 3 },
+    { unitId: 'zhangxizhe', x: 4, y: 5 },
+    { unitId: 'qinruiyi', x: 4, y: 7 }
   ],
 
   // 敌方布阵（5 人）：魔化体育老师在球门前压阵，外校体育生组成前锋、侧翼与掩护梯次
   enemyDeploy: [
-    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 15, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 13, y: 3 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 13, y: 5 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 12, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 12, y: 6 }
+    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 9, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 11, y: 3 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 11, y: 5 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 12, y: 7 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 13, y: 5 }
   ],
 
   objective: {
@@ -77,5 +63,472 @@ export const CH1_BATTLE1 = {
         hint: '击破魔化体育老师即可平息加测'
       }
     ]
-  }
+  },
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      459,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      460
+    ],
+    [
+      475,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      476
+    ],
+    [
+      459,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      460
+    ],
+    [
+      475,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      476
+    ],
+    [
+      459,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      460
+    ],
+    [
+      475,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      476
+    ],
+    [
+      459,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      460
+    ],
+    [
+      475,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      476
+    ],
+    [
+      459,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      461,
+      460
+    ],
+    [
+      475,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      477,
+      476
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      243,
+      244,
+      243,
+      244,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      715,
+      716,
+      0,
+      0,
+      0,
+      259,
+      260,
+      259,
+      260,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      731,
+      732,
+      0,
+      0,
+      0,
+      275,
+      276,
+      275,
+      276,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      747,
+      748,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      718,
+      719,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      734,
+      735,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 6,
+      "y": 0
+    },
+    {
+      "x": 7,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "y": 0
+    },
+    {
+      "x": 6,
+      "y": 1
+    },
+    {
+      "x": 7,
+      "y": 1
+    },
+    {
+      "x": 8,
+      "y": 1
+    },
+    {
+      "x": 9,
+      "y": 1
+    },
+    {
+      "x": 6,
+      "y": 2
+    },
+    {
+      "x": 7,
+      "y": 2
+    },
+    {
+      "x": 8,
+      "y": 2
+    },
+    {
+      "x": 9,
+      "y": 2
+    },
+    {
+      "x": 1,
+      "y": 1
+    },
+    {
+      "x": 2,
+      "y": 1
+    },
+    {
+      "x": 1,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 2
+    },
+    {
+      "x": 1,
+      "y": 3
+    },
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 9
+    },
+    {
+      "x": 10,
+      "y": 9
+    }
+  ],
+  "zones": {}
+}
 };

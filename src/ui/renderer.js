@@ -1,6 +1,8 @@
 import { WEAPONS } from '../data/weapons.js';
 import { assetLoader } from '../engine/asset_loader.js';
 import { ATLAS_CONFIG, TERRAIN_ATLAS_MAP, renderCell3x3 } from '../systems/tilemap_atlas.js';
+import { tiledManager } from '../systems/tiled_map.js';
+
 
 /**
  * 战棋主渲染器与交互 UI
@@ -62,16 +64,15 @@ export class Renderer {
     this.hudX = this.panelX + this.panelW - 24 - this.hudW;
     this.hudDividerX = this.hudX - 16;
 
-    // ★ 左侧战场区自适应缩放：在「面板左缘 ~ 中缝分隔线」区域内尽量铺满并居中
-    //   基准 48px/格，按可用空间等比放大（封顶 64）或缩小（下限 36）
+    // ★ 左侧战场区自适应缩放：48px 图块按可用空间等比缩放（封顶 64，下限 36）
     const BASE_TILE = 48;
     const mapPad = 8;
     const availW = Math.max(120, this.hudDividerX - this.panelX - mapPad * 2);
     const availH = Math.max(120, this.panelH - mapPad * 2);
-    const scale = Math.min(availW / (w * BASE_TILE), availH / (h * BASE_TILE));
+    const scale = Math.min(availW / (this.mapWidthTiles * BASE_TILE), availH / (this.mapHeightTiles * BASE_TILE));
     this.tileSize = Math.max(36, Math.min(64, Math.floor(BASE_TILE * scale)));
-    this.mapWidthPx = w * this.tileSize;
-    this.mapHeightPx = h * this.tileSize;
+    this.mapWidthPx = this.mapWidthTiles * this.tileSize;
+    this.mapHeightPx = this.mapHeightTiles * this.tileSize;
 
     // 战场区水平 + 垂直双向居中（少量边距呼吸感）
     this.offsetX = this.panelX + mapPad + Math.floor((availW - this.mapWidthPx) / 2);
@@ -100,8 +101,8 @@ export class Renderer {
     // 2. 一体化底板 + 右侧信息栏
     this.drawMapFrame(state);
 
-    // 3. 绘制地图地砖 (Kenney CC0 纹理)
-    this.drawMap(state.gridSystem);
+    // 3. 绘制地图地砖 (Kenney CC0 纹理 或 Tiled 背景层)
+    this.drawMap(state.gridSystem, state);
 
     // 3.5 地图边界细描边 (在地砖之上，界定战场范围但保持一体非卡片)
     ctx.save();
@@ -116,7 +117,8 @@ export class Renderer {
     // 5. 绘制行动轨迹虚线
     this.drawPath(state);
 
-    // 6. 绘制街具 (在单位下层)
+    // 6. 绘制装饰层与街具 (在单位下层)
+    this.drawDecoration(state);
     this.drawProps(state);
 
     // 7. 绘制单位 (头像底座 + 受击震颤 + 攻击突进)
@@ -279,11 +281,32 @@ export class Renderer {
 
   // ==================== 地砖层 ====================
 
-  drawMap(gridSystem) {
+  drawMap(gridSystem, state) {
     const ctx = this.ctx;
     const ts = this.tileSize;
     const ox = this.offsetX;
     const oy = this.offsetY;
+
+    // ★ 优先使用用户在 Tiled 中手工精调的瓦片数据 (Background 层)
+    const tiledData = state && state.chapter && state.chapter.tiledData;
+    if (tiledData && tiledData.bgGrid) {
+      // 1. 底色铺底
+      ctx.fillStyle = '#1c1917';
+      ctx.fillRect(ox, oy, gridSystem.width * ts, gridSystem.height * ts);
+
+      // 2. 绘制 Tiled 背景层（1:1 逻辑格与瓦片对齐）
+      tiledManager.renderLayer(ctx, tiledData.bgGrid, ox, oy, ts);
+
+      // 3. 细网格线（逻辑格，例如 11x7）
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+      ctx.lineWidth = 1;
+      for (let y = 0; y < gridSystem.height; y++) {
+        for (let x = 0; x < gridSystem.width; x++) {
+          ctx.strokeRect(ox + x * ts, oy + y * ts, ts, ts);
+        }
+      }
+      return;
+    }
 
     // 预尝试获取 3x3 原生复合图集图片
     const sheetImg = assetLoader.getImage(ATLAS_CONFIG.sheetSrc);
@@ -355,9 +378,47 @@ export class Renderer {
     }
   }
 
+  // ==================== Tiled 装饰层 ====================
+
+  drawDecoration(state) {
+    const ctx = this.ctx;
+    const ts = this.tileSize;
+    const ox = this.offsetX;
+    const oy = this.offsetY;
+
+    const tiledData = state && state.chapter && state.chapter.tiledData;
+    if (tiledData && tiledData.decGrid) {
+      tiledManager.renderLayer(ctx, tiledData.decGrid, ox, oy, ts);
+    }
+
+    // 开发与精调辅助：在空气墙格子上绘制极淡的红斜线与微弱半透明遮罩，方便核对阻挡是否精准
+    if (tiledData && Array.isArray(tiledData.collisions)) {
+      ctx.save();
+      for (const col of tiledData.collisions) {
+        const cx = ox + col.x * ts;
+        const cy = oy + col.y * ts;
+        // 极淡红色斜纹提示 (仅 10% 透明度，完全不遮挡画面，但一眼能看出哪个格子是空气墙)
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+        ctx.fillRect(cx, cy, ts, ts);
+        ctx.strokeStyle = 'rgba(239, 68, 68, 0.22)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(cx + 4, cy + 4);
+        ctx.lineTo(cx + ts - 4, cy + ts - 4);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+  }
+
   // ==================== 街具层 ====================
 
   drawProps(state) {
+    // 若关卡启用了手工精调的 Tiled 瓦片数据，原有写死的 props 街具不再重复叠加
+    if (state && state.chapter && state.chapter.tiledData) {
+      return;
+    }
+
     const ctx = this.ctx;
     const ts = this.tileSize;
     const ox = this.offsetX;
@@ -372,36 +433,19 @@ export class Renderer {
       const px = prop.x * ts + ox;
       const py = prop.y * ts + oy;
 
-      // 还原街具的原生像素尺寸（因为素材图是 3x 放大版，而地表采用了 3x3 的原生 1x 拼接）
-      // 避免出现“16x16 贴图被拉伸占满 48x48 导致像素巨大不匹配”的问题。
-      // 注意：不能写死像素，需要跟随当前的 tileSize 缩放。
-      // 素材的基准尺寸是 48 对应 1 个战棋格（占满时）。
-      // 既然素材放大了 3 倍，我们要缩小 3 倍，所以比例是 1/3。
-      const drawW = (img.width / 48) * (ts / 3);
-      const drawH = (img.height / 48) * (ts / 3);
+      // 街具按原生像素尺寸渲染（素材基准 48px 对应 1 个战棋格）
+      const drawW = (img.width / 48) * ts;
+      const drawH = (img.height / 48) * ts;
 
-      if (prop.fill3x3 !== false) {
-        // 九宫格堆叠渲染，让单个物件铺满整个 3x3 的逻辑单元格
-        for (let sx = 0; sx < 3; sx++) {
-          for (let sy = 0; sy < 3; sy++) {
-            let itemCx = px + sx * (ts / 3) + ((ts / 3) - drawW) / 2;
-            let itemCy = py + sy * (ts / 3) + ((ts / 3) - drawH) / 2;
-            ctx.drawImage(img, itemCx, itemCy, drawW, drawH);
-          }
-        }
-      } else {
-        // 默认：完美居中放置在它所占用的单元格区域内
-        // 对于 1x1 原生图块（如消火栓），它将精准落在 3x3 的正中间（即第二行第二列）
-        let cx = px + (prop.gridW * ts - drawW) / 2;
-        let cy = py + (prop.gridH * ts - drawH) / 2;
+      // 完美居中放置在它所占用的单元格区域内
+      let cx = px + (prop.gridW * ts - drawW) / 2;
+      let cy = py + (prop.gridH * ts - drawH) / 2;
 
-        // 构图调整：支持九宫格子网格偏移 (subX, subY 取值 0~2)
-        // 允许在地图数据中指定小物件靠边放置，比如轮胎叠放右下角 (subX: 1, subY: 1)
-        if (prop.subX !== undefined) cx = px + prop.subX * (ts / 3);
-        if (prop.subY !== undefined) cy = py + prop.subY * (ts / 3);
+      // 构图调整：允许在地图数据中指定小物件靠边放置（subX, subY 取值 0~2）
+      if (prop.subX !== undefined) cx = px + prop.subX * ts;
+      if (prop.subY !== undefined) cy = py + prop.subY * ts;
 
-        ctx.drawImage(img, cx, cy, drawW, drawH);
-      }
+      ctx.drawImage(img, cx, cy, drawW, drawH);
     }
   }
 
@@ -412,6 +456,9 @@ export class Renderer {
     const ts = this.tileSize;
     const ox = this.offsetX;
     const oy = this.offsetY;
+
+    // 单位占 1×1 格（视觉约 48px）
+    const unitSize = ts * 1;
 
     for (const u of units) {
       let isDying = false;
@@ -441,8 +488,12 @@ export class Renderer {
       // 结合受击抖动偏移、阵亡振动与攻击突进偏移
       const shakeX = (u.animOffsetX || 0) + deathShakeX;
       const shakeY = (u.animOffsetY || 0) + deathShakeY;
-      const px = u.x * ts + ox + shakeX;
-      const py = u.y * ts + oy + shakeY;
+
+      // 单位视觉中心对齐到逻辑锚点格的中央
+      const centerX = (u.x + 1 / 2) * ts + ox + shakeX;
+      const centerY = (u.y + 1 / 2) * ts + oy + shakeY;
+      const px = centerX - unitSize / 2;
+      const py = centerY - unitSize / 2;
 
       ctx.save();
       if (isDying) {
@@ -453,7 +504,7 @@ export class Renderer {
       // 1. 阴影投影 (椭圆半透明)
       ctx.fillStyle = 'rgba(0, 0, 0, 0.32)';
       ctx.beginPath();
-      ctx.ellipse(px + ts / 2, py + ts - 4, ts / 2 - 6, 4, 0, 0, Math.PI * 2);
+      ctx.ellipse(px + unitSize / 2, py + unitSize - 4, unitSize / 2 - 6, 4, 0, 0, Math.PI * 2);
       ctx.fill();
 
       // 2. 选中光晕 (脉动黄圈)
@@ -461,28 +512,28 @@ export class Renderer {
         const pulse = Math.sin(Date.now() / 140) * 3;
         ctx.fillStyle = 'rgba(250, 204, 21, 0.5)';
         ctx.beginPath();
-        ctx.arc(px + ts / 2, py + ts / 2 + 2, (ts / 2) + pulse, 0, Math.PI * 2);
+        ctx.arc(px + unitSize / 2, py + unitSize / 2 + 2, (unitSize / 2) + pulse, 0, Math.PI * 2);
         ctx.fill();
       }
 
       // 3. 圆形头像底座 + portrait 头像 (替代 walk_placeholder 切片)
-      this.drawUnitToken(u, px, py, ts);
+      this.drawUnitToken(u, px, py, unitSize);
 
       // 4. 已行动指示 (变灰外框)
       if (!isDying && u.hasActed) {
         ctx.fillStyle = 'rgba(28, 25, 23, 0.45)';
         ctx.beginPath();
-        ctx.roundRect(px + 2, py + 2, ts - 4, ts - 4, 6);
+        ctx.roundRect(px + 2, py + 2, unitSize - 4, unitSize - 4, 6);
         ctx.fill();
       }
 
       // 5. 血条（阵亡消退中不显示血条）
       if (!isDying) {
         const hpPct = Math.max(0, u.currentHp / u.stats.maxHp);
-        const barW = ts - 10;
+        const barW = unitSize - 10;
         const barH = 5;
         const barX = px + 5;
-        const barY = py + ts - 9;
+        const barY = py + unitSize - 9;
 
         ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         ctx.fillRect(barX - 1, barY - 1, barW + 2, barH + 2);
@@ -842,29 +893,26 @@ export class Renderer {
   drawHighlights(state) {
     const ctx = this.ctx;
     const ts = this.tileSize;
+    const unitSize = ts * 1;
     const ox = this.offsetX;
     const oy = this.offsetY;
 
     if (state.reachableTiles && state.reachableTiles.length > 0) {
       ctx.fillStyle = 'rgba(37, 99, 235, 0.32)';
-      ctx.strokeStyle = '#2563eb';
-      ctx.lineWidth = 2;
-
+      ctx.beginPath();
       for (const t of state.reachableTiles) {
-        ctx.fillRect(t.x * ts + ox + 2, t.y * ts + oy + 2, ts - 4, ts - 4);
-        ctx.strokeRect(t.x * ts + ox + 2, t.y * ts + oy + 2, ts - 4, ts - 4);
+        ctx.rect(t.x * ts + ox, t.y * ts + oy, unitSize, unitSize);
       }
+      ctx.fill();
     }
 
     if (state.attackableTiles && state.attackableTiles.length > 0) {
       ctx.fillStyle = 'rgba(220, 38, 38, 0.38)';
-      ctx.strokeStyle = '#dc2626';
-      ctx.lineWidth = 2;
-
+      ctx.beginPath();
       for (const t of state.attackableTiles) {
-        ctx.fillRect(t.x * ts + ox + 2, t.y * ts + oy + 2, ts - 4, ts - 4);
-        ctx.strokeRect(t.x * ts + ox + 2, t.y * ts + oy + 2, ts - 4, ts - 4);
+        ctx.rect(t.x * ts + ox, t.y * ts + oy, unitSize, unitSize);
       }
+      ctx.fill();
     }
   }
 
@@ -872,6 +920,7 @@ export class Renderer {
     if (!state.currentPath || state.currentPath.length < 2) return;
     const ctx = this.ctx;
     const ts = this.tileSize;
+    const unitSize = ts * 1;
     const ox = this.offsetX;
     const oy = this.offsetY;
 
@@ -882,8 +931,8 @@ export class Renderer {
 
     for (let i = 0; i < state.currentPath.length; i++) {
       const p = state.currentPath[i];
-      const px = p.x * ts + ts / 2 + ox;
-      const py = p.y * ts + ts / 2 + oy;
+      const px = p.x * ts + unitSize / 2 + ox;
+      const py = p.y * ts + unitSize / 2 + oy;
       if (i === 0) ctx.moveTo(px, py);
       else ctx.lineTo(px, py);
     }
@@ -894,6 +943,7 @@ export class Renderer {
   drawCursor(cursor) {
     const ctx = this.ctx;
     const ts = this.tileSize;
+    const unitSize = ts * 1;
     const ox = this.offsetX;
     const oy = this.offsetY;
     const x = cursor.x * ts + ox;
@@ -910,17 +960,17 @@ export class Renderer {
     ctx.lineTo(x - offset, y - offset);
     ctx.lineTo(x - offset + cornerSize, y - offset);
 
-    ctx.moveTo(x + ts + offset - cornerSize, y - offset);
-    ctx.lineTo(x + ts + offset, y - offset);
-    ctx.lineTo(x + ts + offset, y - offset + cornerSize);
+    ctx.moveTo(x + unitSize + offset - cornerSize, y - offset);
+    ctx.lineTo(x + unitSize + offset, y - offset);
+    ctx.lineTo(x + unitSize + offset, y - offset + cornerSize);
 
-    ctx.moveTo(x - offset, y + ts + offset - cornerSize);
-    ctx.lineTo(x - offset, y + ts + offset);
-    ctx.lineTo(x - offset + cornerSize, y + ts + offset);
+    ctx.moveTo(x - offset, y + unitSize + offset - cornerSize);
+    ctx.lineTo(x - offset, y + unitSize + offset);
+    ctx.lineTo(x - offset + cornerSize, y + unitSize + offset);
 
-    ctx.moveTo(x + ts + offset - cornerSize, y + ts + offset);
-    ctx.lineTo(x + ts + offset, y + ts + offset);
-    ctx.lineTo(x + ts + offset, y + ts + offset - cornerSize);
+    ctx.moveTo(x + unitSize + offset - cornerSize, y + unitSize + offset);
+    ctx.lineTo(x + unitSize + offset, y + unitSize + offset);
+    ctx.lineTo(x + unitSize + offset, y + unitSize + offset - cornerSize);
     ctx.stroke();
   }
 

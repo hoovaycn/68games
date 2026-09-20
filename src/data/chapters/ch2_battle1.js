@@ -21,37 +21,24 @@ export const CH2_BATTLE1 = {
     wood_floor: { name: '木质讲台', def: 1, avoid: 5, cost: 1, color: '#b45309', tileImg: 'assets/props/kenney/kc_brick_red@2x.png' }
   },
 
-  terrainTiles: [
-    // 讲台区域
-    { x: 0, y: 1, type: 'wood_floor' }, { x: 0, y: 2, type: 'wood_floor' },
-    { x: 0, y: 3, type: 'wood_floor' }, { x: 0, y: 4, type: 'wood_floor' },
-    { x: 0, y: 5, type: 'wood_floor' }, { x: 0, y: 6, type: 'wood_floor' },
-    { x: 0, y: 7, type: 'wood_floor' }, { x: 0, y: 8, type: 'wood_floor' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/items/newbie_pencil@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   // 玩家 3 人站位（main.js 会根据主角线动态拉取当前主力铁三角）
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 5 },
-    { unitId: 'zhanghanyu', x: 2, y: 3 },
-    { unitId: 'fanwenmo', x: 2, y: 7 }
+    { unitId: 'zhangzixiao', x: 3, y: 5 },
+    { unitId: 'zhanghanyu', x: 4, y: 4 },
+    { unitId: 'fanwenmo', x: 4, y: 6 }
   ],
 
   // 敌方布阵（5 人）：朱晏泽带头挑衅，两名男同学与两名女同学在课桌间煽风点火、推波助澜
   enemyDeploy: [
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 14, y: 5 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 15, y: 2 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 12, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 15, y: 8 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 12, y: 9 }
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 11, y: 6 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_1', x: 12, y: 4 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_1', x: 12, y: 1 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_2', x: 13, y: 6 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_2', x: 14, y: 4 }
   ],
 
   objective: {
@@ -74,5 +61,468 @@ export const CH2_BATTLE1 = {
         hint: '并肩作战 · 击碎心魔'
       }
     ]
-  }
+  },
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      2264,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2265,
+      2147485912
+    ],
+    [
+      2276,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2277,
+      2147485924
+    ],
+    [
+      2276,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2302,
+      2147485924
+    ],
+    [
+      1610615000,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227737,
+      3221227736
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      654,
+      655,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      657,
+      658,
+      0,
+      0,
+      670,
+      671,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      581,
+      0,
+      0,
+      0,
+      580,
+      0,
+      0,
+      0,
+      579,
+      0,
+      0,
+      0,
+      578,
+      0
+    ],
+    [
+      0,
+      0,
+      597,
+      0,
+      0,
+      0,
+      596,
+      0,
+      0,
+      0,
+      595,
+      0,
+      0,
+      0,
+      594,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      591,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      579,
+      0,
+      0,
+      0,
+      578,
+      0,
+      0,
+      607,
+      579,
+      0,
+      0,
+      0,
+      581,
+      0
+    ],
+    [
+      0,
+      0,
+      595,
+      0,
+      0,
+      0,
+      594,
+      0,
+      0,
+      0,
+      595,
+      0,
+      0,
+      0,
+      597,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 2,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 3
+    },
+    {
+      "x": 3,
+      "y": 1
+    },
+    {
+      "x": 4,
+      "y": 1
+    },
+    {
+      "x": 6,
+      "y": 2
+    },
+    {
+      "x": 6,
+      "y": 3
+    },
+    {
+      "x": 7,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "y": 0
+    },
+    {
+      "x": 7,
+      "y": 1
+    },
+    {
+      "x": 8,
+      "y": 1
+    },
+    {
+      "x": 10,
+      "y": 2
+    },
+    {
+      "x": 10,
+      "y": 3
+    },
+    {
+      "x": 14,
+      "y": 2
+    },
+    {
+      "x": 14,
+      "y": 3
+    },
+    {
+      "x": 2,
+      "y": 7
+    },
+    {
+      "x": 2,
+      "y": 8
+    },
+    {
+      "x": 6,
+      "y": 7
+    },
+    {
+      "x": 6,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 14,
+      "y": 7
+    },
+    {
+      "x": 14,
+      "y": 8
+    }
+  ],
+  "zones": {}
+}
 };

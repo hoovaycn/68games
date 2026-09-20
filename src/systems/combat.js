@@ -1,5 +1,6 @@
 import { WEAPONS } from '../data/weapons.js';
 import { ITEMS } from '../data/items.js';
+import { SUBDIVIDE } from './grid.js';
 
 /**
  * 火焰纹章（FE）经典数值与战斗系统
@@ -48,7 +49,7 @@ export class CombatSystem {
 
   // 判定武器是否在该距离内可攻击
   static canAttackAtDistance(weapon, dist) {
-    return dist >= weapon.range[0] && dist <= weapon.range[1];
+    return dist >= weapon.range[0] * SUBDIVIDE && dist <= weapon.range[1] * SUBDIVIDE;
   }
 
   /**

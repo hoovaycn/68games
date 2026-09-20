@@ -15,37 +15,28 @@ export const CH4_BATTLE1 = {
     mat: { name: '训练垫', def: 1, avoid: 5, cost: 1, color: '#065f46', tileImg: null }
   },
 
-  terrainTiles: [
-    { x: 6, y: 2, type: 'mat' }, { x: 7, y: 2, type: 'mat' }, { x: 8, y: 2, type: 'mat' }, { x: 9, y: 2, type: 'mat' },
-    { x: 6, y: 3, type: 'mat' }, { x: 7, y: 3, type: 'mat' }, { x: 8, y: 3, type: 'mat' }, { x: 9, y: 3, type: 'mat' },
-    { x: 3, y: 7, type: 'storage' }, { x: 4, y: 7, type: 'storage' }, { x: 11, y: 2, type: 'storage' }, { x: 12, y: 2, type: 'storage' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'food_4_2', type: 'crate', x: 4, y: 2, img: 'assets/items/suspicious_drink@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'food_4_6', type: 'crate', x: 4, y: 6, img: 'assets/items/suspicious_snack@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 1, y: 4 },
-    { unitId: 'zhanghanyu', x: 1, y: 3 },
-    { unitId: 'fanwenmo', x: 1, y: 5 },
-    { unitId: 'zhangxizhe', x: 2, y: 2 },
-    { unitId: 'qinruiyi', x: 2, y: 6 },
-    { unitId: 'zhuyanze', x: 2, y: 4 },
-    { unitId: 'xu_laoshi', x: 3, y: 3 },
-    { unitId: 'liu_laoshi', x: 3, y: 5 }
+    { unitId: 'zhangzixiao', x: 2, y: 2 },
+    { unitId: 'zhanghanyu', x: 2, y: 4 },
+    { unitId: 'fanwenmo', x: 2, y: 6 },
+    { unitId: 'zhangxizhe', x: 3, y: 3 },
+    { unitId: 'qinruiyi', x: 3, y: 5 },
+    { unitId: 'zhuyanze', x: 4, y: 4 },
+    { unitId: 'xu_laoshi', x: 4, y: 6 },
+    { unitId: 'liu_laoshi', x: 5, y: 5 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 15, y: 4 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 14, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 15, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 15, y: 6 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 13, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 13, y: 7 }
+    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 9, y: 1 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 10, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 12, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 14, y: 1 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 14, y: 3 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 14, y: 5 }
   ],
 
   objective: {
@@ -53,5 +44,456 @@ export const CH4_BATTLE1 = {
     text: '击退坏教练与供货帮手'
   },
 
-  nextStorySceneOnWin: 'ch4_scene_after'
+  nextStorySceneOnWin: 'ch4_scene_after',
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      2288,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2289,
+      2147485936
+    ],
+    [
+      2300,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2147485948
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1610615025,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2301,
+      2684356849
+    ],
+    [
+      1073744124,
+      2301,
+      2301,
+      2301,
+      2301,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      1073744125,
+      2301,
+      3221227772
+    ],
+    [
+      1073744112,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      1073744113,
+      3221227760
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      957,
+      958,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      973,
+      974,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      969,
+      970,
+      0,
+      0,
+      0,
+      0,
+      989,
+      990,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      985,
+      986,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      905,
+      906,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1091,
+      0,
+      1058,
+      0,
+      0,
+      0,
+      0,
+      921,
+      922,
+      0,
+      0,
+      1089,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1107,
+      0,
+      1074,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1105,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 5,
+      "y": 2
+    },
+    {
+      "x": 6,
+      "y": 2
+    },
+    {
+      "x": 5,
+      "y": 3
+    },
+    {
+      "x": 6,
+      "y": 3
+    },
+    {
+      "x": 11,
+      "y": 0
+    },
+    {
+      "x": 12,
+      "y": 0
+    },
+    {
+      "x": 11,
+      "y": 1
+    },
+    {
+      "x": 12,
+      "y": 1
+    },
+    {
+      "x": 11,
+      "y": 2
+    },
+    {
+      "x": 12,
+      "y": 2
+    },
+    {
+      "x": 13,
+      "y": 7
+    },
+    {
+      "x": 13,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 4,
+      "y": 7
+    },
+    {
+      "x": 4,
+      "y": 8
+    },
+    {
+      "x": 2,
+      "y": 7
+    },
+    {
+      "x": 2,
+      "y": 8
+    }
+  ],
+  "zones": {}
+}
 };

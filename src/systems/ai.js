@@ -1,5 +1,6 @@
 import { CombatSystem } from './combat.js';
 import { WEAPONS } from '../data/weapons.js';
+import { SUBDIVIDE } from './grid.js';
 
 /**
  * 战棋敌人 AI 决策机
@@ -81,7 +82,7 @@ export class EnemyAI {
     const aiConfig = enemyUnit.ai || { type: 'aggressive_chase', aggroRadius: 6 };
 
     // 守摊型 AI：若玩家未进入警戒半径，则在原地不动
-    if (aiConfig.type === 'passive_guard' && dist > (aiConfig.aggroRadius || 4)) {
+    if (aiConfig.type === 'passive_guard' && dist > (aiConfig.aggroRadius || 4) * SUBDIVIDE) {
       return { action: 'wait', targetTile: { x: enemyUnit.x, y: enemyUnit.y }, attackTarget: null };
     }
 

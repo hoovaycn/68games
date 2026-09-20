@@ -22,36 +22,19 @@ export const CH0_BATTLE3 = {
     tile_floor: { name: '瓷砖走道', def: 0, avoid: 0, cost: 1, color: '#e2e8f0', tileImg: 'assets/props/kenney/kc_crosswalk@2x.png' }
   },
 
-  terrainTiles: [
-    { x: 0, y: 0, type: 'tile_floor' }, { x: 1, y: 0, type: 'tile_floor' },
-    { x: 0, y: 1, type: 'tile_floor' }, { x: 1, y: 1, type: 'tile_floor' },
-    { x: 0, y: 2, type: 'tile_floor' }, { x: 1, y: 2, type: 'tile_floor' },
-    { x: 0, y: 3, type: 'tile_floor' }, { x: 1, y: 3, type: 'tile_floor' },
-    { x: 0, y: 4, type: 'tile_floor' }, { x: 1, y: 4, type: 'tile_floor' },
-    { x: 0, y: 5, type: 'tile_floor' }, { x: 1, y: 5, type: 'tile_floor' },
-    { x: 0, y: 6, type: 'tile_floor' }, { x: 1, y: 6, type: 'tile_floor' },
+  terrainTiles: [],
 
-    // 书房中央地毯区域
-    { x: 4, y: 2, type: 'carpet' }, { x: 5, y: 2, type: 'carpet' }, { x: 6, y: 2, type: 'carpet' },
-    { x: 4, y: 3, type: 'carpet' }, { x: 5, y: 3, type: 'carpet' }, { x: 6, y: 3, type: 'carpet' },
-    { x: 4, y: 4, type: 'carpet' }, { x: 5, y: 4, type: 'carpet' }, { x: 6, y: 4, type: 'carpet' }
-  ],
-
-  props: [
-    { id: 'desk_5_1', type: 'desk', x: 5, y: 1, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bookshelf_9_1', type: 'bookshelf', x: 9, y: 1, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'trash_9_5', type: 'trash', x: 9, y: 5, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   // 玩家双人站位：主角与新加入队友并肩
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 1, y: 2 },
-    { unitId: 'zhanghanyu', x: 1, y: 4 }
+    { unitId: '{MC_ID}', x: 2, y: 3 },
+    { unitId: '{ALLY_ID}', x: 3, y: 5 }
   ],
 
   // 敌方部署（Boss：异变的同伴）
   enemyDeploy: [
-    { enemyId: 'fanwenmo_corrupted', instanceId: 'boss_1', x: 8, y: 3 }
+    { enemyId: '{BOSS_ID}', instanceId: 'boss_1', x: 8, y: 2 }
   ],
 
   objective: {
@@ -74,5 +57,310 @@ export const CH0_BATTLE3 = {
         hint: '打空生命值即可制伏唤醒'
       }
     ]
-  }
+  },
+  tiledData: {
+  "visualWidth": 11,
+  "visualHeight": 7,
+  "bgGrid": [
+    [
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569,
+      1569
+    ],
+    [
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891
+    ],
+    [
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882
+    ],
+    [
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892
+    ],
+    [
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881
+    ],
+    [
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891,
+      1892,
+      1891
+    ],
+    [
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882,
+      1881,
+      1882
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      1113,
+      1114,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      782,
+      783
+    ],
+    [
+      0,
+      1129,
+      1130,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      798,
+      799
+    ],
+    [
+      0,
+      1145,
+      1146,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      814,
+      815
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      616,
+      617,
+      618,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      632,
+      633,
+      634,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      501,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 1,
+      "y": 0
+    },
+    {
+      "x": 2,
+      "y": 0
+    },
+    {
+      "x": 1,
+      "y": 1
+    },
+    {
+      "x": 2,
+      "y": 1
+    },
+    {
+      "x": 1,
+      "y": 2
+    },
+    {
+      "x": 2,
+      "y": 2
+    },
+    {
+      "x": 5,
+      "y": 4
+    },
+    {
+      "x": 6,
+      "y": 4
+    },
+    {
+      "x": 7,
+      "y": 4
+    },
+    {
+      "x": 5,
+      "y": 5
+    },
+    {
+      "x": 6,
+      "y": 5
+    },
+    {
+      "x": 7,
+      "y": 5
+    },
+    {
+      "x": 5,
+      "y": 6
+    },
+    {
+      "x": 6,
+      "y": 6
+    },
+    {
+      "x": 7,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 0
+    },
+    {
+      "x": 10,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "y": 1
+    },
+    {
+      "x": 10,
+      "y": 1
+    },
+    {
+      "x": 9,
+      "y": 2
+    },
+    {
+      "x": 10,
+      "y": 2
+    },
+    {
+      "x": 0,
+      "y": 0
+    },
+    {
+      "x": 3,
+      "y": 0
+    },
+    {
+      "x": 4,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "y": 0
+    },
+    {
+      "x": 6,
+      "y": 0
+    },
+    {
+      "x": 7,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "y": 0
+    }
+  ],
+  "zones": {}
+}
 };

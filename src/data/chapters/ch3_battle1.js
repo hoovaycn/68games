@@ -15,35 +15,25 @@ export const CH3_BATTLE1 = {
     stage_mat: { name: '软垫', def: 1, avoid: 5, cost: 1, color: '#0f766e', tileImg: null }
   },
 
-  terrainTiles: [
-    { x: 0, y: 0, type: 'track' }, { x: 0, y: 1, type: 'track' }, { x: 0, y: 2, type: 'track' }, { x: 0, y: 3, type: 'track' }, { x: 0, y: 4, type: 'track' }, { x: 0, y: 5, type: 'track' }, { x: 0, y: 6, type: 'track' }, { x: 0, y: 7, type: 'track' }, { x: 0, y: 8, type: 'track' }, { x: 0, y: 9, type: 'track' },
-    { x: 1, y: 0, type: 'track' }, { x: 1, y: 1, type: 'track' }, { x: 1, y: 2, type: 'track' }, { x: 1, y: 3, type: 'track' }, { x: 1, y: 4, type: 'track' }, { x: 1, y: 5, type: 'track' }, { x: 1, y: 6, type: 'track' }, { x: 1, y: 7, type: 'track' }, { x: 1, y: 8, type: 'track' }, { x: 1, y: 9, type: 'track' },
-    { x: 7, y: 3, type: 'stage_mat' }, { x: 8, y: 3, type: 'stage_mat' }, { x: 9, y: 3, type: 'stage_mat' },
-    { x: 7, y: 4, type: 'stage_mat' }, { x: 8, y: 4, type: 'stage_mat' }, { x: 9, y: 4, type: 'stage_mat' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'equipment_3_2', type: 'crate', x: 3, y: 2, img: 'assets/items/dumbbell@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'equipment_3_7', type: 'crate', x: 3, y: 7, img: 'assets/items/jump_rope@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   playerDeploy: [
     { unitId: 'zhangzixiao', x: 2, y: 4 },
-    { unitId: 'zhanghanyu', x: 2, y: 3 },
-    { unitId: 'fanwenmo', x: 2, y: 5 },
-    { unitId: 'qinruiyi', x: 3, y: 2 },
-    { unitId: 'zhuyanze', x: 3, y: 6 },
-    { unitId: 'xu_laoshi', x: 3, y: 4 },
-    { unitId: 'liu_laoshi', x: 3, y: 5 }
+    { unitId: 'zhanghanyu', x: 2, y: 6 },
+    { unitId: 'fanwenmo', x: 3, y: 5 },
+    { unitId: 'qinruiyi', x: 3, y: 7 },
+    { unitId: 'zhuyanze', x: 4, y: 4 },
+    { unitId: 'xu_laoshi', x: 4, y: 6 },
+    { unitId: 'liu_laoshi', x: 4, y: 8 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_zhangxizhe', x: 13, y: 4 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 15, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 14, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 14, y: 6 }
+    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_zhangxizhe', x: 12, y: 5 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 12, y: 3 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 13, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 13, y: 4 }
   ],
 
   objective: {
@@ -51,5 +41,440 @@ export const CH3_BATTLE1 = {
     text: '救回张希哲并击退堵门外校生'
   },
 
-  nextStorySceneOnWin: 'ch3_scene_recover'
+  nextStorySceneOnWin: 'ch3_scene_recover',
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      1555,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      1556,
+      2147485203
+    ],
+    [
+      1610614292,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1572,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1572,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1572,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1572,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1610614292,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1610614292,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1610614292,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      1573,
+      2684356116
+    ],
+    [
+      1610614291,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227028,
+      3221227027
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      230,
+      231,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      246,
+      247,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      295,
+      296,
+      293,
+      294,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      311,
+      312,
+      309,
+      310,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      327,
+      328,
+      325,
+      326,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 4,
+      "y": 1
+    },
+    {
+      "x": 5,
+      "y": 1
+    },
+    {
+      "x": 4,
+      "y": 2
+    },
+    {
+      "x": 5,
+      "y": 2
+    },
+    {
+      "x": 8,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 11,
+      "y": 6
+    },
+    {
+      "x": 8,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 11,
+      "y": 7
+    },
+    {
+      "x": 8,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 11,
+      "y": 8
+    }
+  ],
+  "zones": {}
+}
 };

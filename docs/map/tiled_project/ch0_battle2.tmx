@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="11" height="7" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="105">
+ <tileset firstgid="1" source="Interiors_free_48x48.tsx"/>
+ <tileset firstgid="1425" source="Room_Builder_free_48x48.tsx"/>
+ <tileset firstgid="1816" source="Tileset_48x48_1.tsx"/>
+ <tileset firstgid="1916" source="Tileset_48x48_2.tsx"/>
+ <tileset firstgid="2016" source="Tileset_48x48_3.tsx"/>
+ <tileset firstgid="2116" source="Tileset_48x48_9.tsx"/>
+ <tileset firstgid="2216" source="Tileset_48x48_16.tsx"/>
+ <layer id="1" name="Background" width="11" height="7">
+  <data encoding="csv">
+2052,2053,2054,2041,2053,2054,2041,2053,2054,2041,2053,
+2082,2058,2057,2051,2081,2082,2051,2058,2057,2051,2081,
+2092,2047,2048,2047,2091,2092,2048,2047,2048,2047,2091,
+2082,2057,2058,2057,2081,2082,2058,2057,2058,2057,2081,
+2092,2048,2047,2048,2091,2092,2047,2048,2047,2048,2091,
+2082,2058,2057,2058,2081,2082,2057,2058,2057,2058,2081,
+2092,2047,2048,2047,2091,2092,2048,2047,2048,2047,2091
+</data>
+ </layer>
+ <layer id="2" name="Decoration" width="11" height="7">
+  <data encoding="csv">
+307,308,0,0,0,0,0,311,312,0,0,
+323,324,0,0,0,0,0,327,328,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,293,294,
+0,0,0,0,0,0,0,0,0,309,310,
+0,0,0,0,0,0,0,0,0,325,326
+</data>
+ </layer>
+ <objectgroup id="3" name="Spawns">
+  <properties>
+   <property name="desc" value="在此放置玩家和敌人的出生点"/>
+  </properties>
+  <object id="102" x="48" y="144" width="48" height="48"/>
+  <object id="103" x="432" y="144" width="48" height="48"/>
+  <object id="104" x="336" y="240" width="48" height="48"/>
+ </objectgroup>
+ <objectgroup id="4" name="Collisions">
+  <properties>
+   <property name="desc" value="在此绘制碰撞盒"/>
+  </properties>
+  <object id="100" x="0" y="0" width="528" height="48"/>
+  <object id="101" x="432" y="192" width="96" height="144"/>
+ </objectgroup>
+</map>

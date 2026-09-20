@@ -12,53 +12,18 @@ export const PROLOGUE_STORY = {
       id: 'scene_prelude',
       title: '前言',
       bgType: 'black',
-      bgm: '', // 黑屏无音乐
+      displayMode: 'fullscreen',
+      bgm: '',
       dialogues: [
         {
           id: 1,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '人们总以为，校园是纯洁无瑕的避风港。',
+          text: '校园，本该是每个人最无忧无虑的避风港。',
           sfx: 'sfx_text_blip'
         },
         {
           id: 2,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '但如果有一天，通往更高分数的阶梯，是用朋友的理智、甚至是灵魂铺就的呢？',
+          text: '直到有一天，通往未来的阶梯上，爬满了名为「分数」的荆棘……',
           sfx: 'sfx_text_blip'
-        },
-        {
-          id: 3,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '在绝对的竞争面前，是坚守底线，还是随波逐流？是背叛曾经的挚友，还是与整个扭曲的世界为敌？',
-          sfx: 'sfx_text_blip'
-        },
-        {
-          id: 4,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '这不仅仅是一个关于成长的故事，这是一场在欲望泥潭中，寻找初心的漫长战役。',
-          sfx: 'sfx_text_blip'
-        },
-        {
-          id: 5,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '长达二十年的遗憾，将在你的手中，迎来最终的抉择。',
-          highlight: true,
-          sfx: 'sfx_confirm'
         }
       ],
       transition: {
@@ -74,7 +39,7 @@ export const PROLOGUE_STORY = {
       title: '人大附小 · 六 8 班教室',
       bgType: 'classroom',
       bgImg: 'assets/backgrounds/bg_classroom@2x.png',
-      bgm: 'bgm_classroom',
+      bgm: 'bgm_home_town',
       dialogues: [
         {
           id: 1,
@@ -154,7 +119,6 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
           rightPortrait: 'assets/art/zhanghanyu_default@2x.png',
           activeSide: 'right',
-          bgm: 'bgm_suspense',
           text: '子骁！昨天校门口有个怪大叔拦住小默，塞给他一包发绿光的零食，笑得跟纸人一样！',
           sfx: 'sfx_text_blip'
         },
@@ -181,7 +145,7 @@ export const PROLOGUE_STORY = {
       title: '校外街道 · 遭遇流动商贩',
       bgType: 'street',
       bgImg: 'assets/backgrounds/bg_street@2x.png',
-      bgm: 'bgm_street',
+      bgm: 'bgm_suspense',
       dialogues: [
         {
           id: 1,
@@ -625,53 +589,18 @@ export const PROLOGUE_STORY = {
       id: 'scene_prelude',
       title: '前言',
       bgType: 'black',
-      bgm: '', // 黑屏无音乐
+      displayMode: 'fullscreen',
+      bgm: '',
       dialogues: [
         {
           id: 1,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '人们总以为，校园是纯洁无瑕的避风港。',
+          text: '校园，本该是每个人最无忧无虑的避风港。',
           sfx: 'sfx_text_blip'
         },
         {
           id: 2,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '但如果有一天，通往更高分数的阶梯，是用朋友的理智、甚至是灵魂铺就的呢？',
+          text: '直到有一天，通往未来的阶梯上，爬满了名为「分数」的荆棘……',
           sfx: 'sfx_text_blip'
-        },
-        {
-          id: 3,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '在绝对的竞争面前，是坚守底线，还是随波逐流？是背叛曾经的挚友，还是与整个扭曲的世界为敌？',
-          sfx: 'sfx_text_blip'
-        },
-        {
-          id: 4,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '这不仅仅是一个关于成长的故事，这是一场在欲望泥潭中，寻找初心的漫长战役。',
-          sfx: 'sfx_text_blip'
-        },
-        {
-          id: 5,
-          speaker: '系统提示',
-          leftPortrait: null,
-          rightPortrait: null,
-          activeSide: 'left',
-          text: '长达二十年的遗憾，将在你的手中，迎来最终的抉择。',
-          highlight: true,
-          sfx: 'sfx_confirm'
         }
       ],
       transition: {
@@ -687,7 +616,7 @@ export const PROLOGUE_STORY = {
       title: '人大附小 · 六 8 班教室',
       bgType: 'classroom',
       bgImg: 'assets/backgrounds/bg_classroom@2x.png',
-      bgm: 'bgm_classroom',
+      bgm: 'bgm_home_town',
       dialogues: [
         {
           id: 1,
@@ -758,7 +687,6 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default@2x.png',
           rightPortrait: 'assets/art/chenpinxuan_default@2x.png',
           activeSide: 'right',
-          bgm: 'bgm_suspense',
           text: '予诺！昨天我就觉得妍熹不对劲！一个人蹲在墙角发疯一样比划长笛，眼神直勾勾的！',
           sfx: 'sfx_shock_sting'
         },
@@ -785,7 +713,7 @@ export const PROLOGUE_STORY = {
       title: '校外街道 · 遭遇流动商贩',
       bgType: 'street',
       bgImg: 'assets/backgrounds/bg_street@2x.png',
-      bgm: 'bgm_street',
+      bgm: 'bgm_suspense',
       dialogues: [
         {
           id: 1,

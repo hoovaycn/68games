@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="119">
+ <tileset firstgid="1" source="Interiors_free_48x48.tsx"/>
+ <tileset firstgid="1425" source="Room_Builder_free_48x48.tsx"/>
+ <tileset firstgid="1816" source="Tileset_48x48_1.tsx"/>
+ <tileset firstgid="1916" source="Tileset_48x48_2.tsx"/>
+ <tileset firstgid="2016" source="Tileset_48x48_3.tsx"/>
+ <tileset firstgid="2116" source="Tileset_48x48_9.tsx"/>
+ <tileset firstgid="2216" source="Tileset_48x48_16.tsx"/>
+ <layer id="1" name="Background" width="16" height="10">
+  <data encoding="csv">
+81,82,82,82,82,82,82,82,82,82,82,82,82,82,82,83,
+97,98,98,98,98,98,98,98,98,98,98,98,98,98,98,99,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
+129,130,130,130,130,130,130,130,130,130,130,130,130,130,130,131,
+145,146,146,146,146,146,146,146,146,146,146,146,146,146,146,147
+</data>
+ </layer>
+ <layer id="2" name="Decoration" width="16" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,458,0,0,0,0,0,458,0,0,0,0,0,0,
+0,0,0,474,0,0,0,0,0,474,0,0,0,0,0,0,
+0,0,0,0,0,458,0,0,0,0,0,458,0,0,0,0,
+0,0,0,0,0,474,0,0,0,0,0,474,0,0,0,0,
+0,0,0,0,0,0,0,458,0,0,0,0,0,458,0,0,
+0,0,0,0,0,0,0,474,0,0,0,0,0,474,0,0,
+0,0,0,0,0,0,0,0,0,458,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,474,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="Spawns">
+  <properties>
+   <property name="desc" value="在此放置玩家和敌人的出生点"/>
+  </properties>
+  <object id="107" x="96" y="240" width="48" height="48"/>
+  <object id="108" x="144" y="240" width="48" height="48"/>
+  <object id="109" x="144" y="288" width="48" height="48"/>
+  <object id="110" x="96" y="288" width="48" height="48"/>
+  <object id="111" x="96" y="336" width="48" height="48"/>
+  <object id="112" x="144" y="336" width="48" height="48"/>
+  <object id="113" x="672" y="96" width="48" height="48"/>
+  <object id="114" x="672" y="144" width="48" height="48"/>
+  <object id="115" x="624" y="96" width="48" height="48"/>
+  <object id="116" x="624" y="144" width="48" height="48"/>
+  <object id="117" x="624" y="192" width="48" height="48"/>
+  <object id="118" x="672" y="192" width="48" height="48"/>
+ </objectgroup>
+ <objectgroup id="4" name="Collisions">
+  <properties>
+   <property name="desc" value="在此绘制碰撞盒"/>
+  </properties>
+  <object id="100" x="144" y="48" width="48" height="96"/>
+  <object id="101" x="240" y="144" width="48" height="96"/>
+  <object id="102" x="336" y="240" width="48" height="96"/>
+  <object id="103" x="432" y="336" width="48" height="96"/>
+  <object id="104" x="624" y="240" width="48" height="96"/>
+  <object id="105" x="528" y="144" width="48" height="96"/>
+  <object id="106" x="432" y="48" width="48" height="96"/>
+ </objectgroup>
+</map>

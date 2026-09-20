@@ -106,11 +106,49 @@ export class DialogueSystem {
       this.drawPortraits(ctx, w, h);
     }
 
-    // 3. 绘制浅黄纸质对话框
+    // 3. 绘制对话框或全屏字幕
     if (!this.showingChoice) {
-      this.drawDialogueBox(ctx, w, h);
+      if (this.currentScene && this.currentScene.displayMode === 'fullscreen') {
+        this.drawFullscreenText(ctx, w, h);
+      } else {
+        this.drawDialogueBox(ctx, w, h);
+      }
     } else {
       this.drawChoicePrompt(ctx, w, h);
+    }
+  }
+
+  drawFullscreenText(ctx, w, h) {
+    const now = performance.now();
+    if (!this.isLineComplete && this.activeLine) {
+      if (now - this.lastCharTime >= this.typingSpeed) {
+        this.charIndex++;
+        this.displayedText = this.activeLine.text.substring(0, this.charIndex);
+        this.lastCharTime = now;
+        if (this.charIndex >= this.activeLine.text.length) {
+          this.isLineComplete = true;
+        }
+      }
+    }
+
+    // 全屏居中字幕
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '24px "PingFang SC", "Microsoft YaHei", sans-serif';
+    
+    // 支持多行居中
+    const maxWidth = w - 160;
+    const lineHeight = 40;
+    this.wrapTextCentered(ctx, this.displayedText, w / 2, h / 2, maxWidth, lineHeight);
+
+    // 底部推进提示符
+    if (this.isLineComplete) {
+      const pulse = Math.sin(Date.now() / 160) > 0;
+      if (pulse) {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('点击或按空格继续 ▶', w / 2, h - 60);
+      }
     }
   }
 

@@ -11,37 +11,17 @@ export const CH0_BATTLE2 = {
   defaultTerrain: 'sidewalk',
 
   // 11x7 紧凑巷口：窄马路与红砖拐角
-  terrainTiles: [
-    { x: 0, y: 3, type: 'asphalt' }, { x: 1, y: 3, type: 'asphalt' }, { x: 2, y: 3, type: 'asphalt' }, { x: 3, y: 3, type: 'asphalt' },
-    { x: 4, y: 3, type: 'asphalt' }, { x: 5, y: 3, type: 'asphalt' }, { x: 6, y: 3, type: 'asphalt' }, { x: 7, y: 3, type: 'asphalt' },
-    { x: 8, y: 3, type: 'asphalt' }, { x: 9, y: 3, type: 'asphalt' }, { x: 10, y: 3, type: 'asphalt' },
+  terrainTiles: [],
 
-    { x: 5, y: 3, type: 'crosswalk' },
-
-    // 巷口红砖路面
-    { x: 2, y: 1, type: 'brick' }, { x: 3, y: 1, type: 'brick' },
-    { x: 2, y: 2, type: 'brick' }, { x: 3, y: 2, type: 'brick' },
-
-    // 绿化花坛
-    { x: 0, y: 0, type: 'grass' }, { x: 10, y: 0, type: 'grass' },
-    { x: 0, y: 6, type: 'grass' }, { x: 10, y: 6, type: 'grass' }
-  ],
-
-  props: [
-    { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_8_5', type: 'dumpster', x: 8, y: 5, img: 'assets/props/kenney/kc_dumpster_green@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bench_2_5', type: 'bench', x: 2, y: 5, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bush_0_0', type: 'bush', x: 0, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bush_10_0', type: 'bush', x: 10, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 3 }
+    { unitId: '{MC_ID}', x: 1, y: 3 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'punk', instanceId: 'punk_1', x: 8, y: 3 }, // 正面
-    { enemyId: 'punk', instanceId: 'punk_2', x: 7, y: 1 }  // 侧翼包夹
+    { enemyId: 'punk', instanceId: 'punk_1', x: 7, y: 5 },
+    { enemyId: 'punk', instanceId: 'punk_2', x: 9, y: 3 }
   ],
 
   objective: {
@@ -76,5 +56,266 @@ export const CH0_BATTLE2 = {
     { speaker: '高年级混混', text: '喂！看什么看？学长们今天心情不好——兄弟两个在这儿，把身上的文具和零食都交出来！' },
     { speaker: '张子骁', text: '（两个手里都卷着五年中考三年模拟，眼神狂躁……看来都是被焦虑怪异侵蚀了！）' },
     { speaker: '张子骁', text: '一个就够麻烦了，还来俩……得小心周旋，别被围着打，找机会各个击破！' }
-  ]
+  ],
+  tiledData: {
+  "visualWidth": 11,
+  "visualHeight": 7,
+  "bgGrid": [
+    [
+      2052,
+      2053,
+      2054,
+      2041,
+      2053,
+      2054,
+      2041,
+      2053,
+      2054,
+      2041,
+      2053
+    ],
+    [
+      2082,
+      2058,
+      2057,
+      2051,
+      2081,
+      2082,
+      2051,
+      2058,
+      2057,
+      2051,
+      2081
+    ],
+    [
+      2092,
+      2047,
+      2048,
+      2047,
+      2091,
+      2092,
+      2048,
+      2047,
+      2048,
+      2047,
+      2091
+    ],
+    [
+      2082,
+      2057,
+      2058,
+      2057,
+      2081,
+      2082,
+      2058,
+      2057,
+      2058,
+      2057,
+      2081
+    ],
+    [
+      2092,
+      2048,
+      2047,
+      2048,
+      2091,
+      2092,
+      2047,
+      2048,
+      2047,
+      2048,
+      2091
+    ],
+    [
+      2082,
+      2058,
+      2057,
+      2058,
+      2081,
+      2082,
+      2057,
+      2058,
+      2057,
+      2058,
+      2081
+    ],
+    [
+      2092,
+      2047,
+      2048,
+      2047,
+      2091,
+      2092,
+      2048,
+      2047,
+      2048,
+      2047,
+      2091
+    ]
+  ],
+  "decGrid": [
+    [
+      307,
+      308,
+      0,
+      0,
+      0,
+      0,
+      0,
+      311,
+      312,
+      0,
+      0
+    ],
+    [
+      323,
+      324,
+      0,
+      0,
+      0,
+      0,
+      0,
+      327,
+      328,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      293,
+      294
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      309,
+      310
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      325,
+      326
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 0,
+      "y": 0
+    },
+    {
+      "x": 1,
+      "y": 0
+    },
+    {
+      "x": 2,
+      "y": 0
+    },
+    {
+      "x": 3,
+      "y": 0
+    },
+    {
+      "x": 4,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "y": 0
+    },
+    {
+      "x": 6,
+      "y": 0
+    },
+    {
+      "x": 7,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "y": 0
+    },
+    {
+      "x": 10,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "y": 4
+    },
+    {
+      "x": 10,
+      "y": 4
+    },
+    {
+      "x": 9,
+      "y": 5
+    },
+    {
+      "x": 10,
+      "y": 5
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 6
+    }
+  ],
+  "zones": {}
+}
 };

@@ -14,33 +14,23 @@ export const CH5_BATTLE1 = {
     desk_zone: { name: '课桌区', def: 1, avoid: 0, cost: 2, color: '#7c2d12', tileImg: null }
   },
 
-  terrainTiles: [
-    { x: 3, y: 1, type: 'desk_zone' }, { x: 4, y: 1, type: 'desk_zone' }, { x: 5, y: 1, type: 'desk_zone' },
-    { x: 3, y: 3, type: 'desk_zone' }, { x: 4, y: 3, type: 'desk_zone' }, { x: 5, y: 3, type: 'desk_zone' },
-    { x: 8, y: 1, type: 'desk_zone' }, { x: 9, y: 1, type: 'desk_zone' }, { x: 10, y: 1, type: 'desk_zone' },
-    { x: 8, y: 3, type: 'desk_zone' }, { x: 9, y: 3, type: 'desk_zone' }, { x: 10, y: 3, type: 'desk_zone' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/items/teacher_thermos@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
-    { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
-  ],
+  props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 1, y: 3 },
-    { unitId: 'zhanghanyu', x: 1, y: 5 },
-    { unitId: 'fanwenmo', x: 2, y: 4 },
-    { unitId: 'xu_laoshi', x: 2, y: 3 },
-    { unitId: 'liu_laoshi', x: 2, y: 5 }
+    { unitId: 'zhangzixiao', x: 3, y: 3 },
+    { unitId: 'zhanghanyu', x: 3, y: 8 },
+    { unitId: 'fanwenmo', x: 4, y: 4 },
+    { unitId: 'xu_laoshi', x: 4, y: 7 },
+    { unitId: 'liu_laoshi', x: 5, y: 2 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 15, y: 2 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 15, y: 4 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 15, y: 6 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_b', x: 13, y: 7 }
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 12, y: 2 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 12, y: 4 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 12, y: 6 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_b', x: 12, y: 8 }
   ],
 
   objective: {
@@ -48,5 +38,504 @@ export const CH5_BATTLE1 = {
     text: '救回先一步异化的同学'
   },
 
-  nextStorySceneOnWin: 'ch5_scene_after'
+  nextStorySceneOnWin: 'ch5_scene_after',
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982
+    ],
+    [
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992
+    ],
+    [
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982
+    ],
+    [
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992
+    ],
+    [
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982
+    ],
+    [
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992
+    ],
+    [
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982
+    ],
+    [
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992
+    ],
+    [
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982,
+      1981,
+      1982
+    ],
+    [
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992,
+      1991,
+      1992
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583
+    ],
+    [
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583,
+      0,
+      0,
+      582,
+      583
+    ],
+    [
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599,
+      0,
+      0,
+      598,
+      599
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 2,
+      "y": 0
+    },
+    {
+      "x": 3,
+      "y": 0
+    },
+    {
+      "x": 2,
+      "y": 1
+    },
+    {
+      "x": 3,
+      "y": 1
+    },
+    {
+      "x": 6,
+      "y": 0
+    },
+    {
+      "x": 7,
+      "y": 0
+    },
+    {
+      "x": 6,
+      "y": 1
+    },
+    {
+      "x": 7,
+      "y": 1
+    },
+    {
+      "x": 10,
+      "y": 0
+    },
+    {
+      "x": 11,
+      "y": 0
+    },
+    {
+      "x": 10,
+      "y": 1
+    },
+    {
+      "x": 11,
+      "y": 1
+    },
+    {
+      "x": 14,
+      "y": 0
+    },
+    {
+      "x": 15,
+      "y": 0
+    },
+    {
+      "x": 14,
+      "y": 1
+    },
+    {
+      "x": 15,
+      "y": 1
+    },
+    {
+      "x": 14,
+      "y": 5
+    },
+    {
+      "x": 15,
+      "y": 5
+    },
+    {
+      "x": 14,
+      "y": 6
+    },
+    {
+      "x": 15,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 5
+    },
+    {
+      "x": 11,
+      "y": 5
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 11,
+      "y": 6
+    },
+    {
+      "x": 6,
+      "y": 5
+    },
+    {
+      "x": 7,
+      "y": 5
+    },
+    {
+      "x": 6,
+      "y": 6
+    },
+    {
+      "x": 7,
+      "y": 6
+    },
+    {
+      "x": 2,
+      "y": 5
+    },
+    {
+      "x": 3,
+      "y": 5
+    },
+    {
+      "x": 2,
+      "y": 6
+    },
+    {
+      "x": 3,
+      "y": 6
+    }
+  ],
+  "zones": {}
+}
 };

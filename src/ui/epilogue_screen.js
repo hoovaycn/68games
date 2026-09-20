@@ -48,7 +48,7 @@ export class EpilogueScreen {
 
     ctx.fillStyle = '#64748b';
     ctx.font = '13px sans-serif';
-    ctx.fillText('—— 《 六 8 班 异 闻 录 》 试 玩 结 算 ——', w / 2, 70);
+    ctx.fillText('—— 《 六 8 班 异 闻 录 》 第一幕 试玩结算 ——', w / 2, 70);
 
     // 3. 核心大标题：TO BE CONTINUED
     ctx.shadowColor = 'rgba(250, 204, 21, 0.35)';
@@ -61,7 +61,7 @@ export class EpilogueScreen {
     // 副标题
     ctx.fillStyle = '#94a3b8';
     ctx.font = '15px sans-serif';
-    ctx.fillText('全三章 · 试玩篇章完结', w / 2, 162);
+    ctx.fillText('第一幕 · 试玩篇章完结', w / 2, 162);
 
     // 4. 简明剧情悬疑留白（简约一两句，不冗长不溢出）
     const isMale = this.selectedRoute === 'male';
@@ -73,11 +73,16 @@ export class EpilogueScreen {
     ctx.font = 'italic 14px sans-serif';
     ctx.fillText(`“ ${quote} ”`, w / 2, 212);
 
+    // 4.5 “有的没的”未完待续提示（接地气留白，点出故事还没讲完）
+    ctx.fillStyle = '#7c8898';
+    ctx.font = '13px sans-serif';
+    ctx.fillText('—— 这一页翻过去了，可抽屉里还有别的账没算。故事，未完待续。 ——', w / 2, 244);
+
     // 5. 简约深色 QQ 群展示卡片（清晰居中，不占过多高度）
     const cardW = 500;
     const cardH = 92;
     const cardX = (w - cardW) / 2;
-    const cardY = 252;
+    const cardY = 272;
 
     ctx.fillStyle = 'rgba(30, 41, 59, 0.55)';
     ctx.beginPath();
@@ -101,7 +106,7 @@ export class EpilogueScreen {
     const btnW = 260;
     const btnH = 42;
     const btnX = (w - btnW) / 2;
-    const btnY = 380;
+    const btnY = 400;
     this.restartButtonRect = { x: btnX, y: btnY, w: btnW, h: btnH };
 
     if (this.isHovered) {

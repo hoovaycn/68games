@@ -7,6 +7,9 @@
  * 5. 自动补全 defaultTerrain 与 terrainTiles 为合法的 tiles 矩阵
  */
 
+// ★ 网格细分因子：地图逻辑格加密为 3×3 子格，单位占 3×3 子格（视觉仍约 48px）
+export const SUBDIVIDE = 1;
+
 export const DEFAULT_TERRAIN_TYPES = {
   sidewalk: { name: '人行道', def: 0, avoid: 0, cost: 1, color: '#a8a29e', tileImg: 'assets/props/kenney/kc_sidewalk.png' },
   asphalt: { name: '柏油路', def: 0, avoid: 0, cost: 1, color: '#52525b', tileImg: 'assets/props/kenney/kc_asphalt.png' },
@@ -56,6 +59,14 @@ export class GridSystem {
         this.propBlockedCells[`${baseX},${baseY}`] = true;
       }
     }
+
+    // 预构建 Tiled 空气墙阻挡 (来自 Tiled 编辑器中的 Collisions 对象层)
+    this.tiledCollisionCells = {};
+    if (mapData.tiledData && Array.isArray(mapData.tiledData.collisions)) {
+      for (const col of mapData.tiledData.collisions) {
+        this.tiledCollisionCells[`${col.x},${col.y}`] = true;
+      }
+    }
   }
 
   // 坐标合法性
@@ -63,26 +74,42 @@ export class GridSystem {
     return x >= 0 && x < this.width && y >= 0 && y < this.height;
   }
 
-  // 某格子是否为不可通过障碍 (含地形 + 街具)
+  // 某格子是否为不可通过障碍 (含地形 + 街具 + Tiled碰撞盒)
   isBlockedTerrain(x, y) {
     if (!this.isValid(x, y)) return true;
+
+    // ★ 如果启用了 Tiled 手工精调数据，阻挡完全由 Tiled Collisions 对象层唯一决定
+    if (this.map.tiledData) {
+      return !!this.tiledCollisionCells[`${x},${y}`];
+    }
+
     const typeKey = this.tiles[y] && this.tiles[y][x];
     const terrain = typeKey ? this.terrainTypes[typeKey] : null;
     if (terrain && terrain.obstacle) return true;
-    // 检查街具阻挡
+    // 检查传统街具阻挡
     if (this.propBlockedCells[`${x},${y}`]) return true;
     return false;
   }
 
-  // 获取地形数据
+  // 获取地形数据 (优先读取 Tiled 中配置的自定义特技格子，否则返回平地)
   getTerrain(x, y) {
     if (!this.isValid(x, y)) return { name: '未知', def: 0, avoid: 0, cost: 1 };
+
+    // ★ 如果启用了 Tiled，优先查看该格子是否有 Tiled 特效对象（草丛、地毯、掩体、高台等）
+    if (this.map.tiledData) {
+      if (this.map.tiledData.zones && this.map.tiledData.zones[`${x},${y}`]) {
+        return this.map.tiledData.zones[`${x},${y}`];
+      }
+      return { name: '平地', def: 0, avoid: 0, cost: 1 };
+    }
+
     const typeKey = this.tiles[y] && this.tiles[y][x];
     return (typeKey && this.terrainTypes[typeKey]) || { name: '平地', def: 0, avoid: 0, cost: 1 };
   }
 
   // 计算单位的有效可移动格 (BFS)
   getReachableTiles(startX, startY, movePoints, unitFaction, allUnits) {
+    movePoints *= SUBDIVIDE;
     const reachable = [];
     const costSoFar = {};
     const queue = [{ x: startX, y: startY, cost: 0 }];
@@ -143,6 +170,8 @@ export class GridSystem {
 
   // 计算攻击范围 (从指定位置出发，按武器 minRange-maxRange 辐射)
   getAttackableTiles(fromX, fromY, minRange = 1, maxRange = 1) {
+    minRange *= SUBDIVIDE;
+    maxRange *= SUBDIVIDE;
     const tiles = [];
     for (let dy = -maxRange; dy <= maxRange; dy++) {
       for (let dx = -maxRange; dx <= maxRange; dx++) {

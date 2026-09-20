@@ -15,37 +15,26 @@ export const CH9_BATTLE1 = {
     crack: { name: '裂隙', def: 0, avoid: 10, cost: 1, color: '#0f172a', tileImg: null }
   },
 
-  terrainTiles: [
-    { x: 4, y: 2, type: 'desk_line' }, { x: 5, y: 2, type: 'desk_line' }, { x: 6, y: 2, type: 'desk_line' },
-    { x: 9, y: 2, type: 'desk_line' }, { x: 10, y: 2, type: 'desk_line' }, { x: 11, y: 2, type: 'desk_line' },
-    { x: 4, y: 7, type: 'desk_line' }, { x: 5, y: 7, type: 'desk_line' }, { x: 6, y: 7, type: 'desk_line' },
-    { x: 9, y: 7, type: 'desk_line' }, { x: 10, y: 7, type: 'desk_line' }, { x: 11, y: 7, type: 'desk_line' },
-    { x: 7, y: 4, type: 'crack' }, { x: 8, y: 4, type: 'crack' }, { x: 7, y: 5, type: 'crack' }, { x: 8, y: 5, type: 'crack' }
-  ],
+  terrainTiles: [],
 
-  props: [
-    { id: 'desk_5_2', type: 'desk', x: 5, y: 2, img: 'assets/items/english_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_10_2', type: 'desk', x: 10, y: 2, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_5_7', type: 'desk', x: 5, y: 7, img: 'assets/items/sudoku@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_10_7', type: 'desk', x: 10, y: 7, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true }
-  ],
+  props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 4 },
-    { unitId: 'zhanghanyu', x: 2, y: 3 },
-    { unitId: 'fanwenmo', x: 2, y: 5 },
-    { unitId: 'zhangxizhe', x: 3, y: 2 },
+    { unitId: 'zhangzixiao', x: 2, y: 5 },
+    { unitId: 'zhanghanyu', x: 2, y: 6 },
+    { unitId: 'fanwenmo', x: 2, y: 7 },
+    { unitId: 'zhangxizhe', x: 3, y: 5 },
     { unitId: 'qinruiyi', x: 3, y: 6 },
-    { unitId: 'zhuyanze', x: 3, y: 4 }
+    { unitId: 'zhuyanze', x: 3, y: 7 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'zhangzixiao_corrupted', instanceId: 'shadow_mc', x: 15, y: 4 },
-    { enemyId: 'zhanghanyu_corrupted', instanceId: 'shadow_ally1', x: 14, y: 2 },
-    { enemyId: 'fanwenmo_corrupted', instanceId: 'shadow_ally2', x: 14, y: 6 },
-    { enemyId: 'zhangxizhe_corrupted', instanceId: 'shadow_xizhe', x: 13, y: 2 },
-    { enemyId: 'qinruiyi_corrupted', instanceId: 'shadow_ruiyi', x: 13, y: 6 },
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'shadow_yanze', x: 12, y: 4 }
+    { enemyId: 'zhangzixiao_corrupted', instanceId: 'shadow_mc', x: 13, y: 2 },
+    { enemyId: 'zhanghanyu_corrupted', instanceId: 'shadow_ally1', x: 13, y: 3 },
+    { enemyId: 'fanwenmo_corrupted', instanceId: 'shadow_ally2', x: 13, y: 4 },
+    { enemyId: 'zhangxizhe_corrupted', instanceId: 'shadow_xizhe', x: 14, y: 2 },
+    { enemyId: 'qinruiyi_corrupted', instanceId: 'shadow_ruiyi', x: 14, y: 3 },
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'shadow_yanze', x: 14, y: 4 }
   ],
 
   objective: {
@@ -53,5 +42,432 @@ export const CH9_BATTLE1 = {
     text: '击败所有异化自我'
   },
 
-  nextStorySceneOnWin: 'ch9_scene_relief'
+  nextStorySceneOnWin: 'ch9_scene_relief',
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      81,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      83
+    ],
+    [
+      97,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      98,
+      99
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      113,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      114,
+      115
+    ],
+    [
+      129,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      130,
+      131
+    ],
+    [
+      145,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      146,
+      147
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      458,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      474,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "collisions": [
+    {
+      "x": 3,
+      "y": 1
+    },
+    {
+      "x": 3,
+      "y": 2
+    },
+    {
+      "x": 5,
+      "y": 3
+    },
+    {
+      "x": 5,
+      "y": 4
+    },
+    {
+      "x": 7,
+      "y": 5
+    },
+    {
+      "x": 7,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 8
+    },
+    {
+      "x": 13,
+      "y": 5
+    },
+    {
+      "x": 13,
+      "y": 6
+    },
+    {
+      "x": 11,
+      "y": 3
+    },
+    {
+      "x": 11,
+      "y": 4
+    },
+    {
+      "x": 9,
+      "y": 1
+    },
+    {
+      "x": 9,
+      "y": 2
+    }
+  ],
+  "zones": {}
+}
 };
