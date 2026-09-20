@@ -67,7 +67,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/ayao_default@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '徐徐，别着急，慢慢算，这道题套公式就能解出来啦。',
+        text: '……没关系的。你们别着急，慢慢算，这道题套公式就能解出来啦。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -94,7 +94,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '你们觉不觉得，今天外面走廊有点太安静了？连值日生的声音都没了。',
+        text: '你们觉不觉得，今天阿瑶脸色有点不对劲？而且外面走廊有点太安静了，连值日生的声音都没了。',
         sfx: 'sfx_text_blip'
       }
     ],
@@ -280,7 +280,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/ayao_default@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '不。以前每次遇到麻烦，都是你们俩挡在我前面……',
+        text: '你们……每次打架都这么厉害。就算不靠成绩，大家也那么喜欢你们……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -289,7 +289,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一直躲在她们身后的阿瑶，忽然摸出一包之前在走廊捡到的异化零食。',
+        text: '一直躲在她们身后的阿瑶，忽然神情痛苦地捂住胸口。从她的口袋里，掉出了好几个已经被捏得皱巴巴的零食空袋子。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -298,7 +298,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/ayao_default@2x.png',
         rightPortrait: 'assets/art/young_liu_default@2x.png',
         activeSide: 'left',
-        text: '只要我吃了这个变强了，这次就换我来保护你们！',
+        text: '可我只有成绩了……我不能掉下去……不能……',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -308,7 +308,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_default@2x.png',
         activeSide: 'left',
-        text: '阿瑶！不要——！！！',
+        text: '阿瑶？你口袋里掉出来的……是外面那些人吃的东西？！你什么时候开始吃的？！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -317,34 +317,72 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿瑶撕开包装，一口咽了下去。青蓝色的光瞬间从她身上炸开。她的动作变得极其凌厉，几下就把堵在门口的人全部击退。',
+        text: '话音未落，青蓝色的光瞬间从阿瑶身上炸开。原本极度压抑的药效在此刻彻底发作。她猛地抬起头，那双原本温和的眼睛，已经被化不开的青光彻底吞噬。',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 9,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '可当她转过身时，那双总是带着笑意的眼睛，已经被化不开的青光彻底吞噬。',
-        sfx: 'sfx_unit_down'
-      },
-      {
-        id: 10,
         speaker: '异化阿瑶',
         leftPortrait: 'assets/art/ayao_corrupted@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '快跑……我控制不住自己了……别让我伤到你们……',
+        text: '（声音变得冰冷且狂躁）不用你们管！谁也别想抢走我的第一名！',
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 10,
+        speaker: '少年徐老师',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        activeSide: 'left',
+        text: '阿瑶！你清醒一点！你为什么要吃那种东西？！我们不是说好要一起干干净净地毕业吗？！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 11,
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        activeSide: 'right',
+        text: '干干净净？（神经质地笑起来）你们打架受了处分，别人只会说你们仗义。可我只要掉下第一名，我就什么都不是了！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 12,
+        speaker: '少年刘老师',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        activeSide: 'left',
+        text: '谁说的？！你就算考倒数第一，你也是阿瑶，是我们最好的朋友啊！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 13,
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        activeSide: 'right',
+        text: '（面目狰狞）闭嘴！别再拿你们那种恶心的施舍来可怜我！只要吃了这个……我永远都是不可替代的第一名！',
+        highlight: true,
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 14,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她死死咬着牙，转身顺着走廊跌跌撞撞地跑远了，再也没有回头。',
+        text: '黑暗中的男人冷笑了一声，挥了挥手。几个异化学生猛扑上来死死缠住了徐刘二人。',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 15,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '而彻底失去理智的阿瑶，则跟着那个男人，头也不回地走进了更深的黑暗里。',
+        highlight: true,
         sfx: 'sfx_unit_down'
       }
     ],

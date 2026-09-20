@@ -29,11 +29,11 @@ export const CH0_BATTLE1 = {
 
   // Kenney RPG Urban 街具物件装饰与碰撞阻挡
   props: [
-    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'tree_10_0', type: 'tree', x: 10, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'tree_0_0', type: 'tree', x: 0, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'tree_10_0', type: 'tree', x: 10, y: 0, img: 'assets/props/kenney/kc_tree_dark@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
     { id: 'lamp_4_1', type: 'street_lamp', x: 4, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'cart_8_2', type: 'food_cart', x: 8, y: 2, img: 'assets/props/kenney/kc_food_cart@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'vending_8_1', type: 'vending_machine', x: 8, y: 1, img: 'assets/props/kenney/kc_vending_machine@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'vending_8_1', type: 'vending_machine', x: 8, y: 1, img: 'assets/props/kenney/kc_vending_machine@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
     { id: 'trash_2_2', type: 'trash_bin', x: 2, y: 2, img: 'assets/props/kenney/kc_trash@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 

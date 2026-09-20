@@ -1,0 +1,3 @@
+Sheet decoded: 628 x 475
+kc_asphalt size: 48 x 48
+Matches for kc_asphalt: []

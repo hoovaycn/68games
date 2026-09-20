@@ -1,0 +1,48 @@
+{
+  "tileSize": 32,
+  "margin": 0,
+  "spacing": 0,
+  "_usage": "gid 从 1 开始，0=空。gid -> 图集像素坐标: 在所属图集内 col=(gid-firstgid)%cols, row=floor((gid-firstgid)/cols); sx=col*32, sy=row*32。",
+  "tilesets": [
+    {
+      "name": "a5_modern_exterior",
+      "image": "tiles/a5_modern_exterior.png",
+      "firstgid": 1,
+      "columns": 8,
+      "tilecount": 128,
+      "desc": "现代室外"
+    },
+    {
+      "name": "a5_sewer",
+      "image": "tiles/a5_sewer.png",
+      "firstgid": 129,
+      "columns": 8,
+      "tilecount": 128,
+      "desc": "下水道"
+    },
+    {
+      "name": "a5_valley",
+      "image": "tiles/a5_valley.png",
+      "firstgid": 257,
+      "columns": 8,
+      "tilecount": 128,
+      "desc": "仙谷"
+    },
+    {
+      "name": "b_interior",
+      "image": "tiles/b_interior.png",
+      "firstgid": 385,
+      "columns": 16,
+      "tilecount": 256,
+      "desc": "室内家具（多为大物件，建议按像素区域扣出来当 props）"
+    },
+    {
+      "name": "c_interior",
+      "image": "tiles/c_interior.png",
+      "firstgid": 641,
+      "columns": 16,
+      "tilecount": 256,
+      "desc": "室内家具补充"
+    }
+  ]
+}

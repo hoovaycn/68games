@@ -22,10 +22,10 @@ export const CH4_BATTLE1 = {
   ],
 
   props: [
-    { id: 'food_4_2', type: 'crate', x: 4, y: 2, img: 'assets/items/suspicious_drink@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'food_4_6', type: 'crate', x: 4, y: 6, img: 'assets/items/suspicious_snack@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'food_4_2', type: 'crate', x: 4, y: 2, img: 'assets/items/suspicious_drink@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'food_4_6', type: 'crate', x: 4, y: 6, img: 'assets/items/suspicious_snack@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   playerDeploy: [
@@ -40,12 +40,12 @@ export const CH4_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 13, y: 4 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 11, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 12, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 12, y: 6 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 10, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 10, y: 7 }
+    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 15, y: 4 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 14, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 15, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 15, y: 6 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 13, y: 1 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 13, y: 7 }
   ],
 
   objective: {

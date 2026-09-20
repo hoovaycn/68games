@@ -28,11 +28,11 @@ export const CH7_BATTLE1 = {
   ],
 
   props: [
-    { id: 'debris_1', type: 'debris', x: 2, y: 2, img: 'assets/items/dirty_sock@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'debris_2', type: 'debris', x: 5, y: 4, img: 'assets/items/discarded_snack@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'debris_3', type: 'debris', x: 8, y: 6, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_old_1', type: 'desk', x: 3, y: 5, img: 'assets/items/chalk_dust@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_old_2', type: 'desk', x: 7, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'debris_1', type: 'debris', x: 2, y: 2, img: 'assets/items/dirty_sock@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'debris_2', type: 'debris', x: 5, y: 4, img: 'assets/items/discarded_snack@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'debris_3', type: 'debris', x: 8, y: 6, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_old_1', type: 'desk', x: 3, y: 5, img: 'assets/items/chalk_dust@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_old_2', type: 'desk', x: 7, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   playerDeploy: [
@@ -42,10 +42,10 @@ export const CH7_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'senior_student_corrupted', instanceId: 'senior_1', x: 8, y: 3 },
-    { enemyId: 'janitor_corrupted', instanceId: 'janitor_1', x: 9, y: 4 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'corrupted_boy_1', x: 7, y: 2 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'corrupted_girl_1', x: 8, y: 6 }
+    { enemyId: 'senior_student_corrupted', instanceId: 'senior_1', x: 14, y: 3 },
+    { enemyId: 'janitor_corrupted', instanceId: 'janitor_1', x: 15, y: 4 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'corrupted_boy_1', x: 13, y: 2 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'corrupted_girl_1', x: 14, y: 6 }
   ],
 
   objective: {

@@ -8,6 +8,67 @@ export const PROLOGUE_STORY = {
 
   // 男主线（张子骁视角 · 对应失踪者：范文默）
   male: {
+    scene_prelude: {
+      id: 'scene_prelude',
+      title: '前言',
+      bgType: 'black',
+      bgm: '', // 黑屏无音乐
+      dialogues: [
+        {
+          id: 1,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '人们总以为，校园是纯洁无瑕的避风港。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 2,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '但如果有一天，通往更高分数的阶梯，是用朋友的理智、甚至是灵魂铺就的呢？',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '在绝对的竞争面前，是坚守底线，还是随波逐流？是背叛曾经的挚友，还是与整个扭曲的世界为敌？',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '这不仅仅是一个关于成长的故事，这是一场在欲望泥潭中，寻找初心的漫长战役。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 5,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '长达二十年的遗憾，将在你的手中，迎来最终的抉择。',
+          highlight: true,
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'CHOICE',
+        prompt: '命运的齿轮，开始转动。',
+        buttonText: '【进入故事】',
+        targetScene: 'scene_classroom'
+      }
+    },
+
     scene_classroom: {
       id: 'scene_classroom',
       title: '人大附小 · 六 8 班教室',
@@ -560,6 +621,67 @@ export const PROLOGUE_STORY = {
 
   // 女主线（石予诺视角 · 对应失踪者：何妍熹）
   female: {
+    scene_prelude: {
+      id: 'scene_prelude',
+      title: '前言',
+      bgType: 'black',
+      bgm: '', // 黑屏无音乐
+      dialogues: [
+        {
+          id: 1,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '人们总以为，校园是纯洁无瑕的避风港。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 2,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '但如果有一天，通往更高分数的阶梯，是用朋友的理智、甚至是灵魂铺就的呢？',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 3,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '在绝对的竞争面前，是坚守底线，还是随波逐流？是背叛曾经的挚友，还是与整个扭曲的世界为敌？',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 4,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '这不仅仅是一个关于成长的故事，这是一场在欲望泥潭中，寻找初心的漫长战役。',
+          sfx: 'sfx_text_blip'
+        },
+        {
+          id: 5,
+          speaker: '系统提示',
+          leftPortrait: null,
+          rightPortrait: null,
+          activeSide: 'left',
+          text: '长达二十年的遗憾，将在你的手中，迎来最终的抉择。',
+          highlight: true,
+          sfx: 'sfx_confirm'
+        }
+      ],
+      transition: {
+        type: 'CHOICE',
+        prompt: '命运的齿轮，开始转动。',
+        buttonText: '【进入故事】',
+        targetScene: 'scene_classroom'
+      }
+    },
+
     scene_classroom: {
       id: 'scene_classroom',
       title: '人大附小 · 六 8 班教室',

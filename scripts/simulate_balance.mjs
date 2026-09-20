@@ -12,6 +12,7 @@ import { CH0_BATTLE2 } from '../src/data/chapters/ch0_battle2.js';
 import { CH0_BATTLE3 } from '../src/data/chapters/ch0_battle3.js';
 import { CH1_BATTLE1 } from '../src/data/chapters/ch1_battle1.js';
 import { CH2_BATTLE1 } from '../src/data/chapters/ch2_battle1.js';
+import { CH8_BATTLE1 } from '../src/data/chapters/ch8_battle1.js';
 import { createPlayerUnit, createEnemyUnit, gainExp, expForKill } from '../src/systems/growth.js';
 import { CombatSystem } from '../src/systems/combat.js';
 import { applySkill } from '../src/systems/skill_service.js';
@@ -22,7 +23,8 @@ const CHAPTERS = [
   CH0_BATTLE2,
   CH0_BATTLE3,
   CH1_BATTLE1,
-  CH2_BATTLE1
+  CH2_BATTLE1,
+  CH8_BATTLE1
 ];
 
 // 简易AI逻辑

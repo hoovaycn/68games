@@ -22,10 +22,10 @@ export const CH5_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/items/teacher_thermos@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/items/teacher_thermos@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   playerDeploy: [
@@ -37,10 +37,10 @@ export const CH5_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 10, y: 2 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 10, y: 4 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 11, y: 6 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_b', x: 8, y: 7 }
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 15, y: 2 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 15, y: 4 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 15, y: 6 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_b', x: 13, y: 7 }
   ],
 
   objective: {

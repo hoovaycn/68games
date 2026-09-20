@@ -34,9 +34,10 @@ export const CH1_BATTLE1 = {
   ],
 
   props: [
-    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'goal_post', type: 'post', x: 14, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bench_4_2', type: 'bench', x: 4, y: 2, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bench_4_7', type: 'bench', x: 4, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bush_8_5', type: 'bush', x: 8, y: 5, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   // 我方出战（4 人）：徐老师顶在前排，主角与张希哲、覃瑞怡并肩协作
@@ -49,11 +50,11 @@ export const CH1_BATTLE1 = {
 
   // 敌方布阵（5 人）：魔化体育老师在球门前压阵，外校体育生组成前锋、侧翼与掩护梯次
   enemyDeploy: [
-    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 13, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 11, y: 3 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 11, y: 5 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 10, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 10, y: 6 }
+    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 15, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 13, y: 3 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 13, y: 5 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 12, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 12, y: 6 }
   ],
 
   objective: {

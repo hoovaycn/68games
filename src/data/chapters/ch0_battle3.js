@@ -38,9 +38,9 @@ export const CH0_BATTLE3 = {
   ],
 
   props: [
-    { id: 'desk_5_1', type: 'desk', x: 5, y: 1, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_9_1', type: 'bookshelf', x: 9, y: 1, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'trash_9_5', type: 'trash', x: 9, y: 5, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'desk_5_1', type: 'desk', x: 5, y: 1, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bookshelf_9_1', type: 'bookshelf', x: 9, y: 1, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'trash_9_5', type: 'trash', x: 9, y: 5, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   // 玩家双人站位：主角与新加入队友并肩

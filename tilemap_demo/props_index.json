@@ -1,0 +1,320 @@
+[
+  {
+    "name": "bed_double",
+    "file": "props/bed_double.png",
+    "w": 32,
+    "h": 96,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "desc": "双人床，占 1列×3行，床头在上"
+  },
+  {
+    "name": "window_curtain_large",
+    "file": "props/window_curtain_large.png",
+    "w": 160,
+    "h": 32,
+    "cells": [],
+    "desc": "大窗帘窗，3列宽，挂墙上装饰"
+  },
+  {
+    "name": "window_small",
+    "file": "props/window_small.png",
+    "w": 32,
+    "h": 32,
+    "cells": [],
+    "desc": "小窗"
+  },
+  {
+    "name": "desk",
+    "file": "props/desk.png",
+    "w": 64,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "desc": "书桌，2列宽"
+  },
+  {
+    "name": "tv_stand",
+    "file": "props/tv_stand.png",
+    "w": 96,
+    "h": 64,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "desc": "电视柜+电视，3列×2行"
+  },
+  {
+    "name": "bathtub",
+    "file": "props/bathtub.png",
+    "w": 96,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "desc": "浴缸"
+  },
+  {
+    "name": "toilet",
+    "file": "props/toilet.png",
+    "w": 32,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ]
+    ],
+    "desc": "马桶"
+  },
+  {
+    "name": "chair",
+    "file": "props/chair.png",
+    "w": 32,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ]
+    ],
+    "desc": "椅子"
+  },
+  {
+    "name": "plant_pot",
+    "file": "props/plant_pot.png",
+    "w": 32,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ]
+    ],
+    "desc": "盆栽"
+  },
+  {
+    "name": "bed_single",
+    "file": "props/bed_single.png",
+    "w": 64,
+    "h": 64,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "desc": "单人床×2并排"
+  },
+  {
+    "name": "blackboard",
+    "file": "props/blackboard.png",
+    "w": 64,
+    "h": 32,
+    "cells": [],
+    "desc": "黑板，挂墙装饰"
+  },
+  {
+    "name": "whiteboard",
+    "file": "props/whiteboard.png",
+    "w": 64,
+    "h": 32,
+    "cells": [],
+    "desc": "白板"
+  },
+  {
+    "name": "piano",
+    "file": "props/piano.png",
+    "w": 96,
+    "h": 64,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "desc": "钢琴，3列×2行"
+  },
+  {
+    "name": "supermarket_shelf",
+    "file": "props/supermarket_shelf.png",
+    "w": 160,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "desc": "超市货架，5列×1行"
+  },
+  {
+    "name": "checkout_counter",
+    "file": "props/checkout_counter.png",
+    "w": 128,
+    "h": 64,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "desc": "收银台，4列×2行"
+  },
+  {
+    "name": "fridge",
+    "file": "props/fridge.png",
+    "w": 64,
+    "h": 96,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "desc": "冰箱"
+  },
+  {
+    "name": "bookshelf",
+    "file": "props/bookshelf.png",
+    "w": 96,
+    "h": 64,
+    "cells": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "desc": "书架"
+  },
+  {
+    "name": "cash_register",
+    "file": "props/cash_register.png",
+    "w": 32,
+    "h": 32,
+    "cells": [
+      [
+        0,
+        0
+      ]
+    ],
+    "desc": "收银机"
+  }
+]

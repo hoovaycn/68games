@@ -67,6 +67,7 @@ const LINEAR_STORY = {
 };
 
 const CHAPTER_BANNERS = {
+  scene_classroom: { label: '序章', title: '失踪同学的异变' },
   ch1_scene_playground: { label: '第二章', title: '操场上来的人' },
   ch2_scene_auditorium: { label: '第三章', title: '谁是下一个' },
   ch3_scene_exhibition: { label: '第四章', title: '她是谁' },
@@ -293,14 +294,8 @@ class GameApp {
     // 之后所有战斗、剧情、仓库读写都作用在这份 gameState 上
     this.gameState = createNewGame({ route: this.selectedRoute });
 
-    // 进入序章剧情前，先全屏展示【序章】章节标题，展示结束再开始讲故事
-    const chapterTitle = PROLOGUE_STORY.chapterTitle || '序章';
-    const colon = chapterTitle.indexOf('：');
-    const label = colon > 0 ? chapterTitle.slice(0, colon) : chapterTitle;
-    const title = colon > 0 ? chapterTitle.slice(colon + 1) : '';
-    this.showChapterBanner(label, title, () => {
-      this.startStoryScene('scene_classroom');
-    });
+    // 直接进入前言（黑屏文字），前言结束后会自动触发 scene_classroom 的章节 Banner
+    this.startStoryScene('scene_prelude');
   }
 
   /**

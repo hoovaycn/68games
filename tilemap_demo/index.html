@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>瓦片地图 Demo</title>
+<style>
+  body { margin:0; background:#222; color:#ddd; font-family: Menlo, monospace; display:flex; flex-direction:column; align-items:center; padding:16px; }
+  #wrap { position:relative; }
+  canvas { image-rendering: pixelated; background:#000; display:block; }
+  #hud { margin-top:8px; font-size:13px; color:#9f9; }
+  h3 { margin:4px 0; color:#fc6; }
+</style>
+</head>
+<body>
+<h3>瓦片地图 demo — 双击此文件即可运行</h3>
+<div id="wrap">
+  <canvas id="cv" width="512" height="384"></canvas>
+</div>
+<div id="hud">移动鼠标看格子坐标 / gid</div>
+
+<script>
+// ========== 1. 配置：等价于 tilesets.json ==========
+const TILE = 32;
+const ATLASES = {
+  // name: 图片 + 网格参数
+  a5:  { img: null, cols: 8,  rows: 16, firstgid: 1 },
+  bin: { img: null, cols: 16, rows: 16, firstgid: 385 }, // b_interior 当 props 源
+};
+
+// ========== 2. 地图数据：等价于 maps/demo.json ==========
+// 16列 x 12行；数字 = gid，0 = 空
+// 这里只用 a5 图集（firstgid=1），所以 gid 直接就是 a5 内编号
+const MAP = {
+  w: 16, h: 12,
+  // 外墙用 gid 46（深灰墙），地板用 gid 29（灰瓷砖）
+  ground: [
+    [46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,46],
+    [46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46],
+  ],
+  // props：从 b_interior.png 按像素区域抠出来贴
+  // { atlas, sx, sy, sw, sh, dx, dy } — sx/sy/sw/sh 是图集中的像素矩形，dx/dy 是格子坐标（左上角）
+  props: [
+    // 大床 2x3 格，放左上角
+    { atlas:'bin', sx:0,  sy:96,  sw:64, sh:96, dx:1, dy:1 },
+    // 大窗 3x1 格，挂北墙中间
+    { atlas:'bin', sx:96, sy:32,  sw:96, sh:32, dx:6, dy:0 },
+    // 桌子 1x1，放右边
+    { atlas:'bin', sx:64, sy:96,  sw:32, sh:32, dx:11, dy:3 },
+    // 盆栽 1x1
+    { atlas:'bin', sx:128,sy:96,  sw:32, sh:32, dx:12, dy:3 },
+    // 小床 1x1
+    { atlas:'bin', sx:96, sy:64,  sw:32, sh:32, dx:6, dy:5 },
+  ]
+};
+
+// ========== 3. gid -> 图集像素坐标的换算 ==========
+// gid N 落在某个图集里：先减去 firstgid 得到图集内索引 idx，再用 cols 拆成 col/row
+function atlasSrcForGid(gid) {
+  // 这里只做了单图集（a5）的换算；多图集版本按 tilesets.json 里的 firstgid 区间查
+  const a = ATLASES.a5;
+  const idx = gid - a.firstgid;
+  const col = idx % a.cols;
+  const row = Math.floor(idx / a.cols);
+  return { img: a.img, sx: col * TILE, sy: row * TILE };
+}
+
+// ========== 4. 加载图片，加载完再画 ==========
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+ctx.imageSmoothingEnabled = false;
+
+const imgFiles = {
+  a5:  'tiles/a5_modern_exterior.png',
+  bin: 'tiles/b_interior.png',
+};
+let loaded = 0;
+const total = Object.keys(imgFiles).length;
+
+for (const key of Object.keys(imgFiles)) {
+  const im = new Image();
+  im.onload = () => { if (++loaded === total) render(); };
+  im.onerror = (e) => console.error('load fail', key, imgFiles[key]);
+  im.src = imgFiles[key];
+  ATLASES[key].img = im;
+}
+
+let hover = { x:-1, y:-1 };
+cv.addEventListener('mousemove', (e) => {
+  const r = cv.getBoundingClientRect();
+  hover.x = Math.floor((e.clientX - r.left) / TILE);
+  hover.y = Math.floor((e.clientY - r.top) / TILE);
+  render();
+  const gid = MAP.ground[hover.y]?.[hover.x] ?? 0;
+  document.getElementById('hud').textContent =
+    `格子 (${hover.x}, ${hover.y})  gid=${gid}`;
+});
+
+function render() {
+  // 地面层
+  for (let y = 0; y < MAP.h; y++) {
+    for (let x = 0; x < MAP.w; x++) {
+      const gid = MAP.ground[y][x];
+      if (!gid) continue;
+      const { img, sx, sy } = atlasSrcForGid(gid);
+      ctx.drawImage(img, sx, sy, TILE, TILE, x*TILE, y*TILE, TILE, TILE);
+    }
+  }
+  // props 层（按像素贴）
+  for (const p of MAP.props) {
+    const img = ATLASES[p.atlas].img;
+    ctx.drawImage(img, p.sx, p.sy, p.sw, p.sh, p.dx*TILE, p.dy*TILE, p.sw, p.sh);
+  }
+  // 鼠标高亮
+  if (hover.x >= 0 && hover.y >= 0) {
+    ctx.strokeStyle = 'rgba(255,255,0,0.8)';
+    ctx.strokeRect(hover.x*TILE+0.5, hover.y*TILE+0.5, TILE-1, TILE-1);
+  }
+}
+</script>
+</body>
+</html>

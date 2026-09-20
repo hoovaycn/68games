@@ -380,17 +380,28 @@ export class Renderer {
       const drawW = (img.width / 48) * (ts / 3);
       const drawH = (img.height / 48) * (ts / 3);
 
-      // 默认：完美居中放置在它所占用的单元格区域内
-      // 对于 1x1 原生图块（如消火栓），它将精准落在 3x3 的正中间（即第二行第二列）
-      let cx = px + (prop.gridW * ts - drawW) / 2;
-      let cy = py + (prop.gridH * ts - drawH) / 2;
+      if (prop.fill3x3 !== false) {
+        // 九宫格堆叠渲染，让单个物件铺满整个 3x3 的逻辑单元格
+        for (let sx = 0; sx < 3; sx++) {
+          for (let sy = 0; sy < 3; sy++) {
+            let itemCx = px + sx * (ts / 3) + ((ts / 3) - drawW) / 2;
+            let itemCy = py + sy * (ts / 3) + ((ts / 3) - drawH) / 2;
+            ctx.drawImage(img, itemCx, itemCy, drawW, drawH);
+          }
+        }
+      } else {
+        // 默认：完美居中放置在它所占用的单元格区域内
+        // 对于 1x1 原生图块（如消火栓），它将精准落在 3x3 的正中间（即第二行第二列）
+        let cx = px + (prop.gridW * ts - drawW) / 2;
+        let cy = py + (prop.gridH * ts - drawH) / 2;
 
-      // 构图调整：支持九宫格子网格偏移 (subX, subY 取值 0~2)
-      // 允许在地图数据中指定小物件靠边放置，比如轮胎叠放右下角 (subX: 1, subY: 1)
-      if (prop.subX !== undefined) cx = px + prop.subX * (ts / 3);
-      if (prop.subY !== undefined) cy = py + prop.subY * (ts / 3);
+        // 构图调整：支持九宫格子网格偏移 (subX, subY 取值 0~2)
+        // 允许在地图数据中指定小物件靠边放置，比如轮胎叠放右下角 (subX: 1, subY: 1)
+        if (prop.subX !== undefined) cx = px + prop.subX * (ts / 3);
+        if (prop.subY !== undefined) cy = py + prop.subY * (ts / 3);
 
-      ctx.drawImage(img, cx, cy, drawW, drawH);
+        ctx.drawImage(img, cx, cy, drawW, drawH);
+      }
     }
   }
 

@@ -38,11 +38,11 @@ export const CH8_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'mystery_man', instanceId: 'mystery_boss', x: 9, y: 3 },
-    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 8, y: 2 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 8, y: 5 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 6, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 6, y: 6 }
+    { enemyId: 'mystery_man', instanceId: 'mystery_boss', x: 10, y: 3 },
+    { enemyId: 'coach_corrupted', instanceId: 'coach_boss', x: 9, y: 2 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 9, y: 5 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'runner_a', x: 7, y: 1 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'runner_b', x: 7, y: 6 }
   ],
 
   objective: {

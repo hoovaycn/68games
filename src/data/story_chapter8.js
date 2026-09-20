@@ -195,7 +195,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '我没疯，我清醒得很。我本来就想变成这样。',
+        text: '回去？回到那个永远只能看着你们发光的角落吗？',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -204,7 +204,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '我考了第一，我爸妈终于不骂我了，老师都夸我，所有人都喜欢我。我不需要你们救。',
+        text: '你们永远那么耀眼，那么正义。可你们根本不懂，每天晚上写卷子写到吐，却还是只能垫底的感觉！我不想要你们的同情，我要的是分数！是考第一！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -213,7 +213,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'left',
-        text: '你看看我们！你以前不是这样的！你说过要跟我们一起毕业的！',
+        text: '可是阿瑶……你说过，我们要一起毕业，一起去海边看日出的啊！分数真的比我们还重要吗？！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -222,18 +222,19 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '那是以前的我不懂事。你们别再来找我了。',
+        text: '是！比你们重要一万倍！现在我爸妈以我为荣，老师拿我当榜样。和这些比起来，你们所谓的“朋友”游戏，简直幼稚得可笑。',
         highlight: true,
         sfx: 'sfx_unit_down'
       },
       {
         id: 8,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '她说完就顺着仓库后面的小路走了，头也不回。等大人们冲进仓库时，证据早已被扫得干干净净。两个浑身是伤的小学生说的话，根本没有一个大人相信。',
-        sfx: 'sfx_text_blip'
+        speaker: '异化阿瑶',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        activeSide: 'right',
+        text: '别再来找我了。看到你们这副自以为是的样子，只会让我觉得恶心。',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 9,
@@ -241,11 +242,47 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她们拼尽全力打赢了架，可坏人翻窗跑了，而最好的朋友……主动选择了留在那边。这就是刘老师和徐老师记了整整二十年的遗憾。',
-        sfx: 'sfx_unit_down'
+        text: '阿瑶那冰冷、厌恶的眼神，像一把最钝的刀，狠狠绞碎了两个小女孩的世界。她转身走向了那片阴暗的巷子，头也不回。',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 10,
+        speaker: '少年徐老师',
+        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（浑身是血地瘫坐在地，死死抓着衣角）……为什么……我们明明拼了命打赢了……为什么救不回她……',
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 11,
+        speaker: '少年刘老师',
+        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（眼泪砸在满是淤青的手背上，声音止不住地发抖）是我没拉住她……是我们太自以为是了……如果连最好的朋友都救不了，我们打赢了又有什么用……',
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 12,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '等大人们冲进仓库时，证据早已被扫得干干净净。两个浑身是伤的小学生声嘶力竭的哭喊，被当成了打架斗殴后的狡辩，根本没有一个大人相信。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 13,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '那天清晨，她们不仅失去了最好的朋友，也永远失去了童年的天真。那道无法愈合的溃疡，逼着她们在接下来的二十年里，发疯般地追查着那条吞噬了阿瑶的黑暗产业链。',
+        sfx: 'sfx_unit_down'
+      },
+      {
+        id: 14,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -256,21 +293,23 @@ export const CHAPTER8_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 11,
+        id: 15,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '当年我们拼了命打赢了，可什么都没能真正拦住。领头给货的人翻窗跑了，而我们要救的人……是她自己不想回来。这个轮子转了二十年，还是转到了你们这一届。',
+        bgImg: 'assets/backgrounds/bg_school_night@2x.png',
+        text: '当年我们拼了命打赢了，可什么都没能真正拦住。领头给货的人翻窗跑了，而我们要救的人……用最决绝的方式刺了我们一刀。这个轮子转了二十年，还是转到了你们这一届。',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 12,
-        speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        id: 16,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/adult_xu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',
+        bgImg: 'assets/backgrounds/bg_school_night@2x.png',
+        text: '这二十年里，每一次闭上眼，我都还能看见阿瑶走入黑暗的背影……但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

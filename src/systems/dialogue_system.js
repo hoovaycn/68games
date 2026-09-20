@@ -129,17 +129,22 @@ export class DialogueSystem {
     }
 
     if (!hasBgImg) {
-      // 统一雅致浅黄底色背景
-      ctx.fillStyle = '#f5eedf';
-      ctx.fillRect(0, 0, w, h);
+      if (this.currentScene && this.currentScene.bgType === 'black') {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, w, h);
+      } else {
+        // 统一雅致浅黄底色背景
+        ctx.fillStyle = '#f5eedf';
+        ctx.fillRect(0, 0, w, h);
 
-      // 内建柔和暖光轮廓
-      ctx.fillStyle = '#eae0cb';
-      ctx.fillRect(16, 16, w - 32, h - 32);
+        // 内建柔和暖光轮廓
+        ctx.fillStyle = '#eae0cb';
+        ctx.fillRect(16, 16, w - 32, h - 32);
 
-      ctx.strokeStyle = '#d6c7ac';
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(16, 16, w - 32, h - 32);
+        ctx.strokeStyle = '#d6c7ac';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(16, 16, w - 32, h - 32);
+      }
 
       // 顶部场景标题横幅
       ctx.fillStyle = '#78716c';
@@ -166,7 +171,7 @@ export class DialogueSystem {
         const y = h - PORTRAIT_H - 130 + (isLeftActive ? -6 : 6);
 
         if (!isLeftActive) {
-          ctx.filter = 'brightness(60%) contrast(90%)';
+          ctx.filter = 'brightness(30%) grayscale(50%)';
         }
         ctx.drawImage(leftImg, x, y, PORTRAIT_W, PORTRAIT_H);
         ctx.restore();
@@ -182,7 +187,7 @@ export class DialogueSystem {
         const y = h - PORTRAIT_H - 130 + (!isLeftActive ? -6 : 6);
 
         if (isLeftActive) {
-          ctx.filter = 'brightness(60%) contrast(90%)';
+          ctx.filter = 'brightness(30%) grayscale(50%)';
         }
         ctx.drawImage(rightImg, x, y, PORTRAIT_W, PORTRAIT_H);
         ctx.restore();
@@ -208,43 +213,51 @@ export class DialogueSystem {
     const boxH = 180;
     const x = 30;
     const y = h - boxH - 24;
+    const isBlackBg = this.currentScene && this.currentScene.bgType === 'black';
 
-    // 浅黄暖白羊皮纸质感对话框
-    ctx.fillStyle = '#fffdf9';
+    // 浅黄暖白羊皮纸质感对话框 (黑屏模式下用纯黑半透明)
+    ctx.fillStyle = isBlackBg ? 'rgba(0, 0, 0, 0.7)' : '#fffdf9';
     ctx.beginPath();
     ctx.roundRect(x, y, boxW, boxH, 12);
     ctx.fill();
 
-    ctx.strokeStyle = '#d6c8b4';
+    ctx.strokeStyle = isBlackBg ? '#333333' : '#d6c8b4';
     ctx.lineWidth = 2.5;
     ctx.stroke();
 
     // 加大加宽的人物姓名牌 (宽 240, 高 50)
     if (this.activeLine) {
+      let speakerName = this.activeLine.speaker || '';
+      // 支持动态变量替换
+      if (speakerName && window.app && window.app.gameState && window.app.gameState.mcName) {
+        speakerName = speakerName.replace('{MC_NAME}', window.app.gameState.mcName);
+      }
+
       const nameW = 240;
       const nameH = 50;
       const nameX = x + 20;
       const nameY = y - 24;
+      const isSystem = speakerName === '系统提示';
 
-      ctx.fillStyle = '#292524';
+      ctx.fillStyle = isSystem ? (isBlackBg ? '#333333' : '#8a7d6b') : (isBlackBg ? '#1a1a1a' : '#292524');
       ctx.beginPath();
       ctx.roundRect(nameX, nameY, nameW, nameH, 8);
       ctx.fill();
 
-      ctx.strokeStyle = '#d6c8b4';
+      ctx.strokeStyle = isBlackBg ? '#333333' : '#d6c8b4';
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = isSystem ? (isBlackBg ? '#aaaaaa' : '#ffffff') : (isBlackBg ? '#e5e5e5' : '#ffffff');
       ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(this.activeLine.speaker, nameX + nameW / 2, nameY + nameH / 2);
+      ctx.fillText(speakerName, nameX + nameW / 2, nameY + nameH / 2);
     }
 
     // 正文台词：钩子句（highlight）用红色大字突出，普通句用纯黑暖灰
     const isHighlight = !!(this.activeLine && this.activeLine.highlight);
-    ctx.fillStyle = isHighlight ? '#b91c1c' : '#1c1917';
+    ctx.fillStyle = isHighlight ? (isBlackBg ? '#ef4444' : '#b91c1c') : (isBlackBg ? '#cccccc' : '#1c1917');
     ctx.font = isHighlight
       ? 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
       : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';

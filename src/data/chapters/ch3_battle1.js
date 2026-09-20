@@ -23,27 +23,27 @@ export const CH3_BATTLE1 = {
   ],
 
   props: [
-    { id: 'equipment_3_2', type: 'crate', x: 3, y: 2, img: 'assets/items/dumbbell@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'equipment_3_7', type: 'crate', x: 3, y: 7, img: 'assets/items/jump_rope@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'equipment_3_2', type: 'crate', x: 3, y: 2, img: 'assets/items/dumbbell@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'equipment_3_7', type: 'crate', x: 3, y: 7, img: 'assets/items/jump_rope@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 4, y: 4 },
-    { unitId: 'zhanghanyu', x: 4, y: 3 },
-    { unitId: 'fanwenmo', x: 4, y: 5 },
-    { unitId: 'qinruiyi', x: 5, y: 2 },
-    { unitId: 'zhuyanze', x: 5, y: 6 },
-    { unitId: 'xu_laoshi', x: 5, y: 4 },
-    { unitId: 'liu_laoshi', x: 5, y: 5 }
+    { unitId: 'zhangzixiao', x: 2, y: 4 },
+    { unitId: 'zhanghanyu', x: 2, y: 3 },
+    { unitId: 'fanwenmo', x: 2, y: 5 },
+    { unitId: 'qinruiyi', x: 3, y: 2 },
+    { unitId: 'zhuyanze', x: 3, y: 6 },
+    { unitId: 'xu_laoshi', x: 3, y: 4 },
+    { unitId: 'liu_laoshi', x: 3, y: 5 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_zhangxizhe', x: 11, y: 4 },
-    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 13, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 12, y: 2 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 12, y: 6 }
+    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_zhangxizhe', x: 13, y: 4 },
+    { enemyId: 'senior_athlete_leader_corrupted', instanceId: 'athlete_leader', x: 15, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_a', x: 14, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_b', x: 14, y: 6 }
   ],
 
   objective: {

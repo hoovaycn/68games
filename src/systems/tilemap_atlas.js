@@ -167,6 +167,142 @@ export const TERRAIN_ATLAS_MAP = {
       bl: { col: 6, row: 15 }, b:  { col: 6, row: 15 }, br: { col: 6, row: 15 }
     },
     centerVariations: [ { col: 6, row: 15, weight: 1 } ]
+  },
+
+  // 10. 坚硬水泥地 / 室内工业地面 (映射到规整的浅水泥/岩质地砖)
+  concrete: {
+    fallbackColor: '#71717a',
+    nineSlice: {
+      tl: { col: 14, row: 0 }, t:  { col: 14, row: 0 }, tr: { col: 14, row: 0 },
+      l:  { col: 14, row: 0 }, c:  { col: 14, row: 0 }, r:  { col: 14, row: 0 },
+      bl: { col: 14, row: 0 }, b:  { col: 14, row: 0 }, br: { col: 14, row: 0 }
+    },
+    centerVariations: [ { col: 14, row: 0, weight: 1 } ]
+  },
+
+  // 11. 教学楼走廊 / 厅堂 (映射至浅色复合石纹)
+  hall: {
+    fallbackColor: '#94a3b8',
+    nineSlice: {
+      tl: { col: 22, row: 0 }, t:  { col: 22, row: 0 }, tr: { col: 22, row: 0 },
+      l:  { col: 22, row: 0 }, c:  { col: 22, row: 0 }, r:  { col: 22, row: 0 },
+      bl: { col: 22, row: 0 }, b:  { col: 22, row: 0 }, br: { col: 22, row: 0 }
+    },
+    centerVariations: [ { col: 22, row: 0, weight: 1 } ]
+  },
+  aisle: {
+    fallbackColor: '#94a3b8',
+    nineSlice: {
+      tl: { col: 22, row: 0 }, t:  { col: 22, row: 0 }, tr: { col: 22, row: 0 },
+      l:  { col: 22, row: 0 }, c:  { col: 22, row: 0 }, r:  { col: 22, row: 0 },
+      bl: { col: 22, row: 0 }, b:  { col: 22, row: 0 }, br: { col: 22, row: 0 }
+    },
+    centerVariations: [ { col: 22, row: 0, weight: 1 } ]
+  },
+
+  // 12. 仓库货箱带 / 课桌带 (厚重木箱红棕/黄砖基调)
+  box_lane: {
+    fallbackColor: '#78350f',
+    nineSlice: {
+      tl: { col: 26, row: 0 }, t:  { col: 26, row: 0 }, tr: { col: 26, row: 0 },
+      l:  { col: 26, row: 0 }, c:  { col: 26, row: 0 }, r:  { col: 26, row: 0 },
+      bl: { col: 26, row: 0 }, b:  { col: 26, row: 0 }, br: { col: 26, row: 0 }
+    },
+    centerVariations: [ { col: 26, row: 0, weight: 1 } ]
+  },
+  desk_zone: {
+    fallbackColor: '#78350f',
+    nineSlice: {
+      tl: { col: 26, row: 0 }, t:  { col: 26, row: 0 }, tr: { col: 26, row: 0 },
+      l:  { col: 26, row: 0 }, c:  { col: 26, row: 0 }, r:  { col: 26, row: 0 },
+      bl: { col: 26, row: 0 }, b:  { col: 26, row: 0 }, br: { col: 26, row: 0 }
+    },
+    centerVariations: [ { col: 26, row: 0, weight: 1 } ]
+  },
+  storage: {
+    fallbackColor: '#78350f',
+    nineSlice: {
+      tl: { col: 26, row: 0 }, t:  { col: 26, row: 0 }, tr: { col: 26, row: 0 },
+      l:  { col: 26, row: 0 }, c:  { col: 26, row: 0 }, r:  { col: 26, row: 0 },
+      bl: { col: 26, row: 0 }, b:  { col: 26, row: 0 }, br: { col: 26, row: 0 }
+    },
+    centerVariations: [ { col: 26, row: 0, weight: 1 } ]
+  },
+
+  // 13. 训练馆软垫 / 积水区 / 门道 (深暗耐脏地垫纹理)
+  stage_mat: {
+    fallbackColor: '#0f766e',
+    nineSlice: {
+      tl: { col: 6, row: 0 }, t:  { col: 6, row: 0 }, tr: { col: 6, row: 0 },
+      l:  { col: 6, row: 0 }, c:  { col: 6, row: 0 }, r:  { col: 6, row: 0 },
+      bl: { col: 6, row: 0 }, b:  { col: 6, row: 0 }, br: { col: 6, row: 0 }
+    },
+    centerVariations: [ { col: 6, row: 0, weight: 1 } ]
+  },
+  mat: {
+    fallbackColor: '#065f46',
+    nineSlice: {
+      tl: { col: 6, row: 0 }, t:  { col: 6, row: 0 }, tr: { col: 6, row: 0 },
+      l:  { col: 6, row: 0 }, c:  { col: 6, row: 0 }, r:  { col: 6, row: 0 },
+      bl: { col: 6, row: 0 }, b:  { col: 6, row: 0 }, br: { col: 6, row: 0 }
+    },
+    centerVariations: [ { col: 6, row: 0, weight: 1 } ]
+  },
+  wet_floor: {
+    fallbackColor: '#0f766e',
+    nineSlice: {
+      tl: { col: 10, row: 24 }, t:  { col: 10, row: 24 }, tr: { col: 10, row: 24 },
+      l:  { col: 10, row: 24 }, c:  { col: 10, row: 24 }, r:  { col: 10, row: 24 },
+      bl: { col: 10, row: 24 }, b:  { col: 10, row: 24 }, br: { col: 10, row: 24 }
+    },
+    centerVariations: [ { col: 10, row: 24, weight: 1 } ]
+  },
+  doorway: {
+    fallbackColor: '#1e293b',
+    nineSlice: {
+      tl: { col: 14, row: 0 }, t:  { col: 14, row: 0 }, tr: { col: 14, row: 0 },
+      l:  { col: 14, row: 0 }, c:  { col: 14, row: 0 }, r:  { col: 14, row: 0 },
+      bl: { col: 14, row: 0 }, b:  { col: 14, row: 0 }, br: { col: 14, row: 0 }
+    },
+    centerVariations: [ { col: 14, row: 0, weight: 1 } ]
+  },
+  stair: {
+    fallbackColor: '#0f172a',
+    nineSlice: {
+      tl: { col: 6, row: 15 }, t:  { col: 6, row: 15 }, tr: { col: 6, row: 15 },
+      l:  { col: 6, row: 15 }, c:  { col: 6, row: 15 }, r:  { col: 6, row: 15 },
+      bl: { col: 6, row: 15 }, b:  { col: 6, row: 15 }, br: { col: 6, row: 15 }
+    },
+    centerVariations: [ { col: 6, row: 15, weight: 1 } ]
+  },
+
+  // 14. 精神考场异次元地板与考桌残影 (深幽暗色地表)
+  void_floor: {
+    fallbackColor: '#1e1b4b',
+    nineSlice: {
+      tl: { col: 10, row: 24 }, t:  { col: 10, row: 24 }, tr: { col: 10, row: 24 },
+      l:  { col: 10, row: 24 }, c:  { col: 10, row: 24 }, r:  { col: 10, row: 24 },
+      bl: { col: 10, row: 24 }, b:  { col: 10, row: 24 }, br: { col: 10, row: 24 }
+    },
+    centerVariations: [ { col: 10, row: 24, weight: 1 } ]
+  },
+  desk_line: {
+    fallbackColor: '#312e81',
+    nineSlice: {
+      tl: { col: 14, row: 0 }, t:  { col: 14, row: 0 }, tr: { col: 14, row: 0 },
+      l:  { col: 14, row: 0 }, c:  { col: 14, row: 0 }, r:  { col: 14, row: 0 },
+      bl: { col: 14, row: 0 }, b:  { col: 14, row: 0 }, br: { col: 14, row: 0 }
+    },
+    centerVariations: [ { col: 14, row: 0, weight: 1 } ]
+  },
+  crack: {
+    fallbackColor: '#020617',
+    nineSlice: {
+      tl: { col: 10, row: 24 }, t:  { col: 10, row: 24 }, tr: { col: 10, row: 24 },
+      l:  { col: 10, row: 24 }, c:  { col: 10, row: 24 }, r:  { col: 10, row: 24 },
+      bl: { col: 10, row: 24 }, b:  { col: 10, row: 24 }, br: { col: 10, row: 24 }
+    },
+    centerVariations: [ { col: 10, row: 24, weight: 1 } ]
   }
 };
 

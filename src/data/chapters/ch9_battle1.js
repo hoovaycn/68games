@@ -40,12 +40,12 @@ export const CH9_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'zhangzixiao_corrupted', instanceId: 'shadow_mc', x: 13, y: 4 },
-    { enemyId: 'zhanghanyu_corrupted', instanceId: 'shadow_ally1', x: 13, y: 2 },
-    { enemyId: 'fanwenmo_corrupted', instanceId: 'shadow_ally2', x: 13, y: 6 },
-    { enemyId: 'zhangxizhe_corrupted', instanceId: 'shadow_xizhe', x: 11, y: 2 },
-    { enemyId: 'qinruiyi_corrupted', instanceId: 'shadow_ruiyi', x: 11, y: 6 },
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'shadow_yanze', x: 10, y: 4 }
+    { enemyId: 'zhangzixiao_corrupted', instanceId: 'shadow_mc', x: 15, y: 4 },
+    { enemyId: 'zhanghanyu_corrupted', instanceId: 'shadow_ally1', x: 14, y: 2 },
+    { enemyId: 'fanwenmo_corrupted', instanceId: 'shadow_ally2', x: 14, y: 6 },
+    { enemyId: 'zhangxizhe_corrupted', instanceId: 'shadow_xizhe', x: 13, y: 2 },
+    { enemyId: 'qinruiyi_corrupted', instanceId: 'shadow_ruiyi', x: 13, y: 6 },
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'shadow_yanze', x: 12, y: 4 }
   ],
 
   objective: {

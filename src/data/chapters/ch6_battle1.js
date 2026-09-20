@@ -21,9 +21,9 @@ export const CH6_BATTLE1 = {
   ],
 
   props: [
-    { id: 'mop_5_0', type: 'bench', x: 5, y: 0, img: 'assets/items/mop@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'trash_10_9', type: 'bench', x: 10, y: 9, img: 'assets/items/hooded_trashcan@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_8_3', type: 'barrier', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'mop_5_0', type: 'bench', x: 5, y: 0, img: 'assets/items/mop@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'trash_10_9', type: 'bench', x: 10, y: 9, img: 'assets/items/hooded_trashcan@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'barrier_8_3', type: 'barrier', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   playerDeploy: [
@@ -35,12 +35,12 @@ export const CH6_BATTLE1 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_xizhe', x: 12, y: 3 },
-    { enemyId: 'qinruiyi_corrupted', instanceId: 'boss_ruiyi', x: 12, y: 5 },
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_yanze', x: 12, y: 1 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 10, y: 2 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 10, y: 4 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 14, y: 6 }
+    { enemyId: 'zhangxizhe_corrupted', instanceId: 'boss_xizhe', x: 14, y: 3 },
+    { enemyId: 'qinruiyi_corrupted', instanceId: 'boss_ruiyi', x: 14, y: 5 },
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_yanze', x: 14, y: 1 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_a', x: 12, y: 2 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'cm_girl_a', x: 12, y: 4 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'cm_boy_b', x: 13, y: 6 }
   ],
 
   objective: {

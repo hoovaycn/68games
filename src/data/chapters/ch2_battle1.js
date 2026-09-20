@@ -30,12 +30,12 @@ export const CH2_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/items/newbie_pencil@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/items/newbie_pencil@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true },
+    { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true, fill3x3: true }
   ],
 
   // 玩家 3 人站位（main.js 会根据主角线动态拉取当前主力铁三角）
@@ -47,11 +47,11 @@ export const CH2_BATTLE1 = {
 
   // 敌方布阵（5 人）：朱晏泽带头挑衅，两名男同学与两名女同学在课桌间煽风点火、推波助澜
   enemyDeploy: [
-    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 9, y: 5 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 10, y: 2 },
-    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 6, y: 1 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 10, y: 8 },
-    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 6, y: 9 }
+    { enemyId: 'zhuyanze_corrupted', instanceId: 'boss_zhuyanze', x: 14, y: 5 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_1', x: 15, y: 2 },
+    { enemyId: 'classmate_boy_corrupted', instanceId: 'boy_mob_2', x: 12, y: 1 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_1', x: 15, y: 8 },
+    { enemyId: 'classmate_girl_corrupted', instanceId: 'girl_mob_2', x: 12, y: 9 }
   ],
 
   objective: {
