@@ -1,0 +1,15 @@
+{
+  "columns": 12,
+  "image": "../Modern tiles_Free/Old/Tileset_48x48_16.png",
+  "imageheight": 672,
+  "imagewidth": 576,
+  "margin": 0,
+  "name": "Modern Props 16",
+  "spacing": 0,
+  "tilecount": 168,
+  "tiledversion": "1.10.2",
+  "tileheight": 48,
+  "tilewidth": 48,
+  "type": "tileset",
+  "version": "1.10"
+}

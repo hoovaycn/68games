@@ -359,7 +359,31 @@
   "tilesets": [
     {
       "firstgid": 1,
-      "source": "modern_tiles.tsj"
+      "source": "Modern_Base_1.tsj"
+    },
+    {
+      "firstgid": 101,
+      "source": "Modern_Base_2.tsj"
+    },
+    {
+      "firstgid": 201,
+      "source": "Modern_Base_3.tsj"
+    },
+    {
+      "firstgid": 301,
+      "source": "Modern_Props_9.tsj"
+    },
+    {
+      "firstgid": 401,
+      "source": "Modern_Props_16.tsj"
+    },
+    {
+      "firstgid": 569,
+      "source": "Interiors.tsj"
+    },
+    {
+      "firstgid": 1993,
+      "source": "Room_Builder.tsj"
     }
   ],
   "tilewidth": 48,

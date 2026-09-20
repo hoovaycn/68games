@@ -1,0 +1,15 @@
+{
+  "columns": 10,
+  "image": "../Modern tiles_Free/Old/Tileset_48x48_1.png",
+  "imageheight": 480,
+  "imagewidth": 480,
+  "margin": 0,
+  "name": "Modern Base 1",
+  "spacing": 0,
+  "tilecount": 100,
+  "tiledversion": "1.10.2",
+  "tileheight": 48,
+  "tilewidth": 48,
+  "type": "tileset",
+  "version": "1.10"
+}
