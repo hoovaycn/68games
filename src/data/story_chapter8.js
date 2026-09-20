@@ -16,12 +16,12 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿瑶走后，两个小姑娘没有停。她们每救醒一个异化同学，就抓着人家的胳膊追问一句“谁给你的、在哪拿的”，顺着那些零零碎碎的指认，一路从学校摸到了城郊旧仓库。',
+        text: '阿瑶走后，两个小姑娘没有停。她们每打倒一个发狂的同学，等对方恢复神智，就抓着人家的胳膊追问一句“谁给你的、在哪拿的”，顺着那些零零碎碎的指认，一路从学校摸到了城郊旧仓库。',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
-        speaker: '被救醒的同学',
+        speaker: '清醒过来的同学',
         leftPortrait: null,
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'right',
@@ -87,7 +87,8 @@ export const CHAPTER8_STORY = {
     id: 'ch8_scene_confront',
     title: '仓库深处 · 打赢了也抓不住',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_warehouse@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_inner@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_warehouse@2x.png',
     bgm: 'bgm_gojira_battle',
     dialogues: [
       {
@@ -96,16 +97,16 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '仓库最里面站着个穿旧西装、戴墨镜挂金链子的男人，半张脸都埋在阴影里。那张脸和今天家长会带头起哄的人像得让人头皮发麻，像是同一种表情隔了二十年又长回来了。',
+        text: '仓库最里面站着个穿花西装、戴墨镜挂金链子的男人，半张脸都埋在阴影里。那一身江湖骗子般的打扮，透着一股让人极不舒服的市侩与凶狠。',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '幻境坏家长',
+        speaker: '花西装男人',
         leftPortrait: 'assets/art/mystery_man_default@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '分数就是一切！考不上重点，你们这辈子就完了！吃吧，吃了就能拿第一！',
+        text: '两个黄毛丫头也敢闯老子的场子？这城里多少家长排着队求我给货！只要卷子上的分是真的，谁管你怎么考出来的？识相的滚远点！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -114,25 +115,25 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/mystery_man_default@2x.png',
         activeSide: 'left',
-        text: '阿瑶呢？你们给她吃了什么？',
+        text: '阿瑶呢？你们给她吃了什么鬼东西？！把她交出来！',
         sfx: 'sfx_confirm'
       },
       {
         id: 4,
-        speaker: '幻境坏家长',
+        speaker: '花西装男人',
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/mystery_man_default@2x.png',
         activeSide: 'right',
-        text: '你们懂什么？只要能把分数提上去，这点代价算什么？等你们长大了就知道，没人会问你分数是怎么来的，他们只看你站得有多高！',
+        text: '交出来？那是她自己伸手拿的！等你们长大了就知道，没人会在乎你遭了什么罪，所有人只看你爬得有多高！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 5,
         speaker: '少年刘老师',
         leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/mystery_man_default@2x.png',
         activeSide: 'left',
-        text: '你把一群要考试的小孩当货架前的客人，还说不是逼？',
+        text: '少拿这种鬼话骗人！把要考试的小孩当牲口灌药，今天非把你这破地方砸了不可！',
         sfx: 'sfx_confirm'
       },
       {
@@ -141,7 +142,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '幻境坏家长抬了抬手，周围那些异化学生立刻全扑了上来。两个小姑娘拼着一整夜剩下的最后一点劲，硬生生把仓库深处打出一条路。',
+        text: '花西装男人冷笑一声猛一挥手，周围那些神情呆滞、眼冒青光的学生立刻全扑了上来。两个小姑娘咬紧牙关，硬生生把仓库深处杀出一条路！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -167,7 +168,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '幻境坏家长的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。',
+        text: '花西装男人的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -176,7 +177,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她们顾不上追，转身就往仓库门口跑。阿瑶就站在那片天光里，眼睛还是青的，却没有失控，站得很稳，表情甚至平静得有些可怕。',
+        text: '她们顾不上追，转身就往仓库门口跑。阿瑶就站在那片晨光里，眼睛依然泛着冷幽幽的青光，神情平静得可怕。',
         sfx: 'sfx_confirm'
       },
       {
@@ -185,7 +186,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'left',
-        text: '阿瑶！我们打赢了！快跟我们走，我们能把你喊醒！',
+        text: '阿瑶！架打完了，那帮坏蛋全跑了！你清醒一点，快跟我们回去找大夫！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -231,7 +232,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她说完就顺着仓库后面的小路走了，没回头。等大人冲进仓库时，证据已经被扫得差不多了，两个小姑娘说的话，没人信。',
+        text: '她说完就顺着仓库后面的小路走了，头也不回。等大人们冲进仓库时，证据早已被扫得干干净净。两个浑身是伤的小学生说的话，根本没有一个大人相信。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -240,7 +241,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她们打赢了架，放跑了坏人，连最好的朋友，都主动选择留在了那边。这就是刘老师和徐老师记了二十年的遗憾。',
+        text: '她们拼尽全力打赢了架，可坏人翻窗跑了，而最好的朋友……主动选择了留在那边。这就是刘老师和徐老师记了整整二十年的遗憾。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -249,16 +250,18 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '画面一抖，器材室的门外又传来“咚咚咚”的撞门声。天亮了，外头是大考当天的太阳光，那些夜里还眼冒青光的同学，正揉着眼睛，迷迷糊糊地往各自考场走。',
-        sfx: 'sfx_shock_sting'
+        bgImg: 'assets/backgrounds/bg_school_night@2x.png',
+        text: '回忆如同潮水般缓缓褪去。当视线再次聚焦时，昏暗的仓库已然消散，眼前是现实中被晨光唤醒的学校器材室。门外传来了急促的拍门声与喧闹的人声——大考的日子，终于到了。',
+        bgm: 'bgm_suspense',
+        sfx: 'sfx_confirm'
       },
       {
-        id: 9,
+        id: 11,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '当年我们打赢了架，可什么都没拦住。Boss 跑了，我们要救的人，自己不想回来。这个轮子转了二十年，还是转到了你们这一届。这一次……换你们。',
+        text: '当年我们拼了命打赢了，可什么都没能真正拦住。领头给货的人翻窗跑了，而我们要救的人……是她自己不想回来。这个轮子转了二十年，还是转到了你们这一届。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -267,7 +270,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '这一次……换你们。',
+        text: '但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

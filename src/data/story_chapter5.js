@@ -30,11 +30,20 @@ export const CHAPTER5_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '张希哲、覃瑞怡、朱晏泽怎么一个都没来？平时这种热闹他们三个不是最爱往前凑吗？',
+        text: '奇了怪了，张希哲他们仨怎么一个都没来？朱晏泽昨天还吹牛说要偷偷往徐老师讲台上放假蟑螂呢！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'right',
+        text: '张希哲今天数学考了58分，他敢来才怪！我刚才看他爸脸色铁青地往校门口走，估计人早被提溜回家关禁闭了……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
@@ -43,7 +52,7 @@ export const CHAPTER5_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
@@ -52,7 +61,7 @@ export const CHAPTER5_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,

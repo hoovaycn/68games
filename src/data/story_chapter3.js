@@ -84,7 +84,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
         activeSide: 'left',
-        text: '你干什么？没看见人家小孩不想要吗？',
+        text: '手往哪伸呢？！高年级大个子堵一年级小孩，要不要脸啊？有本事冲我来！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -93,11 +93,20 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '关你屁事？给脸不要脸是吧。',
+        text: '哪冒出来的小土豆？少多管闲事，信不信连你一块削？！',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 10,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        activeSide: 'left',
+        text: '来啊！怕你我就不姓张！眼神发青、嘴里喷臭气，还特供能量水呢，喝地沟油喝上头了吧你！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 11,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,

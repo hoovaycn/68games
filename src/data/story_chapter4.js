@@ -40,20 +40,38 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'right',
-        text: '那还等什么？总不能坐着等他们一批批往学校送。这次我们主动摸上去，把最上面那个人揪出来。',
+        text: '那还蹲这儿抠泥巴干嘛？走啊！抄家伙直捣他们老巢！我兜里还有五十块零花钱，打赢了全请大家吃冰棍！',
         sfx: 'sfx_confirm'
       },
       {
         id: 4,
-        speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '不行。你们几个到学校门口打打杂兵是一回事，摸到人家窝里是另一回事。',
+        text: '得了吧你，每次打架前你先看看自己鞋带系紧没，别又冲两步摔个狗吃屎。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 5,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        activeSide: 'right',
+        text: '张希哲你皮痒了是吧！我那是战术性滑铲！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 6,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        activeSide: 'left',
+        text: '都给我闭嘴！毛都没长齐呢还抄家伙？老巢也是你们能瞎冲的？真当自己是名侦探柯南了？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
@@ -62,7 +80,7 @@ export const CHAPTER4_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 6,
+        id: 8,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',

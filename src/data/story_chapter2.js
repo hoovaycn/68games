@@ -169,7 +169,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '老师！昨晚就是他偷偷从小贩手里拿了荧光零食！他满分全是作弊来的！',
+        text: '老师！昨晚就是{MC_NAME}偷偷从小贩手里拿了荧光零食！满分全是作弊来的！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -178,7 +178,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '朱晏泽？！你平时最讲义气，今天怎么睁眼说瞎话？！',
+        text: '朱晏泽你吃错药了吧？！上周你抄我英语作业时还说我是你亲哥，今天转头就往我身上泼脏水？！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -187,7 +187,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '放屁！昨晚我们一直在一块，{MC_NAME} 根本没碰过那东西！',
+        text: '放你娘的狗屁！昨天放学我和{MC_NAME}买完包子就各回各家，抽屉里除了几张揉皱的草稿纸连根毛都没有，作个鬼的弊！',
         sfx: 'sfx_confirm'
       },
       {

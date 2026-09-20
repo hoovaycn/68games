@@ -367,23 +367,35 @@ class GameApp {
       const isMale = this.selectedRoute === 'male';
       const mcName = isMale ? '张子骁' : '石予诺';
       const mcPortrait = isMale ? 'assets/art/zhangzixiao_default@2x.png' : 'assets/art/shiyunuo_default@2x.png';
+      const mcCorruptedPortrait = isMale ? 'assets/art/zhangzixiao_corrupted@2x.png' : 'assets/art/shiyunuo_corrupted@2x.png';
       const ally1Name = isMale ? '张瀚瑜' : '陈品璇';
       const ally1Portrait = isMale ? 'assets/art/zhanghanyu_default@2x.png' : 'assets/art/chenpinxuan_default@2x.png';
+      const ally1CorruptedPortrait = isMale ? 'assets/art/zhanghanyu_corrupted@2x.png' : 'assets/art/chenpinxuan_corrupted@2x.png';
       const ally2Name = isMale ? '范文默' : '何妍熹';
       const ally2Portrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_default@2x.png';
+      const ally2CorruptedPortrait = isMale ? 'assets/art/fanwenmo_corrupted@2x.png' : 'assets/art/heyanxi_corrupted@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));
       if (Array.isArray(sceneData.dialogues)) {
         sceneData.dialogues.forEach(dlg => {
           if (dlg.speaker === '{MC_NAME}') dlg.speaker = mcName;
+          if (dlg.speaker === '{MC_SHADOW_NAME}') dlg.speaker = isMale ? '张子骁的心魔' : '石予诺的心魔';
           if (dlg.speaker === '{ALLY_1_NAME}') dlg.speaker = ally1Name;
+          if (dlg.speaker === '{ALLY_1_SHADOW_NAME}') dlg.speaker = isMale ? '张瀚瑜的心魔' : '陈品璇的心魔';
           if (dlg.speaker === '{ALLY_2_NAME}') dlg.speaker = ally2Name;
+          if (dlg.speaker === '{ALLY_2_SHADOW_NAME}') dlg.speaker = isMale ? '范文默的心魔' : '何妍熹的心魔';
           if (dlg.leftPortrait === '{MC_PORTRAIT}') dlg.leftPortrait = mcPortrait;
           if (dlg.rightPortrait === '{MC_PORTRAIT}') dlg.rightPortrait = mcPortrait;
+          if (dlg.leftPortrait === '{MC_CORRUPTED_PORTRAIT}') dlg.leftPortrait = mcCorruptedPortrait;
+          if (dlg.rightPortrait === '{MC_CORRUPTED_PORTRAIT}') dlg.rightPortrait = mcCorruptedPortrait;
           if (dlg.leftPortrait === '{ALLY_1_PORTRAIT}') dlg.leftPortrait = ally1Portrait;
           if (dlg.rightPortrait === '{ALLY_1_PORTRAIT}') dlg.rightPortrait = ally1Portrait;
+          if (dlg.leftPortrait === '{ALLY_1_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally1CorruptedPortrait;
+          if (dlg.rightPortrait === '{ALLY_1_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally1CorruptedPortrait;
           if (dlg.leftPortrait === '{ALLY_2_PORTRAIT}') dlg.leftPortrait = ally2Portrait;
           if (dlg.rightPortrait === '{ALLY_2_PORTRAIT}') dlg.rightPortrait = ally2Portrait;
+          if (dlg.leftPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally2CorruptedPortrait;
+          if (dlg.rightPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally2CorruptedPortrait;
           if (dlg.text) {
             dlg.text = dlg.text.replace(/\{MC_NAME\}/g, mcName)
                                .replace(/\{ALLY_1_NAME\}/g, ally1Name)

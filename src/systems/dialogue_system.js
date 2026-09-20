@@ -116,9 +116,12 @@ export class DialogueSystem {
 
   drawSceneBackground(ctx, w, h) {
     let hasBgImg = false;
-    const bgImgSrc = (this.activeLine && this.activeLine.bgImg) || (this.currentScene && this.currentScene.bgImg);
+    let bgImgSrc = (this.activeLine && this.activeLine.bgImg) || (this.currentScene && this.currentScene.bgImg);
     if (bgImgSrc) {
-      const externalImg = assetLoader.getImage(bgImgSrc);
+      let externalImg = assetLoader.getImage(bgImgSrc);
+      if (!externalImg && this.currentScene && this.currentScene.bgImgFallback) {
+        externalImg = assetLoader.getImage(this.currentScene.bgImgFallback);
+      }
       if (externalImg) {
         ctx.drawImage(externalImg, 0, 0, w, h);
         hasBgImg = true;

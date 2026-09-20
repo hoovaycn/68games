@@ -30,14 +30,8 @@ export const CH8_BATTLE1 = {
   ],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 1, y: 4 },
-    { unitId: 'zhanghanyu', x: 1, y: 3 },
-    { unitId: 'fanwenmo', x: 1, y: 5 },
-    { unitId: 'zhangxizhe', x: 2, y: 2 },
-    { unitId: 'qinruiyi', x: 2, y: 6 },
-    { unitId: 'zhuyanze', x: 2, y: 4 },
-    { unitId: 'xu_laoshi', x: 3, y: 3 },
-    { unitId: 'liu_laoshi', x: 3, y: 5 }
+    { unitId: 'young_xu', x: 2, y: 3 },
+    { unitId: 'young_liu', x: 2, y: 5 }
   ],
 
   enemyDeploy: [
