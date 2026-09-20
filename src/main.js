@@ -530,6 +530,16 @@ class GameApp {
   }
 
   initBattle(chapter) {
+    // 根据参战人数动态调整地图大小
+    const deployCount = chapter.playerDeploy ? chapter.playerDeploy.length : 0;
+    if (deployCount < 3) {
+      chapter.mapWidth = 11;
+      chapter.mapHeight = 7;
+    } else {
+      chapter.mapWidth = 16;
+      chapter.mapHeight = 10;
+    }
+
     this.battleState.chapter = chapter;
     this.battleState.gridSystem = new GridSystem(chapter);
     const mapW = chapter.mapWidth || chapter.width || 12;

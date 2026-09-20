@@ -12,8 +12,8 @@ export const CH7_BATTLE1 = {
   id: 'ch7_battle1',
   name: '第十一战：二十年前的旧走廊 · 逃无可逃',
   bgm: 'bgm_intense_boss',
-  mapWidth: 12,
-  mapHeight: 8,
+  mapWidth: 16,
+  mapHeight: 10,
   defaultTerrain: 'tile_floor',
 
   terrainTypes: {
@@ -28,11 +28,11 @@ export const CH7_BATTLE1 = {
   ],
 
   props: [
-    { id: 'debris_1', type: 'debris', x: 2, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'debris_2', type: 'debris', x: 5, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'debris_3', type: 'debris', x: 8, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_old_1', type: 'desk', x: 3, y: 5, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_old_2', type: 'desk', x: 7, y: 1, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'debris_1', type: 'debris', x: 2, y: 2, img: 'assets/items/dirty_sock@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'debris_2', type: 'debris', x: 5, y: 4, img: 'assets/items/discarded_snack@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'debris_3', type: 'debris', x: 8, y: 6, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_old_1', type: 'desk', x: 3, y: 5, img: 'assets/items/chalk_dust@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_old_2', type: 'desk', x: 7, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

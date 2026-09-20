@@ -6,7 +6,7 @@ export const CH6_BATTLE1 = {
   name: '第八战：夜楼道 · 先把熟人拦下来',
   bgm: 'bgm_victory',
   mapWidth: 16,
-  mapHeight: 8,
+  mapHeight: 10,
   defaultTerrain: 'hall',
 
   terrainTypes: {
@@ -16,13 +16,13 @@ export const CH6_BATTLE1 = {
   },
 
   terrainTiles: [
-    { x: 0, y: 0, type: 'stair' }, { x: 0, y: 7, type: 'stair' }, { x: 15, y: 0, type: 'stair' }, { x: 15, y: 7, type: 'stair' },
-    { x: 4, y: 1, type: 'doorway' }, { x: 4, y: 6, type: 'doorway' }, { x: 11, y: 1, type: 'doorway' }, { x: 11, y: 6, type: 'doorway' }
+    { x: 0, y: 0, type: 'stair' }, { x: 0, y: 9, type: 'stair' }, { x: 15, y: 0, type: 'stair' }, { x: 15, y: 9, type: 'stair' },
+    { x: 4, y: 1, type: 'doorway' }, { x: 4, y: 8, type: 'doorway' }, { x: 11, y: 1, type: 'doorway' }, { x: 11, y: 8, type: 'doorway' }
   ],
 
   props: [
-    { id: 'bench_5_0', type: 'bench', x: 5, y: 0, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_10_7', type: 'bench', x: 10, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'mop_5_0', type: 'bench', x: 5, y: 0, img: 'assets/items/mop@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'trash_10_9', type: 'bench', x: 10, y: 9, img: 'assets/items/hooded_trashcan@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'barrier_8_3', type: 'barrier', x: 8, y: 3, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 

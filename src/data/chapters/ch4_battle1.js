@@ -22,8 +22,8 @@ export const CH4_BATTLE1 = {
   ],
 
   props: [
-    { id: 'crate_4_2', type: 'crate', x: 4, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_4_6', type: 'crate', x: 4, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'food_4_2', type: 'crate', x: 4, y: 2, img: 'assets/items/suspicious_drink@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'food_4_6', type: 'crate', x: 4, y: 6, img: 'assets/items/suspicious_snack@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'barrier_10_4', type: 'barrier', x: 10, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'barrier_11_6', type: 'barrier', x: 11, y: 6, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],

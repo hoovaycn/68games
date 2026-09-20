@@ -12,8 +12,8 @@
 export const CH0_BATTLE3 = {
   id: 'ch0_battle3',
   name: '第三战：同学书房 · 唤醒异变同窗',
-  mapWidth: 12,
-  mapHeight: 10,
+  mapWidth: 11,
+  mapHeight: 7,
   defaultTerrain: 'wood_floor',
 
   terrainTypes: {
@@ -30,31 +30,28 @@ export const CH0_BATTLE3 = {
     { x: 0, y: 4, type: 'tile_floor' }, { x: 1, y: 4, type: 'tile_floor' },
     { x: 0, y: 5, type: 'tile_floor' }, { x: 1, y: 5, type: 'tile_floor' },
     { x: 0, y: 6, type: 'tile_floor' }, { x: 1, y: 6, type: 'tile_floor' },
-    { x: 0, y: 7, type: 'tile_floor' }, { x: 1, y: 7, type: 'tile_floor' },
-    { x: 0, y: 8, type: 'tile_floor' }, { x: 1, y: 8, type: 'tile_floor' },
-    { x: 0, y: 9, type: 'tile_floor' }, { x: 1, y: 9, type: 'tile_floor' },
 
     // 书房中央地毯区域
-    { x: 5, y: 3, type: 'carpet' }, { x: 6, y: 3, type: 'carpet' }, { x: 7, y: 3, type: 'carpet' },
-    { x: 5, y: 4, type: 'carpet' }, { x: 6, y: 4, type: 'carpet' }, { x: 7, y: 4, type: 'carpet' },
-    { x: 5, y: 5, type: 'carpet' }, { x: 6, y: 5, type: 'carpet' }, { x: 7, y: 5, type: 'carpet' }
+    { x: 4, y: 2, type: 'carpet' }, { x: 5, y: 2, type: 'carpet' }, { x: 6, y: 2, type: 'carpet' },
+    { x: 4, y: 3, type: 'carpet' }, { x: 5, y: 3, type: 'carpet' }, { x: 6, y: 3, type: 'carpet' },
+    { x: 4, y: 4, type: 'carpet' }, { x: 5, y: 4, type: 'carpet' }, { x: 6, y: 4, type: 'carpet' }
   ],
 
   props: [
-    { id: 'desk_6_2', type: 'desk', x: 6, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bookshelf_10_2', type: 'bookshelf', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'shelf_10_7', type: 'shelf', x: 10, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'desk_5_1', type: 'desk', x: 5, y: 1, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bookshelf_9_1', type: 'bookshelf', x: 9, y: 1, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'trash_9_5', type: 'trash', x: 9, y: 5, img: 'assets/props/kenney/kc_trashbag@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   // 玩家双人站位：主角与新加入队友并肩
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 1, y: 4 },
-    { unitId: 'zhanghanyu', x: 1, y: 5 }
+    { unitId: 'zhangzixiao', x: 1, y: 2 },
+    { unitId: 'zhanghanyu', x: 1, y: 4 }
   ],
 
   // 敌方部署（Boss：异变的同伴）
   enemyDeploy: [
-    { enemyId: 'fanwenmo_corrupted', instanceId: 'boss_1', x: 9, y: 4 }
+    { enemyId: 'fanwenmo_corrupted', instanceId: 'boss_1', x: 8, y: 3 }
   ],
 
   objective: {

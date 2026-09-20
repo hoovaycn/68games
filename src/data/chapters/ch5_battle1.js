@@ -4,7 +4,7 @@
 export const CH5_BATTLE1 = {
   id: 'ch5_battle1',
   name: '第七战：家长会教室 · 压住异化扩散',
-  mapWidth: 14,
+  mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'wood_floor',
 
@@ -22,9 +22,9 @@ export const CH5_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_5', type: 'desk', x: 4, y: 5, img: 'assets/items/teacher_thermos@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_9_5', type: 'desk', x: 9, y: 5, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bookshelf_12_4', type: 'bookshelf', x: 12, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 

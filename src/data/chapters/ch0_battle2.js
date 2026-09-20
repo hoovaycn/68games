@@ -6,53 +6,42 @@
 export const CH0_BATTLE2 = {
   id: 'ch0_battle2',
   name: '第二战：校外巷口 · 拦截高年级混混',
-  mapWidth: 16,
-  mapHeight: 10,
+  mapWidth: 11,
+  mapHeight: 7,
   defaultTerrain: 'sidewalk',
 
+  // 11x7 紧凑巷口：窄马路与红砖拐角
   terrainTiles: [
-    { x: 0, y: 4, type: 'asphalt' }, { x: 1, y: 4, type: 'asphalt' }, { x: 2, y: 4, type: 'asphalt' }, { x: 3, y: 4, type: 'asphalt' },
-    { x: 4, y: 4, type: 'asphalt' }, { x: 5, y: 4, type: 'asphalt' }, { x: 6, y: 4, type: 'asphalt' }, { x: 7, y: 4, type: 'asphalt' },
-    { x: 8, y: 4, type: 'asphalt' }, { x: 9, y: 4, type: 'asphalt' }, { x: 10, y: 4, type: 'asphalt' }, { x: 11, y: 4, type: 'asphalt' },
-    { x: 12, y: 4, type: 'asphalt' }, { x: 13, y: 4, type: 'asphalt' }, { x: 14, y: 4, type: 'asphalt' }, { x: 15, y: 4, type: 'asphalt' },
+    { x: 0, y: 3, type: 'asphalt' }, { x: 1, y: 3, type: 'asphalt' }, { x: 2, y: 3, type: 'asphalt' }, { x: 3, y: 3, type: 'asphalt' },
+    { x: 4, y: 3, type: 'asphalt' }, { x: 5, y: 3, type: 'asphalt' }, { x: 6, y: 3, type: 'asphalt' }, { x: 7, y: 3, type: 'asphalt' },
+    { x: 8, y: 3, type: 'asphalt' }, { x: 9, y: 3, type: 'asphalt' }, { x: 10, y: 3, type: 'asphalt' },
 
-    { x: 0, y: 5, type: 'asphalt' }, { x: 1, y: 5, type: 'asphalt' }, { x: 2, y: 5, type: 'asphalt' }, { x: 3, y: 5, type: 'asphalt' },
-    { x: 4, y: 5, type: 'asphalt' }, { x: 5, y: 5, type: 'asphalt' }, { x: 6, y: 5, type: 'asphalt' }, { x: 7, y: 5, type: 'asphalt' },
-    { x: 8, y: 5, type: 'asphalt' }, { x: 9, y: 5, type: 'asphalt' }, { x: 10, y: 5, type: 'asphalt' }, { x: 11, y: 5, type: 'asphalt' },
-    { x: 12, y: 5, type: 'asphalt' }, { x: 13, y: 5, type: 'asphalt' }, { x: 14, y: 5, type: 'asphalt' }, { x: 15, y: 5, type: 'asphalt' },
-
-    { x: 6, y: 4, type: 'crosswalk' }, { x: 7, y: 4, type: 'crosswalk' },
-    { x: 6, y: 5, type: 'crosswalk' }, { x: 7, y: 5, type: 'crosswalk' },
+    { x: 5, y: 3, type: 'crosswalk' },
 
     // 巷口红砖路面
-    { x: 2, y: 1, type: 'brick' }, { x: 3, y: 1, type: 'brick' }, { x: 4, y: 1, type: 'brick' },
-    { x: 2, y: 2, type: 'brick' }, { x: 3, y: 2, type: 'brick' }, { x: 4, y: 2, type: 'brick' },
+    { x: 2, y: 1, type: 'brick' }, { x: 3, y: 1, type: 'brick' },
+    { x: 2, y: 2, type: 'brick' }, { x: 3, y: 2, type: 'brick' },
 
     // 绿化花坛
-    { x: 0, y: 0, type: 'grass' }, { x: 15, y: 0, type: 'grass' },
-    { x: 0, y: 9, type: 'grass' }, { x: 15, y: 9, type: 'grass' }
+    { x: 0, y: 0, type: 'grass' }, { x: 10, y: 0, type: 'grass' },
+    { x: 0, y: 6, type: 'grass' }, { x: 10, y: 6, type: 'grass' }
   ],
 
   props: [
     { id: 'lamp_3_1', type: 'street_lamp', x: 3, y: 1, img: 'assets/props/kenney/kc_streetlight@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'barrier_10_2', type: 'barrier', x: 10, y: 2, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_8_7', type: 'crate', x: 8, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_9_7', type: 'crate', x: 9, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'dumpster_13_7', type: 'dumpster', x: 13, y: 7, img: 'assets/props/kenney/kc_dumpster_green@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bench_2_7', type: 'bench', x: 2, y: 7, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'dumpster_8_5', type: 'dumpster', x: 8, y: 5, img: 'assets/props/kenney/kc_dumpster_green@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'bench_2_5', type: 'bench', x: 2, y: 5, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bush_0_0', type: 'bush', x: 0, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_15_0', type: 'bush', x: 15, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_0_9', type: 'bush', x: 0, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'bush_15_9', type: 'bush', x: 15, y: 9, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'bush_10_0', type: 'bush', x: 10, y: 0, img: 'assets/props/kenney/kc_bush@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 4 }
+    { unitId: 'zhangzixiao', x: 2, y: 3 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'punk', instanceId: 'punk_1', x: 13, y: 4 }, // 正面
-    { enemyId: 'punk', instanceId: 'punk_2', x: 12, y: 1 }  // 侧翼
+    { enemyId: 'punk', instanceId: 'punk_1', x: 8, y: 3 }, // 正面
+    { enemyId: 'punk', instanceId: 'punk_2', x: 7, y: 1 }  // 侧翼包夹
   ],
 
   objective: {

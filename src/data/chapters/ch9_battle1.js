@@ -24,10 +24,10 @@ export const CH9_BATTLE1 = {
   ],
 
   props: [
-    { id: 'desk_5_2', type: 'desk', x: 5, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_10_2', type: 'desk', x: 10, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_5_7', type: 'desk', x: 5, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_10_7', type: 'desk', x: 10, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true }
+    { id: 'desk_5_2', type: 'desk', x: 5, y: 2, img: 'assets/items/english_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_10_2', type: 'desk', x: 10, y: 2, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_5_7', type: 'desk', x: 5, y: 7, img: 'assets/items/sudoku@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_10_7', type: 'desk', x: 10, y: 7, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
   playerDeploy: [

@@ -23,8 +23,8 @@ export const CH3_BATTLE1 = {
   ],
 
   props: [
-    { id: 'crate_3_2', type: 'crate', x: 3, y: 2, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'crate_3_7', type: 'crate', x: 3, y: 7, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'equipment_3_2', type: 'crate', x: 3, y: 2, img: 'assets/items/dumbbell@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'equipment_3_7', type: 'crate', x: 3, y: 7, img: 'assets/items/jump_rope@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bench_6_1', type: 'bench', x: 6, y: 1, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bench_6_8', type: 'bench', x: 6, y: 8, img: 'assets/props/kenney/kc_bench@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],

@@ -12,7 +12,7 @@ export const CH2_BATTLE1 = {
   id: 'ch2_battle1',
   name: '第五战：六 8 班教室 · 破除猜疑风暴',
   bgm: 'bgm_battle_boss',
-  mapWidth: 12,
+  mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'tile_floor',
 
@@ -30,11 +30,11 @@ export const CH2_BATTLE1 = {
   ],
 
   props: [
-    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
-    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/props/kenney/kc_crate@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'podium', type: 'desk', x: 1, y: 4, img: 'assets/items/teaching_pointer@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_3', type: 'desk', x: 4, y: 3, img: 'assets/items/class_roll_book@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_4_6', type: 'desk', x: 4, y: 6, img: 'assets/items/math_exam@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_3', type: 'desk', x: 7, y: 3, img: 'assets/items/cheat_sheet@2x.png', gridW: 1, gridH: 1, blocks: true },
+    { id: 'desk_7_6', type: 'desk', x: 7, y: 6, img: 'assets/items/newbie_pencil@2x.png', gridW: 1, gridH: 1, blocks: true },
     { id: 'bookshelf_11_4', type: 'bookshelf', x: 11, y: 4, img: 'assets/props/kenney/kc_barrier_stripe@2x.png', gridW: 1, gridH: 1, blocks: true }
   ],
 
