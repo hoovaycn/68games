@@ -24,11 +24,20 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二天上午，全校同学在操场上集合准备午休练操。阳光把跑道晒得发白，昨夜那场惊悚仿佛只是一场梦。跑道边，校队前锋张希哲正颠着足球，拉拉操队长覃瑞怡带着队员在旁压腿热身。',
+        text: '第二天上午，全校同学在操场上集合准备午休练操。阳光把跑道晒得发白，昨夜那场惊悚仿佛只是一场梦。跑道边，我们班的体育委员张希哲正颠着足球——这校队前锋跑起来跟颗小炮弹似的，性子直，就是太爱逞强。',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '一旁，拉拉操队长覃瑞怡带着队员压腿热身，她成绩好得没边儿，是全班公认的「别人家孩子」，嘴上也从不饶人。这俩天生八字不合，一见面就掐。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 3,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
@@ -37,7 +46,7 @@ export const CHAPTER1_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 3,
+        id: 4,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
@@ -46,7 +55,7 @@ export const CHAPTER1_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
@@ -55,7 +64,7 @@ export const CHAPTER1_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,

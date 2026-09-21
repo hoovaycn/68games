@@ -143,7 +143,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '后排，平日里最爱起哄护短的朱晏泽却一言不发，低着头，指节捏得发白。',
+        text: '后排，朱晏泽却一言不发。这帅气的富二代平日里最爱起哄护短，零花钱多到能把小卖部包圆，谁被欺负了他第一个拍桌子；如今却低着头，指节捏得发白。',
         sfx: 'sfx_text_blip'
       }
     ],
