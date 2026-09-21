@@ -54,6 +54,7 @@ import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
 import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
+import { gamepadManager } from './systems/gamepad.js';
 
 const LINEAR_STORY = {
   ...CHAPTER1_STORY,
@@ -2303,6 +2304,7 @@ class GameApp {
 
   loop() {
     this.tickPlaytimeClock();
+    gamepadManager.poll();
     if (this.stage === 'STAGE_TITLE') {
       this.titleScreen.render();
     } else if (this.stage === 'STAGE_STORY') {
