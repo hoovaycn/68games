@@ -17,7 +17,12 @@ export class AssetLoader {
     const resultObj = { img: null, loaded: false };
     this.cache[src] = resultObj;
 
-    img.crossOrigin = 'anonymous';
+    // file:// 协议（Electron 桌面端）下设置 crossOrigin 会触发 CORS 流程，
+    // 而 file:// 无 CORS 响应头，导致所有图片加载失败（黑屏）。
+    // 此时页面与图片同源，Canvas 去色键不依赖 CORS，故跳过。
+    if (typeof location === 'undefined' || location.protocol !== 'file:') {
+      img.crossOrigin = 'anonymous';
+    }
     img.src = src;
 
     img.onload = () => {

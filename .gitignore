@@ -9,6 +9,10 @@ backup/
 
 # 构建产物
 dist/
+dist_electron/
+dist_desktop/
+release/
+.cache/
 
 # 网页发布目录（用于拖拽到 Cloudflare Pages 等静态托管，属生成物，不进版本库）
 release_web/

@@ -32,6 +32,7 @@ function tiledSyncPlugin() {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [tiledSyncPlugin()],
   server: {
     port: 6868,

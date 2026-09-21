@@ -2,18 +2,47 @@
   "name": "fx_game",
   "version": "0.1.0",
   "description": "《六 8 班异闻录》纯前端战棋 SRPG 游戏",
+  "author": "fx_game",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:desktop": "vite build && node tools/copy_assets_to_dist.cjs && powershell.exe -ExecutionPolicy Bypass -File tools/build_desktop.ps1",
     "preview": "vite preview",
     "test": "node --test tests/**/*.test.mjs",
     "test:balance": "node scripts/test_balance_framework.mjs"
   },
   "devDependencies": {
+    "electron": "^44.4.3",
+    "electron-builder": "^26.15.3",
     "vite": "^5.0.0"
   },
   "dependencies": {
     "xml2js": "^0.6.2"
+  },
+  "build": {
+    "appId": "com.fxgame.schoolmystery",
+    "productName": "六8班异闻录",
+    "directories": {
+      "output": "dist_desktop"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    }
   }
 }
