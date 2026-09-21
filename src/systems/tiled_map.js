@@ -66,6 +66,15 @@ export const TILED_TILESETS = [
     total: 168,
     tileW: 48,
     tileH: 48
+  },
+  {
+    name: 'Room_Builder',
+    firstgid: 2384,
+    src: 'assets/tiles/modern_free/Room_Builder_free_48x48.png',
+    cols: 17,
+    total: 391,
+    tileW: 48,
+    tileH: 48
   }
 ];
 
