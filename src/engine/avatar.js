@@ -225,3 +225,30 @@ export function portraitForUnit(u, opts = {}) {
 
   return fallbackUri(density);
 }
+
+/**
+ * 战场单位 → 半身立绘 URL（assets/art/，对话式半身立绘）。
+ * 区别于 portraitForUnit（assets/portraits/ 圆形头像）：技能演出等需要
+ * 大幅立绘的界面用本函数。命名与头像同源 {fileKey}_{state}{@2x}.png，
+ * 只是目录换成 art。art 目录 state 可能不全（如 janitor 仅 old），缺图时
+ * assetLoader.getImage 返回 null，由 UI 层画占位框。
+ */
+export function artForUnit(u, opts = {}) {
+  const density = densityOf(opts.density);
+  const state = opts.state || DEFAULT_STATE;
+
+  if (u && typeof u === 'object') {
+    for (const key of [u.enemyId, u.unitId, u.id]) {
+      if (hasActor(key)) {
+        const fileKey = FILE_KEYS[key] ?? key;
+        return 'assets/art/' + fileKey + '_' + state + densitySuffix(density) + '.png';
+      }
+    }
+    const p = typeof u.portrait === 'string' ? parsePortraitRef(u.portrait) : null;
+    if (p) {
+      const fileKey = FILE_KEYS[p.actor] ?? p.actor;
+      return 'assets/art/' + fileKey + '_' + (opts.state || p.state) + densitySuffix(density) + '.png';
+    }
+  }
+  return null;
+}

@@ -256,25 +256,6 @@ export const ENEMIES = {
     }
   },
 
-  classmate_girl_corrupted: {
-    id: 'classmate_girl_corrupted',
-    name: '异化女生',
-    title: '被零食控制的女生',
-    classId: 'primary_student',
-    level: 3,
-    equippedWeapon: 'fountain_pen',
-    portrait: 'assets/portraits/classmate_girl_corrupted@2x.png',
-    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
-    themeColor: '#be185d',
-    bio: '被异化零食控制，眼神空洞。',
-    ai: { type: 'aggressive_chase', aggroRadius: 5 },
-    drops: [],
-    quotes: {
-      move: '还要……',
-      attack: '走开！',
-      death: '头好痛……'
-    }
-  },
   zhangxizhe_corrupted: {
     id: 'zhangxizhe_corrupted',
     name: '异化张希哲',
@@ -340,7 +321,8 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'suspicious_beverage', chance: 1.0 },
-      { itemId: 'bastard_soda', chance: 1.0 }
+      { itemId: 'bastard_soda', chance: 1.0 },
+      { itemId: 'dumbbell', chance: 1.0 }
     ],
     quotes: {
       move: '赢过一次的人，哪还回得去。',
@@ -365,7 +347,8 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'discarded_snack', chance: 1.0 },
-      { itemId: 'suspicious_beverage', chance: 1.0 }
+      { itemId: 'suspicious_beverage', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 }
     ],
     quotes: {
       move: '总有人愿意为结果买单。',
@@ -484,7 +467,9 @@ export const ENEMIES = {
       type: 'aggressive_chase',
       aggroRadius: 6
     },
-    drops: [],
+    drops: [
+      { itemId: 'sausage', chance: 1.0 }
+    ],
     quotes: {
       move: '公式……公式……',
       attack: '别拦着我复习！',
@@ -506,7 +491,9 @@ export const ENEMIES = {
       type: 'passive_guard',
       aggroRadius: 5
     },
-    drops: [],
+    drops: [
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
     quotes: {
       move: '谁也不许出去……',
       attack: '回去背书！',

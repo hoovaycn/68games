@@ -610,11 +610,13 @@ class GameApp {
         }
       }
       // 数值工厂统一造敌：与援军同一工厂，数值口径一致
+      // levelOverride 允许关卡数据覆盖敌人默认等级，用于精细调难度
       const unit = createEnemyUnit(enemyId, {
         instanceId: e.instanceId,
         x: e.x,
         y: e.y,
-        facing: 'left'
+        facing: 'left',
+        levelOverride: e.level ?? null
       });
       if (unit) units.push(unit);
     }

@@ -117,6 +117,28 @@ export function computeBaseStats(classId) {
   };
 }
 
+/**
+ * 职业在指定等级下的面板：base + 按等级确定性成长（期望值取整）。
+ * 敌人与剧情 NPC 统一走这里——让"等级"真正决定强度，而非停在 Lv1 base。
+ * 确定性（非随机 roll）：同职业同等级每次创建数值一致，难度可预期、可复现。
+ * 每项加成 = round((level-1) × growth / 100)，与 FE 随机成长的期望一致。
+ */
+export function computeStatsAtLevel(classId, level) {
+  const base = computeBaseStats(classId);
+  if (!base) return null;
+  const cls = CLASSES[classId];
+  const levels = Math.max(0, Math.floor((level || 1)) - 1);
+  if (levels <= 0 || !cls?.growth) return base;
+  const out = { ...base };
+  const keyMap = { hp: 'maxHp', mp: 'maxMp' };
+  for (const key of ['hp', 'mp', 'str', 'mag', 'skl', 'spd', 'luk', 'def', 'res']) {
+    const growth = cls.growth?.[key] || 0;
+    const targetKey = keyMap[key] || key;
+    out[targetKey] += Math.round(levels * growth / 100);
+  }
+  return out;
+}
+
 /** 深拷贝（与 main.js L245 同技法，零依赖） */
 const deepCopy = (x) => (x == null ? x : JSON.parse(JSON.stringify(x)));
 
@@ -127,7 +149,7 @@ const deepCopy = (x) => (x == null ? x : JSON.parse(JSON.stringify(x)));
 export function createPlayerUnit(unitId, { x = 0, y = 0, facing = 'right', expOverride = null, hpOverride = null } = {}) {
   const tpl = UNITS[unitId];
   if (!tpl) return null;
-  const stats = computeBaseStats(tpl.classId);
+  const stats = computeStatsAtLevel(tpl.classId, tpl.level);
 
   // ★ 主角光环：我方单位在入队创建时，全基础属性获得微量额外加强，以抵消“敌众我寡”的劣势，但保持微弱优势不至于完全碾压
   stats.maxHp += 2;
@@ -190,8 +212,8 @@ export function createPlayerUnit(unitId, { x = 0, y = 0, facing = 'right', expOv
 export function createEnemyUnit(enemyId, { instanceId, x = 0, y = 0, facing = 'left', levelOverride = null } = {}) {
   const tpl = ENEMIES[enemyId];
   if (!tpl) return null;
-  const stats = computeBaseStats(tpl.classId);
   const level = levelOverride ?? tpl.level;
+  const stats = computeStatsAtLevel(tpl.classId, level);
   return {
     id: instanceId,
     enemyId,
