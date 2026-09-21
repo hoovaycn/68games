@@ -8,6 +8,9 @@ backup/
 # 构建产物
 dist/
 
+# 网页发布目录（用于拖拽到 Cloudflare Pages 等静态托管，属生成物，不进版本库）
+release_web/
+
 # 工作参考 / 素材母版 / Tiled 源 / 切图目录（体量大，不进版本库）
 work_ref/
 Tilemap/
