@@ -10,6 +10,7 @@ import { GameOverModal } from './ui/components/game_over_modal.js';
 import { ItemModal } from './ui/components/item_modal.js';
 import { JoinPartyModal } from './ui/components/join_party_modal.js';
 import { CombatExchange } from './ui/components/combat_exchange.js';
+import { SkillExchange } from './ui/components/skill_exchange.js';
 import { LevelUpModal, snapshotGrowthStats } from './ui/components/level_up.js';
 import { ActionMenu, planActionMenuItems } from './ui/components/action_menu.js';
 import { SkillMenu } from './ui/components/skill_menu.js';
@@ -180,6 +181,7 @@ class GameApp {
       floatingTexts: [],
       itemRewardModal: null, // 战利品掉落弹窗模态框
       combatExchangeModal: null, // 交战演出弹层（HP掉血/反击/经验条时间轴）
+      skillExchangeModal: null, // 技能释放演出弹层（对敌/对友/自身三态效果）
       levelUpModal: null, // 升级明细弹层（九维条形增长 + 文字 +1）
       unitDetailModal: null, // 人物详情弹层（行动菜单「详情」项，关闭回菜单）
       inventoryModal: null, // 道具·仓库弹层（行动菜单「道具」项，关闭回菜单）
@@ -654,6 +656,7 @@ class GameApp {
     this.battleState.victoryModalShown = false;
     this.battleState.itemRewardModal = null;
     this.battleState.combatExchangeModal = null;
+    this.battleState.skillExchangeModal = null;
     this.battleState.levelUpModal = null;
     this.battleState.unitDetailModal = null;
     this.battleState.inventoryModal = null;
@@ -934,6 +937,12 @@ class GameApp {
         return;
       }
 
+      // ★ 技能释放演出弹层捕获（时间轴未完时吞点击防误关；确认后关闭继续流程）
+      if (this.battleState.skillExchangeModal) {
+        this.battleState.skillExchangeModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ 升级明细弹层捕获（九维演出未完时吞点击防误关；确认后关闭继续掉落/回合结算）
       if (this.battleState.levelUpModal) {
         this.battleState.levelUpModal.handleClick(clickX, clickY);
@@ -1086,6 +1095,14 @@ class GameApp {
       if (this.battleState.combatExchangeModal) {
         if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
           this.battleState.combatExchangeModal.handleKeyDown(e);
+        }
+        return;
+      }
+
+      // ★ 技能释放演出弹层：时间轴未完时吞按键；确认键关闭继续流程
+      if (this.battleState.skillExchangeModal) {
+        if (e.key === ' ' || e.key === 'Enter' || e.key === 'Escape') {
+          this.battleState.skillExchangeModal.handleKeyDown(e);
         }
         return;
       }
@@ -1650,13 +1667,32 @@ class GameApp {
     // 结算效果
     const res = applySkill(caster, target, skill);
 
-    // 演出：光标聚焦目标 + 浮字 + 音效
+    // 演出：光标聚焦目标 + 技能专属弹层（取代地图浮字，明确展示施法者/目标/效果）
     bs.cursor.x = target.x;
     bs.cursor.y = target.y;
-    const color = (res.kind === 'heal' || res.hpChange > 0) ? '#4ade80' : (res.hpChange < 0 ? '#f87171' : '#facc15');
-    this.addFloatingText(res.text, target.x, target.y, color, { font: 'bold 26px sans-serif', duration: 1600 });
-    sound.playSfx('sfx_confirm');
-    await new Promise(r => setTimeout(r, 600));
+    const isSelfSkill = skill.target === 'self';
+    let skillConfirmResolve = null;
+    const skillModal = new SkillExchange(this.canvas, {
+      skill,
+      caster: {
+        name: caster.name, level: caster.level,
+        hp: caster.currentHp, maxHp: caster.stats?.maxHp ?? caster.currentHp,
+        faction: caster.faction, unit: caster,
+      },
+      target: isSelfSkill ? null : {
+        name: target.name, level: target.level,
+        hp: target.currentHp, maxHp: target.stats?.maxHp ?? target.currentHp,
+        faction: target.faction, unit: target,
+      },
+      result: res,
+    }, () => {
+      this.battleState.skillExchangeModal = null;
+      if (skillConfirmResolve) { const r = skillConfirmResolve; skillConfirmResolve = null; r(); }
+    });
+    this.battleState.skillExchangeModal = skillModal;
+    await skillModal.play();
+    skillModal.finish();
+    await new Promise((resolve) => { skillConfirmResolve = resolve; });
 
     // 死亡判定
     if (target.currentHp <= 0) {
@@ -2308,6 +2344,10 @@ class GameApp {
       // 渲染交战演出弹层组件（虚拟时钟由本 render 逐帧推进：playStrike/playExp 的 await 依赖此调用）
       if (this.battleState.combatExchangeModal && typeof this.battleState.combatExchangeModal.render === 'function') {
         this.battleState.combatExchangeModal.render();
+      }
+      // 渲染技能释放演出弹层组件（虚拟时钟同款：play 的 await 依赖此调用）
+      if (this.battleState.skillExchangeModal && typeof this.battleState.skillExchangeModal.render === 'function') {
+        this.battleState.skillExchangeModal.render();
       }
       // 渲染升级明细弹层组件（虚拟时钟同款：九维演出逐帧推进，whenDone/确认依赖此调用）
       if (this.battleState.levelUpModal && typeof this.battleState.levelUpModal.render === 'function') {
