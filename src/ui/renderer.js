@@ -214,7 +214,7 @@ export class Renderer {
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '12px sans-serif';
     const tips = [
-      '方向键 / WASD  移动',
+      '↑↓←→ / 手柄摇杆  移动',
       'Enter / 点击  确认',
       'ESC / 右键  取消撤销',
       '滚轮  菜单切换'
@@ -223,8 +223,30 @@ export class Renderer {
       ctx.fillText(t, this.hudX + 2, tipY + 22 + i * 19);
     });
 
+    // ★ 新手玩法指引
+    const guideY = tipY + 22 + tips.length * 19 + 18;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 13px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText('新手提示', this.hudX + 2, guideY);
+
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = '11px sans-serif';
+    const guides = [
+      '· 移动到敌人旁边即可选择攻击',
+      '· 头像上「射」字 = 攻击距离',
+      '· 在敌人头像按Enter可查看其',
+      '  攻击/移动范围',
+      '· 可在行动菜单使用技能',
+      '· 技能可增益己方或强力攻敌'
+    ];
+    guides.forEach((g, i) => {
+      ctx.fillText(g, this.hudX + 2, guideY + 20 + i * 17);
+    });
+
     // ★ 胜利条件
-    const objY = tipY + 22 + tips.length * 19 + 14;
+    const objY = guideY + 20 + guides.length * 17 + 14;
     ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 13px sans-serif';
     ctx.textAlign = 'left';

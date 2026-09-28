@@ -22,7 +22,7 @@ export const PROLOGUE_STORY = {
         },
         {
           id: 2,
-          text: '直到有一天，通往未来的阶梯上，爬满了名为「分数」的荆棘……',
+          text: '直到有一天，有些人的眼神，开始变得不一样……',
           sfx: 'sfx_text_blip'
         }
       ],
@@ -599,7 +599,7 @@ export const PROLOGUE_STORY = {
         },
         {
           id: 2,
-          text: '直到有一天，通往未来的阶梯上，爬满了名为「分数」的荆棘……',
+          text: '直到有一天，有些人的眼神，开始变得不一样……',
           sfx: 'sfx_text_blip'
         }
       ],

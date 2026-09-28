@@ -155,7 +155,7 @@ export class ActionMenu {
 
   /**
    * 键盘分发（菜单打开期间独占全部按键）：
-   * ↑/W ↓/S 移动 · Enter/Space 确认 · Esc/Backspace 取消
+   * ↑/↓ 移动 · Enter/Space 确认 · Esc/Backspace 取消
    */
   handleKeyDown(e) {
     const k = e && e.key;

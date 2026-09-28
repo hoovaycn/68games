@@ -732,7 +732,7 @@ export class TitleScreen {
       ctx.font = '13px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('键盘 ↑ ↓ / WASD 选择 · 回车 / 点击 确认 · ESC 取消', w / 2, h - 22);
+      ctx.fillText('↑ ↓ 选择 · 回车 / 点击 确认 · ESC 取消  |  支持手柄', w / 2, h - 22);
     }
 
     // 点击后白幕淡入
@@ -840,7 +840,7 @@ export class TitleScreen {
     ctx.font = '13px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('键盘 ← → / AD 切换 · 回车 / 点击 确认 · ESC 取消返回', w / 2, h - 24);
+    ctx.fillText('← → 切换 · 回车 / 点击 确认 · ESC 取消返回  |  支持手柄', w / 2, h - 24);
   }
 
   drawCharacterCard(cfg) {

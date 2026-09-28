@@ -41,7 +41,7 @@ export const CH0_BATTLE1 = {
       {
         title: '选中我方人员',
         body: '把光标移动到我方主角身上，按 Enter（或点击鼠标）选中，脚下亮起的蓝色格子就是本次可以走的范围。',
-        hint: '方向键 / WASD 移动光标 · Enter 确认选中'
+        hint: '↑↓←→ / 手柄 移动光标 · Enter 确认选中'
       },
       {
         title: '走近敌人',
