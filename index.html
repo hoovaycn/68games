@@ -13,9 +13,13 @@
       -webkit-user-select: none;
     }
 
-    /* 全局背景：雅致柔和的浅米黄/纸质色调，极简耐看 */
-    body {
-      background-color: #0e0d0c;
+    /* 全局背景：纯黑底色，移动端全面屏融合 */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
       color: #292524;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       overflow: hidden;
@@ -23,20 +27,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
     }
 
     /* 16:9 等比缩放容器：跟随 canvas 实际尺寸动态缩放 */
     #game-scaler {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform-origin: center center;
     }
 
     #game-container {
       position: relative;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 2px rgba(255, 255, 255, 0.06);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
       background: #000000;
-      border-radius: 6px;
+      border-radius: 4px;
       overflow: hidden;
     }
 
@@ -83,6 +88,13 @@
       text-shadow: 0 1px 2px rgba(0,0,0,0.4);
     }
 
+    /* 移动端/小屏幕横屏下隐藏底部 PC 键位提示，避免挤占游戏画面 */
+    @media (max-height: 580px), (max-width: 900px) {
+      #controls-hint {
+        display: none !important;
+      }
+    }
+
     #controls-hint kbd {
       background: rgba(231, 223, 213, 0.9);
       color: #292524;
@@ -121,14 +133,18 @@
       var canvas = document.getElementById('game-canvas');
       var cw = canvas.width || 960;
       var ch = canvas.height || 540;
-      var margin = 80;
-      var availW = window.innerWidth - margin;
-      var availH = window.innerHeight - margin;
-      var scale = Math.min(availW / cw, availH / ch, 1.6);
-      if (scale < 0.3) scale = 0.3;
+      var winW = window.innerWidth || document.documentElement.clientWidth;
+      var winH = window.innerHeight || document.documentElement.clientHeight;
+      // 移动端横屏/小屏使用零边距，桌面大屏保留适度呼吸感边距
+      var isSmallScreen = winW <= 960 || winH <= 600;
+      var margin = isSmallScreen ? 0 : 40;
+      var availW = Math.max(winW - margin, 100);
+      var availH = Math.max(winH - margin, 100);
+      var scale = Math.min(availW / cw, availH / ch);
+      if (scale < 0.2) scale = 0.2;
       scaler.style.width = cw + 'px';
       scaler.style.height = ch + 'px';
-      scaler.style.transform = 'scale(' + scale + ')';
+      scaler.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
     }
     window.addEventListener('resize', fitScaler);
     window.addEventListener('load', fitScaler);
