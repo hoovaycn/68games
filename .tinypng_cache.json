@@ -1,0 +1,3080 @@
+{
+  "assets/backgrounds/bg_office@2x.png": {
+    "originalSize": 1047156,
+    "compressedSize": 309881,
+    "md5": "59ff4c330b3122da7c6517da4016242e",
+    "compressedAt": "2026-10-03T07:05:02.659Z"
+  },
+  "assets/backgrounds/bg_neighborhood@2x.png": {
+    "originalSize": 1133290,
+    "compressedSize": 261608,
+    "md5": "048c6b89c29a157fe9a2d7852cecc9da",
+    "compressedAt": "2026-10-03T07:05:02.744Z"
+  },
+  "assets/backgrounds/bg_exam_mind_realm@2x.png": {
+    "originalSize": 1068758,
+    "compressedSize": 360415,
+    "md5": "f6b1cad33f26b01483d01248e8de18b3",
+    "compressedAt": "2026-10-03T07:05:03.912Z"
+  },
+  "assets/backgrounds/title_logo@2x.png": {
+    "originalSize": 1131251,
+    "compressedSize": 380817,
+    "md5": "a275e37192e1d87583955233ba37418d",
+    "compressedAt": "2026-10-03T07:05:04.976Z"
+  },
+  "assets/backgrounds/bg_home_mc@2x.png": {
+    "originalSize": 896473,
+    "compressedSize": 184723,
+    "md5": "5dd3131ec298edf08062ed71ff3cfa3f",
+    "compressedAt": "2026-10-03T07:05:05.744Z"
+  },
+  "assets/backgrounds/bg_playground@2x.png": {
+    "originalSize": 848819,
+    "compressedSize": 152479,
+    "md5": "18be011f21621eb80028e32786efe226",
+    "compressedAt": "2026-10-03T07:05:06.454Z"
+  },
+  "assets/backgrounds/bg_warehouse_inner@2x.png": {
+    "originalSize": 899114,
+    "compressedSize": 331730,
+    "md5": "85c7df9fdbd12f70d03bc317ee728000",
+    "compressedAt": "2026-10-03T07:05:07.289Z"
+  },
+  "assets/backgrounds/bg_street@2x.png": {
+    "originalSize": 782601,
+    "compressedSize": 261784,
+    "md5": "182fcf828cca05858cccff6fb939be34",
+    "compressedAt": "2026-10-03T07:05:08.272Z"
+  },
+  "assets/backgrounds/bg_classroom_old@2x.png": {
+    "originalSize": 761463,
+    "compressedSize": 226377,
+    "md5": "b9b0becc2b1e58f89f7b315b5050d42c",
+    "compressedAt": "2026-10-03T07:05:09.254Z"
+  },
+  "assets/backgrounds/bg_corridor_old_eerie@2x.png": {
+    "originalSize": 731697,
+    "compressedSize": 293534,
+    "md5": "0cf2bcc2d7737de422d03f1a2d5a935b",
+    "compressedAt": "2026-10-03T07:05:11.160Z"
+  },
+  "assets/backgrounds/bg_warehouse@2x.png": {
+    "originalSize": 681830,
+    "compressedSize": 234263,
+    "md5": "ef9a638202f07790ee707a69be40e502",
+    "compressedAt": "2026-10-03T07:05:11.693Z"
+  },
+  "assets/backgrounds/bg_field_relief@2x.png": {
+    "originalSize": 781469,
+    "compressedSize": 203453,
+    "md5": "2576f7eec3b80689477a16a23a30eb54",
+    "compressedAt": "2026-10-03T07:05:12.000Z"
+  },
+  "assets/backgrounds/bg_classroom_eerie@2x.png": {
+    "originalSize": 740864,
+    "compressedSize": 221418,
+    "md5": "29c35258e17570d38f9c4e16f4f43615",
+    "compressedAt": "2026-10-03T07:05:12.714Z"
+  },
+  "assets/backgrounds/bg_guard_room_old@2x.png": {
+    "originalSize": 667631,
+    "compressedSize": 229985,
+    "md5": "1d41d910523541520513b8b912e7a308",
+    "compressedAt": "2026-10-03T07:05:14.254Z"
+  },
+  "assets/backgrounds/bg_parent_meeting_eerie@2x.png": {
+    "originalSize": 670068,
+    "compressedSize": 207335,
+    "md5": "93523c6c28679475ae651908fe1e5133",
+    "compressedAt": "2026-10-03T07:05:14.325Z"
+  },
+  "assets/backgrounds/bg_exam_realm@2x.png": {
+    "originalSize": 635382,
+    "compressedSize": 219666,
+    "md5": "d7e152a5a0b3f9fcdf0d07224e821107",
+    "compressedAt": "2026-10-03T07:05:15.333Z"
+  },
+  "assets/backgrounds/bg_classroom@2x.png": {
+    "originalSize": 647957,
+    "compressedSize": 179719,
+    "md5": "a17f2b98049171dc2dcf3e2e08471d23",
+    "compressedAt": "2026-10-03T07:05:15.580Z"
+  },
+  "assets/backgrounds/bg_playground_eerie@2x.png": {
+    "originalSize": 622408,
+    "compressedSize": 189023,
+    "md5": "bb12a806382007476fa511b924143df7",
+    "compressedAt": "2026-10-03T07:05:16.866Z"
+  },
+  "assets/backgrounds/bg_home_eerie@2x.png": {
+    "originalSize": 616074,
+    "compressedSize": 192626,
+    "md5": "38024f57bde32cae666693b6318cf30f",
+    "compressedAt": "2026-10-03T07:05:17.199Z"
+  },
+  "assets/backgrounds/bg_opening@2x.png": {
+    "originalSize": 604847,
+    "compressedSize": 181606,
+    "md5": "dc5ba995ebe465977546918a09f94151",
+    "compressedAt": "2026-10-03T07:05:18.433Z"
+  },
+  "assets/backgrounds/bg_training_room@2x.png": {
+    "originalSize": 616041,
+    "compressedSize": 196983,
+    "md5": "9831af30e8b9d699bbff9e5a089ad4c0",
+    "compressedAt": "2026-10-03T07:05:19.229Z"
+  },
+  "assets/backgrounds/bg_title@2x.png": {
+    "originalSize": 589236,
+    "compressedSize": 158840,
+    "md5": "aa261c2de3fabe8883ece68171070088",
+    "compressedAt": "2026-10-03T07:05:20.090Z"
+  },
+  "assets/backgrounds/bg_auditorium@2x.png": {
+    "originalSize": 556528,
+    "compressedSize": 152031,
+    "md5": "88c45815367b8ab0ac4176aa89e2d73b",
+    "compressedAt": "2026-10-03T07:05:20.395Z"
+  },
+  "assets/backgrounds/bg_home@2x.png": {
+    "originalSize": 547438,
+    "compressedSize": 169015,
+    "md5": "08cd878dfae7e1db75724204e6121782",
+    "compressedAt": "2026-10-03T07:05:21.160Z"
+  },
+  "assets/backgrounds/cg_pickup_bottle@2x.png": {
+    "originalSize": 518334,
+    "compressedSize": 151161,
+    "md5": "7e73b84bc3e0dce4d378351710c6e47d",
+    "compressedAt": "2026-10-03T07:05:21.613Z"
+  },
+  "assets/backgrounds/bg_parent_meeting@2x.png": {
+    "originalSize": 517020,
+    "compressedSize": 161283,
+    "md5": "c13701d11dd81f0c584c6e3a2db49782",
+    "compressedAt": "2026-10-03T07:05:22.443Z"
+  },
+  "assets/backgrounds/title_logo.png": {
+    "originalSize": 401901,
+    "compressedSize": 119717,
+    "md5": "5e4229ac318ca064eb6d2e4eb118b3b6",
+    "compressedAt": "2026-10-03T07:05:23.437Z"
+  },
+  "assets/art/zhangzixiao_corrupted@2x.png": {
+    "originalSize": 457085,
+    "compressedSize": 161363,
+    "md5": "b8e84b7d2d0f9f7838e6f211469817f5",
+    "compressedAt": "2026-10-03T07:05:23.827Z"
+  },
+  "assets/backgrounds/bg_school_night@2x.png": {
+    "originalSize": 477643,
+    "compressedSize": 210279,
+    "md5": "80bf61adf077537615e3c86a3aebeba6",
+    "compressedAt": "2026-10-03T07:05:23.876Z"
+  },
+  "assets/art/zhanghanyu_corrupted@2x.png": {
+    "originalSize": 377027,
+    "compressedSize": 122497,
+    "md5": "412fb9ae5044ed56e10adfbe6a84273c",
+    "compressedAt": "2026-10-03T07:05:24.750Z"
+  },
+  "assets/art/chenpinxuan_corrupted@2x.png": {
+    "originalSize": 367659,
+    "compressedSize": 122871,
+    "md5": "f55dbc0b52b77814ce41645d401513d0",
+    "compressedAt": "2026-10-03T07:05:25.759Z"
+  },
+  "assets/art/mystery_man_default@2x.png": {
+    "originalSize": 353861,
+    "compressedSize": 119673,
+    "md5": "86d48fb586b29610090fac62a9a611f1",
+    "compressedAt": "2026-10-03T07:05:25.775Z"
+  },
+  "assets/art/qinruiyi_corrupted@2x.png": {
+    "originalSize": 317516,
+    "compressedSize": 89255,
+    "md5": "9bd53a593882ce52f5fd1cd2a4b0deb0",
+    "compressedAt": "2026-10-03T07:05:26.504Z"
+  },
+  "assets/art/mystery_man_corrupted@2x.png": {
+    "originalSize": 308145,
+    "compressedSize": 103746,
+    "md5": "04dc8f702a28084e29987405cb48ba43",
+    "compressedAt": "2026-10-03T07:05:27.054Z"
+  },
+  "assets/backgrounds/bg_neighborhood.png": {
+    "originalSize": 308055,
+    "compressedSize": 78295,
+    "md5": "d2ad234d77107085c20225eb8c1b5a01",
+    "compressedAt": "2026-10-03T07:05:27.230Z"
+  },
+  "assets/art/senior_student_corrupted@2x.png": {
+    "originalSize": 297691,
+    "compressedSize": 102702,
+    "md5": "58e880bea06a01c8270dbd3b6924f078",
+    "compressedAt": "2026-10-03T07:05:27.714Z"
+  },
+  "assets/backgrounds/bg_office.png": {
+    "originalSize": 276422,
+    "compressedSize": 85673,
+    "md5": "7bb0b98354252ce13662dbee7cffa50a",
+    "compressedAt": "2026-10-03T07:05:28.432Z"
+  },
+  "assets/art/backup/qinruiyi_default@2x.png": {
+    "originalSize": 281054,
+    "compressedSize": 80356,
+    "md5": "52bdb8028c5ff5f6d8e22e0de31c6284",
+    "compressedAt": "2026-10-03T07:05:28.684Z"
+  },
+  "assets/backgrounds/bg_exam_mind_realm.png": {
+    "originalSize": 289480,
+    "compressedSize": 103063,
+    "md5": "ddd41c001629e76c179fd5ee37a0256a",
+    "compressedAt": "2026-10-03T07:05:29.160Z"
+  },
+  "assets/art/shiyunuo_corrupted@2x.png": {
+    "originalSize": 268448,
+    "compressedSize": 85571,
+    "md5": "1e9b724ad5c920ec8b205218f7a31a5c",
+    "compressedAt": "2026-10-03T07:05:29.566Z"
+  },
+  "assets/backgrounds/bg_home_mc.png": {
+    "originalSize": 254338,
+    "compressedSize": 55193,
+    "md5": "714f80348ddd5ee9d5f1b91cf76642c8",
+    "compressedAt": "2026-10-03T07:05:29.907Z"
+  },
+  "assets/backgrounds/bg_warehouse_inner.png": {
+    "originalSize": 261834,
+    "compressedSize": 99048,
+    "md5": "ca0b335b666e373cef5175916ed909e1",
+    "compressedAt": "2026-10-03T07:05:29.997Z"
+  },
+  "assets/art/classmate_girl_corrupted@2x.png": {
+    "originalSize": 251746,
+    "compressedSize": 72601,
+    "md5": "09d34678a557f96a1523cd353c127218",
+    "compressedAt": "2026-10-03T07:05:30.842Z"
+  },
+  "assets/backgrounds/bg_playground.png": {
+    "originalSize": 247561,
+    "compressedSize": 45269,
+    "md5": "087ff9cddcda95aee6c66ca704fdd0ba",
+    "compressedAt": "2026-10-03T07:05:31.613Z"
+  },
+  "assets/art/heyanxi_corrupted@2x.png": {
+    "originalSize": 247568,
+    "compressedSize": 90575,
+    "md5": "a3531a1de7ef1323ed8fd20e093bc72b",
+    "compressedAt": "2026-10-03T07:05:31.880Z"
+  },
+  "assets/art/ayao_default@2x.png": {
+    "originalSize": 245792,
+    "compressedSize": 87731,
+    "md5": "e52a2569ff5b608671d89047734d8a51",
+    "compressedAt": "2026-10-03T07:05:32.375Z"
+  },
+  "assets/art/backup/teacher_pe_corrupted@2x.png": {
+    "originalSize": 244935,
+    "compressedSize": 70433,
+    "md5": "0511b0fc4f2d42d6f3447942435879bf",
+    "compressedAt": "2026-10-03T07:05:33.073Z"
+  },
+  "assets/art/senior_athlete_corrupted@2x.png": {
+    "originalSize": 250489,
+    "compressedSize": 73122,
+    "md5": "873c837e0b3b5a024e491f9fb87fd772",
+    "compressedAt": "2026-10-03T07:05:33.209Z"
+  },
+  "assets/art/coach_default@2x.png": {
+    "originalSize": 243556,
+    "compressedSize": 85926,
+    "md5": "0491ca2adc8a7aa8913bdb0489b8fd86",
+    "compressedAt": "2026-10-03T07:05:33.523Z"
+  },
+  "assets/art/vendor_sad@2x.png": {
+    "originalSize": 242582,
+    "compressedSize": 71589,
+    "md5": "b4668d831db28079e3ac58fe7f10bd86",
+    "compressedAt": "2026-10-03T07:05:34.051Z"
+  },
+  "assets/art/qinruiyi_default@2x.png": {
+    "originalSize": 241669,
+    "compressedSize": 71823,
+    "md5": "5c1058e459866932bf8b2178ac4e9d6a",
+    "compressedAt": "2026-10-03T07:05:34.790Z"
+  },
+  "assets/art/janitor_old@2x.png": {
+    "originalSize": 241488,
+    "compressedSize": 100969,
+    "md5": "a7e6c3de016fefcac3a85baf5312a708",
+    "compressedAt": "2026-10-03T07:05:35.067Z"
+  },
+  "assets/portraits/janitor_corrupted@2x.png": {
+    "originalSize": 241488,
+    "compressedSize": 100969,
+    "md5": "a7e6c3de016fefcac3a85baf5312a708",
+    "compressedAt": "2026-10-03T07:05:35.096Z"
+  },
+  "assets/portraits/janitor_corrupted.png": {
+    "originalSize": 241488,
+    "compressedSize": 100969,
+    "md5": "a7e6c3de016fefcac3a85baf5312a708",
+    "compressedAt": "2026-10-03T07:05:35.650Z"
+  },
+  "assets/art/punk_default@2x.png": {
+    "originalSize": 238555,
+    "compressedSize": 81884,
+    "md5": "560f615528b09c39fb159f6848560cbe",
+    "compressedAt": "2026-10-03T07:05:36.269Z"
+  },
+  "assets/portraits/young_xu_default@2x.png": {
+    "originalSize": 237353,
+    "compressedSize": 82557,
+    "md5": "66c13131b88468ffd15d6ac466c92532",
+    "compressedAt": "2026-10-03T07:05:36.624Z"
+  },
+  "assets/art/young_xu_default@2x.png": {
+    "originalSize": 237353,
+    "compressedSize": 82557,
+    "md5": "66c13131b88468ffd15d6ac466c92532",
+    "compressedAt": "2026-10-03T07:05:36.733Z"
+  },
+  "assets/art/senior_athlete_default@2x.png": {
+    "originalSize": 237293,
+    "compressedSize": 96863,
+    "md5": "22f03887df69a0858a1a0aebd3126580",
+    "compressedAt": "2026-10-03T07:05:37.298Z"
+  },
+  "assets/backgrounds/bg_field_relief.png": {
+    "originalSize": 233569,
+    "compressedSize": 68845,
+    "md5": "ca8cbdbada7c8dd4d25c3711426e9ed7",
+    "compressedAt": "2026-10-03T07:05:38.062Z"
+  },
+  "assets/art/ayao_corrupted@2x.png": {
+    "originalSize": 231621,
+    "compressedSize": 71816,
+    "md5": "2dfbc10f7d8058138fda1564b766f719",
+    "compressedAt": "2026-10-03T07:05:38.299Z"
+  },
+  "assets/art/coach_sad@2x.png": {
+    "originalSize": 230833,
+    "compressedSize": 84735,
+    "md5": "3a99f02a5de99e381a7d90fe43603e03",
+    "compressedAt": "2026-10-03T07:05:38.619Z"
+  },
+  "assets/art/coach_corrupted@2x.png": {
+    "originalSize": 231754,
+    "compressedSize": 71404,
+    "md5": "d8fa75c5b6e0492630563edf4d6471d9",
+    "compressedAt": "2026-10-03T07:05:38.975Z"
+  },
+  "assets/backgrounds/bg_street.png": {
+    "originalSize": 229862,
+    "compressedSize": 80424,
+    "md5": "27d00dba157aae6f8e75ee1270e1ee2a",
+    "compressedAt": "2026-10-03T07:05:39.877Z"
+  },
+  "assets/art/teacher_pe_corrupted@2x.png": {
+    "originalSize": 229398,
+    "compressedSize": 69035,
+    "md5": "ad80364feb4f03811e5d3bfaa50bd070",
+    "compressedAt": "2026-10-03T07:05:40.256Z"
+  },
+  "assets/art/grade1_student_default@2x.png": {
+    "originalSize": 227755,
+    "compressedSize": 74106,
+    "md5": "8948f53f6f3cad20db509a2a6fe03d2f",
+    "compressedAt": "2026-10-03T07:05:40.330Z"
+  },
+  "assets/art/zhuyanze_corrupted@2x.png": {
+    "originalSize": 225537,
+    "compressedSize": 62738,
+    "md5": "dd82563f44d4e3b6f841f0313d977995",
+    "compressedAt": "2026-10-03T07:05:40.507Z"
+  },
+  "assets/art/young_liu_default@2x.png": {
+    "originalSize": 221683,
+    "compressedSize": 74771,
+    "md5": "c4314b723861f6ef4859c9cd4a505af1",
+    "compressedAt": "2026-10-03T07:05:41.699Z"
+  },
+  "assets/backgrounds/bg_classroom_old.png": {
+    "originalSize": 223825,
+    "compressedSize": 68847,
+    "md5": "7d167d1056caefb61c790526438dc770",
+    "compressedAt": "2026-10-03T07:05:41.732Z"
+  },
+  "assets/art/classmate_boy_corrupted@2x.png": {
+    "originalSize": 224414,
+    "compressedSize": 69503,
+    "md5": "de92dec12c83a1dfe4da13450fe002c6",
+    "compressedAt": "2026-10-03T07:05:42.115Z"
+  },
+  "assets/portraits/young_liu_default@2x.png": {
+    "originalSize": 221683,
+    "compressedSize": 74771,
+    "md5": "c4314b723861f6ef4859c9cd4a505af1",
+    "compressedAt": "2026-10-03T07:05:42.125Z"
+  },
+  "assets/art/zhangxizhe_corrupted@2x.png": {
+    "originalSize": 220370,
+    "compressedSize": 72183,
+    "md5": "95d4ea598a3d7c58e8e7b2f776eb6887",
+    "compressedAt": "2026-10-03T07:05:43.141Z"
+  },
+  "assets/art/senior_athlete_leader_corrupted@2x.png": {
+    "originalSize": 221539,
+    "compressedSize": 84896,
+    "md5": "ffac8cd393741dce1d5cf774d02750f2",
+    "compressedAt": "2026-10-03T07:05:43.387Z"
+  },
+  "assets/backgrounds/bg_corridor_old_eerie.png": {
+    "originalSize": 220192,
+    "compressedSize": 94502,
+    "md5": "a4cc49f034b64214cef1aba2e4026910",
+    "compressedAt": "2026-10-03T07:05:43.941Z"
+  },
+  "assets/art/vendor_default@2x.png": {
+    "originalSize": 220102,
+    "compressedSize": 67634,
+    "md5": "d322a2606469f3a485d0a02c5ffd273a",
+    "compressedAt": "2026-10-03T07:05:44.274Z"
+  },
+  "assets/art/zhangxizhe_default@2x.png": {
+    "originalSize": 218495,
+    "compressedSize": 68574,
+    "md5": "1ddb85e9398ae3673658ca844eee506d",
+    "compressedAt": "2026-10-03T07:05:44.682Z"
+  },
+  "assets/art/senior_athlete_leader_default@2x.png": {
+    "originalSize": 219991,
+    "compressedSize": 82759,
+    "md5": "b4858cec2bc838598f10f3b0aeb184de",
+    "compressedAt": "2026-10-03T07:05:44.892Z"
+  },
+  "assets/art/backup/heyanxi_corrupted@2x.png": {
+    "originalSize": 217903,
+    "compressedSize": 76983,
+    "md5": "0d3df7edf5f5f2bb042c7e2be634d81d",
+    "compressedAt": "2026-10-03T07:05:45.657Z"
+  },
+  "assets/backgrounds/bg_classroom_eerie.png": {
+    "originalSize": 216057,
+    "compressedSize": 67678,
+    "md5": "87ff8f098f1674e04ae551a81d729d39",
+    "compressedAt": "2026-10-03T07:05:46.457Z"
+  },
+  "assets/art/fanwenmo_corrupted@2x.png": {
+    "originalSize": 214502,
+    "compressedSize": 69847,
+    "md5": "11aa95ab958e906901e22897c52a0574",
+    "compressedAt": "2026-10-03T07:05:46.611Z"
+  },
+  "assets/art/backup/punk_default@2x.png": {
+    "originalSize": 214435,
+    "compressedSize": 74481,
+    "md5": "3cbd565579458fe6d1770f8b7740e568",
+    "compressedAt": "2026-10-03T07:05:46.657Z"
+  },
+  "assets/art/classmate_girl_default@2x.png": {
+    "originalSize": 213621,
+    "compressedSize": 76469,
+    "md5": "eae8afb57b811c33fffb227d351e172b",
+    "compressedAt": "2026-10-03T07:05:47.257Z"
+  },
+  "assets/backgrounds/bg_warehouse.png": {
+    "originalSize": 212356,
+    "compressedSize": 73878,
+    "md5": "af1004f4546bf77ccfcb21a5f0f3f625",
+    "compressedAt": "2026-10-03T07:05:47.824Z"
+  },
+  "assets/art/backup/senior_athlete_corrupted@2x.png": {
+    "originalSize": 210627,
+    "compressedSize": 62733,
+    "md5": "7942a34571a38c89f8f9fbbe8a6a340d",
+    "compressedAt": "2026-10-03T07:05:47.997Z"
+  },
+  "assets/art/backup/teacher_pe_default@2x.png": {
+    "originalSize": 212187,
+    "compressedSize": 80913,
+    "md5": "45bb286b806e787611adf086afa6177a",
+    "compressedAt": "2026-10-03T07:05:48.139Z"
+  },
+  "assets/art/zhangzixiao_default@2x.png": {
+    "originalSize": 210087,
+    "compressedSize": 73111,
+    "md5": "7781280e4bcf0bf28e25add86e218007",
+    "compressedAt": "2026-10-03T07:05:48.975Z"
+  },
+  "assets/backgrounds/bg_guard_room_old.png": {
+    "originalSize": 205844,
+    "compressedSize": 78183,
+    "md5": "a2d1c9d3cd835db3fa40ba79ae99e55d",
+    "compressedAt": "2026-10-03T07:05:49.707Z"
+  },
+  "assets/art/chenpinxuan_default@2x.png": {
+    "originalSize": 202378,
+    "compressedSize": 73158,
+    "md5": "6a5620bc210244ad3b88756a9f18e240",
+    "compressedAt": "2026-10-03T07:05:49.927Z"
+  },
+  "assets/tiles/modern_free/Interiors_free_48x48.png": {
+    "originalSize": 207991,
+    "compressedSize": 76783,
+    "md5": "08056f1773e37f54e3f705ca90469265",
+    "compressedAt": "2026-10-03T07:05:50.054Z"
+  },
+  "assets/art/teacher_pe_default@2x.png": {
+    "originalSize": 201340,
+    "compressedSize": 73809,
+    "md5": "839b42012074477406b83fda47f3152f",
+    "compressedAt": "2026-10-03T07:05:50.453Z"
+  },
+  "assets/backgrounds/bg_exam_realm.png": {
+    "originalSize": 200691,
+    "compressedSize": 66465,
+    "md5": "ca5623f73a81e952493a2784415a4983",
+    "compressedAt": "2026-10-03T07:05:51.241Z"
+  },
+  "assets/backgrounds/bg_parent_meeting_eerie.png": {
+    "originalSize": 200600,
+    "compressedSize": 63110,
+    "md5": "bb714dba35b48b84ca253e2a6a327754",
+    "compressedAt": "2026-10-03T07:05:51.669Z"
+  },
+  "assets/backgrounds/bg_classroom.png": {
+    "originalSize": 200381,
+    "compressedSize": 57414,
+    "md5": "f17ea5ec24e7855c362a129c3b7d1b71",
+    "compressedAt": "2026-10-03T07:05:51.919Z"
+  },
+  "assets/art/shiyunuo_default@2x.png": {
+    "originalSize": 197185,
+    "compressedSize": 62573,
+    "md5": "da89485ce16ff20919862e509d6a7a01",
+    "compressedAt": "2026-10-03T07:05:52.127Z"
+  },
+  "assets/backgrounds/bg_training_room.png": {
+    "originalSize": 196123,
+    "compressedSize": 60366,
+    "md5": "da29dabdd19fc57f7902fe013e936a72",
+    "compressedAt": "2026-10-03T07:05:52.667Z"
+  },
+  "assets/art/heyanxi_default@2x.png": {
+    "originalSize": 194735,
+    "compressedSize": 78326,
+    "md5": "c783be9457f386d44496acf485234e33",
+    "compressedAt": "2026-10-03T07:05:52.972Z"
+  },
+  "assets/art/backup/vendor_default@2x.png": {
+    "originalSize": 192521,
+    "compressedSize": 58756,
+    "md5": "cfca45064bee2ba7ac14ce93ab47a279",
+    "compressedAt": "2026-10-03T07:05:53.608Z"
+  },
+  "assets/backgrounds/bg_home_eerie.png": {
+    "originalSize": 189280,
+    "compressedSize": 59583,
+    "md5": "e26fa6a435e1176f868da6a8e20da915",
+    "compressedAt": "2026-10-03T07:05:53.760Z"
+  },
+  "assets/art/backup/zhangxizhe_default@2x.png": {
+    "originalSize": 183813,
+    "compressedSize": 68199,
+    "md5": "4e95208ee001cd06c27c3905bc35164b",
+    "compressedAt": "2026-10-03T07:05:54.184Z"
+  },
+  "assets/backgrounds/bg_opening.png": {
+    "originalSize": 183655,
+    "compressedSize": 56016,
+    "md5": "5f8dcd76c4cdeb80f31b8422864480e1",
+    "compressedAt": "2026-10-03T07:05:54.395Z"
+  },
+  "assets/art/fanwenmo_default@2x.png": {
+    "originalSize": 182500,
+    "compressedSize": 63995,
+    "md5": "ca3086c376b6eaa9410fb14d400105b0",
+    "compressedAt": "2026-10-03T07:05:54.946Z"
+  },
+  "assets/art/classmate_boy_default@2x.png": {
+    "originalSize": 181395,
+    "compressedSize": 67822,
+    "md5": "e5d9aeb377a3d1f1ad25d50b1996dc50",
+    "compressedAt": "2026-10-03T07:05:55.499Z"
+  },
+  "assets/tiles/modern_free/Interiors_free_32x32.png": {
+    "originalSize": 178783,
+    "compressedSize": 52295,
+    "md5": "4c3f0c92f29135ab2518fe2658f516fb",
+    "compressedAt": "2026-10-03T07:05:55.718Z"
+  },
+  "assets/art/backup/heyanxi_default@2x.png": {
+    "originalSize": 178613,
+    "compressedSize": 68683,
+    "md5": "8e3a8e44848206c19164abddd0ca7304",
+    "compressedAt": "2026-10-03T07:05:55.927Z"
+  },
+  "assets/art/zhuyanze_default@2x.png": {
+    "originalSize": 178260,
+    "compressedSize": 64098,
+    "md5": "e6b7d646723c4fb38373f4a71aa8aec9",
+    "compressedAt": "2026-10-03T07:05:56.425Z"
+  },
+  "assets/art/backup/senior_athlete_default@2x.png": {
+    "originalSize": 178206,
+    "compressedSize": 76657,
+    "md5": "8408bdcf5994f1f35a89bbc88f0b9f42",
+    "compressedAt": "2026-10-03T07:05:56.742Z"
+  },
+  "assets/art/teacher_xu_default@2x.png": {
+    "originalSize": 175028,
+    "compressedSize": 67758,
+    "md5": "e551148a292ea08e73c2edf9012d9deb",
+    "compressedAt": "2026-10-03T07:05:57.318Z"
+  },
+  "assets/art/zhanghanyu_default@2x.png": {
+    "originalSize": 175133,
+    "compressedSize": 71135,
+    "md5": "66651acb6f46ef8fca907465ed233215",
+    "compressedAt": "2026-10-03T07:05:57.403Z"
+  },
+  "assets/backgrounds/bg_playground_eerie.png": {
+    "originalSize": 174122,
+    "compressedSize": 55313,
+    "md5": "669174b8f378797727a1f926cd21935f",
+    "compressedAt": "2026-10-03T07:05:57.959Z"
+  },
+  "assets/backgrounds/bg_home.png": {
+    "originalSize": 171909,
+    "compressedSize": 52468,
+    "md5": "6d6b92b2d09b79565f424ba1d78efc8e",
+    "compressedAt": "2026-10-03T07:05:58.132Z"
+  },
+  "assets/backgrounds/bg_auditorium.png": {
+    "originalSize": 169565,
+    "compressedSize": 46562,
+    "md5": "9b424fa696c70b191467f87cdd9599c0",
+    "compressedAt": "2026-10-03T07:05:58.767Z"
+  },
+  "assets/backgrounds/bg_title.png": {
+    "originalSize": 167707,
+    "compressedSize": 46413,
+    "md5": "7f8903f791a0fdc2f66b414a00738c57",
+    "compressedAt": "2026-10-03T07:05:59.259Z"
+  },
+  "assets/backgrounds/bg_parent_meeting.png": {
+    "originalSize": 166810,
+    "compressedSize": 48028,
+    "md5": "8c957ad807f8a7ea00e9a3c8cca4582f",
+    "compressedAt": "2026-10-03T07:05:59.282Z"
+  },
+  "assets/art/adult_liu_default@2x.png": {
+    "originalSize": 166501,
+    "compressedSize": 64385,
+    "md5": "f2c4c8da375115b7e1da3c9087731cdf",
+    "compressedAt": "2026-10-03T07:05:59.341Z"
+  },
+  "assets/art/backup/chenpinxuan_default@2x.png": {
+    "originalSize": 165437,
+    "compressedSize": 59895,
+    "md5": "1daa547425307274d443ad2fbf6f87c9",
+    "compressedAt": "2026-10-03T07:06:00.272Z"
+  },
+  "assets/art/parent_rep_default@2x.png": {
+    "originalSize": 159983,
+    "compressedSize": 67841,
+    "md5": "553416a1c13b3d6f71be122bfb6ab1e4",
+    "compressedAt": "2026-10-03T07:06:00.491Z"
+  },
+  "assets/art/backup/teacher_xu_default@2x.png": {
+    "originalSize": 163761,
+    "compressedSize": 62523,
+    "md5": "08ef6fa27a81e9b8ab735c2512097857",
+    "compressedAt": "2026-10-03T07:06:00.493Z"
+  },
+  "assets/art/backup/fanwenmo_corrupted@2x.png": {
+    "originalSize": 160122,
+    "compressedSize": 51079,
+    "md5": "5b0e8d19b85e4ee133a73b0201d8716e",
+    "compressedAt": "2026-10-03T07:06:00.623Z"
+  },
+  "assets/art/backup/shiyunuo_default@2x.png": {
+    "originalSize": 153715,
+    "compressedSize": 49517,
+    "md5": "27aa35cbdc1abb19d480d528bb4dbce4",
+    "compressedAt": "2026-10-03T07:06:01.701Z"
+  },
+  "assets/art/backup/zhangzixiao_preupgrade/zhangzixiao_default@2x.png": {
+    "originalSize": 159505,
+    "compressedSize": 61917,
+    "md5": "2b43ef47b72abe7c176abecaf5e44545",
+    "compressedAt": "2026-10-03T07:06:01.790Z"
+  },
+  "assets/art/backup/zhuyanze_default@2x.png": {
+    "originalSize": 155536,
+    "compressedSize": 60162,
+    "md5": "6a50e0570faa9c70dec974d9cf445c67",
+    "compressedAt": "2026-10-03T07:06:01.948Z"
+  },
+  "assets/art/backup/zhangzixiao_default@2x.png": {
+    "originalSize": 149383,
+    "compressedSize": 59142,
+    "md5": "21540a9d5bf8238f62fcc7c19ed67931",
+    "compressedAt": "2026-10-03T07:06:02.035Z"
+  },
+  "assets/art/zhangzixiao_corrupted.png": {
+    "originalSize": 147066,
+    "compressedSize": 52588,
+    "md5": "c9e3c6e1b263b4de8e4a96a66fb163c9",
+    "compressedAt": "2026-10-03T07:06:02.931Z"
+  },
+  "assets/backgrounds/cg_pickup_bottle.png": {
+    "originalSize": 145448,
+    "compressedSize": 44228,
+    "md5": "4a35ec995e99808a1e865e9a2bd9013d",
+    "compressedAt": "2026-10-03T07:06:03.143Z"
+  },
+  "assets/backgrounds/bg_school_night.png": {
+    "originalSize": 146606,
+    "compressedSize": 67247,
+    "md5": "1bce4bbde7282fb24e92fee503077829",
+    "compressedAt": "2026-10-03T07:06:03.161Z"
+  },
+  "assets/art/backup/zhanghanyu_default@2x.png": {
+    "originalSize": 134102,
+    "compressedSize": 52602,
+    "md5": "0ae1897d10c280fb27625d86bae772a9",
+    "compressedAt": "2026-10-03T07:06:03.354Z"
+  },
+  "assets/art/backup/fanwenmo_default@2x.png": {
+    "originalSize": 133896,
+    "compressedSize": 46596,
+    "md5": "5570b1ed56ba61e0816eaff3fc50da7e",
+    "compressedAt": "2026-10-03T07:06:04.158Z"
+  },
+  "assets/art/shadow_woman_default@2x.png": {
+    "originalSize": 122374,
+    "compressedSize": 62152,
+    "md5": "f514c2ab174498adec3fd2a2072ad555",
+    "compressedAt": "2026-10-03T07:06:04.282Z"
+  },
+  "assets/art/chenpinxuan_corrupted.png": {
+    "originalSize": 132859,
+    "compressedSize": 44223,
+    "md5": "25f865ef3b3d54ca35bbcbdc13a95a58",
+    "compressedAt": "2026-10-03T07:06:04.366Z"
+  },
+  "assets/art/zhanghanyu_corrupted.png": {
+    "originalSize": 117460,
+    "compressedSize": 40402,
+    "md5": "1b2721fc9aca07d4cd61e060edd98d6e",
+    "compressedAt": "2026-10-03T07:06:04.568Z"
+  },
+  "assets/art/mystery_man_default.png": {
+    "originalSize": 112385,
+    "compressedSize": 36291,
+    "md5": "aa33fa9d758a1d817906718d1433ed81",
+    "compressedAt": "2026-10-03T07:06:05.238Z"
+  },
+  "assets/art/backup/shadow_woman_default@2x.png": {
+    "originalSize": 117130,
+    "compressedSize": 58631,
+    "md5": "422d22e15044e67a0453e773ebb56be8",
+    "compressedAt": "2026-10-03T07:06:05.498Z"
+  },
+  "assets/art/qinruiyi_corrupted.png": {
+    "originalSize": 102711,
+    "compressedSize": 30714,
+    "md5": "9146f4cd04c55bc7b4cdec8886b797aa",
+    "compressedAt": "2026-10-03T07:06:05.553Z"
+  },
+  "assets/art/senior_student_corrupted.png": {
+    "originalSize": 102125,
+    "compressedSize": 36625,
+    "md5": "a05f0f2aafdf80058952b73fb55e4956",
+    "compressedAt": "2026-10-03T07:06:05.775Z"
+  },
+  "assets/art/mystery_man_corrupted.png": {
+    "originalSize": 97607,
+    "compressedSize": 32186,
+    "md5": "a25f71c894ca7b56122e86f70dbebe40",
+    "compressedAt": "2026-10-03T07:06:06.407Z"
+  },
+  "assets/art/backup/qinruiyi_default.png": {
+    "originalSize": 85750,
+    "compressedSize": 25874,
+    "md5": "a84726adff00b85f95f97136af132db5",
+    "compressedAt": "2026-10-03T07:06:06.430Z"
+  },
+  "assets/art/shiyunuo_corrupted.png": {
+    "originalSize": 89428,
+    "compressedSize": 29512,
+    "md5": "c1364bad81dc17e8262a052c9ed6c317",
+    "compressedAt": "2026-10-03T07:06:06.474Z"
+  },
+  "assets/art/janitor_old.png": {
+    "originalSize": 84376,
+    "compressedSize": 33939,
+    "md5": "73b5642acee7f830ad9234c24be4d141",
+    "compressedAt": "2026-10-03T07:06:06.849Z"
+  },
+  "assets/art/vendor_sad.png": {
+    "originalSize": 80770,
+    "compressedSize": 24240,
+    "md5": "be468036658c1a641121b4cd3a8c9a85",
+    "compressedAt": "2026-10-03T07:06:07.467Z"
+  },
+  "assets/art/ayao_default.png": {
+    "originalSize": 80786,
+    "compressedSize": 27532,
+    "md5": "6dc6d7db4783c0f0022ab61da92b4f51",
+    "compressedAt": "2026-10-03T07:06:07.533Z"
+  },
+  "assets/art/qinruiyi_default.png": {
+    "originalSize": 80003,
+    "compressedSize": 25112,
+    "md5": "a15a439321804db1168556c3960ad0ec",
+    "compressedAt": "2026-10-03T07:06:07.623Z"
+  },
+  "assets/art/classmate_girl_corrupted.png": {
+    "originalSize": 79024,
+    "compressedSize": 24304,
+    "md5": "b4bbee405b0ead692ea218da0faee92a",
+    "compressedAt": "2026-10-03T07:06:08.009Z"
+  },
+  "assets/art/grade1_student_default.png": {
+    "originalSize": 78719,
+    "compressedSize": 25749,
+    "md5": "6e8fa500548dff58060052f51d33bbf9",
+    "compressedAt": "2026-10-03T07:06:08.432Z"
+  },
+  "assets/art/young_xu_default.png": {
+    "originalSize": 78164,
+    "compressedSize": 25746,
+    "md5": "60ebd698a2b7da63f7c35fdd774c894e",
+    "compressedAt": "2026-10-03T07:06:08.513Z"
+  },
+  "assets/portraits/young_xu_default.png": {
+    "originalSize": 78164,
+    "compressedSize": 25746,
+    "md5": "60ebd698a2b7da63f7c35fdd774c894e",
+    "compressedAt": "2026-10-03T07:06:08.778Z"
+  },
+  "assets/art/coach_default.png": {
+    "originalSize": 77961,
+    "compressedSize": 26904,
+    "md5": "d76f025823efdd29e8881529579ea507",
+    "compressedAt": "2026-10-03T07:06:09.094Z"
+  },
+  "assets/art/heyanxi_corrupted.png": {
+    "originalSize": 77606,
+    "compressedSize": 28251,
+    "md5": "995055c9ad34f3190c15b26fbaf36873",
+    "compressedAt": "2026-10-03T07:06:09.491Z"
+  },
+  "assets/art/senior_athlete_corrupted.png": {
+    "originalSize": 76805,
+    "compressedSize": 24006,
+    "md5": "4d217e00caf8f04c51368cb3688bcd1f",
+    "compressedAt": "2026-10-03T07:06:09.523Z"
+  },
+  "assets/art/ayao_corrupted.png": {
+    "originalSize": 76463,
+    "compressedSize": 24354,
+    "md5": "de93ef3d54aff77c3694b14954a67351",
+    "compressedAt": "2026-10-03T07:06:09.814Z"
+  },
+  "assets/art/coach_corrupted.png": {
+    "originalSize": 76030,
+    "compressedSize": 24002,
+    "md5": "c7db1b4361ffe3bedeb4dfbbf631ad53",
+    "compressedAt": "2026-10-03T07:06:10.398Z"
+  },
+  "assets/portraits/zhangzixiao_corrupted@2x.png": {
+    "originalSize": 75735,
+    "compressedSize": 27457,
+    "md5": "d0eead0b3519b71c365843cbc2e18167",
+    "compressedAt": "2026-10-03T07:06:10.583Z"
+  },
+  "assets/art/zhangxizhe_corrupted.png": {
+    "originalSize": 74832,
+    "compressedSize": 23520,
+    "md5": "37dc6f73d8296eb7cc495515ee5d4269",
+    "compressedAt": "2026-10-03T07:06:10.641Z"
+  },
+  "assets/art/young_liu_default.png": {
+    "originalSize": 74572,
+    "compressedSize": 24472,
+    "md5": "9b7913a94c6b3261506490dd037dc093",
+    "compressedAt": "2026-10-03T07:06:10.770Z"
+  },
+  "assets/portraits/young_liu_default.png": {
+    "originalSize": 74572,
+    "compressedSize": 24472,
+    "md5": "9b7913a94c6b3261506490dd037dc093",
+    "compressedAt": "2026-10-03T07:06:11.100Z"
+  },
+  "assets/art/classmate_girl_default.png": {
+    "originalSize": 74545,
+    "compressedSize": 26479,
+    "md5": "cf2765537f15f5ec6a9382c1a1d32b1b",
+    "compressedAt": "2026-10-03T07:06:11.692Z"
+  },
+  "assets/art/coach_sad.png": {
+    "originalSize": 74504,
+    "compressedSize": 26990,
+    "md5": "88ddda69b6bf30fe89c12a6e460cd31d",
+    "compressedAt": "2026-10-03T07:06:11.826Z"
+  },
+  "assets/art/backup/teacher_pe_corrupted.png": {
+    "originalSize": 74134,
+    "compressedSize": 22179,
+    "md5": "f9a0bcb72ed51648d1bb17e51ed292fd",
+    "compressedAt": "2026-10-03T07:06:11.921Z"
+  },
+  "assets/art/senior_athlete_default.png": {
+    "originalSize": 73711,
+    "compressedSize": 29700,
+    "md5": "576068bfaea981af95541d915d5c41f1",
+    "compressedAt": "2026-10-03T07:06:12.009Z"
+  },
+  "assets/art/punk_default.png": {
+    "originalSize": 72724,
+    "compressedSize": 25469,
+    "md5": "efd766170ea544ac78ca01502cf17090",
+    "compressedAt": "2026-10-03T07:06:12.611Z"
+  },
+  "assets/art/zhangxizhe_default.png": {
+    "originalSize": 72277,
+    "compressedSize": 23736,
+    "md5": "c7e030ae75ff29e653af7134ccb1e676",
+    "compressedAt": "2026-10-03T07:06:13.009Z"
+  },
+  "assets/art/vendor_default.png": {
+    "originalSize": 71704,
+    "compressedSize": 23055,
+    "md5": "0541b92862cddda9da96ed734330ea38",
+    "compressedAt": "2026-10-03T07:06:13.128Z"
+  },
+  "assets/art/classmate_boy_corrupted.png": {
+    "originalSize": 71205,
+    "compressedSize": 23079,
+    "md5": "7cc961ac685736ee257d5f654ae6c478",
+    "compressedAt": "2026-10-03T07:06:13.219Z"
+  },
+  "assets/art/teacher_pe_corrupted.png": {
+    "originalSize": 71202,
+    "compressedSize": 22655,
+    "md5": "b8aba52d44228a5004bedafeadc21186",
+    "compressedAt": "2026-10-03T07:06:13.741Z"
+  },
+  "assets/art/fanwenmo_corrupted.png": {
+    "originalSize": 71184,
+    "compressedSize": 23456,
+    "md5": "337d150b527fa438f48d101e9cb79ca6",
+    "compressedAt": "2026-10-03T07:06:13.950Z"
+  },
+  "assets/art/backup/heyanxi_corrupted.png": {
+    "originalSize": 69974,
+    "compressedSize": 24031,
+    "md5": "f6583cba4511ce0d6776cc4b9364eb64",
+    "compressedAt": "2026-10-03T07:06:14.214Z"
+  },
+  "assets/art/senior_athlete_leader_default.png": {
+    "originalSize": 69481,
+    "compressedSize": 25991,
+    "md5": "c29296e39851e12730eb83ec007c147f",
+    "compressedAt": "2026-10-03T07:06:14.314Z"
+  },
+  "assets/art/zhuyanze_corrupted.png": {
+    "originalSize": 68842,
+    "compressedSize": 21046,
+    "md5": "8713880460eaba423a13c37b96ac8724",
+    "compressedAt": "2026-10-03T07:06:15.175Z"
+  },
+  "assets/tiles/dsplus/a5_modern_exterior.png": {
+    "originalSize": 68362,
+    "compressedSize": 19304,
+    "md5": "769ae0ab9019d042b1693a166f02383e",
+    "compressedAt": "2026-10-03T07:06:15.944Z"
+  },
+  "assets/portraits/zhanghanyu_corrupted@2x.png": {
+    "originalSize": 68681,
+    "compressedSize": 24487,
+    "md5": "3632f0800e108c3123edf047689fba2d",
+    "compressedAt": "2026-10-03T07:06:16.283Z"
+  },
+  "assets/art/senior_athlete_leader_corrupted.png": {
+    "originalSize": 68836,
+    "compressedSize": 25679,
+    "md5": "46dbb6fa0cb60aae4b03eec8b3dbb8f4",
+    "compressedAt": "2026-10-03T07:06:16.876Z"
+  },
+  "assets/art/backup/punk_default.png": {
+    "originalSize": 66435,
+    "compressedSize": 22211,
+    "md5": "159ce223102123f9e1c78c766ae87882",
+    "compressedAt": "2026-10-03T07:06:17.137Z"
+  },
+  "assets/art/zhangzixiao_default.png": {
+    "originalSize": 67115,
+    "compressedSize": 23796,
+    "md5": "e9ea483080b4e651829e33864e14840d",
+    "compressedAt": "2026-10-03T07:06:17.181Z"
+  },
+  "assets/art/classmate_boy_default.png": {
+    "originalSize": 65177,
+    "compressedSize": 23780,
+    "md5": "526c096cf72a42b3d28f0ee08e76d89e",
+    "compressedAt": "2026-10-03T07:06:17.928Z"
+  },
+  "assets/art/backup/vendor_default.png": {
+    "originalSize": 64309,
+    "compressedSize": 21471,
+    "md5": "7b582d88c8fdb3f851b842de67ef3e88",
+    "compressedAt": "2026-10-03T07:06:18.074Z"
+  },
+  "assets/art/backup/teacher_pe_default.png": {
+    "originalSize": 64839,
+    "compressedSize": 25241,
+    "md5": "278cfd211312e3be4566f91bd47652ed",
+    "compressedAt": "2026-10-03T07:06:18.180Z"
+  },
+  "assets/portraits/qinruiyi_corrupted@2x.png": {
+    "originalSize": 67158,
+    "compressedSize": 21075,
+    "md5": "55fe90c7b632dc8b90dd875856ca3d9a",
+    "compressedAt": "2026-10-03T07:06:18.530Z"
+  },
+  "assets/art/heyanxi_default.png": {
+    "originalSize": 63847,
+    "compressedSize": 24337,
+    "md5": "906b351df2e8e5509c11f718ea25aaba",
+    "compressedAt": "2026-10-03T07:06:18.972Z"
+  },
+  "assets/portraits/chenpinxuan_corrupted@2x.png": {
+    "originalSize": 63905,
+    "compressedSize": 21796,
+    "md5": "61a6cd74632a73bff7435405d97bd50f",
+    "compressedAt": "2026-10-03T07:06:18.984Z"
+  },
+  "assets/art/chenpinxuan_default.png": {
+    "originalSize": 63812,
+    "compressedSize": 23776,
+    "md5": "867e4e264d8fc6e431ffe5a861102d51",
+    "compressedAt": "2026-10-03T07:06:19.113Z"
+  },
+  "assets/art/backup/senior_athlete_corrupted.png": {
+    "originalSize": 63314,
+    "compressedSize": 20320,
+    "md5": "d50b75f91beb9615c459490d942a719c",
+    "compressedAt": "2026-10-03T07:06:19.658Z"
+  },
+  "assets/art/backup/heyanxi_default.png": {
+    "originalSize": 61950,
+    "compressedSize": 21806,
+    "md5": "8f7ed48620c10c504d964bc938bb60ed",
+    "compressedAt": "2026-10-03T07:06:19.994Z"
+  },
+  "assets/art/shiyunuo_default.png": {
+    "originalSize": 61238,
+    "compressedSize": 20545,
+    "md5": "2288f1a9f0e023dac6a881b5ed0d44f6",
+    "compressedAt": "2026-10-03T07:06:20.047Z"
+  },
+  "assets/art/fanwenmo_default.png": {
+    "originalSize": 61931,
+    "compressedSize": 21681,
+    "md5": "9137d108b885274b3df0d52d3bec5df5",
+    "compressedAt": "2026-10-03T07:06:20.181Z"
+  },
+  "assets/art/teacher_pe_default.png": {
+    "originalSize": 61205,
+    "compressedSize": 22404,
+    "md5": "2c2e78252a013dec0f27aaec850d9204",
+    "compressedAt": "2026-10-03T07:06:20.741Z"
+  },
+  "assets/portraits/vendor_sad@2x.png": {
+    "originalSize": 59949,
+    "compressedSize": 17553,
+    "md5": "75ebe197529e4e5835716057b0fbada8",
+    "compressedAt": "2026-10-03T07:06:21.034Z"
+  },
+  "assets/portraits/senior_student_default@2x.png": {
+    "originalSize": 59887,
+    "compressedSize": 20614,
+    "md5": "52e5080b783fc2e5e90fecf8fe35b48f",
+    "compressedAt": "2026-10-03T07:06:21.091Z"
+  },
+  "assets/portraits/senior_student_corrupted@2x.png": {
+    "originalSize": 59908,
+    "compressedSize": 20455,
+    "md5": "c9cf0c56ec857afbaf9a19fcbc4516bc",
+    "compressedAt": "2026-10-03T07:06:21.099Z"
+  },
+  "assets/portraits/shiyunuo_corrupted@2x.png": {
+    "originalSize": 59375,
+    "compressedSize": 21701,
+    "md5": "e0aaa883429e55bc33758cecc6bffded",
+    "compressedAt": "2026-10-03T07:06:21.879Z"
+  },
+  "assets/art/teacher_xu_default.png": {
+    "originalSize": 58992,
+    "compressedSize": 22793,
+    "md5": "09bf60d4a83e231e159c30f58b2dc7eb",
+    "compressedAt": "2026-10-03T07:06:22.043Z"
+  },
+  "assets/art/backup/zhangxizhe_default.png": {
+    "originalSize": 57545,
+    "compressedSize": 21749,
+    "md5": "1e9bff5d34494fd8ac1cb4dbbe49a221",
+    "compressedAt": "2026-10-03T07:06:22.124Z"
+  },
+  "assets/tiles/kenney/roguelikeCity_full_transparent.png": {
+    "originalSize": 57475,
+    "compressedSize": 22845,
+    "md5": "8f41d250b4cc9d442e3c02d12d8f840d",
+    "compressedAt": "2026-10-03T07:06:22.290Z"
+  },
+  "assets/art/backup/senior_athlete_default.png": {
+    "originalSize": 55791,
+    "compressedSize": 23299,
+    "md5": "64a1ed166c2c3b81b0e4b7c35989cf06",
+    "compressedAt": "2026-10-03T07:06:22.855Z"
+  },
+  "assets/portraits/qinruiyi_default@2x.png": {
+    "originalSize": 56911,
+    "compressedSize": 20339,
+    "md5": "085a01044b123177eb007cd516ac78ce",
+    "compressedAt": "2026-10-03T07:06:22.895Z"
+  },
+  "assets/art/backup/teacher_xu_default.png": {
+    "originalSize": 55387,
+    "compressedSize": 20560,
+    "md5": "cc706dbdca62cff0e73d98cacf9a1bca",
+    "compressedAt": "2026-10-03T07:06:23.107Z"
+  },
+  "assets/art/adult_liu_default.png": {
+    "originalSize": 55322,
+    "compressedSize": 20544,
+    "md5": "4c901caf7748ff9101bd875b81f8cf4a",
+    "compressedAt": "2026-10-03T07:06:23.329Z"
+  },
+  "assets/art/parent_rep_default.png": {
+    "originalSize": 55272,
+    "compressedSize": 21521,
+    "md5": "70602eaa02b148bb5303b1542506ff43",
+    "compressedAt": "2026-10-03T07:06:23.847Z"
+  },
+  "assets/art/zhuyanze_default.png": {
+    "originalSize": 55209,
+    "compressedSize": 20817,
+    "md5": "748c163b830bf3a91cfb0ef0763d4ff7",
+    "compressedAt": "2026-10-03T07:06:23.850Z"
+  },
+  "assets/portraits/janitor_default@2x.png": {
+    "originalSize": 53942,
+    "compressedSize": 21894,
+    "md5": "c9d7b11d2b66b0f1320cb02b9e800904",
+    "compressedAt": "2026-10-03T07:06:24.114Z"
+  },
+  "assets/portraits/janitor_old@2x.png": {
+    "originalSize": 53942,
+    "compressedSize": 21894,
+    "md5": "c9d7b11d2b66b0f1320cb02b9e800904",
+    "compressedAt": "2026-10-03T07:06:24.140Z"
+  },
+  "assets/art/zhanghanyu_default.png": {
+    "originalSize": 52328,
+    "compressedSize": 20538,
+    "md5": "700d808daff4ac769e86e89d59de2aa3",
+    "compressedAt": "2026-10-03T07:06:24.769Z"
+  },
+  "assets/art/backup/zhangzixiao_preupgrade/zhangzixiao_default.png": {
+    "originalSize": 52228,
+    "compressedSize": 20218,
+    "md5": "31779267d8e2b858a70503dd6b8caeaf",
+    "compressedAt": "2026-10-03T07:06:24.813Z"
+  },
+  "assets/portraits/vendor_default@2x.png": {
+    "originalSize": 52193,
+    "compressedSize": 16581,
+    "md5": "80ea8b268fa4b39f31d8b57c49382285",
+    "compressedAt": "2026-10-03T07:06:25.124Z"
+  },
+  "assets/art/backup/chenpinxuan_default.png": {
+    "originalSize": 52185,
+    "compressedSize": 19708,
+    "md5": "10eb70258b8af691cc7736ba8fa214a6",
+    "compressedAt": "2026-10-03T07:06:25.208Z"
+  },
+  "assets/portraits/heyanxi_corrupted@2x.png": {
+    "originalSize": 50434,
+    "compressedSize": 18738,
+    "md5": "757dfab1e9c0615666b1f37eebdec506",
+    "compressedAt": "2026-10-03T07:06:25.724Z"
+  },
+  "assets/portraits/grade1_student_default@2x.png": {
+    "originalSize": 50838,
+    "compressedSize": 18729,
+    "md5": "759f5fad99070cd6f9e0a7c53dc14034",
+    "compressedAt": "2026-10-03T07:06:25.730Z"
+  },
+  "assets/art/backup/fanwenmo_corrupted.png": {
+    "originalSize": 50335,
+    "compressedSize": 16656,
+    "md5": "ef5c481f930efde1034f3f3a3305362c",
+    "compressedAt": "2026-10-03T07:06:26.197Z"
+  },
+  "assets/art/backup/shiyunuo_default.png": {
+    "originalSize": 49825,
+    "compressedSize": 16327,
+    "md5": "01a9022f998a0ad167fe33b417618234",
+    "compressedAt": "2026-10-03T07:06:26.229Z"
+  },
+  "assets/portraits/shiyunuo_default@2x.png": {
+    "originalSize": 49430,
+    "compressedSize": 17990,
+    "md5": "31897f3e05dc4c9100eda8510d17ebca",
+    "compressedAt": "2026-10-03T07:06:26.612Z"
+  },
+  "assets/art/backup/zhangzixiao_default.png": {
+    "originalSize": 49794,
+    "compressedSize": 19350,
+    "md5": "2a752029ea89244c94f33d419bdd4e3d",
+    "compressedAt": "2026-10-03T07:06:26.759Z"
+  },
+  "assets/art/backup/zhuyanze_default.png": {
+    "originalSize": 49253,
+    "compressedSize": 19630,
+    "md5": "fdf1a9199788497e765cbb39fc51533e",
+    "compressedAt": "2026-10-03T07:06:27.141Z"
+  },
+  "assets/portraits/punk_default@2x.png": {
+    "originalSize": 48501,
+    "compressedSize": 16526,
+    "md5": "b02ad7f647e74e98c071f4dbdfff1a4e",
+    "compressedAt": "2026-10-03T07:06:27.217Z"
+  },
+  "assets/portraits/mystery_man_default@2x.png": {
+    "originalSize": 47074,
+    "compressedSize": 15568,
+    "md5": "ab32c2ba505cfced9a5bfae8b8921c20",
+    "compressedAt": "2026-10-03T07:06:27.586Z"
+  },
+  "assets/ui/ui_rank_ss@2x.png": {
+    "originalSize": 46723,
+    "compressedSize": 16846,
+    "md5": "94d4f6b4ffc2fc3016939186d4ff336e",
+    "compressedAt": "2026-10-03T07:06:27.645Z"
+  },
+  "assets/portraits/ayao_default@2x.png": {
+    "originalSize": 44696,
+    "compressedSize": 16382,
+    "md5": "7146c151b12a08475434974fd4c5b06e",
+    "compressedAt": "2026-10-03T07:06:28.183Z"
+  },
+  "assets/portraits/classmate_girl_corrupted@2x.png": {
+    "originalSize": 46325,
+    "compressedSize": 15995,
+    "md5": "3a28afb17aa3ab3900664024951ae424",
+    "compressedAt": "2026-10-03T07:06:28.221Z"
+  },
+  "assets/portraits/classmate_girl_default@2x.png": {
+    "originalSize": 44408,
+    "compressedSize": 16447,
+    "md5": "148e9fa8a125fab2d309ea50aa036478",
+    "compressedAt": "2026-10-03T07:06:28.596Z"
+  },
+  "assets/art/backup/zhanghanyu_default.png": {
+    "originalSize": 44162,
+    "compressedSize": 17022,
+    "md5": "25b37b34e297516a134b69ee5f710534",
+    "compressedAt": "2026-10-03T07:06:28.681Z"
+  },
+  "assets/portraits/mystery_man_corrupted@2x.png": {
+    "originalSize": 44039,
+    "compressedSize": 14925,
+    "md5": "f56b44e0d9a19e1b068e2c70bbff5491",
+    "compressedAt": "2026-10-03T07:06:29.112Z"
+  },
+  "assets/portraits/ayao_corrupted@2x.png": {
+    "originalSize": 44129,
+    "compressedSize": 14913,
+    "md5": "c5e7d501de339f7f59f530d25f091272",
+    "compressedAt": "2026-10-03T07:06:29.330Z"
+  },
+  "assets/portraits/fanwenmo_default@2x.png": {
+    "originalSize": 43924,
+    "compressedSize": 15126,
+    "md5": "9a176cb5481fa97d6d7b7d4eae7ae0fa",
+    "compressedAt": "2026-10-03T07:06:29.539Z"
+  },
+  "assets/art/backup/fanwenmo_default.png": {
+    "originalSize": 43832,
+    "compressedSize": 15387,
+    "md5": "441297377ea445a0845a4e0d84baa43a",
+    "compressedAt": "2026-10-03T07:06:29.725Z"
+  },
+  "assets/portraits/zhangxizhe_corrupted@2x.png": {
+    "originalSize": 43298,
+    "compressedSize": 14282,
+    "md5": "2bfded3a53b82847f33b2f66b2815aea",
+    "compressedAt": "2026-10-03T07:06:30.051Z"
+  },
+  "assets/portraits/coach_corrupted@2x.png": {
+    "originalSize": 42005,
+    "compressedSize": 13966,
+    "md5": "1e44ca02b4db8abd235b76d145156ce5",
+    "compressedAt": "2026-10-03T07:06:30.208Z"
+  },
+  "assets/portraits/heyanxi_default@2x.png": {
+    "originalSize": 41118,
+    "compressedSize": 16460,
+    "md5": "992ba18228313d70b6c1015a6dd03e50",
+    "compressedAt": "2026-10-03T07:06:30.482Z"
+  },
+  "assets/portraits/zhuyanze_corrupted@2x.png": {
+    "originalSize": 41049,
+    "compressedSize": 12929,
+    "md5": "50d89803d7fce757c4220f9262e019c2",
+    "compressedAt": "2026-10-03T07:06:30.507Z"
+  },
+  "assets/portraits/classmate_boy_corrupted@2x.png": {
+    "originalSize": 41035,
+    "compressedSize": 14678,
+    "md5": "62a22348fcb48b755288170001ea2a9c",
+    "compressedAt": "2026-10-03T07:06:31.117Z"
+  },
+  "assets/portraits/teacher_pe_corrupted@2x.png": {
+    "originalSize": 40735,
+    "compressedSize": 13718,
+    "md5": "3efeee6656a158d898d49717561c570b",
+    "compressedAt": "2026-10-03T07:06:31.207Z"
+  },
+  "assets/portraits/coach_default@2x.png": {
+    "originalSize": 39611,
+    "compressedSize": 14585,
+    "md5": "d83704ec15dbe60ebd962fd68b27d81c",
+    "compressedAt": "2026-10-03T07:06:31.341Z"
+  },
+  "assets/portraits/zhangzixiao_default@2x.png": {
+    "originalSize": 40428,
+    "compressedSize": 14442,
+    "md5": "94ac801997e7199e0acae7aac32506ec",
+    "compressedAt": "2026-10-03T07:06:31.431Z"
+  },
+  "assets/portraits/parent_rep_default@2x.png": {
+    "originalSize": 39375,
+    "compressedSize": 14298,
+    "md5": "3cbcf58abb3c5b3f228bac95635b8e5e",
+    "compressedAt": "2026-10-03T07:06:32.114Z"
+  },
+  "assets/portraits/chenpinxuan_default@2x.png": {
+    "originalSize": 39542,
+    "compressedSize": 14923,
+    "md5": "5255660b03dc75ad3c32c81349751229",
+    "compressedAt": "2026-10-03T07:06:32.156Z"
+  },
+  "assets/portraits/senior_athlete_corrupted@2x.png": {
+    "originalSize": 38654,
+    "compressedSize": 12749,
+    "md5": "942cde4e9a3c52592bf6b73d00351417",
+    "compressedAt": "2026-10-03T07:06:32.202Z"
+  },
+  "assets/portraits/adult_liu_default@2x.png": {
+    "originalSize": 39223,
+    "compressedSize": 14891,
+    "md5": "7b7ef77b1d842f65dd92b85d4f26c23b",
+    "compressedAt": "2026-10-03T07:06:32.296Z"
+  },
+  "assets/portraits/zhangxizhe_default@2x.png": {
+    "originalSize": 38455,
+    "compressedSize": 13179,
+    "md5": "fe1bdadc55e4b494d4d1c9af9d4cd9a3",
+    "compressedAt": "2026-10-03T07:06:32.775Z"
+  },
+  "assets/props/prop_snack_cart@2x.png": {
+    "originalSize": 38083,
+    "compressedSize": 12434,
+    "md5": "cdf958ee59bc4cd9d92b24c0e2ce9b3b",
+    "compressedAt": "2026-10-03T07:06:32.857Z"
+  },
+  "assets/portraits/coach_sad@2x.png": {
+    "originalSize": 37360,
+    "compressedSize": 13034,
+    "md5": "dd94acdb0b6d1f2870f2fd9aaab3cdc5",
+    "compressedAt": "2026-10-03T07:06:33.073Z"
+  },
+  "assets/portraits/teacher_pe_default@2x.png": {
+    "originalSize": 38060,
+    "compressedSize": 13719,
+    "md5": "01ce985d42f6f0653cb6161c8cfa8324",
+    "compressedAt": "2026-10-03T07:06:33.239Z"
+  },
+  "assets/portraits/teacher_xu_default@2x.png": {
+    "originalSize": 36272,
+    "compressedSize": 13577,
+    "md5": "b98ba0fd49f7ac6e1cb1b1bbc8dc4602",
+    "compressedAt": "2026-10-03T07:06:33.523Z"
+  },
+  "assets/art/backup/shadow_woman_default.png": {
+    "originalSize": 36934,
+    "compressedSize": 18172,
+    "md5": "ef30fbfd1c10691f79cf73f18470b5a8",
+    "compressedAt": "2026-10-03T07:06:33.636Z"
+  },
+  "assets/props/prop_school_gate@2x.png": {
+    "originalSize": 35654,
+    "compressedSize": 13283,
+    "md5": "71b02a3e3d62cc4f325a7a6177244211",
+    "compressedAt": "2026-10-03T07:06:33.797Z"
+  },
+  "assets/portraits/classmate_boy_default@2x.png": {
+    "originalSize": 35470,
+    "compressedSize": 13520,
+    "md5": "68399897cdef72b78de98049271277ce",
+    "compressedAt": "2026-10-03T07:06:33.974Z"
+  },
+  "assets/portraits/zhuyanze_default@2x.png": {
+    "originalSize": 35356,
+    "compressedSize": 13124,
+    "md5": "5c83ac0a3068ab1dc69cd0de729c92a2",
+    "compressedAt": "2026-10-03T07:06:34.304Z"
+  },
+  "assets/portraits/senior_athlete_default@2x.png": {
+    "originalSize": 34891,
+    "compressedSize": 14006,
+    "md5": "f721cc2c48edeb9be8eb06a6e76b9784",
+    "compressedAt": "2026-10-03T07:06:34.580Z"
+  },
+  "assets/art/shadow_woman_default.png": {
+    "originalSize": 34728,
+    "compressedSize": 18230,
+    "md5": "c94e793ef8c9844d2eb5aea477e3e3b9",
+    "compressedAt": "2026-10-03T07:06:34.627Z"
+  },
+  "assets/portraits/zhanghanyu_default@2x.png": {
+    "originalSize": 34520,
+    "compressedSize": 13983,
+    "md5": "cfb31a1a58d778e257ff545f417ac24f",
+    "compressedAt": "2026-10-03T07:06:34.895Z"
+  },
+  "assets/portraits/senior_athlete_leader_corrupted@2x.png": {
+    "originalSize": 33303,
+    "compressedSize": 12029,
+    "md5": "6ff6a9141d051b1dff18e23b3b4aff79",
+    "compressedAt": "2026-10-03T07:06:35.060Z"
+  },
+  "assets/portraits/fanwenmo_corrupted@2x.png": {
+    "originalSize": 32527,
+    "compressedSize": 12596,
+    "md5": "3a6bf5ee5279ab735997a2d16a384691",
+    "compressedAt": "2026-10-03T07:06:35.324Z"
+  },
+  "assets/ui/ui_rank_s@2x.png": {
+    "originalSize": 33222,
+    "compressedSize": 14945,
+    "md5": "8a5f5c32e9d0429f3a7c8d69b5f58a20",
+    "compressedAt": "2026-10-03T07:06:35.564Z"
+  },
+  "assets/tiles/dsplus/c_interior.png": {
+    "originalSize": 32307,
+    "compressedSize": 26170,
+    "md5": "2e7558f03deea3f4d63f910a3711f43f",
+    "compressedAt": "2026-10-03T07:06:35.762Z"
+  },
+  "assets/portraits/shadow_woman_default@2x.png": {
+    "originalSize": 31723,
+    "compressedSize": 15314,
+    "md5": "b8497f47691cba84516950a212d02a8b",
+    "compressedAt": "2026-10-03T07:06:36.039Z"
+  },
+  "assets/tiles/dsplus/b_interior.png": {
+    "originalSize": 31689,
+    "compressedSize": 25194,
+    "md5": "2e945d94e6662b4437e53d3931edffa8",
+    "compressedAt": "2026-10-03T07:06:36.422Z"
+  },
+  "assets/ui/ui_rank_a@2x.png": {
+    "originalSize": 29772,
+    "compressedSize": 14391,
+    "md5": "59555a6efb079f4f66edb3247bee7cfd",
+    "compressedAt": "2026-10-03T07:06:36.598Z"
+  },
+  "assets/portraits/zhangzixiao_corrupted.png": {
+    "originalSize": 23702,
+    "compressedSize": 8347,
+    "md5": "6d152d9f1451e0b970f24bc1cef63930",
+    "compressedAt": "2026-10-03T07:06:36.623Z"
+  },
+  "assets/tiles/dsplus/a5_valley.png": {
+    "originalSize": 26393,
+    "compressedSize": 18336,
+    "md5": "220f5dc7b5f29d5f822f7ab1e3107fb8",
+    "compressedAt": "2026-10-03T07:06:36.723Z"
+  },
+  "assets/portraits/zhanghanyu_corrupted.png": {
+    "originalSize": 23487,
+    "compressedSize": 7731,
+    "md5": "3a269806cd895f3c4f05ac08d256a355",
+    "compressedAt": "2026-10-03T07:06:37.136Z"
+  },
+  "assets/portraits/chenpinxuan_corrupted.png": {
+    "originalSize": 22416,
+    "compressedSize": 6986,
+    "md5": "8a027d6e6c5c4fbd7a4bdf5b8b965f9a",
+    "compressedAt": "2026-10-03T07:06:37.266Z"
+  },
+  "assets/ui/ui_crit@2x.png": {
+    "originalSize": 23340,
+    "compressedSize": 9213,
+    "md5": "56b2ba7143beced72ce4f95ecda25168",
+    "compressedAt": "2026-10-03T07:06:37.314Z"
+  },
+  "assets/tiles/tile_brick@2x.png": {
+    "originalSize": 21832,
+    "compressedSize": 9469,
+    "md5": "5c2068e79b6f022aeff1a1b12167fdf7",
+    "compressedAt": "2026-10-03T07:06:37.495Z"
+  },
+  "assets/tiles/modern_free/Room_Builder_free_48x48.png": {
+    "originalSize": 21487,
+    "compressedSize": 11591,
+    "md5": "4e0c1aceb63e11024077e65a845dcc04",
+    "compressedAt": "2026-10-03T07:06:37.962Z"
+  },
+  "assets/portraits/qinruiyi_default.png": {
+    "originalSize": 21324,
+    "compressedSize": 7039,
+    "md5": "e9b6a821c7097c6999cc0b77574338fb",
+    "compressedAt": "2026-10-03T07:06:37.985Z"
+  },
+  "assets/portraits/shiyunuo_corrupted.png": {
+    "originalSize": 21260,
+    "compressedSize": 6995,
+    "md5": "9b025f566e07b62ac4bd3477fd8da733",
+    "compressedAt": "2026-10-03T07:06:38.006Z"
+  },
+  "assets/portraits/qinruiyi_corrupted.png": {
+    "originalSize": 21197,
+    "compressedSize": 7460,
+    "md5": "caae30e3c8b0cbb78a338a8892f116df",
+    "compressedAt": "2026-10-03T07:06:38.180Z"
+  },
+  "assets/tiles/tile_pavement@2x.png": {
+    "originalSize": 20045,
+    "compressedSize": 9361,
+    "md5": "6cee8939b1dd8b6559b6b8860b91db46",
+    "compressedAt": "2026-10-03T07:06:38.618Z"
+  },
+  "assets/portraits/senior_student_corrupted.png": {
+    "originalSize": 20737,
+    "compressedSize": 7321,
+    "md5": "a7d32e65e1dd8de000020fd68d78ea18",
+    "compressedAt": "2026-10-03T07:06:38.664Z"
+  },
+  "assets/portraits/senior_student_default.png": {
+    "originalSize": 20737,
+    "compressedSize": 7321,
+    "md5": "a7d32e65e1dd8de000020fd68d78ea18",
+    "compressedAt": "2026-10-03T07:06:38.716Z"
+  },
+  "assets/ui/ui_vs_badge@2x.png": {
+    "originalSize": 19862,
+    "compressedSize": 7978,
+    "md5": "2ea7c3dbc0b0cc59cf4a15a1f1a7f16a",
+    "compressedAt": "2026-10-03T07:06:38.874Z"
+  },
+  "assets/portraits/vendor_default.png": {
+    "originalSize": 19724,
+    "compressedSize": 5863,
+    "md5": "f21dda7a30478e3ba104654f53f18df1",
+    "compressedAt": "2026-10-03T07:06:39.217Z"
+  },
+  "assets/portraits/shiyunuo_default.png": {
+    "originalSize": 18555,
+    "compressedSize": 6255,
+    "md5": "6830796c80e33ae1f65f34d95f24469d",
+    "compressedAt": "2026-10-03T07:06:39.287Z"
+  },
+  "assets/portraits/classmate_girl_corrupted.png": {
+    "originalSize": 18464,
+    "compressedSize": 5716,
+    "md5": "95c6d102a013a2886c6e0280e63fc983",
+    "compressedAt": "2026-10-03T07:06:39.444Z"
+  },
+  "assets/portraits/janitor_default.png": {
+    "originalSize": 17983,
+    "compressedSize": 7929,
+    "md5": "a7a04f4ba53c4559fe7138c39f7677cf",
+    "compressedAt": "2026-10-03T07:06:39.587Z"
+  },
+  "assets/portraits/janitor_old.png": {
+    "originalSize": 17983,
+    "compressedSize": 7929,
+    "md5": "a7a04f4ba53c4559fe7138c39f7677cf",
+    "compressedAt": "2026-10-03T07:06:39.814Z"
+  },
+  "assets/portraits/grade1_student_default.png": {
+    "originalSize": 17727,
+    "compressedSize": 6348,
+    "md5": "87137e5f782e6dc5636b82521472bff5",
+    "compressedAt": "2026-10-03T07:06:39.875Z"
+  },
+  "assets/portraits/punk_default.png": {
+    "originalSize": 17338,
+    "compressedSize": 5621,
+    "md5": "a3e32c991bc2b58dba991c8f7428f542",
+    "compressedAt": "2026-10-03T07:06:40.079Z"
+  },
+  "assets/portraits/vendor_sad.png": {
+    "originalSize": 17169,
+    "compressedSize": 6114,
+    "md5": "abcd0f3ae5d038d6efb91b733054dcbc",
+    "compressedAt": "2026-10-03T07:06:40.285Z"
+  },
+  "assets/portraits/heyanxi_corrupted.png": {
+    "originalSize": 17115,
+    "compressedSize": 6368,
+    "md5": "940be2a0c0fdc54923ca19c567e03118",
+    "compressedAt": "2026-10-03T07:06:40.545Z"
+  },
+  "assets/portraits/zhuyanze_corrupted.png": {
+    "originalSize": 16475,
+    "compressedSize": 4854,
+    "md5": "0eae58e1f0992780f744980e52c77bf0",
+    "compressedAt": "2026-10-03T07:06:40.549Z"
+  },
+  "assets/portraits/senior_athlete_corrupted.png": {
+    "originalSize": 16203,
+    "compressedSize": 4917,
+    "md5": "b620357269c0e1109e738f2f86f6b159",
+    "compressedAt": "2026-10-03T07:06:40.725Z"
+  },
+  "assets/portraits/ayao_corrupted.png": {
+    "originalSize": 15827,
+    "compressedSize": 5302,
+    "md5": "fcaeba4adb6145f3abc162c2d98d5254",
+    "compressedAt": "2026-10-03T07:06:40.914Z"
+  },
+  "assets/portraits/classmate_girl_default.png": {
+    "originalSize": 15507,
+    "compressedSize": 5714,
+    "md5": "b4926362dd217c50283a8036c8eeb1ac",
+    "compressedAt": "2026-10-03T07:06:41.258Z"
+  },
+  "assets/portraits/fanwenmo_default.png": {
+    "originalSize": 15690,
+    "compressedSize": 5435,
+    "md5": "33564e24e076f3a1e6440a983b999737",
+    "compressedAt": "2026-10-03T07:06:41.296Z"
+  },
+  "assets/portraits/coach_corrupted.png": {
+    "originalSize": 15483,
+    "compressedSize": 5007,
+    "md5": "e3753a756c5a5b1f121011d09d83fdcd",
+    "compressedAt": "2026-10-03T07:06:41.367Z"
+  },
+  "assets/portraits/ayao_default.png": {
+    "originalSize": 15439,
+    "compressedSize": 5543,
+    "md5": "a5ad8543e45e8112fa4087d80c680cfd",
+    "compressedAt": "2026-10-03T07:06:41.533Z"
+  },
+  "assets/portraits/teacher_pe_corrupted.png": {
+    "originalSize": 15160,
+    "compressedSize": 4914,
+    "md5": "a26d70cf47e5ffeaf9d43bc6be074042",
+    "compressedAt": "2026-10-03T07:06:41.873Z"
+  },
+  "assets/ui/ui_miss@2x.png": {
+    "originalSize": 15124,
+    "compressedSize": 6710,
+    "md5": "fb3dab03ad6c07152a7fe98c26fdaf03",
+    "compressedAt": "2026-10-03T07:06:42.006Z"
+  },
+  "assets/portraits/classmate_boy_corrupted.png": {
+    "originalSize": 15089,
+    "compressedSize": 5079,
+    "md5": "fbf92aef664174d3f32d7697f405eca9",
+    "compressedAt": "2026-10-03T07:06:42.074Z"
+  },
+  "assets/portraits/mystery_man_corrupted.png": {
+    "originalSize": 15049,
+    "compressedSize": 5258,
+    "md5": "14e21011b2efbd89b6f8196fe53e7607",
+    "compressedAt": "2026-10-03T07:06:42.208Z"
+  },
+  "assets/portraits/zhangxizhe_corrupted.png": {
+    "originalSize": 14994,
+    "compressedSize": 5018,
+    "md5": "d54faad57a5bea57e60e49777ba54f45",
+    "compressedAt": "2026-10-03T07:06:42.455Z"
+  },
+  "assets/portraits/mystery_man_default.png": {
+    "originalSize": 14979,
+    "compressedSize": 5332,
+    "md5": "617e184f9bd2b4282f851a1946512a9a",
+    "compressedAt": "2026-10-03T07:06:42.742Z"
+  },
+  "assets/portraits/parent_rep_default.png": {
+    "originalSize": 14818,
+    "compressedSize": 5035,
+    "md5": "638a2847f871737fe97c624f7a3d59af",
+    "compressedAt": "2026-10-03T07:06:42.906Z"
+  },
+  "assets/portraits/chenpinxuan_default.png": {
+    "originalSize": 14623,
+    "compressedSize": 5242,
+    "md5": "61d33ba63e8b9c0124778f7420040a5d",
+    "compressedAt": "2026-10-03T07:06:42.995Z"
+  },
+  "assets/portraits/coach_default.png": {
+    "originalSize": 14409,
+    "compressedSize": 5072,
+    "md5": "54272c9b50672352069c92d6369aab68",
+    "compressedAt": "2026-10-03T07:06:43.179Z"
+  },
+  "assets/portraits/adult_liu_default.png": {
+    "originalSize": 14190,
+    "compressedSize": 5184,
+    "md5": "b1b4967aec16151dea30d221f87a3da8",
+    "compressedAt": "2026-10-03T07:06:43.354Z"
+  },
+  "assets/ui/ui_rank_ss.png": {
+    "originalSize": 13700,
+    "compressedSize": 5783,
+    "md5": "5baee72036ea7be0426ecaa27cb15f31",
+    "compressedAt": "2026-10-03T07:06:43.564Z"
+  },
+  "assets/portraits/senior_athlete_default.png": {
+    "originalSize": 13685,
+    "compressedSize": 5037,
+    "md5": "d382481a1e09a967e0eaabf87dd0e08b",
+    "compressedAt": "2026-10-03T07:06:43.691Z"
+  },
+  "assets/portraits/coach_sad.png": {
+    "originalSize": 13566,
+    "compressedSize": 4727,
+    "md5": "377a0bc43a7378c2f5f1282d7f21b8ec",
+    "compressedAt": "2026-10-03T07:06:43.957Z"
+  },
+  "assets/portraits/zhangzixiao_default.png": {
+    "originalSize": 13459,
+    "compressedSize": 5013,
+    "md5": "d2aaa9be38ae13228fe19b9f9e4e55c9",
+    "compressedAt": "2026-10-03T07:06:44.002Z"
+  },
+  "assets/portraits/teacher_pe_default.png": {
+    "originalSize": 13361,
+    "compressedSize": 4791,
+    "md5": "600a1bcf9d0884d39df9f5dd846790ed",
+    "compressedAt": "2026-10-03T07:06:44.154Z"
+  },
+  "assets/portraits/zhangxizhe_default.png": {
+    "originalSize": 13155,
+    "compressedSize": 4646,
+    "md5": "676f324853e56722d5a4071c91f6b57b",
+    "compressedAt": "2026-10-03T07:06:44.350Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_white.png": {
+    "originalSize": 13140,
+    "compressedSize": 3065,
+    "md5": "ce57ad769302d71820863f4247cb17c5",
+    "compressedAt": "2026-10-03T07:06:44.713Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_blue.png": {
+    "originalSize": 13149,
+    "compressedSize": 3062,
+    "md5": "8e91b777515f7c338676385935852b06",
+    "compressedAt": "2026-10-03T07:06:44.745Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_pink.png": {
+    "originalSize": 13128,
+    "compressedSize": 2203,
+    "md5": "d63ac562b485d798bf35441bb2080bfc",
+    "compressedAt": "2026-10-03T07:06:44.798Z"
+  },
+  "assets/ui/ui_hit@2x.png": {
+    "originalSize": 13095,
+    "compressedSize": 5852,
+    "md5": "0fd8ef750a09222a481259d809000f79",
+    "compressedAt": "2026-10-03T07:06:44.913Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_green.png": {
+    "originalSize": 13092,
+    "compressedSize": 2204,
+    "md5": "2b6ccc0a61d56206ba16b76a6e67aecf",
+    "compressedAt": "2026-10-03T07:06:45.336Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_red.png": {
+    "originalSize": 13080,
+    "compressedSize": 3077,
+    "md5": "9c9bf09d92da8c9a3086c889c15920e2",
+    "compressedAt": "2026-10-03T07:06:45.529Z"
+  },
+  "assets/tiles/modern_free/Tileset_48x48_16.png": {
+    "originalSize": 13066,
+    "compressedSize": 6452,
+    "md5": "ac7845cc220655fb743359ac7a1cab4e",
+    "compressedAt": "2026-10-03T07:06:45.577Z"
+  },
+  "assets/sprites/placeholder/walk_placeholder_black.png": {
+    "originalSize": 12900,
+    "compressedSize": 2121,
+    "md5": "ba56fb2c37cced746a2b9a2be02a65e5",
+    "compressedAt": "2026-10-03T07:06:45.681Z"
+  },
+  "assets/portraits/heyanxi_default.png": {
+    "originalSize": 12689,
+    "compressedSize": 5184,
+    "md5": "a7727ec0d1cde0a67bc6359803653d21",
+    "compressedAt": "2026-10-03T07:06:45.904Z"
+  },
+  "assets/portraits/teacher_xu_default.png": {
+    "originalSize": 12680,
+    "compressedSize": 4860,
+    "md5": "e747c68a7e83788c9af33b970b34128b",
+    "compressedAt": "2026-10-03T07:06:46.127Z"
+  },
+  "assets/portraits/fanwenmo_corrupted.png": {
+    "originalSize": 12400,
+    "compressedSize": 4707,
+    "md5": "a620ecf5904012a49eefc60b4e63054d",
+    "compressedAt": "2026-10-03T07:06:46.264Z"
+  },
+  "assets/portraits/zhuyanze_default.png": {
+    "originalSize": 12277,
+    "compressedSize": 4754,
+    "md5": "f2f8d4c83d65c588d3961df158788711",
+    "compressedAt": "2026-10-03T07:06:46.360Z"
+  },
+  "assets/portraits/senior_athlete_leader_corrupted.png": {
+    "originalSize": 12060,
+    "compressedSize": 4419,
+    "md5": "24dec3d6c1d65fb4904f86949f6a1d6f",
+    "compressedAt": "2026-10-03T07:06:46.625Z"
+  },
+  "assets/props/prop_streetlight@2x.png": {
+    "originalSize": 11877,
+    "compressedSize": 5438,
+    "md5": "657d4ad63899b5b596670da3fd268823",
+    "compressedAt": "2026-10-03T07:06:46.814Z"
+  },
+  "assets/props/prop_snack_cart.png": {
+    "originalSize": 11627,
+    "compressedSize": 4655,
+    "md5": "1f960b5be5129166b5b77683e2b3f233",
+    "compressedAt": "2026-10-03T07:06:46.889Z"
+  },
+  "assets/props/prop_trash_bin@2x.png": {
+    "originalSize": 11621,
+    "compressedSize": 5073,
+    "md5": "82114d63ac81b3465f45c9e57078c74b",
+    "compressedAt": "2026-10-03T07:06:47.089Z"
+  },
+  "assets/tiles/modern_free/Tileset_48x48_9.png": {
+    "originalSize": 11599,
+    "compressedSize": 4205,
+    "md5": "5bfa42e7d57c1e3a98e37cbc0a56e6a2",
+    "compressedAt": "2026-10-03T07:06:47.382Z"
+  },
+  "assets/portraits/classmate_boy_default.png": {
+    "originalSize": 11555,
+    "compressedSize": 4705,
+    "md5": "7d989bcd5954bb65bacda4969bba71f8",
+    "compressedAt": "2026-10-03T07:06:47.436Z"
+  },
+  "assets/tiles/tileset_ground_48.png": {
+    "originalSize": 11492,
+    "compressedSize": 5572,
+    "md5": "590b36e439e2fc98a3f2db4300b1ba3c",
+    "compressedAt": "2026-10-03T07:06:47.622Z"
+  },
+  "assets/props/prop_school_gate.png": {
+    "originalSize": 11458,
+    "compressedSize": 4755,
+    "md5": "6aa713f28ed88b75d5b3050aa31c6bc8",
+    "compressedAt": "2026-10-03T07:06:47.731Z"
+  },
+  "assets/ui/ui_rank_s.png": {
+    "originalSize": 11267,
+    "compressedSize": 5306,
+    "md5": "70a569f3db4993f7859ec7c5c87111ab",
+    "compressedAt": "2026-10-03T07:06:48.075Z"
+  },
+  "assets/portraits/zhanghanyu_default.png": {
+    "originalSize": 11049,
+    "compressedSize": 4904,
+    "md5": "cb038f3104992360e8b9030af64677a1",
+    "compressedAt": "2026-10-03T07:06:48.116Z"
+  },
+  "assets/portraits/shadow_woman_default.png": {
+    "originalSize": 10282,
+    "compressedSize": 4964,
+    "md5": "ca46cff30107a4e16f945b55f905acd6",
+    "compressedAt": "2026-10-03T07:06:48.307Z"
+  },
+  "assets/ui/ui_rank_a.png": {
+    "originalSize": 10353,
+    "compressedSize": 5064,
+    "md5": "2b32717cd8031beab5e61c2da064eb86",
+    "compressedAt": "2026-10-03T07:06:48.344Z"
+  },
+  "assets/props/prop_bicycle@2x.png": {
+    "originalSize": 8051,
+    "compressedSize": 3380,
+    "md5": "f284b0b18254cf4f741dd70b8161c9ae",
+    "compressedAt": "2026-10-03T07:06:48.713Z"
+  },
+  "assets/tiles/dsplus/a5_sewer.png": {
+    "originalSize": 9310,
+    "compressedSize": 5989,
+    "md5": "2657d5e0d43e43f7c189c87bb72de458",
+    "compressedAt": "2026-10-03T07:06:48.865Z"
+  },
+  "assets/ui/ui_crit.png": {
+    "originalSize": 7856,
+    "compressedSize": 3779,
+    "md5": "c44227dd32ce4e46f568e5bb8026365f",
+    "compressedAt": "2026-10-03T07:06:48.956Z"
+  },
+  "assets/items/snot_paper@2x.png": {
+    "originalSize": 6923,
+    "compressedSize": 3436,
+    "md5": "e5bbe3b47223cadae23cda885729ac52",
+    "compressedAt": "2026-10-03T07:06:49.001Z"
+  },
+  "assets/items/strong_will@2x.png": {
+    "originalSize": 6588,
+    "compressedSize": 3192,
+    "md5": "47a68edab776c7d6e7e7bb83c6b12a7d",
+    "compressedAt": "2026-10-03T07:06:49.337Z"
+  },
+  "assets/items/grandmas_chicken@2x.png": {
+    "originalSize": 6507,
+    "compressedSize": 3145,
+    "md5": "1b077c1a4e49cbb8ced0d4a090d80db7",
+    "compressedAt": "2026-10-03T07:06:49.491Z"
+  },
+  "assets/items/football@2x.png": {
+    "originalSize": 6333,
+    "compressedSize": 3250,
+    "md5": "bd906a2bfcaa22e82c49431dec78489d",
+    "compressedAt": "2026-10-03T07:06:49.625Z"
+  },
+  "assets/tiles/modern_free/Tileset_48x48_2.png": {
+    "originalSize": 6248,
+    "compressedSize": 2396,
+    "md5": "de90795985bd07165c5c608babaefa4e",
+    "compressedAt": "2026-10-03T07:06:49.657Z"
+  },
+  "assets/items/basketball@2x.png": {
+    "originalSize": 6230,
+    "compressedSize": 3195,
+    "md5": "a0c2a639c2f04660aa04f91461fa5fd3",
+    "compressedAt": "2026-10-03T07:06:49.964Z"
+  },
+  "assets/items/moms_lunchbox@2x.png": {
+    "originalSize": 6140,
+    "compressedSize": 2901,
+    "md5": "09bd8c870ef07ff2c761090022f12de0",
+    "compressedAt": "2026-10-03T07:06:50.079Z"
+  },
+  "assets/items/durian_cake@2x.png": {
+    "originalSize": 6035,
+    "compressedSize": 3151,
+    "md5": "12a9ff98ac925edc6b36e86d970f42f8",
+    "compressedAt": "2026-10-03T07:06:50.263Z"
+  },
+  "assets/items/chinese_exam@2x.png": {
+    "originalSize": 6107,
+    "compressedSize": 3142,
+    "md5": "cd9e40b03aa9371033d617d03ce28f87",
+    "compressedAt": "2026-10-03T07:06:50.356Z"
+  },
+  "assets/items/cheat_sheet@2x.png": {
+    "originalSize": 6006,
+    "compressedSize": 2999,
+    "md5": "31021d19d0dfa869f453868e7a05ecae",
+    "compressedAt": "2026-10-03T07:06:50.594Z"
+  },
+  "assets/tiles/modern_free/Tileset_48x48_1.png": {
+    "originalSize": 5995,
+    "compressedSize": 1655,
+    "md5": "e5ee6cedb87450374c7892707d72c3f6",
+    "compressedAt": "2026-10-03T07:06:50.714Z"
+  },
+  "assets/ui/ui_vs_badge.png": {
+    "originalSize": 5971,
+    "compressedSize": 3115,
+    "md5": "fcb6f5f6584143c5fa231a280981193e",
+    "compressedAt": "2026-10-03T07:06:50.893Z"
+  },
+  "assets/items/snack_throw@2x.png": {
+    "originalSize": 5919,
+    "compressedSize": 3013,
+    "md5": "beadfabee62290d40a011ab2a79b1e13",
+    "compressedAt": "2026-10-03T07:06:50.949Z"
+  },
+  "assets/tiles/modern_free/Tileset_48x48_3.png": {
+    "originalSize": 5845,
+    "compressedSize": 1706,
+    "md5": "154f6ad10e3969d42d2ce99d8a9acc58",
+    "compressedAt": "2026-10-03T07:06:51.269Z"
+  },
+  "assets/items/school_bag@2x.png": {
+    "originalSize": 5794,
+    "compressedSize": 3264,
+    "md5": "b029ccd0861f7ff416b6571050ce0554",
+    "compressedAt": "2026-10-03T07:06:51.357Z"
+  },
+  "assets/items/discarded_snack@2x.png": {
+    "originalSize": 5725,
+    "compressedSize": 3145,
+    "md5": "6057baeb3201814be8b5f19df0aec8b4",
+    "compressedAt": "2026-10-03T07:06:51.500Z"
+  },
+  "assets/items/cooling_oil@2x.png": {
+    "originalSize": 5657,
+    "compressedSize": 2806,
+    "md5": "49bb11266230e2bd28db15b049c2b72e",
+    "compressedAt": "2026-10-03T07:06:51.509Z"
+  },
+  "assets/tiles/tile_brick.png": {
+    "originalSize": 5567,
+    "compressedSize": 3189,
+    "md5": "7871631084685d97e6cb61efca24e2cb",
+    "compressedAt": "2026-10-03T07:06:51.967Z"
+  },
+  "assets/ui/ui_miss.png": {
+    "originalSize": 5449,
+    "compressedSize": 2829,
+    "md5": "48d99917a6e08de30c1c223638521600",
+    "compressedAt": "2026-10-03T07:06:52.074Z"
+  },
+  "assets/items/math_exam@2x.png": {
+    "originalSize": 5529,
+    "compressedSize": 3027,
+    "md5": "3cfd66db1506393505fcc06f60e9167a",
+    "compressedAt": "2026-10-03T07:06:52.092Z"
+  },
+  "assets/items/chalk_box@2x.png": {
+    "originalSize": 5522,
+    "compressedSize": 2775,
+    "md5": "dd012923397dfceefdfa1a2e9678c5aa",
+    "compressedAt": "2026-10-03T07:06:52.105Z"
+  },
+  "assets/items/vocab_cards@2x.png": {
+    "originalSize": 5213,
+    "compressedSize": 2686,
+    "md5": "1e02474fb271115b5d8644da1ac21a87",
+    "compressedAt": "2026-10-03T07:06:52.601Z"
+  },
+  "assets/items/pe_teacher_brain@2x.png": {
+    "originalSize": 5336,
+    "compressedSize": 2791,
+    "md5": "b509c79342599596af5d7f891fbe40d5",
+    "compressedAt": "2026-10-03T07:06:52.644Z"
+  },
+  "assets/items/honey_tea@2x.png": {
+    "originalSize": 5148,
+    "compressedSize": 2689,
+    "md5": "9116e16759c7aea934eb4fae61c93b75",
+    "compressedAt": "2026-10-03T07:06:52.800Z"
+  },
+  "assets/ui/ui_hit.png": {
+    "originalSize": 5105,
+    "compressedSize": 2748,
+    "md5": "db0c7ecb189c608a3a15dcec05b405b7",
+    "compressedAt": "2026-10-03T07:06:52.803Z"
+  },
+  "assets/tiles/tile_pavement.png": {
+    "originalSize": 4983,
+    "compressedSize": 2737,
+    "md5": "9d7d4532a822fd27ebed87e46d9b5cc7",
+    "compressedAt": "2026-10-03T07:06:53.186Z"
+  },
+  "assets/items/red_scarf@2x.png": {
+    "originalSize": 5017,
+    "compressedSize": 2704,
+    "md5": "cfc2072450c9f5e65c875a905d930733",
+    "compressedAt": "2026-10-03T07:06:53.208Z"
+  },
+  "assets/items/sanitary_pad@2x.png": {
+    "originalSize": 4882,
+    "compressedSize": 2492,
+    "md5": "134aef7f2d4a2a1d326b39b46cf88494",
+    "compressedAt": "2026-10-03T07:06:53.385Z"
+  },
+  "assets/items/english_exam@2x.png": {
+    "originalSize": 4879,
+    "compressedSize": 2725,
+    "md5": "b3c74c369a485e36e70e3a837fcb107c",
+    "compressedAt": "2026-10-03T07:06:53.487Z"
+  },
+  "assets/items/grandpas_dentures@2x.png": {
+    "originalSize": 4739,
+    "compressedSize": 2607,
+    "md5": "b20093f3db0e40bc9eee1bed7d022ef7",
+    "compressedAt": "2026-10-03T07:06:53.806Z"
+  },
+  "assets/items/olympiad_medal@2x.png": {
+    "originalSize": 4724,
+    "compressedSize": 2496,
+    "md5": "a3a700298beb9985226157b23d3a8464",
+    "compressedAt": "2026-10-03T07:06:53.838Z"
+  },
+  "assets/items/sport_kneepad@2x.png": {
+    "originalSize": 4713,
+    "compressedSize": 2726,
+    "md5": "e314eed07198b7df94b9d9beffe3040b",
+    "compressedAt": "2026-10-03T07:06:54.011Z"
+  },
+  "assets/items/class_photo@2x.png": {
+    "originalSize": 4684,
+    "compressedSize": 2842,
+    "md5": "a22954d69c83aab5b14789bb4089df5c",
+    "compressedAt": "2026-10-03T07:06:54.065Z"
+  },
+  "assets/items/hooded_trashcan@2x.png": {
+    "originalSize": 4593,
+    "compressedSize": 2640,
+    "md5": "62b007db3ea18efb4601605048635f3f",
+    "compressedAt": "2026-10-03T07:06:54.496Z"
+  },
+  "assets/tiles/modern_free/Tileset_32x32_3.png": {
+    "originalSize": 4556,
+    "compressedSize": 1184,
+    "md5": "ca9836bfa50d4e3f24ab8c65e19b126a",
+    "compressedAt": "2026-10-03T07:06:54.508Z"
+  },
+  "assets/items/blackboard_eraser@2x.png": {
+    "originalSize": 4495,
+    "compressedSize": 2533,
+    "md5": "fb9f694072de1241f0bb1248bd8edfc8",
+    "compressedAt": "2026-10-03T07:06:54.640Z"
+  },
+  "assets/items/ping_pong_paddle@2x.png": {
+    "originalSize": 4499,
+    "compressedSize": 2705,
+    "md5": "50100c53e646f0649a2f85e6a15e37e2",
+    "compressedAt": "2026-10-03T07:06:54.651Z"
+  },
+  "assets/items/merit_certificate@2x.png": {
+    "originalSize": 4420,
+    "compressedSize": 2360,
+    "md5": "528c8aa612e5b7c5cd424057bfad5645",
+    "compressedAt": "2026-10-03T07:06:55.178Z"
+  },
+  "assets/items/whistle@2x.png": {
+    "originalSize": 4375,
+    "compressedSize": 2349,
+    "md5": "a38f8a22e56a2fa97abe816337ce7fe7",
+    "compressedAt": "2026-10-03T07:06:55.184Z"
+  },
+  "assets/items/chalk_head@2x.png": {
+    "originalSize": 4370,
+    "compressedSize": 2506,
+    "md5": "4293ab983e338287edfa4ea4554430cd",
+    "compressedAt": "2026-10-03T07:06:55.256Z"
+  },
+  "assets/items/sausage@2x.png": {
+    "originalSize": 4257,
+    "compressedSize": 2358,
+    "md5": "97b99ac7669bce1ba3d9fcc0c8fe637b",
+    "compressedAt": "2026-10-03T07:06:55.271Z"
+  },
+  "assets/items/triangular_ruler@2x.png": {
+    "originalSize": 4257,
+    "compressedSize": 2415,
+    "md5": "25f9b8e813265f11f3e32abb65865417",
+    "compressedAt": "2026-10-03T07:06:55.789Z"
+  },
+  "assets/items/eraser@2x.png": {
+    "originalSize": 4229,
+    "compressedSize": 2412,
+    "md5": "b53245d5264345effed73353203a11d6",
+    "compressedAt": "2026-10-03T07:06:55.871Z"
+  },
+  "assets/items/class_roll_book@2x.png": {
+    "originalSize": 4227,
+    "compressedSize": 2710,
+    "md5": "9cf0fff44adc216a6408ab4b8b9bceeb",
+    "compressedAt": "2026-10-03T07:06:55.881Z"
+  },
+  "assets/items/teachers_office_key@2x.png": {
+    "originalSize": 4240,
+    "compressedSize": 2288,
+    "md5": "c6f962bc0c6238fbb90b8b3d9c6aa518",
+    "compressedAt": "2026-10-03T07:06:55.976Z"
+  },
+  "assets/items/sudoku@2x.png": {
+    "originalSize": 3970,
+    "compressedSize": 1778,
+    "md5": "c3f5b7205d81ca415e4cddbfe7439dfa",
+    "compressedAt": "2026-10-03T07:06:56.370Z"
+  },
+  "assets/items/suspicious_drink@2x.png": {
+    "originalSize": 3965,
+    "compressedSize": 2311,
+    "md5": "80dc39445a4b4617139d870ab7a9ab97",
+    "compressedAt": "2026-10-03T07:06:56.458Z"
+  },
+  "assets/items/bastard_soda@2x.png": {
+    "originalSize": 3794,
+    "compressedSize": 2212,
+    "md5": "366b7a41e2e89a162114c39aef423ee2",
+    "compressedAt": "2026-10-03T07:06:56.532Z"
+  },
+  "assets/props/prop_streetlight.png": {
+    "originalSize": 3602,
+    "compressedSize": 2270,
+    "md5": "11318e25835dddb94df5fd5de69c649c",
+    "compressedAt": "2026-10-03T07:06:56.655Z"
+  },
+  "assets/items/fountain_pen@2x.png": {
+    "originalSize": 3553,
+    "compressedSize": 1941,
+    "md5": "f387a116d740ddbec81022db110378b2",
+    "compressedAt": "2026-10-03T07:06:57.053Z"
+  },
+  "assets/items/paper_plane@2x.png": {
+    "originalSize": 3501,
+    "compressedSize": 2144,
+    "md5": "26a421e7a77a6806937703c80deeeeae",
+    "compressedAt": "2026-10-03T07:06:57.088Z"
+  },
+  "assets/items/milk_candy@2x.png": {
+    "originalSize": 3440,
+    "compressedSize": 2021,
+    "md5": "6838b2f232993f2f28ca2aa9beac5027",
+    "compressedAt": "2026-10-03T07:06:57.091Z"
+  },
+  "assets/items/exercise_bat@2x.png": {
+    "originalSize": 3245,
+    "compressedSize": 1909,
+    "md5": "37365ab20442569d0be8b411e7d463ca",
+    "compressedAt": "2026-10-03T07:06:57.324Z"
+  },
+  "assets/items/chalk_dust@2x.png": {
+    "originalSize": 3109,
+    "compressedSize": 847,
+    "md5": "528375da6302429b1590ad97b1fb7b15",
+    "compressedAt": "2026-10-03T07:06:57.648Z"
+  },
+  "assets/items/water_bottle@2x.png": {
+    "originalSize": 3103,
+    "compressedSize": 2004,
+    "md5": "ad8684e5271ec621c0587d66b758488e",
+    "compressedAt": "2026-10-03T07:06:57.684Z"
+  },
+  "assets/props/prop_trash_bin.png": {
+    "originalSize": 3155,
+    "compressedSize": 2090,
+    "md5": "7eb3520a2a2433d33f174ddbefe5113b",
+    "compressedAt": "2026-10-03T07:06:57.860Z"
+  },
+  "assets/items/compass_needle@2x.png": {
+    "originalSize": 3069,
+    "compressedSize": 1920,
+    "md5": "c0828ed540f9ec452ee38900715ee028",
+    "compressedAt": "2026-10-03T07:06:57.945Z"
+  },
+  "assets/items/flute@2x.png": {
+    "originalSize": 3054,
+    "compressedSize": 1871,
+    "md5": "3f56ebb74dfe3e65f58cd5ce30e918ca",
+    "compressedAt": "2026-10-03T07:06:58.183Z"
+  },
+  "assets/items/recorder@2x.png": {
+    "originalSize": 3054,
+    "compressedSize": 1871,
+    "md5": "3f56ebb74dfe3e65f58cd5ce30e918ca",
+    "compressedAt": "2026-10-03T07:06:58.205Z"
+  },
+  "assets/items/dumbbell@2x.png": {
+    "originalSize": 3047,
+    "compressedSize": 2025,
+    "md5": "d86f0c348bad374d981e6cf083692dcf",
+    "compressedAt": "2026-10-03T07:06:58.528Z"
+  },
+  "assets/items/student_badge@2x.png": {
+    "originalSize": 2727,
+    "compressedSize": 1826,
+    "md5": "7ff7cc3562933a67676edb51bd19792c",
+    "compressedAt": "2026-10-03T07:06:58.610Z"
+  },
+  "assets/items/calligraphy_brush@2x.png": {
+    "originalSize": 2687,
+    "compressedSize": 1768,
+    "md5": "de73fec753a2675a7400cdaa06644e67",
+    "compressedAt": "2026-10-03T07:06:58.738Z"
+  },
+  "assets/items/teacher_thermos@2x.png": {
+    "originalSize": 2498,
+    "compressedSize": 1488,
+    "md5": "85f06e03dd4d956731a8fb81411f09b5",
+    "compressedAt": "2026-10-03T07:06:58.799Z"
+  },
+  "assets/items/sudoku.png": {
+    "originalSize": 2426,
+    "compressedSize": 606,
+    "md5": "df44e54f4a438d6252ec024cc18babbe",
+    "compressedAt": "2026-10-03T07:06:59.163Z"
+  },
+  "assets/items/snot_paper.png": {
+    "originalSize": 2323,
+    "compressedSize": 1663,
+    "md5": "ac79b41bfab2b9e6cefe642e63710fc5",
+    "compressedAt": "2026-10-03T07:06:59.271Z"
+  },
+  "assets/items/broom@2x.png": {
+    "originalSize": 2287,
+    "compressedSize": 476,
+    "md5": "ffbe0f81a6760f6b7d5f33ed68dcc5c2",
+    "compressedAt": "2026-10-03T07:06:59.308Z"
+  },
+  "assets/items/football.png": {
+    "originalSize": 2286,
+    "compressedSize": 1668,
+    "md5": "8cb80f5891f41d5be64b12baf28eae5b",
+    "compressedAt": "2026-10-03T07:06:59.374Z"
+  },
+  "assets/props/prop_bicycle.png": {
+    "originalSize": 2253,
+    "compressedSize": 1528,
+    "md5": "e1c489f2c61a33c8af90b28d4d93438c",
+    "compressedAt": "2026-10-03T07:06:59.808Z"
+  },
+  "assets/items/basketball.png": {
+    "originalSize": 2243,
+    "compressedSize": 1675,
+    "md5": "1ad65333f140599ed109fb620e486250",
+    "compressedAt": "2026-10-03T07:06:59.875Z"
+  },
+  "assets/items/strong_will.png": {
+    "originalSize": 2180,
+    "compressedSize": 1582,
+    "md5": "cc453a2490d1ee7b3f5e5d4d8d8be4c9",
+    "compressedAt": "2026-10-03T07:06:59.907Z"
+  },
+  "assets/items/chalk_dust.png": {
+    "originalSize": 2174,
+    "compressedSize": 353,
+    "md5": "6c002a84a9473d4380bf8f871740e442",
+    "compressedAt": "2026-10-03T07:06:59.989Z"
+  },
+  "assets/items/grandmas_chicken.png": {
+    "originalSize": 2140,
+    "compressedSize": 1589,
+    "md5": "f7c335ef836a592985b422e412b98a42",
+    "compressedAt": "2026-10-03T07:07:00.426Z"
+  },
+  "assets/items/dirty_sock@2x.png": {
+    "originalSize": 2173,
+    "compressedSize": 271,
+    "md5": "c08ee742890a33afb74c7a1a88b75183",
+    "compressedAt": "2026-10-03T07:07:00.476Z"
+  },
+  "assets/items/snack_throw.png": {
+    "originalSize": 2126,
+    "compressedSize": 1633,
+    "md5": "57d1a750d18fc74ba1e07e2713be6647",
+    "compressedAt": "2026-10-03T07:07:00.505Z"
+  },
+  "assets/items/broom.png": {
+    "originalSize": 2113,
+    "compressedSize": 387,
+    "md5": "8ab3e8063348c5e0b5a74380eed17706",
+    "compressedAt": "2026-10-03T07:07:00.595Z"
+  },
+  "assets/items/teaching_pointer@2x.png": {
+    "originalSize": 2105,
+    "compressedSize": 1215,
+    "md5": "c41b2e39ccecdbac03c67f30e40df794",
+    "compressedAt": "2026-10-03T07:07:01.007Z"
+  },
+  "assets/items/school_bag.png": {
+    "originalSize": 2100,
+    "compressedSize": 1667,
+    "md5": "5710ebf518058ec9adc7011cc405ffb3",
+    "compressedAt": "2026-10-03T07:07:01.064Z"
+  },
+  "assets/items/durian_cake.png": {
+    "originalSize": 2087,
+    "compressedSize": 1586,
+    "md5": "93454c565df3aeccdc5bf0a475fd5149",
+    "compressedAt": "2026-10-03T07:07:01.220Z"
+  },
+  "assets/items/moms_lunchbox.png": {
+    "originalSize": 2069,
+    "compressedSize": 1571,
+    "md5": "c9c8aef62c46eb459b764a674fa1d453",
+    "compressedAt": "2026-10-03T07:07:01.228Z"
+  },
+  "assets/items/dirty_sock.png": {
+    "originalSize": 1971,
+    "compressedSize": 201,
+    "md5": "e197b5f8c9043fcd020e5b07918d77be",
+    "compressedAt": "2026-10-03T07:07:01.580Z"
+  },
+  "assets/items/discarded_snack.png": {
+    "originalSize": 2066,
+    "compressedSize": 1584,
+    "md5": "17a23c7e53fbc17cc3b8836b5264727b",
+    "compressedAt": "2026-10-03T07:07:01.590Z"
+  },
+  "assets/items/chinese_exam.png": {
+    "originalSize": 1964,
+    "compressedSize": 1485,
+    "md5": "b9b9bed4d1948d931b0376298dbb3419",
+    "compressedAt": "2026-10-03T07:07:01.878Z"
+  },
+  "assets/items/cheat_sheet.png": {
+    "originalSize": 1915,
+    "compressedSize": 1488,
+    "md5": "434aed729a6e3cf867d1b22c1fbd4961",
+    "compressedAt": "2026-10-03T07:07:01.929Z"
+  },
+  "assets/items/chalk_box.png": {
+    "originalSize": 1912,
+    "compressedSize": 1482,
+    "md5": "6ad8955389817992a033da6be9333f4c",
+    "compressedAt": "2026-10-03T07:07:02.102Z"
+  },
+  "assets/items/cooling_oil.png": {
+    "originalSize": 1895,
+    "compressedSize": 1498,
+    "md5": "b07d4c833837b78b80fbfa569b4beabe",
+    "compressedAt": "2026-10-03T07:07:02.162Z"
+  },
+  "assets/items/math_exam.png": {
+    "originalSize": 1856,
+    "compressedSize": 1529,
+    "md5": "c4ee86024e575b4f5de72a799e9c580e",
+    "compressedAt": "2026-10-03T07:07:02.515Z"
+  },
+  "assets/items/vocab_cards.png": {
+    "originalSize": 1849,
+    "compressedSize": 1467,
+    "md5": "f575576e96fd6f956308753105daefd9",
+    "compressedAt": "2026-10-03T07:07:02.605Z"
+  },
+  "assets/items/backup/candied_haw@2x.png": {
+    "originalSize": 1845,
+    "compressedSize": 436,
+    "md5": "5d4078ee7f8f58c007b5189ac6cbecfa",
+    "compressedAt": "2026-10-03T07:07:02.684Z"
+  },
+  "assets/items/mop@2x.png": {
+    "originalSize": 1826,
+    "compressedSize": 1358,
+    "md5": "0b443395a54d8980b65adeb2c0e6e61a",
+    "compressedAt": "2026-10-03T07:07:02.739Z"
+  },
+  "assets/items/red_scarf.png": {
+    "originalSize": 1821,
+    "compressedSize": 1495,
+    "md5": "0c5de1fbf532520fe63d8ffa36b05813",
+    "compressedAt": "2026-10-03T07:07:03.141Z"
+  },
+  "assets/items/honey_tea.png": {
+    "originalSize": 1792,
+    "compressedSize": 1490,
+    "md5": "b60617700877f2a1129afe4cbac9d702",
+    "compressedAt": "2026-10-03T07:07:03.214Z"
+  },
+  "assets/items/scream_chicken@2x.png": {
+    "originalSize": 1785,
+    "compressedSize": 1446,
+    "md5": "e7d4d456239451d687533936622e425a",
+    "compressedAt": "2026-10-03T07:07:03.276Z"
+  },
+  "assets/items/grandpas_dentures.png": {
+    "originalSize": 1744,
+    "compressedSize": 1447,
+    "md5": "7ace07a6618c0a84bf0eb12e362e933f",
+    "compressedAt": "2026-10-03T07:07:03.324Z"
+  },
+  "assets/items/english_exam.png": {
+    "originalSize": 1716,
+    "compressedSize": 1409,
+    "md5": "805fd107cf87527ac6cfa2af99b3e4c0",
+    "compressedAt": "2026-10-03T07:07:03.809Z"
+  },
+  "assets/items/ping_pong_paddle.png": {
+    "originalSize": 1690,
+    "compressedSize": 1402,
+    "md5": "f3b4c4497bca844ee445cddfb151a3da",
+    "compressedAt": "2026-10-03T07:07:03.822Z"
+  },
+  "assets/items/sport_kneepad.png": {
+    "originalSize": 1714,
+    "compressedSize": 1394,
+    "md5": "a6fb75db1337c6e1560583433ab023bf",
+    "compressedAt": "2026-10-03T07:07:03.830Z"
+  },
+  "assets/items/olympiad_medal.png": {
+    "originalSize": 1686,
+    "compressedSize": 1446,
+    "md5": "be719b93aacec6e821c2cb01792e8dc9",
+    "compressedAt": "2026-10-03T07:07:03.917Z"
+  },
+  "assets/items/class_photo.png": {
+    "originalSize": 1682,
+    "compressedSize": 1248,
+    "md5": "9e9701ad5ff067ad1a36ffe273375d27",
+    "compressedAt": "2026-10-03T07:07:04.412Z"
+  },
+  "assets/items/hooded_trashcan.png": {
+    "originalSize": 1683,
+    "compressedSize": 1481,
+    "md5": "c7a050b4b1b307fcc86db624a5558d9d",
+    "compressedAt": "2026-10-03T07:07:04.427Z"
+  },
+  "assets/items/sanitary_pad.png": {
+    "originalSize": 1673,
+    "compressedSize": 1312,
+    "md5": "4680cd479a9a6a4cb8155f83e46065d6",
+    "compressedAt": "2026-10-03T07:07:04.444Z"
+  },
+  "assets/items/eraser.png": {
+    "originalSize": 1662,
+    "compressedSize": 1337,
+    "md5": "609e84bb32b007f8b181f94b4b51cbd5",
+    "compressedAt": "2026-10-03T07:07:04.489Z"
+  },
+  "assets/items/chalk_head.png": {
+    "originalSize": 1649,
+    "compressedSize": 1284,
+    "md5": "b6978fd1a4e4072b764994eef554a15c",
+    "compressedAt": "2026-10-03T07:07:04.998Z"
+  },
+  "assets/items/merit_certificate.png": {
+    "originalSize": 1629,
+    "compressedSize": 1409,
+    "md5": "077bedb4a4e6a556e7416d659981f565",
+    "compressedAt": "2026-10-03T07:07:05.033Z"
+  },
+  "assets/items/class_roll_book.png": {
+    "originalSize": 1641,
+    "compressedSize": 1319,
+    "md5": "27f0ad2670379b005c91387e4b4675d3",
+    "compressedAt": "2026-10-03T07:07:05.057Z"
+  },
+  "assets/items/blackboard_eraser.png": {
+    "originalSize": 1628,
+    "compressedSize": 1279,
+    "md5": "b8035bf30fc1d13bb9caad5b43708824",
+    "compressedAt": "2026-10-03T07:07:05.172Z"
+  },
+  "assets/items/whistle.png": {
+    "originalSize": 1613,
+    "compressedSize": 1334,
+    "md5": "654d4a457331188cb9a1f7ed8c1fadf1",
+    "compressedAt": "2026-10-03T07:07:05.563Z"
+  },
+  "assets/items/pe_teacher_brain.png": {
+    "originalSize": 1573,
+    "compressedSize": 1373,
+    "md5": "77d0e737f3bc519ad1d4f978f59258fe",
+    "compressedAt": "2026-10-03T07:07:05.608Z"
+  },
+  "assets/items/teachers_office_key.png": {
+    "originalSize": 1573,
+    "compressedSize": 1390,
+    "md5": "7a0d33f4a6a7fa1f3458edd75f67e2a5",
+    "compressedAt": "2026-10-03T07:07:05.667Z"
+  },
+  "assets/items/suspicious_snack@2x.png": {
+    "originalSize": 1555,
+    "compressedSize": 1555,
+    "md5": "e5e2e9da49d44bc19938451dda2dd1c7",
+    "compressedAt": "2026-10-03T07:07:05.825Z"
+  },
+  "assets/items/sausage.png": {
+    "originalSize": 1543,
+    "compressedSize": 1346,
+    "md5": "2cd8092d09b4e26118b251bd703077c2",
+    "compressedAt": "2026-10-03T07:07:06.160Z"
+  },
+  "assets/items/backup/candied_haw.png": {
+    "originalSize": 1527,
+    "compressedSize": 204,
+    "md5": "52bd16a489bd68a0789290dbc82fc259",
+    "compressedAt": "2026-10-03T07:07:06.176Z"
+  },
+  "assets/items/cheer_stick@2x.png": {
+    "originalSize": 1494,
+    "compressedSize": 1329,
+    "md5": "82995dc1688d0e6b2d8573ceeaeaf93c",
+    "compressedAt": "2026-10-03T07:07:06.309Z"
+  },
+  "assets/items/triangular_ruler.png": {
+    "originalSize": 1471,
+    "compressedSize": 1334,
+    "md5": "7e658b3a5af90c4dae8ad11d22bba194",
+    "compressedAt": "2026-10-03T07:07:06.427Z"
+  },
+  "assets/items/color_chalk@2x.png": {
+    "originalSize": 1459,
+    "compressedSize": 1296,
+    "md5": "4b6992036a024a6cdbae3b19eae9b7ed",
+    "compressedAt": "2026-10-03T07:07:06.736Z"
+  },
+  "assets/items/jump_rope@2x.png": {
+    "originalSize": 1459,
+    "compressedSize": 1131,
+    "md5": "92cd63ed4abdd358cee9c9928d6de67c",
+    "compressedAt": "2026-10-03T07:07:06.756Z"
+  },
+  "assets/items/suspicious_drink.png": {
+    "originalSize": 1448,
+    "compressedSize": 1362,
+    "md5": "1d913cf5932e13f4e2daefbd33083417",
+    "compressedAt": "2026-10-03T07:07:06.974Z"
+  },
+  "assets/items/pom_pom@2x.png": {
+    "originalSize": 1420,
+    "compressedSize": 1420,
+    "md5": "8a32272ae9cdc9ffc839babca012d891",
+    "compressedAt": "2026-10-03T07:07:07.033Z"
+  },
+  "assets/items/pompom_deluxe@2x.png": {
+    "originalSize": 1420,
+    "compressedSize": 1420,
+    "md5": "8a32272ae9cdc9ffc839babca012d891",
+    "compressedAt": "2026-10-03T07:07:07.266Z"
+  },
+  "assets/props/kenney/kc_food_stall@2x.png": {
+    "originalSize": 1412,
+    "compressedSize": 446,
+    "md5": "00291f190f2bbc926832f8839cd19768",
+    "compressedAt": "2026-10-03T07:07:07.275Z"
+  },
+  "assets/items/bastard_soda.png": {
+    "originalSize": 1391,
+    "compressedSize": 1350,
+    "md5": "b5204b27b6fde26d308a5d87a407c321",
+    "compressedAt": "2026-10-03T07:07:07.659Z"
+  },
+  "assets/items/backup/recorder@2x.png": {
+    "originalSize": 1382,
+    "compressedSize": 758,
+    "md5": "32659af321e10eae51beeef6fdfb15e6",
+    "compressedAt": "2026-10-03T07:07:07.680Z"
+  },
+  "assets/items/paper_plane.png": {
+    "originalSize": 1381,
+    "compressedSize": 985,
+    "md5": "ff55cfb65305ad24c962f7a55ba09943",
+    "compressedAt": "2026-10-03T07:07:07.836Z"
+  },
+  "assets/items/scream_chicken.png": {
+    "originalSize": 1368,
+    "compressedSize": 1082,
+    "md5": "9aad960940acbc9b24457f70f1b567f1",
+    "compressedAt": "2026-10-03T07:07:07.848Z"
+  },
+  "assets/items/earplug@2x.png": {
+    "originalSize": 1337,
+    "compressedSize": 1038,
+    "md5": "76b29260a0e50385b2426eea251ed909",
+    "compressedAt": "2026-10-03T07:07:08.269Z"
+  },
+  "assets/items/correction_tape@2x.png": {
+    "originalSize": 1353,
+    "compressedSize": 1181,
+    "md5": "ff41f7fd36b5ea8b86d4c863fcc69357",
+    "compressedAt": "2026-10-03T07:07:08.333Z"
+  },
+  "assets/items/backup/scream_chicken@2x.png": {
+    "originalSize": 1257,
+    "compressedSize": 1026,
+    "md5": "9e94539d34eaa3c2ec3b6f801d2c677b",
+    "compressedAt": "2026-10-03T07:07:08.409Z"
+  },
+  "assets/items/fountain_pen.png": {
+    "originalSize": 1300,
+    "compressedSize": 977,
+    "md5": "2a467eaf53071e1f8e0abc442b9e215e",
+    "compressedAt": "2026-10-03T07:07:08.422Z"
+  },
+  "assets/items/milk_candy.png": {
+    "originalSize": 1256,
+    "compressedSize": 1110,
+    "md5": "491a8941fd1adaccb4d8bb6cbac94100",
+    "compressedAt": "2026-10-03T07:07:08.872Z"
+  },
+  "assets/items/dumbbell.png": {
+    "originalSize": 1252,
+    "compressedSize": 1065,
+    "md5": "2ebd860a34c0342397966b9634bd87b4",
+    "compressedAt": "2026-10-03T07:07:08.943Z"
+  },
+  "assets/items/exercise_bat.png": {
+    "originalSize": 1246,
+    "compressedSize": 920,
+    "md5": "7b67c5024727789883ab0f162c029404",
+    "compressedAt": "2026-10-03T07:07:08.989Z"
+  },
+  "assets/items/compass_needle.png": {
+    "originalSize": 1210,
+    "compressedSize": 1029,
+    "md5": "9bc93548af5868d15d9e2bfded1a1667",
+    "compressedAt": "2026-10-03T07:07:09.005Z"
+  },
+  "assets/items/pom_pom.png": {
+    "originalSize": 1185,
+    "compressedSize": 1168,
+    "md5": "64b32bc50a576138a733f7fa8b593d06",
+    "compressedAt": "2026-10-03T07:07:09.499Z"
+  },
+  "assets/items/pompom_deluxe.png": {
+    "originalSize": 1185,
+    "compressedSize": 1168,
+    "md5": "64b32bc50a576138a733f7fa8b593d06",
+    "compressedAt": "2026-10-03T07:07:09.527Z"
+  },
+  "assets/items/water_bottle.png": {
+    "originalSize": 1205,
+    "compressedSize": 1196,
+    "md5": "51eac54def1139c4518ea19a6c38d498",
+    "compressedAt": "2026-10-03T07:07:09.530Z"
+  },
+  "assets/items/suspicious_snack.png": {
+    "originalSize": 1197,
+    "compressedSize": 1197,
+    "md5": "8cc3f8380a7ef0690a6d10d1c45585dc",
+    "compressedAt": "2026-10-03T07:07:09.540Z"
+  },
+  "assets/items/recorder.png": {
+    "originalSize": 1184,
+    "compressedSize": 893,
+    "md5": "8e3213cf8382dfe2671e8df3ac24b81a",
+    "compressedAt": "2026-10-03T07:07:10.076Z"
+  },
+  "assets/items/flute.png": {
+    "originalSize": 1184,
+    "compressedSize": 893,
+    "md5": "8e3213cf8382dfe2671e8df3ac24b81a",
+    "compressedAt": "2026-10-03T07:07:10.089Z"
+  },
+  "assets/items/harmonica@2x.png": {
+    "originalSize": 1125,
+    "compressedSize": 881,
+    "md5": "569bf4a9b5ee7ad31fa84fef7f788b00",
+    "compressedAt": "2026-10-03T07:07:10.098Z"
+  },
+  "assets/items/cheer_stick.png": {
+    "originalSize": 1131,
+    "compressedSize": 1036,
+    "md5": "8b27cbbdc49526385ace149a3b962123",
+    "compressedAt": "2026-10-03T07:07:10.194Z"
+  },
+  "assets/props/kenney/kc_tree_dark@2x.png": {
+    "originalSize": 1105,
+    "compressedSize": 465,
+    "md5": "9475e8881ee57724fd79a57e7a1f3f97",
+    "compressedAt": "2026-10-03T07:07:10.663Z"
+  },
+  "assets/items/backup/suspicious_snack@2x.png": {
+    "originalSize": 1110,
+    "compressedSize": 1110,
+    "md5": "84a0e47434e9d03383134877fb138abe",
+    "compressedAt": "2026-10-03T07:07:10.683Z"
+  },
+  "assets/items/jump_rope.png": {
+    "originalSize": 1112,
+    "compressedSize": 862,
+    "md5": "25ea7de08aef373d1b27092477023526",
+    "compressedAt": "2026-10-03T07:07:10.696Z"
+  },
+  "assets/items/student_badge.png": {
+    "originalSize": 1092,
+    "compressedSize": 1025,
+    "md5": "5d27659adf39a948116ee02906bb1b37",
+    "compressedAt": "2026-10-03T07:07:10.871Z"
+  },
+  "assets/items/color_chalk.png": {
+    "originalSize": 1091,
+    "compressedSize": 981,
+    "md5": "22da42bf97a45c69dce98bf7ec03c68c",
+    "compressedAt": "2026-10-03T07:07:11.178Z"
+  },
+  "assets/items/backup/jump_rope@2x.png": {
+    "originalSize": 1084,
+    "compressedSize": 855,
+    "md5": "46161b607ec3ae066730810fb9ba9210",
+    "compressedAt": "2026-10-03T07:07:11.257Z"
+  },
+  "assets/items/newbie_pencil@2x.png": {
+    "originalSize": 1081,
+    "compressedSize": 824,
+    "md5": "265eecc091ee94b30475f36cc1fa93f5",
+    "compressedAt": "2026-10-03T07:07:11.301Z"
+  },
+  "assets/items/backup/cheer_stick@2x.png": {
+    "originalSize": 1058,
+    "compressedSize": 1026,
+    "md5": "1b460242d6f86799d8d936a7ed8e9728",
+    "compressedAt": "2026-10-03T07:07:11.551Z"
+  },
+  "assets/items/backup/pompom_deluxe@2x.png": {
+    "originalSize": 1052,
+    "compressedSize": 1052,
+    "md5": "805bec7a7cd082b6701e22f8da854f7a",
+    "compressedAt": "2026-10-03T07:07:11.739Z"
+  },
+  "assets/items/calligraphy_brush.png": {
+    "originalSize": 1040,
+    "compressedSize": 776,
+    "md5": "e1301c30e0e0fa3f6862206f602db980",
+    "compressedAt": "2026-10-03T07:07:11.840Z"
+  },
+  "assets/items/backup/color_chalk@2x.png": {
+    "originalSize": 1050,
+    "compressedSize": 948,
+    "md5": "68dead99008936a87061581e8319e464",
+    "compressedAt": "2026-10-03T07:07:11.869Z"
+  },
+  "assets/items/teacher_thermos.png": {
+    "originalSize": 1014,
+    "compressedSize": 747,
+    "md5": "1a3d72a1eb1c9b2bfa765e272881c035",
+    "compressedAt": "2026-10-03T07:07:12.208Z"
+  },
+  "assets/items/correction_tape.png": {
+    "originalSize": 1011,
+    "compressedSize": 892,
+    "md5": "9ef9120f1fdc7b42b0b7a7a28218a9d0",
+    "compressedAt": "2026-10-03T07:07:12.385Z"
+  },
+  "assets/items/earplug.png": {
+    "originalSize": 996,
+    "compressedSize": 802,
+    "md5": "ad0f62f41a919b335e5f860fea937f94",
+    "compressedAt": "2026-10-03T07:07:12.401Z"
+  },
+  "assets/items/eye_patch@2x.png": {
+    "originalSize": 1010,
+    "compressedSize": 778,
+    "md5": "6dee711b03bb2ed5153da3fa21fc4f1d",
+    "compressedAt": "2026-10-03T07:07:12.404Z"
+  },
+  "assets/items/backup/correction_tape@2x.png": {
+    "originalSize": 945,
+    "compressedSize": 826,
+    "md5": "c7ae6469d4229373ac543c399e677df7",
+    "compressedAt": "2026-10-03T07:07:12.861Z"
+  },
+  "assets/items/backup/earplug@2x.png": {
+    "originalSize": 936,
+    "compressedSize": 765,
+    "md5": "a9406802dbfc177894dd3354d194ebaf",
+    "compressedAt": "2026-10-03T07:07:13.025Z"
+  },
+  "assets/items/teaching_pointer.png": {
+    "originalSize": 923,
+    "compressedSize": 510,
+    "md5": "9e12ccdb65c189521fb9d65759120bf7",
+    "compressedAt": "2026-10-03T07:07:13.028Z"
+  },
+  "assets/items/backup/chalk_box@2x.png": {
+    "originalSize": 864,
+    "compressedSize": 811,
+    "md5": "d1324fdaae45924ae39765c70a06932b",
+    "compressedAt": "2026-10-03T07:07:13.146Z"
+  },
+  "assets/items/backup/sausage@2x.png": {
+    "originalSize": 822,
+    "compressedSize": 707,
+    "md5": "62414ab1828bbe7e8ab1bb40ebe17a64",
+    "compressedAt": "2026-10-03T07:07:13.457Z"
+  },
+  "assets/items/harmonica.png": {
+    "originalSize": 821,
+    "compressedSize": 668,
+    "md5": "80d599556613753dd91c2e9dcff6146e",
+    "compressedAt": "2026-10-03T07:07:13.554Z"
+  },
+  "assets/items/newbie_pencil.png": {
+    "originalSize": 816,
+    "compressedSize": 645,
+    "md5": "32e31609c88ac900832b50e2911048db",
+    "compressedAt": "2026-10-03T07:07:13.593Z"
+  },
+  "assets/items/candied_haw@2x.png": {
+    "originalSize": 798,
+    "compressedSize": 614,
+    "md5": "d886cf9460227aed5e337a3a0358a667",
+    "compressedAt": "2026-10-03T07:07:13.787Z"
+  },
+  "assets/items/backup/newbie_pencil@2x.png": {
+    "originalSize": 776,
+    "compressedSize": 584,
+    "md5": "6d3e5edb4fd2781377aa359c75428317",
+    "compressedAt": "2026-10-03T07:07:14.069Z"
+  },
+  "assets/items/backup/harmonica@2x.png": {
+    "originalSize": 797,
+    "compressedSize": 648,
+    "md5": "69734494378fce661c3a19db1b0d6af0",
+    "compressedAt": "2026-10-03T07:07:14.106Z"
+  },
+  "assets/items/eye_patch.png": {
+    "originalSize": 746,
+    "compressedSize": 584,
+    "md5": "aa6a4f2a6ed5cec5dadac689939074d8",
+    "compressedAt": "2026-10-03T07:07:14.138Z"
+  },
+  "assets/items/mop.png": {
+    "originalSize": 734,
+    "compressedSize": 575,
+    "md5": "00595e5c2dfe0ae435014c5c6996ccbc",
+    "compressedAt": "2026-10-03T07:07:14.394Z"
+  },
+  "assets/items/backup/eye_patch@2x.png": {
+    "originalSize": 730,
+    "compressedSize": 572,
+    "md5": "70a9fc110f64202bc0def51e8257190d",
+    "compressedAt": "2026-10-03T07:07:14.629Z"
+  },
+  "assets/props/kenney/kc_trafficlight@2x.png": {
+    "originalSize": 709,
+    "compressedSize": 293,
+    "md5": "48df52d1fdaf3f632e2be6009086e23c",
+    "compressedAt": "2026-10-03T07:07:14.655Z"
+  },
+  "assets/items/backup/sudoku@2x.png": {
+    "originalSize": 695,
+    "compressedSize": 645,
+    "md5": "e6d44eef96a7f9a32d3bf2fdb7aaea95",
+    "compressedAt": "2026-10-03T07:07:14.791Z"
+  },
+  "assets/props/kenney/kc_tree_dark.png": {
+    "originalSize": 636,
+    "compressedSize": 458,
+    "md5": "d6ca8c991f3402fe4f1cda6c8f17bff7",
+    "compressedAt": "2026-10-03T07:07:14.979Z"
+  },
+  "assets/props/kenney/kc_food_stall.png": {
+    "originalSize": 624,
+    "compressedSize": 395,
+    "md5": "d135a725afda44d8db5a4b999bb64dcf",
+    "compressedAt": "2026-10-03T07:07:15.162Z"
+  },
+  "assets/items/candied_haw.png": {
+    "originalSize": 628,
+    "compressedSize": 506,
+    "md5": "b916c57851f2f08504f290febcb825af",
+    "compressedAt": "2026-10-03T07:07:15.196Z"
+  },
+  "assets/items/backup/mop@2x.png": {
+    "originalSize": 594,
+    "compressedSize": 436,
+    "md5": "c638376f823c2a45b1987251ce8e5fa5",
+    "compressedAt": "2026-10-03T07:07:15.422Z"
+  },
+  "assets/items/backup/bastard_soda@2x.png": {
+    "originalSize": 567,
+    "compressedSize": 534,
+    "md5": "7bcf114aac91bea20b68c6db48a7ca68",
+    "compressedAt": "2026-10-03T07:07:15.629Z"
+  },
+  "assets/items/backup/honey_tea@2x.png": {
+    "originalSize": 567,
+    "compressedSize": 495,
+    "md5": "6cbb6ad3c02b5db7bce73daf93f6aa69",
+    "compressedAt": "2026-10-03T07:07:15.725Z"
+  },
+  "assets/items/backup/blackboard_eraser@2x.png": {
+    "originalSize": 567,
+    "compressedSize": 480,
+    "md5": "7958601eac842d34c42daac44d386abb",
+    "compressedAt": "2026-10-03T07:07:15.774Z"
+  },
+  "assets/props/kenney/kc_streetlight@2x.png": {
+    "originalSize": 566,
+    "compressedSize": 225,
+    "md5": "20628813ab21f9f696f3f1403770b91a",
+    "compressedAt": "2026-10-03T07:07:15.976Z"
+  },
+  "assets/items/backup/moms_lunchbox@2x.png": {
+    "originalSize": 538,
+    "compressedSize": 480,
+    "md5": "c75330583054b83f9385228be7a666d6",
+    "compressedAt": "2026-10-03T07:07:16.313Z"
+  },
+  "assets/props/kenney/kc_dumpster_green@2x.png": {
+    "originalSize": 538,
+    "compressedSize": 274,
+    "md5": "edfcd013e80cc7423d6205a9083f5aff",
+    "compressedAt": "2026-10-03T07:07:16.318Z"
+  },
+  "assets/props/kenney/kc_vending_machine@2x.png": {
+    "originalSize": 534,
+    "compressedSize": 232,
+    "md5": "b2dec4971735ec3935490485dd2beab1",
+    "compressedAt": "2026-10-03T07:07:16.364Z"
+  },
+  "assets/items/backup/pe_teacher_brain.png": {
+    "originalSize": 514,
+    "compressedSize": 276,
+    "md5": "a632674d0d81e3471e4de94a1fba8fd9",
+    "compressedAt": "2026-10-03T07:07:16.541Z"
+  },
+  "assets/items/backup/chalk_dust@2x.png": {
+    "originalSize": 496,
+    "compressedSize": 388,
+    "md5": "67c4785db4618b0ade0fb9fbfa9aea1f",
+    "compressedAt": "2026-10-03T07:07:16.864Z"
+  },
+  "assets/items/backup/broom@2x.png": {
+    "originalSize": 513,
+    "compressedSize": 399,
+    "md5": "d5a2cfb77c6682c269ca047941ebd21b",
+    "compressedAt": "2026-10-03T07:07:16.956Z"
+  },
+  "assets/items/backup/scream_chicken.png": {
+    "originalSize": 489,
+    "compressedSize": 435,
+    "md5": "7a7b069bae77143a72eb3aed96662a62",
+    "compressedAt": "2026-10-03T07:07:16.981Z"
+  },
+  "assets/items/backup/cooling_oil@2x.png": {
+    "originalSize": 477,
+    "compressedSize": 421,
+    "md5": "d44a7630c20ab2dc9054a40c337e52d3",
+    "compressedAt": "2026-10-03T07:07:17.286Z"
+  },
+  "assets/items/backup/dirty_sock.png": {
+    "originalSize": 471,
+    "compressedSize": 279,
+    "md5": "40d6bc78669d5233ce34bd04bea0ebe4",
+    "compressedAt": "2026-10-03T07:07:17.416Z"
+  },
+  "assets/items/backup/recorder.png": {
+    "originalSize": 412,
+    "compressedSize": 264,
+    "md5": "bc35b62e6ba49d6aa6632a172c3f03fb",
+    "compressedAt": "2026-10-03T07:07:17.524Z"
+  },
+  "assets/props/kenney/kc_bollard@2x.png": {
+    "originalSize": 406,
+    "compressedSize": 198,
+    "md5": "017fdd37e204ff4b349485700c6dee66",
+    "compressedAt": "2026-10-03T07:07:17.649Z"
+  },
+  "assets/items/backup/suspicious_snack.png": {
+    "originalSize": 398,
+    "compressedSize": 390,
+    "md5": "cc91a9c623fbb3b6f05dd52ccab89e32",
+    "compressedAt": "2026-10-03T07:07:17.888Z"
+  }
+}

@@ -9,6 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:web": "vite build && node tools/copy_assets_to_dist.cjs",
+    "compress:images": "node tools/compress_images_tinypng.cjs",
     "build:desktop": "vite build && node tools/copy_assets_to_dist.cjs && powershell.exe -ExecutionPolicy Bypass -File tools/build_desktop.ps1",
     "preview": "vite preview",
     "test": "node --test tests/**/*.test.mjs",
