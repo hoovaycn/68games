@@ -14,7 +14,7 @@ export const CHAPTER17_STORY = {
     id: 'ch17_scene_alter_breach',
     title: '洋行货栈地下核心 · 毒池祭台',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
@@ -29,8 +29,8 @@ export const CHAPTER17_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
         text: '（面目狰狞地冷笑）乖乖把药喝下去！只要你这个全省三好学生成了福寿堂的药傀儡，你们整个学校所有的重点尖子生，就全都是沈家的囊中之物！',
         sfx: 'sfx_text_blip'
@@ -38,8 +38,8 @@ export const CHAPTER17_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
         text: '（奋力将药盏撞翻在地，声嘶力竭地怒喊）做梦！！我死也不会把灵魂卖给你们这帮恶魔！！',
         highlight: true,
@@ -49,7 +49,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_villain_default@2x.png',
+        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
         text: '住手！沈崇礼，看看你爷爷的信物在谁手上！！',
         sfx: 'sfx_confirm'
@@ -68,7 +68,7 @@ export const CHAPTER17_STORY = {
     id: 'ch17_scene_father_shield',
     title: '祭坛崩塌处 · 悲壮的背影',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -84,7 +84,7 @@ export const CHAPTER17_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '小心——！！！',
@@ -104,7 +104,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         activeSide: 'left',
         text: '（瞳孔骤缩，整个人撕心裂肺地哭喊）爸——！！！爸你醒醒啊！！！不要！！不要扔下我！！',
         highlight: true,
@@ -113,7 +113,7 @@ export const CHAPTER17_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（嘴角溢着黑血，却竭尽全力挤出一丝最温暖的笑容，猛地拉响了防爆破拆索）快……带着孩子们……走！记住……老爸永远是……光荣的警察……',
@@ -143,7 +143,7 @@ export const CHAPTER17_STORY = {
     id: 'ch17_scene_tearful_retreat',
     title: '货栈雨夜出口 · 废墟中的誓言',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -158,7 +158,7 @@ export const CHAPTER17_STORY = {
       {
         id: 2,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（扑倒在泥泞中，双手捂着脸痛哭流涕）都是我的错……是我害了海叔叔……如果我没有擅自跑出来……',

@@ -15,7 +15,7 @@ export const CHAPTER12_STORY = {
     id: 'ch12_scene_night_ambush',
     title: '海峰汽修厂后仓 · 雷雨交加的夜探',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -69,7 +69,7 @@ export const CHAPTER12_STORY = {
     id: 'ch12_scene_trap',
     title: '探照灯下 · 冰冷的绝杀网',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -84,7 +84,7 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '黑衣死士头领',
-        leftPortrait: 'assets/art/senior_athlete_corrupted@2x.png',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '老板料得一点没错，海峰那个粗胚果然心软放水了。不过没关系，抓了这几个碍事的小崽子当祭品，他今晚就更跑不出手掌心了。',
@@ -122,7 +122,7 @@ export const CHAPTER12_STORY = {
     id: 'ch12_scene_hero_entry',
     title: '仓库废墟 · 咆哮而来的神兵天降',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
     bgm: 'bgm_fanfare',
     dialogues: [
       {
@@ -138,7 +138,7 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '敢动我家孩子？！老子今天活剥了你们这群吃人骨髓的杂种！！',
@@ -158,7 +158,7 @@ export const CHAPTER12_STORY = {
         id: 4,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '爸……？！你……好厉害？！',
         sfx: 'sfx_shock_sting'
@@ -166,7 +166,7 @@ export const CHAPTER12_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '傻看什么！结阵站在老子背后！看老子怎么把这帮孙子收拾干净！',
@@ -187,7 +187,7 @@ export const CHAPTER12_STORY = {
     id: 'ch12_scene_badge_reveal',
     title: '静止的仓库 · 染血的誓言',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -203,7 +203,7 @@ export const CHAPTER12_STORY = {
         id: 2,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         activeSide: 'left',
         text: '爸！你流血了！你别动，我书包里有覃瑞怡带的纱布！',
         sfx: 'sfx_text_blip'
@@ -221,7 +221,7 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（抬起染着油污的手，有些颤抖地揉了揉自家孩子的头发，眼眶微红）对不起……老爸装了十五年的混混流氓，让你在学校抬不起头。但老爸……从来不是个烂人。',
@@ -232,7 +232,7 @@ export const CHAPTER12_STORY = {
         id: 5,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         activeSide: 'left',
         text: '（死死抱住父亲，嚎啕大哭）爸……！你是我见过的……最伟大的警察！',
         sfx: 'sfx_confirm'

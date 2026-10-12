@@ -104,12 +104,12 @@ const CHAPTER_BANNERS = {
   ch11_scene_slum_street: { label: '第十二章', title: '烂人老爸' },
   ch12_scene_night_ambush: { label: '第十三章', title: '夜袭汽修厂' },
   ch13_scene_safahouse: { label: '第十四章', title: '避难所疑云' },
-  ch14_scene_dock_ritual: { label: '第十五章', title: '夜探虎门港' },
-  ch15_scene_beach_wake: { label: '第十六章', title: '浩然正气' },
-  ch16_scene_return_ruins: { label: '第十七章', title: '反间惊雷' },
-  ch17_scene_alter_breach: { label: '第十八章', title: '死守实验室' },
-  ch18_scene_warehouse_breach: { label: '第十九章', title: '决战前夕' },
-  ch19_scene_final_stand: { label: '第二十章', title: '黎明破晓' }
+  ch14_scene_dock_ritual: { label: '第十五章', title: '海魂回响' },
+  ch15_scene_historic_prologue: { label: '第十六章', title: '浩然正气' },
+  ch16_scene_return_ruins: { label: '第十七章', title: '破碎的奖状' },
+  ch17_scene_alter_breach: { label: '第十八章', title: '孤注一掷' },
+  ch18_scene_warehouse_breach: { label: '第十九章', title: '逆行攻坚' },
+  ch19_scene_final_stand: { label: '第二十章', title: '破晓钟声' }
 };
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
@@ -145,7 +145,7 @@ const CHAPTER_ENTRY_SCENES = [
   'ch12_scene_night_ambush', // 第 13 章
   'ch13_scene_safahouse',  // 第 14 章
   'ch14_scene_dock_ritual',// 第 15 章
-  'ch15_scene_beach_wake', // 第 16 章
+  'ch15_scene_historic_prologue', // 第 16 章
   'ch16_scene_return_ruins', // 第 17 章
   'ch17_scene_alter_breach', // 第 18 章
   'ch18_scene_warehouse_breach', // 第 19 章

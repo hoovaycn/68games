@@ -15,7 +15,7 @@ export const CHAPTER16_STORY = {
     id: 'ch16_scene_return_ruins',
     title: '古运河驳船残骸 · 晨雾笼罩',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -30,7 +30,7 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '大难不死，还带回了彻底克制福寿堂古毒的圣物！沈万廷父子老巢就在下游废弃的“洋行货栈”，先回安全屋补充防暴盾牌和弹药，正午展开全线合围！',
@@ -69,7 +69,7 @@ export const CHAPTER16_STORY = {
     id: 'ch16_scene_betrayal_note',
     title: '安全屋铁桌前 · 沾满泪痕的留言',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -94,7 +94,7 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '信纸留言（覃瑞怡）',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还扣下了小敏的手术捐款信托。他们说只要我天亮前把木钎送去江心水闸，就会销毁全班档案放过大家……我绝不能连累整个班级因为我毁掉前途。木钎是我拿的，所有罪名我一个人扛。』',
@@ -105,7 +105,7 @@ export const CHAPTER16_STORY = {
         id: 4,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '这个傻孩子！沈崇礼那帮吃人不吐骨头的恶棍怎么可能守信用！这是去送死啊！',
         sfx: 'sfx_shock_sting'
@@ -113,7 +113,7 @@ export const CHAPTER16_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '带上所有家伙，全速赶往江心旧水闸！绝不能让二十年前阿瑶的悲剧，在这孩子身上重演第二遍！！',
@@ -133,7 +133,7 @@ export const CHAPTER16_STORY = {
     id: 'ch16_scene_rainy_chase',
     title: '江心旧水闸 · 泥泞与锈铁',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_watergate_ruins@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
@@ -148,8 +148,8 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '沈氏死士头目',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '桀桀……六掌柜料事如神，那个天真的女班长果然把东西送来了！至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
         highlight: true,
@@ -179,14 +179,14 @@ export const CHAPTER16_STORY = {
     id: 'ch16_scene_truth_unveiled',
     title: '锈蚀水闸顶 · 逼供残兵',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_watergate_ruins@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
-        rightPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
         text: '（一记反关节擒拿死死扣住头目的喉咙）说！小姑娘人在哪里？！木钎被送去哪了？！',
         sfx: 'sfx_confirm'
@@ -194,8 +194,8 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '沈氏死士头目',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '咳咳……迟了……你们去得太晚了！六掌柜和老太爷已经把她带去洋行货栈地下的“万毒血池”……要用那柄木钎作为活祭之匙，逼她喝下第一口原浆药引！',
         highlight: true,

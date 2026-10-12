@@ -15,7 +15,7 @@ export const CHAPTER19_STORY = {
     id: 'ch19_scene_final_stand',
     title: '货栈顶层钟楼大厅 · 魔尊降世',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
@@ -31,7 +31,7 @@ export const CHAPTER19_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（操纵着神经连接器，歇斯底里地嘶吼）见识一下两百年洋行积累的无上神威吧！任何妄图对抗沈家的人，都将被碾碎成这钟楼上的残渣骨灰！！',
@@ -50,7 +50,7 @@ export const CHAPTER19_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
         text: '大家结成七星破邪阵！把所有的正气与信念注入赤心木钎，彻底粉碎两百年的罪恶宿命！！',
         sfx: 'sfx_confirm'
@@ -70,7 +70,7 @@ export const CHAPTER19_STORY = {
     id: 'ch19_scene_boss_destroyed',
     title: '残破的钟楼露台 · 圣光涤荡',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_battle_victory',
     dialogues: [
       {
@@ -95,7 +95,7 @@ export const CHAPTER19_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（颤抖着看着自己的双手，喃喃自语）输了……福寿堂两百年的基业……竟然输在了一帮中学生手里……',
@@ -125,7 +125,7 @@ export const CHAPTER19_STORY = {
     id: 'ch19_scene_miracle_reunion',
     title: '钟楼大厅废墟门前 · 铁汉柔情',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_battle_victory',
     dialogues: [
       {
@@ -141,7 +141,7 @@ export const CHAPTER19_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（虽然脸色苍白、步履蹒跚，但嘴角依然挂着那抹标志性大大咧咧的笑容）臭孩子，哭什么鼻子呢？老子好歹是省厅连续五年格斗比武第一名，这点小阴沟还能翻了老子的船？',
@@ -152,7 +152,7 @@ export const CHAPTER19_STORY = {
         id: 3,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         activeSide: 'left',
         text: '（呆愣了半秒，随即不顾一切地扑进海峰怀里，眼泪决堤般倾泻而出）爸——！！！你没死！你真的没死！！呜呜呜……',
         highlight: true,
@@ -190,7 +190,7 @@ export const CHAPTER19_STORY = {
     id: 'ch19_scene_dawn_epilogue',
     title: '钟楼最高处 · 破晓时分的钟声',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_battle_victory',
     dialogues: [
       {
@@ -206,7 +206,7 @@ export const CHAPTER19_STORY = {
         id: 2,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
         text: '暑假的阳光真暖和啊。家长会的威胁消失了，全班同学的档案保住了，我们终于可以堂堂正正迎接新学期了！',
         sfx: 'sfx_text_blip'

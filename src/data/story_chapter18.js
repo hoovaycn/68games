@@ -14,7 +14,7 @@ export const CHAPTER18_STORY = {
     id: 'ch18_scene_warehouse_breach',
     title: '洋行货栈外侧 · 暴雨突击准备',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -68,7 +68,7 @@ export const CHAPTER18_STORY = {
     id: 'ch18_scene_teacher_stand',
     title: '货栈一层挑空中庭 · 钢铁巨兽',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
@@ -133,7 +133,7 @@ export const CHAPTER18_STORY = {
     id: 'ch18_scene_tower_arrival',
     title: '货栈顶层钟楼大厅 · 暴风雨之巅',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -149,7 +149,7 @@ export const CHAPTER18_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（站在巨型控制台前，双眼布满血丝，癫狂狂笑）居然真让你们这群小杂种爬上来了！但你们以为赢了吗？老太爷已经将全身残躯融入了百年鸦片巨灵神，整座城市的重点名校，今夜都将臣服在福寿堂脚下！！',
@@ -159,7 +159,7 @@ export const CHAPTER18_STORY = {
         id: 3,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_villain_default@2x.png',
+        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
         text: '（拔出赤心销烟钎，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底化为飞灰吧！！',
         sfx: 'sfx_confirm'

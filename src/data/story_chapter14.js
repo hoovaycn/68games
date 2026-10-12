@@ -14,7 +14,7 @@ export const CHAPTER14_STORY = {
     id: 'ch14_scene_dock_ritual',
     title: '古运河驳船甲板 · 幽蓝祭坛',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -29,7 +29,7 @@ export const CHAPTER14_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '（手扶铜炉，阴恻恻地冷笑）徐老师，刘老师……还有海警督，带着一群乳臭未干的小毛孩，动作倒是挺快。可惜，时辰已到，江潮已平！',
@@ -38,7 +38,7 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '沈万廷（轮椅老人）',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
         text: '（干瘪的喉咙里发出风箱般的怪笑）嗬……嗬……刘秉德，二十年了，你那根破竹教鞭还没扔呢？当年阿瑶的哀求我还记在耳朵里……今天，该轮到你们的新学生了！',
@@ -49,7 +49,7 @@ export const CHAPTER14_STORY = {
         id: 4,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/adult_villain_default@2x.png',
+        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
         text: '沈万廷！人在做天在看，二十年前的账，今天我们连本带利向你讨回来！',
         sfx: 'sfx_confirm'
@@ -68,7 +68,7 @@ export const CHAPTER14_STORY = {
     id: 'ch14_scene_pot_broken',
     title: '甲板中心 · 狂澜异变',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
@@ -93,7 +93,7 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/adult_villain_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '混账！你们竟敢砸碎老祖宗的传家宝！护卫队，把所有人推下江喂鱼！！',
@@ -123,7 +123,7 @@ export const CHAPTER14_STORY = {
     id: 'ch14_scene_vortex_entry',
     title: '扭曲的天空 · 逆转的指针',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -139,7 +139,7 @@ export const CHAPTER14_STORY = {
         id: 2,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '脚下的甲板……甲板在消失？！爸！抓紧我的手！！',
         sfx: 'sfx_text_blip'
@@ -147,7 +147,7 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '抓紧！所有人手拉着手！徐老师、刘老师，护住孩子们的头！！',
@@ -166,9 +166,9 @@ export const CHAPTER14_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '白光消散，海风裹挟着硝烟与咸味扑面而来！',
-      buttonText: '【睁开双眼 · 踏入1839年虎门】',
-      targetScene: 'ch15_scene_beach_wake'
+      prompt: '白光消散，历史的巨轮在眼前隆隆倒转！',
+      buttonText: '【时空逆流 · 梦回道光年间】',
+      targetScene: 'ch15_scene_historic_prologue'
     }
   }
 };

@@ -70,7 +70,7 @@ export const CHAPTER10_STORY = {
     id: 'ch10_scene_museum_meet',
     title: '省历史博物馆 · 百年特展大厅',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_museum_square@2x.png',
     bgm: 'bgm_classroom',
     dialogues: [
       {
@@ -133,7 +133,7 @@ export const CHAPTER10_STORY = {
     id: 'ch10_scene_crisis',
     title: '二号中央展厅 · 出水古瓷罐的异芒',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_exhibition@2x.png',
+    bgImg: 'assets/backgrounds/bg_museum_exhibition@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -187,13 +187,13 @@ export const CHAPTER10_STORY = {
     id: 'ch10_scene_confrontation',
     title: '展柜中央 · 神秘家长的狂妄',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_exhibition@2x.png',
+    bgImg: 'assets/backgrounds/bg_museum_exhibition@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
-        speaker: '神秘家长',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        speaker: '神秘家长（沈崇礼）',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '六 8 班的孩子们？还真是阴魂不散啊。学校里的小实验被你们搅黄了，竟然还能追到省博来？',
@@ -202,7 +202,7 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '{MC_NAME}',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
         text: '果然是你！你在借文物特展的名义，把百年前沉江的古毒提纯掉包！',
@@ -210,8 +210,8 @@ export const CHAPTER10_STORY = {
       },
       {
         id: 3,
-        speaker: '神秘家长',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        speaker: '神秘家长（沈崇礼）',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '毒？愚蠢的庸才才叫它毒，我们称之为“青髓”。当年林则徐烧不尽它，今天这满城渴望成才的家长与学生，更拒绝不了它！动手，装箱带走！把这几个小鬼扔进地下室！',

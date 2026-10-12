@@ -2,19 +2,123 @@
  * 第十六章《浩然正气》剧情脚本数据表（第二幕 第6章）
  *
  * 流程结构：
- * - ch15_scene_beach_wake: 穿越至道光十九年（1839年）广东虎门滩头，海风烈烈，巨池销烟
- * - ch15_scene_militia_stand: 英国武装鸦片快艇水手与买办死士偷袭沙角滩头，民团奋死抵抗
- * - ch15_battle1: 虎门滩头保卫战（主角团 + 虎门民团教头 VS 异国武装水手与初代买办死士）
- * - ch15_scene_righteous_seal: 击退外敌，义勇赠予刻有铭文的“销烟赤木法钎”，时空回溯共振
+ * - ch15_scene_historic_prologue: 【画外音宏大叙事】1838年紫禁城养心殿，道光皇帝面对沉沦危局八召林则徐，御准严禁鸦片
+ * - ch15_scene_humen_harbor_inspect: 【前线巡阅】1839年广东虎门古港与海防官口，林则徐临江督防，颁布铁令
+ * - ch15_scene_beach_wake: 【时空交错】现代少年团自时空漩涡跌落虎门滩头，亲眼见证历史上的“双池化烟”名场面
+ * - ch15_scene_militia_stand: 【外敌突袭】异国鸦片武装水手勾结初代买办死士偷袭化烟池，民团浴血抵抗
+ * - ch15_battle1: 【滩头血战】虎门滩头保卫战（主角团 + 虎门民团教头 VS 异国武装水手与初代买办死士）
+ * - ch15_scene_lin_commends: 【名臣赐物】林则徐亲临滩头抚慰将士，识破少年赤诚，御赐“赤心销烟钎”作为浩然信物
+ * - ch15_scene_righteous_seal: 【共振重返】赤木钎爆发神圣浩然金光，破除时空界限，众人重返现代驳船
  */
 
 export const CHAPTER15_STORY = {
-  // s1: 沙角滩头 · 历史烟云
+  // s1: 【画外音宏大叙事】紫禁城养心殿 · 帝王与重臣的抉择
+  ch15_scene_historic_prologue: {
+    id: 'ch15_scene_historic_prologue',
+    title: '道光十八年 · 紫禁城养心殿',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_forbidden_city_palace@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '历史画外音',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '【清 · 道光十八年 冬】\n幽深森严的紫禁城内，寒风猎猎。西洋烟毒如附骨之疽蚀透大江南北，官民困顿、数千万两白银滚滚外流。国运飘摇之际，深宫御案前展开了一场关乎民族存亡的绝密长谈……',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 2,
+        speaker: '道光皇帝',
+        leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
+        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        activeSide: 'left',
+        text: '林爱卿，朕阅卿奏折，触目惊心……“中原几无可以御敌之兵，且无可以充饷之银！”满朝文武皆言不可开罪洋人，唯卿敢言断其根本。卿真能为朕、为大清，担起这万钧重担？',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '林则徐',
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        rightPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
+        activeSide: 'left',
+        text: '（撩袍跪伏，声音铿锵如金石）“苟利国家生死以，岂因祸福避趋之！”若鸦片一日不绝，臣一日不回！臣愿提头南下，直抵粤海门户，誓叫这万里海波，复还朗朗乾坤！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
+        speaker: '道光皇帝',
+        leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
+        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        activeSide: 'left',
+        text: '好！朕赐卿“钦差大臣关防”紫金印绶，节制两广水陆官兵！此去山高水远，去替天下万民，斩断这百年妖毒！',
+        sfx: 'sfx_confirm'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '御案上金印重重落下，风云突变，历史长河呼啸着扑向南国海疆！',
+      buttonText: '【南下粤海 · 奔赴前线】',
+      targetScene: 'ch15_scene_humen_harbor_inspect'
+    }
+  },
+
+  // s2: 【前线巡阅】虎门古港 · 帅旗猎猎
+  ch15_scene_humen_harbor_inspect: {
+    id: 'ch15_scene_humen_harbor_inspect',
+    title: '道光十九年 · 广东虎门海防要塞',
+    bgType: 'street',
+    bgImg: 'assets/backgrounds/bg_humen_harbor_1839@2x.png',
+    bgm: 'bgm_boss_intro',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '历史画外音',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '【道光十九年 四月廿二】\n珠江咽喉，虎门海口。靖远、威远炮台炮门洞开，水师百艘战船锁死江面，海滩上聚集着万千义愤填膺的广东军民。一场震动全球的浩然壮举正在此地上演！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '林则徐',
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '传本钦差军令：开池引潮，投盐泼灰！收缴之两万余箱两百三十七万余斤鸦片烟膏，悉数投入化烟池！凡勾结洋商、藏匿烟土、暗通款曲者，格杀勿论！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '正当三军齐声高呼、民团擂响战鼓之时，要塞侧翼的沙角海滩突然传来火绳枪与快艇暗袭的剧烈警报！时空的漩涡恰在此刻轰然坠落在沸腾的海滩之上！',
+        sfx: 'sfx_suspense'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '剧烈的时空金光与石灰白烟撞在一起，少年们从天而降！',
+      buttonText: '【坠落滩头 · 见证历史】',
+      targetScene: 'ch15_scene_beach_wake'
+    }
+  },
+
+  // s3: 【时空交错】沙角滩头 · 沸腾的双池
   ch15_scene_beach_wake: {
     id: 'ch15_scene_beach_wake',
     title: '道光十九年 · 广东虎门沙角海滩',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_battle_victory',
     dialogues: [
       {
@@ -23,7 +127,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '海浪一波波拍打着裤腿，刺骨的潮水将少年们从昏迷中唤醒。日光炽烈得炫目，空气中充斥着生石灰沸腾的刺鼻烟气与滚滚热浪。',
+        text: '海浪一波波拍打着裤腿，刺骨的潮水与浓烈的石灰烟尘将少年们猛然呛醒。炽烈耀眼的骄阳下，眼前正是历史课本上庄严厚重的“虎门销烟”现场！',
         sfx: 'sfx_suspense'
       },
       {
@@ -32,7 +136,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（揉着眼睛爬起来，目瞪口呆地看着前方）这……这根本不是城南的古运河！你们看远处的海面上，停泊着插满骷髅旗与米字旗的巨大三桅帆船！',
+        text: '（揉着眼睛失声尖叫）天哪！不是做梦！远处海面上停泊的是大英帝国的武装双桅纵帆船！池子里正翻滚着白色的生石灰沸水！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -42,7 +146,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（捡起沙滩上的一面残破旌旗，声音颤抖）海滩上挖了两个长宽各十五丈的巨大化烟池……池旁伫立着钦差大臣林则徐的帅旗！我们……我们竟然逆流回到了1839年的虎门销烟现场！',
+        text: '（抚摸着插在沙滩上的“钦差大臣林”大旗，热泪盈眶）长宽十五丈的化烟池……潮起注水，投盐化灰！这就是两百年前中华民族第一次向毒品亮剑的伟岸时刻！我们真的穿越回来了！',
         sfx: 'sfx_confirm'
       },
       {
@@ -51,43 +155,43 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '看池子边上！有一群拿火绳枪和弯刀的人正从划艇上跳下来，妄图往海里倒药抢夺生鸦片！',
+        text: '快看池畔浅滩！有几艘黑色快艇正冒死靠岸，十几个手持洋枪和弯刀的人正试图夺取化烟池边的鸦片箱！',
         sfx: 'sfx_text_blip'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '滩头传来愤怒的呐喊与火铳爆鸣，守池民团正被重重围困！',
-      buttonText: '【拔足狂奔 · 援救民团】',
+      prompt: '滩头传来愤怒的短兵相接声，负责守池的虎门民团正浴血迎击！',
+      buttonText: '【挺身而出 · 支援民团】',
       targetScene: 'ch15_scene_militia_stand'
     }
   },
 
-  // s2: 民团死守 · 买办偷袭
+  // s4: 【外敌突袭】民团死守 · 买办偷袭
   ch15_scene_militia_stand: {
     id: 'ch15_scene_militia_stand',
-    title: '销烟池畔 · 浴血滩头',
+    title: '化烟巨池畔 · 浴血浅滩',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_boss_intro',
     dialogues: [
       {
         id: 1,
         speaker: '虎门民团教头',
-        leftPortrait: 'assets/art/boss_rebel_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
-        text: '（手提齐眉铁棍，肩头渗血）洋鬼子和福寿堂的汉奸狗贼！林总督命我等化尽天下乌烟，今日除非踏过老子尸首，否则半钱黑膏也休想抢走！',
+        text: '（手持赤木长钎，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/teacher_pe_default@2x.png',
-        rightPortrait: 'assets/art/boss_rebel_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
-        text: '好壮士！不管是两百年前还是两百年后，老子这一身警服最容不下的就是这帮毒贩！教头，我们来帮你！',
+        text: '好一条响当当的汉子！不管是百年前还是百年后，老子这一身警服、满腔热血，最容不下的就是这帮祸国殃民的毒枭！教头，我们并肩杀敌！',
         sfx: 'sfx_confirm'
       },
       {
@@ -96,25 +200,25 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '大家结成铁桶防御阵！护住销烟池，绝不能让百年前的浩然正气被玷污！',
+        text: '全员结阵！守住化烟池，绝不能让百年前的浩然正气被宵小玷污！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '数十名武装外国水手与初代买办死士挥舞刺刀弯刀蜂拥扑来！',
-      buttonText: '【滩头血战 · 护卫化烟池】',
+      prompt: '燧发火枪喷射火星，异国武装水手与沈氏先祖买办死士嚎叫着扑向滩头！',
+      buttonText: '【沙角血战 · 捍卫化烟池】',
       battleId: 'ch15_battle1',
       isBattleTrigger: true
     }
   },
 
-  // s3: 浩然信物 · 破空重返
-  ch15_scene_righteous_seal: {
-    id: 'ch15_scene_righteous_seal',
-    title: '落日熔金 · 百年心印',
+  // s5: 【名臣赐物】林则徐亲临 · 浩然相赠
+  ch15_scene_lin_commends: {
+    id: 'ch15_scene_lin_commends',
+    title: '销烟池畔 · 钦差大臣巡阅',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_battle_victory',
     dialogues: [
       {
@@ -123,41 +227,97 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '在众人的齐心血战下，狂妄的侵略水手与买办走狗丢盔弃甲，狼狈逃回快艇。夕阳西下，两口巨大的化烟池里，翻滚的白烟直冲云霄，涤荡着世间的一切污浊！',
-        sfx: 'sfx_text_blip'
+        text: '激战落幕，偷袭的武装快艇被尽数击沉或缴获，残敌仓皇逃窜。沙角海滩上三军雷动！一顶深蓝色官呢大轿在亲兵簇拥下肃然停在池畔，林则徐亲自迈步登台！',
+        sfx: 'sfx_confirm'
       },
       {
         id: 2,
-        speaker: '虎门民团教头',
-        leftPortrait: 'assets/art/boss_rebel_default@2x.png',
+        speaker: '林则徐',
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（双手捧出一柄被石灰烈焰淬炼得赤红如玉的沉香木销烟钎）诸位义士身手奇绝、大义凛然！此物乃林大人亲手刻印的“赤心销烟钎”，内蕴千万人同心灭毒之浩然正气，赠予诸位！',
+        text: '（凝视着服饰奇异却正气凛然的众人，目光深邃而宽慰）少年人服饰奇特，非我朝装束，但方才于枪林弹雨中捍卫化烟池，其心之赤、其志之坚，老夫亲眼所见！尔等究竟自何处而来？',
         highlight: true,
-        sfx: 'sfx_shock_sting'
+        sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/boss_rebel_default@2x.png',
+        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '（接过赤木钎，掌心顿时涌入一股温暖醇厚、坚不可摧的纯正力量）有了这股浩然正气，福寿堂的一切妖邪剧毒都将无所遁形！',
-        sfx: 'sfx_confirm'
+        text: '（躬身长揖，肃穆以对）林总督！我们来自两百年后的和平中国！在我们的时代，山河锦绣、人民康泰，您当年播下的禁毒之火，已化作守护亿万同胞的钢铁长城！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 4,
+        speaker: '林则徐',
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（眼眶泛红，望向苍茫南海，长叹而笑）两百年后……山河无恙，国无烟毒……善！大善！老夫此生无憾矣！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 5,
+        speaker: '林则徐',
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '这柄“赤心销烟钎”，乃老夫以岭南沉香木所制，浸润沸水石灰与万民浩然誓愿。闻尔等时代亦有旧孽未除，老夫便将此物赠予后世少年——持此浩然，百毒不侵，邪祟尽伏！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '林则徐亲手将赤红如玉的沉香木钎交到少年掌心！',
+      buttonText: '【手握正气 · 承接嘱托】',
+      targetScene: 'ch15_scene_righteous_seal'
+    }
+  },
+
+  // s6: 【共振重返】百年心印 · 时空回溯
+  ch15_scene_righteous_seal: {
+    id: 'ch15_scene_righteous_seal',
+    title: '落日熔金 · 百年心印',
+    bgType: 'street',
+    bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
+    bgm: 'bgm_battle_victory',
+    dialogues: [
+      {
+        id: 1,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '赤木钎在掌中爆发出耀眼金辉，与跨越百年的时空法则剧烈共鸣。潮声再起，周遭的沙滩与海浪化作金色的流光，裹挟着众人重返现代驳船！',
+        text: '赤心木钎入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作涤荡世间一切阴暗的纯阳圣光！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '林公在上，后辈定不负嘱托！不管什么福寿堂沈万廷，这百年毒账，我们替您连本带利彻底清算！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 3,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '赤木钎爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
+        highlight: true,
         sfx: 'sfx_suspense'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '金光收敛，众人脚踏实地，重新回到了雨夜运河驳船的废墟之上！',
+      prompt: '时空金流平复，众人重新踏足于现代暴雨中破损的古运河驳船残骸之上！',
       buttonText: '【重返现代 · 开启第十七章】',
       targetScene: 'ch16_scene_return_ruins'
     }

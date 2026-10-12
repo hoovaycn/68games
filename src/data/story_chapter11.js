@@ -15,7 +15,7 @@ export const CHAPTER11_STORY = {
     id: 'ch11_scene_slum_street',
     title: '城南汽修街 · 烈日下的机油味',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_exterior@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -78,7 +78,7 @@ export const CHAPTER11_STORY = {
     id: 'ch11_scene_garage_inside',
     title: '海峰汽修厂内 · 昏暗车间的分赃',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_exterior@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -102,8 +102,8 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '老海峰，货路子给你铺好了。古罐里的“青髓”原浆运到码头后，这三十万现金归你，以后城南这片二手车销赃，我也罩着你。',
         sfx: 'sfx_text_blip'
@@ -111,8 +111,8 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',
         highlight: true,
@@ -132,14 +132,14 @@ export const CHAPTER11_STORY = {
     id: 'ch11_scene_confrontation',
     title: '车间正中 · 父女/父子决裂的耳光',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_exterior@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒物？！',
         sfx: 'sfx_shock_sting'
@@ -148,7 +148,7 @@ export const CHAPTER11_STORY = {
         id: 2,
         speaker: '老爸海峰',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！',
         sfx: 'sfx_shock_sting'
@@ -157,7 +157,7 @@ export const CHAPTER11_STORY = {
         id: 3,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！',
         sfx: 'sfx_text_blip'
@@ -166,7 +166,7 @@ export const CHAPTER11_STORY = {
         id: 4,
         speaker: '老爸海峰',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '（一巴掌粗暴抽开 {ALLY_2_NAME} 手里的奖状，奖状撕裂飘落在机油坑里）读个屁的书！老子混饭吃轮不到你在这指手画脚！几个小屁孩也敢来坏老子的财路？——二秃子，把他们给我狠狠揍一顿轰出去！！',
         highlight: true,
@@ -187,7 +187,7 @@ export const CHAPTER11_STORY = {
     id: 'ch11_scene_breakdown',
     title: '汽修厂大门外 · 紧闭的铁闸门',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgImg: 'assets/backgrounds/bg_garage_exterior@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {

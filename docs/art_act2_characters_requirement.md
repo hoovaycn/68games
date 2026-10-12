@@ -22,7 +22,7 @@
 
 ---
 
-## 二、第二幕核心角色立绘清单 (共 8 套核心角色资源)
+## 二、第二幕核心角色立绘清单 (共 10 套核心角色资源)
 
 ### 1. 老爸海峰（市井修车痞气 / 隐藏卧底警察）
 - **角色 ID**：`father_haifeng_default`
@@ -143,7 +143,41 @@
 
 ---
 
-### 8. 百年鸦片巨灵神 · 机械生化魔躯（第20章大决战最终 BOSS）
+### 8. 林则徐 · 钦差大臣（道光十九年 · 民族脊梁）
+- **角色 ID**：`lin_zexu_imperial_commissioner`
+- **身份定位**：第15章宫廷溯源、第16章时空穿越至虎门滩头的核心灵魂导师与民族英雄。受命于危难之际，力排众议督办两广海防与虎门销烟。
+- **外观特征**：
+  50余岁的清代重臣形象。头戴清代红顶花翎凉帽（文官一品顶戴），身穿绣有仙鹤补子的藏青色织锦官服朝袍，胸前垂挂深色沉香木朝珠。颌下留着修剪整齐的花白长须，面容端肃威严，目光如炬，透着忧国忧民的深邃沉郁与“苟利国家生死以”的钢铁意志。手中握着一柄御赐朱砂批红笔或卷起的销烟告示。
+- **交付文件**：
+  - `assets/art/lin_zexu_imperial_commissioner.png`
+  - `assets/art/lin_zexu_imperial_commissioner@2x.png`
+  - `assets/portraits/lin_zexu_imperial_commissioner.png`
+  - `assets/portraits/lin_zexu_imperial_commissioner@2x.png`
+- **参考提示词 (Prompt)**：
+  ```text
+  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background, no watermark. Historical Chinese imperial commissioner Lin Zexu in 1839 Qing Dynasty. Dignified 50-year-old high official with neatly trimmed grey beard, wearing traditional navy-blue Qing official robe with crane rank insignia badge (Buzi) and mandarin court necklace, wearing an official conical summer hat with red coral finial and peacock feather. Stern, profoundly patriotic and uncompromising righteous gaze, holding an official imperial proclamation scroll, clean anime pixel art style, cel-shaded.
+  ```
+
+---
+
+### 9. 道光皇帝 · 旻宁（养心殿御前 · 忧患深重）
+- **角色 ID**：`emperor_daoguang_palace`
+- **身份定位**：第15章时空画外音与御殿召见回忆中的大清君主。目睹白银外流与国民躯体残破，八次召见林则徐并赐予钦差关防，下定断绝祸患的最后决心。
+- **外观特征**：
+  50余岁的大清皇帝。身材消瘦，面容清癯憔悴，双颊微陷，眉宇间凝结着深重的帝国焦虑与忧患。头戴清帝金龙东珠朝冠或暖帽，身穿明黄色十二章刺绣金龙江崖海水龙袍，外罩玄色暗金龙纹马褂。眼神在威严之下透露出面对未有之变局的沉重与孤注一掷的决断。
+- **交付文件**：
+  - `assets/art/emperor_daoguang_palace.png`
+  - `assets/art/emperor_daoguang_palace@2x.png`
+  - `assets/portraits/emperor_daoguang_palace.png`
+  - `assets/portraits/emperor_daoguang_palace@2x.png`
+- **参考提示词 (Prompt)**：
+  ```text
+  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background, no watermark. Qing Dynasty Emperor Daoguang in Forbidden City palace. Slender and gaunt 50-year-old monarch with solemn weathered facial features, wearing traditional imperial bright yellow dragon robe intricately embroidered with golden coiled dragons and ocean wave hem, topped with dark embroidered surcoat and royal pearl necklace. Anxious yet resolute authoritative gaze, carrying the immense weight of an empire, cinematic historical anime pixel art style, cel-shaded.
+  ```
+
+---
+
+### 10. 百年鸦片巨灵神 · 机械生化魔躯（第20章大决战最终 BOSS）
 - **角色 ID**：`boss_colossus_opium_god`
 - **身份定位**：第二幕最终大决战关底 BOSS。百年鸦片原浆聚合体与蒸汽工业齿轮结合的终极怪物，沈万廷残躯嵌在巨灵胸口核心。
 - **外观特征**：

@@ -19,7 +19,7 @@
 
 ---
 
-## 二、第二幕场景背景图详细清单 (共 12 处场景)
+## 二、第二幕场景背景图详细清单 (共 14 处场景)
 
 ### 1. 省历史博物馆正门特展广场
 - **资源名/Key**：`bg_museum_square`
@@ -126,7 +126,37 @@
 
 ---
 
-### 8. 道光十九年 · 广东虎门沙角海滩（时空穿越）
+### 8. 清道光 · 紫禁城养心殿养心门御案（时空溯源 · 御准销烟）
+- **资源名/Key**：`bg_forbidden_city_palace`
+- **对应章节**：第15章《海魂回响》
+- **存放路径**：
+  - `assets/backgrounds/bg_forbidden_city_palace.png`
+  - `assets/backgrounds/bg_forbidden_city_palace@2x.png`
+- **场景描述**：
+  1838年（道光十八年）深秋紫禁城养心殿正殿内景。朱红雕漆巨柱、金丝楠木御案上堆积如山的江南与两广奏折。御案正中央摆着一道朱批盖印的“钦差大臣关防”金印与令箭。深邃森严的宫廷阴影中，一道金色天光穿过雕花窗棱斜斜照在金砖地面上，肃穆凝重，国运抉择的压迫感拉满。
+- **参考提示词 (Prompt)**：
+  ```text
+  16-bit JRPG visual novel background, majestic interior of the Forbidden City Imperial Palace Yangxin Hall during Qing Dynasty, ornate vermilion pillars with gilded dragons, grand rosewood imperial desk stacked with rolled silk memorials, imperial seal and jade decree tablet in center, golden rays of sunlight piercing through carved wooden lattice windows, solemn grand historical imperial court atmosphere, cinematic lighting, no characters, no text, no watermark, 16:9 widescreen.
+  ```
+
+---
+
+### 9. 道光十九年 · 广东虎门古港与官厅口（销烟前线）
+- **资源名/Key**：`bg_humen_harbor_1839`
+- **对应章节**：第15/16章《浩然正气》
+- **存放路径**：
+  - `assets/backgrounds/bg_humen_harbor_1839.png`
+  - `assets/backgrounds/bg_humen_harbor_1839@2x.png`
+- **场景描述**：
+  1839年虎门靖远炮台与古官道江口。江面上千帆耸立，红旗猎猎。古朴斑驳的青石码头上，官兵、水师与浩荡的民团武人来回列队巡防。岸边搭起临时阅兵监视行辕棚架，书写“钦差大臣节制两广水陆官兵”帅旗随海风狂烈招展。空气中弥漫着海水咸腥与肃杀的决战前夜氛围。
+- **参考提示词 (Prompt)**：
+  ```text
+  16-bit JRPG visual novel background, historic 1839 ancient Humen military harbor and fortress pier in Guangdong, wooden watchtowers and ancient bronze cannons along stone seawall, hundreds of Qing dynasty naval junks anchored in bay, official tent encampment with fluttering military banners, dramatic oceanic sky, authentic 19th-century Chinese historical harbor anime style, no characters, no text, 16:9.
+  ```
+
+---
+
+### 10. 道光十九年 · 广东虎门沙角海滩（时空穿越 · 化烟盛景）
 - **资源名/Key**：`bg_humen_beach_1839`
 - **对应章节**：第16章《浩然正气》
 - **存放路径**：
@@ -141,7 +171,7 @@
 
 ---
 
-### 9. 江心旧水闸废料场
+### 11. 江心旧水闸废料场
 - **资源名/Key**：`bg_watergate_ruins`
 - **对应章节**：第17章《破碎的奖状》
 - **存放路径**：
@@ -156,7 +186,7 @@
 
 ---
 
-### 10. 洋行货栈地下毒池祭坛
+### 12. 洋行货栈地下毒池祭坛
 - **资源名/Key**：`bg_warehouse_poison_altar`
 - **对应章节**：第18章《孤注一掷》
 - **存放路径**：
@@ -171,7 +201,7 @@
 
 ---
 
-### 11. 洋行货栈挑空中庭大堂
+### 13. 洋行货栈挑空中庭大堂
 - **资源名/Key**：`bg_warehouse_grand_hall`
 - **对应章节**：第19章《逆行攻坚》
 - **存放路径**：
@@ -186,7 +216,7 @@
 
 ---
 
-### 12. 货栈顶层钟楼大厅 / 破晓天台（大决战与终章）
+### 14. 货栈顶层钟楼大厅 / 破晓天台（大决战与终章）
 - **资源名/Key**：`bg_clocktower_summit`
 - **对应章节**：第19/20章《破晓钟声》
 - **存放路径**：
