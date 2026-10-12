@@ -660,8 +660,8 @@ export class Renderer {
     const w = this.canvas.width;
     const h = this.canvas.height;
 
-    // 全屏暗黑遮罩（比回合横幅更深，让章节标题成为唯一视觉焦点）
-    ctx.fillStyle = 'rgba(5, 6, 10, 0.94)';
+    // 全屏独立纯黑背景（100%不透明，完全遮挡底层画面，章节切换独立呈现）
+    ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, w, h);
 
     // 淡入淡出

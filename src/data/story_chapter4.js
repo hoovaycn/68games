@@ -240,8 +240,7 @@ export const CHAPTER4_STORY = {
       }
     ],
     transition: {
-      type: 'JOIN_PARTY',
-      unitIds: ['teacher_xu', 'adult_liu'],
+      type: 'CHOICE',
       prompt: '坏教练捏碎了秒表，四周的小弟跟着眼冒青光。',
       buttonText: '【击退坏教练】',
       battleId: 'ch4_battle1',

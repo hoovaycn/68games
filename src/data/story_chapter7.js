@@ -231,11 +231,12 @@ export const CHAPTER7_STORY = {
       }
     ],
     transition: {
-      type: 'BATTLE',
-      prompt: '战斗开始',
+      type: 'JOIN_PARTY',
+      unitIds: ['young_xu', 'young_liu', 'ayao'],
+      prompt: '二十年前的三人组：少年徐老师、少年刘老师、阿瑶结阵迎击！',
       buttonText: '【进入战斗】',
       battleId: 'ch7_battle1',
-      targetScene: 'ch7_scene_sacrifice'
+      isBattleTrigger: true
     }
   },
 

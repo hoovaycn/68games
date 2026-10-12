@@ -1,0 +1,238 @@
+/**
+ * 第十二章《烂人老爸》剧情脚本数据表（第二幕 第2章）
+ *
+ * 流程结构：
+ * - ch11_scene_slum_street: 阴暗燥热的城南汽修街，伙伴们徒步摸排寻找金杯货车
+ * - ch11_scene_garage_inside: 潜入海峰汽修铺，目睹 {ALLY_2_NAME} 老爸正和神秘家长分赃交易
+ * - ch11_scene_confrontation: {ALLY_2_NAME} 当面质问，老爸粗暴扇飞奖状并绝情赶人
+ * - ch11_battle1: 汽修厂院内冲突战（主角团 VS 汽修厂打手混混）
+ * - ch11_scene_breakdown: 打退混混但被老爸强行轰出门外，{ALLY_2_NAME} 信念跌入谷底，暗中埋下疑点
+ */
+
+export const CHAPTER11_STORY = {
+  // s1: 城南破旧街区 · 摸排寻车
+  ch11_scene_slum_street: {
+    id: 'ch11_scene_slum_street',
+    title: '城南汽修街 · 烈日下的机油味',
+    bgType: 'street',
+    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '下午三点，刺鼻的铁锈与废机油味在窄巷里蒸腾。斑驳的红砖墙上贴满了小广告，头顶杂乱的电线割裂着铅灰色的天空。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '咳咳……这什么破地方，路坑坑洼洼的。{ALLY_2_NAME}，你平时放假就在这种地方帮你爸看店？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'right',
+        text: '……少废话。看前面那家“海峰汽修”，门口卷帘门半拉着，刚才博物馆那辆黑色金杯车就停在院子角落里！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '天哪，后备箱开着，那只带封泥的青花古瓷罐真的被搬进去了！{ALLY_2_NAME}……你爸他……该不会真的和那些人是一伙的吧？',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'right',
+        text: '不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的勾当！我不信！跟我进去看清楚！',
+        sfx: 'sfx_confirm'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '{ALLY_2_NAME} 咬牙猫下身子，带着众人悄悄钻进半开的汽修厂铁门。',
+      buttonText: '【潜入汽修车间 · 查明真相】',
+      targetScene: 'ch11_scene_garage_inside'
+    }
+  },
+
+  // s2: 车间深处 · 目睹分赃
+  ch11_scene_garage_inside: {
+    id: 'ch11_scene_garage_inside',
+    title: '海峰汽修厂内 · 昏暗车间的分赃',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '车间内光线昏暗，几台吊起的发动机投下狰狞的阴影。在一辆拆得只剩骨架的越野车旁，两个身影正相对而立。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '其中一人西装笔挺，正是家长会上的神秘家长；另一人穿着沾满油污的脏背心、胡子拉碴、嘴里叼着半截劣质香烟，正是 {ALLY_2_NAME} 的父亲——老爸海峰。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 3,
+        speaker: '神秘家长',
+        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'left',
+        text: '老海峰，货路子给你铺好了。古罐里的“青髓”原浆运到码头后，这三十万现金归你，以后城南这片二手车销赃，我也罩着你。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'right',
+        text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '听到父亲口中说出的冰冷恶言，{ALLY_2_NAME} 浑身颤抖，理智瞬间被怒火点燃！',
+      buttonText: '【冲出阴影 · 厉声质问】',
+      targetScene: 'ch11_scene_confrontation'
+    }
+  },
+
+  // s3: 决裂对峙 · 扇飞奖状
+  ch11_scene_confrontation: {
+    id: 'ch11_scene_confrontation',
+    title: '车间正中 · 父女/父子决裂的耳光',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_auditorium@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'left',
+        text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒物？！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 2,
+        speaker: '老爸海峰',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'right',
+        text: '（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'left',
+        text: '我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '老爸海峰',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_pe_default@2x.png',
+        activeSide: 'right',
+        text: '（一巴掌粗暴抽开 {ALLY_2_NAME} 手里的奖状，奖状撕裂飘落在机油坑里）读个屁的书！老子混饭吃轮不到你在这指手画脚！几个小屁孩也敢来坏老子的财路？——二秃子，把他们给我狠狠揍一顿轰出去！！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '汽修厂里的七八个凶恶混混抄起铁管和扳手，怪笑着朝少年团包抄过来！',
+      buttonText: '【背水一战 · 迎战打手】',
+      battleId: 'ch11_battle1',
+      isBattleTrigger: true
+    }
+  },
+
+  // s4: 战后被逐 · 冰雨与心碎
+  ch11_scene_breakdown: {
+    id: 'ch11_scene_breakdown',
+    title: '汽修厂大门外 · 紧闭的铁闸门',
+    bgType: 'street',
+    bgImg: 'assets/backgrounds/bg_street_dusk@2x.png',
+    bgm: 'bgm_eerie_revelation',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '“咣当——！！”沉重锈蚀的卷帘门在眼前狠狠砸下，锁链哗啦啦上锁。将满身灰尘的少年团彻底挡在门外。',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 2,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（跌坐在泥水里，双手死死抠着地砖，眼泪大颗大颗砸在碎裂的奖状上）为什么……为什么是这样……我爸真的是个烂人……他是个无可救药的坏蛋……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '{ALLY_2_NAME}，别哭了。你仔细看你脚边……刚才你爸把你推开时，塞在你口袋外沿的东西。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '这是……一张手画的汽修厂后门电路图？背面还用机油歪歪扭扭写着：【后仓有埋伏，别回来，找警察】？！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '残酷表象下的惊人纸条让众人呼吸一窒，老爸的真实目的究竟是什么？！',
+      buttonText: '【夜探后仓 · 开启第十三章】',
+      targetScene: 'ch12_scene_night_ambush'
+    }
+  }
+};

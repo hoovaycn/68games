@@ -88,14 +88,20 @@ export function createNewGame({ route = 'male', partyUnitIds = null } = {}) {
 
 /** 剧情入队：从 UNITS 工厂造人 → 序列化入 roster。已在队则无操作 */
 export function joinParty(state, unitId) {
-  if (state.roster[unitId]) return state.roster[unitId];
-  const u = createPlayerUnit(unitId);
+  const UNIT_ALIASES = {
+    teacher_xu: 'xu_laoshi',
+    adult_liu: 'liu_laoshi'
+  };
+  const resolvedId = UNIT_ALIASES[unitId] || unitId;
+
+  if (state.roster[resolvedId]) return state.roster[resolvedId];
+  const u = createPlayerUnit(resolvedId);
   if (!u) {
     console.warn('[game_state] 入队失败，UNITS 里没有: ' + unitId);
     return null;
   }
-  state.roster[unitId] = serializeUnit(u);
-  return state.roster[unitId];
+  state.roster[resolvedId] = serializeUnit(u);
+  return state.roster[resolvedId];
 }
 
 export function isInParty(state, unitId) {

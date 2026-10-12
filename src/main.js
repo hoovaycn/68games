@@ -18,6 +18,7 @@ import { TutorialPanelModal } from './ui/components/tutorial_panel.js';
 import { UnitDetailModal } from './ui/components/unit_detail.js';
 import { InventoryPanelModal } from './ui/components/inventory_panel.js';
 import { SaveMenuModal } from './ui/components/save_menu_modal.js';
+import { LevelSelectModal } from './ui/components/level_select_modal.js';
 import { gainExp, expForKill, expForAction, createEnemyUnit } from './systems/growth.js';
 import { createStash } from './systems/stash.js';
 import { settleLoot, summarizeLoots } from './systems/loot.js';
@@ -38,6 +39,16 @@ import { CHAPTER6_STORY } from './data/story_chapter6.js';
 import { CHAPTER7_STORY } from './data/story_chapter7.js';
 import { CHAPTER8_STORY } from './data/story_chapter8.js';
 import { CHAPTER9_STORY } from './data/story_chapter9.js';
+import { CHAPTER10_STORY } from './data/story_chapter10.js';
+import { CHAPTER11_STORY } from './data/story_chapter11.js';
+import { CHAPTER12_STORY } from './data/story_chapter12.js';
+import { CHAPTER13_STORY } from './data/story_chapter13.js';
+import { CHAPTER14_STORY } from './data/story_chapter14.js';
+import { CHAPTER15_STORY } from './data/story_chapter15.js';
+import { CHAPTER16_STORY } from './data/story_chapter16.js';
+import { CHAPTER17_STORY } from './data/story_chapter17.js';
+import { CHAPTER18_STORY } from './data/story_chapter18.js';
+import { CHAPTER19_STORY } from './data/story_chapter19.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
 import { CH0_BATTLE3 } from './data/chapters/ch0_battle3.js';
@@ -65,7 +76,17 @@ const LINEAR_STORY = {
   ...CHAPTER6_STORY,
   ...CHAPTER7_STORY,
   ...CHAPTER8_STORY,
-  ...CHAPTER9_STORY
+  ...CHAPTER9_STORY,
+  ...CHAPTER10_STORY,
+  ...CHAPTER11_STORY,
+  ...CHAPTER12_STORY,
+  ...CHAPTER13_STORY,
+  ...CHAPTER14_STORY,
+  ...CHAPTER15_STORY,
+  ...CHAPTER16_STORY,
+  ...CHAPTER17_STORY,
+  ...CHAPTER18_STORY,
+  ...CHAPTER19_STORY
 };
 
 const CHAPTER_BANNERS = {
@@ -78,7 +99,17 @@ const CHAPTER_BANNERS = {
   ch6_scene_corridor: { label: '第七章', title: '大溃败' },
   ch7_scene_flashback: { label: '第八章', title: '从前那一班-上' },
   ch8_scene_warehouse: { label: '第九章', title: '从前那一班-下' },
-  ch9_scene_exam: { label: '第十章', title: '大考' }
+  ch9_scene_exam: { label: '第十章', title: '大考' },
+  ch10_scene_intro: { label: '第十一章', title: '省博惊魂' },
+  ch11_scene_slum_street: { label: '第十二章', title: '烂人老爸' },
+  ch12_scene_night_ambush: { label: '第十三章', title: '夜袭汽修厂' },
+  ch13_scene_safahouse: { label: '第十四章', title: '避难所疑云' },
+  ch14_scene_dock_ritual: { label: '第十五章', title: '夜探虎门港' },
+  ch15_scene_beach_wake: { label: '第十六章', title: '浩然正气' },
+  ch16_scene_return_ruins: { label: '第十七章', title: '反间惊雷' },
+  ch17_scene_alter_breach: { label: '第十八章', title: '死守实验室' },
+  ch18_scene_warehouse_breach: { label: '第十九章', title: '决战前夕' },
+  ch19_scene_final_stand: { label: '第二十章', title: '黎明破晓' }
 };
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
@@ -97,8 +128,7 @@ const CHAPTERS = {
   ch9_battle1: CH9_BATTLE1
 };
 
-// 章节入口场景注册表（按章节序号）：开发者秘籍 Ctrl+N / `~`+N 跳转到该章开头剧情。
-// 加新章节时，只需在数组末尾追加该章的入口场景 key（第 4 章 = 数组下标 3，以此类推）。
+// 章节入口场景注册表（按章节序号）：开发者秘籍 F1 选关菜单跳转到该章开头剧情。
 const CHAPTER_ENTRY_SCENES = [
   'scene_classroom',       // 第 1 章（序章）
   'ch1_scene_playground',  // 第 2 章
@@ -109,7 +139,17 @@ const CHAPTER_ENTRY_SCENES = [
   'ch6_scene_corridor',    // 第 7 章
   'ch7_scene_flashback',   // 第 8 章
   'ch8_scene_warehouse',   // 第 9 章
-  'ch9_scene_exam'         // 第 10 章
+  'ch9_scene_exam',        // 第 10 章
+  'ch10_scene_intro',      // 第 11 章
+  'ch11_scene_slum_street',// 第 12 章
+  'ch12_scene_night_ambush', // 第 13 章
+  'ch13_scene_safahouse',  // 第 14 章
+  'ch14_scene_dock_ritual',// 第 15 章
+  'ch15_scene_beach_wake', // 第 16 章
+  'ch16_scene_return_ruins', // 第 17 章
+  'ch17_scene_alter_breach', // 第 18 章
+  'ch18_scene_warehouse_breach', // 第 19 章
+  'ch19_scene_final_stand' // 第 20 章
 ];
 
 class GameApp {
@@ -129,6 +169,7 @@ class GameApp {
     this.gameState = null;
     this.saveManager = createSaveManager();
     this.saveMenuModal = null; // 存档界面模态（标题页「存档管理」/ 剧情内 Esc 呼出）
+    this.levelSelectModal = null; // 选关菜单模态（测试秘籍 F1 呼出）
     this.joinPartyModal = new JoinPartyModal(this.canvas); // 剧情环节新伙伴入队弹窗模态
 
     // D5 标题主菜单：continue → 读最新档续玩；manage → 存档管理界面
@@ -305,8 +346,26 @@ class GameApp {
   }
 
   /**
-   * 开发者秘籍：跳转到指定章节的开头剧情（章节号对应 CHAPTER_ENTRY_SCENES 注册表）。
-   * Ctrl+1~9 快捷跳转；`~`+数字+回车 可跳任意编号章节（如第 10 章）。
+   * 开发者秘籍：打开/关闭选关菜单模态框 (F1)
+   */
+  toggleLevelSelectMenu() {
+    if (this.levelSelectModal) {
+      this.levelSelectModal = null;
+      return;
+    }
+    this.levelSelectModal = new LevelSelectModal(this.canvas, {
+      onSelect: (chapterNum) => {
+        this.levelSelectModal = null;
+        this.debugJumpToChapter(chapterNum);
+      },
+      onClose: () => {
+        this.levelSelectModal = null;
+      }
+    });
+  }
+
+  /**
+   * 开发者秘籍：跳转到指定章节的开头剧情（章节号 1~20 对应 CHAPTER_ENTRY_SCENES 注册表）。
    */
   debugJumpToChapter(chapterNum) {
     const sceneKey = CHAPTER_ENTRY_SCENES[Number(chapterNum) - 1];
@@ -329,6 +388,39 @@ class GameApp {
     this.battleState.victoryModalShown = false;
 
     this.startStoryScene(sceneKey);
+  }
+
+  /**
+   * 开发者秘籍：战斗即时胜利 (F2)
+   * 击倒当前战斗所有敌方单位并直接进入胜利结算流程。
+   */
+  triggerInstantBattleVictory() {
+    if (this.stage !== 'STAGE_BATTLE' || !this.battleState) return;
+    const bs = this.battleState;
+    if (bs.victoryModalShown) return;
+
+    // 重置操作状态与动画，防止状态冲突
+    bs.actionMenu = null;
+    bs.skillMenu = null;
+    bs.skillPending = null;
+    bs.combatExchangeModal = null;
+    bs.skillExchangeModal = null;
+    bs.itemRewardModal = null;
+    bs.isAnimatingCombat = false;
+    bs.mode = 'IDLE';
+
+    // 敌方单位生命值全部清零
+    if (bs.units) {
+      bs.units.forEach(u => {
+        if (u.faction === 'enemy') {
+          u.currentHp = 0;
+          u.isAlive = false;
+        }
+      });
+    }
+
+    console.log("【开发者秘籍】F2 触发：敌方全灭，战斗胜利！");
+    this.checkBattleEnd();
   }
 
   /**
@@ -829,6 +921,12 @@ class GameApp {
       const mouseX = (e.clientX - rect.left) * scaleX;
       const mouseY = (e.clientY - rect.top) * scaleY;
 
+      // ★ 选关菜单模态独占 hover (F1 快捷选关)
+      if (this.levelSelectModal) {
+        this.levelSelectModal.handleMouseMove(mouseX, mouseY);
+        return;
+      }
+
       // ★ 存档界面模态独占 hover（任何 stage 之上，行高亮联动）
       if (this.saveMenuModal) {
         this.saveMenuModal.handleMouseMove(mouseX, mouseY);
@@ -903,6 +1001,12 @@ class GameApp {
       const scaleY = rect.height ? (this.canvas.height / rect.height) : 1;
       const clickX = (e.clientX - rect.left) * scaleX;
       const clickY = (e.clientY - rect.top) * scaleY;
+
+      // ★ 选关菜单模态独占点击 (F1 快捷选关)
+      if (this.levelSelectModal) {
+        this.levelSelectModal.handleClick(clickX, clickY);
+        return;
+      }
 
       // ★ 存档界面模态独占点击（标题侧/剧情侧打开都拦在最前，防穿透到场景）
       if (this.saveMenuModal) {
@@ -1030,30 +1134,23 @@ class GameApp {
     window.addEventListener('keydown', (e) => {
       sound.unlock();
 
-      // ★ 开发者秘籍（任意位置可用）：F1~F12 直接跳对应章节
-      const fMatch = e.code.match(/^F(\d+)$/);
-      if (fMatch) {
-        const n = parseInt(fMatch[1], 10);
-        if (n >= 1 && n <= 12) {
-          e.preventDefault();
-          this.debugJumpToChapter(n);
-          return;
-        }
+      // ★ 开发者秘籍：F1 呼出/关闭选关菜单
+      if (e.code === 'F1') {
+        e.preventDefault();
+        this.toggleLevelSelectMenu();
+        return;
       }
 
-      // ★ 开发者秘籍：Ctrl+0 直接在战斗中秒杀所有敌人并通关
-      if (e.ctrlKey && e.key === '0' && this.stage === 'STAGE_BATTLE') {
+      // ★ 开发者秘籍：F2 战斗即时胜利（仅战斗阶段有效）
+      if (e.code === 'F2') {
         e.preventDefault();
-        console.log("【开发者秘籍】秒杀所有敌人！");
-        if (this.battleState && this.battleState.units) {
-          this.battleState.units.forEach(u => {
-            if (u.faction === 'enemy') {
-              u.currentHp = 0;
-              u.isAlive = false;
-            }
-          });
-          this.checkBattleEnd();
-        }
+        this.triggerInstantBattleVictory();
+        return;
+      }
+
+      // ★ 选关菜单模态独占按键
+      if (this.levelSelectModal) {
+        this.levelSelectModal.handleKeyDown(e);
         return;
       }
 
@@ -2388,6 +2485,10 @@ class GameApp {
         this.chapterBannerOnDone = null;
         if (done) done();
       }
+    }
+    // ★ 选关菜单模态渲染在最顶层（盖住所有内容，包括 chapterBanner）
+    if (this.levelSelectModal && typeof this.levelSelectModal.render === 'function') {
+      this.levelSelectModal.render();
     }
     requestAnimationFrame(() => this.loop());
   }

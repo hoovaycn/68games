@@ -32,11 +32,22 @@ export class JoinPartyModal {
    * @param {Function} onConfirm - 点击确认后的回调函数
    */
   show(unitOrId, onConfirm) {
+    // 兼容可能传入的立绘/素材别名 (如 teacher_xu -> xu_laoshi, adult_liu -> liu_laoshi)
+    const UNIT_ALIASES = {
+      teacher_xu: 'xu_laoshi',
+      adult_liu: 'liu_laoshi'
+    };
+
+    let resolvedId = unitOrId;
+    if (typeof unitOrId === 'string' && UNIT_ALIASES[unitOrId]) {
+      resolvedId = UNIT_ALIASES[unitOrId];
+    }
+
     let unitData = null;
-    if (typeof unitOrId === 'string') {
-      unitData = UNITS[unitOrId];
+    if (typeof resolvedId === 'string') {
+      unitData = UNITS[resolvedId];
     } else {
-      unitData = unitOrId;
+      unitData = resolvedId;
     }
 
     if (!unitData) {

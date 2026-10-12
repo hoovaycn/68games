@@ -21,6 +21,9 @@ release_web/
 work_ref/
 Tilemap/
 
+# AI 生成的参考图 / 中间产物（仅作美术参考，正式素材已落盘到 assets/）
+generated-images/
+
 # 下载的原始素材与压缩包（处理后已落盘到 assets/）
 docs/audio/
 docs/*.zip

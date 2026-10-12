@@ -236,7 +236,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '黑影现身了，大家才看清——那是平时道法课上总坐在最后一排、几乎没什么存在感的刘老师。徐老师正跟在她身边。',
+        text: '黑影现身了，大家才看清——那是平时语文课上总坐在最后一排、几乎没什么存在感的刘老师。徐老师正跟在她身边。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -245,7 +245,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '都别慌！道法刘老师是自己人，我们俩背着学校查这东西，已经查了十几年了。',
+        text: '都别慌！语文刘老师是自己人，我们俩背着学校查这东西，已经查了十几年了。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -270,7 +270,7 @@ export const CHAPTER3_STORY = {
     ],
     transition: {
       type: 'JOIN_PARTY',
-      unitIds: ['teacher_xu', 'adult_liu'],
+      unitIds: ['xu_laoshi', 'liu_laoshi'],
       prompt: '徐老师和刘老师一前一后护住孩子们，准备先把张希哲从那股念头里拽回来。',
       buttonText: '【结阵迎敌】',
       battleId: 'ch3_battle1',

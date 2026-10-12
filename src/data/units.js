@@ -210,7 +210,7 @@ export const UNITS = {
   liu_laoshi: {
     id: 'liu_laoshi',
     name: '刘老师',
-    title: '六 8 班道法老师',
+    title: '六 8 班语文老师',
     gender: 'female',
     classId: 'teacher',
     level: 8,
@@ -220,7 +220,7 @@ export const UNITS = {
       { id: 'teacher_thermos', count: 1 },
       { id: 'honey_tea', count: 2 }
     ],
-    bio: '总是先看见学生脸色不对的道法老师，嘴上温和，护起孩子来却比谁都硬。她不太会说大道理，但很会把人从快要掉下去的边上拽回来。',
+    bio: '总是先看见学生脸色不对的语文老师，嘴上温和，护起孩子来却比谁都硬。她不太会说大道理，但很会把人从快要掉下去的边上拽回来。',
     personalGrowth: { mag: 10, res: 10 },
     personalSkill: 'authoritative_gaze',
     joinsAt: 'merged_route_ch5',
