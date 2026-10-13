@@ -95,7 +95,7 @@ export const CHAPTER19_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（颤抖着看着自己的双手，喃喃自语）输了……福寿堂两百年的基业……竟然输在了一帮中学生手里……',

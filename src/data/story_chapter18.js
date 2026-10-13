@@ -158,7 +158,7 @@ export const CHAPTER18_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（站在巨型控制台前，双眼布满血丝，癫狂狂笑）居然真让你们这群小杂种爬上来了！但你们以为赢了吗？老太爷已经将全身残躯融入了百年鸦片巨灵神，整座城市的重点名校，今夜都将臣服在福寿堂脚下！！',

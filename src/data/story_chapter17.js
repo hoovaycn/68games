@@ -29,7 +29,7 @@ export const CHAPTER17_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
         text: '（面目狰狞地冷笑）乖乖把药喝下去！只要你这个全省三好学生成了福寿堂的药傀儡，你们整个学校所有的重点尖子生，就全都是沈家的囊中之物！',
