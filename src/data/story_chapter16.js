@@ -97,12 +97,21 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还扣下了小敏的手术捐款信托。他们说只要我天亮前把木钎送去江心水闸，就会销毁全班档案放过大家……我绝不能连累整个班级因为我毁掉前途。木钎是我拿的，所有罪名我一个人扛。』',
+        text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还扣下了小敏的手术捐款信托。』',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '信纸留言（覃瑞怡）',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '『他们说只要我天亮前把木钎送去江心水闸，就会销毁档案放过大家……我绝不能连累整个班级毁掉前途。木钎是我拿的，所有罪名我一个人扛。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
@@ -111,7 +120,7 @@ export const CHAPTER16_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',

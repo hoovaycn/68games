@@ -33,11 +33,20 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（换上一身笔挺干练的深蓝特警战术服，一边用医用酒精给手臂上的刀口消毒，一边指着墙上的红线）你们在学校里见到的怪味零食和电子烟，在省厅专案组代号叫“04号致幻精神制剂”。它的母体原浆，来自一百八十多年前虎门销烟时期，洋行大买办“福寿堂”偷藏下来的鸦片老膏。',
+        text: '（换上一身笔挺深蓝特警战术服，给手臂伤口消毒）你们在学校见到的怪味零食和电子烟，在省厅代号是“04号致幻制剂”。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '它的母体原浆，正是一百八十多年前虎门销烟时期，洋行大买办“福寿堂”暗中偷藏下来的那一批鸦片老膏！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
@@ -46,7 +55,7 @@ export const CHAPTER13_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -106,11 +115,20 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '没错，刘老师。当年逼迫你们的神秘家长沈万廷，正是如今这个沈崇礼的亲生父亲！二十年前他见东窗事发，制造车祸假死逃往南洋；如今他用轮椅和呼吸机续命潜回国内，让亲儿子接班，换了层“素质教育补剂”的皮，又把黑手伸向了这一届学生！',
+        text: '没错，刘老师。当年逼迫你们的沈万廷，正是如今这个沈崇礼的亲生父亲！二十年前他见东窗事发，制造车祸假死逃往南洋；',
         sfx: 'sfx_confirm'
       },
       {
         id: 5,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        activeSide: 'left',
+        text: '如今他靠轮椅和呼吸机续命潜回国内，让亲儿子接班，换了层“素质教育补剂”的皮，又把黑手伸向了这一届学生！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',

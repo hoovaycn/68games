@@ -295,13 +295,15 @@ export class DialogueSystem {
 
     // 正文台词：钩子句（highlight）用红色大字突出，普通句用纯黑暖灰
     const isHighlight = !!(this.activeLine && this.activeLine.highlight);
+    const fullText = (this.activeLine && this.activeLine.text) || '';
+    const isLongText = fullText.length > 90 || fullText.includes('\n');
     ctx.fillStyle = isHighlight ? (isBlackBg ? '#ef4444' : '#b91c1c') : (isBlackBg ? '#cccccc' : '#1c1917');
     ctx.font = isHighlight
-      ? 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
-      : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
+      ? (isLongText ? 'bold 21px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif' : 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif')
+      : (isLongText ? 'bold 20px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif' : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif');
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
-    this.wrapText(ctx, this.displayedText, x + 32, y + 36, boxW - 64, 34);
+    this.wrapText(ctx, this.displayedText, x + 32, y + (isLongText ? 30 : 36), boxW - 64, isLongText ? 28 : 34);
 
     // 常驻提示：左下角「按 ESC 进入存档菜单」（STAGE_STORY 的 Esc 已接 openSaveMenu('save')）
     if (!this.showingChoice) {
@@ -404,22 +406,29 @@ export class DialogueSystem {
   }
 
   wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-    const chars = text.split('');
-    let line = '';
+    const rawParagraphs = (text || '').split('\n');
     let currY = y;
 
-    for (let n = 0; n < chars.length; n++) {
-      const testLine = line + chars[n];
-      const metrics = ctx.measureText(testLine);
-      const testWidth = metrics.width;
-      if (testWidth > maxWidth && n > 0) {
-        ctx.fillText(line, x, currY);
-        line = chars[n];
+    for (let pIdx = 0; pIdx < rawParagraphs.length; pIdx++) {
+      const paragraph = rawParagraphs[pIdx];
+      const chars = paragraph.split('');
+      let line = '';
+
+      for (let n = 0; n < chars.length; n++) {
+        const testLine = line + chars[n];
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line, x, currY);
+          line = chars[n];
+          currY += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, x, currY);
+      if (pIdx < rawParagraphs.length - 1) {
         currY += lineHeight;
-      } else {
-        line = testLine;
       }
     }
-    ctx.fillText(line, x, currY);
   }
 }
