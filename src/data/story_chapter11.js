@@ -102,7 +102,7 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '老海峰，货路子给你铺好了。古罐里的“青髓”原浆运到码头后，这三十万现金归你，以后城南这片二手车销赃，我也罩着你。',
