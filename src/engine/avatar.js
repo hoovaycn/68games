@@ -79,7 +79,7 @@ const ACTOR_STATES = {
   senior_student: ['default', 'corrupted'],
   janitor: ['default', 'corrupted'],
   /* 第二幕核心角色 */
-  father_haifeng: ['default', 'police', 'battle_damaged'],
+  father_haifeng: ['default', 'battle_damaged', 'police', 'police_damaged'],
   shen_chongli: ['default'],
   shen_wanting: ['old'],
   militia_instructor: ['1839'],
