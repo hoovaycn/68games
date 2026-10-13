@@ -102,5 +102,55 @@ export const KEY_ITEMS = {
     use_in_field: false,
     stack: 1,
     storyTag: 'pending_ch1'
+  },
+
+  /* ══════════ 第二幕剧情信物（ch10~ch15） ══════════ */
+  righteous_staff: {
+    id: 'righteous_staff',
+    name: '浩然销烟杖',
+    kind: 'key_item',
+    desc: '林则徐用岭南沉香木亲手削成的销烟长棍，浸过沸水和石灰，通体赤红如玉，刻着暗金的「浩然正气」四个字。摸上去温润发烫，百毒不侵。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    icon: 'assets/items/righteous_staff@2x.png',
+    storyTag: 'ch15_battle1_victory'
+  },
+  opium_porcelain_jar: {
+    id: 'opium_porcelain_jar',
+    name: '青花古瓷罐',
+    kind: 'key_item',
+    desc: '道光十九年虎门销烟时期的青花瓷罐，罐身爬满海蛎壳和黑红封泥，里面封着百年前被「福寿堂」偷偷藏下的鸦片老膏。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    icon: 'assets/items/opium_porcelain_jar@2x.png',
+    storyTag: 'ch10_battle1_victory'
+  },
+  police_badge: {
+    id: 'police_badge',
+    name: '警官证与金徽',
+    kind: 'key_item',
+    desc: '海峰贴身藏着的一本深红警官证和一枚锃亮的国徽金徽。证件上写着「省公安厅禁毒总队特勤处 · 二级警督 海峰」——是他卧底刑警身份的铁证。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    icon: 'assets/items/police_badge@2x.png',
+    storyTag: 'ch12_battle1_victory'
+  },
+  opium_essence_vial: {
+    id: 'opium_essence_vial',
+    name: '古毒原浆',
+    kind: 'key_item',
+    desc: '福寿堂从百年前偷藏的鸦片老膏里提炼出的「青髓」母体原浆，青黑黏稠，是所有异化零食的真正源头。',
+    effects: [],
+    use_in_battle: false,
+    use_in_field: false,
+    stack: 1,
+    icon: 'assets/items/opium_essence_vial@2x.png',
+    storyTag: 'ch13_battle1_victory'
   }
 };
