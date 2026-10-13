@@ -96,7 +96,26 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事，我这颗心总算落地了！',
+        text: '老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事……（目光扫到海峰肋下的血迹和包扎，声音突然哽咽了一下）你这身上……怎么又添了这么重的伤？十五年了，你一个人在城南顶着，就不知道给自己留条后路吗？',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 21,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'right',
+        text: '（有些局促地用战术背心挡了挡伤口，原本糙汉的脸罕见地泛起一丝红晕，粗声粗气地掩饰）咳……大老爷们受点皮外伤算什么。倒是你，一把年纪了还带头跟这帮小鬼一起胡闹翻墙……让外人看见成何体统。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 22,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '（又气又心疼地瞪了他一眼，从口袋里掏出一个干净的碘伏棉签和创可贴拍在他桌上）少废话，坐下消炎！……只要孩子们能平平安安的，我这把老骨头翻个墙算得了什么。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -105,8 +124,17 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（瞪大眼睛）不是吧？徐老师、刘老师，你们俩加起来都快一百岁了，还真从学校翻墙出来啊？',
+        text: '（在一旁戳了戳覃瑞怡，压低声音起哄）诶诶诶，你们看这气氛，怎么突然从扫黑除恶变成战地纯爱了……',
         sfx: 'sfx_text_blip'
+      },
+      {
+        id: 31,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        activeSide: 'right',
+        text: '（飞起一脚把张希哲踩开，满脸黑线）闭嘴！大人叙旧呢，少在这脑补奇奇怪怪的剧本！',
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 4,
