@@ -53,7 +53,7 @@ const ACTOR_STATES = {
   fanwenmo: ['default', 'corrupted'],
   zhanghanyu: ['default', 'corrupted'],
   heyanxi: ['default', 'corrupted'],
-  qinruiyi: ['default', 'corrupted'],
+  qinruiyi: ['default', 'corrupted', 'resolute'],
   zhangxizhe: ['default', 'corrupted'],
   zhuyanze: ['default', 'corrupted'],
   xu_laoshi: ['default'],
@@ -77,7 +77,20 @@ const ACTOR_STATES = {
   young_liu: ['default'],
   young_xu: ['default'],
   senior_student: ['default', 'corrupted'],
-  janitor: ['default', 'corrupted']
+  janitor: ['default', 'corrupted'],
+  /* 第二幕核心角色 */
+  father_haifeng: ['default', 'police', 'battle_damaged'],
+  shen_chongli: ['default'],
+  shen_wanting: ['old'],
+  militia_instructor: ['1839'],
+  berserker_guard: ['heavy'],
+  boss_colossus: ['opium_god'],
+  lin_zexu: ['imperial_commissioner'],
+  emperor_daoguang: ['palace'],
+  /* 第二幕普通杂兵敌人 */
+  shen_guard: ['default'],
+  foreign_sailor: ['1839'],
+  comprador_assassin: ['1839']
 };
 
 /* ───────────── 内部工具 ───────────── */
