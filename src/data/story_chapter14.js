@@ -23,7 +23,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '铁壳驳船在江浪中剧烈颠簸。甲板中央摆着三张太师椅，中间瘫坐着一个浑身插满输液管、戴着氧气面罩的枯槁老人；右侧站着的，正是家长会上西装革履的沈崇礼。',
+        text: '铁壳驳船在江浪中剧烈颠簸。甲板中央摆着三张太师椅，中间瘫坐着一个浑身插满输液管、戴着氧气面罩的干瘦老人；右侧站着的，正是家长会上西装革履的沈崇礼。',
         sfx: 'sfx_suspense'
       },
       {
@@ -57,7 +57,7 @@ export const CHAPTER14_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '沈崇礼猛地拉动绞盘，将烧红的钢钎插向铜炉正上方的古瓷罐！',
+      prompt: '沈崇礼猛地拉动绞盘，将烧红的钢棍插向铜炉正上方的古瓷罐！',
       buttonText: '【飞身夺罐 · 阻止开炉】',
       targetScene: 'ch14_scene_pot_broken'
     }
@@ -77,7 +77,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！然而烧红的钢钎依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
+        text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -132,7 +132,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '最后一批异化护卫被打翻落水。然而战斗激发的真气与瓷罐中的封印力量产生共振，天空中的阴云旋转成一个吞噬一切的巨大空洞！',
+        text: '最后一批异化护卫被打翻落水。然而战斗激发的真气与瓷罐中的封印力量产生共鸣，天空中的阴云旋转成一个吞噬一切的巨大空洞！',
         sfx: 'sfx_shock_sting'
       },
       {

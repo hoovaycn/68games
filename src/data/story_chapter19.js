@@ -4,7 +4,7 @@
  * 流程结构：
  * - ch19_scene_final_stand: 顶层钟楼巅峰对决前夕，沈崇礼与机械巨灵沈万廷狂暴合体
  * - ch19_battle1: 第二幕终极决战（少年团齐心血战 VS 福寿堂百年巨灵魔尊沈氏父子）
- * - ch19_scene_boss_destroyed: 战后纯剧情①：赤心木钎刺破巨灵魔核，百年鸦片原浆彻底汽化净化，沈氏父子彻底伏法
+ * - ch19_scene_boss_destroyed: 战后纯剧情①：赤心销烟钎刺破巨灵魔核，百年鸦片原浆彻底汽化净化，沈氏父子彻底伏法
  * - ch19_scene_miracle_reunion: 战后纯剧情②：警笛轰鸣特警全线控制现场，浑身缠满绷带的老爸海峰奇迹生还归来，父子/父女深情相拥
  * - ch19_scene_dawn_epilogue: 战后纯剧情③（大结局）：破晓钟声长鸣，阴霾尽散。加密卫星电话闪烁来自公海的密电，抛出第三幕全新宏大悬念
  */
@@ -52,7 +52,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '大家结成七星破邪阵！把所有的正气与信念注入赤心木钎，彻底粉碎两百年的罪恶宿命！！',
+        text: '大家结成七星破邪阵！把所有的正气与信念注入赤心销烟钎，彻底粉碎两百年的罪恶宿命！！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -68,7 +68,7 @@ export const CHAPTER19_STORY = {
   // s2: 决战胜利 · 巨灵崩解
   ch19_scene_boss_destroyed: {
     id: 'ch19_scene_boss_destroyed',
-    title: '残破的钟楼露台 · 圣光涤荡',
+    title: '残破的钟楼露台 · 圣光普照',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_victory',
@@ -199,7 +199,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阳光洒满大地，古运河与整座繁华的都市重新沐浴在安宁祥和的晨曦中。钟楼顶部的百年大钟在微风中敲响——当、当、当……清亮激越的钟声回荡在江水之上，洗尽了百年沧桑铅华。',
+        text: '阳光洒满大地，古运河与整座繁华的都市重新沐浴在安宁祥和的晨曦中。钟楼顶部的百年大钟在微风中敲响——当、当、当……清亮激越的钟声回荡在江水之上，洗掉了百年来的风霜。',
         sfx: 'sfx_confirm'
       },
       {

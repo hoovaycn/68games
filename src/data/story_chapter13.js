@@ -60,7 +60,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '他叫沈崇礼，表面上是省名校教育基金会副理事长，实际上是“福寿堂”第六代掌门人。而真正站在他背后垂帘听政的太上皇……你们看这张二十年前从档案室抢救出来的老照片。',
+        text: '他叫沈崇礼，表面上是省名校教育基金会副理事长，实际上是“福寿堂”第六代掌门人。而真正在背后操控一切的太上皇……你们看这张二十年前从档案室抢救出来的老照片。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -133,7 +133,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '原来二十年前徐老师回忆里的那个恶魔家长，和现在家长会上威胁我们的神秘家长，竟然是一脉相承的父子两代毒枭！！',
+        text: '原来二十年前徐老师回忆里的那个恶魔家长，和现在家长会上威胁我们的神秘家长，竟然是如出一辙的父子两代毒枭！！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -159,7 +159,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『滋滋……报告老太爷、六掌柜，省博的道光青花瓷罐已顺利运抵古运河三号废弃码头。今夜子时江潮大涨，可在驳船祭坛开炉熬炼百年青髓母液，全市重点中学尖子生投毒名册已核对完毕……滋滋……』',
+        text: '『滋滋……报告老太爷、六掌柜，省博的道光青花瓷罐已顺利运抵古运河三号废弃码头。今夜半夜江潮大涨，可在驳船祭坛开炉熬制百年青髓母液，全市重点中学尖子生投毒名册已核对完毕……滋滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -169,7 +169,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（一把攥紧桌角，指节发白）绝不能让他们开炉！二十年前我们势单力薄，眼睁睁看着阿瑶被这帮畜生毁了一辈子；今晚要是再退缩半步，我们还有什么脸面站在讲台上教书育人！',
+        text: '（一把攥紧桌角，指节发白）绝不能让他们开炉！二十年前我们人少又没人帮，眼睁睁看着阿瑶被这帮畜生毁了一辈子；今晚要是再退缩半步，我们还有什么脸面站在讲台上教书育人！',
         sfx: 'sfx_confirm'
       },
       {
@@ -205,7 +205,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '在老爸海峰刚猛无匹的警用擒拿术与两位老师的默契配合下，码头外围的十余名黑衣哨兵被尽数击倒。江风裹挟着暴雨扑面而来，空气中弥漫着一股令人作呕的甜腻焦糊味。',
+        text: '在老爸海峰刚猛无匹的警用擒拿术与两位老师的默契配合下，码头外围的十余名黑衣哨兵被尽数击倒。江风裹挟着暴雨扑面而来，空气中弥漫着一股让人想吐的甜腻焦糊味。',
         sfx: 'sfx_text_blip'
       },
       {

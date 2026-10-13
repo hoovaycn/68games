@@ -44,7 +44,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '家长会上那个气度森严、操纵一切的神秘家长到底是谁？二十年前在徐老师与语文刘老师回忆中毁掉他们同伴的神秘男人又身在何处？',
+        text: '家长会上那个看着就让人发怵、在背后操控一切的神秘家长到底是谁？二十年前，在徐老师和语文刘老师回忆里毁掉他们同伴的那个神秘男人，又躲在哪里？',
         sfx: 'sfx_suspense'
       },
       {
@@ -53,7 +53,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '操纵微小零食的黑手，不过是庞大阴影在水面上露出的冰山一角。这个盛夏，真正的暗流正在省城深处悄然涌动……',
+        text: '躲在零食背后的黑手，还只是露出来的冰山一角。这个夏天，真正的幕后黑手，正悄悄在省城深处活动……',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -205,7 +205,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '果然是你！你在借文物特展的名义，把百年前沉江的古毒提纯掉包！',
+        text: '果然是你！你在借文物特展的名义，把百年前沉江的古毒提炼出来偷偷换走！',
         sfx: 'sfx_confirm'
       },
       {
@@ -224,7 +224,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '谁也别想碰展品！大伙结阵，把这群狗腿子打醒！',
+        text: '谁也别想碰展品！大伙抄家伙，把这群狗腿子打醒！',
         sfx: 'sfx_confirm'
       }
     ],

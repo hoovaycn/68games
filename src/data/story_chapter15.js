@@ -8,7 +8,7 @@
  * - ch15_scene_militia_stand: 【外敌突袭】异国鸦片武装水手勾结初代买办死士偷袭化烟池，民团浴血抵抗
  * - ch15_battle1: 【滩头血战】虎门滩头保卫战（主角团 + 虎门民团教头 VS 异国武装水手与初代买办死士）
  * - ch15_scene_lin_commends: 【名臣赐物】林则徐亲临滩头抚慰将士，识破少年赤诚，御赐“赤心销烟钎”作为浩然信物
- * - ch15_scene_righteous_seal: 【共振重返】赤木钎爆发神圣浩然金光，破除时空界限，众人重返现代驳船
+ * - ch15_scene_righteous_seal: 【共鸣重返】赤心销烟钎爆发神圣浩然金光，破除时空界限，众人重返现代驳船
  */
 
 export const CHAPTER15_STORY = {
@@ -26,7 +26,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【清 · 道光十八年 冬】\n幽深森严的紫禁城内，寒风猎猎。西洋烟毒如附骨之疽蚀透大江南北，官民困顿、数千万两白银滚滚外流。国运飘摇之际，深宫御案前展开了一场关乎民族存亡的绝密长谈……',
+        text: '【清 · 道光十八年 冬】\n幽深森严的紫禁城里，寒风呼呼地刮。西洋的鸦片像蛀虫一样啃食着大江南北，当官的和老百姓都苦不堪言，上千万两白银哗哗地往外流。国家快撑不住的时候，深宫御案前展开了一场决定民族存亡的绝密长谈……',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -36,7 +36,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '林爱卿，朕阅卿奏折，触目惊心……“中原几无可以御敌之兵，且无可以充饷之银！”满朝文武皆言不可开罪洋人，唯卿敢言断其根本。卿真能为朕、为大清，担起这万钧重担？',
+        text: '林爱卿，朕看了你的奏折，触目惊心……“中原几乎没有能打仗的兵，也没有能发军饷的银子！”满朝大臣都说不能得罪洋人，只有你敢说要从根上断掉它。你真能替朕、替大清，扛起这副千斤重担？',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -91,7 +91,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '传本钦差军令：开池引潮，投盐泼灰！收缴之两万余箱两百三十七万余斤鸦片烟膏，悉数投入化烟池！凡勾结洋商、藏匿烟土、暗通款曲者，格杀勿论！',
+        text: '传本钦差军令：开池引潮，投盐泼灰！收缴的两万余箱、两百三十七万余斤鸦片烟膏，全部投进化烟池！凡勾结洋商、藏匿烟土、暗中勾结的人，格杀勿论！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -181,7 +181,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（手持赤木长钎，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
+        text: '（手持销烟长棍，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -200,7 +200,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '全员结阵！守住化烟池，绝不能让百年前的浩然正气被宵小玷污！',
+        text: '全员集合！守住化烟池，绝不能让百年前的浩然正气被这帮小人糟蹋！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -246,7 +246,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '（躬身长揖，肃穆以对）林总督！我们来自两百年后的和平中国！在我们的时代，山河锦绣、人民康泰，您当年播下的禁毒之火，已化作守护亿万同胞的钢铁长城！',
+        text: '（深深鞠躬，一脸严肃）林总督！我们来自两百年后的和平中国！在我们的时代，山河锦绣、百姓安康，您当年播下的禁毒火种，已经变成守护亿万同胞的钢铁长城！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -265,20 +265,20 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '这柄“赤心销烟钎”，乃老夫以岭南沉香木所制，浸润沸水石灰与万民浩然誓愿。闻尔等时代亦有旧孽未除，老夫便将此物赠予后世少年——持此浩然，百毒不侵，邪祟尽伏！',
+        text: '这柄“赤心销烟钎”，就是老夫用岭南沉香木削成的一根长棍，浸过沸水和石灰，还带着千千万万百姓的浩然誓愿。听说你们那个时代还有旧毒没除干净，老夫就把这棍子送给后世的少年——拿着这份浩然正气，百毒不侵，什么妖魔鬼怪统统退散！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '林则徐亲手将赤红如玉的沉香木钎交到少年掌心！',
+      prompt: '林则徐亲手将赤红如玉的销烟长棍交到少年掌心！',
       buttonText: '【手握正气 · 承接嘱托】',
       targetScene: 'ch15_scene_righteous_seal'
     }
   },
 
-  // s6: 【共振重返】百年心印 · 时空回溯
+  // s6: 【共鸣重返】百年心印 · 时空回溯
   ch15_scene_righteous_seal: {
     id: 'ch15_scene_righteous_seal',
     title: '落日熔金 · 百年心印',
@@ -292,7 +292,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '赤心木钎入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作涤荡世间一切阴暗的纯阳圣光！',
+        text: '赤心销烟钎入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作洗净世间一切黑暗的纯阳圣光！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -310,7 +310,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '赤木钎爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
+        text: '赤心销烟钎爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
         highlight: true,
         sfx: 'sfx_suspense'
       }

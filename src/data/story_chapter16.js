@@ -2,7 +2,7 @@
  * 第十七章《破碎的奖状》剧情脚本数据表（第二幕 第7章）
  *
  * 流程结构：
- * - ch16_scene_return_ruins: 众人携赤心木钎重返现代驳船残骸，暂时返回安全屋清点装备
+ * - ch16_scene_return_ruins: 众人携赤心销烟钎重返现代驳船残骸，暂时返回安全屋清点装备
  * - ch16_scene_betrayal_note: 黎明时分，浩然信物不翼而飞，桌上只留下一张被泪水浸湿的三好学生奖状与留书
  * - ch16_scene_rainy_chase: 众人顺着字迹破译真相，冒雨狂追至老城水闸废料场
  * - ch16_battle1: 水闸废料场截击战（主角团 VS 伏击的沈氏精锐死士）
@@ -24,7 +24,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '晨光破开浓云，古运河的驳船甲板上一片狼藉。沈氏父子趁着时空混乱早已乘快艇逃遁，但在{MC_NAME}怀中，那柄赤红如玉的“赤心销烟钎”正散发着温润而磅礴的金光。',
+        text: '晨光破开浓云，古运河的驳船甲板上一片狼藉。沈氏父子趁着时空混乱早已乘快艇逃遁，但在{MC_NAME}怀中，那柄赤红如玉的“赤心销烟钎”正散发着温润又强大的金光。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -33,7 +33,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '大难不死，还带回了彻底克制福寿堂古毒的圣物！沈万廷父子老巢就在下游废弃的“洋行货栈”，先回安全屋补充防暴盾牌和弹药，正午展开全线合围！',
+        text: '大难不死，还带回了彻底克制福寿堂古毒的圣物！沈万廷父子的老巢就在下游废弃的“洋行仓库”，先回安全屋补充防暴盾牌和弹药，正午展开全线合围！',
         sfx: 'sfx_confirm'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（死死捏着衣角，低着头，声音隐隐发颤）这柄木钎……真的能让所有被威胁、被下毒的人……彻底恢复清白吗？',
+        text: '（死死捏着衣角，低着头，声音隐隐发颤）这柄销烟钎……真的能让所有被威胁、被下毒的人……彻底恢复清白吗？',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -58,7 +58,7 @@ export const CHAPTER16_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人回到防空洞安全屋暂时和衣小憩，然而天刚蒙蒙亮，惊变突生！',
+      prompt: '众人回到防空洞安全屋，穿着衣服眯了一会儿。然而天刚蒙蒙亮，惊变突生！',
       buttonText: '【猛然惊醒 · 查探异动】',
       targetScene: 'ch16_scene_betrayal_note'
     }
@@ -78,7 +78,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（惊惶失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的赤心木钎不见了！覃瑞怡的人也不在安全屋里！',
+        text: '（惊慌失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的赤心销烟钎不见了！覃瑞怡的人也不在安全屋里！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -88,7 +88,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '冰冷的铁皮桌上，压着一张被小心翼翼展平的“市级优秀学生干部”奖状。背面是覃瑞怡娟秀却颤抖的字迹，上面斑驳地落着未干的泪痕。',
+        text: '冰冷的铁皮桌上，压着一张被小心翼翼展平的“市级优秀学生干部”奖状。背面是覃瑞怡工整却颤抖的字迹，上面东一块西一块地沾着没干的泪痕。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -97,7 +97,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还扣下了小敏的手术捐款信托。』',
+        text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还把小敏的手术捐款扣了下来。』',
         sfx: 'sfx_text_blip'
       },
       {
@@ -106,7 +106,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『他们说只要我天亮前把木钎送去江心水闸，就会销毁档案放过大家……我绝不能连累整个班级毁掉前途。木钎是我拿的，所有罪名我一个人扛。』',
+        text: '『他们说只要我天亮前把销烟钎送去江心水闸，就会销毁档案放过大家……我绝不能连累整个班级毁掉前途。销烟钎是我拿的，所有罪名我一个人扛。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -160,7 +160,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '桀桀……六掌柜料事如神，那个天真的女班长果然把东西送来了！至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
+        text: '嘿嘿……六掌柜料事如神，那个天真的女班长果然把东西送来了！至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -176,7 +176,7 @@ export const CHAPTER16_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '电弧在暴雨中滋滋作响，死士群猛扑而上！',
+      prompt: '电火花在暴雨中滋滋作响，死士群猛扑而上！',
       buttonText: '【怒火爆发 · 水闸突击战】',
       battleId: 'ch16_battle1',
       isBattleTrigger: true
@@ -197,7 +197,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
-        text: '（一记反关节擒拿死死扣住头目的喉咙）说！小姑娘人在哪里？！木钎被送去哪了？！',
+        text: '（一记擒拿手死死扣住头目的喉咙）说！小姑娘人在哪里？！销烟钎被送去哪了？！',
         sfx: 'sfx_confirm'
       },
       {
@@ -206,7 +206,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'right',
-        text: '咳咳……迟了……你们去得太晚了！六掌柜和老太爷已经把她带去洋行货栈地下的“万毒血池”……要用那柄木钎作为活祭之匙，逼她喝下第一口原浆药引！',
+        text: '咳咳……迟了……你们去得太晚了！六掌柜和老太爷已经把她带去洋行仓库地下的“万毒血池”……要用那柄销烟钎作为活祭之匙，逼她喝下第一口原浆药引！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -222,7 +222,7 @@ export const CHAPTER16_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人沿着水闸下泄洪密道，狂奔直插洋行货栈地下核心祭坛！',
+      prompt: '众人沿着水闸下泄洪密道，狂奔直插洋行仓库地下核心祭坛！',
       buttonText: '【突入魔窟 · 开启第十八章】',
       targetScene: 'ch17_scene_alter_breach'
     }

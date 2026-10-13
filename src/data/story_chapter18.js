@@ -2,7 +2,7 @@
  * 第十九章《逆行攻坚》剧情脚本数据表（第二幕 第9章）
  *
  * 流程结构：
- * - ch18_scene_warehouse_breach: 洋行货栈外围，覃瑞怡提供被囚期间记下的防御布控图与弱点，全员制定强攻计划
+ * - ch18_scene_warehouse_breach: 洋行仓库外围，覃瑞怡提供被囚期间记下的防御布控图与弱点，全员制定强攻计划
  * - ch18_scene_teacher_stand: 冲破货栈正门，重装机械药人与大批死士合围。徐老师与刘老师毅然决然留在大厅断后
  * - ch18_battle1: 货栈中庭防线强袭战（主角团 VS 沈氏中枢生化狂战士与重装卫队）
  * - ch18_scene_tower_arrival: 浴血杀穿中庭，少年们登上货栈顶层钟楼大厅，直面沈氏父子与正在启动的巨灵生化枢纽
@@ -12,7 +12,7 @@ export const CHAPTER18_STORY = {
   // s1: 戴罪立功 · 破阵密码
   ch18_scene_warehouse_breach: {
     id: 'ch18_scene_warehouse_breach',
-    title: '洋行货栈外侧 · 暴雨突击准备',
+    title: '洋行仓库外侧 · 暴雨突击准备',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
     bgm: 'bgm_suspense',
@@ -23,7 +23,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '洋行货栈的主楼是一座二十世纪初遗留下来的哥特式红砖巨堡，四周架设着防暴铁丝网与高压探照灯，暴雨在惨白的光束中狂乱飞舞。',
+        text: '洋行仓库的主楼是一座二十世纪初留下来的哥特式红砖巨堡，四周架设着防暴铁丝网与高压探照灯，暴雨在惨白的光束中狂乱飞舞。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（从口袋里掏出一张用眼线笔画在餐巾纸上的简易草图）大家看，他们把我押进地下室时，我默记了整座楼的监控盲区！货栈东西两侧的电网每隔四十五秒会有一次变压器跳闸间隙！',
+        text: '（从口袋里掏出一张用眼线笔画在餐巾纸上的简易草图）大家看，他们把我押进地下室时，我默记了整座楼的监控盲区！货栈东西两侧的电网每隔四十五秒就会断电一小会儿！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -161,14 +161,14 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '（拔出赤心销烟钎，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底化为飞灰吧！！',
+        text: '（拔出赤心销烟钎，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底烧成灰吧！！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
       prompt: '青黑巨心轰鸣咆哮，狂暴的毒雾化作滔天风暴！',
-      buttonText: '【拔出赤心钎 · 开启终极决战】',
+      buttonText: '【拔出销烟钎 · 开启终极决战】',
       targetScene: 'ch19_scene_final_stand'
     }
   }

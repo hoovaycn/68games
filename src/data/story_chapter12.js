@@ -24,7 +24,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '夜里八点，暴雨如注。狂风将仓库顶棚的铁皮吹得哐当作响。少年们顺着白天的电路图，悄然摸入堆满报废集装箱的后院。',
+        text: '夜里八点，雨下得特别大。狂风把仓库顶棚的铁皮吹得哐当作响。少年们顺着白天的电路图，悄悄摸进了堆满报废集装箱的后院。',
         sfx: 'sfx_suspense'
       },
       {
@@ -51,7 +51,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '就是白天那个青花古瓷罐！他们竟然在集装箱里用离心机提纯古毒？！',
+        text: '就是白天那个青花古瓷罐！他们竟然在集装箱里用机器把古毒提炼出来？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -151,7 +151,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '老爸海峰跃下皮卡车斗，手里一柄一米长的锻造钢制管钳在空中抡出破风呼啸！一套利落至极的警用格斗反关节擒拿，瞬间打断当头死士的腕骨！',
+        text: '老爸海峰跃下皮卡车斗，手里一柄一米长的锻造钢制管钳在空中抡出破风呼啸！一套干净利落的警用擒拿手，瞬间拧断当头死士的手腕！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -169,13 +169,13 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '傻看什么！结阵站在老子背后！看老子怎么把这帮孙子收拾干净！',
+        text: '傻看什么！躲到老子背后！看老子怎么把这帮孙子收拾干净！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '老爸海峰在前开路如入无人之境，少年团立刻结阵迎击合围之敌！',
+      prompt: '老爸海峰在前开路如入无人之境，少年团立刻聚到他身边迎击合围之敌！',
       buttonText: '【并肩作战 · 突围歼敌】',
       battleId: 'ch12_battle1',
       isBattleTrigger: true

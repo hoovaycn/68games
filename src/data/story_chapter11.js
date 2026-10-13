@@ -24,7 +24,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '下午三点，刺鼻的铁锈与废机油味在窄巷里蒸腾。斑驳的红砖墙上贴满了小广告，头顶杂乱的电线割裂着铅灰色的天空。',
+        text: '下午三点，窄巷子里飘着一股铁锈和废机油的刺鼻味。破旧的红砖墙上贴满了小广告，头顶的电线乱糟糟地搭着，把灰蒙蒙的天空切成了几块。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -61,7 +61,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'right',
-        text: '不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的勾当！我不信！跟我进去看清楚！',
+        text: '不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的事！我不信！跟我进去看清楚！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -141,7 +141,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
-        text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒物？！',
+        text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒品？！',
         sfx: 'sfx_shock_sting'
       },
       {

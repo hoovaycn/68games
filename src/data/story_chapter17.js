@@ -3,7 +3,7 @@
  *
  * 流程结构：
  * - ch17_scene_alter_breach: 破门突入洋行地下祭坛，覃瑞怡被铁链锁在石柱前，全班档案悬在毒火之上
- * - ch17_scene_father_shield: 夺回信物与档案，沈崇礼暴怒掷出剧毒钢钎，老爸海峰肉身挡钎中伏坠江
+ * - ch17_scene_father_shield: 夺回信物与档案，沈崇礼暴怒掷出剧毒钢针，老爸海峰肉身挡针中伏坠江
  * - ch17_battle1: 祭坛绝境突围战（主角团 + 两位老师悲愤爆发 VS 暴走死士狂潮）
  * - ch17_scene_tearful_retreat: 杀出地窟，绝境中擦干眼泪，誓灭百年魔巢
  */
@@ -12,7 +12,7 @@ export const CHAPTER17_STORY = {
   // s1: 突入祭坛 · 救赎与决断
   ch17_scene_alter_breach: {
     id: 'ch17_scene_alter_breach',
-    title: '洋行货栈地下核心 · 毒池祭台',
+    title: '洋行仓库地下核心 · 毒池祭台',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
     bgm: 'bgm_intense_boss',
@@ -23,7 +23,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '地下祭坛阴森刺骨，巨大的青铜血池中翻滚着墨绿色的药浆。覃瑞怡被粗铁链绑在石柱上，脸色惨白，嘴角满是咬破的血痕；沈崇礼正手持药盏，一步步逼向她！',
+        text: '地下祭坛阴森刺骨，巨大的青铜血池中翻滚着墨绿色的药浆。覃瑞怡被粗铁链绑在石柱上，脸色惨白，嘴角满是咬破的血痕；沈崇礼正手持药碗，一步步逼向她！',
         sfx: 'sfx_suspense'
       },
       {
@@ -41,7 +41,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '（奋力将药盏撞翻在地，声嘶力竭地怒喊）做梦！！我死也不会把灵魂卖给你们这帮恶魔！！',
+        text: '（奋力将药碗撞翻在地，声嘶力竭地怒喊）做梦！！我死也不会把灵魂卖给你们这帮恶魔！！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -57,7 +57,7 @@ export const CHAPTER17_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '{MC_NAME}手持赤心销烟钎飞身斩断铁链，然而狂怒的沈崇礼从腰间拔出了淬毒的连发钢弩！',
+      prompt: '{MC_NAME}手持赤心销烟钎飞身斩断铁链，然而狂怒的沈崇礼从腰间拔出了淬了毒的连发钢弩！',
       buttonText: '【救下同伴 · 夺取档案】',
       targetScene: 'ch17_scene_father_shield'
     }
@@ -77,7 +77,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '徐老师飞扑而上抢回悬在火盆上的全班学生档案！被彻底逼上绝路的沈崇礼彻底发疯，按动机关，淬满百年原浆剧毒的三支漆黑长钎如闪电般直射向护在最前面的少年们！',
+        text: '徐老师飞扑而上抢回悬在火盆上的全班学生档案！被彻底逼上绝路的沈崇礼彻底发疯，按动机关，三根淬满剧毒的漆黑长针如闪电般直射向护在最前面的少年们！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -97,7 +97,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一道宽厚如山岳般的身影猛然横空挡在孩子们身前！“噗嗤”数声闷响，三柄毒钎尽数深深刺入海峰的前胸与咽喉下沿，黑血瞬间浸透了他的防刺警服！',
+        text: '一道像堵墙一样宽厚的身影猛然横空挡在孩子们身前！“噗嗤”数声闷响，三根毒针尽数深深刺入海峰的前胸与咽喉下沿，黑血瞬间浸透了他的防刺警服！',
         sfx: 'sfx_shock_sting'
       },
       {
