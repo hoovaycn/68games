@@ -57,13 +57,13 @@ export const CHAPTER17_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '{MC_NAME}手持赤心销烟钎飞身斩断铁链，然而狂怒的沈崇礼从腰间拔出了淬了毒的连发钢弩！',
+      prompt: '{MC_NAME}手持浩然销烟杖飞身斩断铁链，然而狂怒的沈崇礼从腰间拔出了淬了毒的连发钢弩！',
       buttonText: '【救下同伴 · 夺取档案】',
       targetScene: 'ch17_scene_father_shield'
     }
   },
 
-  // s2: 肉身挡钎 · 坠入暗河
+  // s2: 肉身挡针 · 坠入暗河
   ch17_scene_father_shield: {
     id: 'ch17_scene_father_shield',
     title: '祭坛崩塌处 · 悲壮的背影',

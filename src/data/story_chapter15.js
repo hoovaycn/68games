@@ -7,8 +7,8 @@
  * - ch15_scene_beach_wake: 【时空交错】现代少年团自时空漩涡跌落虎门滩头，亲眼见证历史上的“双池化烟”名场面
  * - ch15_scene_militia_stand: 【外敌突袭】异国鸦片武装水手勾结初代买办死士偷袭化烟池，民团浴血抵抗
  * - ch15_battle1: 【滩头血战】虎门滩头保卫战（主角团 + 虎门民团教头 VS 异国武装水手与初代买办死士）
- * - ch15_scene_lin_commends: 【名臣赐物】林则徐亲临滩头抚慰将士，识破少年赤诚，御赐“赤心销烟钎”作为浩然信物
- * - ch15_scene_righteous_seal: 【共鸣重返】赤心销烟钎爆发神圣浩然金光，破除时空界限，众人重返现代驳船
+ * - ch15_scene_lin_commends: 【名臣赐物】林则徐亲临滩头抚慰将士，识破少年赤诚，御赐“浩然销烟杖”作为浩然信物
+ * - ch15_scene_righteous_seal: 【共鸣重返】浩然销烟杖爆发神圣浩然金光，破除时空界限，众人重返现代驳船
  */
 
 export const CHAPTER15_STORY = {
@@ -181,7 +181,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（手持销烟长棍，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
+        text: '（手持销烟杖，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -265,14 +265,14 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '这柄“赤心销烟钎”，就是老夫用岭南沉香木削成的一根长棍，浸过沸水和石灰，还带着千千万万百姓的浩然誓愿。听说你们那个时代还有旧毒没除干净，老夫就把这棍子送给后世的少年——拿着这份浩然正气，百毒不侵，什么妖魔鬼怪统统退散！',
+        text: '这柄“浩然销烟杖”，就是老夫用岭南沉香木削成的一根长棍，浸过沸水和石灰，还带着千千万万百姓的浩然誓愿。听说你们那个时代还有旧毒没除干净，老夫就把这棍子送给后世的少年——拿着这份浩然正气，百毒不侵，什么妖魔鬼怪统统退散！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '林则徐亲手将赤红如玉的销烟长棍交到少年掌心！',
+      prompt: '林则徐亲手将赤红如玉的销烟杖交到少年掌心！',
       buttonText: '【手握正气 · 承接嘱托】',
       targetScene: 'ch15_scene_righteous_seal'
     }
@@ -292,7 +292,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '赤心销烟钎入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作洗净世间一切黑暗的纯阳圣光！',
+        text: '浩然销烟杖入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作洗净世间一切黑暗的纯阳圣光！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -310,7 +310,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '赤心销烟钎爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
+        text: '浩然销烟杖爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
         highlight: true,
         sfx: 'sfx_suspense'
       }

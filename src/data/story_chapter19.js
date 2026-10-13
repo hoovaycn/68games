@@ -4,7 +4,7 @@
  * 流程结构：
  * - ch19_scene_final_stand: 顶层钟楼巅峰对决前夕，沈崇礼与机械巨灵沈万廷狂暴合体
  * - ch19_battle1: 第二幕终极决战（少年团齐心血战 VS 福寿堂百年巨灵魔尊沈氏父子）
- * - ch19_scene_boss_destroyed: 战后纯剧情①：赤心销烟钎刺破巨灵魔核，百年鸦片原浆彻底汽化净化，沈氏父子彻底伏法
+ * - ch19_scene_boss_destroyed: 战后纯剧情①：浩然销烟杖刺破巨灵魔核，百年鸦片原浆彻底汽化净化，沈氏父子彻底伏法
  * - ch19_scene_miracle_reunion: 战后纯剧情②：警笛轰鸣特警全线控制现场，浑身缠满绷带的老爸海峰奇迹生还归来，父子/父女深情相拥
  * - ch19_scene_dawn_epilogue: 战后纯剧情③（大结局）：破晓钟声长鸣，阴霾尽散。加密卫星电话闪烁来自公海的密电，抛出第三幕全新宏大悬念
  */
@@ -52,7 +52,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '大家结成七星破邪阵！把所有的正气与信念注入赤心销烟钎，彻底粉碎两百年的罪恶宿命！！',
+        text: '大家结成七星破邪阵！把所有的正气与信念注入浩然销烟杖，彻底粉碎两百年的罪恶宿命！！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -79,7 +79,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '{MC_NAME}高高跃起，将燃烧着浩然烈火的“赤心销烟钎”精准无误地刺入了巨灵魔核的心脏！耀眼的金芒如同一千个太阳般在黑夜中骤然绽放！',
+        text: '{MC_NAME}高高跃起，将燃烧着浩然烈火的“浩然销烟杖”精准无误地刺入了巨灵魔核的心脏！耀眼的金芒如同一千个太阳般在黑夜中骤然绽放！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

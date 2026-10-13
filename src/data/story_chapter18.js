@@ -161,14 +161,14 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '（拔出赤心销烟钎，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底烧成灰吧！！',
+        text: '（拔出浩然销烟杖，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底烧成灰吧！！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
       prompt: '青黑巨心轰鸣咆哮，狂暴的毒雾化作滔天风暴！',
-      buttonText: '【拔出销烟钎 · 开启终极决战】',
+      buttonText: '【拔出销烟杖 · 开启终极决战】',
       targetScene: 'ch19_scene_final_stand'
     }
   }
