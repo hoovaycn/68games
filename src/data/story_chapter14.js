@@ -29,7 +29,7 @@ export const CHAPTER14_STORY = {
       {
         id: 2,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '（手扶铜炉，阴恻恻地冷笑）徐老师，刘老师……还有海警督，带着一群乳臭未干的小毛孩，动作倒是挺快。可惜，时辰已到，江潮已平！',
