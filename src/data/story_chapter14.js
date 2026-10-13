@@ -69,7 +69,7 @@ export const CHAPTER14_STORY = {
     title: '甲板中心 · 狂澜异变',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
@@ -139,7 +139,7 @@ export const CHAPTER14_STORY = {
         id: 2,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '脚下的甲板……甲板在消失？！爸！抓紧我的手！！',
         sfx: 'sfx_text_blip'
@@ -147,7 +147,7 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '抓紧！所有人手拉着手！徐老师、刘老师，护住孩子们的头！！',

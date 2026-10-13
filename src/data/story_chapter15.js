@@ -74,7 +74,7 @@ export const CHAPTER15_STORY = {
     title: '道光十九年 · 广东虎门海防要塞',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_harbor_1839@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
@@ -119,7 +119,7 @@ export const CHAPTER15_STORY = {
     title: '道光十九年 · 广东虎门沙角海滩',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -173,13 +173,13 @@ export const CHAPTER15_STORY = {
     title: '化烟巨池畔 · 浴血浅滩',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
         speaker: '虎门民团教头',
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '（手持赤木长钎，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
         highlight: true,
@@ -188,7 +188,7 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
         text: '好一条响当当的汉子！不管是百年前还是百年后，老子这一身警服、满腔热血，最容不下的就是这帮祸国殃民的毒枭！教头，我们并肩杀敌！',
@@ -219,7 +219,7 @@ export const CHAPTER15_STORY = {
     title: '销烟池畔 · 钦差大臣巡阅',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -284,7 +284,7 @@ export const CHAPTER15_STORY = {
     title: '落日熔金 · 百年心印',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -298,7 +298,7 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '林公在上，后辈定不负嘱托！不管什么福寿堂沈万廷，这百年毒账，我们替您连本带利彻底清算！',

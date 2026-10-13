@@ -123,7 +123,7 @@ export const CHAPTER12_STORY = {
     title: '仓库废墟 · 咆哮而来的神兵天降',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
-    bgm: 'bgm_fanfare',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,

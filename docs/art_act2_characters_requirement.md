@@ -22,13 +22,13 @@
 
 ---
 
-## 二、第二幕核心角色立绘清单 (共 10 套核心角色资源)
+## 二、第二幕核心角色立绘清单 (共 11 套核心角色资源)
 
-### 1. 老爸海峰（市井修车痞气 / 隐藏卧底警察）
+### 1. 老爸海峰 · 江湖混混态（未揭秘前伪装地头蛇）
 - **角色 ID**：`father_haifeng_default`
-- **身份定位**：第二幕灵魂核心英雄。主角同伴的老爸，名义上是个城中村开破修车厂、满嘴江湖黑话的邋遢老混混，真实身份是省公安厅禁毒总队潜伏15年的特勤卧底二级警督。
+- **身份定位**：第11~12章亮明警察底牌前的伪装形象。为了潜伏进毒枭组织底层，故意装作城南贪财好酒、混迹黑道的老流氓修车行老板，与后续特警形象形成极致反差。
 - **外观特征**：
-  40岁出头的中年硬汉，体格壮硕魁梧如熊。留着寸头短髭胡茬，脸上有一道淡淡的陈旧刀疤。上身穿油渍斑斑的灰黑色战术背心（里面隐隐露出深色警用防刺内衬），手臂肌肉线条虬结，手腕缠着运动绷带。眼神平日里看似漫不经心、痞里痞气，但眼底闪烁着如鹰隼般的冷酷与凛然正气。
+  40岁出头的中年魁梧硬汉，留着寸头胡茬，脸颊有淡疤。**戴着一副黑超墨镜，脖子上挂着显眼的大金链子，赤膊袒胸，胸口与肩膀露出粗犷的猛虎/青龙花臂纹身，外面敞怀套着一件破旧起皱、沾着油渍的暗色老式西装外套**，嘴角叼着半截香烟，神情桀骜乖张、流里流气，完全是一副市井老混混、社会大哥的派头。
 - **交付文件**：
   - `assets/art/father_haifeng_default.png`
   - `assets/art/father_haifeng_default@2x.png`
@@ -36,16 +36,33 @@
   - `assets/portraits/father_haifeng_default@2x.png`
 - **参考提示词 (Prompt)**：
   ```text
-  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background, no watermark. A rugged 40-year-old Chinese undercover police officer disguised as a rogue mechanic. Muscular build, short buzz cut hair, stubble beard, faint battle scar across cheek, wearing a greasy dark tactical work vest over a concealed dark police Kevlar vest. Tough, nonchalant yet deeply righteous piercing gaze, anime sprite style with crisp black outlines, cel-shaded.
+  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background, no watermark. A 40-year-old muscular Chinese man disguised as a street gangster boss. Short buzz cut hair, stubble beard, wearing dark sunglasses, a thick flashy gold chain necklace around neck, bare muscular chest with traditional dragon tattoos on shoulder and chest, wearing an open tattered vintage dark suit jacket, cigarette in mouth, unruly and roguish street thug expression, anime sprite style with crisp black outlines, cel-shaded.
   ```
 
 ---
 
-### 2. 老爸海峰 · 浴血战损态（暗夜突围与挡刀高潮）
-- **角色 ID**：`father_haifeng_battle_damaged`
-- **身份定位**：第13章破墙突围、第18章肉身替孩子们挡住淬毒长钎、断索炸桥时的惨烈悲壮形象。
+### 2. 老爸海峰 · 特警正气态（亮明警督底牌后）
+- **角色 ID**：`father_haifeng_police`
+- **身份定位**：第12章结尾亮明省厅禁毒总队二级警督身份后，在第13~16章安全屋指挥、码头行动中的正式警察形象。脱去混混伪装，恢复一身凛然正气的铁血特警本色。
 - **外观特征**：
-  防刺警服被鲜血与黑墨浸湿，前襟有被利器穿透的破口。额头流着血痕，胸前滑落出那本深红色金字的二级警督警官证与锃亮的国徽警徽。嘴角带血却挂着释然、骄傲而温暖的笑容，眼神如护崽的猛兽般坚毅决绝。
+  摘掉墨镜与金链子，五官刚毅堂堂正正，双目如炬、清澈威严，充满人民警察的浩然正气。**身穿整洁干练的深藏青色中国特警战术执勤服，外披黑色警用防刺战术背心，左胸佩戴醒目的银色警号牌与“特警 SWAT / 中国警察”字样臂章，肩扣通讯对讲机，胸前挂着二级警督警官证**，身姿挺拔如松，安全感与正义感拉满。
+- **交付文件**：
+  - `assets/art/father_haifeng_police.png`
+  - `assets/art/father_haifeng_police@2x.png`
+  - `assets/portraits/father_haifeng_police.png`
+  - `assets/portraits/father_haifeng_police@2x.png`
+- **参考提示词 (Prompt)**：
+  ```text
+  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background, no watermark. Heroic 40-year-old Chinese SWAT police commander, same face as father_haifeng_default but without sunglasses. Short buzz cut hair, clean righteous and stern expression, piercing upright eyes. Wearing dark navy blue Chinese SWAT tactical uniform shirt and black police tactical vest with official police emblem badge on chest and shoulder radio, exuding overwhelming justice and reliability, pixel art.
+  ```
+
+---
+
+### 3. 老爸海峰 · 特警浴血战损态（肉身挡刀与破晓归来）
+- **角色 ID**：`father_haifeng_battle_damaged`
+- **身份定位**：第12章突围挂彩、第17章身穿特警服肉身替孩子们挡下淬毒长钎、第19章大决战后缠着绷带奇迹归来的悲壮英雄形象。
+- **外观特征**：
+  **身穿深蓝色特警战术执勤服与防刺背心，但特警装甲前襟已被利器撕裂破损、浸透深红血迹**，胸前缠着渗血的白色急救绷带，一枚染血的国徽警徽与红色警官证露在胸口。额头与嘴角挂着血痕，脸色苍白却挂着无比释然、自豪而温暖的慈父笑容，眼神如护崽的雄狮般坚不可摧。
 - **交付文件**：
   - `assets/art/father_haifeng_battle_damaged.png`
   - `assets/art/father_haifeng_battle_damaged@2x.png`
@@ -53,7 +70,7 @@
   - `assets/portraits/father_haifeng_battle_damaged@2x.png`
 - **参考提示词 (Prompt)**：
   ```text
-  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background. Battle-damaged heroic Chinese veteran undercover detective. Bleeding forehead, torn vest stained with dark blood, a red Chinese police credential badge slipping out from his inner pocket, bruised but with an incredibly warm, fearless and proud smile, fiercely protective fatherly expression, pixel art.
+  16-bit JRPG pixel art character portrait, half-body cut to waist, three-quarters view, solid #FF00FF magenta background. Battle-damaged heroic Chinese SWAT police officer. Wearing torn dark navy SWAT tactical vest stained with blood, white medical bandages wrapped around chest, a red Chinese police badge visible at chest, bleeding forehead and bruised face, yet smiling with an incredibly warm, fearless and proud fatherly expression, pixel art.
   ```
 
 ---

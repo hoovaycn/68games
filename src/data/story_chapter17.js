@@ -15,7 +15,7 @@ export const CHAPTER17_STORY = {
     title: '洋行货栈地下核心 · 毒池祭台',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,

@@ -30,17 +30,17 @@ export const CHAPTER13_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（一边用医用酒精给手臂上的刀口消毒，一边指着墙上的红线）你们在学校里见到的怪味零食和电子烟，在省厅专案组代号叫“04号致幻精神制剂”。它的母体原浆，来自一百八十多年前虎门销烟时期，洋行大买办“福寿堂”偷藏下来的鸦片老膏。',
+        text: '（换上一身笔挺干练的深蓝特警战术服，一边用医用酒精给手臂上的刀口消毒，一边指着墙上的红线）你们在学校里见到的怪味零食和电子烟，在省厅专案组代号叫“04号致幻精神制剂”。它的母体原浆，来自一百八十多年前虎门销烟时期，洋行大买办“福寿堂”偷藏下来的鸦片老膏。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '一百八十多年前的福寿堂？！那上次来我们学校开家长会、气焰嚣张的那个神秘家长，在这张网里到底是什么人？',
         sfx: 'sfx_confirm'
@@ -48,7 +48,7 @@ export const CHAPTER13_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '他叫沈崇礼，表面上是省名校教育基金会副理事长，实际上是“福寿堂”第六代掌门人。而真正站在他背后垂帘听政的太上皇……你们看这张二十年前从档案室抢救出来的老照片。',
@@ -85,7 +85,7 @@ export const CHAPTER13_STORY = {
         id: 2,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事，我这颗心总算落地了！',
         sfx: 'sfx_text_blip'
@@ -94,7 +94,7 @@ export const CHAPTER13_STORY = {
         id: 3,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '（摘下沾满雨水的眼镜，目光无意间扫到墙上的黑白老照片，整个人如遭雷击，手里的竹教鞭哐当落地）这……这张脸是……沈万廷？！二十年前开家长会带头逼死阿瑶、害得我们师徒流离失所的那个校董家长！！',
         highlight: true,
@@ -103,7 +103,7 @@ export const CHAPTER13_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
         text: '没错，刘老师。当年逼迫你们的神秘家长沈万廷，正是如今这个沈崇礼的亲生父亲！二十年前他见东窗事发，制造车祸假死逃往南洋；如今他用轮椅和呼吸机续命潜回国内，让亲儿子接班，换了层“素质教育补剂”的皮，又把黑手伸向了这一届学生！',
@@ -157,7 +157,7 @@ export const CHAPTER13_STORY = {
       {
         id: 3,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '省厅大部队集结还需要四十分钟，但开炉仪式就在半小时后，等不及了！我来打头阵撕开缺口，徐老师、刘老师断后掩护！孩子们，跟紧大人，今晚我们把这笔横跨百年的老账彻底算清！',

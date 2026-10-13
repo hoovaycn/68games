@@ -16,7 +16,7 @@ export const CHAPTER19_STORY = {
     title: '货栈顶层钟楼大厅 · 魔尊降世',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
@@ -71,7 +71,7 @@ export const CHAPTER19_STORY = {
     title: '残破的钟楼露台 · 圣光涤荡',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -126,7 +126,7 @@ export const CHAPTER19_STORY = {
     title: '钟楼大厅废墟门前 · 铁汉柔情',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -191,7 +191,7 @@ export const CHAPTER19_STORY = {
     title: '钟楼最高处 · 破晓时分的钟声',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_battle_victory',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,

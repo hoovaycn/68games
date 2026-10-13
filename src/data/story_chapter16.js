@@ -30,7 +30,7 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '大难不死，还带回了彻底克制福寿堂古毒的圣物！沈万廷父子老巢就在下游废弃的“洋行货栈”，先回安全屋补充防暴盾牌和弹药，正午展开全线合围！',
@@ -105,7 +105,7 @@ export const CHAPTER16_STORY = {
         id: 4,
         speaker: '徐老师',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '这个傻孩子！沈崇礼那帮吃人不吐骨头的恶棍怎么可能守信用！这是去送死啊！',
         sfx: 'sfx_shock_sting'
@@ -113,7 +113,7 @@ export const CHAPTER16_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '带上所有家伙，全速赶往江心旧水闸！绝不能让二十年前阿瑶的悲剧，在这孩子身上重演第二遍！！',
@@ -134,7 +134,7 @@ export const CHAPTER16_STORY = {
     title: '江心旧水闸 · 泥泞与锈铁',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_watergate_ruins@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
@@ -149,7 +149,7 @@ export const CHAPTER16_STORY = {
         id: 2,
         speaker: '沈氏死士头目',
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '桀桀……六掌柜料事如神，那个天真的女班长果然把东西送来了！至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
         highlight: true,
@@ -185,7 +185,7 @@ export const CHAPTER16_STORY = {
       {
         id: 1,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
         text: '（一记反关节擒拿死死扣住头目的喉咙）说！小姑娘人在哪里？！木钎被送去哪了？！',
@@ -195,7 +195,7 @@ export const CHAPTER16_STORY = {
         id: 2,
         speaker: '沈氏死士头目',
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'right',
         text: '咳咳……迟了……你们去得太晚了！六掌柜和老太爷已经把她带去洋行货栈地下的“万毒血池”……要用那柄木钎作为活祭之匙，逼她喝下第一口原浆药引！',
         highlight: true,
@@ -205,7 +205,7 @@ export const CHAPTER16_STORY = {
         id: 3,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
         text: '洋行地下魔窟！一秒都不能耽搁，全员全速突进！！',
         sfx: 'sfx_confirm'

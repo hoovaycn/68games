@@ -96,7 +96,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '其中一人西装笔挺，正是家长会上的神秘家长；另一人穿着沾满油污的脏背心、胡子拉碴、嘴里叼着半截劣质香烟，正是 {ALLY_2_NAME} 的父亲——老爸海峰。',
+        text: '其中一人西装笔挺，正是家长会上的神秘家长；另一人戴着黑超墨镜、脖子挂着大金链子、赤膊露出花臂纹身外罩一件破西装，嘴里叼着半截劣质香烟，正是 {ALLY_2_NAME} 的父亲——老爸海峰。',
         sfx: 'sfx_suspense'
       },
       {

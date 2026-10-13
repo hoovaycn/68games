@@ -69,7 +69,7 @@ export const CHAPTER18_STORY = {
     title: '货栈一层挑空中庭 · 钢铁巨兽',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
-    bgm: 'bgm_boss_intro',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
