@@ -411,5 +411,61 @@ export const UNITS = {
       attack: '走开！',
       death: '对不起……徐徐……刘……'
     }
+  },
+
+  /* ══════════ 第二幕盟友：老爸海峰（刑警卧底 · 强力重战） ══════════ */
+  father_haifeng: {
+    id: 'father_haifeng',
+    name: '海峰',
+    title: '卧底刑警 · 父亲',
+    gender: 'male',
+    classId: 'strong_boy',
+    level: 10,
+    exp: 0,
+    equippedWeapon: 'dumbbell',
+    inventory: [
+      { id: 'sausage', count: 3 },
+      { id: 'bastard_soda', count: 2 }
+    ],
+    bio: '潜伏十余年的老刑警，平时是一身痞气的大金链子混混，亮明底牌后是一身正气的缉毒铁警。为了守护下一代，甘愿背负骂名与牺牲。',
+    personalGrowth: { hp: 15, str: 15, def: 15 },
+    personalSkill: 'iron_fist_patrol',
+    joinsAt: 'ch12_battle1',
+    portrait: 'assets/portraits/father_haifeng_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#1e3a8a',
+    quotes: {
+      move: '小兔崽子们，退后！老子在，天塌不下来！',
+      attack: '尝尝老刑警的铁拳！',
+      death: '孩子们……快跑……别回头……'
+    }
+  },
+
+  /* ══════════ 第二幕盟友：虎门民团教头（1839历史英豪） ══════════ */
+  militia_instructor: {
+    id: 'militia_instructor',
+    name: '民团教头',
+    title: '虎门滩头销烟义士',
+    gender: 'male',
+    classId: 'sports_star',
+    level: 10,
+    exp: 0,
+    equippedWeapon: 'broom',
+    inventory: [
+      { id: 'white_rabbit_candy', count: 3 },
+      { id: 'sausage', count: 2 }
+    ],
+    bio: '1839年虎门沙角滩头带领乡勇与民团协助林则徐大人销烟的精壮武师。手握沉重铁锹长木钎，一腔浩然正气，视鸦片烟毒如寇仇。',
+    personalGrowth: { str: 15, skl: 10, spd: 10 },
+    personalSkill: 'righteous_spear',
+    joinsAt: 'ch15_battle1',
+    portrait: 'assets/portraits/militia_instructor_1839@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#b91c1c',
+    quotes: {
+      move: '浩然正气在此！蛮夷走狗休得放肆！',
+      attack: '销烟池前，岂容尔等作恶！',
+      death: '林公……后世子孙……已明浩然正气……'
+    }
   }
 };

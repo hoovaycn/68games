@@ -499,5 +499,196 @@ export const ENEMIES = {
       attack: '回去背书！',
       death: '我连大门……都看不好……'
     }
+  },
+
+  /* ══════════════════ 第二幕新增敌军体系 ══════════════════ */
+  // 1. 沈氏黑衣死士（现代打手 / 货栈与码头守卫）
+  shen_guard: {
+    id: 'shen_guard',
+    name: '黑衣死士',
+    title: '沈氏集团精锐爪牙',
+    classId: 'street_loafer',
+    level: 8,
+    equippedWeapon: 'exercise_bat',
+    portrait: 'assets/portraits/shen_guard_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#1e293b',
+    bio: '身穿黑西装配墨镜的冷酷死士，神情麻木，服从命令近乎本能。受福寿膏余毒与利益驱使，行事凶残。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 0.8 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '清除目标，不留活口。',
+      attack: '别挣扎了，乖乖认命！',
+      death: '老板……任务……失败……'
+    }
+  },
+
+  // 2. 异国武装水手（1839鸦片走私船武装水手）
+  foreign_sailor: {
+    id: 'foreign_sailor',
+    name: '武装水手',
+    title: '走私快艇火器水手',
+    classId: 'street_loafer',
+    level: 9,
+    equippedWeapon: 'mop',
+    portrait: 'assets/portraits/foreign_sailor_1839@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#0369a1',
+    bio: '1839年游弋在珠江口外的武装走私水手，身材魁梧满脸络腮胡，手持沉重水手短棍与缆绳工具，横行霸道。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 0.8 }
+    ],
+    quotes: {
+      move: 'Get out of the way! (滚开！)',
+      attack: '尝尝甲板上的铁棍！',
+      death: 'Damn it... the tide is turning...'
+    }
+  },
+
+  // 3. 初代买办死士（1839勾结洋行的大汉奸爪牙）
+  comprador_assassin: {
+    id: 'comprador_assassin',
+    name: '初代买办死士',
+    title: '怡和洋行暗影刺客',
+    classId: 'study_committee',
+    level: 10,
+    equippedWeapon: 'recorder',
+    portrait: 'assets/portraits/comprador_assassin_1839@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#701a75',
+    bio: '一百八十年前投靠洋商买办家族的暗杀刺客，身着长衫手持异化骨笛，精通阴毒偷袭与精神扰乱。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 0.8 }
+    ],
+    quotes: {
+      move: '洋人的银子，比骨气好使！',
+      attack: '断人财路，犹如杀人父母！',
+      death: '百年基业……怎么会……'
+    }
+  },
+
+  // 4. 沈氏重装狂战士（注入异化浓缩物的重装头目）
+  berserker_guard: {
+    id: 'berserker_guard',
+    name: '重装狂暴死士',
+    title: '异化强化重甲守卫',
+    classId: 'strong_boy',
+    level: 11,
+    equippedWeapon: 'dumbbell',
+    portrait: 'assets/portraits/berserker_guard_heavy@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#831843',
+    bio: '注射了狂暴浓缩药剂的巨汉，肌肉暴胀，双眼泛着猩红光芒，拥有极高防御与骇人蛮力。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 1.0 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '吼啊啊！碾碎他们！',
+      attack: '把骨头统统砸碎！',
+      death: '药效……竟然……散了……'
+    }
+  },
+
+  // 5. 沈崇礼（少东家 · 现代行刑者）
+  shen_chongli: {
+    id: 'shen_chongli',
+    name: '沈崇礼',
+    title: '沈氏集团执行少主',
+    classId: 'teacher',
+    level: 11,
+    equippedWeapon: 'teaching_pointer',
+    portrait: 'assets/portraits/shen_chongli_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#991b1b',
+    bio: '沈万霆之子，表面斯文儒雅的名流精英，骨子里狂妄冷酷。手执合金文明杖，视底层与学生为任其收割的数字。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '不知天高地厚的小鬼，这里不是你们的学校！',
+      attack: '规则，由我沈家来制定！',
+      death: '不可思议……我怎么会输给一群毛头小孩？！'
+    }
+  },
+
+  // 6. 沈万霆（幕后黑手沈会长 · 百年家主）
+  shen_wanting: {
+    id: 'shen_wanting',
+    name: '沈万霆',
+    title: '福寿堂幕后当代家主',
+    classId: 'teacher',
+    level: 12,
+    equippedWeapon: 'whistle',
+    portrait: 'assets/portraits/shen_wanting_old@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#450a0a',
+    bio: '福寿堂百年阴暗传承的当代家主，苍老面容下隐藏着无尽的贪婪与野心。妄图借新时代迷魂毒素重塑百年前的提线木偶王国。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '百年大业，岂容一帮乳臭未干的毛孩子撼动！',
+      attack: '见识一下真正的绝对掌控吧！',
+      death: '列祖列宗……老夫不甘心啊！'
+    }
+  },
+
+  // 7. 百年巨灵魔尊（福寿堂百年烟魔巨像 · 终极大Boss）
+  boss_colossus: {
+    id: 'boss_colossus',
+    name: '百年巨灵魔尊',
+    title: '福寿堂百年怨念化身',
+    classId: 'strong_boy',
+    level: 13,
+    equippedWeapon: 'dumbbell',
+    portrait: 'assets/portraits/boss_colossus_opium_god@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#581c87',
+    bio: '盘踞在货栈钟楼顶端百年的烟毒怨念聚合体，黑烟缭绕遮天蔽日。它是百年来所有鸦片罪恶与贪欲的实体显化，不可一世！',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 9
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '呼……嘶……百年的沉沦，没人能逃脱……',
+      attack: '在无尽的黑暗烟海中窒息吧！',
+      death: '正气……林则徐的浩然正气……为何历经百年依然不灭……！'
+    }
   }
 };

@@ -349,6 +349,30 @@ export const SKILLS = {
     effect: { kind: 'debuff', stats: { hit: -80 } },
     desc: '扶了扶眼镜，看过来一眼。对面的准头当场矮了半截。'
   },
+  iron_fist_patrol: {
+    id: 'iron_fist_patrol',
+    name: '铁拳破障',
+    scope: 'personal',
+    ownerUnit: 'father_haifeng',
+    mpCost: 6,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 30 },
+    desc: '雷霆万钧的老刑警重拳！无论是混混还是买办死士，一拳之下统统现形。'
+  },
+  righteous_spear: {
+    id: 'righteous_spear',
+    name: '销烟铁志',
+    scope: 'personal',
+    ownerUnit: 'militia_instructor',
+    mpCost: 5,
+    target: 'enemy',
+    range: [1, 1],
+    duration: null,
+    effect: { kind: 'damage', power: 'str', might: 28 },
+    desc: '虎门民团世代相传的实战招式，裹挟着1839年沙角滩头销烟的滔天正气。'
+  },
   full_energy: {
     id: 'full_energy',
     name: '元气满满',

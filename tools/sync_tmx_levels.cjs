@@ -143,6 +143,142 @@ const CHAPTER_CONFIGS = [
       { enemyId: 'qinruiyi_corrupted', instanceId: 'shadow_ruiyi' },
       { enemyId: 'zhuyanze_corrupted', instanceId: 'shadow_yanze' }
     ]
+  },
+  {
+    id: 'ch10_battle1',
+    tmx: 'docs/map/tiled_project/ch10_battle1.tmx',
+    js: 'src/data/chapters/ch10_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'senior_athlete_corrupted', instanceId: 'push_a' },
+      { enemyId: 'senior_athlete_corrupted', instanceId: 'push_b' }
+    ]
+  },
+  {
+    id: 'ch11_battle1',
+    tmx: 'docs/map/tiled_project/ch11_battle1.tmx',
+    js: 'src/data/chapters/ch11_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'punk', instanceId: 'punk_a' },
+      { enemyId: 'punk', instanceId: 'punk_b' }
+    ]
+  },
+  {
+    id: 'ch12_battle1',
+    tmx: 'docs/map/tiled_project/ch12_battle1.tmx',
+    js: 'src/data/chapters/ch12_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'father_haifeng'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_b' }
+    ]
+  },
+  {
+    id: 'ch13_battle1',
+    tmx: 'docs/map/tiled_project/ch13_battle1.tmx',
+    js: 'src/data/chapters/ch13_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'xu_laoshi', 'liu_laoshi', 'father_haifeng'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_d' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_b' },
+      { enemyId: 'punk', instanceId: 'punk_a' },
+      { enemyId: 'punk', instanceId: 'punk_b' }
+    ]
+  },
+  {
+    id: 'ch14_battle1',
+    tmx: 'docs/map/tiled_project/ch14_battle1.tmx',
+    js: 'src/data/chapters/ch14_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_d' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_b' }
+    ]
+  },
+  {
+    id: 'ch15_battle1',
+    tmx: 'docs/map/tiled_project/ch15_battle1.tmx',
+    js: 'src/data/chapters/ch15_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'militia_instructor'],
+    enemyUnits: [
+      { enemyId: 'foreign_sailor', instanceId: 'sailor_a' },
+      { enemyId: 'foreign_sailor', instanceId: 'sailor_b' },
+      { enemyId: 'foreign_sailor', instanceId: 'sailor_c' },
+      { enemyId: 'foreign_sailor', instanceId: 'sailor_d' },
+      { enemyId: 'comprador_assassin', instanceId: 'assassin_a' },
+      { enemyId: 'comprador_assassin', instanceId: 'assassin_b' }
+    ]
+  },
+  {
+    id: 'ch16_battle1',
+    tmx: 'docs/map/tiled_project/ch16_battle1.tmx',
+    js: 'src/data/chapters/ch16_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_d' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' }
+    ]
+  },
+  {
+    id: 'ch17_battle1',
+    tmx: 'docs/map/tiled_project/ch17_battle1.tmx',
+    js: 'src/data/chapters/ch17_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'xu_laoshi', 'liu_laoshi'],
+    enemyUnits: [
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_b' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_guard', instanceId: 'guard_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_d' }
+    ]
+  },
+  {
+    id: 'ch18_battle1',
+    tmx: 'docs/map/tiled_project/ch18_battle1.tmx',
+    js: 'src/data/chapters/ch18_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'berserker_guard', instanceId: 'heavy_a' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_b' },
+      { enemyId: 'berserker_guard', instanceId: 'heavy_c' },
+      { enemyId: 'shen_guard', instanceId: 'guard_a' },
+      { enemyId: 'shen_guard', instanceId: 'guard_b' },
+      { enemyId: 'shen_chongli', instanceId: 'shen_chongli' }
+    ]
+  },
+  {
+    id: 'ch19_battle1',
+    tmx: 'docs/map/tiled_project/ch19_battle1.tmx',
+    js: 'src/data/chapters/ch19_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_colossus', instanceId: 'boss_colossus' },
+      { enemyId: 'shen_wanting', instanceId: 'shen_wanting' },
+      { enemyId: 'shen_chongli', instanceId: 'shen_chongli' }
+    ]
   }
 ];
 

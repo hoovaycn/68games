@@ -61,6 +61,16 @@ import { CH6_BATTLE1 } from './data/chapters/ch6_battle1.js';
 import { CH7_BATTLE1 } from './data/chapters/ch7_battle1.js';
 import { CH8_BATTLE1 } from './data/chapters/ch8_battle1.js';
 import { CH9_BATTLE1 } from './data/chapters/ch9_battle1.js';
+import { CH10_BATTLE1 } from './data/chapters/ch10_battle1.js';
+import { CH11_BATTLE1 } from './data/chapters/ch11_battle1.js';
+import { CH12_BATTLE1 } from './data/chapters/ch12_battle1.js';
+import { CH13_BATTLE1 } from './data/chapters/ch13_battle1.js';
+import { CH14_BATTLE1 } from './data/chapters/ch14_battle1.js';
+import { CH15_BATTLE1 } from './data/chapters/ch15_battle1.js';
+import { CH16_BATTLE1 } from './data/chapters/ch16_battle1.js';
+import { CH17_BATTLE1 } from './data/chapters/ch17_battle1.js';
+import { CH18_BATTLE1 } from './data/chapters/ch18_battle1.js';
+import { CH19_BATTLE1 } from './data/chapters/ch19_battle1.js';
 import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
@@ -125,7 +135,17 @@ const CHAPTERS = {
   ch6_battle1: CH6_BATTLE1,
   ch7_battle1: CH7_BATTLE1,
   ch8_battle1: CH8_BATTLE1,
-  ch9_battle1: CH9_BATTLE1
+  ch9_battle1: CH9_BATTLE1,
+  ch10_battle1: CH10_BATTLE1,
+  ch11_battle1: CH11_BATTLE1,
+  ch12_battle1: CH12_BATTLE1,
+  ch13_battle1: CH13_BATTLE1,
+  ch14_battle1: CH14_BATTLE1,
+  ch15_battle1: CH15_BATTLE1,
+  ch16_battle1: CH16_BATTLE1,
+  ch17_battle1: CH17_BATTLE1,
+  ch18_battle1: CH18_BATTLE1,
+  ch19_battle1: CH19_BATTLE1
 };
 
 // 章节入口场景注册表（按章节序号）：开发者秘籍 F1 选关菜单跳转到该章开头剧情。
