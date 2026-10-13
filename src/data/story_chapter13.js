@@ -101,6 +101,15 @@ export const CHAPTER13_STORY = {
       },
       {
         id: 3,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '（瞪大眼睛）不是吧？徐老师、刘老师，你们俩加起来都快一百岁了，还真从学校翻墙出来啊？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
@@ -110,7 +119,7 @@ export const CHAPTER13_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
@@ -119,7 +128,7 @@ export const CHAPTER13_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
@@ -128,7 +137,7 @@ export const CHAPTER13_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 6,
+        id: 7,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
@@ -220,6 +229,15 @@ export const CHAPTER13_STORY = {
       },
       {
         id: 3,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '（咽了咽口水）好家伙，这炉子长得比沈崇礼那张脸还吓人……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
