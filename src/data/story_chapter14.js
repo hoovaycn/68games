@@ -20,8 +20,8 @@ export const CHAPTER14_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
         text: '铁壳驳船在江浪中剧烈颠簸。甲板中央摆着三张太师椅，中间瘫坐着一个浑身插满输液管、戴着氧气面罩的干瘦老人；右侧站着的，正是家长会上西装革履的沈崇礼。',
         sfx: 'sfx_suspense'
@@ -74,8 +74,8 @@ export const CHAPTER14_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
         sfx: 'sfx_shock_sting'
@@ -103,7 +103,7 @@ export const CHAPTER14_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
         text: '黑气里混着极强的麻醉致幻成分，大家屏住呼吸！先解决眼前的打手！',
         sfx: 'sfx_confirm'

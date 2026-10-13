@@ -29,7 +29,7 @@ export class LevelSelectModal {
       { num: 9, act: 1, label: '第9章', title: '从前那一班 · 下', sceneKey: 'ch8_scene_warehouse' },
       { num: 10, act: 1, label: '第10章', title: '大考', sceneKey: 'ch9_scene_exam' },
       // 第二幕
-      { num: 11, act: 2, label: '第11章', title: '省博惊魂', sceneKey: 'ch10_scene_intro' },
+      { num: 11, act: 2, label: '第11章', title: '博物馆惊魂', sceneKey: 'ch10_scene_museum_meet' },
       { num: 12, act: 2, label: '第12章', title: '烂人老爸', sceneKey: 'ch11_scene_slum_street' },
       { num: 13, act: 2, label: '第13章', title: '夜袭汽修厂', sceneKey: 'ch12_scene_night_ambush' },
       { num: 14, act: 2, label: '第14章', title: '避难所疑云', sceneKey: 'ch13_scene_safahouse' },

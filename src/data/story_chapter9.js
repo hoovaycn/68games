@@ -371,14 +371,52 @@ export const CHAPTER9_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '然而，在谁也未曾留意的城市阴影深处……那些散落的青蓝色荧光正悄悄换上新的伪装，等待着下一个渴望走捷径的灵魂。',
-        sfx: 'sfx_confirm'
+        text: '那些发光的怪味零食，也被徐老师尽数封存了起来。只是，所有人心头的那块巨石，其实并没有真正落地。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 11,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '在谁也未曾留意的城市阴影深处，那些散落的青蓝色荧光正悄悄换上新的伪装，等待着下一个渴望走捷径的灵魂。',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 12,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        activeSide: 'left',
+        text: '还记得学期末那场让人喘不过气的家长会吗？那个西装革履、目光阴鸷、在暗处操控全班精神异化的“神秘家长”，至今就像一团挥之不去的阴影。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 13,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '二十年前，在徐老师和语文刘老师的记忆里，毁掉他们同伴的那个幕后黑手也和他有着千丝万缕的联系。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 14,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '躲在零食和保送名额背后的黑手，不仅没有收手，反而正在省城更深处酝酿着更大的阴谋……',
+        sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
-      type: 'CHAPTER_CLEAR',
-      prompt: '第一幕到这里结束。',
-      buttonText: '【未完待续】'
+      type: 'CHOICE',
+      prompt: '七月盛夏，全班收到了一份由教育基金会特别赞助的暑期博物馆参观邀请函。',
+      buttonText: '【前往博物馆 · 开启第二幕】',
+      targetScene: 'ch10_scene_museum_meet'
     }
   }
 };

@@ -83,7 +83,7 @@ export const CHAPTER18_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '沉重的橡木大门轰然被撞开！然而大厅正中央，竟伫立着三具注入了大量变异药剂、手提重型防暴合金盾与电锯的改造重装巨人！大门后方的液压铁闸轰然降下，将退路完全锁死！',

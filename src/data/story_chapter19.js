@@ -21,7 +21,7 @@ export const CHAPTER19_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '钟楼顶层的钢铁穹顶在雷电中剧烈颤抖。悬浮的青黑巨心猛烈收缩，化作一具高达四米、缠绕着黑气与高压蒸汽的钢铁巨灵骸骨！沈万廷那具干瘪的残躯赫然嵌在魔躯的心脏正中，双眼闪烁着猩红凶光！',
@@ -76,7 +76,7 @@ export const CHAPTER19_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
         text: '{MC_NAME}高高跃起，将燃烧着浩然烈火的“浩然销烟杖”精准无误地刺入了巨灵魔核的心脏！耀眼的金芒如同一千个太阳般在黑夜中骤然绽放！',
@@ -86,7 +86,7 @@ export const CHAPTER19_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '在刺耳凄厉的惨叫声中，翻滚的百年鸦片黑气在浩然正气金焰的灼烧下迅速汽化瓦解。钢铁巨灵四分五裂轰然坍塌，沈万廷的残躯随之化为灰烬，沈崇礼瘫软在废墟中，面如死灰，双目失神。',
@@ -131,8 +131,8 @@ export const CHAPTER19_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
         text: '数十名全副武装的省公安厅特警破门而入，迅速将现场封锁并扣押了沈崇礼。负伤包扎的徐老师和刘老师相互搀扶着快步走来，而走在最前方的……竟然是一个裹着厚厚军大衣、胸前缠满急救绷带的高大身影！',
         highlight: true,

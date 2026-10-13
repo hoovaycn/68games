@@ -1,12 +1,12 @@
 /**
- * 第11章 省博惊魂 战斗关卡：省博展厅遭遇战 · 守护国宝
+ * 第11章 博物馆惊魂 战斗关卡：博物馆展厅遭遇战 · 守护国宝
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch10_battle1.tmx）
  * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH10_BATTLE1 = {
   id: 'ch10_battle1',
-  name: '省博展厅遭遇战 · 守护国宝',
+  name: '博物馆展厅遭遇战 · 守护国宝',
   bgm: 'bgm_battle_normal',
   mapWidth: 16,
   mapHeight: 10,
@@ -39,7 +39,7 @@ export const CH10_BATTLE1 = {
 
   objective: {
     type: 'defeat_all',
-    text: '击退入侵省博的黑衣死士与狂暴保送生'
+    text: '击退入侵博物馆的黑衣死士与狂暴保送生'
   },
 
   nextStorySceneOnWin: 'ch10_scene_tracking',

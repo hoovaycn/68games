@@ -110,7 +110,7 @@ const CHAPTER_BANNERS = {
   ch7_scene_flashback: { label: '第八章', title: '从前那一班-上' },
   ch8_scene_warehouse: { label: '第九章', title: '从前那一班-下' },
   ch9_scene_exam: { label: '第十章', title: '大考' },
-  ch10_scene_intro: { label: '第十一章', title: '省博惊魂' },
+  ch10_scene_museum_meet: { label: '第十一章', title: '博物馆惊魂' },
   ch11_scene_slum_street: { label: '第十二章', title: '烂人老爸' },
   ch12_scene_night_ambush: { label: '第十三章', title: '夜袭汽修厂' },
   ch13_scene_safahouse: { label: '第十四章', title: '避难所疑云' },
@@ -160,7 +160,7 @@ const CHAPTER_ENTRY_SCENES = [
   'ch7_scene_flashback',   // 第 8 章
   'ch8_scene_warehouse',   // 第 9 章
   'ch9_scene_exam',        // 第 10 章
-  'ch10_scene_intro',      // 第 11 章
+  'ch10_scene_museum_meet',      // 第 11 章
   'ch11_scene_slum_street',// 第 12 章
   'ch12_scene_night_ambush', // 第 13 章
   'ch13_scene_safahouse',  // 第 14 章

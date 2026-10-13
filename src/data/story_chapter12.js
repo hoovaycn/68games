@@ -75,7 +75,7 @@ export const CHAPTER12_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '十数道白亮刺目的光束死死钉在孩子们身上。集装箱顶上，数名身披夜行雨衣、眼瞳泛着森绿毒光的蒙面黑衣人悄无声息地拔出了短棍与甩刀。',
@@ -148,7 +148,7 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '老爸海峰跃下皮卡车斗，手里一柄一米长的锻造钢制管钳在空中抡出破风呼啸！一套干净利落的警用擒拿手，瞬间拧断当头死士的手腕！',
@@ -174,7 +174,8 @@ export const CHAPTER12_STORY = {
       }
     ],
     transition: {
-      type: 'CHOICE',
+      type: 'JOIN_PARTY',
+      unitId: 'father_haifeng',
       prompt: '老爸海峰在前开路如入无人之境，少年团立刻聚到他身边迎击合围之敌！',
       buttonText: '【并肩作战 · 突围歼敌】',
       battleId: 'ch12_battle1',
@@ -193,7 +194,7 @@ export const CHAPTER12_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '满地翻滚哀嚎的黑衣死士被一一捆缚。老爸海峰捂着流血的右肋靠在皮卡轮胎上，大口喘着粗气，豆大的汗珠混着血水滚落。',
@@ -211,8 +212,8 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '{ALLY_2_NAME} 慌乱地撕开老爸浸透机油的背心止血。然而背心扯开的瞬间，贴身防刺马甲内衬里的一件东西赫然滑落——一枚被擦得锃光发亮的国徽警徽，以及一本写着【省公安厅禁毒总队特勤处 · 二级警督 海峰】的深红警官证！',
         highlight: true,

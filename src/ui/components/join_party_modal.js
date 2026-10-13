@@ -356,7 +356,10 @@ export class JoinPartyModal {
       shiyunuo: 'assets/art/shiyunuo_default@2x.png',
       zhangxizhe: 'assets/art/zhangxizhe_default@2x.png',
       qinruiyi: 'assets/art/qinruiyi_default@2x.png',
-      zhuyanze: 'assets/art/zhuyanze_default@2x.png'
+      zhuyanze: 'assets/art/zhuyanze_default@2x.png',
+      xu_laoshi: 'assets/art/teacher_xu_default@2x.png',
+      liu_laoshi: 'assets/art/adult_liu_default@2x.png',
+      militia_instructor: 'assets/art/militia_instructor_1839@2x.png'
     };
     return map[unitId] || `assets/art/${unitId}_default@2x.png`;
   }

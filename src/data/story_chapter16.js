@@ -148,7 +148,7 @@ export const CHAPTER16_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '旧水闸的铁锈大门虚掩着，泥地里扔着一只熟悉的粉色双肩包。闸口阴影中，十余名戴着防毒面具、手持高压电棍的沈氏精锐死士早已严阵以待！',

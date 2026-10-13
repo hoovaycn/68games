@@ -1,9 +1,8 @@
 /**
- * 第十一章《省博惊魂》剧情脚本数据表（第二幕 第1章）
+ * 第十一章《博物馆惊魂》剧情脚本数据表（第二幕 第1章）
  *
  * 流程结构：
- * - ch10_scene_intro: 第二幕引子 · 第一幕风波平息但神秘家长与暗流未解
- * - ch10_scene_museum_meet: 暑假省博物馆大厅集合，少年团参观虎门销烟百年特展
+ * - ch10_scene_museum_meet: 暑假博物馆大厅集合，少年团参观虎门销烟百年特展
  * - ch10_scene_crisis: 核心展厅，清代封泥古瓷罐渗出诡异青烟，保送生狂暴发狂
  * - ch10_scene_confrontation: 家长会上的神秘家长作为荣誉赞助人现身，指挥保镖强行掉包古罐
  * - ch10_battle1: 博物馆展厅遭遇战（主角团 VS 异化保镖与狂躁保送生）
@@ -11,70 +10,7 @@
  */
 
 export const CHAPTER10_STORY = {
-  // s0: 第二幕序引 · 阳光下的潜流
-  ch10_scene_intro: {
-    id: 'ch10_scene_intro',
-    title: '暑期之初 · 阳光下的未解之谜',
-    bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_field_relief@2x.png',
-    bgm: 'bgm_suspense',
-    dialogues: [
-      {
-        id: 1,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '期末大考的硝烟随着盛夏的蝉鸣渐渐散去。六 8 班的孩子们凭借自己的汗水守住了卷子，那些发光的怪味零食也被徐老师尽数封存。',
-        sfx: 'sfx_text_blip'
-      },
-      {
-        id: 2,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '然而，所有人心头的那块巨石并未真正落地。',
-        highlight: true,
-        sfx: 'sfx_shock_sting'
-      },
-      {
-        id: 3,
-        speaker: '系统提示',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_default@2x.png',
-        activeSide: 'left',
-        text: '【上集回忆】还记得学期末那场让人喘不过气的家长会吗？那个西装革履、目光阴鸷、在暗处操控全班精神异化的“神秘家长”，至今就像一团挥之不去的阴影。',
-        sfx: 'sfx_suspense'
-      },
-      {
-        id: 4,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '二十年前，在徐老师和语文刘老师的记忆里，毁掉他们同伴的那个幕后黑手也和他有着千丝万缕的联系。',
-        sfx: 'sfx_text_blip'
-      },
-      {
-        id: 5,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '躲在零食和保送名额背后的黑手，不仅没有收手，反而正在省城更深处酝酿着更大的阴谋……',
-        sfx: 'sfx_shock_sting'
-      }
-    ],
-    transition: {
-      type: 'CHOICE',
-      prompt: '七月盛夏，全班收到了一份由教育基金会特别赞助的暑期省博参观邀请函。',
-      buttonText: '【前往省博物馆 · 开启第二幕】',
-      targetScene: 'ch10_scene_museum_meet'
-    }
-  },
-
-  // s1: 省博大厅集合 · 闲聊与新展
+  // s1: 博物馆大厅集合 · 闲聊与新展
   ch10_scene_museum_meet: {
     id: 'ch10_scene_museum_meet',
     title: '省历史博物馆 · 百年特展大厅',
@@ -214,7 +150,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '六 8 班的孩子们？还真是阴魂不散啊。学校里的小实验被你们搅黄了，竟然还能追到省博来？',
+        text: '六 8 班的孩子们？还真是阴魂不散啊。学校里的小实验被你们搅黄了，竟然还能追到博物馆来？',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -249,7 +185,7 @@ export const CHAPTER10_STORY = {
     transition: {
       type: 'CHOICE',
       prompt: '黑衣保镖与被青烟蛊惑的狂暴学生挥舞警棍扑了上来！',
-      buttonText: '【展开战斗 · 守护省博】',
+      buttonText: '【展开战斗 · 守护博物馆】',
       battleId: 'ch10_battle1',
       isBattleTrigger: true
     }
@@ -258,9 +194,9 @@ export const CHAPTER10_STORY = {
   // s4: 战后追踪 · 线索落入城南
   ch10_scene_tracking: {
     id: 'ch10_scene_tracking',
-    title: '省博后门 · 黑色货车的去向',
+    title: '博物馆后门 · 黑色货车的去向',
     bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_playground@2x.png',
+    bgImg: 'assets/backgrounds/bg_museum_square@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {

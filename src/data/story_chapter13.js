@@ -84,8 +84,8 @@ export const CHAPTER13_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
         text: '铁门拉开一条缝，两个浑身被雨水浇透、风尘仆仆的身影闪了进来——竟然是徐老师和语文刘老师！徐老师怀里紧紧揣着那本泛黄的二十年前旧教案，刘老师手里握着那根从不离身的竹教鞭。',
         sfx: 'sfx_confirm'
@@ -96,7 +96,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事……（目光扫到海峰肋下的血迹和包扎，声音突然哽咽了一下）你这身上……怎么又添了这么重的伤？十五年了，你一个人在城南顶着，就不知道给自己留条后路吗？',
+        text: '老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事，总算放心了。（目光扫到海峰肋下的血迹和包扎，神色一凝）你这伤……又是替孩子们挡下的吧？',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -106,7 +106,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'right',
-        text: '（有些局促地用战术背心挡了挡伤口，原本糙汉的脸罕见地泛起一丝红晕，粗声粗气地掩饰）咳……大老爷们受点皮外伤算什么。倒是你，一把年纪了还带头跟这帮小鬼一起胡闹翻墙……让外人看见成何体统。',
+        text: '（摆摆手，粗声粗气）大老爷们受点皮外伤算什么，别大惊小怪的。倒是你们，一把年纪了还大半夜翻墙过来，也不怕路上出事。',
         sfx: 'sfx_confirm'
       },
       {
@@ -115,7 +115,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（又气又心疼地瞪了他一眼，从口袋里掏出一个干净的碘伏棉签和创可贴拍在他桌上）少废话，坐下消炎！……只要孩子们能平平安安的，我这把老骨头翻个墙算得了什么。',
+        text: '（从口袋里掏出干净的碘伏棉签和创可贴递过去）少逞强，先把伤口消炎了再谈正事。孩子们都平平安安的，我们这一趟就值了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -124,7 +124,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（在一旁戳了戳覃瑞怡，压低声音起哄）诶诶诶，你们看这气氛，怎么突然从扫黑除恶变成战地纯爱了……',
+        text: '（在一旁戳了戳覃瑞怡，压低声音）诶，徐老师跟海叔叔，听起来是老相识啊。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -133,8 +133,8 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'right',
-        text: '（飞起一脚把张希哲踩开，满脸黑线）闭嘴！大人叙旧呢，少在这脑补奇奇怪怪的剧本！',
-        sfx: 'sfx_shock_sting'
+        text: '（压低声音）别打岔，好好听。这里面肯定还有我们不知道的往事。',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 4,
@@ -196,7 +196,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『滋滋……报告老太爷、六掌柜，省博的道光青花瓷罐已顺利运抵古运河三号废弃码头。今夜半夜江潮大涨，可在驳船祭坛开炉熬制百年青髓母液，全市重点中学尖子生投毒名册已核对完毕……滋滋……』',
+        text: '『滋滋……报告老太爷、六掌柜，博物馆的道光青花瓷罐已顺利运抵古运河三号废弃码头。今夜半夜江潮大涨，可在驳船祭坛开炉熬制百年青髓母液，全市重点中学尖子生投毒名册已核对完毕……滋滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -217,11 +217,21 @@ export const CHAPTER13_STORY = {
         activeSide: 'left',
         text: '省厅大部队集结还需要四十分钟，但开炉仪式就在半小时后，等不及了！我来打头阵撕开缺口，徐老师、刘老师断后掩护！孩子们，跟紧大人，今晚我们把这笔横跨百年的老账彻底算清！',
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/shen_guard_default@2x.png',
+        activeSide: 'left',
+        text: '众人顶着暴雨冲到码头铁闸前，闸口两侧哨塔灯光刺目——十余名沈氏黑衣护卫与手持铁棍的码头黑帮早已列阵以待，领头的两名重装狂暴守卫横起带倒刺的合金盾牌，堵死了唯一的通道！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人冲出安全屋，冒着瓢泼大雨直扑古运河三号废弃码头，码头铁闸外黑影攒动！',
+      prompt: '敌人堵死铁闸，一场恶战一触即发！',
       buttonText: '【打响突击战 · 强攻码头哨卡】',
       battleId: 'ch13_battle1',
       isBattleTrigger: true
@@ -270,7 +280,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '那只从省博物馆抢走的道光古瓷罐，就被铁链悬在铜炉正上方！甲板上那两个穿唐装和西装的人影……就是沈家父子！',
+        text: '那只从博物馆抢走的道光古瓷罐，就被铁链悬在铜炉正上方！甲板上那两个穿唐装和西装的人影……就是沈家父子！',
         sfx: 'sfx_confirm'
       }
     ],

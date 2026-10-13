@@ -214,7 +214,8 @@ export const CHAPTER15_STORY = {
       }
     ],
     transition: {
-      type: 'CHOICE',
+      type: 'JOIN_PARTY',
+      unitId: 'militia_instructor',
       prompt: '燧发火枪喷射火星，异国武装水手与沈氏先祖买办死士嚎叫着扑向滩头！',
       buttonText: '【沙角血战 · 捍卫化烟池】',
       battleId: 'ch15_battle1',
@@ -233,7 +234,7 @@ export const CHAPTER15_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '激战落幕，偷袭的武装快艇被尽数击沉或缴获，残敌仓皇逃窜。沙角海滩上三军雷动！一顶深蓝色官呢大轿在亲兵簇拥下肃然停在池畔，林则徐亲自迈步登台！',

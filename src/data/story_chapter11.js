@@ -93,9 +93,9 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        activeSide: 'right',
         text: '其中一人西装笔挺，正是家长会上的神秘家长；另一人戴着黑超墨镜、脖子挂着大金链子、赤膊露出花臂纹身外罩一件破西装，嘴里叼着半截劣质香烟，正是 {ALLY_2_NAME} 的父亲——老爸海峰。',
         sfx: 'sfx_suspense'
       },
@@ -111,7 +111,7 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',

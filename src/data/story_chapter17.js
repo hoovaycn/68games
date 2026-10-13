@@ -20,8 +20,8 @@ export const CHAPTER17_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
         text: '地下祭坛阴森刺骨，巨大的青铜血池中翻滚着墨绿色的药浆。覃瑞怡被粗铁链绑在石柱上，脸色惨白，嘴角满是咬破的血痕；沈崇礼正手持药碗，一步步逼向她！',
         sfx: 'sfx_suspense'
@@ -74,8 +74,8 @@ export const CHAPTER17_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '徐老师飞扑而上抢回悬在火盆上的全班学生档案！被彻底逼上绝路的沈崇礼彻底发疯，按动机关，三根淬满剧毒的漆黑长针如闪电般直射向护在最前面的少年们！',
         highlight: true,
@@ -94,7 +94,7 @@ export const CHAPTER17_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '一道像堵墙一样宽厚的身影猛然横空挡在孩子们身前！“噗嗤”数声闷响，三根毒针尽数深深刺入海峰的前胸与咽喉下沿，黑血瞬间浸透了他的防刺警服！',
@@ -178,7 +178,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
         text: '海叔叔一定还活着！但在这之前，沈崇礼和沈万廷就藏在货栈最顶层的洋行指挥塔。我们现在就杀上去，把这盘跨越两百年的毒根连根拔起！',
         sfx: 'sfx_confirm'
