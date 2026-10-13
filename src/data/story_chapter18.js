@@ -38,6 +38,15 @@ export const CHAPTER18_STORY = {
       },
       {
         id: 3,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '（一脸佩服地凑近草图纸）班长，你这脑子是自带监控回放还是咋的？连哪堵墙是监控死角都能背下来……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
@@ -46,7 +55,7 @@ export const CHAPTER18_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',

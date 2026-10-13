@@ -142,6 +142,15 @@ export const CHAPTER15_STORY = {
       },
       {
         id: 3,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        activeSide: 'left',
+        text: '（脸色发白地摸了摸口袋）完了完了……手机一格信号都没有！那我的暑期研学报告、还有开学摸底考，是不是全泡汤了？！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -150,7 +159,7 @@ export const CHAPTER15_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',

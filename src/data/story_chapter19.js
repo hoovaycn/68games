@@ -213,6 +213,15 @@ export const CHAPTER19_STORY = {
       },
       {
         id: 3,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（伸了个懒腰）就是有点可惜，这暑假光顾着打架、穿越，作业一个字没写……开学不会被老师留堂吧？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -222,7 +231,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_suspense'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '卫星加密密电',
         leftPortrait: null,
         rightPortrait: null,
@@ -232,7 +241,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
