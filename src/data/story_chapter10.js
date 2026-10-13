@@ -210,8 +210,8 @@ export const CHAPTER10_STORY = {
     dialogues: [
       {
         id: 1,
-        speaker: '神秘家长（沈崇礼）',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        speaker: '神秘家长',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '六 8 班的孩子们？还真是阴魂不散啊。学校里的小实验被你们搅黄了，竟然还能追到省博来？',
@@ -220,7 +220,7 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '{MC_NAME}',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
         text: '果然是你！你在借文物特展的名义，把百年前沉江的古毒提炼出来偷偷换走！',
@@ -228,8 +228,8 @@ export const CHAPTER10_STORY = {
       },
       {
         id: 3,
-        speaker: '神秘家长（沈崇礼）',
-        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        speaker: '神秘家长',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '毒？愚蠢的庸才才叫它毒，我们称之为“青髓”。当年林则徐烧不尽它，今天这满城渴望成才的家长与学生，更拒绝不了它！动手，装箱带走！把这几个小鬼扔进地下室！',
