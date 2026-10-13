@@ -42,9 +42,9 @@ export const CHAPTER10_STORY = {
         id: 3,
         speaker: '系统提示',
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '家长会上那个看着就让人发怵、在背后操控一切的神秘家长到底是谁？二十年前，在徐老师和语文刘老师回忆里毁掉他们同伴的那个神秘男人，又躲在哪里？',
+        text: '【上集回忆】还记得学期末那场让人喘不过气的家长会吗？那个西装革履、目光阴鸷、在暗处操控全班精神异化的“神秘家长”——沈崇礼，至今就像一团挥之不去的阴影。',
         sfx: 'sfx_suspense'
       },
       {
@@ -53,7 +53,16 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '躲在零食背后的黑手，还只是露出来的冰山一角。这个夏天，真正的幕后黑手，正悄悄在省城深处活动……',
+        text: '二十年前，在徐老师和语文刘老师的记忆里，毁掉他们同伴的那个幕后黑手也和他有着千丝万缕的联系。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '躲在零食和保送名额背后的黑手，不仅没有收手，反而正在省城更深处酝酿着更大的阴谋……',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -110,12 +119,21 @@ export const CHAPTER10_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
+        id: 41,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '【闪回回忆】大家脑海中瞬间浮现出期末家长会上那个居高临下、逼迫全班妥协的恐怖身影——没错，就是那个神秘家长！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'assets/art/shen_chongli_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '你看展馆顶上的赞助铭牌——“怡安教育慈善基金会”。那个在家长会上煽动大家的神秘家长，正是这基金会的总干事。',
+        text: '你看展馆顶上的赞助铭牌——“怡安教育慈善基金会”。当时家长会上扇动大家的那个神秘家长，正是这基金会的总干事！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
