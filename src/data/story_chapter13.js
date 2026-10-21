@@ -24,7 +24,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '深夜十点，老爸海峰带着少年们穿过汽修厂地窖的暗道，进入了一间隐匿在地下防空洞的省厅特勤安全屋。除了一盏摇晃的白炽灯，整面混凝土墙上贴满了发黄的旧报纸、黑白档案照和用红毛线交织的关系网。',
+        text: '深夜十点，海峰带大家沿汽修厂地窖的暗道，来到省厅设在地下防空洞的安全屋。墙上贴满了旧报纸、照片和人物关系图。他拿出在后仓找到的账册，终于能把这些线索连起来。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -42,7 +42,8 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '它的母体原浆，正是一百八十多年前虎门销烟时期，洋行大买办“福寿堂”暗中偷藏下来的那一批鸦片老膏！',
+        text: '博物馆古罐里的鸦片膏，就是这种药最早的原料。当年虎门销烟时，替外国商人做生意的“福寿堂”偷偷藏下了一批鸦片；那只罐子就装着其中一部分。',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
@@ -60,7 +61,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '他叫沈崇礼，表面上是省名校教育基金会副理事长，实际上是“福寿堂”第六代掌门人。而真正在背后操控一切的太上皇……你们看这张二十年前从档案室抢救出来的老照片。',
+        text: '他叫沈崇礼，就是基金会的负责人，也是福寿堂沈家现在管事的人。不过他背后还有一个人。看这张二十年前的老照片：坐在中间的是他父亲沈万廷。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -152,7 +153,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '没错，刘老师。当年逼迫你们的沈万廷，正是如今这个沈崇礼的亲生父亲！二十年前他见东窗事发，制造车祸假死逃往南洋；',
+        text: '没错。沈万廷就是沈崇礼的父亲。二十年前事情快败露时，他假装死于车祸，逃到了国外。',
         sfx: 'sfx_confirm'
       },
       {
@@ -161,7 +162,8 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '如今他靠轮椅和呼吸机续命潜回国内，让亲儿子接班，换了层“素质教育补剂”的皮，又把黑手伸向了这一届学生！',
+        text: '现在他坐着轮椅、靠呼吸机续命，暗中回了国。儿子在台前用“学习补剂”骗人，父亲在背后指挥。你们吃过的怪味零食就是他们的新货。',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
@@ -196,7 +198,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『滋滋……报告老太爷、六掌柜，博物馆的道光青花瓷罐已顺利运抵古运河三号废弃码头。今夜半夜江潮大涨，可在驳船祭坛开炉熬制百年青髓母液，全市重点中学尖子生投毒名册已核对完毕……滋滋……』',
+        text: '『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。半小时后涨潮，就在驳船上用罐里的鸦片膏熬制新药。准备送药的学校名单也核对好了……滋滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -206,7 +208,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（一把攥紧桌角，指节发白）绝不能让他们开炉！二十年前我们人少又没人帮，眼睁睁看着阿瑶被这帮畜生毁了一辈子；今晚要是再退缩半步，我们还有什么脸面站在讲台上教书育人！',
+        text: '他们连送药的学校名单都有？沈崇礼借着基金会赞助学校活动，拿到了六 8 班的家庭联系表，上面有每个孩子的住址和家长电话。他要是把新药做出来，甚至能直接找上门！',
         sfx: 'sfx_confirm'
       },
       {
@@ -215,7 +217,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '省厅大部队集结还需要四十分钟，但开炉仪式就在半小时后，等不及了！我来打头阵撕开缺口，徐老师、刘老师断后掩护！孩子们，跟紧大人，今晚我们把这笔横跨百年的老账彻底算清！',
+        text: '我已经把名单报给警方，请他们尽快联系家长。可省厅增援还要四十分钟，他们半小时后就要开炉。我们先去阻止他们；我走最前面，两位老师护住孩子，谁都别单独行动！',
         sfx: 'sfx_confirm'
       },
       {
@@ -224,8 +226,9 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/shen_guard_default@2x.png',
         activeSide: 'left',
-        text: '众人顶着暴雨冲到码头铁闸前，闸口两侧哨塔灯光刺目——十余名沈氏黑衣护卫与手持铁棍的码头黑帮早已列阵以待，领头的两名重装狂暴守卫横起带倒刺的合金盾牌，堵死了唯一的通道！',
+        text: '众人赶到码头，唯一的入口被黑衣护卫和持棍打手堵住。两名带盾牌的守卫挡在最前面，探照灯一转，所有人的位置都暴露了。',
         highlight: true,
+        bgm: 'bgm_intense_boss',
         sfx: 'sfx_shock_sting'
       }
     ],

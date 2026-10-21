@@ -3,8 +3,8 @@
  *
  * 流程结构：
  * - ch10_scene_museum_meet: 暑假博物馆大厅集合，少年团参观虎门销烟百年特展
- * - ch10_scene_crisis: 核心展厅，清代封泥古瓷罐渗出诡异青烟，保送生狂暴发狂
- * - ch10_scene_confrontation: 家长会上的神秘家长作为荣誉赞助人现身，指挥保镖强行掉包古罐
+ * - ch10_scene_crisis: 展厅传出砸柜声，少年团赶到时玻璃已碎，封泥古罐令学生失控
+ * - ch10_scene_confrontation: 基金会负责人指挥保镖趁乱运走古罐
  * - ch10_battle1: 博物馆展厅遭遇战（主角团 VS 异化保镖与狂躁保送生）
  * - ch10_scene_tracking: 击退保镖，古罐已被偷运往城南汽修街，线索直指 {ALLY_2_NAME} 老爸所在的铺子
  */
@@ -42,7 +42,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'right',
-        text: '你懂什么！这次展出的是当年林则徐销烟沉江的一手海捞古物，而且是省重点中学的加分调研项目，大家中考评级都用得上！',
+        text: '你懂什么！这次展出的是当年虎门销烟后从海里捞上来的文物，还是省重点中学的加分调研项目，大家中考都用得上！',
         sfx: 'sfx_confirm'
       },
       {
@@ -51,7 +51,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '……我总觉得今天博物馆周围不对劲。停车场那边停了好几辆没挂牌的黑玻璃面包车。',
+        text: '……停车场里停着几辆贴了“怡安教育慈善基金会”临时通行证的黑色金杯车。展览不是刚开吗，怎么后门还停着搬运车？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -60,7 +60,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '【闪回回忆】大家脑海中瞬间浮现出期末家长会上那个居高临下、逼迫全班妥协的恐怖身影——没错，就是那个神秘家长！',
+        text: '“怡安”两个字让大家想起期末家长会：那个逼全班接受神秘零食的家长，当时就自称基金会负责人。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -69,15 +69,25 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '你看展馆顶上的赞助铭牌——“怡安教育慈善基金会”。当时家长会上扇动大家的那个神秘家长，正是这基金会的总干事！',
+        text: '门口的赞助牌也是“怡安教育慈善基金会”。他们出钱办展，又把车停在后门……先进去看看，别让人把展品搬走。',
         highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '众人刚过安检，二号展厅里猛地传来玻璃碎裂声。游客尖叫着往外跑，保安对着对讲机喊：“有学生抄起隔离栏杆砸开了主展柜！快叫人来！”',
+        bgm: 'bgm_suspense',
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '察觉到异常的少年们对视一眼，迅速通过安检闸机步入二号核心展厅。',
-      buttonText: '【步入二号展厅 · 查探古物】',
+      prompt: '少年们逆着人流冲向二号展厅。等他们推开门，主展柜已经碎了。',
+      buttonText: '【冲进二号展厅 · 查看骚乱】',
       targetScene: 'ch10_scene_crisis'
     }
   },
@@ -85,7 +95,7 @@ export const CHAPTER10_STORY = {
   // s2: 展厅危机 · 古罐青烟与异变
   ch10_scene_crisis: {
     id: 'ch10_scene_crisis',
-    title: '二号中央展厅 · 出水古瓷罐的异芒',
+    title: '二号中央展厅 · 碎裂的主展柜',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_museum_exhibition@2x.png',
     bgm: 'bgm_suspense',
@@ -96,7 +106,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '展厅中央的防弹玻璃展柜内，陈列着一只布满海蛎壳与黑红色封泥的青花古瓷罐。铭牌赫然写着：道光十九年虎门镇口销烟遗存。',
+        text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
         sfx: 'sfx_text_blip'
       },
       {
@@ -105,7 +115,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/senior_athlete_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '（死死趴在展柜上，眼珠外凸泛着诡异青光）好香……这就是古书里能让人过目不忘的开窍圣水……给我……让我吸一口！',
+        text: '（攥着砸柜的金属栏杆，伸手去抠罐口封泥）我闻到了……和学校发的零食一个味儿！可这个更香。有人说它能让人过目不忘……让我尝一口！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -114,7 +124,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '喂！同学你清醒点！你在干什么？！展柜不能砸！',
+        text: '展柜已经被他砸开了！张希哲，拦住他的手，别让他把封泥也抠掉！那罐里装的不是补脑药，是一百多年前的鸦片！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -123,15 +133,15 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '古瓷罐的封泥缝隙中，竟丝丝缕缕飘出一股与第一幕怪异零食完全一致、但浓烈百倍的阴甜冷香！围观的学生们纷纷抱头狂躁嘶吼！',
+        text: '罐口的裂缝飘出一缕青灰色烟，甜腻气味和之前害同学异变的零食一模一样。离展柜最近的几个学生先是捂住鼻子，随后眼神发直，推开保安就往瓷罐扑；外围游客惊叫着往出口跑。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '展厅后方的侧门被重重推开，一群穿黑西装的冷酷保镖快步将展柜包围！',
-      buttonText: '【迎面对质 · 阻止暴行】',
+      prompt: '侧门打开，几个佩戴“怡安基金会”工作证的黑衣人推着文物运输箱进来，径直围住碎裂的展柜。',
+      buttonText: '【拦住运输箱 · 当面问清】',
       targetScene: 'ch10_scene_confrontation'
     }
   },
@@ -150,7 +160,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '六 8 班的孩子们？还真是阴魂不散啊。学校里的小实验被你们搅黄了，竟然还能追到博物馆来？',
+        text: '六 8 班的孩子们？学校里的零食试验被你们搅黄了，基金会出钱办个展，你们也要来管？保安正在疏散游客，这件展品由我们的人接走。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -159,7 +169,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '果然是你！你在借文物特展的名义，把百年前沉江的古毒提炼出来偷偷换走！',
+        text: '你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
         sfx: 'sfx_confirm'
       },
       {
@@ -168,7 +178,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '毒？愚蠢的庸才才叫它毒，我们称之为“青髓”。当年林则徐烧不尽它，今天这满城渴望成才的家长与学生，更拒绝不了它！动手，装箱带走！把这几个小鬼扔进地下室！',
+        text: '呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -184,7 +194,7 @@ export const CHAPTER10_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '黑衣保镖与被青烟蛊惑的狂暴学生挥舞警棍扑了上来！',
+      prompt: '两名黑衣人趁乱把瓷罐塞进运输箱推向后门，其余保镖拦住去路；吸入烟气的学生也失控扑了上来！',
       buttonText: '【展开战斗 · 守护博物馆】',
       battleId: 'ch10_battle1',
       isBattleTrigger: true
@@ -205,7 +215,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '随着最后一记直拳，领头的黑衣保镖重重倒地。但主展柜已被暴力砸碎，古瓷罐已被一辆贴着深黑车膜的金杯车抢运逃窜！',
+        text: '最后一名保镖倒地，众人才发现运输箱早被另两人从后门推出。那辆贴着基金会临时通行证的黑色金杯车刚好发动，装着古瓷罐冲上了街！',
         sfx: 'sfx_unit_down'
       },
       {

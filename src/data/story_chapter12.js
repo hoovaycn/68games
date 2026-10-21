@@ -33,7 +33,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '我爸留了字条让我们找警察……但我必须亲眼看清楚他到底在干什么！如果他真被逼着销赃，我绝不能留他一个人！',
+        text: '我按纸条上的号码报了警，可还没人赶到。我爸今晚就要运货，万一他被发现给我们递纸条，会有危险。我们只在外面看一眼，不往里闯。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -51,7 +51,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '就是白天那个青花古瓷罐！他们竟然在集装箱里用机器把古毒提炼出来？！',
+        text: '排气扇旁边有个小窗口！白天那只青花瓷罐就在里面，几个人正把罐里的黑膏刮进机器里。这就是他们说的提炼？',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -87,7 +87,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '老板料得一点没错，海峰那个粗胚果然心软放水了。不过没关系，抓了这几个碍事的小崽子当祭品，他今晚就更跑不出手掌心了。',
+        text: '老板说得没错，海峰放你们走，肯定还会给你们留线索。我们守在后仓，就是等你们回来。抓了你们当人质，他今晚还敢不听话？',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -123,7 +123,7 @@ export const CHAPTER12_STORY = {
     title: '仓库废墟 · 咆哮而来的神兵天降',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
-    bgm: 'bgm_victory',
+    bgm: 'bgm_army_approaching',
     dialogues: [
       {
         id: 1,
@@ -131,7 +131,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '“轰隆————！！”一辆爆改的重型清障皮卡如同出膛炮弹般直接撞穿了混凝土砖墙！砖石碎瓦漫天崩飞，当场将两名死士碾飞在地！',
+        text: '墙外猛地传来引擎声。一辆加固过车头的清障皮卡撞开后仓的旧砖墙，车灯照得黑衣人睁不开眼；两名堵路的守卫被撞翻，其余人急忙后退。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -151,7 +151,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '老爸海峰跃下皮卡车斗，手里一柄一米长的锻造钢制管钳在空中抡出破风呼啸！一套干净利落的警用擒拿手，瞬间拧断当头死士的手腕！',
+        text: '海峰跳下车，拿着修车用的长管钳挡开刀，反手把领头的黑衣人按倒在地。{ALLY_2_NAME}愣住了：老爸打架的动作不像街头混混，倒像专门练过。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -189,7 +189,7 @@ export const CHAPTER12_STORY = {
     title: '静止的仓库 · 染血的誓言',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
-    bgm: 'bgm_eerie_revelation',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -215,8 +215,9 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '{ALLY_2_NAME} 慌乱地撕开老爸浸透机油的背心止血。然而背心扯开的瞬间，贴身防刺马甲内衬里的一件东西赫然滑落——一枚被擦得锃光发亮的国徽警徽，以及一本写着【省公安厅禁毒总队特勤处 · 二级警督 海峰】的深红警官证！',
+        text: '{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！',
         highlight: true,
+        bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -241,7 +242,7 @@ export const CHAPTER12_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '老爸海峰擦去孩子的眼泪，面色凝重地收拢现场缴获的账册与通讯器。',
+      prompt: '海峰收起账册和通讯器，通知省厅增援，又给徐老师和刘老师发去集合消息，随后带大家去安全屋。',
       buttonText: '【前往安全屋 · 开启第十四章】',
       targetScene: 'ch13_scene_safahouse'
     }

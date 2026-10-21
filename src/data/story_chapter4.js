@@ -31,7 +31,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '那个队长嘴硬归嘴硬，还是漏了点东西。他说他们教练每周五下午都在城郊旧训练馆发饮料，校门口的小贩、巷口的混混、操场那帮体育生，全是从那儿拿的货。',
+        text: '上次那个队长说，教练每周五都会去城郊旧训练馆发饮料。我们把他带的瓶子和小贩、混混手里的包装对了一遍，标记都一样。去训练馆看看这批货从哪来。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -334,7 +334,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/coach_sad@2x.png',
         activeSide: 'left',
-        text: '加害者和受害者，从来就是同一群人。只不过有人当年他们被异化后，就彻底忘了真正的自我。',
+        text: '他们当年也吃过这种东西，后来又拿它去害别人。受过害，不代表现在做的事就不用负责。',
         sfx: 'sfx_text_blip'
       },
       {

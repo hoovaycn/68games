@@ -290,7 +290,8 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一直躲在她们身后的阿瑶，忽然神情痛苦地捂住胸口。从她的口袋里，掉出了好几个已经被捏得皱巴巴的零食空袋子。',
+        text: '一直躲在她们身后的阿瑶，忽然痛苦地捂住胸口。她口袋里掉出好几个怪味零食的空袋子。原来她早就偷偷吃了，只是一直瞒着朋友。',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
@@ -384,12 +385,13 @@ export const CHAPTER7_STORY = {
         activeSide: 'left',
         text: '而彻底失去理智的阿瑶，则跟着那个男人，头也不回地走进了更深的黑暗里。',
         highlight: true,
+        bgm: 'bgm_childhood',
         sfx: 'sfx_unit_down'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '那一夜，她们永远失去了最好的朋友。',
+      prompt: '阿瑶跟着陌生男人走了，可徐老师和刘老师没有放弃寻找她。',
       buttonText: '【回到现实】',
       targetScene: 'ch7_scene_return'
     }
@@ -397,10 +399,10 @@ export const CHAPTER7_STORY = {
 
   ch7_scene_return: {
     id: 'ch7_scene_return',
-    title: '闪回尽头 · 遗憾还没结束',
+    title: '器材室 · 回忆还没讲完',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_school_night@2x.png',
-    bgm: 'bgm_evil_lair',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -426,7 +428,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '可惜……我们追着线索摸到了城郊的旧仓库，却到底还是没能把她拉回来。',
+        text: '我们沿着散货的线索找到城郊旧仓库，可到最后，也没能把阿瑶带回来。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -450,8 +452,8 @@ export const CHAPTER7_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '不能让当年的悲剧再重演了。',
-      buttonText: '【去旧仓库】',
+      prompt: '刘老师沉默了一会儿，接着讲起二十年前旧仓库里发生的事。',
+      buttonText: '【继续听当年的事】',
       targetScene: 'ch8_scene_warehouse'
     }
   }

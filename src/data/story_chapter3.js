@@ -337,7 +337,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/senior_athlete_leader_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '饮料都是我们教练给的，他说喝了稳拿全国第一。货从来不用我们去取，隔段时间就有人悄悄放在训练室门口，我们从来没见过送货的人长什么样，问多了教练就骂。',
+        text: '饮料是教练给的。他每周五在城郊旧训练馆给我们发货，听说更大的箱子会直接送到馆门口。谁送来的，我真没见过，问多了教练还会骂人。',
         sfx: 'sfx_text_blip'
       },
       {

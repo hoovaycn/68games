@@ -24,7 +24,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '钟楼顶层的钢铁穹顶在雷电中剧烈颤抖。悬浮的青黑巨心猛烈收缩，化作一具高达四米、缠绕着黑气与高压蒸汽的钢铁巨灵骸骨！沈万廷那具干瘪的残躯赫然嵌在魔躯的心脏正中，双眼闪烁着猩红凶光！',
+        text: '控制台启动了。毒雾灌进中央的机器，外面的金属架一节节撑开，变成一具四米高的钢铁怪物。沈万廷就在机器胸口的驾驶舱里，沈崇礼站在控制台旁操纵它。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -34,7 +34,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（操纵着神经连接器，歇斯底里地嘶吼）见识一下两百年洋行积累的无上神威吧！任何妄图对抗沈家的人，都将被碾碎成这钟楼上的残渣骨灰！！',
+        text: '你们拦得住守卫，拦得住这台机器吗？等毒雾从钟楼散出去，城里的学校都会收到我们的新药！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -43,7 +43,8 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（双手紧握老爸留下的警徽，眼神坚如磐石）我爸用生命守护的公道，今天由我们亲手讨回来！！',
+        text: '（握紧警徽）我爸生死未卜，我们更不能让他的努力白费。先毁机器，救城里的人！',
+        highlight: true,
         sfx: 'sfx_confirm'
       },
       {
@@ -52,7 +53,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '大家结成七星破邪阵！把所有的正气与信念注入浩然销烟杖，彻底粉碎两百年的罪恶宿命！！',
+        text: '六个人互相掩护！先避开它的手臂，打掉控制台，再用销烟杖去碰机器胸口的核心！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -79,7 +80,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '{MC_NAME}高高跃起，将燃烧着浩然烈火的“浩然销烟杖”精准无误地刺入了巨灵魔核的心脏！耀眼的金芒如同一千个太阳般在黑夜中骤然绽放！',
+        text: '控制台被砸坏，怪物的手臂慢了下来。{MC_NAME}趁机爬上倒下的金属架，用销烟杖击中胸口的核心。杖上的金光一下子照亮了整个钟楼！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -89,7 +90,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '在刺耳凄厉的惨叫声中，翻滚的百年鸦片黑气在浩然正气金焰的灼烧下迅速汽化瓦解。钢铁巨灵四分五裂轰然坍塌，沈万廷的残躯随之化为灰烬，沈崇礼瘫软在废墟中，面如死灰，双目失神。',
+        text: '机器停止运转，黑烟被金光压了回去。金属外壳散架，驾驶舱里的沈万廷再也没有动静；沈崇礼从控制台旁跌坐到地上，已经没有人替他挡路。',
         sfx: 'sfx_confirm'
       },
       {
@@ -126,7 +127,7 @@ export const CHAPTER19_STORY = {
     title: '钟楼大厅废墟门前 · 铁汉柔情',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_victory',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -134,7 +135,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '数十名全副武装的省公安厅特警破门而入，迅速将现场封锁并扣押了沈崇礼。负伤包扎的徐老师和刘老师相互搀扶着快步走来，而走在最前方的……竟然是一个裹着厚厚军大衣、胸前缠满急救绷带的高大身影！',
+        text: '省厅增援终于赶到，带走了沈崇礼。徐老师和刘老师互相扶着走进来，身后几名医护人员还推着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -144,7 +145,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（虽然脸色苍白、步履蹒跚，但嘴角依然挂着那抹标志性大大咧咧的笑容）臭孩子，哭什么鼻子呢？老子好歹是省厅连续五年格斗比武第一名，这点小阴沟还能翻了老子的船？',
+        text: '（躺在担架上，勉强扯出一点笑）哭什么，我还在呢。让医生先把我抬稳，你再扑过来。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -154,7 +155,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         activeSide: 'left',
-        text: '（呆愣了半秒，随即不顾一切地扑进海峰怀里，眼泪决堤般倾泻而出）爸——！！！你没死！你真的没死！！呜呜呜……',
+        text: '（趴到担架边，握住海峰的手）爸！你真的还活着……我以为再也见不到你了！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -164,7 +165,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（眼角湿润，拍着海峰完好的右肩）老海命大，被暗河冲出三号闸口时，正好撞在水警巡逻艇的防撞网上，军医及时推注了抗毒血清！',
+        text: '水警在三号闸口的巡逻艇上找到了他，立刻送医。省厅已经备好针对那种毒针的解毒药，医生说他伤得很重，但救回来了。',
         sfx: 'sfx_confirm'
       },
       {
@@ -208,7 +209,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '暑假的阳光真暖和啊。家长会的威胁消失了，全班同学的档案保住了，我们终于可以堂堂正正迎接新学期了！',
+        text: '暑假的阳光真暖和啊。警方已经通知了全班家长，沈崇礼那张抓人的名单也被我们拿回来了。大家都平安，总算能踏实迎接新学期了！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -226,8 +227,9 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '然而，在被特警带上警车的沈崇礼口袋里，一部从未登记过的加密卫星电话悄然亮起蓝光屏幕。屏幕上跳出一条没有发信人地址的冰冷密电：',
+        text: '另一边，警员清点沈崇礼的随身物品时，发现一部没登记过的卫星电话。屏幕突然亮起，一条没有署名的新消息跳了出来：',
         highlight: true,
+        bgm: 'bgm_suspense',
         sfx: 'sfx_suspense'
       },
       {
@@ -236,7 +238,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『崇礼，岸上内陆据点失守在预料之中，不必挂怀。福寿堂真正的远洋母体船队已在东海公海集结，“新世纪深海繁育试验场”已进入最后测试阶段……真正的游戏，才刚刚拉开序幕。』',
+        text: '『崇礼，城里的据点丢了，我们知道。海上的船队还在，新的试验也已经开始。你没完成的事，会有人接着做。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -246,8 +248,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二幕 · 完【百年宿怨虽已终，公海波涛意未平。敬请期待第三幕：公海决战篇！】',
-        highlight: true,
+        text: '第二幕 · 完。沈家父子被阻止了，但海上还有人继续制造那种药。',
         sfx: 'sfx_confirm'
       }
     ],

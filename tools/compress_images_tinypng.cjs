@@ -3,7 +3,9 @@ const path = require('path');
 const https = require('https');
 const crypto = require('crypto');
 
-const TINYPNG_API_KEY = process.env.TINYPNG_KEY || 'yLgkSn8hfn8tMdzrvnng4Mcn9N4sMGpr';
+// 密钥仅从环境变量读取，禁止硬编码入库（参见 docs/art_time_passage_requirement.md）。
+// 用法：TINYPNG_KEY=xxxx npm run compress:images
+const TINYPNG_API_KEY = process.env.TINYPNG_KEY || '';
 const ASSETS_DIR = path.resolve(__dirname, '../assets');
 const DIST_ASSETS_DIR = path.resolve(__dirname, '../dist/assets');
 const CACHE_FILE = path.resolve(__dirname, '../.tinypng_cache.json');
@@ -41,6 +43,16 @@ function getAllImages(dir, fileList = []) {
     }
   }
   return fileList;
+}
+
+// 支持命令行指定单个/多个文件，避免批量扫描烧掉 TinyPNG 月度额度
+function resolveTargets() {
+  const args = process.argv.slice(2).filter(a => !a.startsWith('-'));
+  if (args.length === 0) return null; // null = 全量模式
+  return args.map(a => path.resolve(process.cwd(), a)).filter(p => {
+    if (!fs.existsSync(p)) { console.error(`[SKIP] 文件不存在: ${p}`); return false; }
+    return true;
+  });
 }
 
 // 调用 TinyPNG API 压缩单个图片
@@ -112,11 +124,18 @@ function compressImage(filePath) {
 
 // 批量并发控制执行
 async function runCompression() {
+  if (!TINYPNG_API_KEY) {
+    console.error('未设置 TINYPNG_KEY 环境变量，已跳过。请这样执行：');
+    console.error('  Windows(Git Bash): TINYPNG_KEY=你的key npm run compress:images');
+    console.error('  PowerShell      : $env:TINYPNG_KEY="你的key"; npm run compress:images');
+    return;
+  }
   console.log('正在扫描 assets 原始图片并对比缓存...');
-  const allImages = getAllImages(ASSETS_DIR);
-  
-  // 过滤出未压缩过或有变动的图片
-  const pendingImages = allImages.filter(file => {
+  const explicit = resolveTargets();
+  const allImages = explicit || getAllImages(ASSETS_DIR);
+
+  // 过滤出未压缩过或有变动的图片（指定文件模式下强制重压）
+  const pendingImages = explicit || allImages.filter(file => {
     const relPath = path.relative(path.resolve(__dirname, '..'), file);
     if (!cache[relPath]) return true;
     const currentMd5 = getFileMd5(file);

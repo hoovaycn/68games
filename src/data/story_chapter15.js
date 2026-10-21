@@ -2,6 +2,7 @@
  * 第十六章《浩然正气》剧情脚本数据表（第二幕 第6章）
  *
  * 流程结构：
+ * - ch15_scene_time_passage: 众人一同穿越，在时空通道中先看到过去，尚未落地
  * - ch15_scene_historic_prologue: 【画外音宏大叙事】1838年紫禁城养心殿，道光皇帝面对沉沦危局八召林则徐，御准严禁鸦片
  * - ch15_scene_humen_harbor_inspect: 【前线巡阅】1839年广东虎门古港与海防官口，林则徐临江督防，颁布铁令
  * - ch15_scene_beach_wake: 【时空交错】现代少年团自时空漩涡跌落虎门滩头，亲眼见证历史上的“双池化烟”名场面
@@ -12,13 +13,67 @@
  */
 
 export const CHAPTER15_STORY = {
+  // s0: 穿越途中 · 先看到历史，直到沙角海滩才真正落地
+  ch15_scene_time_passage: {
+    id: 'ch15_scene_time_passage',
+    title: '时空通道 · 驳船与过去之间',
+    bgType: 'black',
+    bgImg: 'assets/backgrounds/bg_time_passage@2x.png',
+    bgm: 'bgm_eerie_revelation',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '脚下没有甲板，也没有江水。六个孩子、海峰和两位老师还抓着彼此，漂在一条发光的通道里；身后的驳船越来越远，渐渐缩成一个小点。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 2,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '等等，岸上的路灯都不见了！我们这是……真的穿越了？',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '语文刘老师',
+        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '看，前面的景象正在往回倒。我们真在穿越！还没落地，先别松手！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '通道前方闪出一座古老的宫殿，说话声也越来越清楚。大家仍在通道里，像隔着一扇窗看见了很久以前的事。',
+        sfx: 'sfx_suspense'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '这只是穿越途中看到的过去，不是他们的落脚点。宫殿里，道光皇帝正在召见林则徐。',
+      buttonText: '【看向宫殿 · 听听当年的决定】',
+      targetScene: 'ch15_scene_historic_prologue'
+    }
+  },
+
   // s1: 【画外音宏大叙事】紫禁城养心殿 · 帝王与重臣的抉择
   ch15_scene_historic_prologue: {
     id: 'ch15_scene_historic_prologue',
     title: '道光十八年 · 紫禁城养心殿',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_forbidden_city_palace@2x.png',
-    bgm: 'bgm_suspense',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -26,8 +81,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【清 · 道光十八年 冬】\n幽深森严的紫禁城里，寒风呼呼地刮。西洋的鸦片像蛀虫一样啃食着大江南北，当官的和老百姓都苦不堪言，上千万两白银哗哗地往外流。国家快撑不住的时候，深宫御案前展开了一场决定民族存亡的绝密长谈……',
-        highlight: true,
+        text: '【穿越途中 · 道光十八年冬】\n少年们还在通道里，并没有落进皇宫。眼前像开了扇窗：道光皇帝在养心殿召见林则徐，商量怎么禁烟。当时鸦片正害人上瘾，白银也不断流向海外。',
         sfx: 'sfx_suspense'
       },
       {
@@ -36,8 +90,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '林爱卿，朕看了你的奏折，触目惊心……“中原几乎没有能打仗的兵，也没有能发军饷的银子！”满朝大臣都说不能得罪洋人，只有你敢说要从根上断掉它。你真能替朕、替大清，扛起这副千斤重担？',
-        highlight: true,
+        text: '林则徐，朕看了你的奏折。鸦片害了百姓，也让国库的钱不断流出去。有人怕得罪外国商人，不敢禁烟。你愿意去广东把这件事办到底吗？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -46,7 +99,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         activeSide: 'left',
-        text: '（撩袍跪伏，声音铿锵如金石）“苟利国家生死以，岂因祸福避趋之！”若鸦片一日不绝，臣一日不回！臣愿提头南下，直抵粤海门户，誓叫这万里海波，复还朗朗乾坤！',
+        text: '（跪下）“苟利国家生死以，岂因祸福避趋之！”只要鸦片还在害人，我就不会停。请派我去广东，把走私的鸦片查出来、毁掉。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -56,13 +109,13 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '好！朕赐卿“钦差大臣关防”紫金印绶，节制两广水陆官兵！此去山高水远，去替天下万民，斩断这百年妖毒！',
+        text: '好。朕派你去广东禁烟，沿海官兵听你调遣。把鸦片查出来，不许再让它害人。',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '御案上金印重重落下，风云突变，历史长河呼啸着扑向南国海疆！',
+      prompt: '宫廷画面退到身后。众人继续往前，眼前又出现一年后的广东虎门。',
       buttonText: '【南下粤海 · 奔赴前线】',
       targetScene: 'ch15_scene_humen_harbor_inspect'
     }
@@ -74,7 +127,7 @@ export const CHAPTER15_STORY = {
     title: '道光十九年 · 广东虎门海防要塞',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_harbor_1839@2x.png',
-    bgm: 'bgm_intense_boss',
+    bgm: 'bgm_army_approaching',
     dialogues: [
       {
         id: 1,
@@ -82,7 +135,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【道光十九年 四月廿二】\n珠江咽喉，虎门海口。靖远、威远炮台炮门洞开，水师百艘战船锁死江面，海滩上聚集着万千义愤填膺的广东军民。一场震动全球的浩然壮举正在此地上演！',
+        text: '【穿越途中 · 道光十九年虎门】\n众人还在通道里，眼前却能看到海边挤满水师和百姓。官兵把收缴的鸦片搬到池边，准备加盐和石灰销毁。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -91,7 +144,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '传本钦差军令：开池引潮，投盐泼灰！收缴的两万余箱、两百三十七万余斤鸦片烟膏，全部投进化烟池！凡勾结洋商、藏匿烟土、暗中勾结的人，格杀勿论！',
+        text: '把收缴的鸦片全搬到池边！引海水进来，加盐、加石灰，彻底销毁。有人想偷偷藏下一箱，也必须查出来！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -101,13 +154,13 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '正当三军齐声高呼、民团擂响战鼓之时，要塞侧翼的沙角海滩突然传来火绳枪与快艇暗袭的剧烈警报！时空的漩涡恰在此刻轰然坠落在沸腾的海滩之上！',
+        text: '沙角海滩突然传来枪声：有人趁销烟时从海上偷袭，想抢回鸦片。与此同时，通道出口在海滩上打开，卷着众人的白光直冲下去。',
         sfx: 'sfx_suspense'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '剧烈的时空金光与石灰白烟撞在一起，少年们从天而降！',
+      prompt: '白光撞进石灰白烟，海风和枪声一下变得真切；众人终于要落地了。',
       buttonText: '【坠落滩头 · 见证历史】',
       targetScene: 'ch15_scene_beach_wake'
     }
@@ -119,7 +172,7 @@ export const CHAPTER15_STORY = {
     title: '道光十九年 · 广东虎门沙角海滩',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_victory',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -127,7 +180,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '海浪一波波拍打着裤腿，刺骨的潮水与浓烈的石灰烟尘将少年们猛然呛醒。炽烈耀眼的骄阳下，眼前正是历史课本上庄严厚重的“虎门销烟”现场！',
+        text: '众人摔在海滩上，被涌来的浪和石灰烟呛得直咳。抬头一看，官兵正在往大池里倒石灰，海上是旧式帆船；他们真的落在了虎门销烟现场。',
         sfx: 'sfx_suspense'
       },
       {
@@ -136,7 +189,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（揉着眼睛失声尖叫）天哪！不是做梦！远处海面上停泊的是大英帝国的武装双桅纵帆船！池子里正翻滚着白色的生石灰沸水！',
+        text: '（揉眼睛）等等，我们真到了虎门销烟的时候？海边有人开枪，池子里还在倒石灰！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -155,7 +208,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（抚摸着插在沙滩上的“钦差大臣林”大旗，热泪盈眶）长宽十五丈的化烟池……潮起注水，投盐化灰！这就是两百年前中华民族第一次向毒品亮剑的伟岸时刻！我们真的穿越回来了！',
+        text: '（扶着沙滩上的“钦差大臣林”旗）你们看，官兵正往池里灌海水，撒盐、倒石灰，把鸦片彻底毁掉。我们真的到了虎门销烟现场！',
         sfx: 'sfx_confirm'
       },
       {
@@ -165,6 +218,7 @@ export const CHAPTER15_STORY = {
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '快看池畔浅滩！有几艘黑色快艇正冒死靠岸，十几个手持洋枪和弯刀的人正试图夺取化烟池边的鸦片箱！',
+        bgm: 'bgm_army_approaching',
         sfx: 'sfx_text_blip'
       }
     ],
@@ -190,7 +244,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（手持销烟杖，浑身血迹却目光如电）番鬼兵与福寿堂的卖国走狗！林总督有令，化尽人间乌烟！尔等若想夺回一两烟土，先踏过老子这条命！',
+        text: '（握紧林总督交给他的守池木杖）这批鸦片是来销毁的，不是给你们抢回去害人的！想碰池子，先过我这一关！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -200,7 +254,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
-        text: '好一条响当当的汉子！不管是百年前还是百年后，老子这一身警服、满腔热血，最容不下的就是这帮祸国殃民的毒枭！教头，我们并肩杀敌！',
+        text: '教头，孩子们跟你守这口池！我和两位老师去另一边护住正在搬运鸦片的人，谁也别单独冲。',
         sfx: 'sfx_confirm'
       },
       {
@@ -209,14 +263,14 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '全员集合！守住化烟池，绝不能让百年前的浩然正气被这帮小人糟蹋！',
+        text: '大家靠过来，护住池边的鸦片箱！不能让他们把烟土抢回去！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'JOIN_PARTY',
       unitId: 'militia_instructor',
-      prompt: '燧发火枪喷射火星，异国武装水手与沈氏先祖买办死士嚎叫着扑向滩头！',
+      prompt: '海峰和两位老师守另一侧的销烟池；教头带着六个孩子，迎战冲向这口池子的走私水手！',
       buttonText: '【沙角血战 · 捍卫化烟池】',
       battleId: 'ch15_battle1',
       isBattleTrigger: true
@@ -246,8 +300,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（凝视着服饰奇异却正气凛然的众人，目光深邃而宽慰）少年人服饰奇特，非我朝装束，但方才于枪林弹雨中捍卫化烟池，其心之赤、其志之坚，老夫亲眼所见！尔等究竟自何处而来？',
-        highlight: true,
+        text: '（看着众人的衣服）你们不像这个年代的人。刚才明明可以躲开，却留下来帮我们守池。你们从哪里来？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -256,7 +309,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '（深深鞠躬，一脸严肃）林总督！我们来自两百年后的和平中国！在我们的时代，山河锦绣、百姓安康，您当年播下的禁毒火种，已经变成守护亿万同胞的钢铁长城！',
+        text: '（鞠躬）林总督，我们来自将近两百年后的中国。现在还有人贩毒，但也有很多警察和普通人一直在阻止他们。您今天做的事，后来一直有人接着做。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -266,7 +319,8 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（眼眶泛红，望向苍茫南海，长叹而笑）两百年后……山河无恙，国无烟毒……善！大善！老夫此生无憾矣！',
+        text: '（眼眶泛红）两百年后，还有人在禁烟、救人？好。今天做的事，没有白费。',
+        highlight: true,
         sfx: 'sfx_confirm'
       },
       {
@@ -275,7 +329,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '这柄“浩然销烟杖”，就是老夫用岭南沉香木削成的一根长棍，浸过沸水和石灰，还带着千千万万百姓的浩然誓愿。听说你们那个时代还有旧毒没除干净，老夫就把这棍子送给后世的少年——拿着这份浩然正气，百毒不侵，什么妖魔鬼怪统统退散！',
+        text: '刚才教头守池时拿的这根木杖，是我削给民团用的。他把它交回来了。你们带走吧；回去以后，不论那罐里的东西多可怕，都记得今天大家是怎么一起把鸦片毁掉的。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -302,7 +356,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '浩然销烟杖入手温润醇厚，表面缓缓浮现出暗金色的“浩然正气”微雕铭文。池中翻滚的滚滚白烟与金色的落日晚霞交相辉映，化作洗净世间一切黑暗的纯阳圣光！',
+        text: '{MC_NAME}握住木杖，杖上渐渐浮出金色的“浩然正气”四个字。销烟池的白烟在光里散开；木杖上的金光，和先前碎罐里亮起的纹路很像。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -311,7 +365,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '林公在上，后辈定不负嘱托！不管什么福寿堂沈万廷，这百年毒账，我们替您连本带利彻底清算！',
+        text: '林总督，回去以后，我们会继续阻止福寿堂。那些人用您当年想销毁的鸦片害学生，这件事不能就这么算了。',
         sfx: 'sfx_confirm'
       },
       {
@@ -320,7 +374,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '浩然销烟杖爆发出冲天金芒，与虚空中扭曲的时空界限产生共鸣。虎门的潮声渐渐远去，化作璀璨的金色光瀑，裹挟着满载浩然正气的众人破空重返现代驳船！',
+        text: '木杖突然发亮，众人脚下再次出现那道把他们卷来时的白光。海滩、销烟池和炮声渐渐远去；大家手拉着手，重新落回现代的驳船上。',
         highlight: true,
         sfx: 'sfx_suspense'
       }

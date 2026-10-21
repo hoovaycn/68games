@@ -34,7 +34,7 @@ export class LevelSelectModal {
       { num: 13, act: 2, label: '第13章', title: '夜袭汽修厂', sceneKey: 'ch12_scene_night_ambush' },
       { num: 14, act: 2, label: '第14章', title: '避难所疑云', sceneKey: 'ch13_scene_safahouse' },
       { num: 15, act: 2, label: '第15章', title: '海魂回响', sceneKey: 'ch14_scene_dock_ritual' },
-      { num: 16, act: 2, label: '第16章', title: '浩然正气', sceneKey: 'ch15_scene_historic_prologue' },
+      { num: 16, act: 2, label: '第16章', title: '浩然正气', sceneKey: 'ch15_scene_time_passage' },
       { num: 17, act: 2, label: '第17章', title: '破碎的奖状', sceneKey: 'ch16_scene_return_ruins' },
       { num: 18, act: 2, label: '第18章', title: '孤注一掷', sceneKey: 'ch17_scene_alter_breach' },
       { num: 19, act: 2, label: '第19章', title: '逆行攻坚', sceneKey: 'ch18_scene_warehouse_breach' },

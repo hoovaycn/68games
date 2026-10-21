@@ -28,6 +28,7 @@ import {
   advanceTo, markChapterCleared, tickPlaytime, joinParty
 } from './systems/game_state.js';
 import { createSaveManager } from './systems/save_manager.js';
+import { replaceStoryNames } from './systems/story_placeholders.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
 import { CHAPTER1_STORY } from './data/story_chapter1.js';
@@ -115,7 +116,7 @@ const CHAPTER_BANNERS = {
   ch12_scene_night_ambush: { label: '第十三章', title: '夜袭汽修厂' },
   ch13_scene_safahouse: { label: '第十四章', title: '避难所疑云' },
   ch14_scene_dock_ritual: { label: '第十五章', title: '海魂回响' },
-  ch15_scene_historic_prologue: { label: '第十六章', title: '浩然正气' },
+  ch15_scene_time_passage: { label: '第十六章', title: '浩然正气' },
   ch16_scene_return_ruins: { label: '第十七章', title: '破碎的奖状' },
   ch17_scene_alter_breach: { label: '第十八章', title: '孤注一掷' },
   ch18_scene_warehouse_breach: { label: '第十九章', title: '逆行攻坚' },
@@ -165,7 +166,7 @@ const CHAPTER_ENTRY_SCENES = [
   'ch12_scene_night_ambush', // 第 13 章
   'ch13_scene_safahouse',  // 第 14 章
   'ch14_scene_dock_ritual',// 第 15 章
-  'ch15_scene_historic_prologue', // 第 16 章
+  'ch15_scene_time_passage', // 第 16 章
   'ch16_scene_return_ruins', // 第 17 章
   'ch17_scene_alter_breach', // 第 18 章
   'ch18_scene_warehouse_breach', // 第 19 章
@@ -319,6 +320,7 @@ class GameApp {
       saveManager: this.saveManager,
       getState: () => this.gameState,
       describeAnchor: (meta) => this.describeSaveAnchor(meta),
+      describeChapter: (meta) => this.describeSaveChapter(meta),
       onLoaded: (state) => {
         this.saveMenuModal = null; // 先关面板再切场景，防止旧模态再吃一帧渲染
         this.gameState = state;
@@ -338,14 +340,31 @@ class GameApp {
     });
   }
 
-  /** 存档行锚点中文描述：战斗章名 / 剧情场景标题（SaveMenuModal 行内显示） */
+  /** 存档行主标题：根据剧情或战斗锚点找章节名。 */
+  describeSaveChapter(meta) {
+    if (!meta) return '';
+    const anchorId = meta.chapterId || meta.sceneId || '';
+    if (anchorId === 'scene_prelude' || anchorId.startsWith('scene_')) {
+      const banner = CHAPTER_BANNERS.scene_classroom;
+      return `${banner.label} · ${banner.title}`;
+    }
+    const match = /^ch(\d+)_/.exec(anchorId);
+    if (!match) return '未知章节';
+    const chapterIndex = Number(match[1]);
+    const entryScene = CHAPTER_ENTRY_SCENES[chapterIndex];
+    const banner = CHAPTER_BANNERS[entryScene];
+    return banner ? `${banner.label} · ${banner.title}` : '未知章节';
+  }
+
+  /** 存档行次要信息：当前剧情场景或战斗名称。 */
   describeSaveAnchor(meta) {
     if (!meta) return '';
     if (meta.chapterId && CHAPTERS[meta.chapterId]) {
       return `战斗 · ${CHAPTERS[meta.chapterId].name}`;
     }
     if (meta.sceneId) {
-      const scene = (PROLOGUE_STORY[meta.route] || PROLOGUE_STORY.male)[meta.sceneId];
+      const scene = (PROLOGUE_STORY[meta.route] || PROLOGUE_STORY.male)[meta.sceneId]
+        || LINEAR_STORY[meta.sceneId];
       if (scene && scene.title) return `剧情 · ${scene.title}`;
     }
     return '';
@@ -489,6 +508,7 @@ class GameApp {
       const ally2CorruptedPortrait = isMale ? 'assets/art/fanwenmo_corrupted@2x.png' : 'assets/art/heyanxi_corrupted@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));
+      const storyNames = { MC_NAME: mcName, ALLY_1_NAME: ally1Name, ALLY_2_NAME: ally2Name };
       if (Array.isArray(sceneData.dialogues)) {
         sceneData.dialogues.forEach(dlg => {
           if (dlg.speaker === '{MC_NAME}') dlg.speaker = mcName;
@@ -509,12 +529,12 @@ class GameApp {
           if (dlg.rightPortrait === '{ALLY_2_PORTRAIT}') dlg.rightPortrait = ally2Portrait;
           if (dlg.leftPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally2CorruptedPortrait;
           if (dlg.rightPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally2CorruptedPortrait;
-          if (dlg.text) {
-            dlg.text = dlg.text.replace(/\{MC_NAME\}/g, mcName)
-                               .replace(/\{ALLY_1_NAME\}/g, ally1Name)
-                               .replace(/\{ALLY_2_NAME\}/g, ally2Name);
-          }
+          dlg.text = replaceStoryNames(dlg.text, storyNames);
         });
+      }
+      if (sceneData.transition) {
+        sceneData.transition.prompt = replaceStoryNames(sceneData.transition.prompt, storyNames);
+        sceneData.transition.buttonText = replaceStoryNames(sceneData.transition.buttonText, storyNames);
       }
       this.dialogueSystem.startScene(sceneData);
     }

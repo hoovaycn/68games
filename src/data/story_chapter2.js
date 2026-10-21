@@ -106,7 +106,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '下面公布昨天突击小测成绩。第一名……{MC_NAME}，满分！',
+        text: '下面公布今天上午突击小测的成绩。第一名……{MC_NAME}，满分！',
         highlight: true,
         sfx: 'sfx_fanfare'
       },
@@ -187,7 +187,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '放你娘的狗屁！昨天放学我和{MC_NAME}买完包子就各回各家，抽屉里除了几张揉皱的草稿纸连根毛都没有，作个鬼的弊！',
+        text: '你有什么证据？昨天我和{MC_NAME}一起去救中招的同学，今天你倒说我们偷偷吃了零食？',
         sfx: 'sfx_confirm'
       },
       {
@@ -207,6 +207,7 @@ export const CHAPTER2_STORY = {
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_classroom_eerie@2x.png',
         text: '话音刚落，朱晏泽猛地瞪圆双眼，瞳仁深处泛起诡异的荧绿青光，语气陡然狰狞！',
+        bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
       },
       {

@@ -372,6 +372,7 @@ export const CHAPTER9_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '那些发光的怪味零食，也被徐老师尽数封存了起来。只是，所有人心头的那块巨石，其实并没有真正落地。',
+        bgm: 'bgm_suspense',
         sfx: 'sfx_text_blip'
       },
       {

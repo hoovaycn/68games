@@ -2,8 +2,8 @@
  * 第十八章《孤注一掷》剧情脚本数据表（第二幕 第8章）
  *
  * 流程结构：
- * - ch17_scene_alter_breach: 破门突入洋行地下祭坛，覃瑞怡被铁链锁在石柱前，全班档案悬在毒火之上
- * - ch17_scene_father_shield: 夺回信物与档案，沈崇礼暴怒掷出剧毒钢针，老爸海峰肉身挡针中伏坠江
+ * - ch17_scene_alter_breach: 破门突入洋行地下祭坛，覃瑞怡被铁链锁在石柱前，桌上摆着全班的送药名单
+ * - ch17_scene_father_shield: 夺回信物与名单，沈崇礼暴怒掷出剧毒钢针，老爸海峰肉身挡针中伏坠江
  * - ch17_battle1: 祭坛绝境突围战（主角团 + 两位老师悲愤爆发 VS 暴走死士狂潮）
  * - ch17_scene_tearful_retreat: 杀出地窟，绝境中擦干眼泪，誓灭百年魔巢
  */
@@ -23,7 +23,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
-        text: '地下祭坛阴森刺骨，巨大的青铜血池中翻滚着墨绿色的药浆。覃瑞怡被粗铁链绑在石柱上，脸色惨白，嘴角满是咬破的血痕；沈崇礼正手持药碗，一步步逼向她！',
+        text: '众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；销烟杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。',
         sfx: 'sfx_suspense'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
-        text: '（面目狰狞地冷笑）乖乖把药喝下去！只要你这个全省三好学生成了福寿堂的药傀儡，你们整个学校所有的重点尖子生，就全都是沈家的囊中之物！',
+        text: '喝下去！你是班长，又是优秀学生，只要连你都替我们说这药好，学校里还会有多少人相信你、跟着吃？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -51,14 +51,15 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '住手！沈崇礼，看看你爷爷的信物在谁手上！！',
+        text: '住手！海叔叔去挡住保镖，我去拿池边的销烟杖，先把瑞怡救下来！',
+        highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '{MC_NAME}手持浩然销烟杖飞身斩断铁链，然而狂怒的沈崇礼从腰间拔出了淬了毒的连发钢弩！',
-      buttonText: '【救下同伴 · 夺取档案】',
+      prompt: '{MC_NAME}趁海峰挡住保镖，抢回池边的销烟杖，敲开锁住覃瑞怡的旧锁。沈崇礼见状，掏出藏在腰间的毒针发射器！',
+      buttonText: '【救下同伴 · 抢回名单】',
       targetScene: 'ch17_scene_father_shield'
     }
   },
@@ -69,7 +70,7 @@ export const CHAPTER17_STORY = {
     title: '祭坛崩塌处 · 悲壮的背影',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
-    bgm: 'bgm_eerie_revelation',
+    bgm: 'bgm_intense_boss',
     dialogues: [
       {
         id: 1,
@@ -77,7 +78,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '徐老师飞扑而上抢回悬在火盆上的全班学生档案！被彻底逼上绝路的沈崇礼彻底发疯，按动机关，三根淬满剧毒的漆黑长针如闪电般直射向护在最前面的少年们！',
+        text: '徐老师趁乱抢走桌上标了住址的送药单，塞进怀里。沈崇礼按动机关，三根淬着毒的长针射向护在最前面的孩子们！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -97,7 +98,8 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '一道像堵墙一样宽厚的身影猛然横空挡在孩子们身前！“噗嗤”数声闷响，三根毒针尽数深深刺入海峰的前胸与咽喉下沿，黑血瞬间浸透了他的防刺警服！',
+        text: '海峰冲到孩子们身前，用身体挡下三根毒针。针扎进他脖子和胸前的衣服，毒性很快发作，他站都站不稳了。',
+        bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -116,7 +118,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（嘴角溢着黑血，却竭尽全力挤出一丝最温暖的笑容，猛地拉响了防爆破拆索）快……带着孩子们……走！记住……老爸永远是……光荣的警察……',
+        text: '（从腰间摸出警用破拆索，拴向身后的承重柱）带着孩子们走……地下出口快塌了，我给你们挡住后面的人。记住，老爸是警察。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -125,13 +127,13 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '轰然一声巨响，防爆索炸碎了祭坛承重柱，整个地下石窟大面积坍塌！狂涌的地下暗河激流奔腾而过，将重伤的海峰与崩塌的石桥一同卷入无底的暗河深渊……',
+        text: '破拆索炸断了柱子，石桥塌进地下暗河，堵住追来的守卫，却也把海峰卷进水里。他胸前的警徽掉在岸边，{ALLY_2_NAME}捡起它，被徐老师拉向另一侧的出口。',
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '石屑崩落，四面八方涌来上百名黑衣死士堵死退路！',
+      prompt: '主桥塌了，另一侧维修楼梯却被赶来的黑衣守卫堵住。想逃到地面，必须先打通这条路！',
       buttonText: '【悲愤化作力量 · 绝境杀出重围】',
       battleId: 'ch17_battle1',
       isBattleTrigger: true
@@ -144,7 +146,7 @@ export const CHAPTER17_STORY = {
     title: '货栈雨夜出口 · 废墟中的誓言',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
-    bgm: 'bgm_suspense',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -152,7 +154,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '在徐老师与刘老师拼死搏杀下，主角团终于护送着覃瑞怡冲出了坍塌的地下货栈。暴雨倾盆浇在每个人的脸上，分不清究竟是雨水还是血泪。',
+        text: '大家沿另一侧的维修楼梯逃到地面，徐老师和刘老师挡住追兵，终于把覃瑞怡带出地下室。海峰被暗河冲走，谁也不知道他是否还活着。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -170,8 +172,9 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（抹干脸上的泪水，紧紧攥住胸前海峰留下的金色警徽，眼神是从未有过的坚毅与冷冽）瑞怡，站起来。我爸是用命换回了你，换回了我们所有人。哭解决不了任何问题，血债……必须用胜利来偿还！',
+        text: '（握紧刚捡起的警徽）瑞怡，先站起来。我爸拼命让我们逃出来，不是要我们再回去送死。先找到沈家，把他和其他人都救回来。',
         highlight: true,
+        bgm: 'bgm_army_approaching',
         sfx: 'sfx_confirm'
       },
       {
@@ -180,7 +183,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '海叔叔一定还活着！但在这之前，沈崇礼和沈万廷就藏在货栈最顶层的洋行指挥塔。我们现在就杀上去，把这盘跨越两百年的毒根连根拔起！',
+        text: '海叔叔被水冲走了，也许还有救。沈家父子就在这栋仓库顶层；我们先和警方保持联系，再从地面绕上去堵住他们，不能让他们带着毒药跑了。',
         sfx: 'sfx_confirm'
       }
     ],

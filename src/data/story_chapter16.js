@@ -13,7 +13,7 @@ export const CHAPTER16_STORY = {
   // s1: 重返废墟 · 黎明前夕
   ch16_scene_return_ruins: {
     id: 'ch16_scene_return_ruins',
-    title: '古运河驳船残骸 · 晨雾笼罩',
+    title: '古运河驳船残骸 · 雨夜将尽',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
     bgm: 'bgm_suspense',
@@ -24,7 +24,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '晨光破开浓云，古运河的驳船甲板上一片狼藉。沈氏父子趁着时空混乱早已乘快艇逃遁，但在{MC_NAME}怀中，那柄赤红如玉的“浩然销烟杖”正散发着温润又强大的金光。',
+        text: '夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；{MC_NAME}手里还握着林则徐交给大家的销烟杖。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -33,7 +33,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '大难不死，还带回了彻底克制福寿堂古毒的圣物！沈万廷父子的老巢就在下游废弃的“洋行仓库”，先回安全屋补充防暴盾牌和弹药，正午展开全线合围！',
+        text: '先回安全屋把人和装备点清楚，再联系增援。沈家躲在下游的旧洋行仓库，等天亮了，我们就去堵住出口。销烟杖先锁进防爆箱，别再让他们抢走。',
         sfx: 'sfx_confirm'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（死死捏着衣角，低着头，声音隐隐发颤）这柄销烟杖……真的能让所有被威胁、被下毒的人……彻底恢复清白吗？',
+        text: '（手机震了一下，她看完消息，脸色发白）沈崇礼手里……真的有我们班每个人的住址吗？',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -52,13 +52,13 @@ export const CHAPTER16_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '当然！只要有它在，沈崇礼手里的任何毒药和档案要挟，都成不了气候！',
+        text: '海叔叔请警方去联系家长了，可还没挨家通知到。回安全屋咱们一起想办法。瑞怡，谁给你发的消息？',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人回到防空洞安全屋，穿着衣服眯了一会儿。然而天刚蒙蒙亮，惊变突生！',
+      prompt: '瑞怡没回答。众人回到安全屋，把销烟杖锁好，轮流睡了一会儿。天刚亮，张希哲发现防爆箱被打开了。',
       buttonText: '【猛然惊醒 · 查探异动】',
       targetScene: 'ch16_scene_betrayal_note'
     }
@@ -88,7 +88,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '冰冷的铁皮桌上，压着一张被小心翼翼展平的“市级优秀学生干部”奖状。背面是覃瑞怡工整却颤抖的字迹，上面东一块西一块地沾着没干的泪痕。',
+        text: '铁皮桌上留着覃瑞怡从书包里拿出的“市级优秀学生干部”奖状。她把奖状翻过来当信纸，背面写满了字，纸角还有没干的泪痕。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -97,7 +97,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『对不起大家……沈崇礼在家长会偷拍了我们全班所有人的隐秘家庭档案，还把小敏的手术捐款扣了下来。』',
+        text: '『对不起大家……刚才沈崇礼发来六 8 班家庭联系表的照片，上面有每个人的住址。他还拍了我家门口，说他们已经知道我们住哪儿。』',
         sfx: 'sfx_text_blip'
       },
       {
@@ -106,7 +106,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『他们说只要我天亮前把销烟杖送去江心水闸，就会销毁档案放过大家……我绝不能连累整个班级毁掉前途。销烟杖是我拿的，所有罪名我一个人扛。』',
+        text: '『他要我天亮前独自把销烟杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。我知道他可能骗人，可我不敢拿全班同学赌。是我拿的杖，别怪别人。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -125,13 +125,13 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '带上所有家伙，全速赶往江心旧水闸！绝不能让二十年前阿瑶的悲剧，在这孩子身上重演第二遍！！',
+        text: '我让警方继续联系家长，先守住名单上最近的几户，也派人封住水闸外侧。咱们赶紧去救瑞怡！不能让二十年前阿瑶的事，再发生在她身上！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人冲进雷暴中的泥泞道路，顺着车辙狂追至江心废弃旧水闸！',
+      prompt: '警方分头联系家长、封住水闸外侧；众人顺着雨地上的车辙追到江心旧水闸。',
       buttonText: '【突袭水闸 · 撕碎防线】',
       targetScene: 'ch16_scene_rainy_chase'
     }
@@ -176,7 +176,7 @@ export const CHAPTER16_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '电火花在暴雨中滋滋作响，死士群猛扑而上！',
+      prompt: '海峰和两位老师从侧面找覃瑞怡的下落；其余五个孩子被守卫堵在水闸正门，只能先打退他们！',
       buttonText: '【怒火爆发 · 水闸突击战】',
       battleId: 'ch16_battle1',
       isBattleTrigger: true
@@ -197,7 +197,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
-        text: '（一记擒拿手死死扣住头目的喉咙）说！小姑娘人在哪里？！销烟杖被送去哪了？！',
+        text: '（从侧面赶回来，按住被孩子们打倒的头目）水闸里没有瑞怡。说！你们把她和销烟杖送去哪了？',
         sfx: 'sfx_confirm'
       },
       {
@@ -206,7 +206,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'right',
-        text: '咳咳……迟了……你们去得太晚了！六掌柜和老太爷已经把她带去洋行仓库地下的“万毒血池”……要用那柄销烟杖作为活祭之匙，逼她喝下第一口原浆药引！',
+        text: '咳……人已经被带到旧洋行仓库地下了。沈崇礼抢了杖，想拿它压住毒池里的黑气，再逼那个女孩喝第一口原浆，替他们试药！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -216,13 +216,13 @@ export const CHAPTER16_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '洋行地下魔窟！一秒都不能耽搁，全员全速突进！！',
+        text: '她就在仓库地下！海叔叔，快带我们从水闸的检修通道过去！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人沿着水闸下泄洪密道，狂奔直插洋行仓库地下核心祭坛！',
+      prompt: '海峰从头目身上搜出仓库通行卡，撬开水闸下方通往旧洋行仓库的检修门，带众人沿通道冲向地下室。',
       buttonText: '【突入魔窟 · 开启第十八章】',
       targetScene: 'ch17_scene_alter_breach'
     }

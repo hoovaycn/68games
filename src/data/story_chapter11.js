@@ -96,7 +96,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
-        text: '其中一人西装笔挺，正是家长会上的神秘家长；另一人戴着黑超墨镜、脖子挂着大金链子、赤膊露出花臂纹身外罩一件破西装，嘴里叼着半截劣质香烟，正是 {ALLY_2_NAME} 的父亲——老爸海峰。',
+        text: '其中一人是家长会上的神秘家长；另一人戴着墨镜、挂着金链子，花臂外罩着件旧西装，嘴里叼着烟。{ALLY_2_NAME}认出来了：那是自己的父亲海峰。',
         sfx: 'sfx_suspense'
       },
       {
@@ -105,7 +105,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
-        text: '老海峰，货路子给你铺好了。古罐里的“青髓”原浆运到码头后，这三十万现金归你，以后城南这片二手车销赃，我也罩着你。',
+        text: '老海峰，古罐已经送到你店里。今晚先从罐里提炼出“青髓”，再由你开车运去码头。这三十万是你的报酬，往后你的二手车生意也由我罩着。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -168,7 +168,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
-        text: '（一巴掌粗暴抽开 {ALLY_2_NAME} 手里的奖状，奖状撕裂飘落在机油坑里）读个屁的书！老子混饭吃轮不到你在这指手画脚！几个小屁孩也敢来坏老子的财路？——二秃子，把他们给我狠狠揍一顿轰出去！！',
+        text: '（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -188,7 +188,7 @@ export const CHAPTER11_STORY = {
     title: '汽修厂大门外 · 紧闭的铁闸门',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_garage_exterior@2x.png',
-    bgm: 'bgm_eerie_revelation',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -196,7 +196,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '“咣当——！！”沉重锈蚀的卷帘门在眼前狠狠砸下，锁链哗啦啦上锁。将满身灰尘的少年团彻底挡在门外。',
+        text: '打退混混后，海峰亲手把孩子们推到门外，连踩破的奖状也扔了出来。“咣当”一声，卷帘门落下，上了锁。{ALLY_2_NAME}捡起那张沾满油污的纸。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -214,7 +214,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '{ALLY_2_NAME}，别哭了。你仔细看你脚边……刚才你爸把你推开时，塞在你口袋外沿的东西。',
+        text: '{ALLY_2_NAME}，先别哭。你爸刚才推你出门的时候，好像往你外套口袋里塞了张纸。',
         sfx: 'sfx_confirm'
       },
       {
@@ -223,8 +223,9 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '这是……一张手画的汽修厂后门电路图？背面还用机油歪歪扭扭写着：【后仓有埋伏，别回来，找警察】？！',
+        text: '这是汽修厂后门的线路图，连断电开关都画出来了。背面还有字：【后仓有埋伏，别回来，找警察】……这是你爸写的？',
         highlight: true,
+        bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
       }
     ],

@@ -15,6 +15,7 @@ import { sound } from '../../engine/sound.js';
  *  - getState()         → save 模式取当前 gameState
  *  - onLoaded(state)    → 读档成功（main.js 接管 resumeFromGameState）
  *  - onClosed()         → 关闭面板
+ *  - describeChapter(m) → 章节主标题（main.js 注入）
  *  - describeAnchor(m)  → 章节名/剧情场景名的中文描述（main.js 注入，组件不做数据查询）
  */
 export class SaveMenuModal {
@@ -28,6 +29,7 @@ export class SaveMenuModal {
     this.onLoaded = this.config.onLoaded || null;
     this.onClosed = this.config.onClosed || null;
     this.describeAnchor = this.config.describeAnchor || null;
+    this.describeChapter = this.config.describeChapter || null;
 
     // save 模式只给手动槽（auto 由系统写）；load 模式四槽全列
     this.slotList = this.mode === 'save' ? [1, 2, 3] : ['auto', 1, 2, 3];
@@ -268,7 +270,7 @@ export class SaveMenuModal {
     ctx.fillRect(0, 0, w, h);
 
     const boxW = 680;
-    const boxH = 450;
+    const boxH = 480;
     const x = (w - boxW) / 2;
     const y = (h - boxH) / 2;
 
@@ -308,8 +310,8 @@ export class SaveMenuModal {
     // 2. 槽位行
     this.rowRects = [];
     const rowW = boxW - 40;
-    const rowH = 64;
-    const rowGap = 10;
+    const rowH = 70;
+    const rowGap = 8;
     let rowY = y + 88;
     for (let i = 0; i < this.slotInfos.length; i++) {
       const info = this.slotInfos[i];
@@ -328,40 +330,47 @@ export class SaveMenuModal {
       ctx.stroke();
 
       if (info.exists) {
-        // 左：槽位名
-        ctx.textAlign = 'left';
-        ctx.fillStyle = '#7c2d12';
-        ctx.font = 'bold 17px sans-serif';
-        ctx.fillText(focused ? `▶ ${info.label}` : info.label, rowX + 18, rowY + 22);
-
-        // 右上：主角/线路/锚点
+        // 章节是主标题；槽位、场景、角色和时间分层显示。
         const meta = info.meta || {};
+        ctx.textAlign = 'left';
         ctx.fillStyle = '#292524';
-        ctx.font = 'bold 15px sans-serif';
-        ctx.fillText(
-          `${meta.leadName || '?'} Lv.${meta.leadLevel || 1} · ${(meta.route === 'female') ? '女主线' : '男主线'} · ${this.anchorText(meta)}`,
-          rowX + 18, rowY + 45
-        );
+        ctx.font = 'bold 17px sans-serif';
+        const chapter = this.describeChapter ? this.describeChapter(meta) : '';
+        ctx.fillText(chapter || '未命名章节', rowX + 18, rowY + 21, rowW - 235);
 
-        // 行尾：存档时间
         ctx.textAlign = 'right';
-        ctx.fillStyle = '#78716c';
-        ctx.font = '12px sans-serif';
-        ctx.fillText(this.formatSavedAt(meta.savedAt), rowX + rowW - 16, rowY + 22);
+        ctx.fillStyle = '#7c2d12';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(`${focused ? '▶ ' : ''}${info.label}`, rowX + rowW - 16, rowY + 20);
+
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#57534e';
+        ctx.font = '14px sans-serif';
+        ctx.fillText(this.anchorText(meta), rowX + 18, rowY + 43, rowW - 300);
+        ctx.textAlign = 'right';
+        ctx.fillText(
+          `${meta.leadName || '?'} Lv.${meta.leadLevel || 1} · ${meta.route === 'female' ? '女主线' : '男主线'}`,
+          rowX + rowW - 16, rowY + 43, 260
+        );
 
         const playH = Math.floor((meta.playtimeSec || 0) / 3600);
         const playM = Math.floor(((meta.playtimeSec || 0) % 3600) / 60);
         const playText = playH > 0 ? `${playH}小时${playM}分` : `${playM}分`;
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#78716c';
+        ctx.font = '12px sans-serif';
         ctx.fillText(
           `队伍 ${meta.partySize || 1} 人 · 通关 ${meta.clearedCount || 0} 章 · 游玩 ${playText}`,
-          rowX + rowW - 16, rowY + 45
+          rowX + 18, rowY + 61
         );
+        ctx.textAlign = 'right';
+        ctx.fillText(this.formatSavedAt(meta.savedAt), rowX + rowW - 16, rowY + 61);
 
-        // save 模式下已有档 → 右侧红字提示会被覆盖
+        // 保存模式明确标出覆盖风险，放在槽位名旁边。
         if (this.mode === 'save') {
           ctx.fillStyle = '#b91c1c';
           ctx.font = 'bold 12px sans-serif';
-          ctx.fillText('存入将覆盖', rowX + rowW - 16, rowY + rowH - 10);
+          ctx.fillText('存入将覆盖', rowX + rowW - 100, rowY + 20);
         }
       } else {
         // 空槽

@@ -23,7 +23,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '洋行仓库的主楼是一座二十世纪初留下来的哥特式红砖巨堡，四周架设着防暴铁丝网与高压探照灯，暴雨在惨白的光束中狂乱飞舞。',
+        text: '众人从地下室的另一侧逃到仓库外。沈家父子还在顶楼，可大楼四周通了电，探照灯来回扫，想走正门根本过不去。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（从口袋里掏出一张用眼线笔画在餐巾纸上的简易草图）大家看，他们把我押进地下室时，我默记了整座楼的监控盲区！货栈东西两侧的电网每隔四十五秒就会断电一小会儿！',
+        text: '（拿出画在餐巾纸上的草图）他们押我进来时，我记下了侧门和摄像头；后来从地下室小窗里看到东侧电网每隔一会儿会短暂停电。趁那几秒从侧门进去，就能到一楼大厅。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -51,7 +51,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '太棒了瑞怡！只要切断他们顶层的备用发电机，整栋货栈的自动防御炮塔就会彻底瘫痪！',
+        text: '东侧门后就是大厅楼梯。如果赶在电网恢复前穿过去，至少能避开外面的探照灯。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -60,14 +60,14 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '我们趁着跳闸间隙强攻正厅大门，一口气冲上顶层钟楼！',
+        text: '好，等下一次断电，从东侧门进大厅。徐老师和刘老师掩护，我们去顶楼找沈家父子。',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '探照灯扫过的瞬间，主电闸火花迸溅，全场防暴电网骤停！',
-      buttonText: '【破门强攻 · 突入货栈大堂】',
+      prompt: '东侧电网短暂断电。众人穿过侧门，沿走廊来到一楼大厅门前。',
+      buttonText: '【推开大厅门 · 突入货栈】',
       targetScene: 'ch18_scene_teacher_stand'
     }
   },
@@ -86,7 +86,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '沉重的橡木大门轰然被撞开！然而大厅正中央，竟伫立着三具注入了大量变异药剂、手提重型防暴合金盾与电锯的改造重装巨人！大门后方的液压铁闸轰然降下，将退路完全锁死！',
+        text: '一推开大厅门，三名服过药的重装守卫就举着盾牌挡住去路。门后的铁闸落下，堵住回头路；通往顶楼的楼梯口也挤满了沈家的打手。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -96,7 +96,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（横握竹教鞭，眼中燃烧着平静而决绝的烈火）老徐，二十年前，我们在校门口退后了一步，抱憾终生；今天，我们身后站着自己最好的学生，一步也不能再退了。',
+        text: '（握紧教鞭）老徐，侧廊又来了一批守卫。我们留下挡住后面的援兵，让孩子们去楼梯口。二十年前没护住阿瑶，今天不能再退了。',
         sfx: 'sfx_confirm'
       },
       {
@@ -105,7 +105,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（将旧教案塞进{MC_NAME}怀中，一把将少年们推向通往顶层的螺旋铁梯）孩子们！这里有我们两个老骨头顶着！冲上去，把沈氏两代恶魔彻底终结！！这是老师给你们布置的最后一次作业！！',
+        text: '（把旧教案塞给{MC_NAME}）我们挡住后面赶来的守卫。你们打通前面重装守卫和楼梯口，去顶楼阻止沈家父子。别回头！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -130,7 +130,7 @@ export const CHAPTER18_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '两位老师与重装药人正面硬撼，旋转楼梯上涌出数十名持械死士拦截！',
+      prompt: '两位老师在大厅牵制后续援兵；孩子们迎战挡路的重装守卫。沈崇礼也守在楼梯口，想拖住他们！',
       buttonText: '【决死强突 · 杀穿螺旋楼梯】',
       battleId: 'ch18_battle1',
       isBattleTrigger: true
@@ -151,8 +151,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '少年们浴血杀穿楼道守军，一脚踹开钟楼紧闭的青铜大门。狂风混杂着暴雨从破碎的彩色玻璃窗灌入，大厅中央赫然悬浮着一颗由无数青黑雾气与机械管道纠缠而成的“百年鸦片巨灵之心”！',
-        highlight: true,
+        text: '楼梯口的守卫被打退，沈崇礼也倒了下去。可一名手下趁乱把他拖进旁边的专用电梯，抢先上了顶楼。孩子们沿楼梯追上去，推开钟楼门：一台机器正把毒雾送进中央的黑色装置。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -161,7 +160,9 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（站在巨型控制台前，双眼布满血丝，癫狂狂笑）居然真让你们这群小杂种爬上来了！但你们以为赢了吗？老太爷已经将全身残躯融入了百年鸦片巨灵神，整座城市的重点名校，今夜都将臣服在福寿堂脚下！！',
+        text: '（站在控制台前）你们一路追上来又怎样？父亲已经进入那台机器，罐里的原料也都在里面。只要它启动，新的药就能送到全城的学校！',
+        highlight: true,
+        bgm: 'bgm_intense_boss',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -170,7 +171,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_chongli_default@2x.png',
         activeSide: 'left',
-        text: '（拔出浩然销烟杖，金芒万丈）沈崇礼，你们两代人的百年毒梦，就在此刻彻底烧成灰吧！！',
+        text: '（握紧抢回的销烟杖）那就趁它还没启动，把机器和你们一起拦下来！',
         sfx: 'sfx_confirm'
       }
     ],

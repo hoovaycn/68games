@@ -10,7 +10,7 @@
 export const CHAPTER5_STORY = {
   ch5_scene_parent_meeting: {
     id: 'ch5_scene_parent_meeting',
-    title: '考试前夜 · 家长会',
+    title: '期中考前 · 家长会',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_parent_meeting@2x.png',
     bgm: 'bgm_classroom',
@@ -21,7 +21,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '期中考试前最后一次家长会，六八班教室里坐满了家长，椅子不够，连过道都站着人。窗外天已经擦黑，教室里却闷得人额头冒汗。',
+        text: '期中考试前几天的家长会，六八班教室里坐满了家长，椅子不够，连过道都站着人。窗外天已经擦黑，教室里却闷得人额头冒汗。',
         sfx: 'sfx_confirm'
       },
       {
@@ -67,19 +67,20 @@ export const CHAPTER5_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '话音刚落，教室前面传来一阵响动。讲台上，带着墨镜的神秘家长正站在最中间，桌子上摆着整整一排异化零食和饮料，堆得像小山一样显眼。',
+        bgm: 'bgm_suspense',
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 6,
+        id: 7,
         speaker: '神秘家长',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: null,
         activeSide: 'left',
         text: '各位家长静一静！这是我托了好多关系，从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
         sfx: 'sfx_confirm'
       },
       {
-        id: 7,
+        id: 8,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -88,25 +89,25 @@ export const CHAPTER5_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 8,
+        id: 9,
         speaker: '神秘家长',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_default@2x.png',
+        rightPortrait: null,
         activeSide: 'left',
         text: '来，别害怕。吃完下次考试肯定进前十，也给你们爸妈长长脸。现在这个年头，不早点想办法，怎么跟别人家孩子拼？',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 9,
+        id: 10,
         speaker: '普通家长甲',
         leftPortrait: 'assets/art/parent_rep_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
-        activeSide: 'right',
+        activeSide: 'left',
         text: '老师你们先别拦。人家也是好心，弄点营养品回来试试，总不能真害自己班孩子吧？',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 10,
+        id: 11,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/parent_rep_default@2x.png',
@@ -115,7 +116,7 @@ export const CHAPTER5_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 11,
+        id: 12,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -228,7 +229,7 @@ export const CHAPTER5_STORY = {
     title: '家长会散场后 · 没人真的被吓住',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_parent_meeting@2x.png',
-    bgm: 'bgm_army_approaching',
+    bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,

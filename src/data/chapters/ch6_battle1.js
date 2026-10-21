@@ -4,7 +4,7 @@
 export const CH6_BATTLE1 = {
   id: 'ch6_battle1',
   name: '第八战：夜楼道 · 先把熟人拦下来',
-  bgm: 'bgm_victory',
+  bgm: 'bgm_army_approaching',
   mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'hall',

@@ -23,7 +23,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
-        text: '铁壳驳船在江浪中剧烈颠簸。甲板中央摆着三张太师椅，中间瘫坐着一个浑身插满输液管、戴着氧气面罩的干瘦老人；右侧站着的，正是家长会上西装革履的沈崇礼。',
+        text: '驳船在江浪里晃得厉害。铜炉旁坐着一个戴氧气面罩、身上接着输液管的老人；沈崇礼站在他身边。刘老师一眼认出来：轮椅上的就是二十年前害了阿瑶的沈万廷。',
         sfx: 'sfx_suspense'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（手扶铜炉，阴恻恻地冷笑）徐老师，刘老师……还有海警督，带着一群乳臭未干的小毛孩，动作倒是挺快。可惜，时辰已到，江潮已平！',
+        text: '徐老师、刘老师，还有海警督。你们来晚了！等江潮涨上来，我们就能用铜炉把罐里的老烟膏熬成新药。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -57,7 +57,7 @@ export const CHAPTER14_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '沈崇礼猛地拉动绞盘，将烧红的钢棍插向铜炉正上方的古瓷罐！',
+      prompt: '沈崇礼拉动绞盘，要用烧红的钢棍捅破罐口的封泥，让里面的烟膏落进炉里！',
       buttonText: '【飞身夺罐 · 阻止开炉】',
       targetScene: 'ch14_scene_pot_broken'
     }
@@ -86,7 +86,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '罐中并未流出寻常的药膏，而是一团凝聚成骷髅恶鬼形态的浓黑恶气呼啸而出！更奇异的是，罐壁上附着的古代封印金光与黑气剧烈交融，整个甲板四周的天地竟开始扭曲重叠！',
+        text: '碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。罐壁内侧刻着的金色纹路也亮了起来，碰到黑烟后，甲板上的人影和江岸竟开始扭曲、重叠。谁也说不清发生了什么。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -105,13 +105,13 @@ export const CHAPTER14_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '黑气里混着极强的麻醉致幻成分，大家屏住呼吸！先解决眼前的打手！',
+        text: '先捂住口鼻，别吸那股黑烟！它跟学校的怪味零食一样会让人失控。打手已经围上来了，大家靠在一起！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '甲板上狂风呼啸，十余名服用了药剂的异化精锐死士拔出铁棍围拢上来！',
+      prompt: '海峰和两位老师挡住船舷那侧的追兵；六个孩子守在铜炉旁，迎上围来的异化护卫！',
       buttonText: '【甲板血战 · 决战驳船】',
       battleId: 'ch14_battle1',
       isBattleTrigger: true
@@ -124,7 +124,7 @@ export const CHAPTER14_STORY = {
     title: '扭曲的天空 · 逆转的指针',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_barge_altar@2x.png',
-    bgm: 'bgm_suspense',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -132,7 +132,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '最后一批异化护卫被打翻落水。然而战斗激发的真气与瓷罐中的封印力量产生共鸣，天空中的阴云旋转成一个吞噬一切的巨大空洞！',
+        text: '护卫被打退，可碎罐上的金色纹路还在发亮，黑烟也没有散。两股光和烟缠在一起，头顶的夜空慢慢裂开一个大洞，甲板开始像纸一样卷起来。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -159,16 +159,16 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '江水倒流，夜空如镜面般一片片碎裂。强烈的白光与海浪的咸腥味瞬间淹没了所有人的视听意识……耳边隐隐传来震耳欲聋的战鼓声与铁炮轰鸣！',
+        text: '江水仿佛倒着流，白光吞没甲板。六个孩子、海峰和两位老师还抓着彼此，脚下的船却突然消失了。远处传来战鼓和炮声，他们正一起被拽离现代的江面。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '白光消散，历史的巨轮在眼前隆隆倒转！',
-      buttonText: '【时空逆流 · 梦回道光年间】',
-      targetScene: 'ch15_scene_historic_prologue'
+      prompt: '白光没有散。众人仍在往前飞，身后的江水和驳船越退越远；他们这是穿越了。',
+      buttonText: '【抓紧彼此 · 穿过时空通道】',
+      targetScene: 'ch15_scene_time_passage'
     }
   }
 };

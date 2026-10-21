@@ -16,7 +16,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿瑶走后，两个小姑娘没有停。她们每打倒一个发狂的同学，等对方恢复神智，就抓着人家的胳膊追问一句“谁给你的、在哪拿的”，顺着那些零零碎碎的指认，一路从学校摸到了城郊旧仓库。',
+        text: '刘老师继续讲起当年那一晚：阿瑶被带走后，她们找到几个刚恢复清醒的同学，挨个问怪零食是从哪来的。顺着这些线索，两人找到了城郊的旧仓库。',
         sfx: 'sfx_confirm'
       },
       {
@@ -29,7 +29,7 @@ export const CHAPTER8_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 7,
+        id: 3,
         speaker: '少年徐老师',
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/young_liu_default@2x.png',
@@ -195,7 +195,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '回去？回到那个永远只能看着你们发光的角落吗？',
+        text: '回去？回去等下一次考试，看我还能不能保住第一名吗？',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -204,7 +204,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '你们永远那么耀眼，那么正义。可你们根本不懂，每天晚上写卷子写到吐，却还是只能垫底的感觉！我不想要你们的同情，我要的是分数！是考第一！',
+        text: '你们永远那么敢冲敢闯。可我每次考试都怕少一分，怕有一天不再是第一名，大家就不在乎我了。我不想听安慰，我只想一直考第一！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -269,7 +269,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '等大人们冲进仓库时，证据早已被扫得干干净净。两个浑身是伤的小学生声嘶力竭的哭喊，被当成了打架斗殴后的狡辩，根本没有一个大人相信。',
+        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个受伤的孩子说有人往学校送药，可没有账本，也没有人肯作证，大人们只当她们是和同学打架后找借口。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -278,7 +278,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '那天清晨，她们不仅失去了最好的朋友，也永远失去了童年的天真。那道无法愈合的溃疡，逼着她们在接下来的二十年里，发疯般地追查着那条吞噬了阿瑶的黑暗产业链。',
+        text: '从那以后，两人再也没见过阿瑶。她们没有停止查那批怪零食：读书、当老师，查了二十年，才找到现在这些线索。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -288,7 +288,7 @@ export const CHAPTER8_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
-        text: '回忆如同潮水般缓缓褪去。当视线再次聚焦时，昏暗的仓库已然消散，眼前是现实中被晨光唤醒的学校器材室。门外传来了急促的拍门声与喧闹的人声——大考的日子，终于到了。',
+        text: '众人轮流守着器材室的门，听刘老师讲完那段往事，天已经亮了。隔壁班同学和保安把走廊里失控的人带去医务室，这才敲门喊他们出来：大考马上要开始。',
         bgm: 'bgm_suspense',
         sfx: 'sfx_confirm'
       },
@@ -299,7 +299,7 @@ export const CHAPTER8_STORY = {
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
-        text: '当年我们拼了命打赢了，可什么都没能真正拦住。领头给货的人翻窗跑了，而我们要救的人……用最决绝的方式刺了我们一刀。这个轮子转了二十年，还是转到了你们这一届。',
+        text: '当年我们打赢了仓库里的人，却没抓住送货的，也没能带阿瑶回来。二十年后，同样的怪零食又进了你们的学校。',
         sfx: 'sfx_text_blip'
       },
       {
