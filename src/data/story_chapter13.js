@@ -24,7 +24,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '深夜十点，海峰带大家沿汽修厂地窖的暗道，来到省厅设在地下防空洞的安全屋。墙上贴满了旧报纸、照片和人物关系图。他拿出在后仓找到的账册，终于能把这些线索连起来。',
+        text: '深夜十点，皮卡停在城北一处旧防空洞外。海峰拿出证件打开铁门，带大家走进省厅安排的安全屋：“先在这儿包扎，等两位老师过来。”屋里的墙上贴着他查沈家时留下的照片和人物关系图。',
         sfx: 'sfx_text_blip'
       },
       {

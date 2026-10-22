@@ -71,7 +71,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '官兵推开仓门。墙边是福寿堂的药材箱，桌上的本子记着哪家铺子免费给穷人发过药。可门口停着刚才那辆小车，上面是丢失的青花罐，旁边还堆着几箱烟膏。',
+        text: '官兵推开仓门。墙边是福寿堂准备免费发给穷人的药材箱。门口停着刚才那辆小车，车上是丢失的青花罐，旁边还堆着几箱烟膏。',
         sfx: 'sfx_suspense'
       },
       {
@@ -99,7 +99,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: 'assets/art/fushoutang_shopkeeper_1839@2x.png',
         activeSide: 'left',
-        text: '这本子记的是免费给谁发过药，不是卖烟膏。先把走私的货扣下，药铺做过什么，我会查清楚。',
+        text: '给穷人的药材先别动。烟膏和那只罐子是谁推进来的，我会查清楚；现在先把这批走私的货扣下。',
         sfx: 'sfx_confirm'
       },
       {
@@ -128,7 +128,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '官兵要查账？把账本烧了，罐子带走！',
+        text: '别让他们把货扣下！抢回罐子和烟膏，快搬上船！',
         bgm: 'bgm_battle_normal',
         sfx: 'sfx_shock_sting'
       },
@@ -138,14 +138,14 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '六个人跟紧我！先拦住水手，别让他们毁了账本、抢走罐子！',
+        text: '六个人跟紧我！拦住水手，别让他们把罐子和烟膏搬走！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '走私水手扑向账本和青花罐。先挡住他们，别让这两样东西被带走！',
-      buttonText: '【守住账本 · 击退走私水手】',
+      prompt: '走私水手扑向青花罐和烟膏，想把这批货抢回船上！',
+      buttonText: '【拦住水手 · 守住烟膏】',
       battleId: 'ch15b_battle1',
       isBattleTrigger: true
     }
@@ -164,7 +164,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '水手被打退，账本和烟膏都保住了。林则徐让官兵收走烟膏，药材箱却原样留下。沈掌柜看着账本，又看了看那只还没搬走的青花罐。',
+        text: '水手被打退，官兵开始搬走烟膏。药材箱原样留下，青花罐还在门口的小车上。沈掌柜盯着那只罐子看了很久。',
         sfx: 'sfx_confirm'
       },
       {
@@ -182,7 +182,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/fushoutang_shopkeeper_1839@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（盯着孩子们）两百年后，沈家的药铺还在……洋商刚才开的价，我要是接了，几家铺子都能开下去。',
+        text: '（看着青花罐，低声说）两百年后，福寿堂还在卖害人的药……难道沈家后来是靠帮洋商运烟膏发财的？',
         highlight: true,
         bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
@@ -233,21 +233,21 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '我也不知道咱们没来会怎样。洋商早就在拉他入伙，最后抱罐子上船也是他自己选的。先把账本带回去，往后怎么对付福寿堂，我们还得想办法。',
+        text: '我也不知道咱们没来会怎样。洋商早就在拉他入伙，最后抱罐子上船也是他自己选的。先回池边，往后怎么对付福寿堂，我们还得想办法。',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '官兵留人守着仓库，林则徐带着账本和孩子们回到销烟池。',
-      buttonText: '【把账本交给林总督】',
+      prompt: '官兵留下看守药仓，林则徐带着孩子们回到销烟池。',
+      buttonText: '【回到销烟池】',
       targetScene: 'ch15b_scene_lin_report'
     }
   },
 
   ch15b_scene_lin_report: {
     id: 'ch15b_scene_lin_report',
-    title: '销烟池边 · 查到的账本',
+    title: '销烟池边 · 沈掌柜跑了',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_gojira_battle',
@@ -258,7 +258,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '账上写了沈家哪几间铺子，先让人去看着。沈掌柜已经上了洋商的船，往后若拿药铺藏烟膏，我们也能查得到。',
+        text: '沈掌柜上了洋商的船，我会让官兵盯住他们。往后要是再拿药铺藏烟膏，一定查到底。',
         sfx: 'sfx_confirm'
       },
       {

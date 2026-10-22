@@ -73,6 +73,17 @@ export const CHAPTER19_STORY = {
       },
       {
         id: 6,
+        speaker: '巨魔',
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        activeSide: 'left',
+        text: '（胸口绿光一闪，嗓音里混着沈万廷的声音）谁敢碰药罐，我就砸碎谁！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
         speaker: '沈崇礼',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
@@ -82,7 +93,17 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 7,
+        id: 8,
+        speaker: '巨魔',
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '楼下的人敢上来，也一个都别想走！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 9,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
@@ -93,7 +114,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 8,
+        id: 10,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
@@ -162,6 +183,26 @@ export const CHAPTER19_STORY = {
       },
       {
         id: 5,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        activeSide: 'left',
+        text: '（握紧销烟杖）林大人，您让我们回去后别停下。今天沈家这批药没能送进学校。您当年毁掉的那池鸦片，没白毁。',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 6,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        activeSide: 'left',
+        text: '沈掌柜当年明明可以接着给穷人免费发药，却自己抱着青花罐上了洋商的船。今天，我们至少拦下了沈家这批药。',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
@@ -258,11 +299,39 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大家走出仓库，来到运河岸边。天边慢慢亮了，晨光落在水面上。身后的钟楼敲响了第一声钟，刚才那团黑雾已经散了。',
+        text: '医护人员把海峰抬到运河岸边的救护车旁。六个孩子和两位老师跟着走出仓库，晨光落在水面上；身后的钟楼敲响了第一声钟，黑雾已经散了。',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '（被扶上救护车）医生催我走了。你们先回家睡一觉，等我好些，再来医院把这一路的事讲给我听。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
+        activeSide: 'left',
+        text: '爸，这次换我等你回家。你说了要听我们讲，就得说话算话。',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '救护车开走了。六个孩子和两位老师站在河边，直到警灯消失在街角。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
@@ -271,7 +340,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 3,
+        id: 6,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -280,7 +349,54 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 7,
+        speaker: '语文刘老师',
+        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        activeSide: 'left',
+        text: '当然算。写的时候别光写虎门的大场面，也写写和你一起守在那儿的人。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 8,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        activeSide: 'left',
+        text: '作文晚点再写。今天一个也没少，先回家好好睡一觉，别让爸妈再担心了。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 9,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
+        activeSide: 'left',
+        text: '（看着大家）我在仓库里真以为没人会来找我。谢谢你们。以后有什么事，我一定先跟大家说，不会再一个人扛着。',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 10,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '说好了，谁有事就叫上大伙。暑假作业除外啊，那个得各写各的！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 11,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '那等海叔叔出院，咱们六个再去我家打游戏。上回说好的那一局，这次谁也不许缺席。',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 12,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -291,7 +407,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_suspense'
       },
       {
-        id: 5,
+        id: 13,
         speaker: '卫星加密密电',
         leftPortrait: null,
         rightPortrait: null,
@@ -301,7 +417,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 6,
+        id: 14,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -310,7 +426,7 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 7,
+        id: 15,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,

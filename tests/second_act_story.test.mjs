@@ -185,6 +185,11 @@ test('终章中沈万廷、巨魔与沈崇礼依次登场，决战后都得到�
   const bossIndex = finalStand.dialogues.findIndex((line) => line.leftPortrait === bossArt);
   assert.ok(elderIndex >= 0 && bossIndex > elderIndex, '沈万廷应先露面，再让巨魔亮相');
   assert.equal(finalStand.dialogues[bossIndex].bgm, 'bgm_retro_level3');
+  const bossLines = finalStand.dialogues.filter((line) => line.speaker === '巨魔');
+  assert.equal(bossLines.length, 2, '巨魔现身后应亲自开口威胁');
+  assert.ok(bossLines.every((line) => line.leftPortrait === bossArt && line.activeSide === 'left'));
+  assert.ok(bossLines.every((line) => finalStand.dialogues.indexOf(line) > bossIndex));
+  assert.match(bossLines[0].text, /沈万廷的声音/, '巨魔的声音应与沈万廷的操纵关系一致');
   assert.equal(CH19_BATTLE1.bgm, 'bgm_retro_level3');
   assert.ok(finalStand.dialogues.some((line) => line.speaker === '沈崇礼'));
   assert.ok(['boss_colossus', 'shen_wanting', 'shen_chongli']
@@ -192,6 +197,20 @@ test('终章中沈万廷、巨魔与沈崇礼依次登场，决战后都得到�
   assert.equal(ENEMIES.shen_wanting.name, '沈万廷');
   assert.ok(aftermath.dialogues.some((line) => /核心碎了.*沈万廷.*沈崇礼/.test(line.text)));
   assert.ok(CHAPTER19_STORY.ch19_scene_miracle_reunion.dialogues.some((line) => /带走了沈家父子/.test(line.text)));
+});
+
+test('决战后主角回应虎门旧事，再进入省厅增援场景', () => {
+  const aftermath = CHAPTER19_STORY.ch19_scene_boss_destroyed;
+  const lines = aftermath.dialogues;
+  const first = lines.findIndex((line) => line.speaker === '{MC_NAME}' && /林大人/.test(line.text));
+  const second = lines.findIndex((line) => line.speaker === '{MC_NAME}' && /沈掌柜/.test(line.text));
+  const support = lines.findIndex((line) => line.speaker === '张希哲');
+  assert.ok(first > lines.findIndex((line) => line.speaker === '沈崇礼'));
+  assert.ok(second > first && support > second);
+  assert.ok(lines.slice(first, second + 1).every((line) => line.leftPortrait === '{MC_PORTRAIT}' && line.highlight));
+  assert.match(lines[first].text, /别停下.*没能送进学校.*没白毁/);
+  assert.match(lines[second].text, /免费发药.*青花罐.*洋商的船.*拦下/);
+  assert.equal(aftermath.transition.targetScene, 'ch19_scene_miracle_reunion');
 });
 
 test('巨魔登场前阴云遮住钟楼，胜利后恢复原背景和音乐', () => {
@@ -238,6 +257,21 @@ test('结局从钟楼来到运河岸边，密电后留下第三幕钩子', () =>
   assert.equal(dawn.bgImg, dawnBackground);
   assert.equal(dawn.bgm, 'bgm_childhood');
   assert.match(dawn.dialogues[0].text, /运河岸边.*晨光/);
+  const messages = dawn.dialogues.findIndex((line) => /卫星电话/.test(line.text));
+  const speakers = [
+    '{MC_NAME}', '{ALLY_1_NAME}', '{ALLY_2_NAME}',
+    '张希哲', '覃瑞怡', '朱晏泽', '徐老师', '语文刘老师', '老爸海峰'
+  ];
+  for (const speaker of speakers) {
+    assert.ok(dawn.dialogues.slice(0, messages).some((line) => line.speaker === speaker),
+      `尾声缺少${speaker}的对白`);
+  }
+  const departure = dawn.dialogues.findIndex((line) => /救护车开走/.test(line.text));
+  assert.ok(dawn.dialogues.findIndex((line) => line.speaker === '老爸海峰') < departure);
+  assert.ok(dawn.dialogues.findIndex((line) => line.speaker === '语文刘老师') > departure);
+  assert.ok(dawn.dialogues.findIndex((line) => line.speaker === '朱晏泽') < messages);
+  assert.deepEqual(dawn.dialogues.map((line) => line.id),
+    dawn.dialogues.map((_, index) => index + 1));
   assert.equal(dawn.dialogues.find((line) => /卫星电话/.test(line.text)).bgm, 'bgm_suspense');
   assert.match(dawn.dialogues.at(-1).text, /第三幕.*敬请期待/);
   assert.equal(dawn.dialogues.at(-1).highlight, true);
@@ -307,10 +341,38 @@ test('海峰撞墙救场时切入热血战斗音乐', () => {
   assert.equal(CHAPTER12_STORY.ch12_scene_hero_entry.bgm, 'bgm_battle_normal');
 });
 
+test('海峰说明去安全屋的原因，坐皮卡到城北后才进入防空洞场景', () => {
+  const reveal = CHAPTER12_STORY.ch12_scene_badge_reveal;
+  const entry = CHAPTER13_STORY.ch13_scene_safahouse;
+  assert.match(reveal.dialogues.at(-1).text, /先上车.*省厅.*城北.*安全屋.*开车/);
+  assert.match(reveal.transition.prompt, /皮卡.*离开后仓/);
+  assert.equal(reveal.transition.targetScene, entry.id);
+  assert.match(entry.dialogues[0].text, /皮卡.*旧防空洞.*证件.*铁门.*省厅安排的安全屋/);
+  assert.doesNotMatch(entry.dialogues[0].text, /地窖的暗道|后仓找到的账册/);
+});
+
 test('穿越通道切到皇宫时更换威严的配乐', () => {
   assert.equal(CHAPTER15_STORY.ch15_scene_time_passage.bgm, 'bgm_eerie_revelation');
   assert.equal(CHAPTER15_STORY.ch15_scene_historic_prologue.bgm, 'bgm_gojira_battle');
   assert.equal(CHAPTER15_STORY.ch15_scene_humen_harbor_inspect.bgm, 'bgm_gojira_battle');
+});
+
+test('虎门守池战前洋人水手和带路打手露脸说话，且不提前揭露福寿堂', () => {
+  const landing = CHAPTER15_STORY.ch15_scene_beach_wake;
+  const stand = CHAPTER15_STORY.ch15_scene_militia_stand;
+  const sailor = stand.dialogues.find((line) => line.speaker === '洋人走私水手');
+  const guide = stand.dialogues.find((line) => line.speaker === '带路的中国打手');
+  const instructor = stand.dialogues.findIndex((line) => line.speaker === '虎门民团教头');
+  assert.match(landing.dialogues.at(-1).text, /小帆船.*鸦片箱/);
+  assert.equal(sailor?.leftPortrait, 'assets/art/foreign_sailor_1839@2x.png');
+  assert.equal(guide?.leftPortrait, 'assets/art/comprador_assassin_1839@2x.png');
+  assert.ok(stand.dialogues.indexOf(sailor) < instructor && stand.dialogues.indexOf(guide) < instructor);
+  assert.match(sailor.text, /搬回船上/);
+  assert.match(guide.text, /绕过官兵/);
+  assert.ok(!stand.dialogues.some((line) => /福寿堂/.test(line.text)));
+  assert.equal(stand.transition.battleId, CH15_BATTLE1.id);
+  assert.ok(CH15_BATTLE1.enemyDeploy.some(({ enemyId }) => enemyId === 'foreign_sailor'));
+  assert.ok(CH15_BATTLE1.enemyDeploy.some(({ enemyId }) => enemyId === 'comprador_assassin'));
 });
 
 test('虎门相见与木杖发光写明古今接力', () => {
@@ -332,8 +394,7 @@ test('第二幕重要揭示与悬念对白使用加重样式', () => {
     ch15b_scene_smuggler_storehouse: 2,
     ch16_scene_betrayal_note: 4,
     ch17_scene_alter_breach: 4,
-    ch18_scene_tower_arrival: 2,
-    ch19_scene_dawn_epilogue: 5
+    ch18_scene_tower_arrival: 2
   };
   for (const [sceneId, lineId] of Object.entries(hooks)) {
     assert.ok(
@@ -341,6 +402,9 @@ test('第二幕重要揭示与悬念对白使用加重样式', () => {
       `${sceneId} #${lineId}: 关键对白未加重`
     );
   }
+  assert.ok(CHAPTER19_STORY.ch19_scene_dawn_epilogue.dialogues
+    .some((line) => line.speaker === '卫星加密密电' && line.highlight),
+  '尾声密电应使用加重样式');
 });
 
 test('驳船穿越先交代全员去向，再看历史画面，最后才落地', () => {
@@ -378,7 +442,7 @@ test('虎门新增章节交代福寿堂旧账和古罐沉海，赠杖后才回�
   assert.equal(hold.bgImg, storehouseBackground);
   assert.ok(hold.dialogues.some((line) => line.speaker === '福寿堂沈掌柜'
     && line.leftPortrait === shopkeeperArt && /洋商.*烟膏/.test(line.text) && line.highlight));
-  assert.ok(hold.dialogues.some((line) => /本子.*哪家铺子.*免费给穷人/.test(line.text)));
+  assert.ok(hold.dialogues.some((line) => /免费发给穷人的药材箱.*青花罐/.test(line.text)));
   assert.equal(hold.transition.battleId, CH15B_BATTLE1.id);
   assert.equal(CH15B_BATTLE1.nextStorySceneOnWin, aftermath.id);
   assert.ok(aftermath.dialogues.some((line) => /青花罐.*沉进虎门海口/.test(line.text)));
@@ -398,16 +462,17 @@ test('福寿堂起初免费发药，掌柜听见未来后才决定投奔洋商',
   const after = HUMEN_ORIGIN_STORY.ch15b_scene_storehouse_aftermath.dialogues;
   assert.ok(warning, '海峰先前查到的是虎门销烟后的福寿堂');
   assert.ok(lead.some((line) => /福寿堂.*走私.*先别猜/.test(line.text)));
-  assert.match(before[0].text, /免费给穷人发过药.*青花罐/);
+  assert.match(before[0].text, /免费发给穷人的药材箱.*青花罐/);
   assert.ok(before.some((line) => line.speaker === '福寿堂沈掌柜' && /洋商.*藏烟膏.*没答应/.test(line.text)));
   assert.ok(before.some((line) => line.speaker === '走私水手' && /铺子.*运货.*银子/.test(line.text)));
   const future = before.find((line) => /两百年后的福寿堂.*害学生/.test(line.text));
   assert.equal(future?.highlight, true);
   assert.ok(before.some((line) => line.speaker === '福寿堂沈掌柜' && /两百年后.*福寿堂/.test(line.text)));
-  assert.ok(before.some((line) => line.speaker === '走私水手' && /把账本烧了.*罐子带走/.test(line.text)));
+  assert.ok(before.some((line) => line.speaker === '走私水手' && /抢回罐子和烟膏.*搬上船/.test(line.text)));
+  assert.ok(!before.some((line) => /账本|查账/.test(line.text)));
   assert.match(after[1].text, /免费给穷人发药.*接着做.*不会算在你头上/);
   assert.equal(after[2].highlight, true);
-  assert.match(after[2].text, /两百年后.*洋商刚才开的价/);
+  assert.match(after[2].text, /两百年后.*靠帮洋商运烟膏发财/);
   assert.match(after[3].text, /抱起青花罐.*洋商的船/);
   assert.match(after[4].text, /青花罐.*沉进虎门海口/);
   assert.match(after[6].text, /我说了两百年后的事.*我不说/);
@@ -429,6 +494,7 @@ test('福寿堂暗仓有可玩的 Tiled 战斗，胜利后才发生逃船', () =
   const tmx = readFileSync(new URL('../docs/map/tiled_project/ch15b_battle1.tmx', import.meta.url), 'utf8');
   assert.match(main, /ch15b_battle1:\s*CH15B_BATTLE1/);
   assert.equal(battle.objective.type, 'defeat_all');
+  assert.match(battle.objective.text, /青花罐和烟膏/);
   assert.ok(audioExists('bgm', battle.bgm));
   assert.equal(battle.playerDeploy.length, 7);
   assert.equal(battle.enemyDeploy.length, 6);
@@ -443,7 +509,7 @@ test('福寿堂暗仓有可玩的 Tiled 战斗，胜利后才发生逃船', () =
   assert.equal(new Set(spawns.map(({ x, y }) => `${x},${y}`)).size, spawns.length);
   assert.ok(spawns.every(({ x, y }) => x > 0 && x < battle.mapWidth - 1 && y > 0 && y < battle.mapHeight - 1));
   assert.ok(!HUMEN_ORIGIN_STORY.ch15b_scene_smuggler_storehouse.dialogues.some((line) => /沉进虎门海口/.test(line.text)));
-  assert.match(HUMEN_ORIGIN_STORY.ch15b_scene_storehouse_aftermath.dialogues[0].text, /水手被打退.*账本和烟膏都保住/);
+  assert.match(HUMEN_ORIGIN_STORY.ch15b_scene_storehouse_aftermath.dialogues[0].text, /水手被打退.*搬走烟膏.*青花罐/);
   assert.equal(HUMEN_ORIGIN_STORY.ch15b_scene_smuggler_storehouse.transition.battleId, battle.id);
   assert.equal(GameApp.prototype.describeSaveChapter({ chapterId: battle.id }), '第十七章 · 福寿堂留下的罐子');
 });
@@ -520,6 +586,8 @@ test('第二幕从博物馆到结局全程可达，战斗回跳与主要角色�
     ['林则徐', 'assets/art/lin_zexu_'],
     ['福寿堂沈掌柜', 'assets/art/fushoutang_shopkeeper_'],
     ['走私水手', 'assets/art/foreign_sailor_'],
+    ['洋人走私水手', 'assets/art/foreign_sailor_'],
+    ['带路的中国打手', 'assets/art/comprador_assassin_'],
     ['覃瑞怡', 'assets/art/qinruiyi_'],
     ['张希哲', 'assets/art/zhangxizhe_'],
     ['徐老师', 'assets/art/teacher_xu_'],

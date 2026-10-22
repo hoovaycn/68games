@@ -237,11 +237,20 @@ export const CHAPTER12_STORY = {
         activeSide: 'left',
         text: '（死死抱住父亲，嚎啕大哭）爸……！你是我见过的……最伟大的警察！',
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 6,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '先上车，别留在这儿。省厅在城北有个安全屋，我开车带你们过去。到了那儿，我把沈家的事跟你们说清楚。',
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '海峰收起账册和通讯器，通知省厅增援，又给徐老师和刘老师发去集合消息，随后带大家去安全屋。',
+      prompt: '海峰通知省厅增援，又叫徐老师和刘老师去城北会合，随后开着皮卡带孩子们离开后仓。',
       buttonText: '【前往安全屋 · 开启第十四章】',
       targetScene: 'ch13_scene_safahouse'
     }

@@ -217,7 +217,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '快看池畔浅滩！有几艘黑色快艇正冒死靠岸，十几个手持洋枪和弯刀的人正试图夺取化烟池边的鸦片箱！',
+        text: '快看浅滩！几艘小帆船靠岸了，那些拿洋枪和刀的人正往销烟池边冲，要抢还没销毁的鸦片箱！',
         bgm: 'bgm_army_approaching',
         sfx: 'sfx_text_blip'
       }
@@ -240,6 +240,33 @@ export const CHAPTER15_STORY = {
     dialogues: [
       {
         id: 1,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
+        rightPortrait: 'assets/art/comprador_assassin_1839@2x.png',
+        activeSide: 'left',
+        text: '洋人水手举着枪上了岸，一个本地打手在前面带路，指着池边还没倒进水里的鸦片箱。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 2,
+        speaker: '洋人走私水手',
+        leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
+        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        activeSide: 'left',
+        text: '就是那几箱！趁他们还没倒进池子，搬回船上！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '带路的中国打手',
+        leftPortrait: 'assets/art/comprador_assassin_1839@2x.png',
+        rightPortrait: 'assets/art/foreign_sailor_1839@2x.png',
+        activeSide: 'left',
+        text: '我带你们绕过官兵。先把守池的人赶开，货就在眼前！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
         speaker: '虎门民团教头',
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
@@ -249,7 +276,7 @@ export const CHAPTER15_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 2,
+        id: 5,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
@@ -258,7 +285,7 @@ export const CHAPTER15_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 3,
+        id: 6,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
@@ -270,7 +297,7 @@ export const CHAPTER15_STORY = {
     transition: {
       type: 'JOIN_PARTY',
       unitId: 'militia_instructor',
-      prompt: '海峰和两位老师守另一侧的销烟池；教头带着六个孩子，迎战冲向这口池子的走私水手！',
+      prompt: '海峰和两位老师守另一侧的销烟池；教头带着六个孩子，挡住洋人水手和带路的打手！',
       buttonText: '【沙角血战 · 捍卫化烟池】',
       battleId: 'ch15_battle1',
       isBattleTrigger: true

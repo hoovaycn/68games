@@ -1,10 +1,10 @@
 /**
- * 第17章 福寿堂留下的罐子：虎门旧码头药仓守账战。
+ * 第17章 福寿堂留下的罐子：虎门旧码头药仓守货战。
  * Tiled 源图：docs/map/tiled_project/ch15b_battle1.tmx
  */
 export const CH15B_BATTLE1 = {
   id: 'ch15b_battle1',
-  name: '虎门药仓守账战',
+  name: '虎门药仓守货战',
   bgm: 'bgm_battle_normal',
   mapWidth: 16,
   mapHeight: 10,
@@ -38,7 +38,7 @@ export const CH15B_BATTLE1 = {
 
   objective: {
     type: 'defeat_all',
-    text: '击退来抢账本和青花罐的走私水手'
+    text: '击退来抢青花罐和烟膏的走私水手'
   },
 
   nextStorySceneOnWin: 'ch15b_scene_storehouse_aftermath',
