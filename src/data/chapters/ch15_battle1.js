@@ -1,5 +1,5 @@
 /**
- * 第16章 浩然正气 战斗关卡：1839虎门滩头保卫战
+ * 第16章 我们穿越了 战斗关卡：1839虎门滩头保卫战
  * 地图尺寸：18×12（Tiled 源工程见 docs/map/tiled_project/ch15_battle1.tmx）
  * 我方 7 人 / 敌方 6 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

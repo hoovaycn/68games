@@ -1,5 +1,5 @@
 /**
- * 第十一章《博物馆惊魂》剧情脚本数据表（第二幕 第1章）
+ * 第十一章《博物馆里的罐子》剧情脚本数据表（第二幕 第1章）
  *
  * 流程结构：
  * - ch10_scene_museum_meet: 暑假博物馆大厅集合，少年团参观虎门销烟百年特展
@@ -60,7 +60,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '“怡安”两个字让大家想起期末家长会：那个逼全班接受神秘零食的家长，当时就自称基金会负责人。',
+        text: '大家想起期中考前那场家长会：那个带着怪味零食逼同学试吃的神秘家长，后来一直没查出是谁。眼下基金会又把车停在后门，难免让人起疑。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -69,7 +69,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '门口的赞助牌也是“怡安教育慈善基金会”。他们出钱办展，又把车停在后门……先进去看看，别让人把展品搬走。',
+        text: '门口的赞助牌也是“怡安教育慈善基金会”。他们出钱办展，后门还停着搬运车……进去看看他们在搬什么。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -169,7 +169,8 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
+        text: '原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
+        highlight: true,
         sfx: 'sfx_confirm'
       },
       {

@@ -1,5 +1,5 @@
 /**
- * 第14章 避难所疑云 战斗关卡：运河老码头前哨战
+ * 第14章 照片上的人 战斗关卡：运河老码头前哨战
  * 地图尺寸：16×12（Tiled 源工程见 docs/map/tiled_project/ch13_battle1.tmx）
  * 我方 9 人 / 敌方 8 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

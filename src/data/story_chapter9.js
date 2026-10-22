@@ -391,7 +391,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
-        text: '还记得学期末那场让人喘不过气的家长会吗？那个西装革履、目光阴鸷、在暗处操控全班精神异化的“神秘家长”，至今就像一团挥之不去的阴影。',
+        text: '期中考前的家长会上，那个带着怪味零食逼同学试吃的神秘家长，后来再也没露过面。谁也不知道他究竟是什么来头。',
         sfx: 'sfx_suspense'
       },
       {
@@ -415,7 +415,7 @@ export const CHAPTER9_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '七月盛夏，全班收到了一份由教育基金会特别赞助的暑期博物馆参观邀请函。',
+      prompt: '七月盛夏，全班收到一封“怡安教育慈善基金会”赞助的暑期博物馆参观邀请函。',
       buttonText: '【前往博物馆 · 开启第二幕】',
       targetScene: 'ch10_scene_museum_meet'
     }

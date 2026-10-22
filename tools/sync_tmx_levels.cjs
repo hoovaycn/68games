@@ -228,6 +228,20 @@ const CHAPTER_CONFIGS = [
     ]
   },
   {
+    id: 'ch15b_battle1',
+    tmx: 'docs/map/tiled_project/ch15b_battle1.tmx',
+    js: 'src/data/chapters/ch15b_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'father_haifeng'],
+    enemyUnits: [
+      { enemyId: 'foreign_sailor', instanceId: 'warehouse_sailor_a' },
+      { enemyId: 'foreign_sailor', instanceId: 'warehouse_sailor_b' },
+      { enemyId: 'foreign_sailor', instanceId: 'warehouse_sailor_c' },
+      { enemyId: 'foreign_sailor', instanceId: 'warehouse_sailor_d' },
+      { enemyId: 'comprador_assassin', instanceId: 'warehouse_guard_a' },
+      { enemyId: 'comprador_assassin', instanceId: 'warehouse_guard_b' }
+    ]
+  },
+  {
     id: 'ch16_battle1',
     tmx: 'docs/map/tiled_project/ch16_battle1.tmx',
     js: 'src/data/chapters/ch16_battle1.js',
@@ -541,7 +555,14 @@ async function syncTmx(config) {
 }
 
 async function run() {
-  for (const cfg of CHAPTER_CONFIGS) {
+  const requested = process.argv.slice(2);
+  const configs = requested.length
+    ? CHAPTER_CONFIGS.filter((cfg) => requested.includes(cfg.id))
+    : CHAPTER_CONFIGS;
+  if (requested.length && configs.length !== new Set(requested).size) {
+    throw new Error(`未找到全部指定的战斗地图: ${requested.join(', ')}`);
+  }
+  for (const cfg of configs) {
     await syncTmx(cfg);
   }
 }

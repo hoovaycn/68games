@@ -3076,5 +3076,41 @@
     "compressedSize": 390,
     "md5": "cc91a9c623fbb3b6f05dd52ccab89e32",
     "compressedAt": "2026-10-03T07:07:17.888Z"
+  },
+  "assets\\backgrounds\\bg_time_passage@2x.png": {
+    "originalSize": 1143214,
+    "compressedSize": 931305,
+    "md5": "e08667705b74f47ad578938d64103477",
+    "compressedAt": "2026-10-21T16:18:15.499Z"
+  },
+  "assets\\backgrounds\\bg_time_passage.png": {
+    "originalSize": 286907,
+    "compressedSize": 238463,
+    "md5": "30e10b9d2c818f6dc5c1ac99c438dbab",
+    "compressedAt": "2026-10-21T16:19:25.585Z"
+  },
+  "assets\\backgrounds\\bg_canal_dawn.png": {
+    "originalSize": 829939,
+    "compressedSize": 265516,
+    "md5": "280c4bb8143a162df645891e80643c47",
+    "compressedAt": "2026-10-22T14:31:43.974Z"
+  },
+  "assets\\backgrounds\\bg_canal_dawn@2x.png": {
+    "originalSize": 2571162,
+    "compressedSize": 867609,
+    "md5": "b5e865d5746b0e6480784721196a5afd",
+    "compressedAt": "2026-10-22T14:32:19.985Z"
+  },
+  "assets\\backgrounds\\bg_clocktower_storm.png": {
+    "originalSize": 322704,
+    "compressedSize": 310303,
+    "md5": "d99d40d99f74385a2ee873f068743589",
+    "compressedAt": "2026-10-22T14:47:57.474Z"
+  },
+  "assets\\backgrounds\\bg_clocktower_storm@2x.png": {
+    "originalSize": 2936949,
+    "compressedSize": 1078673,
+    "md5": "0f3462a8883c93ee5aa790c9a442f266",
+    "compressedAt": "2026-10-22T14:47:22.129Z"
   }
 }

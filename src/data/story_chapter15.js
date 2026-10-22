@@ -1,5 +1,5 @@
 /**
- * 第十六章《浩然正气》剧情脚本数据表（第二幕 第6章）
+ * 第十六章《我们穿越了》剧情脚本数据表（第二幕 第6章）
  *
  * 流程结构：
  * - ch15_scene_time_passage: 众人一同穿越，在时空通道中先看到过去，尚未落地
@@ -8,8 +8,8 @@
  * - ch15_scene_beach_wake: 【时空交错】现代少年团自时空漩涡跌落虎门滩头，亲眼见证历史上的“双池化烟”名场面
  * - ch15_scene_militia_stand: 【外敌突袭】异国鸦片武装水手勾结初代买办死士偷袭化烟池，民团浴血抵抗
  * - ch15_battle1: 【滩头血战】虎门滩头保卫战（主角团 + 虎门民团教头 VS 异国武装水手与初代买办死士）
- * - ch15_scene_lin_commends: 【名臣赐物】林则徐亲临滩头抚慰将士，识破少年赤诚，御赐“浩然销烟杖”作为浩然信物
- * - ch15_scene_righteous_seal: 【共鸣重返】浩然销烟杖爆发神圣浩然金光，破除时空界限，众人重返现代驳船
+ * - ch15_scene_lin_commends: 守池战后，林则徐与来自未来的少年相见
+ * - ch15b_scene_missing_jar: 清点时发现少了一只青花罐，开启第十七章的福寿堂线索
  */
 
 export const CHAPTER15_STORY = {
@@ -73,7 +73,7 @@ export const CHAPTER15_STORY = {
     title: '道光十八年 · 紫禁城养心殿',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_forbidden_city_palace@2x.png',
-    bgm: 'bgm_eerie_revelation',
+    bgm: 'bgm_gojira_battle',
     dialogues: [
       {
         id: 1,
@@ -127,7 +127,7 @@ export const CHAPTER15_STORY = {
     title: '道光十九年 · 广东虎门海防要塞',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_harbor_1839@2x.png',
-    bgm: 'bgm_army_approaching',
+    bgm: 'bgm_gojira_battle',
     dialogues: [
       {
         id: 1,
@@ -277,10 +277,10 @@ export const CHAPTER15_STORY = {
     }
   },
 
-  // s5: 【名臣赐物】林则徐亲临 · 浩然相赠
+  // s5: 林则徐与来自未来的少年相见
   ch15_scene_lin_commends: {
     id: 'ch15_scene_lin_commends',
-    title: '销烟池畔 · 钦差大臣巡阅',
+    title: '销烟池边 · 林则徐来了',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_victory',
@@ -291,7 +291,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '激战落幕，偷袭的武装快艇被尽数击沉或缴获，残敌仓皇逃窜。沙角海滩上三军雷动！一顶深蓝色官呢大轿在亲兵簇拥下肃然停在池畔，林则徐亲自迈步登台！',
+        text: '偷袭的人被打退了，官兵继续把鸦片倒进池里。林则徐带着几名亲兵来到池边，先去看了受伤的民团，随后走向刚才帮忙守池的孩子们。',
         sfx: 'sfx_confirm'
       },
       {
@@ -309,7 +309,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '（鞠躬）林总督，我们来自将近两百年后的中国。现在还有人贩毒，但也有很多警察和普通人一直在阻止他们。您今天做的事，后来一直有人接着做。',
+        text: '（鞠躬）林总督，我们来自将近两百年后的中国。小时候，我们在课本上读过虎门销烟。今天亲眼看见您和大家守住这口池，才知道当年有多难。我们那儿还有人贩毒，但也有警察、老师和普通人，一直在拦。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -319,71 +319,25 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（眼眶泛红）两百年后，还有人在禁烟、救人？好。今天做的事，没有白费。',
+        text: '（望向还在冒白烟的销烟池）两百年后，孩子们还记得这里？还有人肯站出来，不让毒害人？那就好。今天这池鸦片没白毁，我们这些人也没白拼。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
         id: 5,
-        speaker: '林则徐',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
-        activeSide: 'left',
-        text: '刚才教头守池时拿的这根木杖，是我削给民团用的。他把它交回来了。你们带走吧；回去以后，不论那罐里的东西多可怕，都记得今天大家是怎么一起把鸦片毁掉的。',
-        highlight: true,
-        sfx: 'sfx_shock_sting'
-      }
-    ],
-    transition: {
-      type: 'CHOICE',
-      prompt: '林则徐亲手将赤红如玉的销烟杖交到少年掌心！',
-      buttonText: '【手握正气 · 承接嘱托】',
-      targetScene: 'ch15_scene_righteous_seal'
-    }
-  },
-
-  // s6: 【共鸣重返】百年心印 · 时空回溯
-  ch15_scene_righteous_seal: {
-    id: 'ch15_scene_righteous_seal',
-    title: '落日熔金 · 百年心印',
-    bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
-    bgm: 'bgm_victory',
-    dialogues: [
-      {
-        id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '{MC_NAME}握住木杖，杖上渐渐浮出金色的“浩然正气”四个字。销烟池的白烟在光里散开；木杖上的金光，和先前碎罐里亮起的纹路很像。',
-        sfx: 'sfx_text_blip'
-      },
-      {
-        id: 2,
-        speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
-        activeSide: 'left',
-        text: '林总督，回去以后，我们会继续阻止福寿堂。那些人用您当年想销毁的鸦片害学生，这件事不能就这么算了。',
-        sfx: 'sfx_confirm'
-      },
-      {
-        id: 3,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '木杖突然发亮，众人脚下再次出现那道把他们卷来时的白光。海滩、销烟池和炮声渐渐远去；大家手拉着手，重新落回现代的驳船上。',
-        highlight: true,
+        text: '教头从池边跑来，手里拿着刚清点完的单子，神色不对。',
         sfx: 'sfx_suspense'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '时空金流平复，众人重新踏足于现代暴雨中破损的古运河驳船残骸之上！',
-      buttonText: '【重返现代 · 开启第十七章】',
-      targetScene: 'ch16_scene_return_ruins'
+      prompt: '清点时少了一只青花罐。刚才打起来时，有人把它运走了。',
+      buttonText: '【看看少了哪只罐 · 开启第十七章】',
+      targetScene: 'ch15b_scene_missing_jar'
     }
   }
 };

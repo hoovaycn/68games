@@ -1,5 +1,5 @@
 /**
- * 第18章 孤注一掷 战斗关卡：地下祭坛绝境突围战
+ * 第19章 去救覃瑞怡 战斗关卡：地下祭坛绝境突围战
  * 地图尺寸：16×12（Tiled 源工程见 docs/map/tiled_project/ch17_battle1.tmx）
  * 我方 8 人 / 敌方 7 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

@@ -1,5 +1,5 @@
 /**
- * 第15章 海魂回响 战斗关卡：驳船甲板狂风暴雨阻击战
+ * 第15章 罐子碎了 战斗关卡：驳船甲板狂风暴雨阻击战
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch14_battle1.tmx）
  * 我方 6 人 / 敌方 6 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

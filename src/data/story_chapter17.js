@@ -1,11 +1,11 @@
 /**
- * 第十八章《孤注一掷》剧情脚本数据表（第二幕 第8章）
+ * 第十九章《去救覃瑞怡》剧情脚本数据表（第二幕 第9章）
  *
  * 流程结构：
  * - ch17_scene_alter_breach: 破门突入洋行地下祭坛，覃瑞怡被铁链锁在石柱前，桌上摆着全班的送药名单
  * - ch17_scene_father_shield: 夺回信物与名单，沈崇礼暴怒掷出剧毒钢针，老爸海峰肉身挡针中伏坠江
  * - ch17_battle1: 祭坛绝境突围战（主角团 + 两位老师悲愤爆发 VS 暴走死士狂潮）
- * - ch17_scene_tearful_retreat: 杀出地窟，绝境中擦干眼泪，誓灭百年魔巢
+ * - ch17_scene_tearful_retreat: 杀到仓库内部楼梯间，继续追上钟楼，不再出仓重攻
  */
 
 export const CHAPTER17_STORY = {
@@ -39,7 +39,7 @@ export const CHAPTER17_STORY = {
         id: 3,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
-        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
         text: '（奋力将药碗撞翻在地，声嘶力竭地怒喊）做梦！！我死也不会把灵魂卖给你们这帮恶魔！！',
         highlight: true,
@@ -49,7 +49,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
         text: '住手！海叔叔去挡住保镖，我去拿池边的销烟杖，先把瑞怡救下来！',
         highlight: true,
@@ -85,7 +85,7 @@ export const CHAPTER17_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '小心——！！！',
@@ -95,7 +95,7 @@ export const CHAPTER17_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         rightPortrait: null,
         activeSide: 'left',
         text: '海峰冲到孩子们身前，用身体挡下三根毒针。针扎进他脖子和胸前的衣服，毒性很快发作，他站都站不稳了。',
@@ -106,7 +106,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         activeSide: 'left',
         text: '（瞳孔骤缩，整个人撕心裂肺地哭喊）爸——！！！爸你醒醒啊！！！不要！！不要扔下我！！',
         highlight: true,
@@ -115,7 +115,7 @@ export const CHAPTER17_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（从腰间摸出警用破拆索，拴向身后的承重柱）带着孩子们走……地下出口快塌了，我给你们挡住后面的人。记住，老爸是警察。',
@@ -140,13 +140,13 @@ export const CHAPTER17_STORY = {
     }
   },
 
-  // s3: 杀出重围 · 誓灭妖魔
+  // s3: 杀出地下室 · 沿楼梯追击
   ch17_scene_tearful_retreat: {
     id: 'ch17_scene_tearful_retreat',
-    title: '货栈雨夜出口 · 废墟中的誓言',
-    bgType: 'street',
+    title: '仓库内部楼梯间 · 追上顶楼',
+    bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
-    bgm: 'bgm_childhood',
+    bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
@@ -154,7 +154,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大家沿另一侧的维修楼梯逃到地面，徐老师和刘老师挡住追兵，终于把覃瑞怡带出地下室。海峰被暗河冲走，谁也不知道他是否还活着。',
+        text: '地下室的守卫被打退。大家带着覃瑞怡爬上另一侧的维修楼梯，到了仓库里。两位老师留下挡追兵；沈家父子已经坐货梯上了顶楼。海峰被暗河冲走，生死未卜。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -163,7 +163,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（扑倒在泥泞中，双手捂着脸痛哭流涕）都是我的错……是我害了海叔叔……如果我没有擅自跑出来……',
+        text: '（扶着楼梯扶手，眼泪止不住）都是我的错……是我害了海叔叔……如果我没有擅自跑出来……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -172,9 +172,8 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（握紧刚捡起的警徽）瑞怡，先站起来。我爸拼命让我们逃出来，不是要我们再回去送死。先找到沈家，把他和其他人都救回来。',
+        text: '（握紧警徽）瑞怡，先站起来。我爸替我们挡了针，才把你救出来。徐老师已经通知水警沿暗河找他；我们去拦沈家，不能让他们把药运走。',
         highlight: true,
-        bgm: 'bgm_army_approaching',
         sfx: 'sfx_confirm'
       },
       {
@@ -183,15 +182,15 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '海叔叔被水冲走了，也许还有救。沈家父子就在这栋仓库顶层；我们先和警方保持联系，再从地面绕上去堵住他们，不能让他们带着毒药跑了。',
+        text: '楼梯上写着“钟楼”！老师挡住后面的人，我们带着杖和名单上去，别让沈家父子跑了！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人重整阵型，覃瑞怡擦干眼泪重新归队，手指指向货栈顶层的探照灯！',
-      buttonText: '【重整旗鼓 · 开启第十九章】',
-      targetScene: 'ch18_scene_warehouse_breach'
+      prompt: '覃瑞怡擦掉眼泪，跟上大家。两位老师守住楼梯口，六个孩子往钟楼跑。',
+      buttonText: '【上钟楼追沈家父子】',
+      targetScene: 'ch18_scene_tower_arrival'
     }
   }
 };

@@ -5,8 +5,9 @@ import { sound } from '../../engine/sound.js';
  *
  * 视觉语言与 VictoryModal 统一（浅黄羊皮纸 #FFFDF9 + 黑金 #292524/#FACC15）。
  * 两种模式复用同一面板：
- *  - mode='load'（标题页「存档管理」）：槽位 [auto,1,2,3]，点选即读档
- *  - mode='save'（剧情内 Esc 呼出）：槽位 [1,2,3]，点选即把当前进度写入
+ *  - mode='load'：槽位 [auto,1,2,3]，点选即读档
+ *  - mode='save'：槽位 [1,2,3]，点选即把当前进度写入
+ *  - allowModeSwitch（剧情内）：按钮/Tab 切换读档和存档
  *
  * 交互：↑↓/鼠标 focus 移动，Enter/点击行执行主操作，
  *       D 删档（confirm 二次确认）、E 导出 .json、I 导入粘贴 JSON、Esc 关闭。
@@ -24,6 +25,7 @@ export class SaveMenuModal {
     this.ctx = canvas.getContext('2d');
     this.config = config || {};
     this.mode = this.config.mode === 'save' ? 'save' : 'load';
+    this.allowModeSwitch = !!this.config.allowModeSwitch;
     this.saveManager = this.config.saveManager;
     this.getState = this.config.getState || null;
     this.onLoaded = this.config.onLoaded || null;
@@ -71,6 +73,17 @@ export class SaveMenuModal {
     sound.playSfx('sfx_cursor');
   }
 
+  switchMode() {
+    if (!this.allowModeSwitch) return;
+    const focusedSlot = this.slotInfos[this.focusIndex]?.slot;
+    this.mode = this.mode === 'save' ? 'load' : 'save';
+    this.slotList = this.mode === 'save' ? [1, 2, 3] : ['auto', 1, 2, 3];
+    this.refreshSlots();
+    this.focusIndex = Math.max(0, this.slotList.indexOf(focusedSlot));
+    this.statusText = '';
+    sound.playSfx('sfx_cursor');
+  }
+
   /** 行主操作：load= 读档并回调；save= 把当前进度写进该槽 */
   activateRow(index) {
     const info = this.slotInfos[index];
@@ -86,6 +99,8 @@ export class SaveMenuModal {
         this.setStatus('读取失败：存档数据损坏');
         return;
       }
+      if (this.allowModeSwitch && typeof window !== 'undefined' && window.confirm
+          && !window.confirm('读取此存档？当前未保存的游戏进度将丢失。')) return;
       sound.playSfx('sfx_confirm');
       const cb = this.onLoaded;
       this.onLoaded = null;
@@ -205,6 +220,7 @@ export class SaveMenuModal {
     // 底部按钮优先
     const hitBtn = (r) => r && mouseX >= r.x && mouseX <= r.x + r.w
       && mouseY >= r.y && mouseY <= r.y + r.h;
+    if (hitBtn(this.buttonRects.switchMode)) { this.switchMode(); return true; }
     if (hitBtn(this.buttonRects.import)) { this.importToRow(this.focusIndex); return true; }
     if (hitBtn(this.buttonRects.close)) { this.close(); return true; }
 
@@ -223,6 +239,11 @@ export class SaveMenuModal {
 
   handleKeyDown(e) {
     switch (e.key) {
+      case 'Tab':
+        if (!this.allowModeSwitch) return false;
+        e.preventDefault();
+        this.switchMode();
+        return true;
       case 'ArrowUp':
       case 'w':
       case 'W':
@@ -393,18 +414,26 @@ export class SaveMenuModal {
     // 状态文案 3 秒内高亮显示，之后回落到按键说明
     if (this.statusText && Date.now() - this.statusStart < 3000) {
       ctx.fillStyle = '#7c2d12';
-      ctx.fillText(this.statusText, x + 24, footY);
+      ctx.fillText(this.statusText, x + (this.allowModeSwitch ? 146 : 24), footY, this.allowModeSwitch ? 265 : 390);
     } else {
-      ctx.fillText('↑↓选择 · Enter确认 · Esc关闭 · D删除 · E导出 · I导入', x + 24, footY);
+      ctx.fillText(
+        this.allowModeSwitch ? 'Tab切换 · Enter操作 · Esc关闭 · D删除 · E导出 · I导入'
+          : '↑↓选择 · Enter确认 · Esc关闭 · D删除 · E导出 · I导入',
+        x + (this.allowModeSwitch ? 146 : 24), footY, this.allowModeSwitch ? 265 : 390
+      );
     }
 
-    // 按钮：[导入存档]（load 模式给）+ [关闭]
+    // 按钮：剧情内模式切换 + [导入存档]（load 模式给）+ [关闭]
     this.buttonRects = {};
     const btnW = 108;
     const btnH = 36;
     let btnX = x + boxW - 24 - btnW;
     const btnY = y + boxH - 74;
 
+    if (this.allowModeSwitch) {
+      this.drawToolbarButton(ctx, this.mode === 'save' ? '读取存档' : '返回保存', x + 24, btnY, btnW, btnH);
+      this.buttonRects.switchMode = { x: x + 24, y: btnY, w: btnW, h: btnH };
+    }
     if (this.mode === 'load') {
       this.drawToolbarButton(ctx, '导入存档', btnX, btnY, btnW, btnH);
       this.buttonRects.import = { x: btnX, y: btnY, w: btnW, h: btnH };

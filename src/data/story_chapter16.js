@@ -1,5 +1,5 @@
 /**
- * 第十七章《破碎的奖状》剧情脚本数据表（第二幕 第7章）
+ * 第十八章《班长去哪了》剧情脚本数据表（第二幕 第8章）
  *
  * 流程结构：
  * - ch16_scene_return_ruins: 众人携浩然销烟杖重返现代驳船残骸，暂时返回安全屋清点装备
@@ -29,6 +29,26 @@ export const CHAPTER16_STORY = {
       },
       {
         id: 2,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '等等，我们要是没穿越回虎门，沈掌柜就不会知道“福寿堂两百年后还在”。他原本还免费给穷人发药，会不会是我们告诉了他未来，他才决定跟洋商走？',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 3,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '那福寿堂后来变坏，会不会跟我们穿越回去有关？可洋商早就找上他了。就算我们没说，他真会一直好好开药铺吗？',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -37,7 +57,7 @@ export const CHAPTER16_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 3,
+        id: 5,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -47,7 +67,7 @@ export const CHAPTER16_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 4,
+        id: 6,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
@@ -223,7 +243,7 @@ export const CHAPTER16_STORY = {
     transition: {
       type: 'CHOICE',
       prompt: '海峰从头目身上搜出仓库通行卡，撬开水闸下方通往旧洋行仓库的检修门，带众人沿通道冲向地下室。',
-      buttonText: '【突入魔窟 · 开启第十八章】',
+      buttonText: '【突入魔窟 · 开启第十九章】',
       targetScene: 'ch17_scene_alter_breach'
     }
   }

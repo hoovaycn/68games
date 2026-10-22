@@ -46,6 +46,7 @@ import { CHAPTER12_STORY } from './data/story_chapter12.js';
 import { CHAPTER13_STORY } from './data/story_chapter13.js';
 import { CHAPTER14_STORY } from './data/story_chapter14.js';
 import { CHAPTER15_STORY } from './data/story_chapter15.js';
+import { HUMEN_ORIGIN_STORY } from './data/story_humen_origin.js';
 import { CHAPTER16_STORY } from './data/story_chapter16.js';
 import { CHAPTER17_STORY } from './data/story_chapter17.js';
 import { CHAPTER18_STORY } from './data/story_chapter18.js';
@@ -68,6 +69,7 @@ import { CH12_BATTLE1 } from './data/chapters/ch12_battle1.js';
 import { CH13_BATTLE1 } from './data/chapters/ch13_battle1.js';
 import { CH14_BATTLE1 } from './data/chapters/ch14_battle1.js';
 import { CH15_BATTLE1 } from './data/chapters/ch15_battle1.js';
+import { CH15B_BATTLE1 } from './data/chapters/ch15b_battle1.js';
 import { CH16_BATTLE1 } from './data/chapters/ch16_battle1.js';
 import { CH17_BATTLE1 } from './data/chapters/ch17_battle1.js';
 import { CH18_BATTLE1 } from './data/chapters/ch18_battle1.js';
@@ -94,6 +96,7 @@ const LINEAR_STORY = {
   ...CHAPTER13_STORY,
   ...CHAPTER14_STORY,
   ...CHAPTER15_STORY,
+  ...HUMEN_ORIGIN_STORY,
   ...CHAPTER16_STORY,
   ...CHAPTER17_STORY,
   ...CHAPTER18_STORY,
@@ -111,16 +114,16 @@ const CHAPTER_BANNERS = {
   ch7_scene_flashback: { label: '第八章', title: '从前那一班-上' },
   ch8_scene_warehouse: { label: '第九章', title: '从前那一班-下' },
   ch9_scene_exam: { label: '第十章', title: '大考' },
-  ch10_scene_museum_meet: { label: '第十一章', title: '博物馆惊魂' },
+  ch10_scene_museum_meet: { label: '第十一章', title: '博物馆里的罐子' },
   ch11_scene_slum_street: { label: '第十二章', title: '烂人老爸' },
-  ch12_scene_night_ambush: { label: '第十三章', title: '夜袭汽修厂' },
-  ch13_scene_safahouse: { label: '第十四章', title: '避难所疑云' },
-  ch14_scene_dock_ritual: { label: '第十五章', title: '海魂回响' },
-  ch15_scene_time_passage: { label: '第十六章', title: '浩然正气' },
-  ch16_scene_return_ruins: { label: '第十七章', title: '破碎的奖状' },
-  ch17_scene_alter_breach: { label: '第十八章', title: '孤注一掷' },
-  ch18_scene_warehouse_breach: { label: '第十九章', title: '逆行攻坚' },
-  ch19_scene_final_stand: { label: '第二十章', title: '破晓钟声' }
+  ch12_scene_night_ambush: { label: '第十三章', title: '汽修厂的后仓' },
+  ch13_scene_safahouse: { label: '第十四章', title: '照片上的人' },
+  ch14_scene_dock_ritual: { label: '第十五章', title: '罐子碎了' },
+  ch15_scene_time_passage: { label: '第十六章', title: '我们穿越了' },
+  ch15b_scene_missing_jar: { label: '第十七章', title: '福寿堂留下的罐子' },
+  ch16_scene_return_ruins: { label: '第十八章', title: '班长去哪了' },
+  ch17_scene_alter_breach: { label: '第十九章', title: '去救覃瑞怡' },
+  ch19_scene_final_stand: { label: '第二十章', title: '钟楼里的最后一战' }
 };
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
@@ -143,6 +146,7 @@ const CHAPTERS = {
   ch13_battle1: CH13_BATTLE1,
   ch14_battle1: CH14_BATTLE1,
   ch15_battle1: CH15_BATTLE1,
+  ch15b_battle1: CH15B_BATTLE1,
   ch16_battle1: CH16_BATTLE1,
   ch17_battle1: CH17_BATTLE1,
   ch18_battle1: CH18_BATTLE1,
@@ -167,13 +171,13 @@ const CHAPTER_ENTRY_SCENES = [
   'ch13_scene_safahouse',  // 第 14 章
   'ch14_scene_dock_ritual',// 第 15 章
   'ch15_scene_time_passage', // 第 16 章
-  'ch16_scene_return_ruins', // 第 17 章
-  'ch17_scene_alter_breach', // 第 18 章
-  'ch18_scene_warehouse_breach', // 第 19 章
+  'ch15b_scene_missing_jar', // 第 17 章
+  'ch16_scene_return_ruins', // 第 18 章
+  'ch17_scene_alter_breach', // 第 19 章
   'ch19_scene_final_stand' // 第 20 章
 ];
 
-class GameApp {
+export class GameApp {
   constructor() {
     this.canvas = document.getElementById('game-canvas');
     this.topBar = document.getElementById('top-bar');
@@ -311,12 +315,13 @@ class GameApp {
   /**
    * 打开存档界面模态：
    *  mode 'load' —— 标题页「存档管理」：槽位 [auto,1,2,3]，读档即恢复现场
-   *  mode 'save' —— 剧情场景 Esc 呼出：槽位 [1,2,3]，把当前进度写入手动槽
+   *  mode 'save' —— 剧情场景 Esc 呼出：可切换存档/读档
    * 打开期间独占全部输入（bindEvents 三链最前端拦截），关闭后回原场景。
    */
   openSaveMenu(mode) {
     this.saveMenuModal = new SaveMenuModal(this.canvas, {
       mode,
+      allowModeSwitch: this.stage === 'STAGE_STORY',
       saveManager: this.saveManager,
       getState: () => this.gameState,
       describeAnchor: (meta) => this.describeSaveAnchor(meta),
@@ -348,9 +353,13 @@ class GameApp {
       const banner = CHAPTER_BANNERS.scene_classroom;
       return `${banner.label} · ${banner.title}`;
     }
-    const match = /^ch(\d+)_/.exec(anchorId);
+    const match = /^ch(\d+)(?:b)?_/.exec(anchorId);
     if (!match) return '未知章节';
-    const chapterIndex = Number(match[1]);
+    const sourceChapter = Number(match[1]);
+    // 虎门新增一章，原 ch16/ch17 顺延；ch18 只保留给旧存档和钟楼入口。
+    const chapterIndex = anchorId.startsWith('ch15b_') || anchorId === 'ch15_scene_righteous_seal'
+      ? 16
+      : (({ 16: 17, 17: 18, 18: 18 })[sourceChapter] ?? sourceChapter);
     const entryScene = CHAPTER_ENTRY_SCENES[chapterIndex];
     const banner = CHAPTER_BANNERS[entryScene];
     return banner ? `${banner.label} · ${banner.title}` : '未知章节';
@@ -542,6 +551,12 @@ class GameApp {
 
   handleSceneTransition(transition) {
     if (!transition) return;
+
+    if (transition.targetScene === 'title_screen') {
+      this.enterTitleScreen();
+      this.titleScreen.enterTitle();
+      return;
+    }
 
     // 剧情入队事件拦截：先加入队伍名册，再逐个弹出仪式感入队组件，确认后再推进下一步
     if (transition.type === 'JOIN_PARTY') {
@@ -1295,7 +1310,7 @@ class GameApp {
 
       if (this.stage === 'STAGE_STORY') {
         if (e.key === 'Escape') {
-          // T5/D5：剧情场景呼出存档界面（手动存档 / 读档 / 删除 / 导出导入一体）
+          // 剧情场景呼出存读档界面，面板内可切换操作。
           sound.playSfx('sfx_menu_open');
           this.openSaveMenu('save');
           return;
@@ -2534,6 +2549,8 @@ class GameApp {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  new GameApp();
-});
+if (typeof window !== 'undefined') {
+  window.addEventListener('DOMContentLoaded', () => {
+    new GameApp();
+  });
+}

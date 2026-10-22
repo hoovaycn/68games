@@ -1,5 +1,5 @@
 /**
- * 第11章 博物馆惊魂 战斗关卡：博物馆展厅遭遇战 · 守护国宝
+ * 第11章 博物馆里的罐子 战斗关卡：博物馆展厅遭遇战 · 守护国宝
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch10_battle1.tmx）
  * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

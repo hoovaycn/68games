@@ -1,5 +1,5 @@
 /**
- * 第17章 破碎的奖状 战斗关卡：水闸废料场截击战
+ * 第18章 班长去哪了 战斗关卡：水闸废料场截击战
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch16_battle1.tmx）
  * 我方 5 人 / 敌方 5 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

@@ -1,11 +1,11 @@
 /**
- * 第十九章《逆行攻坚》剧情脚本数据表（第二幕 第9章）
+ * 旧版仓库二次突入剧情，仅供旧存档续玩；新主线从地下室直达钟楼。
  *
  * 流程结构：
  * - ch18_scene_warehouse_breach: 洋行仓库外围，覃瑞怡提供被囚期间记下的防御布控图与弱点，全员制定强攻计划
  * - ch18_scene_teacher_stand: 冲破货栈正门，重装机械药人与大批死士合围。徐老师与刘老师毅然决然留在大厅断后
  * - ch18_battle1: 货栈中庭防线强袭战（主角团 VS 沈氏中枢生化狂战士与重装卫队）
- * - ch18_scene_tower_arrival: 浴血杀穿中庭，少年们登上货栈顶层钟楼大厅，直面沈氏父子与正在启动的巨灵生化枢纽
+ * - ch18_scene_tower_arrival: 新主线共用的钟楼入口，见到沈万廷与最后一批原料
  */
 
 export const CHAPTER18_STORY = {
@@ -137,10 +137,10 @@ export const CHAPTER18_STORY = {
     }
   },
 
-  // s3: 登顶天台 · 魔巢尽头
+  // 钟楼入口：新主线从 ch17_scene_tearful_retreat 直接抵达
   ch18_scene_tower_arrival: {
     id: 'ch18_scene_tower_arrival',
-    title: '货栈顶层钟楼大厅 · 暴风雨之巅',
+    title: '货栈顶层钟楼大厅 · 最后的药罐',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
     bgm: 'bgm_eerie_revelation',
@@ -151,34 +151,52 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '楼梯口的守卫被打退，沈崇礼也倒了下去。可一名手下趁乱把他拖进旁边的专用电梯，抢先上了顶楼。孩子们沿楼梯追上去，推开钟楼门：一台机器正把毒雾送进中央的黑色装置。',
+        text: '孩子们沿楼梯追到仓库顶楼，推开钟楼门。沈万廷坐在轮椅上，身边只剩几罐药；沈崇礼坐货梯先到了，正站在控制台前。两位老师还在楼下挡住追兵。',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        speaker: '沈万廷',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（站在控制台前）你们一路追上来又怎样？父亲已经进入那台机器，罐里的原料也都在里面。只要它启动，新的药就能送到全城的学校！',
+        text: '（抬起头，敲了敲身旁的药罐）刘秉德的学生也来了？学校那张送药单被你们抢走了，可货还在我手里。二十年前阿瑶挡了我的路，这回连你们也想拦？',
         highlight: true,
-        bgm: 'bgm_intense_boss',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
+        speaker: '沈崇礼',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        activeSide: 'left',
+        text: '爸，楼下的人挡不住了。运货车也没法走！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '沈万廷',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        activeSide: 'left',
+        text: '那就把钟楼这套装置打开。先放毒雾拦住追来的人，守住药罐；只要货还在，福寿堂就没输。',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 5,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/shen_chongli_default@2x.png',
+        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
-        text: '（握紧抢回的销烟杖）那就趁它还没启动，把机器和你们一起拦下来！',
+        text: '（握紧销烟杖）名单和货，我们一样都不会留给你们。沈万廷，二十年前的事，今天也该有个交代了！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '青黑巨心轰鸣咆哮，狂暴的毒雾化作滔天风暴！',
-      buttonText: '【拔出销烟杖 · 开启终极决战】',
+      prompt: '沈万廷把轮椅上的管子接向控制台，沈崇礼的手已经按在启动杆上！',
+      buttonText: '【冲向控制台 · 阻止沈家父子】',
       targetScene: 'ch19_scene_final_stand'
     }
   }

@@ -29,16 +29,16 @@ export class LevelSelectModal {
       { num: 9, act: 1, label: '第9章', title: '从前那一班 · 下', sceneKey: 'ch8_scene_warehouse' },
       { num: 10, act: 1, label: '第10章', title: '大考', sceneKey: 'ch9_scene_exam' },
       // 第二幕
-      { num: 11, act: 2, label: '第11章', title: '博物馆惊魂', sceneKey: 'ch10_scene_museum_meet' },
+      { num: 11, act: 2, label: '第11章', title: '博物馆里的罐子', sceneKey: 'ch10_scene_museum_meet' },
       { num: 12, act: 2, label: '第12章', title: '烂人老爸', sceneKey: 'ch11_scene_slum_street' },
-      { num: 13, act: 2, label: '第13章', title: '夜袭汽修厂', sceneKey: 'ch12_scene_night_ambush' },
-      { num: 14, act: 2, label: '第14章', title: '避难所疑云', sceneKey: 'ch13_scene_safahouse' },
-      { num: 15, act: 2, label: '第15章', title: '海魂回响', sceneKey: 'ch14_scene_dock_ritual' },
-      { num: 16, act: 2, label: '第16章', title: '浩然正气', sceneKey: 'ch15_scene_time_passage' },
-      { num: 17, act: 2, label: '第17章', title: '破碎的奖状', sceneKey: 'ch16_scene_return_ruins' },
-      { num: 18, act: 2, label: '第18章', title: '孤注一掷', sceneKey: 'ch17_scene_alter_breach' },
-      { num: 19, act: 2, label: '第19章', title: '逆行攻坚', sceneKey: 'ch18_scene_warehouse_breach' },
-      { num: 20, act: 2, label: '第20章', title: '破晓钟声', sceneKey: 'ch19_scene_final_stand' }
+      { num: 13, act: 2, label: '第13章', title: '汽修厂的后仓', sceneKey: 'ch12_scene_night_ambush' },
+      { num: 14, act: 2, label: '第14章', title: '照片上的人', sceneKey: 'ch13_scene_safahouse' },
+      { num: 15, act: 2, label: '第15章', title: '罐子碎了', sceneKey: 'ch14_scene_dock_ritual' },
+      { num: 16, act: 2, label: '第16章', title: '我们穿越了', sceneKey: 'ch15_scene_time_passage' },
+      { num: 17, act: 2, label: '第17章', title: '福寿堂留下的罐子', sceneKey: 'ch15b_scene_missing_jar' },
+      { num: 18, act: 2, label: '第18章', title: '班长去哪了', sceneKey: 'ch16_scene_return_ruins' },
+      { num: 19, act: 2, label: '第19章', title: '去救覃瑞怡', sceneKey: 'ch17_scene_alter_breach' },
+      { num: 20, act: 2, label: '第20章', title: '钟楼里的最后一战', sceneKey: 'ch19_scene_final_stand' }
     ];
 
     this.focusIndex = 0;

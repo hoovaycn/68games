@@ -1,5 +1,5 @@
 /**
- * 第十三章《暗夜合围》剧情脚本数据表（第二幕 第3章）
+ * 第十三章《汽修厂的后仓》剧情脚本数据表（第二幕 第3章）
  *
  * 流程结构：
  * - ch12_scene_night_ambush: 雨夜重返汽修厂后仓，少年团试图寻找走私藏毒铁证
@@ -123,7 +123,7 @@ export const CHAPTER12_STORY = {
     title: '仓库废墟 · 咆哮而来的神兵天降',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_garage_backyard_rain@2x.png',
-    bgm: 'bgm_army_approaching',
+    bgm: 'bgm_battle_normal',
     dialogues: [
       {
         id: 1,
@@ -217,7 +217,6 @@ export const CHAPTER12_STORY = {
         activeSide: 'left',
         text: '{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！',
         highlight: true,
-        bgm: 'bgm_eerie_revelation',
         sfx: 'sfx_shock_sting'
       },
       {

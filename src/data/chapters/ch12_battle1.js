@@ -1,5 +1,5 @@
 /**
- * 第13章 夜袭汽修厂 战斗关卡：仓库后仓突围保卫战
+ * 第13章 汽修厂的后仓 战斗关卡：仓库后仓突围保卫战
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch12_battle1.tmx）
  * 我方 7 人 / 敌方 5 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

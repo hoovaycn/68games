@@ -618,10 +618,10 @@ export const ENEMIES = {
     classId: 'teacher',
     level: 11,
     equippedWeapon: 'teaching_pointer',
-    portrait: 'assets/portraits/shen_chongli_default@2x.png',
+    portrait: 'assets/portraits/mystery_man_corrupted@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#991b1b',
-    bio: '沈万霆之子，表面斯文儒雅的名流精英，骨子里狂妄冷酷。手执合金文明杖，视底层与学生为任其收割的数字。',
+    bio: '沈万廷之子，表面斯文儒雅的名流精英，骨子里狂妄冷酷。手执合金文明杖，视底层与学生为任其收割的数字。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 7
@@ -637,10 +637,10 @@ export const ENEMIES = {
     }
   },
 
-  // 6. 沈万霆（幕后黑手沈会长 · 百年家主）
+  // 6. 沈万廷（幕后黑手沈会长 · 百年家主）
   shen_wanting: {
     id: 'shen_wanting',
-    name: '沈万霆',
+    name: '沈万廷',
     title: '福寿堂幕后当代家主',
     classId: 'teacher',
     level: 12,
@@ -675,7 +675,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/boss_colossus_opium_god@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#581c87',
-    bio: '盘踞在货栈钟楼顶端百年的烟毒怨念聚合体，黑烟缭绕遮天蔽日。它是百年来所有鸦片罪恶与贪欲的实体显化，不可一世！',
+    bio: '沈万廷借轮椅管线操纵的钟楼铁架巨魔，胸口映着他的脸，靠沈崇礼从控制台输送的毒雾活动。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 9

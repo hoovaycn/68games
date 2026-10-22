@@ -1,5 +1,5 @@
 /**
- * 第19章 逆行攻坚 战斗关卡：货栈中庭旋转楼梯强袭战
+ * 旧版货栈中庭强袭战，仅保留给已进入此战的旧存档；新主线不触发。
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch18_battle1.tmx）
  * 我方 6 人 / 敌方 6 人，出生点见 Spawns。
  * 说明：底砖为占位房间框架，瓦片与碰撞细节请在 Tiled 中绘制后用 tools/sync_tmx_levels.cjs 回写。

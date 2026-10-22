@@ -1,12 +1,12 @@
 /**
- * 第二十章《破晓钟声》剧情脚本数据表（第二幕 第10章 · 第二幕大决战与终章）
+ * 第二十章《钟楼里的最后一战》剧情脚本数据表（第二幕 第10章 · 第二幕大决战与终章）
  *
  * 流程结构：
- * - ch19_scene_final_stand: 顶层钟楼巅峰对决前夕，沈崇礼与机械巨灵沈万廷狂暴合体
- * - ch19_battle1: 第二幕终极决战（少年团齐心血战 VS 福寿堂百年巨灵魔尊沈氏父子）
- * - ch19_scene_boss_destroyed: 战后纯剧情①：浩然销烟杖刺破巨灵魔核，百年鸦片原浆彻底汽化净化，沈氏父子彻底伏法
- * - ch19_scene_miracle_reunion: 战后纯剧情②：警笛轰鸣特警全线控制现场，浑身缠满绷带的老爸海峰奇迹生还归来，父子/父女深情相拥
- * - ch19_scene_dawn_epilogue: 战后纯剧情③（大结局）：破晓钟声长鸣，阴霾尽散。加密卫星电话闪烁来自公海的密电，抛出第三幕全新宏大悬念
+ * - ch19_scene_final_stand: 沈万廷接通轮椅与钟楼装置，阴云遮住日光，巨魔现身
+ * - ch19_battle1: 第二幕终极决战（少年团 VS 巨魔与沈氏父子）
+ * - ch19_scene_boss_destroyed: 销烟杖击碎毒雾核心，沈氏父子失去反抗能力
+ * - ch19_scene_miracle_reunion: 省厅增援控制现场，海峰获救归来
+ * - ch19_scene_dawn_epilogue: 众人来到运河岸边迎接破晓，公海密电留下第三幕悬念
  */
 
 export const CHAPTER19_STORY = {
@@ -16,51 +16,98 @@ export const CHAPTER19_STORY = {
     title: '货栈顶层钟楼大厅 · 魔尊降世',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_intense_boss',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
-        speaker: '系统提示',
-        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
-        rightPortrait: null,
+        speaker: '沈万廷',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '控制台启动了。毒雾灌进中央的机器，外面的金属架一节节撑开，变成一具四米高的钢铁怪物。沈万廷就在机器胸口的驾驶舱里，沈崇礼站在控制台旁操纵它。',
+        text: '（把轮椅的输液管插进控制台）我这把老骨头撑到今天，就是要看福寿堂把这批药送出去。崇礼，开闸！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '沈崇礼',
-        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
-        text: '你们拦得住守卫，拦得住这台机器吗？等毒雾从钟楼散出去，城里的学校都会收到我们的新药！',
+        text: '沈崇礼扳下启动杆。药罐里的黑气顺着管子涌出，窗外的阳光被翻涌的乌云遮住，钟楼一下暗了下来。沈万廷的轮椅还在控制台旁，管子却已经接进中央的铁架。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '昏暗中，齿轮和铁架一节节撑开，先是两条长满倒刺的手臂，接着是一颗冒绿光的胸口。它弯下腰，整座钟楼的地板都跟着一震。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '一头四米高的巨魔挡住出口！铁拳上长满毒刺，胸口的绿光里映出沈万廷的脸；他在轮椅上抬手，巨魔也跟着挥拳，沈崇礼则在控制台上不断往里送黑气。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        highlight: true,
+        bgm: 'bgm_retro_level3',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '沈万廷',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '我动不了，它替我动。谁敢碰那些药罐，就先从它拳头底下活着出去！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '沈崇礼',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '楼下的老师和警察马上就要上来？先让他们吸够毒雾！等我带着药罐从后门走，学校里自然有人接货。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '（握紧警徽）我爸生死未卜，我们更不能让他的努力白费。先毁机器，救城里的人！',
+        text: '（握紧警徽）我爸拼命护我们出来，不是为了让他们再拿这药害人。不能让药罐离开钟楼！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 4,
+        id: 8,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '六个人互相掩护！先避开它的手臂，打掉控制台，再用销烟杖去碰机器胸口的核心！',
+        text: '先避开巨魔的拳头！分头挡住沈家父子，打断控制台的供气管，再用销烟杖砸它胸口的核心！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '钢铁巨灵挥舞着带有剧毒倒刺的百吨重拳狂暴砸下！终极决战打响！',
-      buttonText: '【决战开始 · 终结百年罪恶】',
+      prompt: '沈万廷操纵巨魔封住出口，沈崇礼守着控制台和药罐。六个孩子迎上沈氏父子！',
+      buttonText: '【迎战巨魔 · 截住最后一批毒药】',
       battleId: 'ch19_battle1',
       isBattleTrigger: true
     }
@@ -72,7 +119,7 @@ export const CHAPTER19_STORY = {
     title: '残破的钟楼露台 · 圣光普照',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_victory',
+    bgm: 'bgm_retro_level3',
     dialogues: [
       {
         id: 1,
@@ -80,35 +127,46 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '控制台被砸坏，怪物的手臂慢了下来。{MC_NAME}趁机爬上倒下的金属架，用销烟杖击中胸口的核心。杖上的金光一下子照亮了整个钟楼！',
+        text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，用销烟杖击中它胸口的核心。杖上那道金光照亮了整座钟楼！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: null,
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '机器停止运转，黑烟被金光压了回去。金属外壳散架，驾驶舱里的沈万廷再也没有动静；沈崇礼从控制台旁跌坐到地上，已经没有人替他挡路。',
+        text: '核心碎了，黑气散去，窗外的乌云也裂开一道口子，阳光重新照进钟楼。巨魔塌成满地废铁。沈万廷的轮椅停了，他瘫在座位上，已经指挥不动它；沈崇礼想抱起药罐逃走，被众人堵在门口。',
+        bgm: 'bgm_victory',
         sfx: 'sfx_confirm'
       },
       {
         id: 3,
-        speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        speaker: '沈万廷',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（颤抖着看着自己的双手，喃喃自语）输了……福寿堂两百年的基业……竟然输在了一帮中学生手里……',
+        text: '（望着碎掉的核心）那罐里的东西……两百年了，怎么偏偏毁在你们手上……',
         sfx: 'sfx_text_blip'
       },
       {
         id: 4,
+        speaker: '沈崇礼',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（松开药罐，跌坐在地）爸，送药单没了，货也保不住了。福寿堂……真到头了。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '我们赢了……我们真的打赢了不可战胜的魔王！！',
+        text: '毒雾没了！老师他们可以上来了！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -135,14 +193,14 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '省厅增援终于赶到，带走了沈崇礼。徐老师和刘老师互相扶着走进来，身后几名医护人员还推着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
+        text: '省厅增援赶到，带走了沈家父子，封存了最后的药罐。徐老师和刘老师互相扶着走进来，身后几名医护人员还推着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '（躺在担架上，勉强扯出一点笑）哭什么，我还在呢。让医生先把我抬稳，你再扑过来。',
@@ -153,7 +211,7 @@ export const CHAPTER19_STORY = {
         id: 3,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         activeSide: 'left',
         text: '（趴到担架边，握住海峰的手）爸！你真的还活着……我以为再也见不到你了！',
         highlight: true,
@@ -180,19 +238,19 @@ export const CHAPTER19_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '东方地平线上，第一缕金色的朝阳穿透重重阴霾，破晓降临！',
-      buttonText: '【迎接破晓 · 第二幕大结局】',
+      prompt: '医护人员把海峰抬下钟楼。天快亮了，众人跟着来到楼外的运河岸边。',
+      buttonText: '【走出钟楼 · 迎接破晓】',
       targetScene: 'ch19_scene_dawn_epilogue'
     }
   },
 
-  // s4: 破晓钟声 · 未完的公海暗流（第二幕尾声与第三幕悬念）
+  // s4: 运河岸边 · 公海密电（第二幕尾声与第三幕悬念）
   ch19_scene_dawn_epilogue: {
     id: 'ch19_scene_dawn_epilogue',
-    title: '钟楼最高处 · 破晓时分的钟声',
-    bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
-    bgm: 'bgm_victory',
+    title: '古运河岸边 · 破晓时分',
+    bgType: 'street',
+    bgImg: 'assets/backgrounds/bg_canal_dawn@2x.png',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -200,7 +258,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阳光洒满大地，古运河与整座繁华的都市重新沐浴在安宁祥和的晨曦中。钟楼顶部的百年大钟在微风中敲响——当、当、当……清亮激越的钟声回荡在江水之上，洗掉了百年来的风霜。',
+        text: '大家走出仓库，来到运河岸边。天边慢慢亮了，晨光落在水面上。身后的钟楼敲响了第一声钟，刚才那团黑雾已经散了。',
         sfx: 'sfx_confirm'
       },
       {
@@ -209,7 +267,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '暑假的阳光真暖和啊。警方已经通知了全班家长，沈崇礼那张抓人的名单也被我们拿回来了。大家都平安，总算能踏实迎接新学期了！',
+        text: '徐老师抢回的送药单和那批药都交给警方了，家长们也接到了平安电话。海叔叔有医生照顾，我们终于能喘口气了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -218,7 +276,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（伸了个懒腰）就是有点可惜，这暑假光顾着打架、穿越，作业一个字没写……开学不会被老师留堂吧？',
+        text: '（望着天边）打了一夜，我脑子里全是虎门的那片白烟。回头还得写暑假作业……这经历能算作文素材吗？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -227,7 +285,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '另一边，警员清点沈崇礼的随身物品时，发现一部没登记过的卫星电话。屏幕突然亮起，一条没有署名的新消息跳了出来：',
+        text: '同一时间，钟楼里的警员清点沈崇礼的东西，发现一部没登记过的卫星电话。屏幕突然亮起，一条没有署名的新消息跳了出来：',
         highlight: true,
         bgm: 'bgm_suspense',
         sfx: 'sfx_suspense'
@@ -248,7 +306,17 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二幕 · 完。沈家父子被阻止了，但海上还有人继续制造那种药。',
+        text: '屏幕熄了。沈家父子被抓，福寿堂在城里的药和送药单都没了；但海上，还有人接着做这件事。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 7,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '第二幕 · 完。第三幕，敬请期待。',
+        highlight: true,
         sfx: 'sfx_confirm'
       }
     ],

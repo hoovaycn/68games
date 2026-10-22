@@ -1,5 +1,5 @@
 /**
- * 第十四章《百年老账》剧情脚本数据表（第二幕 第4章）
+ * 第十四章《照片上的人》剧情脚本数据表（第二幕 第4章）
  *
  * 流程结构：
  * - ch13_scene_safahouse: 省厅秘密安全屋，老爸海峰展示追查15年的跨国暗网与两代神秘家长档案
@@ -42,7 +42,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '博物馆古罐里的鸦片膏，就是这种药最早的原料。当年虎门销烟时，替外国商人做生意的“福寿堂”偷偷藏下了一批鸦片；那只罐子就装着其中一部分。',
+        text: '博物馆古罐里的鸦片膏，就是这种药最早的原料。我查到沈家的“福寿堂”在虎门销烟之后替洋商藏鸦片，那只罐子也跟这段事有关。不过他们当年怎么搭上的线，我还没查清。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -61,7 +61,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '他叫沈崇礼，就是基金会的负责人，也是福寿堂沈家现在管事的人。不过他背后还有一个人。看这张二十年前的老照片：坐在中间的是他父亲沈万廷。',
+        text: '他叫沈崇礼。怡安基金会是他对外的招牌：赞助学校和博物馆，方便送药、运货；背地里，他管着沈家贩药的组织“福寿堂”。不过真正发号施令的还有一个人。看这张老照片：中间是他父亲沈万廷。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -133,7 +133,7 @@ export const CHAPTER13_STORY = {
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        activeSide: 'right',
+        activeSide: 'left',
         text: '（压低声音）别打岔，好好听。这里面肯定还有我们不知道的往事。',
         sfx: 'sfx_text_blip'
       },
