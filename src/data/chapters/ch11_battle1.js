@@ -37,6 +37,11 @@ export const CH11_BATTLE1 = {
     { enemyId: 'punk', instanceId: 'punk_b', x: 14, y: 4 }
   ],
 
+  enemyTuning: {
+    punk_a: { level: 7, drops: [{ itemId: 'white_rabbit_candy', chance: 1.0 }, { itemId: 'honey_tea', chance: 0.5 }] },
+    punk_b: { level: 7, drops: [{ itemId: 'white_rabbit_candy', chance: 1.0 }, { itemId: 'honey_tea', chance: 0.5 }] }
+  },
+
   objective: {
     type: 'defeat_all',
     text: '打退汽修厂的打手与混混'

@@ -19,7 +19,7 @@ import { UnitDetailModal } from './ui/components/unit_detail.js';
 import { InventoryPanelModal } from './ui/components/inventory_panel.js';
 import { SaveMenuModal } from './ui/components/save_menu_modal.js';
 import { LevelSelectModal } from './ui/components/level_select_modal.js';
-import { gainExp, expForKill, expForAction, createEnemyUnit } from './systems/growth.js';
+import { gainExp, expForKill, expForAction, createEnemyUnit, createChapterEnemyUnit } from './systems/growth.js';
 import { createStash } from './systems/stash.js';
 import { settleLoot, summarizeLoots } from './systems/loot.js';
 import { getUnitSkills, canCastSkill, applySkill, clearTurnBuffs } from './systems/skill_service.js';
@@ -28,6 +28,8 @@ import {
   advanceTo, markChapterCleared, tickPlaytime, joinParty
 } from './systems/game_state.js';
 import { createSaveManager } from './systems/save_manager.js';
+import { applyStoryItemEvent } from './systems/story_items.js';
+import { useRighteousStaffInBattle } from './systems/righteous_staff_battle.js';
 import { replaceStoryNames } from './systems/story_placeholders.js';
 import { sound } from './engine/sound.js';
 import { PROLOGUE_STORY } from './data/story_prologue.js';
@@ -196,6 +198,7 @@ export class GameApp {
     this.saveMenuModal = null; // 存档界面模态（标题页「存档管理」/ 剧情内 Esc 呼出）
     this.levelSelectModal = null; // 选关菜单模态（测试秘籍 F1 呼出）
     this.joinPartyModal = new JoinPartyModal(this.canvas); // 剧情环节新伙伴入队弹窗模态
+    this.storyItemModal = null; // 剧情关键道具得失提示
 
     // D5 标题主菜单：continue → 读最新档续玩；manage → 存档管理界面
     // （'new' 由 TitleScreen 内部白幕转场处理，不经过这里）
@@ -204,7 +207,11 @@ export class GameApp {
       (routeId) => this.onCharacterSelected(routeId),
       (action) => this.handleTitleMenuAction(action)
     );
-    this.dialogueSystem = new DialogueSystem(this.canvas, (transition) => this.handleSceneTransition(transition));
+    this.dialogueSystem = new DialogueSystem(
+      this.canvas,
+      (transition) => this.handleSceneTransition(transition),
+      (event) => this.handleStoryItemEvent(event)
+    );
     this.epilogueScreen = new EpilogueScreen(this.canvas, () => this.enterTitleScreen());
 
     // 预加载核心 3×3 地图大图集
@@ -488,6 +495,7 @@ export class GameApp {
   startStoryScene(sceneKey) {
     this.stage = 'STAGE_STORY';
     this.topBar.style.display = 'none';
+    this.storyItemModal = null;
 
     this.canvas.width = 960;
     this.canvas.height = 540;
@@ -547,6 +555,29 @@ export class GameApp {
       }
       this.dialogueSystem.startScene(sceneData);
     }
+  }
+
+  handleStoryItemEvent(event) {
+    const item = applyStoryItemEvent(this.gameState, event);
+    if (!item) return false;
+    this.saveManager.autosave(this.gameState);
+    const gained = event.action === 'gain';
+    this.storyItemModal = new ItemModal(
+      this.canvas,
+      {
+        title: `${gained ? '获得' : '失去'}【${item.name}】`,
+        itemName: item.name,
+        desc: gained ? item.desc : '这件重要道具暂时不在队伍手中。',
+        icon: item.icon,
+        buttonText: gained ? '【 确认获得 ▶ 】' : '【 继续 ▶ 】',
+        sfx: gained ? 'sfx_item_get' : 'sfx_suspense'
+      },
+      () => {
+        this.storyItemModal = null;
+        this.dialogueSystem.continueAfterItemEvent();
+      }
+    );
+    return true;
   }
 
   handleSceneTransition(transition) {
@@ -757,15 +788,8 @@ export class GameApp {
           enemyId = 'heyanxi_corrupted';
         }
       }
-      // 数值工厂统一造敌：与援军同一工厂，数值口径一致
-      // levelOverride 允许关卡数据覆盖敌人默认等级，用于精细调难度
-      const unit = createEnemyUnit(enemyId, {
-        instanceId: e.instanceId,
-        x: e.x,
-        y: e.y,
-        facing: 'left',
-        levelOverride: e.level ?? null
-      });
+      // 专属数值独立于 Tiled 出生点，地图同步不会覆盖掉落与等级。
+      const unit = createChapterEnemyUnit(chapter, e, enemyId);
       if (unit) units.push(unit);
     }
 
@@ -780,6 +804,7 @@ export class GameApp {
     this.battleState.units = units;
     this.battleState.turn = 1;
     this.battleState.phase = 'PLAYER_PHASE';
+    this.battleState.staffUsed = false;
     this.battleState.mode = 'IDLE';
     this.battleState.selectedUnit = null;
     this.battleState.originalPos = null;
@@ -1075,6 +1100,11 @@ export class GameApp {
         return;
       }
 
+      if (this.storyItemModal) {
+        this.storyItemModal.handleClick(clickX, clickY);
+        return;
+      }
+
       // ★ 胜利结算模态框组件捕获
       if (this.battleState.victoryModal) {
         this.battleState.victoryModal.handleClick(clickX, clickY);
@@ -1221,6 +1251,11 @@ export class GameApp {
       // ★ 新伙伴入队弹窗独占按键 (Space / Enter / Escape)
       if (this.joinPartyModal && this.joinPartyModal.isOpen) {
         this.joinPartyModal.handleKeyDown(e);
+        return;
+      }
+
+      if (this.storyItemModal) {
+        this.storyItemModal.handleKeyDown(e);
         return;
       }
 
@@ -1683,11 +1718,23 @@ export class GameApp {
     }
 
     if (id === 'item') {
+      const canUseStaff = bs.chapter.id === 'ch19_battle1' && u.id === this.gameState.leadUnitId;
       bs.inventoryModal = new InventoryPanelModal(
         this.canvas,
         {
           unit: u,
           stash: bs.stash || createStash(),
+          onUseKeyItem: canUseStaff
+            ? (holder) => useRighteousStaffInBattle(bs, holder, this.gameState.leadUnitId)
+            : null,
+          isStoryItemUsed: () => bs.staffUsed,
+          onBattleItemUsed: ({ damage, target }) => {
+            this.addFloatingText(`浩然正气 -${damage}`, target.x, target.y, '#facc15',
+              { font: 'bold 26px sans-serif', duration: 2100 });
+            sound.playSfx('sfx_shock_sting');
+            bs.actionMenu = null;
+            this.endUnitTurn();
+          },
           onUseItem: (targetUnit, row, res) => {
             bs.inventoryModal = null;
             const hpGain = res.hpRestored || 0;
@@ -2525,6 +2572,10 @@ export class GameApp {
     // ★ 新伙伴入队弹窗组件渲染（剧情环节弹窗，盖在当前 stage 上）
     if (this.joinPartyModal && this.joinPartyModal.isOpen) {
       this.joinPartyModal.render();
+    }
+
+    if (this.storyItemModal) {
+      this.storyItemModal.render();
     }
 
     // ★ 存档界面模态渲染在所有 stage 之上（load 模式盖标题屏，save 模式盖剧情屏）

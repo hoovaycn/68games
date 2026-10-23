@@ -63,7 +63,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '有人手里还攥着没拆完的包装袋，有人嘴角沾着荧光糖渣，眼睛却已经一层层亮起青蓝色的光。那不是少数几个倒霉的人，是几乎整层楼都出事了。',
+        text: '有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；有人嘴角沾着荧光糖渣，眼睛却已经一层层亮起青蓝色的光。那不是少数几个倒霉的人，是几乎整层楼都出事了。',
         sfx: 'sfx_shock_sting'
       },
       {

@@ -237,6 +237,7 @@ export class CombatSystem {
   static useItem(unit, itemId) {
     const item = ITEMS[itemId];
     if (!item) return { success: false, msg: '不存在的道具' };
+    if (item.kind === 'key_item') return { success: false, msg: '剧情道具不能当作普通消耗品使用' };
 
     const invItem = unit.inventory.find(i => i.id === itemId);
     if (!invItem || invItem.count <= 0) {

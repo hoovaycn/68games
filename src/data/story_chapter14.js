@@ -20,6 +20,15 @@ export const CHAPTER14_STORY = {
       {
         id: 1,
         speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '打退闸口守卫时，天边已经泛白。众人冲上驳船，雨势渐小，铜炉上方的乌云被紫色漩涡卷开；晨光一下照亮甲板，刚才还靠探照灯认路，现在连悬在炉上的青花罐都看得清了。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 2,
+        speaker: '系统提示',
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
@@ -27,26 +36,26 @@ export const CHAPTER14_STORY = {
         sfx: 'sfx_suspense'
       },
       {
-        id: 2,
+        id: 3,
         speaker: '沈崇礼',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '徐老师、刘老师，还有海警督。你们来晚了！等江潮涨上来，我们就能用铜炉把罐里的老烟膏熬成新药。',
+        text: '徐老师、刘老师，还有海警督。你们来晚了！炉火已经烧起来了，马上就把罐里的老烟膏倒进去熬成新药。',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 3,
+        id: 4,
         speaker: '沈万廷（轮椅老人）',
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（干瘪的喉咙里发出风箱般的怪笑）嗬……嗬……刘秉德，二十年了，你那根破竹教鞭还没扔呢？当年阿瑶的哀求我还记在耳朵里……今天，该轮到你们的新学生了！',
+        text: '（干瘪的喉咙里发出风箱般的怪笑）嗬……嗬……刘淑惠，二十年了，你那根破竹教鞭还没扔呢？当年阿瑶的哀求我还记在耳朵里……今天，该轮到你们的新学生了！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/shen_wanting_old@2x.png',
@@ -86,7 +95,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。罐壁内侧刻着的金色纹路也亮了起来，碰到黑烟后，甲板上的人影和江岸竟开始扭曲、重叠。谁也说不清发生了什么。',
+        text: '碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。甲板上的人影和江岸开始扭曲、重叠，烟里还传来遥远的号子和炮声。谁也说不清发生了什么。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -97,6 +106,24 @@ export const CHAPTER14_STORY = {
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '混账！你们竟敢砸碎老祖宗的传家宝！护卫队，把所有人推下江喂鱼！！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 31,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（捂着鼻子退了半步）这烟连我们的人都受不了！少爷还叫我们冲？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 32,
+        speaker: '重装护卫',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/shen_guard_default@2x.png',
+        activeSide: 'left',
+        text: '（面罩后喘着粗气，撞开同伴）让开……守住铜炉！谁也别过来！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -132,7 +159,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '护卫被打退，可碎罐上的金色纹路还在发亮，黑烟也没有散。两股光和烟缠在一起，头顶的夜空慢慢裂开一个大洞，甲板开始像纸一样卷起来。',
+        text: '护卫被打退，碎罐里涌出的黑烟却没有散。号子和炮声越来越近，头顶的天空慢慢裂开一道白光，甲板开始像纸一样卷起来。',
         sfx: 'sfx_shock_sting'
       },
       {

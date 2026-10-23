@@ -91,6 +91,33 @@ export const CHAPTER18_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
+        id: 11,
+        speaker: '重装守卫',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（盾牌往地上一砸）楼梯封了。想上顶楼，就在这儿把浩然正气杖交出来！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 12,
+        speaker: '沈崇礼',
+        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '我爸正在顶楼装货。你们在这儿陪守卫慢慢打吧，等打上去，药早就运走了！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 13,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        activeSide: 'left',
+        text: '沈先生，后面的老师交给我们。重装的人堵楼梯，孩子一个也上不去。',
+        sfx: 'sfx_text_blip'
+      },
+      {
         id: 2,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
@@ -160,7 +187,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（抬起头，敲了敲身旁的药罐）刘秉德的学生也来了？学校那张送药单被你们抢走了，可货还在我手里。二十年前阿瑶挡了我的路，这回连你们也想拦？',
+        text: '（抬起头，敲了敲身旁的药罐）刘淑惠的学生也来了？学校那张送药单被你们抢走了，可货还在我手里。二十年前阿瑶挡了我的路，这回连你们也想拦？',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -189,7 +216,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
-        text: '（握紧销烟杖）名单和货，我们一样都不会留给你们。沈万廷，二十年前的事，今天也该有个交代了！',
+        text: '（握紧浩然正气杖）名单和货，我们一样都不会留给你们。沈万廷，二十年前的事，今天也该有个交代了！',
         sfx: 'sfx_confirm'
       }
     ],

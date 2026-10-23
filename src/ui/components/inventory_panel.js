@@ -13,7 +13,7 @@
  *              ↑ 已在顶行（无内容）/ Enter 无操作。
  *   Enter 打开操作子菜单 · Escape 关闭；鼠标点分类页签 = 直接切换。
  *   动作组随选中行动态变化：武器/防具→[装备,存入] · 消耗品→[使用,存入] ·
- *   使用中武器/防具→锁定（无动作） · key_item→锁定 · 仓库行→[取出]。
+ *   使用中武器/防具→锁定（无动作） · key_item→锁定（终战浩然正气杖例外） · 仓库行→[取出]。
  * 鼠标：点分类签/行/底部按钮等效。
  *
  * 分层原则（与 ui_kit / unit_detail 一致）：
@@ -386,6 +386,8 @@ export class InventoryPanelModal extends ModalBase {
         } else {
           acts.push({ id: 'equip', label: '装备' });
         }
+      } else if (row.itemId === 'righteous_staff' && this.config.onUseKeyItem && !this.config.isStoryItemUsed?.()) {
+        acts.push({ id: 'use_key_item', label: '对巨魔使用' });
       }
 
       if (!row.disabled) {
@@ -440,6 +442,17 @@ export class InventoryPanelModal extends ModalBase {
         this.setFeedback(`使用失败：${res ? res.msg : '无法使用'}`);
       }
       this._refresh();
+      return;
+    }
+
+    if (actId === 'use_key_item') {
+      const res = this.config.onUseKeyItem?.(this.unit, row);
+      if (res?.success) {
+        this.close();
+        this.config.onBattleItemUsed?.(res);
+      } else {
+        this.setFeedback(`使用失败：${res?.msg || '无法使用'}`, 'error');
+      }
       return;
     }
 
@@ -888,8 +901,10 @@ export class InventoryPanelModal extends ModalBase {
         ctx.fillStyle = PALETTE.ok;
         ctx.fillText('已装 · ' + (row.hint || ''), x + w - 8, cy);
       } else {
-        ctx.fillStyle = row.disabled ? PALETTE.danger : '#94a3b8';
-        ctx.fillText(row.disabled ? '锁死' : (row.hint || ''), x + w - 8, cy);
+        const staffAction = rows === this.unitRows && row.itemId === 'righteous_staff' && this.config.onUseKeyItem;
+        ctx.fillStyle = row.disabled && !staffAction ? PALETTE.danger : '#94a3b8';
+        ctx.fillText(staffAction ? (this.config.isStoryItemUsed?.() ? '已用' : '可用')
+          : (row.disabled ? '锁死' : (row.hint || '')), x + w - 8, cy);
       }
     }
   }

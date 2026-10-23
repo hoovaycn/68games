@@ -520,7 +520,8 @@ export const ENEMIES = {
     },
     drops: [
       { itemId: 'bastard_soda', chance: 0.8 },
-      { itemId: 'sausage', chance: 1.0 }
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 0.4 }
     ],
     quotes: {
       move: '清除目标，不留活口。',
@@ -600,8 +601,9 @@ export const ENEMIES = {
       aggroRadius: 7
     },
     drops: [
-      { itemId: 'bastard_soda', chance: 1.0 },
-      { itemId: 'sausage', chance: 1.0 }
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 0.35 }
     ],
     quotes: {
       move: '吼啊啊！碾碎他们！',
@@ -617,6 +619,7 @@ export const ENEMIES = {
     title: '沈氏集团执行少主',
     classId: 'teacher',
     level: 11,
+    bonusHp: 20,
     equippedWeapon: 'teaching_pointer',
     portrait: 'assets/portraits/mystery_man_corrupted@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
@@ -644,6 +647,7 @@ export const ENEMIES = {
     title: '福寿堂幕后当代家主',
     classId: 'teacher',
     level: 12,
+    bonusHp: 25,
     equippedWeapon: 'whistle',
     portrait: 'assets/portraits/shen_wanting_old@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
@@ -671,6 +675,7 @@ export const ENEMIES = {
     title: '福寿堂百年怨念化身',
     classId: 'strong_boy',
     level: 13,
+    bonusHp: 120,
     equippedWeapon: 'dumbbell',
     portrait: 'assets/portraits/boss_colossus_opium_god@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',

@@ -9,13 +9,17 @@
  * - ch13_scene_dock_entry: 突破外围防线，直面祭坛核心
  */
 
+const SAFEHOUSE_BG = 'assets/backgrounds/bg_safahouse_shelter@2x.png';
+const FAMILY_BOARD_BG = 'assets/backgrounds/bg_shen_family_caseboard@2x.png';
+
 export const CHAPTER13_STORY = {
   // s1: 秘密安全屋 · 惊人案卷
   ch13_scene_safahouse: {
     id: 'ch13_scene_safahouse',
     title: '城北防空洞安全屋 · 铁皮桌上的卷宗',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
+    bgImg: SAFEHOUSE_BG,
+    bgImgFallback: SAFEHOUSE_BG,
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -37,12 +41,21 @@ export const CHAPTER13_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
+        id: 21,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '爸，你穿成这样我真不习惯。以前墨镜金链子一戴，我看见你就想绕路；现在这么板正，感觉你下一句就要让我出示学生证。',
+        sfx: 'sfx_text_blip'
+      },
+      {
         id: 3,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '博物馆古罐里的鸦片膏，就是这种药最早的原料。我查到沈家的“福寿堂”在虎门销烟之后替洋商藏鸦片，那只罐子也跟这段事有关。不过他们当年怎么搭上的线，我还没查清。',
+        text: '少贫。博物馆古罐里的鸦片膏，就是这种药最早的原料。我查到沈家的“福寿堂”在虎门销烟之后替洋商藏鸦片，那只罐子也跟这段事有关。不过他们当年怎么搭上的线，我还没查清。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -61,9 +74,34 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '他叫沈崇礼。怡安基金会是他对外的招牌：赞助学校和博物馆，方便送药、运货；背地里，他管着沈家贩药的组织“福寿堂”。不过真正发号施令的还有一个人。看这张老照片：中间是他父亲沈万廷。',
+        text: '（海峰把三张照片摆到桌上，指着左边）学校里开家长会、博物馆里抢罐子的，就是沈崇礼。怡安基金会是他对外的招牌，背地里他管着沈家贩药的“福寿堂”。',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '中间这张是二十年前的沈万廷，沈崇礼的父亲。右边还是他，是最近拍到的。别看现在老了，沈家真正发号施令的人一直是他。',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '等等，中间和右边是同一个人？那沈崇礼在外面忙活，背后指挥他的就是他爸？',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
@@ -79,7 +117,8 @@ export const CHAPTER13_STORY = {
     id: 'ch13_scene_teachers_arrive',
     title: '安全屋内 · 跨越二十年的宿怨合流',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
+    bgImg: SAFEHOUSE_BG,
+    bgImgFallback: SAFEHOUSE_BG,
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -143,7 +182,21 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（摘下沾满雨水的眼镜，目光无意间扫到墙上的黑白老照片，整个人如遭雷击，手里的竹教鞭哐当落地）这……这张脸是……沈万廷？！二十年前开家长会带头逼死阿瑶、害得我们师徒流离失所的那个校董家长！！',
+        text: '（刘老师一眼看到桌上中间的旧照片，手里的教鞭掉在地上）沈万廷！徐老师，你快看，就是二十年前开家长会、带头逼死阿瑶的那个校董家长！',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 41,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '是他。当年阿瑶出了事，我记了这张脸二十年。右边这张老人照……他竟然还活着？',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -153,7 +206,9 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '没错。沈万廷就是沈崇礼的父亲。二十年前事情快败露时，他假装死于车祸，逃到了国外。',
+        text: '没错。二十年前事情快败露，他假装死于车祸，逃到了国外。现在这张老人照是最近拍到的，他已经暗中回国了。',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
         sfx: 'sfx_confirm'
       },
       {
@@ -162,7 +217,9 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '现在他坐着轮椅、靠呼吸机续命，暗中回了国。儿子在台前用“学习补剂”骗人，父亲在背后指挥。你们吃过的怪味零食就是他们的新货。',
+        text: '他现在坐着轮椅，靠呼吸机撑着，还是在背后指挥。沈崇礼在台前拿“学习补剂”骗人，你们吃过的怪味零食，就是他们父子俩弄出来的新货。',
+        bgImg: FAMILY_BOARD_BG,
+        hidePortraits: true,
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -172,8 +229,18 @@ export const CHAPTER13_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '原来二十年前徐老师回忆里的那个恶魔家长，和现在家长会上威胁我们的神秘家长，竟然是如出一辙的父子两代毒枭！！',
+        text: '害了阿瑶的沈万廷，现在还在幕后害人；他儿子沈崇礼，就是来我们学校开家长会的那个神秘家长。原来一直是这对父子！',
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 8,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '海峰和两位老师把旧教案、沈家的照片和货船航线摊在桌上，一边核对一边守着监听台。雨声渐渐小了；再抬头看表，已经熬到天快亮。',
+        bgImg: SAFEHOUSE_BG,
+        sfx: 'sfx_text_blip'
       }
     ],
     transition: {
@@ -198,7 +265,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。半小时后涨潮，就在驳船上用罐里的鸦片膏熬制新药。准备送药的学校名单也核对好了……滋滋……』',
+        text: '『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。半小时后开炉，就在驳船上用罐里的鸦片膏熬制新药。准备送药的学校名单也核对好了……滋滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -208,7 +275,17 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '他们连送药的学校名单都有？沈崇礼借着基金会赞助学校活动，拿到了六 8 班的家庭联系表，上面有每个孩子的住址和家长电话。他要是把新药做出来，甚至能直接找上门！',
+        text: '送药名单？等等，上次家长会，他发免费样品前让家长填过领药登记，孩子名字、住址和电话都记在上面。沈崇礼那时就把六 8 班的地址拿到手了！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 21,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '难怪大溃败那晚，整层楼那么多同学都吃到了药……有些是家长带回去的，另一些袋上贴着“免费补送”和住址。原来是沈崇礼照着登记表送上门的！',
+        highlight: true,
         sfx: 'sfx_confirm'
       },
       {
@@ -228,8 +305,49 @@ export const CHAPTER13_STORY = {
         activeSide: 'left',
         text: '众人赶到码头，唯一的入口被黑衣护卫和持棍打手堵住。两名带盾牌的守卫挡在最前面，探照灯一转，所有人的位置都暴露了。',
         highlight: true,
+        bgImg: 'assets/backgrounds/bg_canal_dock_storm@2x.png',
         bgm: 'bgm_intense_boss',
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '码头护卫头目',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '海峰？沈先生说你可能会来。驳船半小时后开炉，这道铁闸你们别想过去。',
+        bgImg: 'assets/backgrounds/bg_canal_dock_storm@2x.png',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 51,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '头儿，船上的人还在搬货。咱们守住闸口，谁都别放过去！',
+        bgImg: 'assets/backgrounds/bg_canal_dock_storm@2x.png',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 6,
+        speaker: '码头打手',
+        leftPortrait: 'assets/art/punk_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '后头还带着老师和学生？头儿，咱把他们赶回去，守到船开就行！',
+        bgImg: 'assets/backgrounds/bg_canal_dock_storm@2x.png',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        activeSide: 'left',
+        text: '徐老师，护住孩子。你们拿着那只罐子害学生，今天这道闸，我们非过不可！',
+        bgImg: 'assets/backgrounds/bg_canal_dock_storm@2x.png',
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {

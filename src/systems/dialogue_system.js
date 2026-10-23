@@ -6,10 +6,11 @@ import { assetLoader } from '../engine/asset_loader.js';
  * 统一色调：浅暖米黄底色 (#FAF5EB) + 深炭暖黑字体 (#1C1917) + 大气名牌与大按钮
  */
 export class DialogueSystem {
-  constructor(canvas, onSceneComplete) {
+  constructor(canvas, onSceneComplete, onItemEvent = null) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.onSceneComplete = onSceneComplete;
+    this.onItemEvent = onItemEvent;
 
     this.currentScene = null;
     this.dialogueIndex = 0;
@@ -23,6 +24,7 @@ export class DialogueSystem {
 
     this.choiceButtonRect = null;
     this.showingChoice = false;
+    this.waitingForItemConfirm = false;
   }
 
   startScene(sceneData) {
@@ -30,6 +32,7 @@ export class DialogueSystem {
     this.dialogueIndex = 0;
     this.showingChoice = false;
     this.choiceButtonRect = null;
+    this.waitingForItemConfirm = false;
 
     if (sceneData.bgm) {
       sound.playBgm(sceneData.bgm);
@@ -48,6 +51,7 @@ export class DialogueSystem {
 
     this.dialogueIndex = index;
     this.activeLine = this.currentScene.dialogues[index];
+    this.waitingForItemConfirm = false;
     this.displayedText = '';
     this.charIndex = 0;
     this.isLineComplete = false;
@@ -77,6 +81,8 @@ export class DialogueSystem {
   }
 
   next() {
+    if (this.waitingForItemConfirm) return;
+
     if (this.showingChoice) {
       if (this.onSceneComplete) {
         this.onSceneComplete(this.currentScene.transition);
@@ -88,8 +94,18 @@ export class DialogueSystem {
       this.displayedText = this.activeLine.text;
       this.isLineComplete = true;
     } else {
+      if (this.activeLine.itemEvent && this.onItemEvent?.(this.activeLine.itemEvent)) {
+        this.waitingForItemConfirm = true;
+        return;
+      }
       this.loadLine(this.dialogueIndex + 1);
     }
+  }
+
+  continueAfterItemEvent() {
+    if (!this.waitingForItemConfirm) return;
+    this.waitingForItemConfirm = false;
+    this.loadLine(this.dialogueIndex + 1);
   }
 
   render() {
@@ -101,8 +117,8 @@ export class DialogueSystem {
     // 1. 绘制场景环境背景 (外部图或内建温暖浅黄环境)
     this.drawSceneBackground(ctx, w, h);
 
-    // 2. 绘制半身大立绘
-    if (this.activeLine && !this.showingChoice) {
+    // 2. 照片特写时由场景图呈现人物，不再盖上对白立绘。
+    if (this.activeLine && !this.showingChoice && !this.activeLine.hidePortraits) {
       this.drawPortraits(ctx, w, h);
     }
 

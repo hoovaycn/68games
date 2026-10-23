@@ -8,6 +8,8 @@
  * - ch17_scene_tearful_retreat: 杀到仓库内部楼梯间，继续追上钟楼，不再出仓重攻
  */
 
+const COLLAPSED_BRIDGE_BG = 'assets/backgrounds/bg_warehouse_collapsed_bridge@2x.png';
+
 export const CHAPTER17_STORY = {
   // s1: 突入祭坛 · 救赎与决断
   ch17_scene_alter_breach: {
@@ -23,7 +25,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
-        text: '众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；销烟杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。',
+        text: '众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；浩然正气杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。',
         sfx: 'sfx_suspense'
       },
       {
@@ -51,15 +53,26 @@ export const CHAPTER17_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
-        text: '住手！海叔叔去挡住保镖，我去拿池边的销烟杖，先把瑞怡救下来！',
+        text: '住手！海叔叔去挡住保镖，我去拿池边的浩然正气杖，先把瑞怡救下来！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 5,
+        speaker: '系统提示',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        activeSide: 'left',
+        text: '海峰挡住保镖，{MC_NAME}冲到毒池旁抢回浩然正气杖，敲开锁住覃瑞怡的旧锁。瑞怡抓住主角的手，终于从石柱前逃了出来。',
+        itemEvent: { itemId: 'righteous_staff', action: 'gain' },
         highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '{MC_NAME}趁海峰挡住保镖，抢回池边的销烟杖，敲开锁住覃瑞怡的旧锁。沈崇礼见状，掏出藏在腰间的毒针发射器！',
-      buttonText: '【救下同伴 · 抢回名单】',
+      prompt: '沈崇礼见{MC_NAME}救走瑞怡，掏出藏在腰间的毒针发射器！',
+      buttonText: '【护住瑞怡 · 抢回名单】',
       targetScene: 'ch17_scene_father_shield'
     }
   },
@@ -70,6 +83,7 @@ export const CHAPTER17_STORY = {
     title: '祭坛崩塌处 · 悲壮的背影',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_warehouse_poison_altar@2x.png',
     bgm: 'bgm_intense_boss',
     dialogues: [
       {
@@ -128,7 +142,38 @@ export const CHAPTER17_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '破拆索炸断了柱子，石桥塌进地下暗河，堵住追来的守卫，却也把海峰卷进水里。他胸前的警徽掉在岸边，{ALLY_2_NAME}捡起它，被徐老师拉向另一侧的出口。',
+        bgImg: COLLAPSED_BRIDGE_BG,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
+        speaker: '重装守卫',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '（从另一侧的维修楼梯走下来，挡住出口）沈先生要孩子和浩然正气杖都留下。桥塌了，你们还能往哪走？',
+        bgImg: COLLAPSED_BRIDGE_BG,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 71,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '楼梯上面也有人守着。放下那根杖，我们还能让你们从这儿出去。',
+        bgImg: COLLAPSED_BRIDGE_BG,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 8,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        activeSide: 'left',
+        text: '先别回头看河里，护住瑞怡，跟我走楼梯！打通这道门，再想办法找海峰！',
+        bgImg: COLLAPSED_BRIDGE_BG,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {

@@ -193,6 +193,13 @@ const BATTLES = [
     bgm: 'bgm_intense_boss', w: 18, h: 12,
     objective: { type: 'defeat_boss', text: '终结百年巨灵魔尊与沈氏父子' },
     next: 'ch19_scene_boss_destroyed',
+    tutorial: {
+      steps: [{
+        title: '终战 · 使用浩然正气杖',
+        body: '让主角走到巨魔 3 格内，打开【道具 → 重要】，选中【浩然正气杖】再点【对巨魔使用】，可打出一次重击。不用杖也能靠普通攻击获胜。',
+        hint: '杖在战斗中不会消耗；胜利后才会随核心碎裂。'
+      }]
+    },
     players: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
     enemies: [
       ['boss_colossus', 'boss_colossus'],
@@ -242,6 +249,9 @@ function buildJs(battle, players, enemies, bgGrid, decGrid) {
 
   const playerLines = players.map(p => `    { unitId: '${p.unitId}', x: ${p.x}, y: ${p.y} }`).join(',\n');
   const enemyLines = enemies.map(e => `    { enemyId: '${e.enemyId}', instanceId: '${e.instanceId}', x: ${e.x}, y: ${e.y} }`).join(',\n');
+  const tutorialBlock = battle.tutorial
+    ? `  tutorial: ${JSON.stringify(battle.tutorial, null, 2).replace(/\n/g, '\n  ')},\n\n`
+    : '';
 
   return `/**
  * ${battle.chapter} 战斗关卡：${battle.name}
@@ -257,7 +267,7 @@ export const ${battle.exportName} = {
   mapHeight: ${battle.h},
   defaultTerrain: 'tile_floor',
 
-  terrainTypes: {
+${tutorialBlock}  terrainTypes: {
     tile_floor: { name: '地面', def: 0, avoid: 0, cost: 1, color: '#78716c', tileImg: null }
   },
 

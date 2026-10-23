@@ -37,6 +37,11 @@ export const CH10_BATTLE1 = {
     { enemyId: 'senior_athlete_corrupted', instanceId: 'push_b', x: 14, y: 4 }
   ],
 
+  enemyTuning: {
+    push_a: { level: 8 },
+    push_b: { level: 8 }
+  },
+
   objective: {
     type: 'defeat_all',
     text: '击退入侵博物馆的黑衣死士与狂暴保送生'

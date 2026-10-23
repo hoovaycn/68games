@@ -80,6 +80,15 @@ export const CHAPTER5_STORY = {
         sfx: 'sfx_confirm'
       },
       {
+        id: 71,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '讲台边还放着一张领药登记表。神秘家长说后续的免费样品可以送到家，让想领的家长填上孩子姓名、住址和电话；已经有不少人填过了。',
+        sfx: 'sfx_text_blip'
+      },
+      {
         id: 8,
         speaker: '系统提示',
         leftPortrait: null,

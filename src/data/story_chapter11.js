@@ -171,6 +171,33 @@ export const CHAPTER11_STORY = {
         text: '（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '二秃子',
+        leftPortrait: 'assets/art/punk_default@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '（拎着铁管从车底钻出来）老海让你们走，没听见？后仓里那批货，谁敢多看一眼，我就敲谁的腿。',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '门我堵上了。货还在里面，不能让这几个孩子回头拍照。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/punk_default@2x.png',
+        activeSide: 'left',
+        text: '{ALLY_2_NAME}，先把奖状捡起来！他们已经围过来了，咱们得打出去！',
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {

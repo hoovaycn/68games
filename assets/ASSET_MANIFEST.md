@@ -172,6 +172,13 @@
 | cg_pickup_bottle.png/@2x | CG 特写：女老师（深灰西装白衬衣袖口、纤细的手）捡起青蓝荧光运动瓶；**手与瓶整体位于画面上半，下半净空留给对话框** |
 | bg_auditorium.png/@2x | 学校礼堂/体育馆·全校大会（舞台+空白红横幅+排长椅+篮球架，第三章） |
 | bg_school_night.png/@2x | 夜晚校园·黑灯教学楼一扇亮窗+一盏路灯+跑道剪影（第三章末密会） |
+| bg_safahouse_shelter.png/@2x | 城北防空洞安全屋·暖黄石墙+吊灯+铁皮桌收音机+墙面照片墙（第十四章） |
+| bg_safahouse_radio.png/@2x | 安全屋铁皮桌特写·警方收缴的军用电台（顶板红灯刚亮起带光晕）、旁边是证物袋与空白登记表，绿色台灯在左缘；**下半留空给对话框**（第二幕尾声《无人认领的无线电信号》） |
+| bg_shen_family_caseboard.png/@2x | 安全屋照片墙特写·软木板居中并排三张档案照（沈崇礼／沈万廷二十年前／沈万廷老年），红线连父子关系；**下半留空给对话框**（第十四章《照片上的人》） |
+| bg_clocktower_staff_sacrifice.png/@2x | 终战·浩然正气杖与巨魔核心一同碎裂（巨魔胸口特写，绿核炸裂喷黑雾、木杖从中断成两截木屑飞溅，杖身无字，背后阴云钟楼金钟面与彩窗）；**下半留空给对话框**（第二幕终章） |
+| bg_safahouse_shelter_night.png/@2x | 安全屋关灯夜景（同一间防空洞安全屋，吊灯与绿台灯全灭、只剩电台小红灯与通风栅漏进的冷蓝月光，石拱墙铁皮桌照片墙都在原处）；**下半留空给对话框**（第十六章《熄灯前》） |
+| bg_canal_dawn.png/@2x | 古运河破晓·晴朗希望版（地平线抬高，对岸仓库整排立面＋钟楼全貌＋日出金色光带都在画面上部三分之二，下半只留平静水面给对话框；青蓝→蜜金晨空、红砖被暖阳照亮、晨雾逆光泛金）；**下半留空给对话框**（第二幕结局《虎门钟楼》） |
+| bg_humen_righteous_staff.png/@2x | 虎门海滩·浩然正气杖大特写（赤红沉香木杖横贯画面中上部、右手在右缘、销烟池白烟退到背景，杖身正中刻「浩然正气」四个金字）；**下半留空给对话框**（第十六章《浩然正气》） |
 
 > 场景为无人空镜，人物用立绘/行走图叠加；日常家与异变家构图同源，切换做 0.3s 闪白/暗场。礼堂横幅文字留空，由代码叠字。场景为不透明整幅、不做色键，可用红/粉。
 
@@ -215,6 +222,7 @@ sfx_cursor / sfx_confirm / sfx_cancel / sfx_text_blip / sfx_menu_open /
 sfx_step / sfx_attack_swing / sfx_hit_normal / sfx_hit_crit / sfx_miss /
 sfx_item_use / sfx_item_get / sfx_level_up / sfx_unit_down /
 sfx_phone_msg / sfx_shock_sting
+sfx_glass_shatter.wav / 玻璃碎裂（程序合成，博物馆展厅开场；见 scripts/generate_glass_shatter.mjs）
 
 授权明细统一登记在 `data/credits.js`，游戏鸣谢页直接读取；CC-BY 两首必须在鸣谢中署名。
 

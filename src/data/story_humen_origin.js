@@ -133,6 +133,15 @@ export const HUMEN_ORIGIN_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
+        id: 71,
+        speaker: '带路的中国打手',
+        leftPortrait: 'assets/art/comprador_assassin_1839@2x.png',
+        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        activeSide: 'left',
+        text: '水手去搬罐子，我带人拦住官兵。林大人，先过了我这关再扣货！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
         id: 8,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
@@ -277,7 +286,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '教头守池时用的木杖，是我交给民团的。他已经还给我，你们带回去吧。那帮人还在卖毒药，就别停下。',
+        text: '（从教头手中接过木杖，郑重递向{MC_NAME}）教头拿它守住了销烟池。这杖我交给民团时，就是盼他们记着：毒物不能再害人。如今这根木杖你们带回去，接着守住你们那边的人。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -287,24 +296,24 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '明白。回去我们就追沈家，不能再让他们把药送进学校。',
-        highlight: true,
+        text: '（伸出双手接住木杖）林大人，我会带回去。',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '林则徐把守池用的木杖交给众人，杖上的字亮了起来。',
-      buttonText: '【带着线索返回现代】',
+      prompt: '{MC_NAME}接过教头守池用的木杖，指尖沾上销烟池的白灰。',
+      buttonText: '【握住木杖 · 看清上面的字】',
       targetScene: 'ch15_scene_righteous_seal'
     }
   },
 
   ch15_scene_righteous_seal: {
     id: 'ch15_scene_righteous_seal',
-    title: '虎门海滩 · 再次穿越',
+    title: '虎门海滩 · 浩然正气',
     bgType: 'street',
     bgImg: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_humen_beach_1839@2x.png',
     bgm: 'bgm_victory',
     dialogues: [
       {
@@ -313,8 +322,31 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '{MC_NAME}握紧木杖，掌心沾上一点销烟池边的白灰。白烟从杖身飘过，金色的“浩然正气”四字一点点亮起来。刚才教头握着它守池，现在轮到两百年后的孩子握住它；那道金光，竟与现代碎罐内壁的纹路一模一样。',
-        sfx: 'sfx_text_blip'
+        text: '{MC_NAME}握紧木杖，掌心沾上的白灰随海风扬起。杖身的刻痕从指缝间透出金光，白烟一时遮住了上面的字。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 11,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '白烟散开，杖身刻着四个金色大字：“浩然正气”。刚才教头握着它守池，如今它到了两百年后的孩子手里。{MC_NAME}看着这四个字，想起学校里那些被沈家毒药害过的同学。',
+        bgImg: 'assets/backgrounds/bg_humen_righteous_staff@2x.png',
+        hidePortraits: true,
+        itemEvent: { itemId: 'righteous_staff', action: 'gain' },
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 12,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        activeSide: 'left',
+        text: '林大人，教头守住了这池鸦片。回去换我们守住学校里的同学，沈家的毒药，一包也别想送进去。',
+        highlight: true,
+        sfx: 'sfx_confirm'
       },
       {
         id: 2,
@@ -331,7 +363,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '木杖突然发亮，众人脚下再次出现那道把他们卷来时的白光。海滩、销烟池和炮声渐渐远去；大家手拉着手，重新落回现代的驳船上。',
+        text: '销烟池边的白烟忽然打起旋，众人脚下再次亮起把他们卷来时的白光。{MC_NAME}攥紧木杖，大家手拉着手；海滩、销烟池和炮声渐渐远去，现代的驳船重新出现在眼前。',
         highlight: true,
         sfx: 'sfx_suspense'
       }

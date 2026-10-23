@@ -15,7 +15,7 @@ export class ItemModal {
     this.onClose = onClose;
 
     this.buttonRect = null;
-    sound.playSfx('sfx_item_get');
+    if (this.config.sfx !== null) sound.playSfx(this.config.sfx || 'sfx_item_get');
   }
 
   // 文本自动多行折行 (居中绘制)
@@ -80,7 +80,7 @@ export class ItemModal {
     ctx.font = 'bold 25px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('—— 获得战利品 ——', w / 2, y + 42);
+    ctx.fillText(this.config.title || '—— 获得战利品 ——', w / 2, y + 42);
 
     // 4. 战利品图标与名称 (图标加大到 64)
     const iconImg = this.config.icon ? assetLoader.getImage(this.config.icon) : null;
@@ -140,7 +140,7 @@ export class ItemModal {
     ctx.font = 'bold 20px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('【 收入背包 ▶ 】', w / 2, btnY + btnH / 2);
+    ctx.fillText(this.config.buttonText || '【 收入背包 ▶ 】', w / 2, btnY + btnH / 2);
   }
 
   close() {

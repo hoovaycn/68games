@@ -2,8 +2,9 @@
  * 第十八章《班长去哪了》剧情脚本数据表（第二幕 第8章）
  *
  * 流程结构：
- * - ch16_scene_return_ruins: 众人携浩然销烟杖重返现代驳船残骸，暂时返回安全屋清点装备
- * - ch16_scene_betrayal_note: 黎明时分，浩然信物不翼而飞，桌上只留下一张被泪水浸湿的三好学生奖状与留书
+ * - ch16_scene_return_ruins: 众人携浩然正气杖重返现代驳船残骸，决定返回安全屋
+ * - ch16_scene_safahouse_night: 海峰锁杖并联系警方，瑞怡隐瞒手机消息，众人关灯休息
+ * - ch16_scene_betrayal_note: 黎明时分，浩然正气杖不翼而飞，桌上留下优秀学生干部奖状与留书
  * - ch16_scene_rainy_chase: 众人顺着字迹破译真相，冒雨狂追至老城水闸废料场
  * - ch16_battle1: 水闸废料场截击战（主角团 VS 伏击的沈氏精锐死士）
  * - ch16_scene_truth_unveiled: 击退伏兵，从敌人口中得知覃瑞怡已被带往江心地下魔窟祭坛
@@ -24,7 +25,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；{MC_NAME}手里还握着林则徐交给大家的销烟杖。',
+        text: '夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；{MC_NAME}手里还握着林则徐交给大家的浩然正气杖。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -53,7 +54,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '先回安全屋把人和装备点清楚，再联系增援。沈家躲在下游的旧洋行仓库，等天亮了，我们就去堵住出口。销烟杖先锁进防爆箱，别再让他们抢走。',
+        text: '先回安全屋把人和装备点清楚，再联系增援。沈家躲在下游的旧洋行仓库，等天亮了，我们就去堵住出口。浩然正气杖先锁进防爆箱，别再让他们抢走。',
         sfx: 'sfx_confirm'
       },
       {
@@ -74,17 +75,109 @@ export const CHAPTER16_STORY = {
         activeSide: 'left',
         text: '海叔叔请警方去联系家长了，可还没挨家通知到。回安全屋咱们一起想办法。瑞怡，谁给你发的消息？',
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 7,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '瑞怡攥着手机没回答。海峰领大家下了驳船，走到码头外停着的皮卡旁，让受伤的人先上车。',
+        sfx: 'sfx_text_blip'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '瑞怡没回答。众人回到安全屋，把销烟杖锁好，轮流睡了一会儿。天刚亮，张希哲发现防爆箱被打开了。',
-      buttonText: '【猛然惊醒 · 查探异动】',
+      prompt: '皮卡就停在码头外。',
+      buttonText: '【上车返回安全屋】',
+      targetScene: 'ch16_scene_safahouse_night'
+    }
+  },
+
+  // s2: 安全屋深夜 · 锁好木杖，难以说出口的消息
+  ch16_scene_safahouse_night: {
+    id: 'ch16_scene_safahouse_night',
+    title: '城北防空洞安全屋 · 熄灯前',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '皮卡开回城北，海峰拿证件打开安全屋铁门。屋里还是那张铁皮桌，大家却都湿透了，手上还沾着虎门销烟池的白灰。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '人都在。先把伤口处理好。（把浩然正气杖放进防爆箱，上锁后将钥匙收进外套口袋）这根杖放这儿，谁也别单独带出去。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 3,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        activeSide: 'left',
+        text: '老刘，先看看孩子们有没有吸进船上的烟。都跑了一夜了，有人不舒服马上说，别硬撑。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '（拿起无线电）沈家拿到了全班住址，我已经让同事继续联系家长，先去守住名单上最近的几户。你们留在这里，天亮再一起去旧洋行仓库。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 5,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '瑞怡，刚才你看完手机就不说话了。是沈崇礼发了什么吗？你给我们看看，一起想办法。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 6,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（把手机屏幕扣在桌上）我……想先给家里报个平安。你们先休息吧，我没事。',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '徐老师让大家裹着外套靠墙休息，海峰关了吊灯。屋里只剩无线电的小红灯和门外的雨声；覃瑞怡还坐在桌边，盯着手机。',
+        bgImg: 'assets/backgrounds/bg_safahouse_shelter_night@2x.png',
+        sfx: 'sfx_text_blip'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '夜深了，安全屋里渐渐安静下来。',
+      buttonText: '【等到天亮】',
       targetScene: 'ch16_scene_betrayal_note'
     }
   },
 
-  // s2: 奖状留书 · 孤身犯险
+  // s3: 奖状留书 · 孤身犯险
   ch16_scene_betrayal_note: {
     id: 'ch16_scene_betrayal_note',
     title: '安全屋铁桌前 · 沾满泪痕的留言',
@@ -98,7 +191,8 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（惊慌失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的浩然销烟杖不见了！覃瑞怡的人也不在安全屋里！',
+        text: '（惊慌失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的浩然正气杖不见了！覃瑞怡的人也不在安全屋里！',
+        itemEvent: { itemId: 'righteous_staff', action: 'lose' },
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -126,9 +220,18 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『他要我天亮前独自把销烟杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。我知道他可能骗人，可我不敢拿全班同学赌。是我拿的杖，别怪别人。』',
+        text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。我知道他可能骗人，可我不敢拿全班同学赌。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 41,
+        speaker: '信纸留言（覃瑞怡）',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '『海叔叔，对不起。我趁大家睡着，从你外套里拿了钥匙。杖是我自己拿的，别怪别人。我一定想办法回来。』',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 5,
@@ -185,6 +288,15 @@ export const CHAPTER16_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
+        id: 21,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '头儿，她和那根杖都送走了。这帮人只看到书包，还以为能在闸里找到她呢。',
+        sfx: 'sfx_text_blip'
+      },
+      {
         id: 3,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
@@ -192,6 +304,15 @@ export const CHAPTER16_STORY = {
         activeSide: 'left',
         text: '把覃瑞怡交出来！！把信物还给我们！！',
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 4,
+        speaker: '沈氏死士头目',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '想问她在哪儿？先从我和这排电棍中间走过去！',
+        sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
@@ -217,7 +338,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
-        text: '（从侧面赶回来，按住被孩子们打倒的头目）水闸里没有瑞怡。说！你们把她和销烟杖送去哪了？',
+        text: '（从侧面赶回来，按住被孩子们打倒的头目）水闸里没有瑞怡。说！你们把她和浩然正气杖送去哪了？',
         sfx: 'sfx_confirm'
       },
       {

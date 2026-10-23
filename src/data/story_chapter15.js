@@ -242,16 +242,34 @@ export const CHAPTER15_STORY = {
         id: 1,
         speaker: '系统提示',
         leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
-        rightPortrait: 'assets/art/comprador_assassin_1839@2x.png',
+        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
-        text: '洋人水手举着枪上了岸，一个本地打手在前面带路，指着池边还没倒进水里的鸦片箱。',
+        text: '洋人水手举枪上岸，本地打手在前面带路。池边，一个握着木杖的民团教头带人守住还没倒进水里的鸦片箱，拦下了刚跑来的孩子们。',
         sfx: 'sfx_suspense'
+      },
+      {
+        id: 11,
+        speaker: '虎门民团教头',
+        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '我是这儿带民团守池的。林大人让我盯紧这些还没销毁的鸦片，不能让人抢走。你们几个从哪儿来的？快往后站，那边有枪！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 12,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        activeSide: 'left',
+        text: '我们从海滩那头来的，看见他们要抢箱子。我们是来帮忙的，您说怎么守？',
+        sfx: 'sfx_confirm'
       },
       {
         id: 2,
         speaker: '洋人走私水手',
         leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
-        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        rightPortrait: 'assets/art/comprador_assassin_1839@2x.png',
         activeSide: 'left',
         text: '就是那几箱！趁他们还没倒进池子，搬回船上！',
         sfx: 'sfx_shock_sting'
@@ -271,7 +289,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（握紧林总督交给他的守池木杖）这批鸦片是来销毁的，不是给你们抢回去害人的！想碰池子，先过我这一关！',
+        text: '（握紧守池木杖，挡在鸦片箱前）这批鸦片是来销毁的，不是给你们抢回去害人的！想碰池子，先过我这一关！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -282,6 +300,15 @@ export const CHAPTER15_STORY = {
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
         text: '教头，孩子们跟你守这口池！我和两位老师去另一边护住正在搬运鸦片的人，谁也别单独冲。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 51,
+        speaker: '虎门民团教头',
+        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '成，你们跟紧我和弟兄们，别让打手绕到箱子后头。看见洋枪就躲，先护住人，再护住货！',
         sfx: 'sfx_confirm'
       },
       {

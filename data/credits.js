@@ -86,6 +86,14 @@ export const CREDITS = {
       note: "fanfare=胜利号角；suspense=机械噪音悬疑氛围"
     },
     {
+      file: "sfx_glass_shatter",
+      title: "玻璃碎裂音效（程序合成）",
+      author: "本项目原创",
+      license: "CC0 1.0",
+      url: "",
+      note: "博物馆破碎展柜场景开场"
+    },
+    {
       file: "备用拟音库（未直接入包）",
       title: "Kenney RPG Audio",
       author: "Kenney",

@@ -155,6 +155,24 @@ export const CHAPTER12_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
+        id: 31,
+        speaker: '黑衣死士头领',
+        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        activeSide: 'left',
+        text: '（被按在地上，扭头冲同伙吼）别让海峰带他们走！把出口堵住，孩子和罐子都得留下！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 32,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        activeSide: 'left',
+        text: '车撞开的缺口我来守！头儿，先把海峰从孩子身边引开！',
+        sfx: 'sfx_text_blip'
+      },
+      {
         id: 4,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',

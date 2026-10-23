@@ -107,9 +107,9 @@ export const KEY_ITEMS = {
   /* ══════════ 第二幕剧情信物（ch10~ch15） ══════════ */
   righteous_staff: {
     id: 'righteous_staff',
-    name: '浩然销烟杖',
+    name: '浩然正气杖',
     kind: 'key_item',
-    desc: '林则徐用岭南沉香木亲手削成的销烟长棍，浸过沸水和石灰，通体赤红如玉，刻着暗金的「浩然正气」四个字。摸上去温润发烫，百毒不侵。',
+    desc: '林则徐交给民团守护销烟池的木杖，刻着「浩然正气」四字。钟楼终战时主角靠近巨魔，可从“重要道具”激起金光重创它一次。',
     effects: [],
     use_in_battle: false,
     use_in_field: false,

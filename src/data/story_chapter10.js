@@ -107,7 +107,7 @@ export const CHAPTER10_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
-        sfx: 'sfx_text_blip'
+        sfx: 'sfx_glass_shatter'
       },
       {
         id: 2,
@@ -191,6 +191,24 @@ export const CHAPTER10_STORY = {
         activeSide: 'left',
         text: '谁也别想碰展品！大伙抄家伙，把这群狗腿子打醒！',
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 5,
+        speaker: '沈家护卫',
+        leftPortrait: 'assets/art/shen_guard_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '箱子从后门走。你们几个拦住这群孩子，别让他们追上来！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '重点班学生',
+        leftPortrait: 'assets/art/senior_athlete_corrupted@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（眼神发直，扑向挡在展柜前的人）别拦我……我要罐子里的东西！',
+        sfx: 'sfx_shock_sting'
       }
     ],
     transition: {

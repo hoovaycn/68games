@@ -12,6 +12,14 @@ export const CH19_BATTLE1 = {
   mapHeight: 12,
   defaultTerrain: 'tile_floor',
 
+  tutorial: {
+    steps: [{
+      title: '终战 · 使用浩然正气杖',
+      body: '让主角走到巨魔 3 格内，打开【道具 → 重要】，选中【浩然正气杖】再点【对巨魔使用】，可打出一次重击。不用杖也能靠普通攻击获胜。',
+      hint: '杖在战斗中不会消耗；胜利后才会随核心碎裂。'
+    }]
+  },
+
   terrainTypes: {
     tile_floor: { name: '地面', def: 0, avoid: 0, cost: 1, color: '#78716c', tileImg: null }
   },

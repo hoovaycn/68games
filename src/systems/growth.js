@@ -209,11 +209,12 @@ export function createPlayerUnit(unitId, { x = 0, y = 0, facing = 'right', expOv
  * 敌方运行时单位。id = 战场实例 id（instanceId，同一场战斗内唯一）；
  * enemyId 指回 ENEMIES 模板（drops 已拷贝，结算时 splice 不会污染模板表）。
  */
-export function createEnemyUnit(enemyId, { instanceId, x = 0, y = 0, facing = 'left', levelOverride = null } = {}) {
+export function createEnemyUnit(enemyId, { instanceId, x = 0, y = 0, facing = 'left', levelOverride = null, dropsOverride = null } = {}) {
   const tpl = ENEMIES[enemyId];
   if (!tpl) return null;
   const level = levelOverride ?? tpl.level;
   const stats = computeStatsAtLevel(tpl.classId, level);
+  stats.maxHp += tpl.bonusHp || 0;
   return {
     id: instanceId,
     enemyId,
@@ -230,7 +231,7 @@ export function createEnemyUnit(enemyId, { instanceId, x = 0, y = 0, facing = 'l
     equippedWeapon: tpl.equippedWeapon,
 
     ai: { ...tpl.ai },
-    drops: deepCopy(tpl.drops || []),
+    drops: deepCopy(dropsOverride ?? tpl.drops ?? []),
 
     faction: 'enemy',
     x,
@@ -247,4 +248,17 @@ export function createEnemyUnit(enemyId, { instanceId, x = 0, y = 0, facing = 'l
     animOffsetY: 0,
     isFlashing: false
   };
+}
+
+/** Resolve per-battle tuning by spawn id so Tiled can rewrite positions independently. */
+export function createChapterEnemyUnit(chapter, deployment, enemyId = deployment.enemyId) {
+  const tuning = chapter.enemyTuning?.[deployment.instanceId];
+  return createEnemyUnit(enemyId, {
+    instanceId: deployment.instanceId,
+    x: deployment.x,
+    y: deployment.y,
+    facing: 'left',
+    levelOverride: tuning?.level ?? deployment.level ?? null,
+    dropsOverride: tuning?.drops ?? deployment.drops ?? null
+  });
 }

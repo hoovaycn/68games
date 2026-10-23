@@ -4,9 +4,10 @@
  * 流程结构：
  * - ch19_scene_final_stand: 沈万廷接通轮椅与钟楼装置，阴云遮住日光，巨魔现身
  * - ch19_battle1: 第二幕终极决战（少年团 VS 巨魔与沈氏父子）
- * - ch19_scene_boss_destroyed: 销烟杖击碎毒雾核心，沈氏父子失去反抗能力
- * - ch19_scene_miracle_reunion: 省厅增援控制现场，海峰获救归来
- * - ch19_scene_dawn_epilogue: 众人来到运河岸边迎接破晓，公海密电留下第三幕悬念
+ * - ch19_scene_boss_destroyed: 浩然正气杖随毒雾核心一同碎裂，沈氏父子失去反抗能力
+ * - ch19_scene_miracle_reunion: 老师上钟楼报信，众人下到一楼与获救的海峰重逢
+ * - ch19_scene_dawn_epilogue: 众人在运河岸边告别，各自准备回到日常生活
+ * - ch19_scene_radio_signal: 警方在安全屋清点证物，陌生无线电信号留下第三幕悬念
  */
 
 export const CHAPTER19_STORY = {
@@ -77,7 +78,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
-        text: '（胸口绿光一闪，嗓音里混着沈万廷的声音）谁敢碰药罐，我就砸碎谁！',
+        text: '（胸口绿光一闪，嗓音里混着沈万廷的声音）碰一下药罐，我就把你们一个个砸进地板里。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -104,22 +105,83 @@ export const CHAPTER19_STORY = {
       },
       {
         id: 9,
-        speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '巨魔一拳砸向钟楼边的铁栏杆。整排栏杆拧成一团，螺栓从孩子们身边擦过，钉进身后的墙里。它又往前迈了一步，脚下的地板发出一声闷响。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 91,
+        speaker: '系统提示',
+        leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '（握紧警徽）我爸拼命护我们出来，不是为了让他们再拿这药害人。不能让药罐离开钟楼！',
+        text: '巨魔胸口喷出一团黑气，{MC_NAME}下意识举起木杖。“浩然正气”四个金字亮了一下，扑到面前的黑气竟被逼得散开。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 10,
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '（往后退了半步）它一拳就把栏杆打成这样？我……我腿都不听使唤了。咱们真能打过吗？',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 11,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        activeSide: 'left',
+        text: '我也怕。可我从地下室逃出来，不是为了站在这儿，看着他们把药送进学校。朱晏泽，别一个人往后退。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 10,
+        id: 12,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '（贴着墙）等等，沈崇礼每按一次阀门，它胸口的绿光就亮一次。那几根管子还在往它身上送黑气！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 13,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '先别走散。谁被它盯上就喊，其他人把人拉开。咱们六个一起上来的，也得一起下去。',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 14,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
+        activeSide: 'left',
+        text: '（攥紧警徽，手还在抖）我爸拼命护我们到这里，不是为了让沈家再拿这药害人。我怕，可药罐不能离开钟楼！',
+        bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 15,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '先避开巨魔的拳头！分头挡住沈家父子，打断控制台的供气管，再用销烟杖砸它胸口的核心！',
+        text: '我也怕。可它胸口喷出的黑气碰上这根杖就散！先打断供气管，等它慢下来，我来把浩然正气杖插进核心。你们谁都别落下！',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_confirm'
@@ -140,6 +202,7 @@ export const CHAPTER19_STORY = {
     title: '残破的钟楼露台 · 圣光普照',
     bgType: 'classroom',
     bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_clocktower_storm@2x.png',
     bgm: 'bgm_retro_level3',
     dialogues: [
       {
@@ -148,10 +211,23 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，用销烟杖击中它胸口的核心。杖上那道金光照亮了整座钟楼！',
+        text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，把浩然正气杖插进它胸口的核心。“浩然正气”四字再次亮起，金光照亮了整座钟楼！',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 11,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '浩然正气杖上的金光压住核心里翻涌的黑气。核心裂开时，嵌在里面的木杖也跟着崩成碎屑；“浩然正气”四个金字最后亮了一下，随黑雾一起散去。{MC_NAME}伸出手，却再也捡不回来了。',
+        bgImg: 'assets/backgrounds/bg_clocktower_staff_sacrifice@2x.png',
+        hidePortraits: true,
+        itemEvent: { itemId: 'righteous_staff', action: 'lose' },
+        highlight: true,
+        sfx: 'sfx_suspense'
       },
       {
         id: 2,
@@ -187,7 +263,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
-        text: '（握紧销烟杖）林大人，您让我们回去后别停下。今天沈家这批药没能送进学校。您当年毁掉的那池鸦片，没白毁。',
+        text: '（望着巨魔残骸里的木屑）林大人，您让我们回去后别停下。浩然正气杖留在这里了，但今天沈家这批药没能送进学校。您当年毁掉的那池鸦片，没白毁。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -210,22 +286,31 @@ export const CHAPTER19_STORY = {
         text: '毒雾没了！老师他们可以上来了！',
         highlight: true,
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 8,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        activeSide: 'left',
+        text: '（和刘老师沿楼梯赶上来）孩子们都在！楼下省厅的人已经接手了。海峰也找到了，人还活着，就在一楼大厅，快跟我们下去！',
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '楼下突然响起了震耳欲聋的警笛长鸣，刺目的红蓝警灯划破夜空！',
-      buttonText: '【望向楼下 · 奇迹重逢】',
+      prompt: '警笛声从货栈外传来，众人跟着两位老师沿螺旋楼梯下到一楼。',
+      buttonText: '【跟老师下楼 · 去见海峰】',
       targetScene: 'ch19_scene_miracle_reunion'
     }
   },
 
-  // s3: 警灯耀夜 · 英雄归来
+  // s3: 一楼大厅 · 英雄归来
   ch19_scene_miracle_reunion: {
     id: 'ch19_scene_miracle_reunion',
-    title: '钟楼大厅废墟门前 · 铁汉柔情',
-    bgType: 'street',
-    bgImg: 'assets/backgrounds/bg_clocktower_summit@2x.png',
+    title: '货栈一楼大厅 · 失而复得',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_warehouse_grand_hall@2x.png',
     bgm: 'bgm_childhood',
     dialogues: [
       {
@@ -234,7 +319,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '省厅增援赶到，带走了沈家父子，封存了最后的药罐。徐老师和刘老师互相扶着走进来，身后几名医护人员还推着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
+        text: '众人下到一楼大厅，省厅增援已经带走了沈家父子，封存了最后的药罐。徐老师领着孩子们穿过人群；大厅门口，医护人员正守着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -279,13 +364,13 @@ export const CHAPTER19_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '医护人员把海峰抬下钟楼。天快亮了，众人跟着来到楼外的运河岸边。',
-      buttonText: '【走出钟楼 · 迎接破晓】',
+      prompt: '医护人员准备把海峰抬往门外的救护车。天快亮了，众人跟着走出货栈，来到运河岸边。',
+      buttonText: '【走出货栈 · 迎接破晓】',
       targetScene: 'ch19_scene_dawn_epilogue'
     }
   },
 
-  // s4: 运河岸边 · 公海密电（第二幕尾声与第三幕悬念）
+  // s4: 运河岸边 · 回到各自的生活
   ch19_scene_dawn_epilogue: {
     id: 'ch19_scene_dawn_epilogue',
     title: '古运河岸边 · 破晓时分',
@@ -308,7 +393,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（被扶上救护车）医生催我走了。你们先回家睡一觉，等我好些，再来医院把这一路的事讲给我听。',
+        text: '（被扶上救护车）省厅的同事回去审人、继续值勤，我去医院听医生审我。先老老实实养伤，你们也回家睡一觉，等我好些，再来讲讲这一路的事。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -317,12 +402,21 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         activeSide: 'left',
-        text: '爸，这次换我等你回家。你说了要听我们讲，就得说话算话。',
+        text: '爸，我先回家换身干衣服，下午就去医院看你。这次换我等你回家，你说了要听我们讲，就得说话算话。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
         id: 4,
+        speaker: '老爸海峰',
+        leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '说话算话。不过来一个就行，别把大伙儿全带进病房。医生看见，还以为你们要在那儿开班会。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -331,21 +425,12 @@ export const CHAPTER19_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 5,
-        speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
-        activeSide: 'left',
-        text: '徐老师抢回的送药单和那批药都交给警方了，家长们也接到了平安电话。海叔叔有医生照顾，我们终于能喘口气了。',
-        sfx: 'sfx_text_blip'
-      },
-      {
         id: 6,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（望着天边）打了一夜，我脑子里全是虎门的那片白烟。回头还得写暑假作业……这经历能算作文素材吗？',
+        text: '我先回家补觉。醒了还得写暑假作业……刘老师，昨晚那一宿能写进作文里，顺便抵两页作业吗？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -354,79 +439,150 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '当然算。写的时候别光写虎门的大场面，也写写和你一起守在那儿的人。',
+        text: '作文可以写，数学不能抵。我睡醒还得回学校批卷子，你要是真写，就把和你一起守在那儿的人也写进去。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 8,
-        speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '作文晚点再写。今天一个也没少，先回家好好睡一觉，别让爸妈再担心了。',
-        sfx: 'sfx_confirm'
+        text: '不是吧？我们连沈家都拦住了，数学作业还是拦不住？',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 9,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        activeSide: 'left',
+        text: '拦不住。我先送你们回家，下午再去学校跟校长说清楚。要是校长问起作业，别看我，我也救不了你们。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 10,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
-        text: '（看着大家）我在仓库里真以为没人会来找我。谢谢你们。以后有什么事，我一定先跟大家说，不会再一个人扛着。',
+        text: '我先回家跟爸妈说声对不起，他们肯定急坏了。以后谁再让我一个人去解决，我先把你们全叫来，不自己扛了。',
         highlight: true,
-        sfx: 'sfx_text_blip'
-      },
-      {
-        id: 10,
-        speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
-        activeSide: 'left',
-        text: '说好了，谁有事就叫上大伙。暑假作业除外啊，那个得各写各的！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 11,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        activeSide: 'left',
+        text: '这才对。我先回家吃顿热饭，睡醒再来找你们。替你撑场子可以，替你写暑假作业不行。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 12,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        rightPortrait: '{ALLY_1_PORTRAIT}',
+        activeSide: 'left',
+        text: '谁要你替我写？我还怕你照着我的抄呢。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 13,
         speaker: '朱晏泽',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '那等海叔叔出院，咱们六个再去我家打游戏。上回说好的那一局，这次谁也不许缺席。',
+        text: '那我回家开一局，等海叔叔出院，咱们六个再去我家打游戏。张希哲，你可把手柄拿稳了，上回踢球连鞋都飞出去。',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 14,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        activeSide: 'left',
+        text: '放心，手柄没鞋带，飞不了。真输了我请早饭，行了吧？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 15,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        activeSide: 'left',
+        text: '（听着他们吵，望向亮起来的河面）昨晚我还怕，天亮后听不见你们这样说话了。现在好了，作业、游戏、谁请早饭，还是能吵半天。以前嫌这些事没完没了，现在觉得，能一直这样就很好。我也先回家了，过两天校门口见。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 12,
+        id: 16,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '同一时间，钟楼里的警员清点沈崇礼的东西，发现一部没登记过的卫星电话。屏幕突然亮起，一条没有署名的新消息跳了出来：',
+        text: '救护车已经开远，警车也驶回各自的辖区。老师领着孩子们走向不同的街口，早餐铺陆续开了门。河岸渐渐空下来，仿佛昨天那场雨和那团黑雾从没来过。',
+        sfx: 'sfx_confirm'
+      }
+    ],
+    transition: {
+      type: 'CHOICE',
+      prompt: '晨光落在空荡荡的河岸上，大家都回家了。',
+      buttonText: '【继续】',
+      targetScene: 'ch19_scene_radio_signal'
+    }
+  },
+
+  // s5: 安全屋 · 无人认领的无线电信号
+  ch19_scene_radio_signal: {
+    id: 'ch19_scene_radio_signal',
+    title: '城北安全屋 · 下午的值班电台',
+    bgType: 'classroom',
+    bgImg: 'assets/backgrounds/bg_safahouse_radio@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_safahouse_shelter@2x.png',
+    bgm: 'bgm_suspense',
+    dialogues: [
+      {
+        id: 1,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '当天下午，孩子们都回了家。城北安全屋里只剩一名值班警员，正把从沈崇礼身上搜出的无线电台和其他证物逐一登记。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 2,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '没人碰它，电台却自己响了。值班警员停下笔，把声音调大。',
         highlight: true,
-        bgm: 'bgm_suspense',
         sfx: 'sfx_suspense'
       },
       {
-        id: 13,
+        id: 3,
         speaker: '卫星加密密电',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『崇礼，城里的据点丢了，我们知道。海上的船队还在，新的试验也已经开始。你没完成的事，会有人接着做。』',
+        text: '『滋……三号船收到。城里的收件人换了。下一份名单，按新地址送……滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 14,
+        id: 4,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '屏幕熄了。沈家父子被抓，福寿堂在城里的药和送药单都没了；但海上，还有人接着做这件事。',
-        sfx: 'sfx_confirm'
+        text: '信号断了。警员拿起登记表，把“三号船”三个字记在空白处，翻遍沈崇礼的案卷，也没找到这个名字。',
+        sfx: 'sfx_suspense'
       },
       {
-        id: 15,
+        id: 5,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
