@@ -301,8 +301,7 @@ async function syncTmx(config) {
   const fullJsPath = path.resolve(__dirname, '..', config.js);
 
   if (!fs.existsSync(fullTmxPath)) {
-    console.log(`TMX file not found: ${config.tmx}`);
-    return;
+    throw new Error(`TMX file not found: ${config.tmx}`);
   }
 
   const xml = fs.readFileSync(fullTmxPath, 'utf-8');
@@ -313,6 +312,11 @@ async function syncTmx(config) {
   const width = parseInt(map.$.width, 10);
   const height = parseInt(map.$.height, 10);
   const tileWidth = parseInt(map.$.tilewidth, 10) || 48;
+  const tileHeight = parseInt(map.$.tileheight, 10) || 48;
+  if (!Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1
+      || tileWidth !== 48 || tileHeight !== 48) {
+    throw new Error(`${config.id}: 当前战斗运行时要求 48x48 瓦片和有效地图尺寸`);
+  }
   const LOGIC_SCALE = 1; // 1:1 —— 一个逻辑格 = 一个瓦片（48px）
 
   // 1. 解析瓦片层
@@ -328,9 +332,12 @@ async function syncTmx(config) {
     }
   }
 
-  const to2D = (csv, w) => {
-    if (!csv) return Array.from({ length: height }, () => Array(w).fill(0));
-    const flat = csv.split(',').map(n => parseInt(n.trim(), 10) || 0);
+  const to2D = (csv, w, name) => {
+    if (!csv) throw new Error(`${config.id}: 缺少 ${name} CSV 图层`);
+    const flat = csv.split(',').map(n => Number(n.trim()));
+    if (flat.length !== width * height || flat.some(n => !Number.isInteger(n) || n < 0)) {
+      throw new Error(`${config.id}: ${name} 图层格数或 GID 不合法`);
+    }
     const arr = [];
     for (let i = 0; i < flat.length; i += w) {
       arr.push(flat.slice(i, i + w));
@@ -338,8 +345,8 @@ async function syncTmx(config) {
     return arr;
   };
 
-  const bgGrid = to2D(bgCsv, width);
-  const decGrid = to2D(decCsv, width);
+  const bgGrid = to2D(bgCsv, width, 'Background');
+  const decGrid = to2D(decCsv, width, 'Decoration');
 
   // 2. 解析对象层 (Collisions, Spawns, Terrains/Zones)
   const collisions = [];
@@ -399,8 +406,8 @@ async function syncTmx(config) {
 
       // 读取对象自定义属性
       const customProps = {};
-      if (obj.properties && obj.properties[0] && obj.properties[0].property) {
-        const pList = Array.isArray(obj.properties[0].property) ? obj.properties[0].property : [obj.properties[0].property];
+      if (obj.properties?.property) {
+        const pList = Array.isArray(obj.properties.property) ? obj.properties.property : [obj.properties.property];
         for (const p of pList) {
           if (p.$ && p.$.name) {
             customProps[p.$.name] = p.$.value;
@@ -442,10 +449,14 @@ async function syncTmx(config) {
           }
         }
       } else if (groupName === 'Spawns') {
-        // 出生点直接按逻辑格子大小换算
+        // 对象顺序即部署顺序，不能按坐标重排，否则移动站位会换掉角色身份。
         const logicTileWidth = tileWidth * LOGIC_SCALE;
-        const sx = Math.min(Math.ceil(width / LOGIC_SCALE) - 1, Math.max(0, Math.floor(x / logicTileWidth)));
-        const sy = Math.min(Math.ceil(height / LOGIC_SCALE) - 1, Math.max(0, Math.floor(y / logicTileWidth)));
+        if (x % logicTileWidth || y % logicTileWidth || w !== logicTileWidth || h !== logicTileWidth
+            || x < 0 || y < 0 || x >= width * tileWidth || y >= height * tileHeight) {
+          throw new Error(`${config.id}: 出生点 ${obj.$.id} 未吸附到网格或超出地图`);
+        }
+        const sx = x / logicTileWidth;
+        const sy = y / logicTileWidth;
         spawns.push({ x: sx, y: sy });
       } else if (groupName === 'Terrains' || groupName === 'Zones' || groupName === 'Buffs' || customProps.def !== undefined || customProps.avoid !== undefined) {
         // 地形特技区域 (掩体/草丛/高地/地毯等)
@@ -479,6 +490,35 @@ async function syncTmx(config) {
         }
       }
     }
+  }
+
+  const expectedSpawns = config.playerUnits.length + config.enemyUnits.length;
+  if (spawns.length !== expectedSpawns) {
+    throw new Error(`${config.id}: 出生点应为 ${expectedSpawns} 个，实际 ${spawns.length} 个`);
+  }
+  const occupied = new Set();
+  for (const spawn of spawns) {
+    const key = `${spawn.x},${spawn.y}`;
+    if (occupied.has(key) || collisions.some(c => c.x === spawn.x && c.y === spawn.y)) {
+      throw new Error(`${config.id}: 出生点 ${key} 重叠或被 Collisions 阻挡`);
+    }
+    occupied.add(key);
+  }
+  const blocked = new Set(collisions.map(c => `${c.x},${c.y}`));
+  const reachable = new Set();
+  const queue = [spawns[0]];
+  reachable.add(`${queue[0].x},${queue[0].y}`);
+  for (let i = 0; i < queue.length; i++) {
+    const { x, y } = queue[i];
+    for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+      const nx = x + dx, ny = y + dy, key = `${nx},${ny}`;
+      if (nx < 0 || ny < 0 || nx >= width || ny >= height || blocked.has(key) || reachable.has(key)) continue;
+      reachable.add(key);
+      queue.push({ x: nx, y: ny });
+    }
+  }
+  if (spawns.some(s => !reachable.has(`${s.x},${s.y}`))) {
+    throw new Error(`${config.id}: Collisions 隔断了双方出生区，请留出可通行路线`);
   }
 
   // 3. 读取并更新 JS 文件
@@ -519,8 +559,7 @@ async function syncTmx(config) {
 
   // 4. 更新 playerDeploy 与 enemyDeploy
   if (spawns.length > 0) {
-    // 按照从左到右排序
-    spawns.sort((a, b) => a.x - b.x);
+    // 保留 Tiled Spawns 对象顺序：前 N 个是玩家，其余依次是敌人。
     const playerCount = config.playerUnits.length;
     const playerSpawns = spawns.slice(0, playerCount);
     const enemySpawns = spawns.slice(playerCount);
@@ -567,4 +606,11 @@ async function run() {
   }
 }
 
-run().catch(console.error);
+if (require.main === module) {
+  run().catch(error => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { syncTmx, CHAPTER_CONFIGS };
