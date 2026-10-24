@@ -1,5 +1,6 @@
 import { sound } from '../engine/sound.js';
 import { assetLoader } from '../engine/asset_loader.js';
+import { drawLoadingScreen } from '../ui/loading_screen.js';
 
 /**
  * 浅黄纸质极简风剧情剧场组件 (Story Visual Novel Layer)
@@ -25,6 +26,8 @@ export class DialogueSystem {
     this.choiceButtonRect = null;
     this.showingChoice = false;
     this.waitingForItemConfirm = false;
+    this.loading = false;
+    this.loadToken = 0;
   }
 
   startScene(sceneData) {
@@ -56,7 +59,11 @@ export class DialogueSystem {
     this.charIndex = 0;
     this.isLineComplete = false;
     this.lastCharTime = performance.now();
+    this.prepareLineImages();
+    if (!this.loading) this.playLineAudio();
+  }
 
+  playLineAudio() {
     if (this.activeLine.bgm) {
       sound.playBgm(this.activeLine.bgm);
     }
@@ -66,6 +73,38 @@ export class DialogueSystem {
     } else {
       sound.playSfx('sfx_text_blip');
     }
+  }
+
+  prepareLineImages() {
+    const token = ++this.loadToken;
+    this.loading = false;
+    if (typeof window === 'undefined') return;
+
+    const line = this.activeLine;
+    const bg = line?.bgImg || this.currentScene?.bgImg;
+    const fallback = bg && this.currentScene?.bgImgFallback;
+    const portraits = line?.hidePortraits ? [] : [line?.leftPortrait, line?.rightPortrait].filter(Boolean);
+    const paths = [...new Set([bg, ...portraits].filter(Boolean))];
+    if (!paths.length) return;
+
+    // 先发起请求，加载完成之前不显示这一句，避免特写/立绘晚于台词出现。
+    const pending = paths.some(src => {
+      const resource = assetLoader.loadWithChromaKey(src);
+      return resource && !resource.loaded && !resource.error;
+    });
+    const bgFallbackPending = bg && fallback && assetLoader.cache[bg]?.error
+      && !assetLoader.cache[fallback]?.loaded;
+    if (!pending && !bgFallbackPending) return;
+    this.loading = true;
+    if (fallback) assetLoader.loadWithChromaKey(fallback);
+    const bgReady = bg ? assetLoader.waitFor(bg).then(ok => ok || !fallback
+      ? ok : assetLoader.waitFor(fallback)) : Promise.resolve(true);
+    Promise.all([bgReady, ...portraits.map(src => assetLoader.waitFor(src))]).then(() => {
+      if (token !== this.loadToken) return;
+      this.loading = false;
+      this.lastCharTime = performance.now();
+      this.playLineAudio();
+    });
   }
 
   onDialoguesEnd() {
@@ -81,7 +120,7 @@ export class DialogueSystem {
   }
 
   next() {
-    if (this.waitingForItemConfirm) return;
+    if (this.waitingForItemConfirm || this.loading) return;
 
     if (this.showingChoice) {
       if (this.onSceneComplete) {
@@ -113,6 +152,10 @@ export class DialogueSystem {
     const ctx = this.ctx;
     const w = this.canvas.width;
     const h = this.canvas.height;
+    if (this.loading) {
+      drawLoadingScreen(ctx, w, h, '正在准备剧情画面');
+      return;
+    }
 
     // 1. 绘制场景环境背景 (外部图或内建温暖浅黄环境)
     this.drawSceneBackground(ctx, w, h);

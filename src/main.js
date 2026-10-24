@@ -80,7 +80,9 @@ import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
 import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
+import { tiledManager } from './systems/tiled_map.js';
 import { gamepadManager } from './systems/gamepad.js';
+import { drawLoadingScreen } from './ui/loading_screen.js';
 
 const LINEAR_STORY = {
   ...CHAPTER1_STORY,
@@ -226,6 +228,8 @@ export class GameApp {
     // 章节标题覆盖层（跨标题/剧情/战斗阶段全屏展示，进入章节剧情前显示【序章】等）
     this.chapterBanner = null;       // { label, title, startTime, duration }
     this.chapterBannerOnDone = null; // 章节标题展示结束后的回调（如：真正开始剧情）
+    this.loading = null;
+    this.loadRequest = 0;
 
     // 游玩时长节流累计：每满一整秒才 tickPlaytime 一次（STATE_SCHEMA playtimeSec）
     this._playtimeAccumMs = 0;
@@ -278,6 +282,30 @@ export class GameApp {
     this.loop();
   }
 
+  cancelLoading() {
+    this.loadRequest = (this.loadRequest || 0) + 1;
+    this.loading = null;
+  }
+
+  prepareScreen(label, paths, extra = [], onReady = null) {
+    const request = (this.loadRequest || 0) + 1;
+    this.loadRequest = request;
+    const images = [...new Set(paths.filter(Boolean))];
+    if (!extra.length && images.every(src => assetLoader.cache[src]?.loaded
+      || assetLoader.cache[src]?.error)) {
+      this.loading = null;
+      onReady?.();
+      return;
+    }
+    this.loading = { label };
+    Promise.allSettled([...images.map(src => assetLoader.waitFor(src)), ...extra])
+      .then(() => {
+        if (this.loadRequest !== request) return;
+        this.loading = null;
+        onReady?.();
+      });
+  }
+
   enterTitleScreen() {
     this.stage = 'STAGE_TITLE';
     this.topBar.style.display = 'none';
@@ -296,6 +324,14 @@ export class GameApp {
     if (typeof this.titleScreen.setContinueAvailable === 'function') {
       this.titleScreen.setContinueAvailable(this.saveManager.hasAnySave());
     }
+    this.prepareScreen('正在准备开场画面', [
+      'assets/backgrounds/bg_opening@2x.png',
+      'assets/backgrounds/bg_title@2x.png',
+      'assets/backgrounds/title_logo@2x.png',
+      'assets/backgrounds/bg_classroom@2x.png',
+      'assets/art/zhangzixiao_default.png',
+      'assets/art/shiyunuo_default.png'
+    ]);
   }
 
   /** T5/D5 标题主菜单分发（TitleScreen onMenuAction 回调入口） */
@@ -493,6 +529,7 @@ export class GameApp {
   }
 
   startStoryScene(sceneKey) {
+    this.cancelLoading();
     this.stage = 'STAGE_STORY';
     this.topBar.style.display = 'none';
     this.storyItemModal = null;
@@ -676,6 +713,7 @@ export class GameApp {
   }
 
   enterEpilogueScreen() {
+    this.cancelLoading();
     this.stage = 'STAGE_EPILOGUE';
     this.topBar.style.display = 'none';
     this.canvas.width = 960;
@@ -702,6 +740,21 @@ export class GameApp {
     this.chapterTitleEl.textContent = chapterData.name;
 
     this.initBattle(chapterData);
+    const art = this.battleState.units.map(unit => unit.portrait);
+    const onReady = () => {
+      if (this.stage === 'STAGE_BATTLE' && this.battleState.chapter === chapterData) {
+        this.showPhaseBanner('PLAYER_PHASE', 1, true);
+      }
+    };
+    if (chapterData.tiledData) {
+      this.prepareScreen('正在准备战斗地图', art, [
+        tiledManager.preloadTilesets(chapterData.tiledData)
+      ], onReady);
+    } else {
+      this.prepareScreen('正在准备战斗地图', [
+        ...art, ATLAS_CONFIG.sheetSrc, ...(chapterData.props || []).map(prop => prop.img)
+      ], onReady);
+    }
 
     // 战斗 BGM 支持关卡数据自定义（如 boss 战用诡异专用曲），未配置则回退常规战斗曲
     sound.playBgm(chapterData.bgm || 'bgm_battle_normal');
@@ -1056,7 +1109,7 @@ export class GameApp {
 
     this.canvas.addEventListener('wheel', (e) => {
       e.preventDefault();
-      if (this.stage !== 'STAGE_BATTLE' || this.battleState.isAnimatingCombat) return;
+      if (this.loading || this.stage !== 'STAGE_BATTLE' || this.battleState.isAnimatingCombat) return;
 
       if (this.battleState.mode === 'ACTION_MENU') {
         // 委托行动菜单组件（moveSelection 循环滚动且自动跳过灰项）
@@ -1074,6 +1127,7 @@ export class GameApp {
 
     this.canvas.addEventListener('click', (e) => {
       sound.unlock();
+      if (this.loading || (this.stage === 'STAGE_STORY' && this.dialogueSystem.loading)) return;
       // ★ 章节标题覆盖层展示期间吞掉点击（自动播放，展示结束才放行）
       if (this.chapterBanner) return;
       const rect = this.canvas.getBoundingClientRect();
@@ -1218,6 +1272,7 @@ export class GameApp {
 
     window.addEventListener('keydown', (e) => {
       sound.unlock();
+      if (this.loading || (this.stage === 'STAGE_STORY' && this.dialogueSystem.loading)) return;
 
       // ★ 开发者秘籍：F1 呼出/关闭选关菜单
       if (e.code === 'F1') {
@@ -2492,7 +2547,8 @@ export class GameApp {
     const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
     const dt = now - this._lastLoopTs;
     this._lastLoopTs = now;
-    if (!this.gameState || this.stage === 'STAGE_TITLE' || dt <= 0) return;
+    if (!this.gameState || this.stage === 'STAGE_TITLE' || this.loading
+        || (this.stage === 'STAGE_STORY' && this.dialogueSystem.loading) || dt <= 0) return;
     this._playtimeAccumMs += dt;
     if (this._playtimeAccumMs >= 1000) {
       const sec = Math.floor(this._playtimeAccumMs / 1000);
@@ -2504,6 +2560,11 @@ export class GameApp {
   loop() {
     this.tickPlaytimeClock();
     gamepadManager.poll();
+    if (this.loading) {
+      drawLoadingScreen(this.renderer.ctx, this.canvas.width, this.canvas.height, this.loading.label);
+      requestAnimationFrame(() => this.loop());
+      return;
+    }
     if (this.stage === 'STAGE_TITLE') {
       this.titleScreen.render();
     } else if (this.stage === 'STAGE_STORY') {

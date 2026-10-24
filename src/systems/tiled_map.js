@@ -81,28 +81,37 @@ export const TILED_TILESETS = [
 class TiledManager {
   constructor() {
     this.images = {};
-    this.loaded = false;
-    this.preload();
+    this.pending = new Map();
   }
 
-  preload() {
-    if (typeof window === 'undefined') return;
-    let pending = TILED_TILESETS.length;
-    TILED_TILESETS.forEach(ts => {
-      const img = new Image();
-      img.src = ts.src;
-      img.onload = () => {
-        this.images[ts.name] = img;
-        pending--;
-        if (pending === 0) {
-          this.loaded = true;
-        }
-      };
-      img.onerror = () => {
-        console.warn(`[TiledManager] Failed to load tileset: ${ts.src}`);
-        pending--;
-      };
-    });
+  loadTileset(ts, timeoutMs = 8000) {
+    if (typeof window === 'undefined') return Promise.resolve(false);
+    if (this.images[ts.src]?.complete && this.images[ts.src].naturalWidth) {
+      return Promise.resolve(true);
+    }
+    if (!this.pending.has(ts.src)) {
+      const image = new Image();
+      this.images[ts.src] = image;
+      this.pending.set(ts.src, new Promise(resolve => {
+        image.onload = () => resolve(true);
+        image.onerror = () => resolve(false);
+        image.src = ts.src;
+      }));
+    }
+    let timer;
+    return Promise.race([
+      this.pending.get(ts.src),
+      new Promise(resolve => { timer = setTimeout(() => resolve(false), timeoutMs); })
+    ]).finally(() => clearTimeout(timer));
+  }
+
+  preloadTilesets(tiledData) {
+    const sets = tiledData?.tilesets || TILED_TILESETS;
+    const used = new Set([...(tiledData?.bgGrid || []).flat(), ...(tiledData?.decGrid || []).flat()]
+      .map(gid => (gid & 0x1fffffff) >>> 0).filter(Boolean));
+    return Promise.all(sets.filter(ts =>
+      [...used].some(gid => gid >= ts.firstgid && gid < ts.firstgid + ts.total)
+    ).map(ts => this.loadTileset(ts)));
   }
 
   /**
@@ -134,13 +143,9 @@ class TiledManager {
         if (localId < ts.total) {
           const col = localId % ts.cols;
           const row = Math.floor(localId / ts.cols);
-          if (!this.images[ts.src] && !this.images[ts.name] && typeof window !== 'undefined') {
-            const image = new Image();
-            this.images[ts.src] = image;
-            image.src = ts.src;
-          }
+          if (!this.images[ts.src] && typeof window !== 'undefined') this.loadTileset(ts);
           return {
-            img: this.images[ts.src] || this.images[ts.name],
+            img: this.images[ts.src],
             sx: col * ts.tileW,
             sy: row * ts.tileH,
             sw: ts.tileW,
