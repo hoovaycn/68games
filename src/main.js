@@ -234,6 +234,7 @@ export class GameApp {
     this.loadRequest = 0;
     this.chapterReady = null;
     this.chapterPlans = null;
+    this.prefetchGeneration = 0;
 
     // 游玩时长节流累计：每满一整秒才 tickPlaytime 一次（STATE_SCHEMA playtimeSec）
     this._playtimeAccumMs = 0;
@@ -326,13 +327,84 @@ export class GameApp {
     return this.chapterPlans.plans.find(plan => plan.assets.scenes.has(sceneKey)) || null;
   }
 
+  cancelChapterPrefetch() {
+    this.prefetchGeneration = (this.prefetchGeneration || 0) + 1;
+  }
+
+  isChapterCached(plan) {
+    return [...plan.assets.images].every(src =>
+      assetLoader.cache[src]?.loaded || assetLoader.cache[src]?.error)
+      && plan.assets.tilesets.every(ts => {
+        const image = tiledManager.images[ts.src];
+        return image?.complete && image.naturalWidth > 0;
+      });
+  }
+
+  decodedImageBytes() {
+    const storyBytes = Object.values(assetLoader.cache).reduce((sum, resource) =>
+      sum + (resource.loaded ? resource.img.width * resource.img.height * 4 : 0), 0);
+    const tileBytes = Object.values(tiledManager.images).reduce((sum, image) =>
+      sum + (image.complete && image.naturalWidth
+        ? image.naturalWidth * image.naturalHeight * 4 : 0), 0);
+    return storyBytes + tileBytes;
+  }
+
+  prefetchNextChapter(plan) {
+    const index = this.chapterPlans?.plans.indexOf(plan) ?? -1;
+    const next = this.chapterPlans?.plans[index + 1];
+    if (!next || typeof window === 'undefined') return;
+    const generation = this.prefetchGeneration;
+    const mobile = (navigator.deviceMemory && navigator.deviceMemory <= 4)
+      || (window.matchMedia?.('(pointer: coarse)')?.matches && window.innerWidth <= 900);
+    const maxBytes = mobile ? 128 * 1024 * 1024 : Infinity;
+    const idle = () => new Promise(resolve => {
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(resolve, { timeout: 1000 });
+      } else {
+        setTimeout(resolve, 50);
+      }
+    });
+    const active = () => this.prefetchGeneration === generation
+      && this.chapterReady === plan.entry;
+    // One request at a time, leaving frames and bandwidth available to the game.
+    void (async () => {
+      for (const src of next.assets.images) {
+        if (!active() || this.decodedImageBytes() >= maxBytes) return;
+        if (assetLoader.cache[src]?.loaded || assetLoader.cache[src]?.error) continue;
+        await idle();
+        if (!active()) return;
+        await assetLoader.waitFor(src, 45000);
+      }
+      for (const ts of next.assets.tilesets) {
+        if (!active() || this.decodedImageBytes() >= maxBytes) return;
+        if (tiledManager.images[ts.src]?.complete && tiledManager.images[ts.src].naturalWidth) continue;
+        await idle();
+        if (!active()) return;
+        await tiledManager.loadTileset(ts, 45000);
+      }
+    })();
+  }
+
   prepareChapter(sceneKey, onReady) {
     const plan = this.getChapterPlan(sceneKey);
     if (!plan || this.chapterReady === plan.entry) return false;
+    this.cancelChapterPrefetch();
     const { images, tilesets } = plan.assets;
     // Release previous chapter canvases before decoding the next chapter.
     for (const src of Object.keys(assetLoader.cache)) {
       if (!images.has(src) && src !== ATLAS_CONFIG.sheetSrc) delete assetLoader.cache[src];
+    }
+    const usedTilesets = new Set(tilesets.map(ts => ts.src));
+    for (const src of Object.keys(tiledManager.images)) {
+      if (usedTilesets.has(src)) continue;
+      delete tiledManager.images[src];
+      tiledManager.pending.delete(src);
+    }
+    if (this.isChapterCached(plan)) {
+      this.chapterReady = plan.entry;
+      onReady();
+      this.prefetchNextChapter(plan);
+      return true;
     }
     const paths = [...images];
     let cursor = 0;
@@ -349,11 +421,13 @@ export class GameApp {
     this.prepareScreen(`正在准备${banner?.label || '本章节'}画面`, [], [assetsReady], () => {
       this.chapterReady = plan.entry;
       onReady();
+      this.prefetchNextChapter(plan);
     });
     return true;
   }
 
   enterTitleScreen() {
+    this.cancelChapterPrefetch();
     this.chapterReady = null;
     this.stage = 'STAGE_TITLE';
     this.topBar.style.display = 'none';

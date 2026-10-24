@@ -219,3 +219,81 @@ test('进入章节只等待一次，后续场景复用缓存并清理上一章�
   assert.equal(app.prepareChapter('ch10_scene_tracking', () => done.push('again')), false);
   assert.equal(requested.length, 2);
 });
+
+test('游玩本章时静默预取下一章，切章时直接复用图片和图集', async t => {
+  const requested = mockImages(t);
+  window.requestIdleCallback = callback => setImmediate(callback);
+  const app = Object.create(GameApp.prototype);
+  const current = {
+    entry: 'prefetch_current',
+    assets: {
+      scenes: new Set(['prefetch_current']),
+      images: new Set(['assets/prefetch_current.png']),
+      tilesets: []
+    }
+  };
+  const next = {
+    entry: 'prefetch_next',
+    assets: {
+      scenes: new Set(['prefetch_next']),
+      images: new Set(['assets/prefetch_next_a.png', 'assets/prefetch_next_b.png']),
+      tilesets: [{ src: 'assets/prefetch_next_tiles.png' }]
+    }
+  };
+  app.chapterPlans = { plans: [current, next] };
+  app.chapterReady = current.entry;
+  app.prefetchGeneration = 0;
+  app.loadRequest = 0;
+  app.prefetchNextChapter(current);
+  assert.equal(app.loading, undefined);
+  await flush();
+  assert.deepEqual(requested.map(image => image.url), ['assets/prefetch_next_a.png']);
+  requested[0].succeed();
+  await flush();
+  await flush();
+  assert.deepEqual(requested.map(image => image.url),
+    ['assets/prefetch_next_a.png', 'assets/prefetch_next_b.png']);
+  requested[1].succeed();
+  await flush();
+  await flush();
+  assert.equal(requested[2].url, 'assets/prefetch_next_tiles.png');
+  requested[2].succeed();
+  await flush();
+  assert.equal(app.isChapterCached(next), true);
+
+  assetLoader.cache['assets/prefetch_current.png'] = { loaded: true, img: { width: 2, height: 2 } };
+  tiledManager.images['assets/prefetch_old_tiles.png'] = { complete: true, naturalWidth: 2, naturalHeight: 2 };
+  tiledManager.pending.set('assets/prefetch_old_tiles.png', Promise.resolve(true));
+  const ready = [];
+  assert.equal(app.prepareChapter(next.entry, () => ready.push('next')), true);
+  assert.deepEqual(ready, ['next']);
+  assert.equal(app.loading, undefined);
+  assert.equal(assetLoader.cache['assets/prefetch_current.png'], undefined);
+  assert.equal(tiledManager.images['assets/prefetch_old_tiles.png'], undefined);
+  assert.equal(tiledManager.pending.has('assets/prefetch_old_tiles.png'), false);
+  assert.equal(requested.length, 3);
+});
+
+test('切换章节时取消旧后台任务，不再启动后续预取', async t => {
+  const requested = mockImages(t);
+  window.requestIdleCallback = callback => setImmediate(callback);
+  const app = Object.create(GameApp.prototype);
+  const current = { entry: 'old', assets: { images: new Set(), tilesets: [] } };
+  const next = {
+    entry: 'new',
+    assets: {
+      images: new Set(['assets/cancel_prefetch_first.png', 'assets/cancel_prefetch_second.png']),
+      tilesets: []
+    }
+  };
+  app.chapterPlans = { plans: [current, next] };
+  app.chapterReady = current.entry;
+  app.prefetchGeneration = 0;
+  app.prefetchNextChapter(current);
+  await flush();
+  assert.equal(requested.length, 1);
+  app.cancelChapterPrefetch();
+  requested[0].succeed();
+  await flush();
+  assert.equal(requested.length, 1);
+});
