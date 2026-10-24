@@ -305,7 +305,7 @@ export const CHAPTER8_STORY = {
       {
         id: 16,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/adult_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',

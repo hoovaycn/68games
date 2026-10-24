@@ -81,6 +81,8 @@ import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
 import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
 import { tiledManager } from './systems/tiled_map.js';
+import { collectChapterAssets } from './systems/chapter_assets.js';
+import { ENEMIES } from './data/enemies.js';
 import { gamepadManager } from './systems/gamepad.js';
 import { drawLoadingScreen } from './ui/loading_screen.js';
 
@@ -230,6 +232,8 @@ export class GameApp {
     this.chapterBannerOnDone = null; // 章节标题展示结束后的回调（如：真正开始剧情）
     this.loading = null;
     this.loadRequest = 0;
+    this.chapterReady = null;
+    this.chapterPlans = null;
 
     // 游玩时长节流累计：每满一整秒才 tickPlaytime 一次（STATE_SCHEMA playtimeSec）
     this._playtimeAccumMs = 0;
@@ -306,7 +310,51 @@ export class GameApp {
       });
   }
 
+  getChapterPlan(sceneKey) {
+    if (sceneKey === 'scene_prelude') return null;
+    if (!this.chapterPlans || this.chapterPlans.route !== this.selectedRoute) {
+      const routeData = PROLOGUE_STORY[this.selectedRoute] || PROLOGUE_STORY.male;
+      const story = { ...routeData, ...LINEAR_STORY };
+      const entries = CHAPTER_ENTRY_SCENES;
+      const plans = entries.map(entry => ({
+        entry,
+        assets: collectChapterAssets(entry, story, CHAPTERS, entries,
+          this.selectedRoute, UNITS, ENEMIES)
+      }));
+      this.chapterPlans = { route: this.selectedRoute, plans };
+    }
+    return this.chapterPlans.plans.find(plan => plan.assets.scenes.has(sceneKey)) || null;
+  }
+
+  prepareChapter(sceneKey, onReady) {
+    const plan = this.getChapterPlan(sceneKey);
+    if (!plan || this.chapterReady === plan.entry) return false;
+    const { images, tilesets } = plan.assets;
+    // Release previous chapter canvases before decoding the next chapter.
+    for (const src of Object.keys(assetLoader.cache)) {
+      if (!images.has(src) && src !== ATLAS_CONFIG.sheetSrc) delete assetLoader.cache[src];
+    }
+    const paths = [...images];
+    let cursor = 0;
+    const workers = Array.from({ length: Math.min(4, paths.length) }, async () => {
+      while (cursor < paths.length) {
+        const src = paths[cursor++];
+        await assetLoader.waitFor(src, 45000);
+      }
+    });
+    const assetsReady = Promise.all([
+      ...workers, ...tilesets.map(ts => tiledManager.loadTileset(ts, 45000))
+    ]);
+    const banner = CHAPTER_BANNERS[plan.entry];
+    this.prepareScreen(`正在准备${banner?.label || '本章节'}画面`, [], [assetsReady], () => {
+      this.chapterReady = plan.entry;
+      onReady();
+    });
+    return true;
+  }
+
   enterTitleScreen() {
+    this.chapterReady = null;
     this.stage = 'STAGE_TITLE';
     this.topBar.style.display = 'none';
     // 设计分辨率 960×540，由 index.html scaler 等比缩放
@@ -549,6 +597,7 @@ export class GameApp {
     let rawSceneData = routeData[sceneKey] || LINEAR_STORY[sceneKey];
 
     if (rawSceneData) {
+      if (this.prepareChapter(sceneKey, () => this.startStoryScene(sceneKey))) return;
       // 深度拷贝并注入男女主专属变量替换（{MC_NAME}, {MC_PORTRAIT}, {ALLY_1_NAME}, {ALLY_2_NAME} 等）
       const isMale = this.selectedRoute === 'male';
       const mcName = isMale ? '张子骁' : '石予诺';
@@ -746,7 +795,14 @@ export class GameApp {
         this.showPhaseBanner('PLAYER_PHASE', 1, true);
       }
     };
-    if (chapterData.tiledData) {
+    this.getChapterPlan(nextStoryScene);
+    const chapterPlan = this.chapterPlans?.plans.find(plan =>
+      plan.assets.battleIds.has(chapterData.id));
+    if (chapterPlan && this.chapterReady === chapterPlan.entry) {
+      onReady();
+    } else if (chapterPlan && this.prepareChapter(nextStoryScene, onReady)) {
+      // Loading a battle save prepares its post-battle scenes as well.
+    } else if (chapterData.tiledData) {
       this.prepareScreen('正在准备战斗地图', art, [
         tiledManager.preloadTilesets(chapterData.tiledData)
       ], onReady);
