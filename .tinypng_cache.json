@@ -66,10 +66,10 @@
     "compressedAt": "2026-10-03T07:05:11.693Z"
   },
   "assets/backgrounds/bg_field_relief@2x.png": {
-    "originalSize": 781469,
-    "compressedSize": 203453,
-    "md5": "2576f7eec3b80689477a16a23a30eb54",
-    "compressedAt": "2026-10-03T07:05:12.000Z"
+    "originalSize": 486603,
+    "compressedSize": 200487,
+    "md5": "75e4f0f385bc3f0fbe91c4145640be1e",
+    "compressedAt": "2026-10-24T08:14:18.816Z"
   },
   "assets/backgrounds/bg_classroom_eerie@2x.png": {
     "originalSize": 740864,
@@ -3112,5 +3112,329 @@
     "compressedSize": 1078673,
     "md5": "0f3462a8883c93ee5aa790c9a442f266",
     "compressedAt": "2026-10-22T14:47:22.129Z"
+  },
+  "assets/backgrounds/bg_warehouse_grand_hall@2x.png": {
+    "originalSize": 3644208,
+    "compressedSize": 918861,
+    "md5": "7dc6501438485d18f89d4ca2c57ca9b3",
+    "compressedAt": "2026-10-24T08:10:28.388Z"
+  },
+  "assets/backgrounds/bg_clocktower_summit@2x.png": {
+    "originalSize": 3659925,
+    "compressedSize": 875892,
+    "md5": "b1bea88e5032f47ed86c64acd663e914",
+    "compressedAt": "2026-10-24T08:10:34.092Z"
+  },
+  "assets/backgrounds/bg_garage_exterior@2x.png": {
+    "originalSize": 3506373,
+    "compressedSize": 755449,
+    "md5": "e897004d8e3bf97bcc29ecb80c912500",
+    "compressedAt": "2026-10-24T08:10:46.673Z"
+  },
+  "assets/backgrounds/bg_forbidden_city_palace@2x.png": {
+    "originalSize": 3515736,
+    "compressedSize": 955159,
+    "md5": "490e65952566f4d70e4c2eec3fffbb09",
+    "compressedAt": "2026-10-24T08:10:50.007Z"
+  },
+  "assets/backgrounds/bg_museum_exhibition@2x.png": {
+    "originalSize": 3414959,
+    "compressedSize": 760403,
+    "md5": "b4fd1ca1a19661b2dd4193454e01f826",
+    "compressedAt": "2026-10-24T08:11:17.894Z"
+  },
+  "assets/backgrounds/bg_safahouse_shelter@2x.png": {
+    "originalSize": 3460527,
+    "compressedSize": 828251,
+    "md5": "10849d861837df77dc2f6c9f26201221",
+    "compressedAt": "2026-10-24T08:11:18.085Z"
+  },
+  "assets/backgrounds/bg_barge_altar@2x.png": {
+    "originalSize": 3394460,
+    "compressedSize": 703451,
+    "md5": "63d453218ce4a00b866a580e1a91e260",
+    "compressedAt": "2026-10-24T08:11:32.807Z"
+  },
+  "assets/backgrounds/bg_warehouse_poison_altar@2x.png": {
+    "originalSize": 3363603,
+    "compressedSize": 815292,
+    "md5": "6c9ab6095ba6d46a027f910b37e21f7a",
+    "compressedAt": "2026-10-24T08:11:49.241Z"
+  },
+  "assets/backgrounds/bg_garage_backyard_rain@2x.png": {
+    "originalSize": 3268597,
+    "compressedSize": 835195,
+    "md5": "2bb3d65d722bea2e5cc5843b780a1055",
+    "compressedAt": "2026-10-24T08:11:55.588Z"
+  },
+  "assets/backgrounds/bg_canal_dock_storm@2x.png": {
+    "originalSize": 3173235,
+    "compressedSize": 767928,
+    "md5": "3de6263cbbf774f30deffe3d26a32a9c",
+    "compressedAt": "2026-10-24T08:12:02.185Z"
+  },
+  "assets/backgrounds/bg_humen_harbor_1839@2x.png": {
+    "originalSize": 3102169,
+    "compressedSize": 687150,
+    "md5": "4dc69b3cc0f2f99f3183791470537311",
+    "compressedAt": "2026-10-24T08:12:17.024Z"
+  },
+  "assets/backgrounds/bg_watergate_ruins@2x.png": {
+    "originalSize": 3146669,
+    "compressedSize": 752832,
+    "md5": "d471ecce2e9adf69a2f3deb14cc1df33",
+    "compressedAt": "2026-10-24T08:12:22.562Z"
+  },
+  "assets/backgrounds/bg_museum_square@2x.png": {
+    "originalSize": 2985109,
+    "compressedSize": 625454,
+    "md5": "32a7cb9026dd7b7c97ce8ff11a1330e8",
+    "compressedAt": "2026-10-24T08:12:31.366Z"
+  },
+  "assets/backgrounds/bg_clocktower_staff_sacrifice@2x.png": {
+    "originalSize": 2996530,
+    "compressedSize": 945715,
+    "md5": "9b2377fb3f916107174b6abb7bf00a0d",
+    "compressedAt": "2026-10-24T08:12:37.145Z"
+  },
+  "assets/backgrounds/bg_humen_beach_1839@2x.png": {
+    "originalSize": 2553265,
+    "compressedSize": 577898,
+    "md5": "7ae12e365cb66a49652ef855e05c9d0b",
+    "compressedAt": "2026-10-24T08:12:47.154Z"
+  },
+  "assets/backgrounds/bg_safahouse_radio@2x.png": {
+    "originalSize": 2723597,
+    "compressedSize": 833806,
+    "md5": "a3290e2e23179e1a558599ac641b0d51",
+    "compressedAt": "2026-10-24T08:12:49.052Z"
+  },
+  "assets/backgrounds/bg_shen_family_caseboard@2x.png": {
+    "originalSize": 2431621,
+    "compressedSize": 760948,
+    "md5": "6e12762f2afb68df74d7414c8f28ca9c",
+    "compressedAt": "2026-10-24T08:13:13.619Z"
+  },
+  "assets/backgrounds/bg_humen_fushoutang_storehouse@2x.png": {
+    "originalSize": 2526858,
+    "compressedSize": 974910,
+    "md5": "bfd825e5cd3280e37386b84e0ac11ad5",
+    "compressedAt": "2026-10-24T08:13:17.224Z"
+  },
+  "assets/backgrounds/bg_humen_righteous_staff@2x.png": {
+    "originalSize": 2154359,
+    "compressedSize": 506816,
+    "md5": "072710e87ea87de1fe547c313eb4e23d",
+    "compressedAt": "2026-10-24T08:13:28.024Z"
+  },
+  "assets/backgrounds/bg_time_passage@2x.png": {
+    "originalSize": 931305,
+    "compressedSize": 806014,
+    "md5": "b49c032705c34aea00ec5e73be73b5a4",
+    "compressedAt": "2026-10-24T08:13:48.698Z"
+  },
+  "assets/art/boss_colossus_opium_god@2x.png": {
+    "originalSize": 677762,
+    "compressedSize": 165804,
+    "md5": "156ae1ea9d0da69da402f0b2257b95d6",
+    "compressedAt": "2026-10-24T08:13:54.821Z"
+  },
+  "assets/backgrounds/bg_clocktower_storm@2x.png": {
+    "originalSize": 1078673,
+    "compressedSize": 1042381,
+    "md5": "faa0750837a023c5b55acaa00e43268b",
+    "compressedAt": "2026-10-24T08:13:58.619Z"
+  },
+  "assets/art/shen_wanting_old@2x.png": {
+    "originalSize": 575596,
+    "compressedSize": 124736,
+    "md5": "dd0af5d90c12d0256685d51a9c4e83e4",
+    "compressedAt": "2026-10-24T08:14:01.819Z"
+  },
+  "assets/backgrounds/bg_safahouse_shelter_night@2x.png": {
+    "originalSize": 2291780,
+    "compressedSize": 1144244,
+    "md5": "06edea0ad7c0766d2be08a8029ce9406",
+    "compressedAt": "2026-10-24T08:14:03.636Z"
+  },
+  "assets/art/berserker_guard_heavy@2x.png": {
+    "originalSize": 573162,
+    "compressedSize": 115198,
+    "md5": "4c6235ebd530c531cb8a7e43cc119c64",
+    "compressedAt": "2026-10-24T08:14:04.255Z"
+  },
+  "assets/art/foreign_sailor_1839@2x.png": {
+    "originalSize": 543956,
+    "compressedSize": 114934,
+    "md5": "132b1fe74af7ba80065612c61d9cafa7",
+    "compressedAt": "2026-10-24T08:14:07.443Z"
+  },
+  "assets/backgrounds/bg_canal_dawn@2x.png": {
+    "originalSize": 835855,
+    "compressedSize": 719688,
+    "md5": "ec3cb8cef70404bdf71f9cb7674bdebc",
+    "compressedAt": "2026-10-24T08:14:08.037Z"
+  },
+  "assets/art/emperor_daoguang_palace@2x.png": {
+    "originalSize": 524461,
+    "compressedSize": 134701,
+    "md5": "7cccc92d3938208b552fd0b2e176e85f",
+    "compressedAt": "2026-10-24T08:14:09.273Z"
+  },
+  "assets/art/qinruiyi_resolute@2x.png": {
+    "originalSize": 499356,
+    "compressedSize": 118566,
+    "md5": "e052fd7456fbdb1165f32df01bbf73a3",
+    "compressedAt": "2026-10-24T08:14:11.278Z"
+  },
+  "assets/art/father_haifeng_police_damaged@2x.png": {
+    "originalSize": 498537,
+    "compressedSize": 119932,
+    "md5": "b21fdc39b7616bea2f956af965187600",
+    "compressedAt": "2026-10-24T08:14:13.145Z"
+  },
+  "assets/art/lin_zexu_imperial_commissioner@2x.png": {
+    "originalSize": 493054,
+    "compressedSize": 117253,
+    "md5": "08f78b0042e0b94672c9e267d847c167",
+    "compressedAt": "2026-10-24T08:14:15.274Z"
+  },
+  "assets/art/father_haifeng_default@2x.png": {
+    "originalSize": 494058,
+    "compressedSize": 128033,
+    "md5": "f30d4aa0caf3ddbb9e7d6046ca8a95f2",
+    "compressedAt": "2026-10-24T08:14:17.051Z"
+  },
+  "assets/art/shen_chongli_default@2x.png": {
+    "originalSize": 456689,
+    "compressedSize": 107996,
+    "md5": "62fd8b1461451900123e5a4356994198",
+    "compressedAt": "2026-10-24T08:14:20.671Z"
+  },
+  "assets/art/father_haifeng_police@2x.png": {
+    "originalSize": 477814,
+    "compressedSize": 111819,
+    "md5": "91d095f1b7161651d39a1c20f0c3b208",
+    "compressedAt": "2026-10-24T08:14:21.080Z"
+  },
+  "assets/art/militia_instructor_1839@2x.png": {
+    "originalSize": 443234,
+    "compressedSize": 111666,
+    "md5": "9f9bb785b5415a2c9dad639c27f38b86",
+    "compressedAt": "2026-10-24T08:14:24.273Z"
+  },
+  "assets/art/comprador_assassin_1839@2x.png": {
+    "originalSize": 451103,
+    "compressedSize": 113934,
+    "md5": "3b7fd2f1f2924414828f552ef9222a87",
+    "compressedAt": "2026-10-24T08:14:25.180Z"
+  },
+  "assets/art/fushoutang_shopkeeper_1839@2x.png": {
+    "originalSize": 301788,
+    "compressedSize": 132125,
+    "md5": "3132042bfbb49825c899c7dbb9cc5184",
+    "compressedAt": "2026-10-24T08:14:27.479Z"
+  },
+  "assets/art/shen_guard_default@2x.png": {
+    "originalSize": 433958,
+    "compressedSize": 115145,
+    "md5": "770681dc1733daf1bc660e5f37bb65b9",
+    "compressedAt": "2026-10-24T08:14:27.908Z"
+  },
+  "assets/art/berserker_guard_heavy.png": {
+    "originalSize": 159051,
+    "compressedSize": 37980,
+    "md5": "5d0634b56bfb58dbfa00d604e829f340",
+    "compressedAt": "2026-10-24T08:14:28.136Z"
+  },
+  "assets/art/boss_colossus_opium_god.png": {
+    "originalSize": 180192,
+    "compressedSize": 51963,
+    "md5": "4689be034e290039e7d9133659774a84",
+    "compressedAt": "2026-10-24T08:14:29.250Z"
+  },
+  "assets/art/foreign_sailor_1839.png": {
+    "originalSize": 149491,
+    "compressedSize": 37550,
+    "md5": "f248deb0e65d2b30ac4e58a8d41a924d",
+    "compressedAt": "2026-10-24T08:14:30.218Z"
+  },
+  "assets/art/shen_wanting_old.png": {
+    "originalSize": 155825,
+    "compressedSize": 40345,
+    "md5": "0c66c79d1c6aa8c35b25eafebee5cad9",
+    "compressedAt": "2026-10-24T08:14:30.258Z"
+  },
+  "assets/art/father_haifeng_battle_damaged.png": {
+    "originalSize": 147239,
+    "compressedSize": 42657,
+    "md5": "50851fafc345474251e2851c9d6c389a",
+    "compressedAt": "2026-10-24T08:14:30.420Z"
+  },
+  "assets/art/emperor_daoguang_palace.png": {
+    "originalSize": 142266,
+    "compressedSize": 42383,
+    "md5": "61336d60ab0bf9005b591746dec0d7b0",
+    "compressedAt": "2026-10-24T08:14:32.109Z"
+  },
+  "assets/art/qinruiyi_resolute.png": {
+    "originalSize": 140124,
+    "compressedSize": 39771,
+    "md5": "58c30f91f8c4531cb3172e6df7c6b224",
+    "compressedAt": "2026-10-24T08:14:33.366Z"
+  },
+  "assets/art/father_haifeng_default.png": {
+    "originalSize": 136068,
+    "compressedSize": 40094,
+    "md5": "1d5759e35993196f39b05dab8097d75e",
+    "compressedAt": "2026-10-24T08:14:33.591Z"
+  },
+  "assets/art/father_haifeng_police_damaged.png": {
+    "originalSize": 136459,
+    "compressedSize": 39913,
+    "md5": "0852d816d5a11da88245ff8aa66edba5",
+    "compressedAt": "2026-10-24T08:14:34.126Z"
+  },
+  "assets/art/lin_zexu_imperial_commissioner.png": {
+    "originalSize": 134816,
+    "compressedSize": 35926,
+    "md5": "96e87138cd2b070b36f1a43e480dd9f2",
+    "compressedAt": "2026-10-24T08:14:34.732Z"
+  },
+  "assets/art/father_haifeng_police.png": {
+    "originalSize": 132772,
+    "compressedSize": 38676,
+    "md5": "db960e2eae7deec5cc4534e90c527038",
+    "compressedAt": "2026-10-24T08:14:34.961Z"
+  },
+  "assets/art/shen_chongli_default.png": {
+    "originalSize": 128006,
+    "compressedSize": 36234,
+    "md5": "ea8a7793181b29fdca25d81832b52db7",
+    "compressedAt": "2026-10-24T08:14:35.756Z"
+  },
+  "assets/art/militia_instructor_1839.png": {
+    "originalSize": 125493,
+    "compressedSize": 36471,
+    "md5": "43dc94540970ebdbaf911bc171ce6926",
+    "compressedAt": "2026-10-24T08:14:36.640Z"
+  },
+  "assets/art/comprador_assassin_1839.png": {
+    "originalSize": 125652,
+    "compressedSize": 35965,
+    "md5": "50cc8459d992250a26f792623524ebb9",
+    "compressedAt": "2026-10-24T08:14:37.287Z"
+  },
+  "assets/art/shen_guard_default.png": {
+    "originalSize": 122490,
+    "compressedSize": 37470,
+    "md5": "773572b2d215e818550908c1d3a659ad",
+    "compressedAt": "2026-10-24T08:14:38.297Z"
+  },
+  "assets/art/father_haifeng_battle_damaged@2x.png": {
+    "originalSize": 540050,
+    "compressedSize": 129800,
+    "md5": "5834cd32e0dc6193a7e62e15c37399ae",
+    "compressedAt": "2026-10-24T08:15:27.595Z"
   }
 }

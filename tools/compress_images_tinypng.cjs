@@ -29,6 +29,13 @@ function getFileMd5(filePath) {
   return crypto.createHash('md5').update(buffer).digest('hex');
 }
 
+// 统一用正斜杠记录相对路径。
+// 缓存里存的是 'assets/xxx.png'，而 Windows 下 path.relative() 返回 'assets\xxx.png'，
+// 不归一化会导致已压过的文件全部判定为「未压」而重复消耗 TinyPNG 额度。
+function relKey(filePath) {
+  return path.relative(path.resolve(__dirname, '..'), filePath).split(path.sep).join('/');
+}
+
 // 递归遍历所有 png/jpg 图片
 function getAllImages(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
@@ -94,7 +101,7 @@ function compressImage(filePath) {
                 const savedRatio = (((originalSize - compressedSize) / originalSize) * 100).toFixed(1);
                 
                 // 写入缓存记录
-                const relPath = path.relative(path.resolve(__dirname, '..'), filePath);
+                const relPath = relKey(filePath);
                 cache[relPath] = {
                   originalSize,
                   compressedSize,
@@ -136,7 +143,7 @@ async function runCompression() {
 
   // 过滤出未压缩过或有变动的图片（指定文件模式下强制重压）
   const pendingImages = explicit || allImages.filter(file => {
-    const relPath = path.relative(path.resolve(__dirname, '..'), file);
+    const relPath = relKey(file);
     if (!cache[relPath]) return true;
     const currentMd5 = getFileMd5(file);
     return cache[relPath].md5 !== currentMd5;

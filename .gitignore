@@ -44,3 +44,7 @@ preview_*.png
 
 # 音频素材池（下载的原始 zip + 解压音频，体量大仅本地留档；精选已落盘到 assets/audio/）
 docs/music_pool/
+
+# 本地下载的瓦片原包和未引用的试验图集；游戏所需瓦片保留在 assets/tiles/
+docs/map/Rasaks_Modern_Tileset/
+docs/map/tiled_project/test482.tsx
