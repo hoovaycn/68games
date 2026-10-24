@@ -72,7 +72,7 @@ export const CLASSES = {
     id: 'strong_boy',
     name: '怪力少年',
     desc: '个头骗不了题目，但骗得了对手。写作业手抖的人，掰手腕全班投降。',
-    base: { hp: 28, mp: 6, str: 10, mag: 0, skl: 5, spd: 6, luk: 5, def: 7, res: 1, mov: 2 },
+    base: { hp: 28, mp: 6, str: 10, mag: 0, skl: 5, spd: 6, luk: 5, def: 7, res: 1, mov: 3 },
     growth: { hp: 75, mp: 10, str: 60, mag: 5, skl: 30, spd: 40, luk: 25, def: 45, res: 10 },
     families: ['球', '钝器'],
     legacy: false

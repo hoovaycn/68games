@@ -79,6 +79,7 @@ import { CH19_BATTLE1 } from './data/chapters/ch19_battle1.js';
 import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
+import { artForUnit, portraitForUnit } from './engine/avatar.js';
 import { ATLAS_CONFIG } from './systems/tilemap_atlas.js';
 import { tiledManager } from './systems/tiled_map.js';
 import { collectChapterAssets } from './systems/chapter_assets.js';
@@ -2128,6 +2129,12 @@ export class GameApp {
     bs.cursor.x = target.x;
     bs.cursor.y = target.y;
     const isSelfSkill = skill.target === 'self';
+
+    // ★ 预加载技能演出立绘，避免首帧闪现兜底占位
+    const skillArtUrls = [artForUnit(caster)];
+    if (!isSelfSkill && target) skillArtUrls.push(artForUnit(target));
+    await Promise.all(skillArtUrls.filter(Boolean).map(url => assetLoader.waitFor(url)));
+
     let skillConfirmResolve = null;
     const skillModal = new SkillExchange(this.canvas, {
       skill,
@@ -2193,6 +2200,8 @@ export class GameApp {
 
     // 如果技能导致了升级，等待升级弹窗完成
     if (levelUpPending) {
+      const luArtUrl = artForUnit(levelUpPending.unit);
+      if (luArtUrl) await assetLoader.waitFor(luArtUrl);
       await new Promise((resolve) => {
         this.battleState.levelUpModal = new LevelUpModal(this.canvas, levelUpPending, () => {
           this.battleState.levelUpModal = null;
@@ -2298,6 +2307,12 @@ export class GameApp {
       : (defender.faction === 'player' ? 'defender' : null);
     const playerUnit = attacker.faction === 'player' ? attacker
       : (defender.faction === 'player' ? defender : null);
+
+    // ★ 预加载交战双方头像，避免弹层首帧闪现兜底占位
+    await Promise.all([
+      assetLoader.waitFor(portraitForUnit(attacker)),
+      assetLoader.waitFor(portraitForUnit(defender)),
+    ]);
 
     let ceConfirmResolve = null;
     const ceModal = new CombatExchange(this.canvas, {
@@ -2428,6 +2443,8 @@ export class GameApp {
     if (levelUpPending) {
       const lu = levelUpPending;
       levelUpPending = null;
+      const luArtUrl = artForUnit(lu.unit);
+      if (luArtUrl) await assetLoader.waitFor(luArtUrl);
       await new Promise((resolve) => {
         this.battleState.levelUpModal = new LevelUpModal(this.canvas, lu, () => {
           this.battleState.levelUpModal = null;
@@ -2442,6 +2459,8 @@ export class GameApp {
     if (loots.length > 0) this.battleState.collectedLoots.push(...loots);
     for (const loot of loots) {
       sound.playSfx('sfx_item_get');
+      // ★ 预加载战利品图标，避免弹层首帧闪现兜底占位
+      if (loot.iconPath) await assetLoader.waitFor(loot.iconPath);
       // 逐条弹出真正的战利品弹窗组件，等待玩家确认后继续
       await new Promise((resolve) => {
         this.battleState.itemRewardModal = new ItemModal(

@@ -18,7 +18,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大考前一天傍晚，小伙伴们留在教室里补值日、发准考证，徐老师和刘老师在办公室核对考场名单。楼道本来安安静静的，可没过多久，外面就开始一阵一阵响起桌椅拖动声、脚步声，还有那股甜得发腻的怪味。',
+        text: '大考前一天傍晚，小伙伴们留在教室里补值日、发准考证，徐老师和刘老师在办公室核对考场名单。楼道本来安安静静的，可没过多久，外面就一阵一阵传来桌椅拖动声和脚步声，空气里还飘着那股甜得发腻的怪味。',
         sfx: 'sfx_confirm'
       },
       {
@@ -54,7 +54,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '门一推开，让人大吃一惊。走廊里站着的几乎全是熟脸：张希哲、覃瑞怡、朱晏泽，还有平时一起上课的同学、隔壁班的熟人，甚至连白天打过招呼的低年级孩子都在。',
+        text: '门一推开，大家全愣住了。走廊里站着的几乎全是熟脸：张希哲、覃瑞怡、朱晏泽，还有平时一起上课的同学、隔壁班的熟人，甚至连白天打过招呼的低年级孩子都在。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -63,7 +63,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；有人嘴角沾着荧光糖渣，眼睛却已经一层层亮起青蓝色的光。那不是少数几个倒霉的人，是几乎整层楼都出事了。',
+        text: '有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；有人嘴角沾着荧光糖渣，眼睛却已经一点点亮起青蓝色的光。那不是少数几个倒霉的人，是几乎整层楼都出事了。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -144,14 +144,14 @@ export const CHAPTER6_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '靠过来！别散！记住，打的是那股控制他们的执念，别往死了打啊~ 准备站位！',
+        text: '靠过来，别散！记住，把他们打醒就行，护好自己和队友！准备站位！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '五个人被逼到楼道转角，已经没有退路。必须把这几个最难缠的同学拦下来！',
+      prompt: '五个人被逼到楼道转角，已经没有退路。必须把这几个最难缠的同学打败！',
       buttonText: '【准备战斗】',
       battleId: 'ch6_battle1',
       isBattleTrigger: true
@@ -180,7 +180,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '这不是这一层赢不了，是整栋楼都快守不住了……',
+        text: '赢下这一层也没用，整栋楼都快守不住了……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -189,7 +189,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '别恋战，先退器材室！再往外硬顶，我们五个都会被拖死在这儿！',
+        text: '别打了，先撤到器材室！再往外冲，我们五个都得被耗死在这儿！',
         sfx: 'sfx_confirm'
       },
       {
@@ -216,7 +216,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '我们不是已经把送货的、递东西的、发样品的都揪出来了吗……为什么还是会变成这样？',
+        text: '我们不是已经把送货、发样品的那些人都揪出来了吗……为什么还是变成这样？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -225,7 +225,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '因为你们总觉得坏人都在外面。可最难防的，是大家自己心里觉得“只要能考第一，吃点零食变怪点也无所谓”。',
+        text: '因为你们总以为坏人在外头。可最难防的，是大家自己心里那点念头——“只要能考第一，吃点这怪零食变怪点也无所谓”。',
         sfx: 'sfx_text_blip'
       },
       {

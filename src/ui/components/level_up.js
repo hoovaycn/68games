@@ -21,6 +21,7 @@ import {
   ModalBase, PALETTE, planBar, barRatio, clamp01, lerp, easeOutCubic,
   fontCss, drawBar, drawAvatar, avatarFaceFor, drawOverlay, pathRoundRect,
 } from './ui_kit.js';
+import { artForUnit } from '../../engine/avatar.js';
 
 /* ══════════════════════ 1. 时间轴节拍与文案表（纯常量） ══════════════════════ */
 
@@ -381,7 +382,7 @@ export class LevelUpModal extends ModalBase {
     this.setButtons([{ id: 'ok', label: '确认' }], {
       btnW: this.layout.btn.w,
       btnH: this.layout.btn.h,
-      anchorY: this.box.y + this.box.h - 48,
+      anchorY: this.box.y + this.box.h - 72,
     });
     // 全屏盒下自动布局会居中到整幅画面：手动挪回左面板中轴（避开右侧立绘名牌）
     const btn = this.buttons[0];
@@ -464,9 +465,9 @@ export class LevelUpModal extends ModalBase {
 
     ctx.save();
     ctx.globalAlpha = p;
-    // 右侧优先用半身立绘（assets/art/{id}_default.png），缺失再退回头像
-    const actorId = this.unit?.unitId || this.unit?.enemyId || this.unit?.id;
-    const artImg = actorId ? assetLoader.getImage(`assets/art/${actorId}_default.png`) : null;
+    // 右侧优先用半身立绘（统一走 avatar.js artForUnit 解析），缺失再退回头像
+    const artUrl = this.unit ? artForUnit(this.unit) : null;
+    const artImg = artUrl ? assetLoader.getImage(artUrl) : null;
     const face = avatarFaceFor(this.unit || { name: this.name, faction: this.faction }, { density: '2x' });
     if (artImg) {
       ctx.save();
@@ -536,11 +537,11 @@ export class LevelUpModal extends ModalBase {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    const g = ctx.createLinearGradient(0, P.titleY - 26, 0, P.titleY + 26);
+    const g = ctx.createLinearGradient(0, P.titleY - 22, 0, P.titleY + 22);
     g.addColorStop(0, '#fff7d6');
     g.addColorStop(0.55, '#fbbf24');
     g.addColorStop(1, '#b45309');
-    ctx.font = fontCss(46, 'bold');
+    ctx.font = fontCss(34, 'bold');
     ctx.shadowColor = 'rgba(251,191,36,0.65)';
     ctx.shadowBlur = 26;
     ctx.fillStyle = g;

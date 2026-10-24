@@ -3,7 +3,7 @@
  */
 export const CH6_BATTLE1 = {
   id: 'ch6_battle1',
-  name: '第八战：夜楼道 · 先把熟人拦下来',
+  name: '第八战：夜楼道 · 先把熟人打败',
   bgm: 'bgm_army_approaching',
   mapWidth: 16,
   mapHeight: 10,
@@ -41,7 +41,8 @@ export const CH6_BATTLE1 = {
     text: '在楼道里先压住最前面的异化同伴'
   },
 
-  nextStorySceneOnWin: 'ch6_scene_retreat',
+  nextStorySceneOnWin: 'ch6_scene_retreat'
+,
   tiledData: {
   "visualWidth": 16,
   "visualHeight": 10,

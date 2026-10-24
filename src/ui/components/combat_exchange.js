@@ -329,28 +329,28 @@ function expSegmentView(seg, t, st, base) {
  * 卡内节奏统一 28：头像缘→名 / 名行→等级副行 / 名区→条 25 / 条底→伤害数字 28。
  */
 export function planExchangeCards(box) {
-  const cardCy = box.y + Math.round(box.h * 0.30);
+  const cardCy = box.y + Math.round(box.h * 0.27);
   const r = Math.max(34, Math.min(52, Math.round(box.w * 0.068)));
   const half = Math.round(box.w * 0.29);
   const barW = Math.min(280, Math.round(box.w * 0.38));
   const expBar = {
     x: box.x + Math.round(box.w * 0.15),
-    y: box.y + Math.round(box.h * 0.76),
+    y: box.y + Math.round(box.h * 0.70),
     w: Math.round(box.w * 0.70),
     h: 16,
   };
 
   const mk = (dir) => {
     const cx = box.cx + dir * half;
-    const nameY = cardCy + r + 28;
-    const levelY = nameY + 21;
-    const hpBar = { x: cx - barW / 2, y: levelY + 25, w: barW, h: 20 };
+    const nameY = cardCy + r + 22;
+    const levelY = nameY + 18;
+    const hpBar = { x: cx - barW / 2, y: levelY + 20, w: barW, h: 18 };
     return {
       avatar: { cx, cy: cardCy, r },
       nameY,
       levelY,
       hpBar,
-      damageY: hpBar.y + hpBar.h + 28,
+      damageY: hpBar.y + hpBar.h + 22,
     };
   };
 
@@ -358,11 +358,11 @@ export function planExchangeCards(box) {
     attacker: mk(-1),
     defender: mk(1),
     vs: { cx: box.cx, cy: cardCy, r: Math.max(16, Math.min(24, Math.round(r * 0.48))) },
-    levelUpY: box.y + Math.round(box.h * 0.60),
-    reportY: box.y + Math.round(box.h * 0.66),
+    levelUpY: box.y + Math.round(box.h * 0.56),
+    reportY: box.y + Math.round(box.h * 0.62),
     expBar,
-    // +N 数字几何锚（条上方 20）：与报告行拉开净空，不与 18px 战报带重叠
-    expLabelY: expBar.y - 20,
+    // +N 数字几何锚（条上方 16）：与报告行拉开净空，不与 18px 战报带重叠
+    expLabelY: expBar.y - 16,
   };
 }
 
@@ -480,7 +480,7 @@ export class CombatExchange extends ModalBase {
     if (this._timelineEnded) return;
     this._timelineEnded = true;
     this.selectable = true;
-    this.setButtons([{ id: 'ok', label: '确认' }]);
+    this.setButtons([{ id: 'ok', label: '确认' }], { anchorY: this.box.y + this.box.h - 104 });
   }
 
   /** 时间轴未完时吞掉一切输入（战斗演出不可跳过/不可误关） */

@@ -614,8 +614,12 @@ export class Renderer {
 
     const img = assetLoader.getImage(u.portrait);
     if (img) {
-      // 头像填满内圈 (保留面部为中心)
-      ctx.drawImage(img, cx - r + 2, cy - r + 2, (r - 2) * 2, (r - 2) * 2);
+      // 头像填满内圈
+      const dw = (r - 2) * 2;
+      const dh = (r - 2) * 2;
+      const dx = cx - r + 2;
+      const dy = cy - r + 2;
+      ctx.drawImage(img, dx, dy, dw, dh);
     } else {
       // 无头像 fallback：首字两字
       ctx.fillStyle = '#ffffff';

@@ -306,7 +306,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两人说着说着，身上的青光又忽然一阵一阵往上翻，像是那股劲还不肯彻底放开他们。众人下意识围上去，一声一声喊，把人从那股反噬里往回拽。',
+        text: '两人说着说着，身上的青光又一阵一阵往上翻，好像有什么东西还不肯放过他们。大家赶紧围上去，一声声喊他们的名字，想把两人从那股劲儿里拉回来。',
         sfx: 'sfx_shock_sting'
       },
       {

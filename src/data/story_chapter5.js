@@ -112,7 +112,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/parent_rep_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '老师你们先别拦。人家也是好心，弄点营养品回来试试，总不能真害自己班孩子吧？',
+        text: '就是啊，试试又不要钱。人家重点中学的孩子都在吃，总不会害自家孩子吧？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -161,6 +161,33 @@ export const CHAPTER5_STORY = {
       },
       {
         id: 2,
+        speaker: '女同学',
+        leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        activeSide: 'left',
+        text: '水分子之间靠氢键连接，键角是一百零四点五度……碳酸钙高温分解，生成氧化钙和二氧化碳……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 3,
+        speaker: '男同学',
+        leftPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        activeSide: 'left',
+        text: '在相对论里，高速运动的钟走得慢，越接近光速，时间膨胀得越厉害……洛伦兹变换……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '满屋子大人都愣住了。这些连初中还没上的孩子，嘴里往外蹦的全是高中、大学才学的内容，一个字一个字往外冒，眼神却空洞得吓人。',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
         speaker: '学生家长',
         leftPortrait: 'assets/art/parent_rep_default@2x.png',
         rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
@@ -211,7 +238,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         activeSide: 'left',
-        text: '他们不是在发疯，他们是在被一句话顶着走。“考好一点”“别让爸妈失望”“就今天一晚”……这些话全挤到一块去了。',
+        text: '他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。这些话平时听着没事，这会儿全挤在一起，把人逼疯了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -220,7 +247,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
-        text: '讲台前先站开！别让他们冲到家长堆里去！',
+        text: '都往讲台两边散开，别堵着过道！别让他们冲进人堆里！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -334,7 +361,7 @@ export const CHAPTER5_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '窗外的教学楼一层层暗下去，而真正的坏消息，很可能这才刚开始。',
+      prompt: '窗外的天一点点暗下来，而真正的坏消息，可能这才刚开始。',
       buttonText: '【去找失联的人】',
       targetScene: 'ch6_scene_corridor'
     }

@@ -73,6 +73,42 @@ export const CHAPTER2_STORY = {
         activeSide: 'left',
         text: '这么说……昨天我同桌抽屉里那包发着光的零食，就是这种东西？！',
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
+        speaker: '女同学',
+        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
+        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        activeSide: 'right',
+        text: '你同桌？我还想问你呢，昨天课间你把什么偷偷塞进书包里了？',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 8,
+        speaker: '男同学',
+        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
+        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        activeSide: 'left',
+        text: '胡说什么，那是我妈塞的早餐！倒是你，这两天突然抱着初中课本看得起劲……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 9,
+        speaker: '女同学',
+        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
+        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        activeSide: 'right',
+        text: '我、我那是自己买来预习的，关你什么事！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 10,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '你一言我一语，越来越多的人插进来，互相指着鼻子。刚才还挨着坐的同学，一下子谁都不敢离谁太近。',
+        sfx: 'sfx_text_blip'
       }
     ],
     transition: {
@@ -345,7 +381,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/shadow_woman_default@2x.png',
         activeSide: 'left',
-        text: '手里的零食和饮料瓶……我都扣下了。但他们已经开始互相猜忌了，这比怪味零食扩散得更快。',
+        text: '零食和饮料瓶，我都扣下了。可孩子们已经开始互相猜忌，比那怪味零食扩散得还快。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -354,17 +390,54 @@ export const CHAPTER2_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/shadow_woman_default@2x.png',
         activeSide: 'right',
-        text: '呵呵呵……徐老师，你还是这么心软。不过……它们最饿的时候，还没真正到来呢。',
+        text: '呵呵……徐老师，你还是这么心软。当年那件事，你到现在还没放下。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 4,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        activeSide: 'left',
+        text: '放不下。就是因为放不下，我才不能让他们重走我们的老路。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 5,
+        speaker: '黑影女子',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        activeSide: 'right',
+        text: '光靠你一个人，护得住几个？它们……已经醒了。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 4,
+        id: 6,
+        speaker: '徐老师',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        activeSide: 'left',
+        text: '那也得护，能护一个是一个。',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 7,
+        speaker: '黑影女子',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        activeSide: 'right',
+        text: '你还是老样子。那就照我们当年说好的，继续把这出戏演下去。',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 8,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '路灯在夜风中剧烈摇晃了一下，阴影再度将一切吞噬……',
+        text: '夜风猛地灌进走廊，路灯剧烈摇晃。那团黑影在墙上拉成一道扭曲的长影，随即像水一样，慢慢渗进了黑暗里……',
         sfx: 'sfx_shock_sting'
       }
     ],

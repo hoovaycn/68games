@@ -269,7 +269,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个受伤的孩子说有人往学校送药，可没有账本，也没有人肯作证，大人们只当她们是和同学打架后找借口。',
+        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个孩子说有人往学校送药，可没人信——没证据，也没证人。大人们只当她们是打架后找借口。',
         sfx: 'sfx_text_blip'
       },
       {

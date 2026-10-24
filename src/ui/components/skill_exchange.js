@@ -279,7 +279,7 @@ export class SkillExchange extends ModalBase {
     if (this._timelineEnded) return;
     this._timelineEnded = true;
     this.selectable = true;
-    this.setButtons([{ id: 'ok', label: '确认' }], { anchorY: this.box.y + this.box.h - 54, btnH: 44 });
+    this.setButtons([{ id: 'ok', label: '确认' }], { anchorY: this.box.y + this.box.h - 78, btnH: 44 });
   }
 
   /** 时间轴未完时吞掉一切输入（技能演出不可跳过/不可误关） */
