@@ -108,7 +108,7 @@ class TiledManager {
   /**
    * 根据 GID 找到对应的图块集及切片区域（支持水平/垂直镜像与对角线旋转）
    */
-  getTileInfo(gid) {
+  getTileInfo(gid, tilesets = TILED_TILESETS) {
     if (!gid || gid <= 0) return null;
 
     // Tiled 翻转/旋转掩码常量 (高 3 位)
@@ -127,15 +127,20 @@ class TiledManager {
     const cleanGid = (gid & ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)) >>> 0;
     if (cleanGid <= 0) return null;
 
-    for (let i = TILED_TILESETS.length - 1; i >= 0; i--) {
-      const ts = TILED_TILESETS[i];
+    for (let i = tilesets.length - 1; i >= 0; i--) {
+      const ts = tilesets[i];
       if (cleanGid >= ts.firstgid) {
         const localId = cleanGid - ts.firstgid;
         if (localId < ts.total) {
           const col = localId % ts.cols;
           const row = Math.floor(localId / ts.cols);
+          if (!this.images[ts.src] && !this.images[ts.name] && typeof window !== 'undefined') {
+            const image = new Image();
+            this.images[ts.src] = image;
+            image.src = ts.src;
+          }
           return {
-            img: this.images[ts.name],
+            img: this.images[ts.src] || this.images[ts.name],
             sx: col * ts.tileW,
             sy: row * ts.tileH,
             sw: ts.tileW,
@@ -153,7 +158,7 @@ class TiledManager {
   /**
    * 绘制 2D 瓦片网格到 Canvas（完美支持 Tiled 的旋转与翻转变换）
    */
-  renderLayer(ctx, grid, ox, oy, tileSize) {
+  renderLayer(ctx, grid, ox, oy, tileSize, tilesets = TILED_TILESETS) {
     if (!grid || !Array.isArray(grid)) return;
 
     for (let y = 0; y < grid.length; y++) {
@@ -163,8 +168,8 @@ class TiledManager {
         const gid = row[x];
         if (!gid) continue;
 
-        const tile = this.getTileInfo(gid);
-        if (tile && tile.img) {
+        const tile = this.getTileInfo(gid, tilesets);
+        if (tile && tile.img?.complete && tile.img.naturalWidth) {
           const dx = ox + x * tileSize;
           const dy = oy + y * tileSize;
 

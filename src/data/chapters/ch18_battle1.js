@@ -411,6 +411,71 @@ export const CH18_BATTLE1 = {
       0
     ]
   ],
+  "tilesets": [
+    {
+      "name": "Interiors_free_48x48",
+      "firstgid": 1,
+      "src": "assets/tiles/modern_free/Interiors_free_48x48.png",
+      "cols": 16,
+      "total": 1424,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Room_Builder_free_48x48",
+      "firstgid": 1425,
+      "src": "assets/tiles/modern_free/Room_Builder_free_48x48.png",
+      "cols": 17,
+      "total": 391,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_1",
+      "firstgid": 1816,
+      "src": "assets/tiles/modern_free/Tileset_48x48_1.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_2",
+      "firstgid": 1916,
+      "src": "assets/tiles/modern_free/Tileset_48x48_2.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_3",
+      "firstgid": 2016,
+      "src": "assets/tiles/modern_free/Tileset_48x48_3.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_9",
+      "firstgid": 2116,
+      "src": "assets/tiles/modern_free/Tileset_48x48_9.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_16",
+      "firstgid": 2216,
+      "src": "assets/tiles/modern_free/Tileset_48x48_16.png",
+      "cols": 12,
+      "total": 168,
+      "tileW": 48,
+      "tileH": 48
+    }
+  ],
   "collisions": [],
   "zones": {}
 }

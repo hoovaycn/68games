@@ -28,19 +28,19 @@ export const CH1_BATTLE1 = {
 
   // 我方出战（4 人）：徐老师顶在前排，主角与张希哲、覃瑞怡并肩协作
   playerDeploy: [
-    { unitId: 'xu_laoshi', x: 2, y: 5 },
-    { unitId: 'zhangzixiao', x: 4, y: 3 },
-    { unitId: 'zhangxizhe', x: 4, y: 5 },
-    { unitId: 'qinruiyi', x: 4, y: 7 }
+    { unitId: 'xu_laoshi', x: 0, y: 3 },
+    { unitId: 'zhangzixiao', x: 1, y: 4 },
+    { unitId: 'zhangxizhe', x: 1, y: 6 },
+    { unitId: 'qinruiyi', x: 0, y: 5 }
   ],
 
   // 敌方布阵（5 人）：魔化体育老师在球门前压阵，外校体育生组成前锋、侧翼与掩护梯次
   enemyDeploy: [
-    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 9, y: 4 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 11, y: 3 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 11, y: 5 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 12, y: 7 },
-    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 13, y: 5 }
+    { enemyId: 'teacher_pe_corrupted', instanceId: 'boss_pe_teacher', x: 15, y: 3 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_1', x: 14, y: 2 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_2', x: 14, y: 4 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_3', x: 14, y: 6 },
+    { enemyId: 'senior_athlete_corrupted', instanceId: 'athlete_4', x: 15, y: 5 }
   ],
 
   objective: {
@@ -69,184 +69,184 @@ export const CH1_BATTLE1 = {
   "visualHeight": 10,
   "bgGrid": [
     [
-      459,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      460
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      475,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      476
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2409,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2409,
+      2408
     ],
     [
-      459,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      460
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      475,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      476
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      459,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      460
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      475,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      476
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      459,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      460
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2409,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      475,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      476
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      459,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      461,
-      460
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408
     ],
     [
-      475,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      477,
-      476
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2408,
+      2409,
+      2408,
+      2408,
+      2408,
+      2408
     ]
   ],
   "decGrid": [
@@ -257,30 +257,12 @@ export const CH1_BATTLE1 = {
       0,
       0,
       0,
-      243,
-      244,
-      243,
-      244,
       0,
       0,
-      0,
-      0,
-      0,
-      0
-    ],
-    [
-      0,
-      715,
-      716,
-      0,
-      0,
-      0,
-      259,
-      260,
-      259,
-      260,
-      0,
-      0,
+      2924,
+      2925,
+      2924,
+      2925,
       0,
       0,
       0,
@@ -288,17 +270,17 @@ export const CH1_BATTLE1 = {
     ],
     [
       0,
-      731,
-      732,
       0,
       0,
       0,
-      275,
-      276,
-      275,
-      276,
       0,
       0,
+      0,
+      0,
+      2940,
+      2941,
+      2940,
+      2941,
       0,
       0,
       0,
@@ -306,8 +288,8 @@ export const CH1_BATTLE1 = {
     ],
     [
       0,
-      747,
-      748,
+      0,
+      2820,
       0,
       0,
       0,
@@ -386,8 +368,8 @@ export const CH1_BATTLE1 = {
       0,
       0,
       0,
-      718,
-      719,
+      0,
+      0,
       0,
       0,
       0,
@@ -404,8 +386,26 @@ export const CH1_BATTLE1 = {
       0,
       0,
       0,
-      734,
-      735,
+      2820,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
       0,
       0,
       0,
@@ -431,102 +431,156 @@ export const CH1_BATTLE1 = {
       0
     ]
   ],
+  "tilesets": [
+    {
+      "name": "Interiors_free_48x48",
+      "firstgid": 1,
+      "src": "assets/tiles/modern_free/Interiors_free_48x48.png",
+      "cols": 16,
+      "total": 1424,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Room_Builder_free_48x48",
+      "firstgid": 1425,
+      "src": "assets/tiles/modern_free/Room_Builder_free_48x48.png",
+      "cols": 17,
+      "total": 391,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_1",
+      "firstgid": 1816,
+      "src": "assets/tiles/modern_free/Tileset_48x48_1.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_2",
+      "firstgid": 1916,
+      "src": "assets/tiles/modern_free/Tileset_48x48_2.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_3",
+      "firstgid": 2016,
+      "src": "assets/tiles/modern_free/Tileset_48x48_3.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_9",
+      "firstgid": 2116,
+      "src": "assets/tiles/modern_free/Tileset_48x48_9.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_16",
+      "firstgid": 2216,
+      "src": "assets/tiles/modern_free/Tileset_48x48_16.png",
+      "cols": 12,
+      "total": 168,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt481",
+      "firstgid": 2384,
+      "src": "assets/tiles/tiled_import/b25f7deed48a-a5_modern_exterior.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt482",
+      "firstgid": 2512,
+      "src": "assets/tiles/tiled_import/7d21016c1dcd-a5_sewer.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt483",
+      "firstgid": 2640,
+      "src": "assets/tiles/tiled_import/84f489ec09d4-a5_valley.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt484",
+      "firstgid": 2768,
+      "src": "assets/tiles/tiled_import/3c79a7c23b84-b_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt485",
+      "firstgid": 3024,
+      "src": "assets/tiles/tiled_import/8452e4593650-c_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    }
+  ],
   "collisions": [
     {
-      "x": 6,
-      "y": 0
-    },
-    {
-      "x": 7,
-      "y": 0
-    },
-    {
-      "x": 8,
-      "y": 0
-    },
-    {
-      "x": 9,
-      "y": 0
-    },
-    {
-      "x": 6,
-      "y": 1
-    },
-    {
-      "x": 7,
-      "y": 1
-    },
-    {
-      "x": 8,
-      "y": 1
-    },
-    {
-      "x": 9,
-      "y": 1
-    },
-    {
-      "x": 6,
-      "y": 2
-    },
-    {
-      "x": 7,
-      "y": 2
-    },
-    {
-      "x": 8,
-      "y": 2
-    },
-    {
-      "x": 9,
-      "y": 2
-    },
-    {
-      "x": 1,
-      "y": 1
-    },
-    {
-      "x": 2,
-      "y": 1
-    },
-    {
-      "x": 1,
-      "y": 2
-    },
-    {
       "x": 2,
       "y": 2
-    },
-    {
-      "x": 1,
-      "y": 3
-    },
-    {
-      "x": 2,
-      "y": 3
     },
     {
       "x": 9,
       "y": 7
     },
     {
-      "x": 10,
-      "y": 7
+      "x": 8,
+      "y": 0
     },
     {
       "x": 9,
-      "y": 8
+      "y": 0
     },
     {
       "x": 10,
-      "y": 8
+      "y": 0
+    },
+    {
+      "x": 11,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "y": 1
     },
     {
       "x": 9,
-      "y": 9
+      "y": 1
     },
     {
       "x": 10,
-      "y": 9
+      "y": 1
+    },
+    {
+      "x": 11,
+      "y": 1
     }
   ],
   "zones": {}

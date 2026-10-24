@@ -317,7 +317,7 @@ export class Renderer {
       ctx.fillRect(ox, oy, gridSystem.width * ts, gridSystem.height * ts);
 
       // 2. 绘制 Tiled 背景层（1:1 逻辑格与瓦片对齐）
-      tiledManager.renderLayer(ctx, tiledData.bgGrid, ox, oy, ts);
+      tiledManager.renderLayer(ctx, tiledData.bgGrid, ox, oy, ts, tiledData.tilesets);
 
       // 3. 细网格线（逻辑格，例如 11x7）
       ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
@@ -410,7 +410,7 @@ export class Renderer {
 
     const tiledData = state && state.chapter && state.chapter.tiledData;
     if (tiledData && tiledData.decGrid) {
-      tiledManager.renderLayer(ctx, tiledData.decGrid, ox, oy, ts);
+      tiledManager.renderLayer(ctx, tiledData.decGrid, ox, oy, ts, tiledData.tilesets);
     }
 
     // 开发与精调辅助：在空气墙格子上绘制极淡的红斜线与微弱半透明遮罩，方便核对阻挡是否精准

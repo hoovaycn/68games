@@ -20,8 +20,8 @@ export const CH0_BATTLE2 = {
   ],
 
   enemyDeploy: [
-    { enemyId: 'punk', instanceId: 'punk_1', x: 7, y: 5 },
-    { enemyId: 'punk', instanceId: 'punk_2', x: 9, y: 3 }
+    { enemyId: 'punk', instanceId: 'punk_1', x: 9, y: 3 },
+    { enemyId: 'punk', instanceId: 'punk_2', x: 7, y: 5 }
   ],
 
   objective: {
@@ -62,135 +62,122 @@ export const CH0_BATTLE2 = {
   "visualHeight": 7,
   "bgGrid": [
     [
-      2052,
-      2053,
-      2054,
-      2041,
-      2053,
-      2054,
-      2041,
-      2053,
-      2054,
-      2041,
-      2053
+      2728,
+      2729,
+      2730,
+      2728,
+      2729,
+      2730,
+      2728,
+      2729,
+      2730,
+      2728,
+      2729
     ],
     [
-      2082,
-      2058,
-      2057,
-      2051,
-      2081,
-      2082,
-      2051,
-      2058,
-      2057,
-      2051,
-      2081
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ],
     [
-      2092,
-      2047,
-      2048,
-      2047,
-      2091,
-      2092,
-      2048,
-      2047,
-      2048,
-      2047,
-      2091
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ],
     [
-      2082,
-      2057,
-      2058,
-      2057,
-      2081,
-      2082,
-      2058,
-      2057,
-      2058,
-      2057,
-      2081
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ],
     [
-      2092,
-      2048,
-      2047,
-      2048,
-      2091,
-      2092,
-      2047,
-      2048,
-      2047,
-      2048,
-      2091
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ],
     [
-      2082,
-      2058,
-      2057,
-      2058,
-      2081,
-      2082,
-      2057,
-      2058,
-      2057,
-      2058,
-      2081
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ],
     [
-      2092,
-      2047,
-      2048,
-      2047,
-      2091,
-      2092,
-      2048,
-      2047,
-      2048,
-      2047,
-      2091
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643,
+      2643
     ]
   ],
   "decGrid": [
     [
-      307,
-      308,
+      0,
+      2922,
+      2923,
       0,
       0,
       0,
       0,
       0,
-      311,
-      312,
-      0,
-      0
-    ],
-    [
-      323,
-      324,
-      0,
-      0,
-      0,
-      0,
-      0,
-      327,
-      328,
-      0,
+      2922,
+      2923,
       0
     ],
     [
       0,
+      2938,
+      2939,
       0,
       0,
       0,
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      2938,
+      2939,
       0
     ],
     [
@@ -216,8 +203,8 @@ export const CH0_BATTLE2 = {
       0,
       0,
       0,
-      293,
-      294
+      0,
+      0
     ],
     [
       0,
@@ -229,8 +216,21 @@ export const CH0_BATTLE2 = {
       0,
       0,
       0,
-      309,
-      310
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      2804,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ],
     [
       0,
@@ -242,9 +242,119 @@ export const CH0_BATTLE2 = {
       0,
       0,
       0,
-      325,
-      326
+      0,
+      0
     ]
+  ],
+  "tilesets": [
+    {
+      "name": "Interiors_free_48x48",
+      "firstgid": 1,
+      "src": "assets/tiles/modern_free/Interiors_free_48x48.png",
+      "cols": 16,
+      "total": 1424,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Room_Builder_free_48x48",
+      "firstgid": 1425,
+      "src": "assets/tiles/modern_free/Room_Builder_free_48x48.png",
+      "cols": 17,
+      "total": 391,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_1",
+      "firstgid": 1816,
+      "src": "assets/tiles/modern_free/Tileset_48x48_1.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_2",
+      "firstgid": 1916,
+      "src": "assets/tiles/modern_free/Tileset_48x48_2.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_3",
+      "firstgid": 2016,
+      "src": "assets/tiles/modern_free/Tileset_48x48_3.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_9",
+      "firstgid": 2116,
+      "src": "assets/tiles/modern_free/Tileset_48x48_9.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_16",
+      "firstgid": 2216,
+      "src": "assets/tiles/modern_free/Tileset_48x48_16.png",
+      "cols": 12,
+      "total": 168,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt481",
+      "firstgid": 2384,
+      "src": "assets/tiles/tiled_import/b25f7deed48a-a5_modern_exterior.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt482",
+      "firstgid": 2512,
+      "src": "assets/tiles/tiled_import/7d21016c1dcd-a5_sewer.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt483",
+      "firstgid": 2640,
+      "src": "assets/tiles/tiled_import/84f489ec09d4-a5_valley.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt484",
+      "firstgid": 2768,
+      "src": "assets/tiles/tiled_import/3c79a7c23b84-b_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt485",
+      "firstgid": 3024,
+      "src": "assets/tiles/tiled_import/8452e4593650-c_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    }
   ],
   "collisions": [
     {
@@ -292,28 +402,24 @@ export const CH0_BATTLE2 = {
       "y": 0
     },
     {
-      "x": 9,
-      "y": 4
+      "x": 1,
+      "y": 1
     },
     {
-      "x": 10,
-      "y": 4
+      "x": 2,
+      "y": 1
+    },
+    {
+      "x": 8,
+      "y": 1
     },
     {
       "x": 9,
+      "y": 1
+    },
+    {
+      "x": 3,
       "y": 5
-    },
-    {
-      "x": 10,
-      "y": 5
-    },
-    {
-      "x": 9,
-      "y": 6
-    },
-    {
-      "x": 10,
-      "y": 6
     }
   ],
   "zones": {}

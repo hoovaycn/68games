@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const xml2js = require('xml2js');
 
 const CHAPTER_CONFIGS = [
@@ -347,6 +348,60 @@ async function syncTmx(config) {
 
   const bgGrid = to2D(bgCsv, width, 'Background');
   const decGrid = to2D(decCsv, width, 'Decoration');
+  const tileRefs = map.tileset ? (Array.isArray(map.tileset) ? map.tileset : [map.tileset]) : [];
+  const tilesets = [];
+  for (const ref of tileRefs) {
+    const sourcePath = ref.$.source
+      ? path.resolve(path.dirname(fullTmxPath), ref.$.source) : fullTmxPath;
+    if (!fs.existsSync(sourcePath)) throw new Error(`${config.id}: 找不到图集 ${ref.$.source}`);
+    const source = ref.$.source ? fs.readFileSync(sourcePath, 'utf8') : null;
+    const set = !source ? ref : sourcePath.endsWith('.tsj') ? JSON.parse(source)
+      : (await parser.parseStringPromise(source)).tileset;
+    const imageSource = set.image?.$?.source || set.image;
+    const imagePath = path.resolve(path.dirname(sourcePath), imageSource || '');
+    if (!imageSource || !fs.existsSync(imagePath)) {
+      throw new Error(`${config.id}: 找不到图集图片 ${imageSource || ref.$.source}`);
+    }
+    const name = ref.$.source
+      ? path.basename(sourcePath, path.extname(sourcePath)) : set.$.name;
+    const image = fs.readFileSync(imagePath);
+    if (image.toString('ascii', 1, 4) !== 'PNG') {
+      throw new Error(`${config.id}: 图集 ${name} 图片不是 PNG`);
+    }
+    const imageWidth = Number(set.image?.$?.width ?? set.imagewidth ?? image.readUInt32BE(16));
+    const imageHeight = Number(set.image?.$?.height ?? set.imageheight ?? image.readUInt32BE(20));
+    const tileW = Number(set.$?.tilewidth ?? set.tilewidth);
+    const tileH = Number(set.$?.tileheight ?? set.tileheight);
+    const cols = Number(set.$?.columns ?? set.columns ?? Math.floor(imageWidth / tileW));
+    const total = Number(set.$?.tilecount ?? set.tilecount ?? cols * Math.floor(imageHeight / tileH));
+    const builtIn = ['Interiors_free_48x48', 'Room_Builder_free_48x48',
+      'Tileset_48x48_1', 'Tileset_48x48_2', 'Tileset_48x48_3',
+      'Tileset_48x48_9', 'Tileset_48x48_16', 'Room_Builder'].includes(name);
+    const fileName = `${crypto.createHash('sha1').update(imagePath).digest('hex').slice(0, 12)}-${path.basename(imagePath)}`;
+    const src = builtIn
+      ? `assets/tiles/modern_free/${path.basename(imagePath)}`
+      : `assets/tiles/tiled_import/${fileName}`;
+    tilesets.push({
+      name, firstgid: Number(ref.$.firstgid), src,
+      cols, total, tileW, tileH,
+      imagePath: builtIn ? null : imagePath
+    });
+    if (!Number.isInteger(tilesets.at(-1).firstgid) || !Number.isInteger(tilesets.at(-1).total)
+        || !Number.isInteger(tilesets.at(-1).cols) || tilesets.at(-1).cols < 1
+        || tilesets.at(-1).total < 1 || tilesets.at(-1).tileW !== 48 || tilesets.at(-1).tileH !== 48) {
+      throw new Error(`${config.id}: 图集 ${name} 尺寸或 GID 无效`);
+    }
+  }
+  tilesets.sort((a, b) => a.firstgid - b.firstgid);
+  const used = new Set([...bgGrid.flat(), ...decGrid.flat()].map(gid => (gid & 0x1fffffff) >>> 0));
+  for (const gid of used) {
+    if (gid === 0) continue;
+    const index = tilesets.findLastIndex(set => gid >= set.firstgid);
+    const set = tilesets[index];
+    if (!set || gid >= set.firstgid + set.total) {
+      throw new Error(`${config.id}: GID ${gid} 超出图集范围`);
+    }
+  }
 
   // 2. 解析对象层 (Collisions, Spawns, Terrains/Zones)
   const collisions = [];
@@ -520,9 +575,18 @@ async function syncTmx(config) {
   if (spawns.some(s => !reachable.has(`${s.x},${s.y}`))) {
     throw new Error(`${config.id}: Collisions 隔断了双方出生区，请留出可通行路线`);
   }
+  for (const set of tilesets) {
+    if (!set.imagePath || ![...used].some(gid => gid >= set.firstgid && gid < set.firstgid + set.total)) continue;
+    const destination = path.resolve(__dirname, '..', set.src);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.copyFileSync(set.imagePath, destination);
+  }
 
   // 3. 读取并更新 JS 文件
   let jsContent = fs.readFileSync(fullJsPath, 'utf-8');
+  if (!jsContent.includes(`export const ${config.id.toUpperCase()}`)) {
+    throw new Error(`${config.id}: 关卡 JS 缺少预期导出，已停止写回以防覆盖`);
+  }
 
   // 同步地图尺寸 (逻辑尺寸)
   const logicWidth = Math.ceil(width / LOGIC_SCALE);
@@ -544,6 +608,7 @@ async function syncTmx(config) {
     visualHeight: height,
     bgGrid,
     decGrid,
+    tilesets: tilesets.map(({ imagePath, ...set }) => set),
     collisions,
     zones
   };
@@ -589,6 +654,9 @@ async function syncTmx(config) {
     }
   }
 
+  if (!jsContent.includes('tiledData:') || !jsContent.includes('playerDeploy:')) {
+    throw new Error(`${config.id}: 回写结果缺少必要字段`);
+  }
   fs.writeFileSync(fullJsPath, jsContent);
   console.log(`[Synced] ${config.id} -> ${config.js}`);
 }

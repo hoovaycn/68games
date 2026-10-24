@@ -67,95 +67,95 @@ export const CH0_BATTLE1 = {
   "visualHeight": 7,
   "bgGrid": [
     [
-      2054,
-      2041,
-      2052,
-      2053,
-      2054,
-      2041,
-      2052,
-      2053,
-      2054,
-      2041,
-      2052
+      3119,
+      3120,
+      3121,
+      3119,
+      3120,
+      3121,
+      3119,
+      3120,
+      3121,
+      3119,
+      3120
     ],
     [
-      2497,
-      2051,
-      2499,
-      2497,
-      2498,
-      2051,
-      2497,
-      2498,
-      2499,
-      2051,
-      2498
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ],
     [
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ],
     [
-      2497,
-      2498,
-      2499,
-      2497,
-      2498,
-      2499,
-      2497,
-      2498,
-      2499,
-      2497,
-      2498
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ],
     [
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ],
     [
-      2497,
-      2498,
-      2499,
-      2497,
-      2498,
-      2499,
-      2497,
-      2498,
-      2499,
-      2497,
-      2498
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ],
     [
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481,
-      2482,
-      2480,
-      2481
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034,
+      3034
     ]
   ],
   "decGrid": [
@@ -214,25 +214,12 @@ export const CH0_BATTLE1 = {
     [
       0,
       0,
-      715,
-      716,
       0,
       0,
-      715,
-      716,
       0,
       0,
-      0
-    ],
-    [
       0,
       0,
-      731,
-      732,
-      0,
-      0,
-      731,
-      732,
       0,
       0,
       0
@@ -240,16 +227,148 @@ export const CH0_BATTLE1 = {
     [
       0,
       0,
-      747,
-      748,
+      0,
+      3545,
       0,
       0,
-      747,
-      748,
+      3545,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      3561,
+      0,
+      0,
+      3561,
+      0,
       0,
       0,
       0
     ]
+  ],
+  "tilesets": [
+    {
+      "name": "Interiors_free_48x48",
+      "firstgid": 1,
+      "src": "assets/tiles/modern_free/Interiors_free_48x48.png",
+      "cols": 16,
+      "total": 1424,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Room_Builder_free_48x48",
+      "firstgid": 1425,
+      "src": "assets/tiles/modern_free/Room_Builder_free_48x48.png",
+      "cols": 17,
+      "total": 391,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_1",
+      "firstgid": 1816,
+      "src": "assets/tiles/modern_free/Tileset_48x48_1.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_2",
+      "firstgid": 1916,
+      "src": "assets/tiles/modern_free/Tileset_48x48_2.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_3",
+      "firstgid": 2016,
+      "src": "assets/tiles/modern_free/Tileset_48x48_3.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_9",
+      "firstgid": 2116,
+      "src": "assets/tiles/modern_free/Tileset_48x48_9.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Tileset_48x48_16",
+      "firstgid": 2216,
+      "src": "assets/tiles/modern_free/Tileset_48x48_16.png",
+      "cols": 12,
+      "total": 168,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "Room_Builder",
+      "firstgid": 2384,
+      "src": "assets/tiles/modern_free/Room_Builder_free_48x48.png",
+      "cols": 17,
+      "total": 391,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt481",
+      "firstgid": 2775,
+      "src": "assets/tiles/tiled_import/b25f7deed48a-a5_modern_exterior.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt482",
+      "firstgid": 2903,
+      "src": "assets/tiles/tiled_import/7d21016c1dcd-a5_sewer.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt483",
+      "firstgid": 3031,
+      "src": "assets/tiles/tiled_import/84f489ec09d4-a5_valley.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt484",
+      "firstgid": 3159,
+      "src": "assets/tiles/tiled_import/3c79a7c23b84-b_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt485",
+      "firstgid": 3415,
+      "src": "assets/tiles/tiled_import/8452e4593650-c_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    }
   ],
   "collisions": [
     {
@@ -297,24 +416,8 @@ export const CH0_BATTLE1 = {
       "y": 0
     },
     {
-      "x": 2,
-      "y": 4
-    },
-    {
-      "x": 3,
-      "y": 4
-    },
-    {
-      "x": 2,
-      "y": 5
-    },
-    {
       "x": 3,
       "y": 5
-    },
-    {
-      "x": 2,
-      "y": 6
     },
     {
       "x": 3,
@@ -322,26 +425,10 @@ export const CH0_BATTLE1 = {
     },
     {
       "x": 6,
-      "y": 4
-    },
-    {
-      "x": 7,
-      "y": 4
-    },
-    {
-      "x": 6,
-      "y": 5
-    },
-    {
-      "x": 7,
       "y": 5
     },
     {
       "x": 6,
-      "y": 6
-    },
-    {
-      "x": 7,
       "y": 6
     }
   ],

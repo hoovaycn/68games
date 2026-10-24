@@ -810,7 +810,8 @@ test('福寿堂暗仓有可玩的 Tiled 战斗，胜利后才发生逃船', () =
   assert.deepEqual([battle.tiledData.visualWidth, battle.tiledData.visualHeight], [battle.mapWidth, battle.mapHeight]);
   assert.equal(battle.tiledData.bgGrid.length, battle.mapHeight);
   assert.ok(battle.tiledData.bgGrid.every((row) => row.length === battle.mapWidth));
-  assert.equal((tmx.match(/<object id=/g) || []).length, 13);
+  const spawnGroup = tmx.match(/<objectgroup[^>]*name="Spawns"[^>]*>[\s\S]*?<\/objectgroup>/)?.[0];
+  assert.equal((spawnGroup?.match(/<object id=/g) || []).length, 13);
   const spawns = [...battle.playerDeploy, ...battle.enemyDeploy];
   assert.equal(new Set(spawns.map(({ x, y }) => `${x},${y}`)).size, spawns.length);
   assert.ok(spawns.every(({ x, y }) => x > 0 && x < battle.mapWidth - 1 && y > 0 && y < battle.mapHeight - 1));

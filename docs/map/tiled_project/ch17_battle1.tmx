@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="17">
- <tileset firstgid="1" source="Interiors_free_48x48.tsx"/>
- <tileset firstgid="1425" source="Room_Builder_free_48x48.tsx"/>
- <tileset firstgid="1816" source="Tileset_48x48_1.tsx"/>
- <tileset firstgid="1916" source="Tileset_48x48_2.tsx"/>
- <tileset firstgid="2016" source="Tileset_48x48_3.tsx"/>
- <tileset firstgid="2116" source="Tileset_48x48_9.tsx"/>
- <tileset firstgid="2216" source="Tileset_48x48_16.tsx"/>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="48" tileheight="48" infinite="0" nextlayerid="5" nextobjectid="20">
+ <tileset firstgid="1" source="Tileset_48x48_9.tsx"/>
+ <tileset firstgid="101" source="nt481.tsx"/>
+ <tileset firstgid="229" source="nt482.tsx"/>
+ <tileset firstgid="357" source="nt483.tsx"/>
+ <tileset firstgid="485" source="nt484.tsx"/>
+ <tileset firstgid="741" source="nt485.tsx"/>
  <layer id="1" name="Background" width="16" height="12">
   <data encoding="csv">
-81,82,82,82,82,82,82,82,82,82,82,82,82,82,82,83,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-113,114,114,114,114,114,114,114,114,114,114,114,114,114,114,115,
-145,146,146,146,146,146,146,146,146,146,146,146,146,146,146,147
+369,369,369,369,369,369,369,369,369,369,369,369,369,369,369,369,
+360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,
+360,360,359,360,360,360,360,359,360,360,360,360,360,360,360,359,
+360,360,360,359,360,360,360,360,360,360,359,360,360,360,360,360,
+359,360,360,360,360,360,360,359,360,360,360,360,359,360,360,360,
+360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,
+360,360,360,360,360,360,359,360,360,359,360,359,360,360,360,360,
+359,359,360,360,360,360,360,360,360,359,359,359,359,360,360,359,
+360,360,360,360,360,360,360,360,359,360,360,360,360,360,360,360,
+360,360,360,359,360,360,359,360,360,359,360,359,360,360,359,360,
+360,359,359,359,360,360,359,360,360,360,360,360,359,360,360,359,
+360,360,360,360,360,359,359,360,360,360,360,360,359,360,360,360
 </data>
  </layer>
  <layer id="2" name="Decoration" width="16" height="12">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,641,642,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,657,658,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,639,640,0,0,0,943,0,0,0,0,0,
+0,0,0,0,0,655,656,0,0,0,959,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -43,25 +42,28 @@
   <properties>
    <property name="desc" value="在此放置玩家和敌人的出生点"/>
   </properties>
-  <object id="1" x="96" y="192" width="48" height="48"/>
-  <object id="2" x="96" y="240" width="48" height="48"/>
-  <object id="3" x="96" y="288" width="48" height="48"/>
-  <object id="4" x="96" y="336" width="48" height="48"/>
-  <object id="5" x="144" y="192" width="48" height="48"/>
-  <object id="6" x="144" y="240" width="48" height="48"/>
-  <object id="7" x="144" y="288" width="48" height="48"/>
-  <object id="8" x="144" y="336" width="48" height="48"/>
-  <object id="9" x="624" y="192" width="48" height="48"/>
-  <object id="10" x="624" y="240" width="48" height="48"/>
-  <object id="11" x="624" y="288" width="48" height="48"/>
-  <object id="12" x="624" y="336" width="48" height="48"/>
-  <object id="13" x="672" y="192" width="48" height="48"/>
-  <object id="14" x="672" y="240" width="48" height="48"/>
-  <object id="15" x="672" y="288" width="48" height="48"/>
+  <object id="1" x="0" y="48" width="48" height="48"/>
+  <object id="2" x="48" y="96" width="48" height="48"/>
+  <object id="3" x="0" y="144" width="48" height="48"/>
+  <object id="4" x="0" y="240" width="48" height="48"/>
+  <object id="5" x="96" y="48" width="48" height="48"/>
+  <object id="6" x="96" y="144" width="48" height="48"/>
+  <object id="7" x="48" y="192" width="48" height="48"/>
+  <object id="8" x="96" y="240" width="48" height="48"/>
+  <object id="9" x="672" y="384" width="48" height="48"/>
+  <object id="10" x="624" y="432" width="48" height="48"/>
+  <object id="11" x="672" y="480" width="48" height="48"/>
+  <object id="12" x="624" y="528" width="48" height="48"/>
+  <object id="13" x="720" y="336" width="48" height="48"/>
+  <object id="14" x="720" y="432" width="48" height="48"/>
+  <object id="15" x="720" y="528" width="48" height="48"/>
  </objectgroup>
  <objectgroup id="4" name="Collisions">
   <properties>
    <property name="desc" value="在此绘制碰撞盒"/>
   </properties>
+  <object id="17" x="432" y="96" width="96" height="96"/>
+  <object id="18" x="240" y="336" width="96" height="96"/>
+  <object id="19" x="480" y="336" width="48" height="96"/>
  </objectgroup>
 </map>
