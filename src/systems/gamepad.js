@@ -9,7 +9,7 @@
  * - B → Escape（取消/返回）
  * - X → 空格（推进对话/通用确认）
  * - Y → Tab（切菜单视图）
- * - Start → Escape（剧情里呼出存档）
+ * - Start → F10（剧情存档；战斗空闲时结束我方回合）
  *
  * 零依赖：Electron 的 Chromium 原生支持 navigator.getGamepads()。
  */
@@ -33,7 +33,7 @@ const BUTTON_TO_KEY = {
   [BTN.B]: 'Escape',
   [BTN.X]: ' ',
   [BTN.Y]: 'Tab',
-  [BTN.START]: 'Escape',
+  [BTN.START]: 'F10',
 };
 
 // key → code（KeyboardEvent 需要，保证 e.code 判定（如 F 键）也不受影响）
@@ -44,6 +44,7 @@ const KEY_TO_CODE = {
   'ArrowRight': 'ArrowRight',
   'Enter': 'Enter',
   'Escape': 'Escape',
+  'F10': 'F10',
   ' ': 'Space',
   'Tab': 'Tab',
 };
@@ -86,6 +87,10 @@ class GamepadManager {
       this._pollDirections(gi, gp, now);
     }
 
+    if (!anyConnected) {
+      this.prevButtons.clear();
+      this.dirState = {};
+    }
     if (anyConnected !== this.connected) {
       this.connected = anyConnected;
       console.info(`[gamepad] ${anyConnected ? '已连接' : '已断开'}`);

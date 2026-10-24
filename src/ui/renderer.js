@@ -216,12 +216,15 @@ export class Renderer {
     const tips = [
       '↑↓←→ / 手柄摇杆  移动',
       'Enter / 点击  确认',
-      'ESC / 右键  取消撤销',
-      '滚轮  菜单切换'
+      'Esc / B / 右键  返回',
+      'F10 / Start 结束回合'
     ];
-    tips.forEach((t, i) => {
-      ctx.fillText(t, this.hudX + 2, tipY + 22 + i * 19);
-    });
+    // 触屏按钮占用提示区，保留后续版块的原位置。
+    if (!(typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches)) {
+      tips.forEach((t, i) => {
+        ctx.fillText(t, this.hudX + 2, tipY + 22 + i * 19);
+      });
+    }
 
     // ★ 新手玩法指引
     const guideY = tipY + 22 + tips.length * 19 + 18;

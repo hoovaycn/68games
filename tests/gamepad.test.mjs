@@ -54,6 +54,13 @@ test('A 键(0)按下映射为 Enter，B 键(1)映射为 Escape', () => {
   assert.ok(dispatched.some((e) => e.key === 'Escape'), 'B 应派发 Escape');
 });
 
+test('Start 呼出剧情存档专用 F10，不会在战斗中误触取消', () => {
+  reset();
+  currentPads = [pad([9])];
+  gamepadManager.poll();
+  assert.deepEqual(dispatched.map((e) => e.key), ['F10']);
+});
+
 test('按钮边沿检测：按住不重复派发', () => {
   reset();
   currentPads = [pad([0])]; // A 按下
@@ -111,4 +118,15 @@ test('无手柄时不报错、不派发', () => {
   currentPads = [null, null]; // getGamepads 返回空
   gamepadManager.poll();
   assert.equal(dispatched.length, 0, '无手柄不应派发任何事件');
+});
+
+test('手柄断开后重连时按钮能再次触发', () => {
+  reset();
+  currentPads = [pad([1])];
+  gamepadManager.poll();
+  currentPads = [];
+  gamepadManager.poll();
+  currentPads = [pad([1])];
+  gamepadManager.poll();
+  assert.equal(dispatched.filter((e) => e.key === 'Escape').length, 2);
 });

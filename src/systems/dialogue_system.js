@@ -364,14 +364,14 @@ export class DialogueSystem {
     ctx.textBaseline = 'top';
     this.wrapText(ctx, this.displayedText, x + 32, y + (isLongText ? 30 : 36), boxW - 64, isLongText ? 28 : 34);
 
-    // 常驻提示：左下角「按 ESC 进入存档菜单」（STAGE_STORY 的 Esc 已接 openSaveMenu('save')）
+    // 剧情存档入口：键盘 Esc、手柄 Start 或触屏按钮。
     if (!this.showingChoice) {
       ctx.save();
       ctx.fillStyle = 'rgba(120, 113, 108, 0.85)';
       ctx.font = '13px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'bottom';
-      ctx.fillText('按 ESC 可呼出存档/读档菜单', x + 28, y + boxH - 12);
+      ctx.fillText('Esc / 手柄 Start / 触屏存档：打开存读档菜单', x + 28, y + boxH - 12);
       ctx.restore();
     }
 

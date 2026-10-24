@@ -1177,6 +1177,20 @@ export class GameApp {
   }
 
   bindEvents() {
+    this.touchAction = document.getElementById('touch-action');
+    this.touchAction?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const action = this.getTouchAction();
+      if (!action) return;
+      window.dispatchEvent(new KeyboardEvent('keydown', {
+        key: action === '存档' || action === '结束回合' ? 'F10' : 'Escape',
+        code: action === '存档' || action === '结束回合' ? 'F10' : 'Escape',
+        bubbles: true,
+        cancelable: true,
+      }));
+    });
+
     this.canvas.addEventListener('mousemove', (e) => {
       const rect = this.canvas.getBoundingClientRect();
       const scaleX = rect.width ? (this.canvas.width / rect.width) : 1;
@@ -1395,8 +1409,10 @@ export class GameApp {
 
     this.canvas.addEventListener('contextmenu', (e) => {
       e.preventDefault();
-      if (this.stage === 'STAGE_BATTLE' && !this.battleState.isAnimatingCombat) {
-        this.handleBattleCancel();
+      if (this.stage === 'STAGE_BATTLE') {
+        window.dispatchEvent(new KeyboardEvent('keydown', {
+          key: 'Escape', code: 'Escape', bubbles: true, cancelable: true,
+        }));
       }
     });
 
@@ -1426,6 +1442,20 @@ export class GameApp {
 
       // ★ 章节标题覆盖层展示期间吞掉按键（自动播放，展示结束才放行）
       if (this.chapterBanner) return;
+
+      if (e.key === 'F10') {
+        e.preventDefault();
+        if (this.saveMenuModal) {
+          this.saveMenuModal.close();
+        } else if (this.stage === 'STAGE_STORY' && !this.joinPartyModal?.isOpen
+            && !this.storyItemModal) {
+          sound.playSfx('sfx_menu_open');
+          this.openSaveMenu('save');
+        } else if (this.stage === 'STAGE_BATTLE') {
+          this.finishPlayerTurn();
+        }
+        return;
+      }
 
       // ★ 存档界面模态独占按键（方向导航/确认/Esc/D删/E导/I导 全在组件内消化）
       if (this.saveMenuModal) {
@@ -1585,6 +1615,46 @@ export class GameApp {
           break;
       }
     });
+  }
+
+  hasBattlePopup() {
+    const bs = this.battleState;
+    return !!(bs.tutorialModal || bs.unitDetailModal || bs.inventoryModal
+      || bs.victoryModal || bs.itemRewardModal || bs.combatExchangeModal
+      || bs.skillExchangeModal || bs.levelUpModal);
+  }
+
+  getTouchAction() {
+    if (this.loading || this.chapterBanner || this.levelSelectModal
+        || (this.stage === 'STAGE_STORY' && this.dialogueSystem.loading)) return null;
+    if (this.saveMenuModal) return '关闭';
+    if (this.stage === 'STAGE_STORY') {
+      return this.joinPartyModal?.isOpen || this.storyItemModal ? null : '存档';
+    }
+    if (this.stage !== 'STAGE_BATTLE') return null;
+    const bs = this.battleState;
+    if (bs.phase !== 'PLAYER_PHASE' || bs.isAnimatingCombat
+        || bs.gameOverModal || bs.victoryModalShown) return null;
+    if (this.hasBattlePopup()) return '返回';
+    if (bs.mode === 'IDLE') {
+      return !bs.phaseBanner && bs.units?.some(u => u.isAlive && u.faction === 'player')
+        && bs.units?.some(u => u.isAlive && u.faction === 'enemy')
+        ? '结束回合' : null;
+    }
+    return ['UNIT_SELECTED', 'ENEMY_DANGER_ZONE', 'ACTION_MENU', 'SKILL_MENU',
+      'TARGET_SELECT'].includes(bs.mode) ? '返回' : null;
+  }
+
+  updateTouchAction() {
+    if (!this.touchAction) return;
+    const action = this.getTouchAction();
+    this.touchAction.hidden = !action;
+    this.touchAction.classList.toggle('battle',
+      this.stage === 'STAGE_BATTLE' && !this.hasBattlePopup());
+    if (action) {
+      this.touchAction.textContent = action;
+      this.touchAction.setAttribute('aria-label', action);
+    }
   }
 
   moveCursor(dx, dy) {
@@ -2431,6 +2501,21 @@ export class GameApp {
     }
   }
 
+  finishPlayerTurn() {
+    const bs = this.battleState;
+    if (this.loading || this.chapterBanner || this.levelSelectModal || this.saveMenuModal
+        || this.stage !== 'STAGE_BATTLE' || bs.phase !== 'PLAYER_PHASE'
+        || bs.mode !== 'IDLE' || bs.phaseBanner || bs.isAnimatingCombat
+        || bs.gameOverModal || bs.victoryModalShown || this.hasBattlePopup()
+        || !bs.units?.some(u => u.isAlive && u.faction === 'player')
+        || !bs.units?.some(u => u.isAlive && u.faction === 'enemy')) return;
+
+    bs.units.filter(u => u.isAlive && u.faction === 'player')
+      .forEach(u => { u.hasActed = true; });
+    sound.playSfx('sfx_confirm');
+    this.startEnemyPhase();
+  }
+
   startEnemyPhase() {
     this.battleState.phase = 'ENEMY_PHASE';
     this.battleState.isAnimatingCombat = true; // 锁定玩家操作
@@ -2690,6 +2775,7 @@ export class GameApp {
   loop() {
     this.tickPlaytimeClock();
     gamepadManager.poll();
+    this.updateTouchAction();
     if (this.loading) {
       drawLoadingScreen(this.renderer.ctx, this.canvas.width, this.canvas.height, this.loading.label);
       requestAnimationFrame(() => this.loop());
