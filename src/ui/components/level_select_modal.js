@@ -38,7 +38,18 @@ export class LevelSelectModal {
       { num: 17, act: 2, label: '第17章', title: '福寿堂留下的罐子', sceneKey: 'ch15b_scene_missing_jar' },
       { num: 18, act: 2, label: '第18章', title: '班长去哪了', sceneKey: 'ch16_scene_return_ruins' },
       { num: 19, act: 2, label: '第19章', title: '去救覃瑞怡', sceneKey: 'ch17_scene_alter_breach' },
-      { num: 20, act: 2, label: '第20章', title: '钟楼里的最后一战', sceneKey: 'ch19_scene_final_stand' }
+      { num: 20, act: 2, label: '第20章', title: '钟楼里的最后一战', sceneKey: 'ch19_scene_final_stand' },
+      // 第三幕
+      { num: 21, act: 3, label: '第21章', title: '神医的茶香', sceneKey: 'ch21_scene_clinic_warmth' },
+      { num: 22, act: 3, label: '第22章', title: '未来警徽', sceneKey: 'ch22_scene_pier_confrontation' },
+      { num: 23, act: 3, label: '第23章', title: '夺舍真相', sceneKey: 'ch23_scene_counseling_breakin' },
+      { num: 24, act: 3, label: '第24章', title: '钢铁废墟', sceneKey: 'ch24_scene_ruins_arrival' },
+      { num: 25, act: 3, label: '第25章', title: '时空重逢', sceneKey: 'ch25_scene_shelter_arrival' },
+      { num: 26, act: 3, label: '第26章', title: '最后的考场', sceneKey: 'ch26_scene_pyramid_ascent' },
+      { num: 27, act: 3, label: '第27章', title: '熔炉抉择', sceneKey: 'ch27_scene_reactor_run' },
+      { num: 28, act: 3, label: '第28章', title: '倒流的挽歌', sceneKey: 'ch28_scene_return_2026' },
+      { num: 29, act: 3, label: '第29章', title: '求死的神明', sceneKey: 'ch29_scene_throne_reveal' },
+      { num: 30, act: 3, label: '第30章', title: '跨越百年的毕业礼', sceneKey: 'ch30_scene_snack_crush' }
     ];
 
     this.focusIndex = 0;
@@ -57,10 +68,8 @@ export class LevelSelectModal {
     if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
       e.preventDefault();
       // 上移：如果当前在某列顶部，循环到该列底部
-      if (this.focusIndex === 0) {
-        this.focusIndex = 9;
-      } else if (this.focusIndex === 10) {
-        this.focusIndex = 19;
+      if (this.focusIndex % 10 === 0) {
+        this.focusIndex += 9;
       } else {
         this.focusIndex--;
       }
@@ -71,10 +80,8 @@ export class LevelSelectModal {
     if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
       e.preventDefault();
       // 下移：如果当前在某列底部，循环到该列顶部
-      if (this.focusIndex === 9) {
-        this.focusIndex = 0;
-      } else if (this.focusIndex === 19) {
-        this.focusIndex = 10;
+      if (this.focusIndex % 10 === 9) {
+        this.focusIndex -= 9;
       } else {
         this.focusIndex++;
       }
@@ -86,17 +93,21 @@ export class LevelSelectModal {
       e.preventDefault();
       if (this.focusIndex >= 10) {
         this.focusIndex -= 10;
-        sound.playSfx('sfx_cursor');
+      } else {
+        this.focusIndex += 20;
       }
+      sound.playSfx('sfx_cursor');
       return;
     }
 
     if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
       e.preventDefault();
-      if (this.focusIndex < 10) {
+      if (this.focusIndex + 10 < this.chapters.length) {
         this.focusIndex += 10;
-        sound.playSfx('sfx_cursor');
+      } else {
+        this.focusIndex -= 20;
       }
+      sound.playSfx('sfx_cursor');
       return;
     }
 
@@ -141,9 +152,11 @@ export class LevelSelectModal {
     }
 
     // 点击模态框外部遮罩区域时关闭
-    const modalX = (this.canvas.width - 840) / 2;
-    const modalY = (this.canvas.height - 480) / 2;
-    if (clickX < modalX || clickX > modalX + 840 || clickY < modalY || clickY > modalY + 480) {
+    const modalW = 900;
+    const modalH = 480;
+    const modalX = (this.canvas.width - modalW) / 2;
+    const modalY = (this.canvas.height - modalH) / 2;
+    if (clickX < modalX || clickX > modalX + modalW || clickY < modalY || clickY > modalY + modalH) {
       sound.playSfx('sfx_cancel');
       if (this.onClose) this.onClose();
     }
@@ -169,8 +182,8 @@ export class LevelSelectModal {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.78)';
     ctx.fillRect(0, 0, cw, ch);
 
-    // 2. 主模态框居中
-    const modalW = 840;
+    // 2. 主模态框居中 (910 x 480)
+    const modalW = 910;
     const modalH = 480;
     const modalX = Math.round((cw - modalW) / 2);
     const modalY = Math.round((ch - modalH) / 2);
@@ -195,21 +208,21 @@ export class LevelSelectModal {
     // 顶部标题栏背景
     ctx.fillStyle = '#292524';
     ctx.beginPath();
-    ctx.roundRect(modalX + 4, modalY + 4, modalW - 8, 48, [8, 8, 0, 0]);
+    ctx.roundRect(modalX + 4, modalY + 4, modalW - 8, 44, [8, 8, 0, 0]);
     ctx.fill();
 
     // 标题文本
     ctx.fillStyle = '#fbbf24'; // 明亮金黄
-    ctx.font = 'bold 20px "PingFang SC", "Microsoft YaHei", sans-serif';
+    ctx.font = 'bold 18px "PingFang SC", "Microsoft YaHei", sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText('⚡ 快速选关菜单 (测试秘籍 F1)', modalX + 22, modalY + 28);
+    ctx.fillText('⚡ 快速选关菜单 (测试秘籍 F1 · 全三幕 30 章)', modalX + 18, modalY + 26);
 
     // 右上角关闭提示与按钮
-    const closeW = 90;
-    const closeH = 28;
-    const closeX = modalX + modalW - closeW - 16;
-    const closeY = modalY + 14;
+    const closeW = 86;
+    const closeH = 26;
+    const closeX = modalX + modalW - closeW - 14;
+    const closeY = modalY + 12;
     this.closeBtnRect = { x: closeX, y: closeY, w: closeW, h: closeH };
 
     ctx.fillStyle = '#44403c';
@@ -225,48 +238,54 @@ export class LevelSelectModal {
     ctx.textAlign = 'center';
     ctx.fillText('Esc / 关闭', closeX + closeW / 2, closeY + closeH / 2);
 
-    // 3. 两栏布局
-    const colW = 388;
-    const colH = 345;
-    const col1X = modalX + 24;
-    const col2X = modalX + modalW - colW - 24;
-    const colY = modalY + 62;
+    // 3. 三栏布局 (第一幕 / 第二幕 / 第三幕)
+    const colW = 278;
+    const colGap = 16;
+    const colStartX = modalX + 18;
+    const colY = modalY + 54;
 
-    // 两栏表头
-    const drawColHeader = (x, title, sub) => {
+    const colHeaders = [
+      { title: '第一幕 · 校园迷雾', sub: '1~10章' },
+      { title: '第二幕 · 硝烟重燃', sub: '11~20章' },
+      { title: '第三幕 · 破晓终局', sub: '21~30章' }
+    ];
+
+    const drawColHeader = (colIdx, title, sub) => {
+      const x = colStartX + colIdx * (colW + colGap);
       ctx.fillStyle = '#292524';
       ctx.beginPath();
-      ctx.roundRect(x, colY, colW, 30, 4);
+      ctx.roundRect(x, colY, colW, 28, 4);
       ctx.fill();
       ctx.strokeStyle = '#44403c';
       ctx.lineWidth = 1;
       ctx.stroke();
 
       ctx.fillStyle = '#fde68a';
-      ctx.font = 'bold 14px "PingFang SC", sans-serif';
+      ctx.font = 'bold 13px "PingFang SC", sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(title, x + 12, colY + 15);
+      ctx.fillText(title, x + 8, colY + 14);
 
       ctx.fillStyle = '#a8a29e';
-      ctx.font = '12px "PingFang SC", sans-serif';
+      ctx.font = '11px "PingFang SC", sans-serif';
       ctx.textAlign = 'right';
-      ctx.fillText(sub, x + colW - 12, colY + 15);
+      ctx.fillText(sub, x + colW - 8, colY + 14);
     };
 
-    drawColHeader(col1X, '第一幕 · 校园迷雾', '第 1 ~ 10 章');
-    drawColHeader(col2X, '第二幕 · 硝烟重燃', '第 11 ~ 20 章');
+    for (let c = 0; c < 3; c++) {
+      drawColHeader(c, colHeaders[c].title, colHeaders[c].sub);
+    }
 
-    // 渲染两个栏目中的 10 个章节项
+    // 渲染三个栏目中的各 10 个章节项（共 30 项）
     this.itemRects = [];
-    const itemStartY = colY + 36;
-    const itemH = 28;
+    const itemStartY = colY + 34;
+    const itemH = 29;
     const itemGap = 3;
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < this.chapters.length; i++) {
       const chItem = this.chapters[i];
-      const isCol2 = i >= 10;
-      const colX = isCol2 ? col2X : col1X;
-      const rowIdx = isCol2 ? (i - 10) : i;
+      const colIdx = Math.floor(i / 10);
+      const rowIdx = i % 10;
+      const colX = colStartX + colIdx * (colW + colGap);
       const iy = itemStartY + rowIdx * (itemH + itemGap);
 
       const rect = { x: colX, y: iy, w: colW, h: itemH };
@@ -276,7 +295,7 @@ export class LevelSelectModal {
 
       // 背景
       if (isFocused) {
-        ctx.fillStyle = 'rgba(217, 119, 6, 0.35)'; // 琥珀金高亮
+        ctx.fillStyle = 'rgba(217, 119, 6, 0.4)'; // 琥珀金高亮
         ctx.beginPath();
         ctx.roundRect(rect.x, rect.y, rect.w, rect.h, 4);
         ctx.fill();
@@ -298,26 +317,32 @@ export class LevelSelectModal {
       ctx.textBaseline = 'middle';
       if (isFocused) {
         ctx.fillStyle = '#fbbf24';
-        ctx.font = 'bold 13px "PingFang SC", sans-serif';
-        ctx.fillText(`▶ ${chItem.label}`, rect.x + 8, rect.y + itemH / 2);
+        ctx.font = 'bold 12px "PingFang SC", sans-serif';
+        ctx.fillText(`▶ ${chItem.label}`, rect.x + 6, rect.y + itemH / 2);
       } else {
         ctx.fillStyle = '#d6d3d1';
-        ctx.font = '12px "PingFang SC", sans-serif';
-        ctx.fillText(`  ${chItem.label}`, rect.x + 8, rect.y + itemH / 2);
+        ctx.font = '11px "PingFang SC", sans-serif';
+        ctx.fillText(`  ${chItem.label}`, rect.x + 6, rect.y + itemH / 2);
       }
 
       // 章节标题
       ctx.textAlign = 'left';
       ctx.fillStyle = isFocused ? '#ffffff' : '#a8a29e';
-      ctx.font = isFocused ? 'bold 13px "PingFang SC", sans-serif' : '13px "PingFang SC", sans-serif';
-      ctx.fillText(chItem.title, rect.x + 75, rect.y + itemH / 2);
+      ctx.font = isFocused ? 'bold 12px "PingFang SC", sans-serif' : '12px "PingFang SC", sans-serif';
+      
+      // 标题截断保护（防止超出单列）
+      let titleText = chItem.title;
+      if (titleText.length > 9) {
+        titleText = titleText.slice(0, 8) + '…';
+      }
+      ctx.fillText(titleText, rect.x + 62, rect.y + itemH / 2);
 
       // 右侧动作提示
       if (isFocused) {
         ctx.fillStyle = '#fde68a';
-        ctx.font = '11px "PingFang SC", sans-serif';
+        ctx.font = '10px "PingFang SC", sans-serif';
         ctx.textAlign = 'right';
-        ctx.fillText('回车跳转 ↵', rect.x + rect.w - 10, rect.y + itemH / 2);
+        ctx.fillText('↵', rect.x + rect.w - 6, rect.y + itemH / 2);
       }
     }
 

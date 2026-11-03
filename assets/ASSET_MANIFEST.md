@@ -251,3 +251,79 @@ sfx_glass_shatter.wav / 玻璃碎裂（程序合成，博物馆展厅开场；�
 - 定制行走 spritesheet（P1）。
 - 章节通关曲（可用 Junkala《Ending》备选，源文件在 work_ref）。
 - 后续新场景（更多校园/异化地图）的 props 与 tiles 随章节补。
+
+---
+
+## 5. 第三幕（第21~30章）新增资源　2026-10-31
+
+对齐 `docs/art_act3_requirement.md`。**战棋瓦片/切片不在美术交付范围**（研发用 Tiled 自制）。
+本批共 57 个角色/敌人状态 × 4 文件 + 12 张背景 × 2 + 8 张 CG × 2。
+
+### 5.1 角色立绘（`assets/art/` 240×320 + @2x，`assets/portraits/` 96×96 + @2x）
+
+| 资源名（状态） | 角色 | 说明 |
+| --- | --- | --- |
+| su_wan_doctor_default / _concerned / _cold | 苏晚医生（32岁，阿瑶伪装） | 细金框眼镜、低马尾、白大褂 + 灰高领、右手宽边皮带腕表；微笑平静 / 关切探寻 / 清冷审视 |
+| ayao_adult_default / _tearful / _smile | 阿瑶 32 岁真容 | 沿用童年版棕发棕瞳，长发披散取代双辫；深炭黑高领长风衣、右腕暗褐旧烫痕；冷漠决绝 / 眼眶含泪 / 释然微笑 |
+| ayao_corrupted_god_default / _machine | 因果裁决者·永恒阿瑶 | 悬浮、脊柱骨钉+神经缆绳、紫黑电磁煞气、漫天破碎试卷、紫瞳；痛苦扭曲 / 机械冰冷 |
+| ayao_aged_2046_default / _weeping | 未来阿瑶（2046 休眠体） | 白发、凹陷消瘦、病号服、胸前泛黄合照；虚弱闭目 / 凄苦落泪 |
+| mc_adult_zixiao_default / _gentle / _fury / _dissolve | 成年张子骁 | 沿用童年版脸型；寸头胡茬、下颌浅疤、橄榄绿斗篷 + 黑色战术背心（弹孔）；沉静 / 温柔 / 怒吼 / 金光消散 |
+| mc_adult_yunuo_default / _gentle / _charge / _dissolve | 成年石予诺 | 沿用童年版脸型；干练短发、左额浅疤、石板蓝防风衣 + 外骨骼腰带、短弩；冷静 / 心疼 / 冲锋 / 金光消散 |
+| fanwenmo_adult_default / _tearful / _dissolve | 成年范文默 | 沿用童年版深肤色；墨绿旧警服（胸前剥落警徽印）、肩挂枪套；警惕 / 泪眼决绝 / 金光消散 |
+| heyanxi_adult_default / _aim / _hug / _dissolve | 成年何妍熹 | 沿用童年版脸型；利落高马尾（无蝴蝶结）、褪色防暴夹克；冷静 / 瞄准 / 拥抱落泪 / 金光消散 |
+| haifeng_burnt_default / _rage / _tears | 海峰（火海生还差分） | 沿用 police 版脸型；满面煤灰擦伤、防暴服焦黑撕裂、绷带；惊愕含泪 / 惊怒狂奔 / 劫后泪崩 |
+| teacher_xu_burnt_default / _choke / _hug | 徐老师（火海生还差分） | 沿用原脸与细框眼镜；西装烧孔、头发散乱、抱烧焦文件袋；含泪 / 浓烟瘫软 / 喜极而泣 |
+| teacher_liu_burnt_default / _choke / _hug | 刘老师（火海生还差分） | 沿用 adult_liu 脸型；长发烧焦、外套撕裂；流泪 / 呛烟弯腰 / 拥抱大哭 |
+| teacher_xubox_stealth_default / _pale / _pain | 徐老师（雨夜潜行差分） | 深色鸭舌帽压低、深灰长款防水风衣高领遮下半脸、双手插袋；警惕紧绷 / 苍白凝重 / 痛苦闭目 |
+
+### 5.2 敌人立绘（同规格，另有头像）
+
+| 资源名 | 名称 | 章节 |
+| --- | --- | --- |
+| enforcer_abiao | 三号船盯梢头目·阿彪 | 21 |
+| porter_blueeye | 青眼搬运工 | 21 |
+| boss_viper_smuggler | 走私头目·独眼蝰蛇 | 22 |
+| sailor_berserk | 狂化重装水手 | 22 |
+| boss_exam_captain | 满分治安官·执行队长 | 24 |
+| officer_100 | 机械化满分治安官 | 24 |
+| probe_machine | 情绪清扫探针机甲 | 24/25 |
+| boss_hunter_alpha | 天梯追猎者·阿尔法 | 25 |
+| patrol_robot_exam | 天梯巡考机械人 | 26 |
+| boss_ai_topstudent | 满分优等生智脑 | 26 |
+| boss_storm_mech | 境外重装歼灭者·暴风 | 27 |
+| alloy_deathsworn | 合金自律死士 | 27 |
+| hound_riot | 防暴歼灭猎犬 | 27 |
+| boss_iron_scorpion | 引信守卫长·铁蝎 | 28 |
+| fanatic_bomber | 狂化引爆死士 | 28 |
+| hold_gate_guard | 底舱重型水闸守卫 | 28 |
+| pillar_neural_lock | 外置神经死锁柱 | 29 |
+| repair_spider | 主脑重装修复蛛 | 29 |
+| boss_judgement_core | 万物天梯裁决核心 | 30 |
+| capital_guard_mech | 境外资本重装护卫机甲 | 30 |
+
+### 5.3 背景（`assets/backgrounds/` 960×540 + @2x 1920×1080）
+
+bg_counseling_room / bg_street_night_rain / bg_pier_night_rain / bg_future_city_ruins /
+bg_future_square_monument / bg_resistance_bunker / bg_sky_exam_core / bg_ayao_stasis_chamber /
+bg_reactor_core / bg_pier_sunset_cargo / bg_cargo_hold_fire / bg_cargo_top_throne
+
+> `bg_canal_dawn` **沿用第二幕已有版本**（未重画）。
+
+### 5.4 剧情 CG 特写（`assets/art/` 960×540 + @2x 1920×1080）
+
+cg_future_badge / cg_blood_warning_note / cg_mask_100score / cg_ayao_broken_pen /
+cg_folding_shovel / cg_snack_crushed / cg_grad_photo_2006 / cg_repaired_humen_jar
+
+> CG 虽放 `assets/art/`，但按 16:9 制作，引擎里当 `bgImg` 全屏铺（同 `cg_pickup_bottle`）。
+> **画面内含文字的三处**（警徽背面编号 `046-2046-SF`、纸条留言、面具额头钢印）按项目既有做法**留白由代码叠字**，与礼堂横幅同策略。
+
+### 5.5 第三幕风格纪律（与第一、二幕的差异说明）
+
+- 画风统一为**明亮高调**（火焰纹章 GBA 取向）：高饱和、亮部干净通透，**不采用低饱和灰暗路线**。
+- 角色立绘仍守洋红键色与「主体避开红粉紫」；烫伤疤痕等需求中的红色一律压成暗褐红且小面积。
+- 成年版/战损差分一律**图生图自原角色立绘**，保证同一张脸，不做重新设计。
+
+### 5.6 待办
+- 研发若需要道具 32×32 图标（工兵铲、断尖钢笔、警徽等），清单未列，可按需再补。
+- 最终确认稿统一走 TinyPNG 压缩（用户提供 key，验收后执行）。
+

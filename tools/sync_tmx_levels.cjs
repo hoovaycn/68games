@@ -294,6 +294,136 @@ const CHAPTER_CONFIGS = [
       { enemyId: 'shen_wanting', instanceId: 'shen_wanting' },
       { enemyId: 'shen_chongli', instanceId: 'shen_chongli' }
     ]
+  },
+  {
+    id: 'ch21_battle1',
+    tmx: 'docs/map/tiled_project/ch21_battle1.tmx',
+    js: 'src/data/chapters/ch21_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'enforcer_abiao', instanceId: 'boss_abiao' },
+      { enemyId: 'porter_blueeye', instanceId: 'porter_1' },
+      { enemyId: 'porter_blueeye', instanceId: 'porter_2' },
+      { enemyId: 'enforcer_shadow', instanceId: 'shadow_1' },
+      { enemyId: 'enforcer_shadow', instanceId: 'shadow_2' }
+    ]
+  },
+  {
+    id: 'ch22_battle1',
+    tmx: 'docs/map/tiled_project/ch22_battle1.tmx',
+    js: 'src/data/chapters/ch22_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'xu_laoshi'],
+    enemyUnits: [
+      { enemyId: 'boss_viper_smuggler', instanceId: 'boss_viper' },
+      { enemyId: 'sailor_berserk', instanceId: 'sailor_1' },
+      { enemyId: 'sailor_berserk', instanceId: 'sailor_2' },
+      { enemyId: 'sniper_dock', instanceId: 'sniper_1' },
+      { enemyId: 'sniper_dock', instanceId: 'sniper_2' }
+    ]
+  },
+  {
+    id: 'ch23_battle1',
+    tmx: 'docs/map/tiled_project/ch23_battle1.tmx',
+    js: 'src/data/chapters/ch23_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'shadow_parasite', instanceId: 'parasite_1' },
+      { enemyId: 'shadow_parasite', instanceId: 'parasite_2' },
+      { enemyId: 'chronos_puppet', instanceId: 'puppet_1' },
+      { enemyId: 'chronos_puppet', instanceId: 'puppet_2' },
+      { enemyId: 'chronos_puppet', instanceId: 'puppet_3' }
+    ]
+  },
+  {
+    id: 'ch24_battle1',
+    tmx: 'docs/map/tiled_project/ch24_battle1.tmx',
+    js: 'src/data/chapters/ch24_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_exam_captain', instanceId: 'boss_captain' },
+      { enemyId: 'officer_100', instanceId: 'officer_1' },
+      { enemyId: 'officer_100', instanceId: 'officer_2' },
+      { enemyId: 'probe_machine', instanceId: 'probe_1' },
+      { enemyId: 'probe_machine', instanceId: 'probe_2' }
+    ]
+  },
+  {
+    id: 'ch25_battle1',
+    tmx: 'docs/map/tiled_project/ch25_battle1.tmx',
+    js: 'src/data/chapters/ch25_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_hunter_alpha', instanceId: 'boss_hunter' },
+      { enemyId: 'patrol_robot_exam', instanceId: 'robot_1' },
+      { enemyId: 'patrol_robot_exam', instanceId: 'robot_2' },
+      { enemyId: 'hound_riot', instanceId: 'hound_1' },
+      { enemyId: 'hound_riot', instanceId: 'hound_2' }
+    ]
+  },
+  {
+    id: 'ch26_battle1',
+    tmx: 'docs/map/tiled_project/ch26_battle1.tmx',
+    js: 'src/data/chapters/ch26_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_ai_topstudent', instanceId: 'boss_ai' },
+      { enemyId: 'boss_storm_mech', instanceId: 'storm_mech_1' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_1' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_2' },
+      { enemyId: 'patrol_robot_exam', instanceId: 'robot_exam_1' }
+    ]
+  },
+  {
+    id: 'ch27_battle1',
+    tmx: 'docs/map/tiled_project/ch27_battle1.tmx',
+    js: 'src/data/chapters/ch27_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_storm_mech', instanceId: 'mech_vanguard' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_1' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_2' },
+      { enemyId: 'hound_riot', instanceId: 'hound_1' },
+      { enemyId: 'hound_riot', instanceId: 'hound_2' }
+    ]
+  },
+  {
+    id: 'ch28_battle1',
+    tmx: 'docs/map/tiled_project/ch28_battle1.tmx',
+    js: 'src/data/chapters/ch28_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_iron_scorpion', instanceId: 'boss_scorpion' },
+      { enemyId: 'fanatic_bomber', instanceId: 'bomber_1' },
+      { enemyId: 'fanatic_bomber', instanceId: 'bomber_2' },
+      { enemyId: 'hold_gate_guard', instanceId: 'guard_1' },
+      { enemyId: 'hold_gate_guard', instanceId: 'guard_2' }
+    ]
+  },
+  {
+    id: 'ch29_battle1',
+    tmx: 'docs/map/tiled_project/ch29_battle1.tmx',
+    js: 'src/data/chapters/ch29_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'ayao_corrupted_god', instanceId: 'ayao_god' },
+      { enemyId: 'pillar_neural_lock', instanceId: 'pillar_1' },
+      { enemyId: 'pillar_neural_lock', instanceId: 'pillar_2' },
+      { enemyId: 'repair_spider', instanceId: 'spider_1' },
+      { enemyId: 'repair_spider', instanceId: 'spider_2' }
+    ]
+  },
+  {
+    id: 'ch30_battle1',
+    tmx: 'docs/map/tiled_project/ch30_battle1.tmx',
+    js: 'src/data/chapters/ch30_battle1.js',
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    enemyUnits: [
+      { enemyId: 'boss_judgement_core', instanceId: 'boss_judgement' },
+      { enemyId: 'capital_guard_mech', instanceId: 'mech_guard_1' },
+      { enemyId: 'capital_guard_mech', instanceId: 'mech_guard_2' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_1' },
+      { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_2' }
+    ]
   }
 ];
 

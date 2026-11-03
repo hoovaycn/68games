@@ -53,6 +53,16 @@ import { CHAPTER16_STORY } from './data/story_chapter16.js';
 import { CHAPTER17_STORY } from './data/story_chapter17.js';
 import { CHAPTER18_STORY } from './data/story_chapter18.js';
 import { CHAPTER19_STORY } from './data/story_chapter19.js';
+import { CHAPTER21_STORY } from './data/story_chapter21.js';
+import { CHAPTER22_STORY } from './data/story_chapter22.js';
+import { CHAPTER23_STORY } from './data/story_chapter23.js';
+import { CHAPTER24_STORY } from './data/story_chapter24.js';
+import { CHAPTER25_STORY } from './data/story_chapter25.js';
+import { CHAPTER26_STORY } from './data/story_chapter26.js';
+import { CHAPTER27_STORY } from './data/story_chapter27.js';
+import { CHAPTER28_STORY } from './data/story_chapter28.js';
+import { CHAPTER29_STORY } from './data/story_chapter29.js';
+import { CHAPTER30_STORY } from './data/story_chapter30.js';
 import { CH0_BATTLE1 } from './data/chapters/ch0_battle1.js';
 import { CH0_BATTLE2 } from './data/chapters/ch0_battle2.js';
 import { CH0_BATTLE3 } from './data/chapters/ch0_battle3.js';
@@ -76,6 +86,16 @@ import { CH16_BATTLE1 } from './data/chapters/ch16_battle1.js';
 import { CH17_BATTLE1 } from './data/chapters/ch17_battle1.js';
 import { CH18_BATTLE1 } from './data/chapters/ch18_battle1.js';
 import { CH19_BATTLE1 } from './data/chapters/ch19_battle1.js';
+import { CH21_BATTLE1 } from './data/chapters/ch21_battle1.js';
+import { CH22_BATTLE1 } from './data/chapters/ch22_battle1.js';
+import { CH23_BATTLE1 } from './data/chapters/ch23_battle1.js';
+import { CH24_BATTLE1 } from './data/chapters/ch24_battle1.js';
+import { CH25_BATTLE1 } from './data/chapters/ch25_battle1.js';
+import { CH26_BATTLE1 } from './data/chapters/ch26_battle1.js';
+import { CH27_BATTLE1 } from './data/chapters/ch27_battle1.js';
+import { CH28_BATTLE1 } from './data/chapters/ch28_battle1.js';
+import { CH29_BATTLE1 } from './data/chapters/ch29_battle1.js';
+import { CH30_BATTLE1 } from './data/chapters/ch30_battle1.js';
 import { WEAPONS } from './data/weapons.js';
 import { UNITS } from './data/units.js';
 import { assetLoader } from './engine/asset_loader.js';
@@ -107,7 +127,17 @@ const LINEAR_STORY = {
   ...CHAPTER16_STORY,
   ...CHAPTER17_STORY,
   ...CHAPTER18_STORY,
-  ...CHAPTER19_STORY
+  ...CHAPTER19_STORY,
+  ...CHAPTER21_STORY,
+  ...CHAPTER22_STORY,
+  ...CHAPTER23_STORY,
+  ...CHAPTER24_STORY,
+  ...CHAPTER25_STORY,
+  ...CHAPTER26_STORY,
+  ...CHAPTER27_STORY,
+  ...CHAPTER28_STORY,
+  ...CHAPTER29_STORY,
+  ...CHAPTER30_STORY
 };
 
 const CHAPTER_BANNERS = {
@@ -130,7 +160,17 @@ const CHAPTER_BANNERS = {
   ch15b_scene_missing_jar: { label: '第十七章', title: '福寿堂留下的罐子' },
   ch16_scene_return_ruins: { label: '第十八章', title: '班长去哪了' },
   ch17_scene_alter_breach: { label: '第十九章', title: '去救覃瑞怡' },
-  ch19_scene_final_stand: { label: '第二十章', title: '钟楼里的最后一战' }
+  ch19_scene_final_stand: { label: '第二十章', title: '钟楼里的最后一战' },
+  ch21_scene_clinic_warmth: { label: '第二十一章', title: '神医的茶香' },
+  ch22_scene_pier_confrontation: { label: '第二十二章', title: '未来警徽' },
+  ch23_scene_counseling_breakin: { label: '第二十三章', title: '夺舍真相' },
+  ch24_scene_ruins_arrival: { label: '第二十四章', title: '钢铁废墟' },
+  ch25_scene_shelter_arrival: { label: '第二十五章', title: '时空重逢' },
+  ch26_scene_pyramid_ascent: { label: '第二十六章', title: '最后的考场' },
+  ch27_scene_reactor_run: { label: '第二十七章', title: '熔炉抉择' },
+  ch28_scene_return_2026: { label: '第二十八章', title: '倒流的挽歌' },
+  ch29_scene_throne_reveal: { label: '第二十九章', title: '求死的神明' },
+  ch30_scene_snack_crush: { label: '第三十章', title: '跨越百年的毕业礼' }
 };
 
 // 章节注册表：id → 章节配置（加新章节 = 在 src/data/chapters 建文件 + 这里映射一行）
@@ -157,7 +197,17 @@ const CHAPTERS = {
   ch16_battle1: CH16_BATTLE1,
   ch17_battle1: CH17_BATTLE1,
   ch18_battle1: CH18_BATTLE1,
-  ch19_battle1: CH19_BATTLE1
+  ch19_battle1: CH19_BATTLE1,
+  ch21_battle1: CH21_BATTLE1,
+  ch22_battle1: CH22_BATTLE1,
+  ch23_battle1: CH23_BATTLE1,
+  ch24_battle1: CH24_BATTLE1,
+  ch25_battle1: CH25_BATTLE1,
+  ch26_battle1: CH26_BATTLE1,
+  ch27_battle1: CH27_BATTLE1,
+  ch28_battle1: CH28_BATTLE1,
+  ch29_battle1: CH29_BATTLE1,
+  ch30_battle1: CH30_BATTLE1
 };
 
 // 章节入口场景注册表（按章节序号）：开发者秘籍 F1 选关菜单跳转到该章开头剧情。
@@ -181,7 +231,17 @@ const CHAPTER_ENTRY_SCENES = [
   'ch15b_scene_missing_jar', // 第 17 章
   'ch16_scene_return_ruins', // 第 18 章
   'ch17_scene_alter_breach', // 第 19 章
-  'ch19_scene_final_stand' // 第 20 章
+  'ch19_scene_final_stand',  // 第 20 章
+  'ch21_scene_clinic_warmth',      // 第 21 章
+  'ch22_scene_pier_confrontation', // 第 22 章
+  'ch23_scene_counseling_breakin', // 第 23 章
+  'ch24_scene_ruins_arrival',      // 第 24 章
+  'ch25_scene_bunker_refuge',      // 第 25 章
+  'ch26_scene_sky_exam_infiltrate',// 第 26 章
+  'ch27_scene_reactor_countdown',  // 第 27 章
+  'ch28_scene_return_2026',        // 第 28 章
+  'ch29_scene_throne_reveal',      // 第 29 章
+  'ch30_scene_snack_crush'         // 第 30 章
 ];
 
 export class GameApp {

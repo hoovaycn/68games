@@ -587,16 +587,16 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二幕 · 完。第三幕，敬请期待。',
+        text: '第二幕 · 完。三号船的暗流涌动，等待着新一轮的破局。（第三幕 · 敬请期待）',
         highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '第二幕全篇落幕。',
-      buttonText: '【重返主菜单】',
-      targetScene: 'title_screen'
+      prompt: '第二幕全篇落幕。三号船的暗流涌动，神医的诊所里飘出茶香……',
+      buttonText: '【开启第三幕 · 第二十一章《神医的茶香》】',
+      targetScene: 'ch21_scene_clinic_warmth'
     }
   }
 };

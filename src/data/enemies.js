@@ -695,5 +695,721 @@ export const ENEMIES = {
       attack: '在无尽的黑暗烟海中窒息吧！',
       death: '正气……林则徐的浩然正气……为何历经百年依然不灭……！'
     }
+  },
+
+  /* ══════════════════ 第三幕新增敌军体系（第21~30章） ══════════════════ */
+  // 第21章：水闸暗巷突围战
+  enforcer_abiao: {
+    id: 'enforcer_abiao',
+    name: '盯梢头目·阿彪',
+    title: '三号船恶煞打手头目',
+    classId: 'street_loafer',
+    level: 14,
+    bonusHp: 40,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/enforcer_abiao@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#450a0a',
+    bio: '魁梧油腻的黑道打手，穿黑色连帽雨衣，手持加重实心冷拔钢管，在水闸暗巷前后堵截学生与徐老师。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 1.0 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '小兔崽子，今天一个也别想走出这水闸巷！',
+      attack: '吃老子一铁管！',
+      death: '（轰然倒地）……三号船……三号船早晚把你们全吞了……'
+    }
+  },
+  porter_blueeye: {
+    id: 'porter_blueeye',
+    name: '青眼搬运工',
+    title: '被迷魂控制的苦力',
+    classId: 'street_loafer',
+    level: 13,
+    bonusHp: 15,
+    equippedWeapon: 'mop',
+    portrait: 'assets/portraits/porter_blueeye.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#1e3a8a',
+    bio: '码头装卸工打扮，双眼泛着幽绿青光，面部肌肉僵硬，动作机械沉重，被沈家残余势力强行驱使。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'sausage', chance: 0.8 },
+      { itemId: 'white_rabbit_candy', chance: 0.6 }
+    ],
+    quotes: {
+      move: '搬完……上船……不能停……',
+      attack: '滚开！',
+      death: '（揉着剧痛的双眼）……水……好冷的水……'
+    }
+  },
+  enforcer_shadow: {
+    id: 'enforcer_shadow',
+    name: '暗巷埋伏打手',
+    title: '三号船黑衣爪牙',
+    classId: 'street_loafer',
+    level: 13,
+    bonusHp: 20,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/enforcer_abiao@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#374151',
+    bio: '潜伏在水闸暗巷阴影中的打手，身手矫健阴险，擅长夹击突袭。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'sausage', chance: 0.8 },
+      { itemId: 'white_rabbit_candy', chance: 0.5 }
+    ],
+    quotes: {
+      move: '堵住他们，别让他们跑了！',
+      attack: '吃我一闷棍！',
+      death: '可恶……被小鬼给算计了……'
+    }
+  },
+
+  // 第22章：九号码头突击战
+  boss_viper_smuggler: {
+    id: 'boss_viper_smuggler',
+    name: '走私头目·独眼蝰蛇',
+    title: '三号船雇佣兵头目',
+    classId: 'street_loafer',
+    level: 15,
+    bonusHp: 60,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/boss_viper_smuggler@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#7f1d1d',
+    bio: '戴机械单目红外义眼，身着防水重装防弹衣，手持防暴合金重盾与连发轻型短弩，凶残狡诈。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '九号码头是老子的地盘，徐博你保不住他们！',
+      attack: '死在江里喂鱼吧！',
+      death: '可恶……这帮毛孩子怎么比海关缉私队还狠……！'
+    }
+  },
+  sailor_berserk: {
+    id: 'sailor_berserk',
+    name: '狂化重装水手',
+    title: '生化药剂侵蚀的水手肉盾',
+    classId: 'strong_boy',
+    level: 14,
+    bonusHp: 35,
+    equippedWeapon: 'dumbbell',
+    portrait: 'assets/portraits/sailor_berserk@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#0369a1',
+    bio: '穿厚重橡胶潜水服，手持重型水压切断钳，因注射过量违禁提神药剂而陷入狂化，不知疼痛。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 0.5 }
+    ],
+    quotes: {
+      move: '喝！砸碎一切！',
+      attack: '巨浪压顶！',
+      death: '唔……身体……要裂开了……'
+    }
+  },
+  sniper_dock: {
+    id: 'sniper_dock',
+    name: '码头埋伏狙击手',
+    title: '三号船高点冷血枪手',
+    classId: 'study_committee',
+    level: 14,
+    bonusHp: 15,
+    equippedWeapon: 'slingshot',
+    portrait: 'assets/portraits/sniper_dock@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#475569',
+    bio: '潜伏在集装箱吊塔顶端的冷酷枪手，手持消音改造射钉枪，擅长远距离狙击压制。',
+    ai: {
+      type: 'passive_guard',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 0.8 },
+      { itemId: 'bastard_soda', chance: 0.5 }
+    ],
+    quotes: {
+      move: '目标锁定，准备点名。',
+      attack: '高空穿甲弹，送你入水！',
+      death: '视野……被强光遮蔽了……！'
+    }
+  },
+
+  // 第23章：诊室时空阻滞战
+  shadow_parasite: {
+    id: 'shadow_parasite',
+    name: '时空煞气寄生体',
+    title: '脑波裂隙异变物',
+    classId: 'street_loafer',
+    level: 15,
+    bonusHp: 25,
+    equippedWeapon: 'pencil',
+    portrait: 'assets/portraits/shadow_parasite@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#701a75',
+    bio: '由古青瓷药罐残片与超载脑波仪共鸣激发的虚幻煞气聚合体，如幽魂般飘忽不定。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'white_rabbit_candy', chance: 0.8 }
+    ],
+    quotes: {
+      move: '（发出断续刺耳的杂音）',
+      attack: '精神逆流！',
+      death: '（化作一缕青烟散去）'
+    }
+  },
+  chronos_puppet: {
+    id: 'chronos_puppet',
+    name: '时空错乱傀儡',
+    title: '时空折叠投影',
+    classId: 'primary_student',
+    level: 15,
+    bonusHp: 20,
+    equippedWeapon: 'exercise_bat',
+    portrait: 'assets/portraits/chronos_puppet@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#4c1d95',
+    bio: '被卷入扭曲时空维度的虚幻傀儡，动作僵直却不知疲倦，执行着抹杀一切入侵者的死指令。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '时间……停止……',
+      attack: '因果抹除！',
+      death: '（化作光斑崩解）'
+    }
+  },
+  ayao_corrupted_shadow: {
+    id: 'ayao_corrupted_shadow',
+    name: '煞气拟态·虚影阿瑶',
+    title: '脑波共振具现体',
+    classId: 'study_committee',
+    level: 16,
+    bonusHp: 50,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/ayao_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#6d28d9',
+    bio: '阿瑶借由古青瓷药罐残片与脑波仪激发的煞气拟态，周身缭绕暗紫电弧，投掷断裂试卷与时空残影。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '你们根本不明白二十年后的未来有多绝望……',
+      attack: '不要妨碍我逆转因果！',
+      death: '（残影闪烁消散）……快停手……你们会被卷进未来的……'
+    }
+  },
+  time_puppet: {
+    id: 'time_puppet',
+    name: '时空异化傀儡',
+    title: '错乱时空裂缝产物',
+    classId: 'primary_student',
+    level: 15,
+    bonusHp: 20,
+    equippedWeapon: 'pencil',
+    portrait: 'assets/portraits/ayao_corrupted@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#4c1d95',
+    bio: '从脑波仪撕裂的时空褶皱中涌出的虚幻傀儡，面部是一片空白的马赛克，动作扭曲异常。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'candy', chance: 0.8 }
+    ],
+    quotes: {
+      move: '时钟……倒流……没有明天……',
+      attack: '抹除！',
+      death: '（化作金色光斑消散）'
+    }
+  },
+
+  // 第24章：未来广场突围求生战
+  boss_exam_captain: {
+    id: 'boss_exam_captain',
+    name: '满分治安官·执行队长',
+    title: '2046天梯秩序执法者',
+    classId: 'street_loafer',
+    level: 17,
+    bonusHp: 75,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/boss_exam_captain@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#b91c1c',
+    bio: '扣着银色笑脸金属面具（额头印红色100分），身穿外骨骼轻甲，手持双头高压电弧警棍，机械冷血。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '检测到非标准情绪波动，立即执行格式化拘捕！',
+      attack: '绝对满分，绝对服从！',
+      death: '（面具电火花炸裂）……系统……报错……'
+    }
+  },
+  officer_100: {
+    id: 'officer_100',
+    name: '机械化满分治安官',
+    title: '2046流水线克隆执法者',
+    classId: 'primary_student',
+    level: 16,
+    bonusHp: 25,
+    equippedWeapon: 'exercise_bat',
+    portrait: 'assets/portraits/officer_100@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#475569',
+    bio: '灰白色制式巡警制服，面具带微笑，步调机械诡异一致，手持电磁警棍与拘束网。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'sausage', chance: 0.8 },
+      { itemId: 'bastard_soda', chance: 0.5 }
+    ],
+    quotes: {
+      move: '立正，受检。',
+      attack: '电荷拘捕！',
+      death: '（外骨骼断裂倒地）'
+    }
+  },
+  probe_machine: {
+    id: 'probe_machine',
+    name: '情绪清扫探针机甲',
+    title: '天梯空中声波浮游哨',
+    classId: 'study_committee',
+    level: 16,
+    bonusHp: 20,
+    equippedWeapon: 'snack_throw',
+    portrait: 'assets/portraits/probe_machine@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#dc2626',
+    bio: '悬浮在半空的三眼机械探针，底部探出红色激光扫描仪和音波发射口，发出刺耳的声波噪音。',
+    ai: {
+      type: 'passive_guard',
+      aggroRadius: 5
+    },
+    drops: [
+      { itemId: 'white_rabbit_candy', chance: 0.8 }
+    ],
+    quotes: {
+      move: '滴——扫描到违规思维波段！',
+      attack: '高频次声波震慑！',
+      death: '哔——探针过载爆炸！'
+    }
+  },
+
+  // 第25章：防空洞绝壁守护战
+  boss_hunter_alpha: {
+    id: 'boss_hunter_alpha',
+    name: '天梯追猎者·阿尔法',
+    title: '重装生化清道夫',
+    classId: 'strong_boy',
+    level: 18,
+    bonusHp: 90,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/boss_hunter_alpha@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#7c2d12',
+    bio: '身高两米五的生化外骨骼战士，手持六管加特林机枪，背负大容量弹药箱，暴力切割防空洞重型钢门。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 }
+    ],
+    quotes: {
+      move: '反抗军的耗子们，你们的老鼠洞被挖穿了！',
+      attack: '金属风暴，撕碎一切！',
+      death: '（胸口微型核电芯过载喷出火舌）……天梯……永不坠落……'
+    }
+  },
+  hound_riot: {
+    id: 'hound_riot',
+    name: '防暴歼灭猎犬',
+    title: '仿生钛合金机械战犬',
+    classId: 'sports_star',
+    level: 17,
+    bonusHp: 25,
+    equippedWeapon: 'mop',
+    portrait: 'assets/portraits/hound_riot@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#991b1b',
+    bio: '黑色四足机械猎犬，头部搭载红外激光定位仪与钛合金机械咬合齿，机动性极强。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'sausage', chance: 0.8 }
+    ],
+    quotes: {
+      move: '吼！滋滋——机械齿轮咬合！',
+      attack: '飞扑撕咬！',
+      death: '（电路火花四溅，断成两截）'
+    }
+  },
+
+  // 第26章：天梯核心主脑歼灭战
+  boss_ai_topstudent: {
+    id: 'boss_ai_topstudent',
+    name: '满分优等生智脑',
+    title: '天梯全息数据核心',
+    classId: 'study_committee',
+    level: 19,
+    bonusHp: 110,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/boss_ai_topstudent@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#2563eb',
+    bio: '由数万道幽蓝数据流凝成的巨大学霸全息半身像，手持光芒构成的巨型钢笔，象征着病态的应试神权。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 },
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '解题错误，扣分。存在错误，抹杀！',
+      attack: '满分雷霆，绝不容许涂改！',
+      death: '（数据代码流崩溃成漫天光雨）……这就是……标准答案之外的可能吗……'
+    }
+  },
+  patrol_robot_exam: {
+    id: 'patrol_robot_exam',
+    name: '天梯巡考机械人',
+    title: '核心层流线型执法机甲',
+    classId: 'study_committee',
+    level: 18,
+    bonusHp: 30,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/patrol_robot_exam@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#3b82f6',
+    bio: '白色流线型拟人机甲，双臂为高频振动光刃，胸口投射全息倒计时钟表，瞬移巡视考场。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 0.8 },
+      { itemId: 'sausage', chance: 0.8 }
+    ],
+    quotes: {
+      move: '考试时间仅剩最后三分钟，立即交卷！',
+      attack: '高频切割红线！',
+      death: '（全息投影熄灭，机体碎裂）'
+    }
+  },
+
+  // 第27章：光门前最后的血肉长城
+  boss_storm_mech: {
+    id: 'boss_storm_mech',
+    name: '境外重装歼灭者·暴风',
+    title: '四足攻城巨型战车',
+    classId: 'strong_boy',
+    level: 20,
+    bonusHp: 140,
+    equippedWeapon: 'colossus_fist',
+    portrait: 'assets/portraits/boss_storm_mech@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#0f172a',
+    bio: '四足重装攻城战车，搭载双联穿甲自动炮与顶部多联迫击炮，哑光黑军工涂装，步步碾压阻击线。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 9
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 }
+    ],
+    quotes: {
+      move: '目标锁定：时空光圈。启动覆盖式洗地炮击！',
+      attack: '双联穿甲暴风轰顶！',
+      death: '（四足液压管爆裂跪倒）……警报……主反应堆损毁……'
+    }
+  },
+  alloy_deathsworn: {
+    id: 'alloy_deathsworn',
+    name: '合金自律死士',
+    title: '铝热剂自爆冲锋单位',
+    classId: 'sports_star',
+    level: 19,
+    bonusHp: 28,
+    equippedWeapon: 'dumbbell',
+    portrait: 'assets/portraits/alloy_deathsworn@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#ea580c',
+    bio: '履带式半身合金死士，胸口半裸露橙红铝热剂自爆引信，眼中闪烁自毁读秒红字，高速决死冲锋。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '滴——自爆引信启动，3，2，1……',
+      attack: '同归于尽吧！',
+      death: '轰隆——（炸成碎片）'
+    }
+  },
+
+  // 第28章：三号船甲板破袭战
+  boss_iron_scorpion: {
+    id: 'boss_iron_scorpion',
+    name: '引信守卫长·铁蝎',
+    title: '三号船引爆特种佣兵队长',
+    classId: 'street_loafer',
+    level: 21,
+    bonusHp: 130,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/boss_iron_scorpion@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#78350f',
+    bio: '身披沙漠迷彩撕裂斗篷，手持大口径转轮榴弹枪，腰间缠满雷管引信，誓死要把三号船沉入江底。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '底舱的引信已经点燃了！你们谁也救不了徐博和海峰！',
+      attack: '尝尝高爆榴弹的滋味！',
+      death: '（抢下防爆卡）……你们……来不及的……火已经烧起来了……'
+    }
+  },
+  fanatic_bomber: {
+    id: 'fanatic_bomber',
+    name: '狂化引爆死士',
+    title: '绑满炸药包的亡命徒',
+    classId: 'street_loafer',
+    level: 20,
+    bonusHp: 30,
+    equippedWeapon: 'snack_throw',
+    portrait: 'assets/portraits/fanatic_bomber@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#c2410c',
+    bio: '捆绑烈性炸药包的亡命徒，手握拉火引信，双眼血红，受狂化药剂彻底洗脑。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'bastard_soda', chance: 0.8 }
+    ],
+    quotes: {
+      move: '为了老板！全烧光！',
+      attack: '点火引爆！',
+      death: '（引线被强行剪断断气）'
+    }
+  },
+  hold_gate_guard: {
+    id: 'hold_gate_guard',
+    name: '底舱重型水闸守卫',
+    title: '封锁救生通路的重盾兵',
+    classId: 'strong_boy',
+    level: 20,
+    bonusHp: 45,
+    equippedWeapon: 'heavy_guard_club',
+    portrait: 'assets/portraits/hold_gate_guard@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#334155',
+    bio: '穿戴全身重型防暴甲，手持厚实合金防爆大盾，死死封锁通向底舱火海的阶梯。',
+    ai: {
+      type: 'passive_guard',
+      aggroRadius: 5
+    },
+    drops: [
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 0.5 }
+    ],
+    quotes: {
+      move: '重闸已锁死，任何人不得靠近！',
+      attack: '重盾猛砸！',
+      death: '（大盾砸地跪落）……快……闸门要砸下来了……'
+    }
+  },
+
+  // 第29章：斩断神明枷锁
+  pillar_neural_lock: {
+    id: 'pillar_neural_lock',
+    name: '外置神经死锁柱',
+    title: '天台神座神经束缚装置',
+    classId: 'study_committee',
+    level: 22,
+    bonusHp: 80,
+    equippedWeapon: 'whistle',
+    portrait: 'assets/portraits/pillar_neural_lock@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#581c87',
+    bio: '四根矗立在天台四周的粗壮暗紫色合金导电立柱，缠绕着高压电弧与吸血光缆，将阿瑶锁在神座中央。',
+    ai: {
+      type: 'passive_guard',
+      aggroRadius: 6
+    },
+    drops: [
+      { itemId: 'white_rabbit_candy', chance: 1.0 }
+    ],
+    quotes: {
+      move: '滋滋滋——神经脉冲充能中！',
+      attack: '全屏高压神经电弧！',
+      death: '轰——（立柱断裂崩塌，电弧熄灭）'
+    }
+  },
+  repair_spider: {
+    id: 'repair_spider',
+    name: '主脑重装修复蛛',
+    title: '高频等离子维修机兵',
+    classId: 'primary_student',
+    level: 21,
+    bonusHp: 32,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/repair_spider@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#059669',
+    bio: '八足多关节机械维修蜘蛛，前肢带焊切高温等离子焊枪，疯狂巡回抢修受损的死锁神经柱。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 0.8 }
+    ],
+    quotes: {
+      move: '检测到结构损伤，正在紧急注塑修复！',
+      attack: '高温等离子割炬！',
+      death: '（机械八足折断冒烟）'
+    }
+  },
+  ayao_corrupted_god: {
+    id: 'ayao_corrupted_god',
+    name: '因果裁决者·永恒阿瑶',
+    title: '被天梯主脑强行接管的半神',
+    classId: 'study_committee',
+    level: 23,
+    bonusHp: 160,
+    equippedWeapon: 'fountain_pen',
+    portrait: 'assets/portraits/ayao_corrupted_god_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#6b21a8',
+    bio: '被境外主脑强行接管异化的半神形态。阿瑶悬浮半空，脊柱钉有七枚骨钉连接神经缆绳，满天飞舞破碎试卷。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 9
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 }
+    ],
+    quotes: {
+      move: '（痛苦挣扎）杀了我……不要管我……快击碎死锁柱！',
+      attack: '因果风暴，重构时间线！',
+      death: '（骨钉崩裂，泪水滑落）……谢谢你们……终于……把我拉回来了……'
+    }
+  },
+
+  // 第30章：终局决战
+  boss_judgement_core: {
+    id: 'boss_judgement_core',
+    name: '万物天梯裁决核心',
+    title: '终极量子因果母体神座',
+    classId: 'strong_boy',
+    level: 25,
+    bonusHp: 240,
+    equippedWeapon: 'colossus_fist',
+    portrait: 'assets/portraits/boss_judgement_core@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#312e81',
+    bio: '盘踞在三号船顶层穹顶的巨大半球形量子脑波中枢，生物缆绳缠绕，紫黑机械复眼，掌控着莫比乌斯环的罪恶源头。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 10
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '人类的未来唯有绝对理性的阶梯！凡人皆为蝼蚁！',
+      attack: '量子因果湮灭雷暴！',
+      death: '（核心分崩离析，神座崩塌）……不可能……浩然正气……竟然超越了算法因果……！'
+    }
+  },
+  capital_guard_mech: {
+    id: 'capital_guard_mech',
+    name: '境外资本重装护卫机甲',
+    title: '神座终极防卫机兵',
+    classId: 'strong_boy',
+    level: 23,
+    bonusHp: 80,
+    equippedWeapon: 'colossus_fist',
+    portrait: 'assets/portraits/capital_guard_mech@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#1e293b',
+    bio: '涂装资本鹰隼徽标的厚重机械守卫，手持双臂电磁震荡盾牌，誓死护卫裁决核心。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'sausage', chance: 1.0 },
+      { itemId: 'honey_tea', chance: 1.0 }
+    ],
+    quotes: {
+      move: '神座核心不可侵犯！肃清入侵者！',
+      attack: '电磁震荡冲击！',
+      death: '（金属装甲碎裂瘫痪）'
+    }
   }
 };

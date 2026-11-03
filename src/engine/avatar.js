@@ -90,8 +90,72 @@ const ACTOR_STATES = {
   /* 第二幕普通杂兵敌人 */
   shen_guard: ['default'],
   foreign_sailor: ['1839'],
-  comprador_assassin: ['1839']
+  comprador_assassin: ['1839'],
+  /* 第三幕核心角色立绘 */
+  su_wan_doctor: ['default', 'concerned', 'cold'],
+  ayao_adult: ['default', 'tearful', 'smile'],
+  ayao_corrupted_god: ['default', 'machine'],
+  ayao_aged_2046: ['default', 'weeping'],
+  mc_adult_zixiao: ['default', 'gentle', 'fury', 'dissolve'],
+  mc_adult_yunuo: ['default', 'gentle', 'charge', 'dissolve'],
+  fanwenmo_adult: ['default', 'tearful', 'dissolve'],
+  heyanxi_adult: ['default', 'aim', 'hug', 'dissolve'],
+  haifeng_burnt: ['default', 'rage', 'tears'],
+  teacher_xu_burnt: ['default', 'choke', 'hug'],
+  teacher_liu_burnt: ['default', 'choke', 'hug'],
+  teacher_xubox_stealth: ['default', 'pale', 'pain'],
+  /* 第三幕战斗单位 / Boss / 杂兵 */
+  enforcer_abiao: ['default'],
+  porter_blueeye: ['default'],
+  boss_viper_smuggler: ['default'],
+  sailor_berserk: ['default'],
+  sniper_dock: ['default'],
+  shadow_parasite: ['default'],
+  chronos_puppet: ['default'],
+  boss_exam_captain: ['default'],
+  officer_100: ['default'],
+  probe_machine: ['default'],
+  boss_hunter_alpha: ['default'],
+  patrol_robot_exam: ['default'],
+  boss_ai_topstudent: ['default'],
+  boss_storm_mech: ['default'],
+  alloy_deathsworn: ['default'],
+  hound_riot: ['default'],
+  boss_iron_scorpion: ['default'],
+  fanatic_bomber: ['default'],
+  hold_gate_guard: ['default'],
+  pillar_neural_lock: ['default'],
+  repair_spider: ['default'],
+  boss_judgement_core: ['default'],
+  capital_guard_mech: ['default']
 };
+
+/* 战斗单位直接命名（无 state 后缀）集合 */
+const DIRECT_FILE_ACTORS = new Set([
+  'enforcer_abiao',
+  'porter_blueeye',
+  'boss_viper_smuggler',
+  'sailor_berserk',
+  'sniper_dock',
+  'shadow_parasite',
+  'chronos_puppet',
+  'boss_exam_captain',
+  'officer_100',
+  'probe_machine',
+  'boss_hunter_alpha',
+  'patrol_robot_exam',
+  'boss_ai_topstudent',
+  'boss_storm_mech',
+  'alloy_deathsworn',
+  'hound_riot',
+  'boss_iron_scorpion',
+  'fanatic_bomber',
+  'hold_gate_guard',
+  'pillar_neural_lock',
+  'repair_spider',
+  'boss_judgement_core',
+  'capital_guard_mech'
+]);
 
 /* ───────────── 内部工具 ───────────── */
 
@@ -109,6 +173,9 @@ function fallbackUri(density) {
 
 function uriOf(actor, state, density) {
   const key = FILE_KEYS[actor] ?? actor;
+  if (DIRECT_FILE_ACTORS.has(actor) && state === 'default') {
+    return PORTRAITS_DIR + '/' + key + densitySuffix(density) + '.png';
+  }
   return PORTRAITS_DIR + '/' + key + '_' + state + densitySuffix(density) + '.png';
 }
 
