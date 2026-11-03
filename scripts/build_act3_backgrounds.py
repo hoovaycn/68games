@@ -23,18 +23,18 @@ DARK = 42          # 判定「纯黑边」的亮度阈值
 
 # (生图源文件, 输出资源名)
 JOBS = [
-    ('Hard_edged_16_bit_pixel_art_JR_2026-10-31T03-10-56.png', 'bg_counseling_room'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-15-57.png', 'bg_street_night_rain'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-16-47.png', 'bg_pier_night_rain'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-17-05.png', 'bg_future_city_ruins'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-19-49.png', 'bg_future_square_monument'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-17-37.png', 'bg_resistance_bunker'),
-    ('Hard_edged_16_bit_pixel_art_JR_2026-10-31T03-12-55.png', 'bg_sky_exam_core'),
-    ('Hard_edged_16_bit_pixel_art_JR_2026-10-31T03-13-12.png', 'bg_ayao_stasis_chamber'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-18-38.png', 'bg_reactor_core'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-16-13.png', 'bg_pier_sunset_cargo'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-18-06.png', 'bg_cargo_hold_fire'),
-    ('Bright_vivid_16_bit_pixel_art__2026-10-31T03-18-26.png', 'bg_cargo_top_throne'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-33-17.png', 'bg_counseling_room'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-34-19.png', 'bg_street_night_rain'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-34-40.png', 'bg_pier_night_rain'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-35-01.png', 'bg_future_city_ruins'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-35-17.png', 'bg_future_square_monument'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-35-40.png', 'bg_resistance_bunker'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-36-00.png', 'bg_sky_exam_core'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-38-34.png', 'bg_ayao_stasis_chamber'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-36-45.png', 'bg_reactor_core'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-36-59.png', 'bg_pier_sunset_cargo'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-37-21.png', 'bg_cargo_hold_fire'),
+    ('High_resolution_32_bit_era_JRP_2026-11-03T13-37-42.png', 'bg_cargo_top_throne'),
 ]
 
 

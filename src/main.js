@@ -744,19 +744,31 @@ export class GameApp {
       const ally2Name = isMale ? '范文默' : '何妍熹';
       const ally2Portrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_default@2x.png';
       const ally2CorruptedPortrait = isMale ? 'assets/art/fanwenmo_corrupted@2x.png' : 'assets/art/heyanxi_corrupted@2x.png';
+      const mcAdultName = isMale ? '张子骁' : '石予诺';
+      const mcAdultPortrait = isMale ? 'assets/art/mc_adult_zixiao_default@2x.png' : 'assets/art/mc_adult_yunuo_default@2x.png';
+      const ally2AdultName = isMale ? '范文默' : '何妍熹';
+      const ally2AdultPortrait = isMale ? 'assets/art/fanwenmo_adult_default@2x.png' : 'assets/art/heyanxi_adult_default@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));
-      const storyNames = { MC_NAME: mcName, ALLY_1_NAME: ally1Name, ALLY_2_NAME: ally2Name };
+      const storyNames = {
+        MC_NAME: mcName,
+        ALLY_1_NAME: ally1Name,
+        ALLY_2_NAME: ally2Name,
+        MC_ADULT_NAME: mcAdultName,
+        ALLY_2_ADULT_NAME: ally2AdultName,
+        MC_SHADOW_NAME: isMale ? '张子骁的心魔' : '石予诺的心魔',
+        ALLY_1_SHADOW_NAME: isMale ? '张瀚瑜的心魔' : '陈品璇的心魔',
+        ALLY_2_SHADOW_NAME: isMale ? '范文默的心魔' : '何妍熹的心魔'
+      };
       if (Array.isArray(sceneData.dialogues)) {
         sceneData.dialogues.forEach(dlg => {
-          if (dlg.speaker === '{MC_NAME}') dlg.speaker = mcName;
-          if (dlg.speaker === '{MC_SHADOW_NAME}') dlg.speaker = isMale ? '张子骁的心魔' : '石予诺的心魔';
-          if (dlg.speaker === '{ALLY_1_NAME}') dlg.speaker = ally1Name;
-          if (dlg.speaker === '{ALLY_1_SHADOW_NAME}') dlg.speaker = isMale ? '张瀚瑜的心魔' : '陈品璇的心魔';
-          if (dlg.speaker === '{ALLY_2_NAME}') dlg.speaker = ally2Name;
-          if (dlg.speaker === '{ALLY_2_SHADOW_NAME}') dlg.speaker = isMale ? '范文默的心魔' : '何妍熹的心魔';
+          if (dlg.speaker) {
+            dlg.speaker = replaceStoryNames(dlg.speaker, storyNames);
+          }
           if (dlg.leftPortrait === '{MC_PORTRAIT}') dlg.leftPortrait = mcPortrait;
           if (dlg.rightPortrait === '{MC_PORTRAIT}') dlg.rightPortrait = mcPortrait;
+          if (dlg.leftPortrait === '{MC_ADULT_PORTRAIT}') dlg.leftPortrait = mcAdultPortrait;
+          if (dlg.rightPortrait === '{MC_ADULT_PORTRAIT}') dlg.rightPortrait = mcAdultPortrait;
           if (dlg.leftPortrait === '{MC_CORRUPTED_PORTRAIT}') dlg.leftPortrait = mcCorruptedPortrait;
           if (dlg.rightPortrait === '{MC_CORRUPTED_PORTRAIT}') dlg.rightPortrait = mcCorruptedPortrait;
           if (dlg.leftPortrait === '{ALLY_1_PORTRAIT}') dlg.leftPortrait = ally1Portrait;
@@ -765,6 +777,8 @@ export class GameApp {
           if (dlg.rightPortrait === '{ALLY_1_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally1CorruptedPortrait;
           if (dlg.leftPortrait === '{ALLY_2_PORTRAIT}') dlg.leftPortrait = ally2Portrait;
           if (dlg.rightPortrait === '{ALLY_2_PORTRAIT}') dlg.rightPortrait = ally2Portrait;
+          if (dlg.leftPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.leftPortrait = ally2AdultPortrait;
+          if (dlg.rightPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.rightPortrait = ally2AdultPortrait;
           if (dlg.leftPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally2CorruptedPortrait;
           if (dlg.rightPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally2CorruptedPortrait;
           dlg.text = replaceStoryNames(dlg.text, storyNames);

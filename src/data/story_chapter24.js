@@ -42,7 +42,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（揉着摔青的膝盖）哎哟我的屁股……子骁，我们这是在哪儿啊？！刚才还在徐老师的咨询室里，怎么一眨眼……这楼怎么全被削掉半截了？！还有天上的广告牌……二零四六年？！',
+        text: '（揉着摔青的膝盖）哎哟我的屁股……{MC_NAME}，我们这是在哪儿啊？！刚才还在徐老师的咨询室里，怎么一眨眼……这楼怎么全被削掉半截了？！还有天上的广告牌……二零四六年？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -246,7 +246,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（泪水模糊）子骁……对不起……我们连大人们都没能救回来……就要死在这座连眼泪都不被允许的冷血未来了吗……',
+        text: '（泪水模糊）{MC_NAME}……对不起……我们连大人们都没能救回来……就要死在这座连眼泪都不被允许的冷血未来了吗……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -280,7 +280,7 @@ export const CHAPTER24_STORY = {
       {
         id: 6,
         speaker: '神秘人',
-        leftPortrait: 'assets/art/mc_adult_zixiao_default@2x.png',
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
         text: '（身披破损黑斗篷，手握脉冲霰弹枪顺滑索从天而降，一把提住两人的衣领）几个小兔崽子命挺硬啊！连治安军重装防暴队都敢硬刚？！趴下！跟着我往老防空洞撤！快！！',

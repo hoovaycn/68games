@@ -32,7 +32,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（抬手示意所有人贴墙隐蔽，右手拔出手枪卡入战术握把，左手握着那枚二十年后的未来警徽）门锁从里面被反锁了，里面有高压电流的蜂鸣声。子骁，待会儿破门所有人站在防弹盾后面，别乱动！',
+        text: '（抬手示意所有人贴墙隐蔽，右手拔出手枪卡入战术握把，左手握着那枚二十年后的未来警徽）门锁从里面被反锁了，里面有高压电流的蜂鸣声。{MC_NAME}，待会儿破门所有人站在防弹盾后面，别乱动！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -213,7 +213,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_1_NAME}',
         activeSide: 'left',
-        text: '（双目赤红飞身扑救，伸直手臂想要抓住孩子们）文默！子骁！抓住我的手！！快抓紧！！',
+        text: '（双目赤红飞身扑救，伸直手臂想要抓住孩子们）{ALLY_2_NAME}！{MC_NAME}！抓住我的手！！快抓紧！！',
         sfx: 'sfx_text_blip'
       },
       {

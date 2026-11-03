@@ -52,7 +52,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
-        text: '（猛然回头，眼中写满了不可置信与惊骇，提着手提箱的手剧烈颤抖）子骁（予诺）？！文默（妍熹）？！你们怎么会找到这里来？！谁让你们来的？！',
+        text: '（猛然回头，眼中写满了不可置信与惊骇，提着手提箱的手剧烈颤抖）{MC_NAME}？！{ALLY_2_NAME}？！你们怎么会找到这里来？！谁让你们来的？！',
         sfx: 'sfx_text_blip'
       },
       {

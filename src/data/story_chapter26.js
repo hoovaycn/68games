@@ -38,8 +38,8 @@ export const CHAPTER26_STORY = {
       },
       {
         id: 3,
-        speaker: '成年副官',
-        leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
         text: '因为在阿瑶心里……‘分数’是她毕生挣脱不掉的梦魇。她以为只要抹杀掉所有人不合格的情感，世界就不会再有背叛，更不会再有三号船那场吞噬一切的大火。',
@@ -141,7 +141,7 @@ export const CHAPTER26_STORY = {
         id: 4,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/mc_adult_zixiao_default@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
         text: '（双拳砸在地面泣不成声）怎么会是这样……老师们痛恨了阿瑶二十年，全校都以为她堕落……真相竟然是她用自己的一辈子换了两位老师的生路啊！！',
         highlight: true,
@@ -149,9 +149,9 @@ export const CHAPTER26_STORY = {
       },
       {
         id: 5,
-        speaker: '成年副官',
-        leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
-        rightPortrait: '{ALLY_1_NAME}',
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        rightPortrait: '{MC_NAME}',
         activeSide: 'left',
         text: '阿瑶亲手把自己逼成了全天下最孤独的恶人，锁在了一个必须永远扮演恶魔的莫比乌斯环里！整整四十年啊！！',
         sfx: 'sfx_text_blip'
@@ -190,14 +190,14 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '金色全息智脑寸寸龟裂轰然爆碎为蓝光！维生舱管线脱落，枯瘦的阿瑶从半空坠落，被成年主角稳稳接住。',
-        sfx: 'sfx_confirm'
+        text: '金色全息智脑寸寸龟裂轰然爆碎为蓝光！维生舱管线脱落，枯瘦的阿瑶从半空坠落，被{MC_ADULT_NAME}稳稳接住。',
+        sfx: 'sfx_explosion'
       },
       {
         id: 2,
         speaker: '未来阿瑶',
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
-        rightPortrait: 'assets/art/mc_adult_zixiao_default@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
         text: '（嘴角露出解脱苦涩的微笑）你们……终于打碎这个牢笼了……二十年了，我终于不用再算那些冰冷的分数了……',
         sfx: 'sfx_text_blip'
@@ -206,7 +206,7 @@ export const CHAPTER26_STORY = {
         id: 3,
         speaker: '未来阿瑶',
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
-        rightPortrait: 'assets/art/mc_adult_zixiao_default@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
         text: '（从胸口硬生生抠出一枚散发七彩光晕的原石芯片）这是最初的地脉核心【古罐原石密钥】。去底层反物质反应堆插入喷流口，通道就会逆转开启……但只有十二岁的纯净肉身能回去，大号的你们已经回不去了……',
         highlight: true,
@@ -214,8 +214,8 @@ export const CHAPTER26_STORY = {
       },
       {
         id: 4,
-        speaker: '成年副官',
-        leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
         text: '我们早就不在乎能不能回去了……只要能让二十年前的老爸和老师们活着，我们粉身碎骨也心甘情愿！',
@@ -224,8 +224,8 @@ export const CHAPTER26_STORY = {
       },
       {
         id: 5,
-        speaker: '成年主角',
-        leftPortrait: 'assets/art/mc_adult_zixiao_default@2x.png',
+        speaker: '{MC_ADULT_NAME}',
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
         text: '别磨磨唧唧的！走！下反应堆！把你们六个送回过去，拯救我们的未来！！',

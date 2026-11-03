@@ -60,7 +60,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（也愣住了，呆呆地看着那个包装袋）子骁（予诺）……你当年……一口都没吃吗？'
+        text: '（也愣住了，呆呆地看着那个包装袋）{MC_NAME}……你当年……一口都没吃吗？'
       },
       {
         id: 6,
@@ -170,7 +170,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '轰！纯阳长风横扫而过，将狂暴的机械重力场硬生生逼退十米！与此同时，在每一个小号少年握紧刀棍棒球铲的手背上——一双双满是老茧、枪伤与血痕的成年人大手，悄无声息地温柔覆上！大号张子骁、大号范文默、大号何妍熹在虚空中并肩浮现，眼神从容、骄傲，且无怨无悔！',
+        text: '轰！纯阳长风横扫而过，将狂暴的机械重力场硬生生逼退十米！与此同时，在每一个小号少年握紧刀棍棒球铲的手背上——一双双满是老茧、枪伤与血痕的成年人大手，悄无声息地温柔覆上！大号{MC_ADULT_NAME}、大号{ALLY_2_ADULT_NAME}在虚空中并肩浮现，眼神从容、骄傲，且无怨无悔！',
         highlight: true
       },
       {
@@ -277,7 +277,7 @@ export const CHAPTER30_STORY = {
       },
       {
         id: 5,
-        speaker: '{MC_NAME}＆文默',
+        speaker: '{MC_NAME}＆{ALLY_2_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_1_PORTRAIT}',
         activeSide: 'left',
@@ -335,7 +335,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【视角三：回望二零四六年（未来的挥别）】\n夕阳西下，放学铃声清脆悠扬地传遍长街。十二岁的张子骁、石予诺、范文默、何妍熹、张希哲、覃瑞怡、朱彦泽、张瀚瑜、陈品璇，勾肩搭背、嬉笑打闹着冲出校门。“张希哲！你刚才踢球把徐老师的花盆砸了，明天等着写检查吧！”“怕什么！大不了我把早饭的鸡蛋灌饼分她一半！”',
+        text: '【视角三：回望二零四六年（未来的挥别）】\n夕阳西下，放学铃声清脆悠扬地传遍长街。十二岁的{MC_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡、朱彦泽、{ALLY_1_NAME}，勾肩搭背、嬉笑打闹着冲出校门。“张希哲！你刚才踢球把徐老师的花盆砸了，明天等着写检查吧！”“怕什么！大不了我把早饭的鸡蛋灌饼分她一半！”',
         highlight: true
       },
       {
@@ -344,7 +344,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '在街角温暖的逆光微尘中，依稀浮现出2046年那群满身伤痕的32岁大号自己的虚影。他们身上带血的旧警服和战术风衣渐渐变得柔和透明。大号张子骁微笑着向十二岁的自己比了一个帅气的大拇指，随后从容、安心地化作漫天金色的蒲公英，彻底融化在温暖的晚风里。因为他们深知，那个冰冷绝望的2046年已经彻底死去了；而眼前的这群少年，正大步奔向一个所有人都在、阳光灿烂的崭新未来。',
+        text: '在街角温暖的逆光微尘中，依稀浮现出2046年那群满身伤痕的32岁大号自己的虚影。他们身上带血的旧警服和战术风衣渐渐变得柔和透明。大号{MC_ADULT_NAME}微笑着向十二岁的自己比了一个帅气的大拇指，随后从容、安心地化作漫天金色的蒲公英，彻底融化在温暖的晚风里。因为他们深知，那个冰冷绝望的2046年已经彻底死去了；而眼前的这群少年，正大步奔向一个所有人都在、阳光灿烂的崭新未来。',
         highlight: true
       },
       {

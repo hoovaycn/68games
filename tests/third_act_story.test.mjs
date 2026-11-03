@@ -128,3 +128,67 @@ test('选关菜单 LevelSelectModal 覆盖全部 30 个章节', () => {
     assert.ok(allAct3Scenes[c.sceneKey], `章节入口场景不存在: ${c.sceneKey}`);
   }
 });
+
+test('第三幕所有剧情脚本无双线角色名或立绘硬编码，严格遵循占位符规范', () => {
+  const forbiddenPatterns = [
+    /张子骁/,
+    /石予诺/,
+    /范文默/,
+    /何妍熹/,
+    /张瀚瑜/,
+    /陈品璇/,
+    /子骁/,
+    /予诺/,
+    /文默/,
+    /妍熹/,
+    /（予诺）/,
+    /（妍熹）/,
+    /成年主角/,
+    /成年副官/,
+    /mc_adult_zixiao/,
+    /mc_adult_yunuo/,
+    /fanwenmo_adult/,
+    /heyanxi_adult/
+  ];
+
+  for (const [sceneKey, scene] of Object.entries(allAct3Scenes)) {
+    if (!Array.isArray(scene.dialogues)) continue;
+    scene.dialogues.forEach((dlg, idx) => {
+      // 检查 speaker
+      if (dlg.speaker) {
+        for (const pattern of forbiddenPatterns) {
+          assert.ok(
+            !pattern.test(dlg.speaker),
+            `场景 [${sceneKey}] 对话 #${dlg.id ?? idx} speaker 包含硬编码: ${dlg.speaker} 匹配 ${pattern}`
+          );
+        }
+      }
+      // 检查 text
+      if (dlg.text) {
+        for (const pattern of forbiddenPatterns) {
+          assert.ok(
+            !pattern.test(dlg.text),
+            `场景 [${sceneKey}] 对话 #${dlg.id ?? idx} text 包含硬编码: "${dlg.text}" 匹配 ${pattern}`
+          );
+        }
+      }
+      // 检查立绘占位符（不应直接写具体男女主角的特定立绘文件名）
+      const specificPortraits = [
+        'assets/art/zhangzixiao_default@2x.png',
+        'assets/art/shiyunuo_default@2x.png',
+        'assets/art/zhanghanyu_default@2x.png',
+        'assets/art/chenpinxuan_default@2x.png',
+        'assets/art/fanwenmo_default@2x.png',
+        'assets/art/heyanxi_default@2x.png',
+        'assets/art/mc_adult_zixiao_default@2x.png',
+        'assets/art/mc_adult_yunuo_default@2x.png',
+        'assets/art/fanwenmo_adult_default@2x.png',
+        'assets/art/heyanxi_adult_default@2x.png'
+      ];
+      for (const p of specificPortraits) {
+        assert.notEqual(dlg.leftPortrait, p, `场景 [${sceneKey}] leftPortrait 应使用占位符而非写死: ${p}`);
+        assert.notEqual(dlg.rightPortrait, p, `场景 [${sceneKey}] rightPortrait 应使用占位符而非写死: ${p}`);
+      }
+    });
+  }
+});

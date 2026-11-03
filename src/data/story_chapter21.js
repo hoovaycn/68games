@@ -33,7 +33,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（趴在走廊栏杆上揉着后颈）喂，子骁（予诺），你们听说了吗？今天来坐诊的专家可神了，聊两句、看你画两笔，就能知道你晚上几点做梦。上学期钟楼折腾得我天天半夜抽筋，正好让她给瞧瞧。',
+        text: '（趴在走廊栏杆上揉着后颈）喂，{MC_NAME}，你们听说了吗？今天来坐诊的专家可神了，聊两句、看你画两笔，就能知道你晚上几点做梦。上学期钟楼折腾得我天天半夜抽筋，正好让她给瞧瞧。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -70,7 +70,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（推开咨询室木门，目光停在两人身上）大家按学号安静排队。子骁（予诺）、文默（妍熹），你们俩上学期在省城受的心理应激反应最重，苏医生特意安排先给你们俩做疏导，跟我进来吧。',
+        text: '（推开咨询室木门，目光停在两人身上）大家按学号安静排队。{MC_NAME}、{ALLY_2_NAME}，你们俩上学期在省城受的心理应激反应最重，苏医生特意安排先给你们俩做疏导，跟我进来吧。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -279,7 +279,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（压低身子踩在碎石上）子骁（予诺）……看前面！徐老师停下了！那是通往水闸配电房的防汛铁门！',
+        text: '（压低身子踩在碎石上）{MC_NAME}……看前面！徐老师停下了！那是通往水闸配电房的防汛铁门！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -419,7 +419,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（揉着青肿的手腕）哎哟我的妈呀……这帮家伙力气怎么跟牛一样大，手电筒晃得我眼睛到现在还发黑……子骁，你们都没挂彩吧？',
+        text: '（揉着青肿的手腕）哎哟我的妈呀……这帮家伙力气怎么跟牛一样大，手电筒晃得我眼睛到现在还发黑……{MC_NAME}，你们都没挂彩吧？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -428,7 +428,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '我没事，多亏你刚才顶在前面。文默（妍熹），你脸色怎么这么难看？',
+        text: '我没事，多亏你刚才顶在前面。{ALLY_2_NAME}，你脸色怎么这么难看？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -437,7 +437,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（手指发抖，从积水里捡起一张硬卡纸）子骁……你们快过来看这个。这是刚才阿彪跟徐老师交接时掉在地上的。',
+        text: '（手指发抖，从积水里捡起一张硬卡纸）{MC_NAME}……你们快过来看这个。这是刚才阿彪跟徐老师交接时掉在地上的。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -485,7 +485,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '子骁说得对。徐老师把阿彪引开，反而是救了我们。但这张交割单就是铁证，明天晚上八点，三号船就会进港接货。',
+        text: '{MC_NAME}说得对。徐老师把阿彪引开，反而是救了我们。但这张交割单就是铁证，明天晚上八点，三号船就会进港接货。',
         sfx: 'sfx_text_blip'
       },
       {
