@@ -24,7 +24,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '穿过重重防护闸门，眼前豁然开朗。这里不是冰冷的机械机房，而是一座足有三个足球场大小、悬浮在云端之上的森严大殿。数以万计的全息课桌悬浮在半空，幽蓝试卷像漫天雪花般无休止飞舞翻滚。',
+        text: '穿过重重防护闸门，眼前是一座悬浮在云端之上的空旷大厅。数不清的全息课桌漂浮在半空中，发着冷蓝光的试卷漫天飞舞。',
         sfx: 'sfx_suspense'
       },
       {
@@ -33,7 +33,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '（仰望着穹顶流动的金色评分矩阵，呼吸停滞）这算什么……整座城市的神经元运算网络，被阿瑶打造成了一场永远不会交卷的终极期末考试吗？！',
+        text: '（看着头顶密密麻麻的评分数据）这算什么啊……阿瑶把整座城市的控制中心，变成了一场永远考不完的期末考试吗？！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -42,14 +42,14 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '因为在阿瑶心里……‘分数’是她毕生挣脱不掉的梦魇。她以为只要抹杀掉所有人不合格的情感，世界就不会再有背叛，更不会再有三号船那场吞噬一切的大火。',
+        text: '因为在阿瑶心里，‘分数’就是一切。她觉得只要抹掉所有人不合格的情感，世界就不会再有背叛，也不会再发生三号船的惨剧。',
         highlight: true,
         sfx: 'sfx_text_blip'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '破译机房中枢密钥，直径十余米的巨型强化玻璃维生舱缓缓开启。',
+      prompt: '破译机房核心密钥，中央巨型维生舱缓缓打开。',
       buttonText: '【开启中央维生舱 · 面见阿瑶】',
       targetScene: 'ch26_scene_ayao_chamber'
     }
@@ -69,7 +69,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刺骨冷气喷涌而出。舱内没有威严的女皇，只有一个插满粗大电缆、半透明营养管与脑神经插头的女人。白发如残雪披散，面容干枯如秋叶，胸口用胶带死死贴着一张泛黄的小学六8班毕业合影！',
+        text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。她的胸口，还死死贴着当年六8班泛黄的毕业合影。',
         sfx: 'sfx_suspense'
       },
       {
@@ -78,7 +78,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '（捂住嘴巴眼泪唰地掉落）这就是阿瑶阿姨？！那个在咨询室里优雅微笑的苏晚医生……怎么会把自己折磨成这副惨样？！',
+        text: '（捂住嘴巴）这……这就是阿瑶阿姨？！在学校心理咨询室里那么温和的苏医生……怎么会把自己折磨成这样？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -88,7 +88,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '维生舱内枯瘦的身躯剧烈颤抖，太阳穴电极爆出刺耳蜂鸣。受到脑电波刺激，一段死死加密了四十年的全息记忆轰然在虚空中投射而出！',
+        text: '受到外部刺激，舱内的女人微微颤抖。半空中突然弹出了二十年前水闸地下室的加密记忆投影！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -114,7 +114,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/boss_ai_topstudent@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '敢跟踪我的货车摸到水闸？！今晚第一批高纯度神经致幻药剂试剂，先把这两个小崽子徐博和刘淑惠打成痴呆扔进江底喂鱼！',
+        text: '敢摸到水闸坏我的事？！把这两个多管闲事的老师灌了药，扔进江里喂鱼！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -123,7 +123,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '阿瑶……听着！如果不冲出去把药抢过来吃掉，徐博的脑神经今晚就会被药剂烧穿，刘淑惠会被活活溺死！你必须当着他们的面背叛，沈万廷才会放过他们把你带走当核心试验品！只有这样他们才能当上老师！',
+        text: '阿瑶，快冲出去把药抢过来喝了！徐博和刘淑惠会被他们灭口的！你必须装作背叛他们，沈万廷才会放过他们！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -133,7 +133,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
         activeSide: 'left',
-        text: '（疯了一样往嘴里硬塞荧光药剂哭得撕心裂肺）徐博……淑惠……只要你们能平安活着当老师，我下地狱没关系……我当坏人没关系！你们一定要活下去啊！！',
+        text: '（疯了一样抢过药剂往嘴里灌，哭喊着）徐博……淑惠……只要你们能平安活着当老师，我当坏人没关系！你们一定要活下去啊！！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -143,7 +143,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（双拳砸在地面泣不成声）怎么会是这样……老师们痛恨了阿瑶二十年，全校都以为她堕落……真相竟然是她用自己的一辈子换了两位老师的生路啊！！',
+        text: '（眼眶通红）怎么会是这样……老师们恨了她这么多年，全校都以为她变坏了……原来她是替老师们挡下了这一劫！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -153,7 +153,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '阿瑶亲手把自己逼成了全天下最孤独的恶人，锁在了一个必须永远扮演恶魔的莫比乌斯环里！整整四十年啊！！',
+        text: '她把自己逼成了恶人，困在自己设下的噩梦里整整几十年……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -162,7 +162,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/boss_judgement_core@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '『警告！特级因果封存档案被非法激活！满分优等生激活全域物理歼灭程序！入侵者就地蒸发！』',
+        text: '『警告！核心封存记忆被非法激活！启动全域物理歼灭程序！』',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -190,7 +190,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '金色全息智脑寸寸龟裂轰然爆碎为蓝光！维生舱管线脱落，枯瘦的阿瑶从半空坠落，被{MC_ADULT_NAME}稳稳接住。',
+        text: '智脑轰然碎裂，化作无数光点！维生舱管线断开，阿瑶从半空坠落，被{MC_ADULT_NAME}稳稳接住。',
         sfx: 'sfx_explosion'
       },
       {
@@ -199,7 +199,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（嘴角露出解脱苦涩的微笑）你们……终于打碎这个牢笼了……二十年了，我终于不用再算那些冰冷的分数了……',
+        text: '（苦涩地笑了笑）你们……终于打破这个笼子了……我终于不用再去算那些冰冷的分数了……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -208,7 +208,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（从胸口硬生生抠出一枚散发七彩光晕的原石芯片）这是最初的地脉核心【古罐原石密钥】。去底层反物质反应堆插入喷流口，通道就会逆转开启……但只有十二岁的纯净肉身能回去，大号的你们已经回不去了……',
+        text: '（递出一枚散发光晕的原石芯片）这是最初的地脉核心【古罐原石密钥】。到底层反应堆插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的我们，已经回不去了……',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -218,7 +218,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '我们早就不在乎能不能回去了……只要能让二十年前的老爸和老师们活着，我们粉身碎骨也心甘情愿！',
+        text: '我们早就不在乎能不能回去了。只要能救下当年的老爸和老师们，我们怎样都行！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -228,7 +228,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '别磨磨唧唧的！走！下反应堆！把你们六个送回过去，拯救我们的未来！！',
+        text: '别耽搁了！走！下到底层反应堆，送他们六个回去改变未来！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

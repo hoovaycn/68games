@@ -23,7 +23,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '反物质反应堆大厅深不见底的光井中，蓝白色光弧如狂澜倒卷撕裂空间！球形光门狂暴展开，光门内映照出二零二六年九月二十八日老城区那片染血的火烧云，隐隐传来长江三号船沉闷急促的汽笛声！',
+        text: '反应堆中心的光门猛然展开，光芒里隐隐能看见二十年前老城区的火烧云，甚至能听到江上三号船沉闷的汽笛声！',
         sfx: 'sfx_suspense'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '时空坐标锁死！二零二六年九月二十八日黄昏五点五十分！距离三号船底舱爆炸……还有整整十分钟！',
+        text: '时间锁定了！二零二六年九月二十八日五点五十分！距离三号船爆炸……只剩十分钟！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -42,7 +42,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '打开了！大号的我，大号{ALLY_2_ADULT_NAME}！所有人一起跳进去！我们回2026年把老爸和老师们全救下来！！',
+        text: '门开了！大号的我，还有{ALLY_2_ADULT_NAME}，大家一起跳进去！我们一起回过去救人！',
         sfx: 'sfx_confirm'
       },
       {
@@ -51,7 +51,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '滋啦——砰！{MC_ADULT_NAME}的手套刚刚碰触光门，金色因果律电弧狂暴炸裂，数吨排斥巨力将大号凌空震飞五六米撞在钢柱上，手臂焦黑冒出青烟！',
+        text: '砰！{MC_ADULT_NAME}刚靠近光门，就被一股巨大的排斥力狠狠弹飞，撞在钢铁柱子上！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -60,7 +60,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '没用的……这道门只能通过未被扭曲的纯净原住民，也就是十二岁的你们。我们早就在废墟里长成了一身锈迹与弹片的怪物……因果律排斥我们，我们根本迈不进这扇门。',
+        text: '没用的……这道门排斥我们这些已经长大的未来人，只有十二岁的你们能进去。我们进不去。',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -70,13 +70,13 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（死死抱住胳膊大哭）我不信什么狗屁因果律！你们受了二十年的罪天天被追杀挨饿！现在能回去了凭什么不让你们走？！哪怕被电死也比留在这个烂世界强啊！！',
+        text: '（拉住长大后的自己大喊）我不信！你们在这儿受了二十年的苦，凭什么现在不让你们走？！',
         sfx: 'sfx_shock_sting'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '防爆气闸门被等离子光刀切开，四米高重装机甲暴风踏碎铁门杀入！',
+      prompt: '防爆门被暴力破开，巨大的重装机甲手持武器冲了进来！',
       buttonText: '【面对追兵 · 誓死阻击】',
       targetScene: 'ch27_scene_annihilation_horde'
     }
@@ -96,7 +96,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: 'assets/art/boss_judgement_core@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '目标确认：抵抗军指挥官{MC_ADULT_NAME}，附带时空逆流活体样本五名。执行资本法典第107条：就地物理抹杀，不留俘虏！',
+        text: '锁定目标，抵抗军指挥官及逆流样本。执行指令：就地物理抹杀！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -104,9 +104,9 @@ export const CHAPTER27_STORY = {
         id: 2,
         speaker: '{MC_ADULT_NAME}',
         leftPortrait: '{MC_ADULT_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（使尽毕生力气将十二岁的小号狠狠扔进蓝白光圈之内）把所有小家伙推进光圈中心！快！！',
+        text: '（用力将小号一把推进光圈里）全都进光圈趴好！快！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -114,9 +114,9 @@ export const CHAPTER27_STORY = {
         id: 3,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（飞身将所有哭喊的孩子推进保护场，拔掉EMP手雷插销）在光圈里趴下！时空稳定读条需要整整一分钟，在读条走完之前，绝对不准迈出光圈半步！！',
+        text: '光圈通道稳定需要一分钟！在通道闭合前，谁也不准出来！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -126,7 +126,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（隔着光幕用球棒砸着屏障痛哭）大叔放我出去！六8班打架从来没有让长辈在前面挨打、自己在后面缩着的道理！我们跟这帮铁皮烂狗拼了！！',
+        text: '（拍打着光幕大喊）大叔放我们出去！哪有让你们在前面挡枪，我们在后面躲着的道理？！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -135,14 +135,14 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '傻希哲……这次回去别去江边贪玩了。放学了就乖乖排队出校门，买个两块钱的鸡蛋灌饼，趁热吃了它！{ALLY_2_ADULT_NAME}，给咱们的童年……打扫干净这最后的灰尘吧！',
+        text: '傻希哲，回去以后别去江边乱跑了。放学了就老老实实买个鸡蛋灌饼回家！{ALLY_2_ADULT_NAME}，准备干活，挡住他们！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '大号二人立于光圈前化身血肉长城，阻击四面扑来的死士与机甲！',
+      prompt: '成年主角与副官死守在光门前，挡住扑来的敌军！',
       buttonText: '【进入战斗 · 光门前最后的血肉长城】',
       battleId: 'ch27_battle1',
       isBattleTrigger: true,
@@ -164,7 +164,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '轰隆！暴风机甲化作冲天火球！中央光门指示灯彻底转为纯金：【时空共振率：100%！逆行通道正式锁定！】圈外滚滚硝烟中，两个浑身是血的身影转过身来。',
+        text: '机甲轰然炸成一团烈火！通道读条完成，光芒大盛！硝烟中，两个浑身是伤的身影转过头来。',
         sfx: 'sfx_confirm'
       },
       {
@@ -173,7 +173,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（拼命拍打光幕）大号！！门稳固了！快伸手！我拉你进来！快伸手啊！！',
+        text: '（拼命去抓他们的手）门彻底稳定了！伸手啊！我拉你们进来！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -182,7 +182,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '随着2026年被改变的命运之线开始倒卷，{MC_ADULT_NAME}与{ALLY_2_ADULT_NAME}的指尖、衣角没有流血，而是化作了一点点如夏夜萤火虫般绚烂的金色数据光粒，在火光中温柔消散。',
+        text: '随着过去的历史即将被扭转，{MC_ADULT_NAME}和{ALLY_2_ADULT_NAME}的身影开始泛起点点金光，慢慢变得半透明。',
         sfx: 'sfx_suspense'
       },
       {
@@ -191,7 +191,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（看着透明消散的双掌，嘴角露出纯真笑容）傻子……如果你回到2026年真的救下了老爸和老师们……崇文实验的操场就不会荒芜，本就不该存在活在废墟里的三十二岁{MC_ADULT_NAME}。我们本来……就是注定要消失的幽灵啊。',
+        text: '（看着自己渐渐透明的手，笑了笑）傻瓜……如果你们真的把老爸和老师们救下来了，崇文小学的操场就不会荒废，未来也根本不会有这个废墟里的我们。',
         highlight: true,
         sfx: 'sfx_sad_melody'
       },
@@ -199,9 +199,9 @@ export const CHAPTER27_STORY = {
         id: 5,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（穿透光幕将染血的特警警徽塞入小号掌心）我们拿二十年的苦难，换回了一个所有人都在的明天。去底舱按掉倒计时阀门，告诉海峰叔叔六8班一个都没少……替我们把那个阳光灿烂的人生好好过下去！',
+        text: '（隔着光芒把警徽按在小号手里）回去找到我爸，告诉他，六8班的孩子一个都没少！好好替我们活下去！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -211,7 +211,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（在彻底消散前笔直庄重地敬了一个少先队队礼，继而比出大拇指）六8班！{MC_NAME}！崇文实验小学的未来就全交给你了！给我——冲啊！！！',
+        text: '（身形快消散时，敬了一个端端正正的少先队礼，竖起大拇指）六8班，{MC_NAME}！未来就交给你们了！快走！！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -221,13 +221,13 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '漫天金色光雨翩跹炸裂。光门发出一声震天凤鸣，将撕心裂肺痛哭的少年们卷入星河倒卷的时空漩涡，狠狠轰回二零二六年九月二十八日那个残阳如血的江畔黄昏！',
+        text: '金色光芒呼啸旋转，将哭喊的少年们吸入通道，猛地送回二零二六年那个黄昏的长江码头！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '穿过时空风暴，脚下重新踩上冰冷潮湿的江边货船甲板！',
+      prompt: '时空倒转，冰冷的江风与刺鼻的柴油味扑面而来！',
       buttonText: '【开启第二十八章 · 倒流的挽歌】',
       targetScene: 'ch28_scene_return_2026'
     }

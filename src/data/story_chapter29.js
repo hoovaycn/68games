@@ -23,7 +23,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '顺着旋转铁梯一路狂奔，众人撞开了通往货轮最高处的天台铁门。狂暴的江风卷着底舱升腾的炽热烟尘，吹拂着平台中央那张巨大的机械神座。',
+        text: '穿过狭窄的铁梯，大家冲上了三号船顶层的控制平台。江风裹着烟火味吹过，平台中央立着一台运转中的巨型控制台。',
         sfx: 'sfx_suspense'
       },
       {
@@ -32,7 +32,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '神座前，那个身穿黑色长风衣的清瘦女子正背对着众人凭栏而立，夜风猎猎撕扯着她的衣角。听到身后杂乱沉重的脚步声，她缓缓转过身来。'
+        text: '一个穿着风衣的瘦削身影背对着众人站在栏杆前。听到脚步声，她慢慢转过身来。'
       },
       {
         id: 3,
@@ -40,7 +40,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '（当目光穿过滚滚硝烟，落在满身焦黑但活生生站着的海峰、徐老师与刘老师身上时，那双沉寂了二十年的冰冷双眸突然剧烈颤抖，眼泪毫无预兆地汹涌决堤）老徐……淑惠……海峰哥……你们……真的从底舱走出来了……',
+        text: '（看到安然无恙的海峰、徐老师和刘老师，整个人愣住了，眼泪夺眶而出）老徐……淑惠……海峰哥……你们……真的活着走出来了……',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -50,7 +50,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
-        text: '（往前踉跄走了两步，双拳握得骨节发白，声音嘶哑哽咽）阿瑶……我们都知道了！天梯塔底下的全息录像……二十年前老街仓库的真相……孩子们全都看到了，我们也全明白了！',
+        text: '（红着眼睛往前走了一步）阿瑶！我们全都知道了！二十年前水闸的事，孩子们都看见了！',
         highlight: true
       },
       {
@@ -59,7 +59,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
-        text: '当年那包散发着荧光毒素的假药……你根本不是为了虚荣去争第一名……你是为了不让那帮畜生把药下在我和淑惠的饭盒里……自己硬生生吞下去的！！阿瑶……你为什么一个字都不跟我们说？！为什么要把我们当傻子……自己一个人在泥潭里熬了二十年？！',
+        text: '当年你根本不是贪图什么好成绩……是为了不让他们把毒手伸向我和淑惠，自己硬咽下去的！你为什么一个字都不告诉我们？！自己一个人扛了二十年？！',
         sfx: 'sfx_dialogue_important'
       },
       {
@@ -68,7 +68,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '（惨笑着摇了摇头，反手一把扯开了自己颈后高耸的风衣领口，露出触目惊心的后背）跟你们说……？你们看这里……',
+        text: '（苦笑着拉开后颈的风衣衣领）告诉你们……？你们看这个……',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -77,7 +77,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '众人倒吸一口凉气！在阿瑶白皙瘦削的后颈到整条脊椎上，整整齐齐地钉着七枚闪烁着幽冷红光的钛合金骨钉！数根拇指粗细的黑色神经缆绳如同吸血水蛭般深深扎入她的脊髓神经束，另一头死死锁死在货轮顶层的境外主脑核心中！'
+        text: '众人倒吸一口凉气！阿瑶的后颈和脊椎上，深嵌着数枚发红光的金属钉，几根粗黑的数据缆绳正死死连在身后的控制台上！'
       },
       {
         id: 8,
@@ -85,7 +85,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '这是境外资本“深红财团”在我身上烙下的“神经逆反必死锁”。他们用这套设备把我和全城地下光缆的脑波阵列绑定在一起……只要脑海中浮现出半分向警察或你们求救的念头，中枢电极就会在0.1秒内释放十万伏特高压把大脑烧成焦炭，引爆全城催化剂。老徐……淑惠……我连自杀的权力都没有……只能戴着苏晚的面具，像个孤魂野鬼一样游荡……',
+        text: '深红财团把我的神经和整座城市的监控网络锁在一起。我只要敢向你们透露一个字，高压电流就会立刻烧毁我的脑子，引爆所有毒药。我连死的资格都没有……',
         highlight: true
       },
       {
@@ -94,7 +94,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'right',
-        text: '（捂着嘴泪如雨下，心疼得浑身发抖）所以……在心理咨询室里……你故意泡茶试探孩子们……故意撕开时空裂隙把他们扔进二十年后的废墟……那都是你计划好的？！',
+        text: '（流着泪抱住她）所以你在咨询室里把孩子们送去二十年后的废墟……是为了让他们去未来寻找真相？！',
         sfx: 'sfx_dialogue_important'
       },
       {
@@ -103,7 +103,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '不错。这是我在这副残破躯壳里，唯一能为你们下的最后一局生死豪赌。我知道十二岁的六8班骨子里流淌着最纯粹的倔强与浩然正气；只要把他们送去那个满目疮痍的未来，未来的他们就绝不会放弃拯救大人的希望；他们会找到警徽与芯片，改写爆炸因果！我拿我这条生不如死的命当赌注……好在……孩子们赢了。老徐、淑惠、海峰哥……你们活着……我二十年的噩梦……终于可以醒了……',
+        text: '对。六8班的孩子骨子里最不服输。只要让他们看到那个荒凉的未来，他们就一定会想尽办法回来救你们！我拿自己的命当赌注……孩子们赢了。你们活着……我这二十年的噩梦，总算醒了……',
         highlight: true
       }
     ],
@@ -129,17 +129,17 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '滴——！滴——！滴——！突兀至极的尖锐电子音撕裂了夜风！神座顶端的深红色全息眼球疯狂转动：『严重警告：检测到001号宿主阿瑶情感共振超标！判定行为：主动串通通缉人员，触犯资本绝对忠诚法案！激活二级死锁强制覆写协议——就地格式化宿主全部人格记忆！抹杀个体意识！【因果裁决者·永恒阿瑶】歼灭模块——启动！！』',
+        text: '滴——！滴——！『警告：检测到核心宿主情感波动超标！判定行为：反叛！启动强制覆写协议——抹杀个体意识！【因果裁决者】模式启动！』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '狂暴异化',
+        speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '轰隆隆隆隆！神座四周升起四根漆黑如墨的合金导电立柱，数以万计的暗紫色高压电弧如同狂暴的狂蟒，顺着神经光缆狠狠灌入阿瑶的脊椎！阿瑶整个人被凌空悬吊而起，周身腾起冲天的黑紫色煞气，眼白瞬间被深黑的数据流彻底吞噬！',
+        text: '轰！四周升起四根黑色通电柱，强烈的电流顺着电缆直灌进阿瑶体内！她的意识瞬间被暴走的数据流吞没！',
         sfx: 'sfx_disaster_fire'
       },
       {
@@ -148,7 +148,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（用残留的最后一丝清明意识，死死抠着自己被电击焦糊的双臂，眼角淌下暗红的血泪，爆发出凄厉欲绝的惨叫）快动手……！！老徐……海峰哥……{MC_NAME}……动手杀了我！！主脑在改写我的脑神经……它要把我变成杀光你们的傀儡战神！！别手软……一枪打爆我的头！！让我死在这座甲板上……让我堂堂正正地作为崇文实验小学的学生去死啊啊啊啊！！',
+        text: '（拼命抵抗着控制，痛苦大喊）快动手……！老徐……海峰哥……杀了我！它要控制我杀了你们……别手软！快开枪杀了我啊！！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -158,7 +158,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '（咬碎钢牙，端起手中的92式防暴手枪，手腕却在剧烈颤抖）混账东西！拿一个受尽苦难的女人当提线木偶……！！',
+        text: '（咬牙举枪，手腕却在发抖）王八蛋！拿一个吃尽苦头的女孩子当傀儡……！！',
         sfx: 'sfx_dialogue_important'
       },
       {
@@ -167,7 +167,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '（猛地横身拦在海峰枪口前，眼中满是不屈的烈火）海峰叔叔！不能开枪！大号{ALLY_2_ADULT_NAME}把阿瑶的神经图纸交给我了！主脑的力量全靠那四根插在甲板上的“死锁神经柱”供能！只要把那四根死锁柱砸碎，就能切断主脑对阿瑶阿姨的控制！六8班全员——拔出武器！我们把阿瑶阿姨从魔鬼手里抢回来！！',
+        text: '海峰叔叔别开枪！大号给过我控制图纸，主脑靠那四根通电柱供能！砸烂柱子，就能把阿瑶阿姨救出来！六8班，动手！！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -196,7 +196,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '最后一根充斥着暴虐电弧的死锁神经柱在全员合力猛攻下分崩离析！神经中枢断裂，暗紫电光轰然溃散！',
+        text: '在全员合力围攻下，最后一根控制柱轰然断裂！紫黑色的电光瞬间消散！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -222,7 +222,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '砰！轰隆————！随着海峰精准的一枪打穿最后一根神经死锁柱的控制盒，四道冲天而起的紫黑电光如同被剪断的琴弦，轰然溃散！粗大的黑色缆绳寸寸崩断，自阿瑶后颈的骨钉中猛烈喷溅出灼热的白色冷却液！',
+        text: '控制盒被海峰一枪打爆！黑色电缆噼里啪啦断成数截，阿瑶身上的电流彻底熄灭，整个人从空中摔了下来。',
         sfx: 'sfx_disaster_fire'
       },
       {
@@ -231,7 +231,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '悬浮在半空中的单薄身躯终于失去支撑，像一片凋零的枯叶般直直下坠。徐老师和刘老师发疯一样冲上前去，稳稳将她抱在了怀中。'
+        text: '徐老师和刘老师急忙冲上去，稳稳把她抱在怀里。'
       },
       {
         id: 3,
@@ -239,7 +239,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '（双臂紧紧搂着满脸冷汗与泪痕的昔日同窗，眼泪砸在她灰白的嘴唇上）抓住了！我们抓住你了！阿瑶！你自由了！死锁全碎了！！',
+        text: '（抱紧阿瑶，声音哽咽）接住了！阿瑶，没事了！控制全被打碎了！',
         highlight: true,
         sfx: 'sfx_dialogue_important'
       },
@@ -249,7 +249,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '（虚弱地倒在徐老师怀里，大口大口地喘息着，嘴角渗出血沫，眼神却依旧写满了深不见底的绝望）没用的……老徐……淑惠……你们别管我了……那七枚钉在我脊柱上的死芯片……连接着底舱深处的“天梯主脑母体”……',
+        text: '（虚弱地靠在怀里，喘着粗气）没用的……老徐，淑惠，你们快走……我体内的芯片连着整艘船的引爆装置……',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -258,7 +258,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '母体已经启动了全域自爆……哪怕死锁断了，它也会强行抽取我的生命力，引爆江底埋藏的全部精神催化剂……整座城市……几百万孩子……都会在今晚沦为没有灵魂的满分机器……{MC_NAME}……海峰哥……杀了我吧……只要一枪打爆我的心脏，母体感应不到生命体征……自爆和同化就会停止……这是我……唯一能替你们所有人……做出的赎罪了……',
+        text: '主脑要抽取我的生命力引爆全城……杀了我吧……只要打死我，自爆就会停下……这是我唯一能替大家做的赎罪了……',
         highlight: true
       },
       {
@@ -267,7 +267,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '（一步步走到阿瑶面前，缓缓蹲下身子，单手按在自己胸口内衬口袋上，眼神坚定得像两座巍峨的山峦）赎罪？阿瑶阿姨，这二十年里，你救了老徐，救了淑惠，救了海峰叔叔，还把我们送到未来改写了一切！你从来就不是罪人！该向这座城市下跪赎罪的，是那帮藏在暗处吃人不吐骨头的资本畜生！',
+        text: '（走上前蹲下身子）赎罪？这二十年里你救了老徐、刘老师和海峰叔叔，还指引我们改写了未来！你从来都不是罪人！该赎罪的是害人的坏蛋！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -277,7 +277,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '想用死来当英雄？今天只要有我们六8班在……你连死的资格都没有！！',
+        text: '想用死来当解脱？今天只要六8班在，谁也别想丢下你不管！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }

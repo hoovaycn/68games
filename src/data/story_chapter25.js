@@ -24,7 +24,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '穿过狭窄逼仄的排污管道，神秘人拽着五个孩子滚进了一处深埋地下数十米的厚重合金防爆门后。门外高频电磁警报与猎犬咆哮被隔绝，四周堆满了老旧的战术补给箱与改造武器。',
+        text: '顺着排污管道，神秘人带着孩子们冲进一扇厚重的防爆门。警报声被关在门外，四周堆满了旧武器和物资箱。',
         sfx: 'sfx_confirm'
       },
       {
@@ -33,7 +33,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（靠在锈蚀的防爆铁桶上剧烈咳嗽，双手握紧钢筋警惕地指着神秘人）喂！你到底是谁？！救我们有什么企图？！还有……刚才在街上那些满分怪物，到底是什么东西？！',
+        text: '（靠在铁桶上喘着粗气，握紧手里的钢筋）喂！你到底是谁？！干嘛救我们？！街上那些满分怪物到底是什么东西？！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '（靠在简易示波器操作台边抱臂而立，眼底泛起温暖笑意）张希哲，二十年了。你一紧张心虚就死命抠球棒黑胶带的臭毛病，真是一点都没变啊。',
+        text: '（靠在操作台边抱臂而立，笑了笑）张希哲，二十年了。你一紧张就死命抠胶带的毛病，还是一点没变啊。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -52,7 +52,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '（手里的钢筋险些脱手掉在地上）你……你怎么知道？！我紧张抠胶带的习惯连我亲妈都没注意过，只有我们六8班打棒球的几个人知道！你到底是谁？！',
+        text: '（手里的钢筋险些脱手）你……你怎么知道？！这毛病连我妈都没注意过，只有我们打球的几个人知道！你到底是谁？！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -78,7 +78,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '神秘首领取下防毒面具，昏黄应急灯光照亮了一张饱经风霜、轮廓分明的青年面孔。眉眼、鼻梁与下颌处四年级跌打的月牙形伤疤，与眼前的少年完全一致！',
+        text: '神秘人摘下防毒面具，昏黄灯光照亮了一张成熟刚毅的脸庞。眉眼和下颌处的伤疤，竟然和眼前的少年一模一样！',
         sfx: 'sfx_suspense'
       },
       {
@@ -87,7 +87,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（双脚像钉在地上，声音发颤）你……你的眉眼……还有左侧下巴跳鞍马摔破缝了四针留下的月牙浅疤……你到底是谁？！',
+        text: '（愣在原地，声音发颤）你……你的眉眼……还有下巴上的浅疤……你到底是谁？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -97,7 +97,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'right',
-        text: '（单膝跪地，布满老茧和弹片伤痕的大手极其温柔地抚摸十二岁自己的头顶，眼眶通红）好久不见……十二岁的我。或者说，二十年前……在六8班还在为期末考试发愁的自己。',
+        text: '（单膝跪地，轻轻摸了摸十二岁自己的脑袋，眼圈通红）好久不见……十二岁的我。六8班那个还在为期末考试发愁的自己。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -107,7 +107,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（摘下战术贝雷帽与面罩，露出洗得发白的特警长袖制服）看看这件衣服。右边衣领上是海峰爸爸加夜班抽烟烫出的小焦洞，左边胸口被撕裂的布口……就是我们拼死送回2026年的警徽！',
+        text: '（摘下面罩，露出洗得发白的警服）看看这件衣服。领口是当年海峰老爸抽烟烫的小洞，胸口被扯下来的……就是拼死送回过去的警徽！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -117,7 +117,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（嚎啕大哭扑进三十岁自己的怀里）海峰爸爸的衣服！真的是你！老爸呢？！徐老师和刘老师呢？！你们当年为什么没能把他们救出来啊！呜呜呜……',
+        text: '（大哭着扑进三十岁自己的怀里）老爸的衣服！真的是你！老爸呢？！徐老师和刘老师呢？！你们当年为什么没能把他们救出来啊！呜呜呜……',
         sfx: 'sfx_text_blip'
       },
       {
@@ -126,7 +126,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '二十年前9月28日那一夜……在三号船最底层货舱，火势太快了。徐老师和刘老师用身体顶住变形防爆阀，海峰爸爸用尽最后力气把十二岁的我们推上逃生艇……我们只能眼睁睁看着火球把船吞噬，什么都做不了！',
+        text: '二十年前9月28日那一夜……在三号船最底层，火势太猛了。徐老师和刘老师死死顶住防爆门，老爸用尽最后力气把我们推上逃生艇……我们只能眼睁睁看着大火吞噬整艘船，什么都做不了！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -136,7 +136,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '大爆炸后城市地脉撕裂，阿瑶借天梯考场把所有人变成了满分傀儡。我们苟延残喘二十年搜集芯片，拼死送回警徽和血书，就是为了哪怕粉身碎骨，也绝不能让悲剧再次发生！',
+        text: '大爆炸之后，阿瑶利用总考场把全城的人都变成了没有感情的傀儡。我们苦撑了二十年，拼死把警徽和信送回去，就是绝不能让当年的悲剧重演！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -163,7 +163,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '水泥通风盖板被暗红色激光切开大洞，铁水滋滋作响！三只闪烁幽绿复眼的机械猎犬跃下，两米多高、双联装加特林的追猎队长重重踏碎地面！',
+        text: '通风盖板被激光切开！三只机械猎犬扑下，两米多高的追猎队长踏碎地面，重机枪子弹瞬间上膛！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -172,7 +172,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（甩给小号一根记忆钛合金防暴棍，战意昂扬）小号的我，怕不怕？',
+        text: '（甩过来一根合金防暴棍，笑了笑）十二岁的我，怕不怕？',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -182,7 +182,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '怕个屁！旧仓库我们打过沈家打手，虎门滩头面对过洋枪大炮！徐老师说过浩然正气存乎于心！看好了——十二岁的我们从来不是软柿子！',
+        text: '怕什么！旧仓库沈家打手我们打过，虎门滩头洋枪大炮也见过了！徐老师教过我们浩然正气存乎于心！看好了——十二岁的我们从来不怕事！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -192,7 +192,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '好样的！{ALLY_2_ADULT_NAME}双枪掩护！让这帮天梯走狗尝尝六8班二十年陈酿的怒火！杀！',
+        text: '好样的！{ALLY_2_ADULT_NAME}掩护！让这帮走狗尝尝咱们六8班的厉害！上！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -221,7 +221,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '穿甲燃烧弹引爆了阿尔法的核能反应堆，火光与青烟吞没走廊。{MC_ADULT_NAME}喘着粗气甩掉滚烫弹壳，调出全息控制台。',
+        text: '战火渐渐平息，{MC_ADULT_NAME}甩掉滚烫的弹壳，调出了全息地图。',
         sfx: 'sfx_explosion'
       },
       {
@@ -230,7 +230,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '既然你们造出了能向过去传递物质的机器，为什么不直接把我们送回2026年去阻止大爆炸？！',
+        text: '既然你们能把东西送回过去，为什么不直接把我们送回2026年去阻止大爆炸？！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -239,7 +239,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '因果律有质量锚定。我和{ALLY_2_ADULT_NAME}的因果引力太重，但你们六个刚被阿瑶拉扯过来，在时间轴上属于二十年前！只要有足够庞大的因果引力源，你们就能逆流返回！',
+        text: '我们在这个时空的因果太重，回不去了。但你们六个刚从二十年前被拽过来，只要有时空矩阵的能量源，就能顺着时间逆流回去！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -247,9 +247,9 @@ export const CHAPTER25_STORY = {
         id: 4,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（点亮云端浮空金字塔三维模型）源头就是城市最顶端的【天梯总考场】。阿瑶在当年爆炸后，把肉体接入量子维生舱封印成神，抽走全城面具人的精神运算维持运转！',
+        text: '（指着高塔全息模型）能量源就在最顶层的【天梯总考场】。阿瑶在当年爆炸后，把自己接入维生舱维持运转，吸收全城面具人的意识！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -259,7 +259,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '阿瑶心脏里嵌着最初也是最完整的【地脉古罐原石核心】！只有杀上最高层逼她交出原石密钥，才能启动考场中央的时空逆流矩阵，送你们回到2026年9月28日的码头！',
+        text: '阿瑶胸口嵌着最初的【地脉古罐原石】！只有打上最高层拿到原石，启动考场里的时空矩阵，才能把你们送回2026年9月28日的码头！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -269,7 +269,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（接过高频震荡短刃，目光坚如铸铁）二十年前阿瑶把我们打入废墟，二十年后，我们亲自去会会这位老朋友！天梯考场，我们上定了！！',
+        text: '（接过防暴棍，目光坚定）二十年前阿瑶把我们打到这儿，二十年后，我们亲自去见她！天梯考场，我们上定了！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

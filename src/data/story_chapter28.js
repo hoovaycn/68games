@@ -23,16 +23,16 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '砰！五个孩子狼狈地从虚空中滚落，重重摔在冰冷湿润的江边碎石滩上。抬头望去，天边铺满了如火如荼的浓烈火烧云。江风带着鱼腥味，远处万吨生锈货轮“长江三号”底舱已冒起黑烟！',
+        text: '扑通几声，五个孩子摔在江边的碎石滩上。抬头看去，晚霞烧得通红，江面上停着的“长江三号”货船，底舱已经冒出了黑烟！',
         sfx: 'sfx_confirm'
       },
       {
         id: 2,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（抬手看表，黄昏五点五十分）我们回来了！真的回来了！距离大爆炸只剩最后整整十分钟！',
+        text: '（看了一眼手表）五点五十分！我们真的赶回来了！离爆炸还有最后十分钟！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -42,7 +42,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（拔出大号留下的碳钢折叠工兵铲）大号他们用命换回来的这十分钟，六8班哪怕跑断腿也得抢回来！冲！！',
+        text: '（举起工兵铲）这十分钟是大号用命换来的！跑断腿也得把人抢下来！快冲！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -52,7 +52,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '大号给的情报：二号货舱埋了重力跳雷，海峰叔叔会在五点五十九分踩雷！徐老师刘老师会被降下的防爆钢闸封死在底舱！全速冲向舷梯！！',
+        text: '大号给的路线：二号货舱有跳雷，海峰叔叔五点五十九分会踩上去！徐老师和刘老师会被铁闸关在底舱！快上船！！',
         sfx: 'sfx_suspense'
       }
     ],
@@ -78,7 +78,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（手提转轮榴弹枪，阴鸷狞笑）哟呵？闹了半天竟然是崇文实验小学五只小奶狗？放学不回家写作业，跑来老子的炸药库找死啊？！',
+        text: '哟？崇文小学的小兔崽子？放学不回家，跑老子的船上送死啊？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -88,7 +88,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         activeSide: 'right',
-        text: '铁蝎！深红财团在老城区的走狗！你怀里揣着延迟十分钟的自毁遥控器，想把整艘船连同三十吨化学品沉入江底杀人灭口！你以为你逃得掉吗？！',
+        text: '铁蝎！你身上揣着遥控器，想把整艘船炸了杀人灭口！你跑不掉了！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -98,7 +98,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（脸色剧变，榴弹枪上膛）你一个毛都没长齐的小学生怎么可能知道核心自爆计划？！兄弟们重盾架起来！把这几个小兔崽子乱枪打烂扔进江里！！',
+        text: '（脸色一变，端起武器）你个毛孩子怎么会知道计划？！兄弟们抄家伙，把这几个小鬼扔进江里！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -107,7 +107,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         activeSide: 'left',
-        text: '老子二十年后连四米重装机甲都拆过，就凭你们几块烂铜烂铁也想拦六8班？！打烂他们！把路轰开！！',
+        text: '未来几米高的铁皮大机甲我们都砸烂过，就凭你们几个也敢拦路？！揍他们！！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -136,7 +136,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '底舱铁门被合力踹开！烈焰蒸腾黑烟刺鼻，中央自毁LED屏幕正跳动着极度刺眼的数字：【自毁倒计时：00:10】！【00:09】！',
+        text: '底舱门被一脚踹开！火光中，中央炸弹的红色倒计时只剩下十秒：【00:10】！【00:09】！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -145,16 +145,16 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '左侧通道上海峰警官正全速狂奔，踏出的右脚下方不到二十厘米处，压发式跳雷引信钢珠正散发死亡微光！右侧隔离舱三十厘米厚的液压防爆钢闸正急速下坠只剩四十厘米，徐老师和刘老师正被火海围困！',
+        text: '前面通道里，海峰警官正往前猛冲，脚下就是一枚隐蔽的跳雷！右边厚重的铁闸门正飞速下落，徐老师和刘老师还在里面！',
         sfx: 'sfx_suspense'
       },
       {
         id: 3,
-        speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '老爸——！！！别落脚！！！地雷————！！',
+        text: '爸——！！！别踩！！！脚下有地雷————！！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -164,7 +164,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '副官如炮弹般滑铲飞扑，双手死死抱住海峰右膝撞飞出三米远！几乎同一毫秒，跳雷引信被激起，数千枚钢珠将旁边的铁壁轰成马蜂窝！',
+        text: '{ALLY_2_NAME}飞身扑了上去，狠狠撞开海峰！地雷几乎同时被引爆，弹片将旁边的铁板打得噼啪作响！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -173,7 +173,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（将两把高碳钢工兵铲斜向死死插进液压齿轮滑轨内，双臂青筋暴裂）朱彦泽顶住！给老子——卡住啊啊啊啊啊！！',
+        text: '（把工兵铲猛地卡进闸门滑轨里）朱彦泽快来帮忙！给我死死卡住啊啊啊！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -183,7 +183,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '吱嘎刺耳暴响！数吨重的钢闸硬生生被工兵铲卡在离地三十公分处！倒计时【00:03】！主角滑进缝隙一把拉住徐老师与刘老师拼命往外拽！',
+        text: '闸门被工兵铲硬生生别住！倒计时还剩三秒！{MC_NAME}钻进缝隙，拉住两位老师拼命往外拽！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -192,7 +192,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '徐老师！刘老师！醒醒！你们答应过这学期带我们去秋游的！跟我们回家——！！',
+        text: '徐老师！刘老师！快出来！我们带你们回家！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -202,16 +202,16 @@ export const CHAPTER28_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '倒计时【00:00】！全员拼死将两位老师拖出闸门！主角将古罐残片插进泄压阀死死拧下！轰！外围假油箱引爆化作火柱，但底舱高压阻燃干粉如暴雪喷涌，彻底锁死了大爆炸！大人们全员生还！',
+        text: '倒计时归零！大家把老师拽出来的瞬间，灭火阀也被同时拧开，大量阻燃干粉喷涌而出，压住了火势！所有人都活下来了！',
         sfx: 'sfx_confirm'
       },
       {
         id: 9,
         speaker: '海峰警官',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{ALLY_1_NAME}',
+        rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（顾不上满脸黑灰将孩子死死搂进怀里痛哭）活着……都活着……！老徐！淑惠！孩子们把我们救下来了！！',
+        text: '（满脸黑灰，一把抱紧自己的孩子）好小子……没事就好！老徐！淑惠！孩子们把我们救下来了！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -221,7 +221,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（眼泪滴在孩子们发梢上）平安就好……全员平安就好……六8班……一个都没少！',
+        text: '（流着泪摸着孩子们的头）平安就好……大家都没事就好……六8班，一个都没少！',
         highlight: true,
         sfx: 'sfx_sad_melody'
       }
