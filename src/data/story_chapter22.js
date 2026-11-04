@@ -30,9 +30,9 @@ export const CHAPTER22_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_xubox_stealth_pale@2x.png',
+        activeSide: 'right',
         text: '栈桥尽头的铁皮棚下，徐老师一个人站在风雨中，浑身湿透。她紧紧攥着一只银灰色的金属手提箱，冻得脸色发白。',
         sfx: 'sfx_suspense'
       },
@@ -61,7 +61,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '（拿出那张湿透的交割单，声音发颤）徐老师！您还在瞒着我们！昨晚您掉在水闸的提货单，签字分明是您的笔迹！我爸天天为了案子发愁，您今晚拿着这箱子，到底要干什么？！',
+        text: '（拿出那张湿透的交割单，声音发颤）徐老师！您还在瞒着我们！昨晚您掉在暗巷里的提货单，签字分明是您的笔迹！[next]我爸天天为了案子发愁，您今晚拿着这箱子，到底要干什么？！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -88,8 +88,8 @@ export const CHAPTER22_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '话音未落，码头闸口突然射来暴烈的远光灯！',
-      buttonText: '【直面强光 · 迎战截胡恶煞】',
+      prompt: '话音未落，码头闸口突然射来刺眼的远光灯！',
+      buttonText: '【直面强光 · 迎战走私头目】',
       targetScene: 'ch22_scene_smuggler_drop'
     }
   },
@@ -137,17 +137,37 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/boss_viper_smuggler@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '跟我谈条件？上面的大老板发话了，今晚三号船的所有旧线全都要切干净。箱子我们带走，至于你们……全都沉江喂鱼！先把那几个小崽子收拾了！',
+        text: '跟我谈条件？大老板早吩咐了，今晚三号船的所有线索全得掐断。[next]箱子归我们，至于你们……全都扔江里灭口！狂化水手，给我压上去封死退路！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 5,
+        speaker: '狂化重装水手',
+        leftPortrait: 'assets/art/sailor_berserk@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（厚重的橡胶潜水服被肌肉撑得紧绷，破损防毒面具下喷射出滚烫粗重的白雾，手中重型水压切断钳狠狠砸在集装箱铁皮上，火星四溅）咔嚓！咔嚓！骨头……全都剪碎！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '码头埋伏狙击手',
+        leftPortrait: 'assets/art/sniper_dock@2x.png',
+        rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
+        activeSide: 'left',
+        text: '（趴在上方集装箱顶端，夜视目镜闪烁着猩红微光，冰冷的弩箭准星死死锁住地面）红外锁定完毕。谁敢越过警戒线半步，当场洞穿喉咙。',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 7,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '大家别慌！护住徐老师两侧，跟他们拼了！',
+        text: '大家别慌！护住徐老师两侧，找集装箱当掩体避开冷枪，跟他们拼了！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -241,7 +261,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，让徐老师假装有二心去联络三号船。只有这样，独眼蝰蛇这条大鱼才会露头！',
+        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，让徐老师假装有二心去联络三号船。[next]只有这样，独眼蝰蛇这条大鱼才会露头！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -251,7 +271,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（给孩子们抹去脸上的雨水，眼眶通红）对不起，让你们跟着担惊受怕了。只有你们表现出不知情的真实反应，眼线才不会起疑心……老师对不起你们。',
+        text: '（给孩子们抹去脸上的雨水，眼眶通红）对不起，让你们跟着担惊受怕了。[next]只有你们表现出不知情的真实反应，眼线才不会起疑心……老师对不起你们。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -295,7 +315,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（捧出一枚沉甸甸的银灰色金属警徽，脸色骤变）这警徽材质……背面的激光警号是046-2046-SF！前缀046是我的专属警号，年份怎么会是二零四六年？！这是二十年后的警徽？！',
+        text: '（捧出一枚沉甸甸的银灰色金属警徽，脸色骤变）这警徽材质……背面的激光警号是046-2046-SF！前缀046是我的专属警号，年份怎么会是二零四六年？！[next]这是二十年后的警徽？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -324,7 +344,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '泛黄纸片上写着凌乱的血字：【千万别在9月28日登上三号船！那一夜海峰爸、徐老师、刘老师全牺牲在底舱火海里！快回学校查神经脑波仪，那是改变一切的唯一线索！】',
+        text: '泛黄纸片上写着凌乱的血字：【千万别在9月28日登上三号船！那是一场万劫不复的死局！[next]快回学校查神经脑波仪，那是改变一切的唯一线索！】',
         highlight: true,
         sfx: 'sfx_suspense'
       },

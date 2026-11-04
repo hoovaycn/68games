@@ -24,7 +24,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '第二天上午大课间，六年级同学在操场上集合练操。阳光把跑道晒得发白，昨夜那场怪事仿佛只是一场梦。跑道边，体育委员张希哲正颠着足球——他性子直，就是太爱逞强。',
+        text: '第二天上午大课间，六年级同学在操场上集合练操。阳光把跑道晒得发白，昨夜那场怪事仿佛只是一场梦。[next]跑道边，体育委员张希哲正颠着足球——他性子直，就是太爱逞强。',
         sfx: 'sfx_confirm'
       },
       {
@@ -69,7 +69,7 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '只是阳光亮得有些刺眼，跑道尽头却像蒙着一层化不开的灰。空气里，隐约飘来一股发甜的怪味——和昨晚那包零食一模一样。',
+        text: '只是阳光亮得有些刺眼，跑道尽头却像蒙着一层化不开的灰。[next]空气里，隐约飘来一股发甜的怪味——和昨晚那包零食一模一样。',
         sfx: 'sfx_shock_sting'
       }
     ],

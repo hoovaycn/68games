@@ -18,7 +18,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大考前一天傍晚，小伙伴们留在教室里补值日、发准考证，徐老师和刘老师在办公室核对考场名单。楼道本来安安静静的，可没过多久，外面就一阵一阵传来桌椅拖动声和脚步声，空气里还飘着那股甜得发腻的怪味。',
+        text: '大考前一天傍晚，小伙伴们留在教室里补值日、发准考证，徐老师和刘老师在办公室核对考场名单。[next]楼道本来安安静静的，可没过多久，外面就一阵一阵传来桌椅拖动声和脚步声，空气里还飘着那股甜得发腻的怪味。',
         sfx: 'sfx_confirm'
       },
       {
@@ -54,7 +54,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '门一推开，大家全愣住了。走廊里站着的几乎全是熟脸：张希哲、覃瑞怡、朱晏泽，还有平时一起上课的同学、隔壁班的熟人，甚至连白天打过招呼的低年级孩子都在。',
+        text: '门一推开，大家全愣住了。走廊里站着的几乎全是熟脸：[next]张希哲、覃瑞怡、朱晏泽，还有平时一起上课的同学、隔壁班的熟人，甚至连白天打过招呼的低年级孩子都在。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -63,7 +63,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；有人嘴角沾着荧光糖渣，眼睛却已经一点点亮起青蓝色的光。那不是少数几个倒霉的人，是几乎整层楼都出事了。',
+        text: '有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；有人嘴角沾着荧光糖渣，眼睛却已经一点点亮起青蓝色的光。[next]那不是少数几个倒霉的人，是几乎整层楼都出事了。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -81,7 +81,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她话还没说完，眼睛里的最后一点清明也没了。走廊另一头，朱晏泽慢慢抬起头；张希哲脚边滚着足球；覃瑞怡的花球垂在身侧，三个人的脸色都白得发青。',
+        text: '她话还没说完，眼睛里的最后一点清明也没了。走廊另一头，朱晏泽慢慢抬起头；[next]张希哲脚边滚着足球；覃瑞怡的花球垂在身侧，三个人的脸色都白得发青。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -171,7 +171,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '眼前这波终于被压住了。可下一秒，楼下、楼外、另一栋教学楼的窗边，又一片片亮起青蓝色的眼睛。那些刚被扶起来的同学，清醒不到两秒，脸色又被更浓的青光一点点压了回去。',
+        text: '眼前这波终于被压住了。可下一秒，楼下、楼外、另一栋教学楼的窗边，又一片片亮起青蓝色的眼睛。[next]那些刚被扶起来的同学，清醒不到两秒，脸色又被更浓的青光一点点压了回去。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -198,7 +198,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '几个人边退边把刚被压回神的张希哲、覃瑞怡、朱晏泽一起拖进了器材室。三个人还晕着，却总算没再往外冲。徐老师“哐当”一声反锁上门，又把沉重的器材架顶到了门后。',
+        text: '几个人边退边把刚被压回神的张希哲、覃瑞怡、朱晏泽一起拖进了器材室。三个人还晕着，却总算没再往外冲。[next]徐老师“哐当”一声反锁上门，又把沉重的器材架顶到了门后。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -207,7 +207,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '门外传来一下又一下撞门的声音，闷得像直接敲在心上。器材室里一片发冷的安静，只有每个人急促的喘气声还在提醒他们，自己没有倒下。',
+        text: '门外传来一下又一下撞门的声音，闷得像直接敲在心上。[next]器材室里一片发冷的安静，只有每个人急促的喘气声还在提醒他们，自己没有倒下。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -234,7 +234,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '她说完，慢慢从帆布包最里层摸出一个封皮磨掉漆的旧笔记本。里面夹着一张老照片：扎着高马尾的少年徐老师、齐耳短发的少年刘老师，还有一个梳双麻花辫、笑起来有梨涡的女孩，三个孩子挤在旧教学楼门口，像永远不会分开。',
+        text: '她说完，慢慢从帆布包最里层摸出一个封皮磨掉漆的旧笔记本。[next]里面夹着一张老照片：扎着高马尾的少年徐老师、齐耳短发的少年刘老师，还有一个梳双麻花辫、笑起来有梨涡的女孩，三个孩子挤在旧教学楼门口，像永远不会分开。',
         sfx: 'sfx_item_get'
       },
       {
@@ -253,7 +253,7 @@ export const CHAPTER6_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '旧笔记本散发着微弱的荧光。刘老师伸出手，指尖刚碰到那发黄的纸页，周围器材室昏暗的光线就像被谁一把拽远了。时间仿佛在这个瞬间被强行拉回了二十年前——',
+        text: '旧笔记本散发着微弱的荧光。刘老师伸出手，指尖刚碰到那发黄的纸页，周围器材室昏暗的光线就像被谁一把拽远了。[next]时间仿佛在这个瞬间被强行拉回了二十年前——',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }

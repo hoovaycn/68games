@@ -76,7 +76,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '各位家长静一静！这是我托了好多关系，从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
+        text: '各位家长静一静！这是我托了好多关系，从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。[next]人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
         sfx: 'sfx_confirm'
       },
       {
@@ -201,7 +201,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
-        text: '教室瞬间乱成一团，椅子倒了一片。那两个孩子尖叫着扑向离自己最近的人，后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。',
+        text: '教室瞬间乱成一团，椅子倒了一片。[next]那两个孩子尖叫着扑向离自己最近的人，后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -238,7 +238,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         activeSide: 'left',
-        text: '他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。这些话平时听着没事，这会儿全挤在一起，把人逼疯了。',
+        text: '他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。[next]这些话平时听着没事，这会儿全挤在一起，把人逼疯了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -273,7 +273,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '最后一个异化同学被打醒后，瘫坐在地上茫然地看着翻倒的椅子，像刚从一场恶梦里醒过来。满教室家长都亲眼看见了自己孩子刚才的样子，半天没人说话。',
+        text: '最后一个异化同学被打醒后，瘫坐在地上茫然地看着翻倒的椅子，像刚从一场恶梦里醒过来。[next]满教室家长都亲眼看见了自己孩子刚才的样子，半天没人说话。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -309,7 +309,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '可比起他那句嘴硬的话，更让人发冷的是另一幕：几个普通家长一边说“太吓人了”，一边左右看了看，还是把没拆的样品悄悄塞进了包里。',
+        text: '可比起他那句嘴硬的话，更让人发冷的是另一幕：[next]几个普通家长一边说“太吓人了”，一边左右看了看，还是把没拆的样品悄悄塞进了包里。',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -355,7 +355,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '不对……刚才那个带头的家长，我十几年前好像见过。十几年前的那个家长、还有今天这个人……他们背后肯定有同一个组织的影子，这是在系统性地收割焦虑！',
+        text: '不对……刚才那个带头的家长，我十几年前好像见过。[next]十几年前的那个家长、还有今天这个人……他们背后肯定有同一个组织的影子，这是在系统性地收割焦虑！',
         sfx: 'sfx_shock_sting'
       }
     ],

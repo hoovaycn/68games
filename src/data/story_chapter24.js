@@ -3,7 +3,7 @@
  *
  * 流程结构：
  * - ch24_scene_ruins_arrival: 穿越至2046年未来城市废墟，满城面具人行尸走肉，情感被抹杀
- * - ch24_scene_martyr_monument: 发现崇文实验旧址，黑色花岗岩烈士纪念碑刻着徐博、刘淑惠、海峰于2026年9月28日牺牲
+ * - ch24_scene_martyr_monument: 发现人大附小旧址，黑色花岗岩烈士纪念碑刻着徐博、刘淑惠、海峰于2026年9月28日牺牲
  * - ch24_scene_security_breach: 满分治安官与情绪清扫机甲合围，判定悲伤愤怒为高危感染
  * - ch24_battle1: 未来广场突围求生战（主角团5人 VS 满分治安官团队）
  * - ch24_scene_abyss_cornered: 弹尽粮绝之际，黑斗篷神秘人从高架桥投掷EMP并狙爆机甲救场
@@ -42,7 +42,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（揉着摔疼的膝盖）哎哟……{MC_NAME}，这是哪儿啊？！刚才还在徐老师的房间里，怎么一眨眼……这楼怎么全塌了？！天上的全息屏写的……二零四六年？！',
+        text: '（揉着摔疼的膝盖）哎哟……{MC_NAME}，这是哪儿啊？！刚才还在徐老师的房间里，怎么一眨眼……这楼怎么全塌了？！[next]天上的全息屏写的……二零四六年？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -58,8 +58,8 @@ export const CHAPTER24_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/patrol_robot_exam@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
         text: '街上的行人都戴着焊死的金属面具，面具上画着诡异的红色假笑，额头上印着【100分·绝对合格】。他们步伐整齐，周围听不到一点说话声。',
         sfx: 'sfx_shock_sting'
@@ -68,18 +68,19 @@ export const CHAPTER24_STORY = {
         id: 6,
         speaker: '朱彦泽',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: 'assets/art/patrol_robot_exam@2x.png',
         activeSide: 'left',
-        text: '（壮着胆子拉住其中一人）叔叔！请问崇文实验小学怎么走？！',
+        text: '（壮着胆子拉住其中一人）叔叔！请问人大附小怎么走？！',
         sfx: 'sfx_text_blip'
       },
       {
         id: 7,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        speaker: '金属面具人',
+        leftPortrait: 'assets/art/patrol_robot_exam@2x.png',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '那人机械地转过头，额头红光闪烁：『检测到杂音，扣除公民积分2点。』说完甩开手，头也不回地朝前走去。',
+        text: '（机械地转过头，额头上红光冰冷闪烁）『检测到未经许可的杂音，扣除公民积分2点。』[next]（说完猛地甩开朱彦泽的手，迈着僵硬整齐的步伐头也不回地朝前走去）',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -105,7 +106,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大理石门柱断裂半埋在瓦砾里，隐约看得见“崇文实验”四个字。在原本升旗台的位置，立着一座两米多高的黑色花岗岩纪念碑。',
+        text: '大理石门柱断裂半埋在瓦砾里，隐约看得见“人大附小”四个烫金残字。在原本升旗台的位置，立着一座两米多高的黑色花岗岩纪念碑。',
         sfx: 'sfx_suspense'
       },
       {
@@ -143,7 +144,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（跪倒在石碑前，眼泪涌了出来）2026年9月28日？！离我们出发的那天，只剩不到两个星期了啊！徐老师……刘老师……海峰叔叔……他们全都在那艘船上牺牲了？！',
+        text: '（跪倒在石碑前，眼泪涌了出来）2026年9月28日？！离我们出发的那天，只剩不到两个星期了啊！[next]徐老师……刘老师……海峰叔叔……他们全都在那艘船上牺牲了？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -175,11 +176,11 @@ export const CHAPTER24_STORY = {
     dialogues: [
       {
         id: 1,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        speaker: '机械执法队',
+        leftPortrait: 'assets/art/boss_exam_captain@2x.png',
+        rightPortrait: 'assets/art/patrol_robot_exam@2x.png',
         activeSide: 'left',
-        text: '广播尖啸：『警报！检测到异常情感波动！纯洁度低于30分！立即执行清除！』',
+        text: '（刺耳防空警报在广场四角炸响，数具手持电弧棍的巡查机械人与执行队长包抄围拢）广播尖啸：『警报！检测到异常情感波动！纯洁度低于30分！立即执行清除！』',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -188,27 +189,47 @@ export const CHAPTER24_STORY = {
         leftPortrait: 'assets/art/boss_exam_captain@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（手持电弧防暴棍，机械音冰冷）停止情绪反应。接受前额叶情感切除手术，否则直接销毁！',
+        text: '（手持双头高压电弧警棍，笑脸金属面具下发出冰冷机械音）停止情绪反应。接受前额叶情感切除手术，否则直接销毁！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
+        speaker: '机械化满分治安官',
+        leftPortrait: 'assets/art/officer_100@2x.png',
+        rightPortrait: '{MC_NAME}',
+        activeSide: 'left',
+        text: '（面带僵硬的固定微笑，齐刷刷举起捕兽网拘束枪，踏着整齐划一的机械步伐逼近）发现未及格样本……展开物理捕获……格式化大脑神经元……！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
+        speaker: '情绪清扫探针机甲',
+        leftPortrait: 'assets/art/probe_machine@2x.png',
+        rightPortrait: '{MC_NAME}',
+        activeSide: 'left',
+        text: '（三眼悬浮机械无人机在半空急速盘旋，底部红外激光网笼罩地面，音波发射口尖啸震耳）嘀——！锁定六名反叛生物体，脑电波剧烈紊乱，执行最高等级物理清扫！',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 5,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/boss_exam_captain@2x.png',
         activeSide: 'left',
-        text: '（抹干眼泪抽出一根钢筋，怒吼）切除你个大头鬼！你们这帮戴假笑面具的铁皮怪，也配在老师们的纪念碑前叫嚣？！想动我们，先问问老子手里的钢筋！',
+        text: '（抹干眼泪抽出一根钢筋，怒吼）切除你个大头鬼！你们这帮戴假笑面具的铁皮怪，也配在老师们的纪念碑前叫嚣？！[next]想动我们，先问问老子手里的钢筋！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 4,
+        id: 6,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/boss_exam_captain@2x.png',
         activeSide: 'left',
-        text: '大家列阵！保护好老师们的石碑！迎战！！',
+        text: '大家别散！保护好老师们的石碑！跟他们拼了！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -274,16 +295,44 @@ export const CHAPTER24_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '咻——轰！！！两枚电磁手雷从高架桥凌空砸下，电弧疯狂炸裂！紧接着反器材狙击枪轰鸣，机甲座舱应声爆炸！',
+        text: '咻——轰！！！两枚电磁手雷从高架桥断口处凌空掷下，刺目的蓝白电弧瞬间吞没了整支治安小队！[next]高架桥顶端，一道身裹残破战术黑斗篷的高大身影半蹲在铁轨边缘，手中大口径狙击枪正冒着幽幽青烟。',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 6,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（被气浪掀翻在地，惊愕抬头）桥上……有人在帮我们？！',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 7,
         speaker: '神秘人',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        leftPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（身披破损黑斗篷，手握脉冲霰弹枪顺滑索落下，拉住两人）几个小鬼胆子挺大啊！连重装防暴队都敢硬刚？！快趴下，跟我往防空洞撤！',
+        text: '（斗篷阴影遮住了大半面容，顺着滑索呼啸坠地，一把将{MC_NAME}和{ALLY_2_NAME}拽进水泥掩体后）[next]几个不怕死的小鬼！连天梯的重装防暴机甲都敢硬顶？！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 8,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
+        activeSide: 'left',
+        text: '（警惕地握紧钢管后退）你……你到底是谁？！为什么救我们？！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 9,
+        speaker: '神秘人',
+        leftPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
+        activeSide: 'left',
+        text: '（目光扫过几人校服红领巾，眼神猛地颤了一下，随即压低嗓音）不想被巡逻机炸成焦炭就闭嘴！低头，跟我往防空洞撤！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

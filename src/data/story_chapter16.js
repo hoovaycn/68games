@@ -220,7 +220,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。我知道他可能骗人，可我不敢拿全班同学赌。』',
+        text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。[next]我知道他可能骗人，可我不敢拿全班同学赌。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

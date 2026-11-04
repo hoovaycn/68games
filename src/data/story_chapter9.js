@@ -61,7 +61,7 @@ export const CHAPTER9_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大家猛地站起身。眼前的黑板与考桌被无形的力量扭曲，六道浑身散发着冰冷幽光的身影，悄然从虚空中浮现——那是完完全全由每个人内心最深处的恐惧与心魔滋生出的异化自我！',
+        text: '大家猛地站起身。眼前的黑板与考桌被无形的力量扭曲，六道浑身散发着冰冷幽光的身影，[next]悄然从虚空中浮现——那是完完全全由每个人内心最深处的恐惧与心魔滋生出的异化自我！',
         sfx: 'sfx_shock_sting'
       },
       // 1. 张希哲 vs 张希哲影子
@@ -233,7 +233,7 @@ export const CHAPTER9_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_classroom@2x.png',
-        text: '等耳边的轰鸣渐渐平息，大家猛然睁开眼——日光灯平静地照着考场，监考老师正不紧不慢地走过过道，周围只有同学们沙沙的翻卷声。那场凶险万分的精神心魔战，在现实中不过是短短一瞬。',
+        text: '等耳边的轰鸣渐渐平息，大家猛然睁开眼——日光灯平静地照着考场，监考老师正不紧不慢地走过过道，[next]周围只有同学们沙沙的翻卷声。那场凶险万分的精神心魔战，在现实中不过是短短一瞬。',
         sfx: 'sfx_confirm'
       },
       {
@@ -264,7 +264,7 @@ export const CHAPTER9_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_field_relief@2x.png',
-        text: '不知不觉，几个人一路晃晃悠悠走到了校外的田野。夕阳把草坡染成暖融融的金黄，晚风吹起衣角，大家并肩走着，大口大口呼吸着真正属于夏天的自由空气。',
+        text: '不知不觉，几个人一路晃晃悠悠走到了校外的田野。夕阳把草坡染成暖融融的金黄，[next]晚风吹起衣角，大家并肩走着，大口大口呼吸着真正属于夏天的自由空气。',
         sfx: 'sfx_confirm'
       }
     ],

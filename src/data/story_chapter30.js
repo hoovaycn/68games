@@ -21,8 +21,8 @@ export const CHAPTER30_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '阿瑶瘫坐在台阶前闭上眼睛，以为等待她的是终结痛苦的一枪。可走上前的，却是一只带着伤痕的小手。',
         sfx: 'sfx_suspense'
@@ -30,9 +30,9 @@ export const CHAPTER30_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'right',
         text: '{MC_NAME}站在她面前，伸手掏向自己的校服内兜。'
       },
       {
@@ -139,42 +139,53 @@ export const CHAPTER30_STORY = {
       },
       {
         id: 2,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        speaker: '万物天梯裁决核心',
+        leftPortrait: 'assets/art/boss_judgement_core@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '甲板猛然裂开！巨大的主脑母体破壳而出，缠绕着高压电缆与金属装甲，狂暴的压迫感瞬间笼罩了整个甲板！',
-        sfx: 'sfx_disaster_fire'
+        text: '（三号船顶层穹顶轰然坍塌！巨大的半球形量子脑波中枢如恶兽破壳，盘踞在雷暴中央，数万根生物光缆如巨蟒舞动，复眼闪烁深紫电芒）低等生物的虚妄情感……终究不过是因果闭环里的尘埃！时空覆写协议启动，将这群蝼蚁连同这片江面全部蒸发！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
+        speaker: '境外资本重装护卫机甲',
+        leftPortrait: 'assets/art/capital_guard_mech@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（涂装资本鹰隼徽标的厚重机械守卫轰然立起双臂电磁震荡盾牌，机体释放出刺目嘲讽光环）资本资产神圣不可侵犯！核心防御矩阵完全激活！胆敢踏上神座者，全部碾碎！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '就在暗紫激光即将射出的刹那，{MC_NAME}口袋里的古罐残片突然泛起耀眼的金光！'
+        text: '就在暗紫死光即将轰下的刹那，{MC_NAME}口袋里的古罐残片突然泛起耀眼的金光！'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '林公浩然气',
-        leftPortrait: null,
+        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '火光中，江风如怒涛翻滚，隐约传来百年前掷地有声的朗笑：『苟利国家生死以，岂因祸福避趋之！百年前未曾输，百年后亦不退！少年莫惧，浩然气常在！！』',
+        text: '火光中，江风如怒涛翻滚，隐约传来百年前掷地有声的朗笑：『苟利国家生死以，岂因祸福避趋之！[next]百年前未曾输，百年后亦不退！少年莫惧，浩然气常在！！』',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '金光将压迫感瞬间吹散！每个孩子握着工具的手上，仿佛多了一双满是老茧的大手轻轻托住。长大后的大号虚影在虚空中浮现，微笑着注视着他们！',
+        text: '金光将压迫感瞬间吹散！每个孩子握着工具的手上，仿佛多了一双满是老茧的大手轻轻托住。[next]长大后的他们化作金色虚影浮现，微笑着注视着大家！',
         highlight: true
       },
       {
-        id: 6,
+        id: 7,
         speaker: '海峰警官',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
@@ -183,7 +194,7 @@ export const CHAPTER30_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 7,
+        id: 8,
         speaker: '徐老师＆刘老师',
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
@@ -258,9 +269,9 @@ export const CHAPTER30_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
+        activeSide: 'right',
         text: '两道身影飞扑而出！徐老师和刘老师死死趴在边缘，两双手牢牢抓住了阿瑶的手腕！',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -317,7 +328,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【博物馆 · 历史的答卷】\n阳光透过玻璃穹顶照在展柜中央。被师生们找回并修复好的古青瓷罐静静陈列着，泛着温润的光泽。百年前的先辈守住了骨气，百年后的少年守住了本心。这份跨越百年的答卷，及格了。',
+        text: '【博物馆 · 历史的答卷】\n阳光透过玻璃穹顶照在展柜中央。被师生们找回并修复好的古青瓷罐静静陈列着，泛着温润的光泽。[next]百年前的先辈守住了骨气，百年后的少年守住了本心。这份跨越百年的答卷，及格了。',
         highlight: true
       },
       {
@@ -326,7 +337,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【当下 · 迟到的合影】\n学校操场上，海峰警官穿着新夹克，举着相机冲领奖台上的孩子们喊道：“张希哲！红领巾系正点！三、二、一，茄子！”医院花房里，阿瑶坐在长椅上，徐老师和刘老师把修好的老钢笔递回她手里，三人笑着抹去泪水，拍下了那张迟到二十年的毕业合照。',
+        text: '【当下 · 迟到的合影】\n学校操场上，海峰警官穿着新夹克，举着相机冲领奖台上的孩子们喊道：“张希哲！红领巾系正点！三、二、一，茄子！”[next]医院花房里，阿瑶坐在长椅上，徐老师和刘老师把修好的老钢笔递回她手里，三人笑着抹去泪水，拍下了那张迟到二十年的毕业合照。',
         highlight: true
       },
       {
@@ -335,7 +346,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【放学路上 · 告别与未来】\n放学铃声响起，十二岁的{MC_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡、朱彦泽、{ALLY_1_NAME}打打闹闹跑出校门。街角的夕阳下，长大后的他们微笑着比了个大拇指，随后化作金色的微光散在晚风里。那个绝望的未来已经消失，崭新的明天正在眼前。',
+        text: '【放学路上 · 告别与未来】\n放学铃声响起，十二岁的{MC_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡、朱彦泽、{ALLY_1_NAME}打打闹闹跑出校门。[next]街角的夕阳下，长大后的他们微笑着比了个大拇指，随后化作金色的微光散在晚风里。那个绝望的未来已经消失，崭新的明天正在眼前。',
         highlight: true
       },
       {

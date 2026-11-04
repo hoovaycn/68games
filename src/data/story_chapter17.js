@@ -25,7 +25,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
-        text: '众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；浩然正气杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。',
+        text: '众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；[next]浩然正气杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。',
         sfx: 'sfx_suspense'
       },
       {
@@ -141,7 +141,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '破拆索炸断了柱子，石桥塌进地下暗河，堵住追来的守卫，却也把海峰卷进水里。他胸前的警徽掉在岸边，{ALLY_2_NAME}捡起它，被徐老师拉向另一侧的出口。',
+        text: '破拆索炸断了柱子，石桥塌进地下暗河，堵住追来的守卫，却也把海峰卷进水里。[next]他胸前的警徽掉在岸边，{ALLY_2_NAME}捡起它，被徐老师拉向另一侧的出口。',
         bgImg: COLLAPSED_BRIDGE_BG,
         sfx: 'sfx_shock_sting'
       },
@@ -199,7 +199,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '地下室的守卫被打退。大家带着覃瑞怡爬上另一侧的维修楼梯，到了仓库里。两位老师留下挡追兵；沈家父子已经坐货梯上了顶楼。海峰被暗河冲走，生死未卜。',
+        text: '地下室的守卫被打退。大家带着覃瑞怡爬上另一侧的维修楼梯，到了仓库里。[next]两位老师留下挡追兵；沈家父子已经坐货梯上了顶楼。海峰被暗河冲走，生死未卜。',
         sfx: 'sfx_text_blip'
       },
       {

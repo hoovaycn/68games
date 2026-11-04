@@ -265,7 +265,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。半小时后开炉，就在驳船上用罐里的鸦片膏熬制新药。准备送药的学校名单也核对好了……滋滋……』',
+        text: '『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。半小时后开炉，就在驳船上用罐里的鸦片膏熬制新药。[next]准备送药的学校名单也核对好了……滋滋……』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -284,7 +284,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '难怪大溃败那晚，整层楼那么多同学都吃到了药……有些是家长带回去的，另一些袋上贴着“免费补送”和住址。原来是沈崇礼照着登记表送上门的！',
+        text: '难怪大溃败那晚，整层楼那么多同学都吃到了药……有些是家长带回去的，另一些袋上贴着“免费补送”和住址。[next]原来是沈崇礼照着登记表送上门的！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -294,7 +294,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '我已经把名单报给警方，请他们尽快联系家长。可省厅增援还要四十分钟，他们半小时后就要开炉。我们先去阻止他们；我走最前面，两位老师护住孩子，谁都别单独行动！',
+        text: '我已经把名单报给警方，请他们尽快联系家长。可省厅增援还要四十分钟，他们半小时后就要开炉。[next]我们先去阻止他们；我走最前面，两位老师护住孩子，谁都别单独行动！',
         sfx: 'sfx_confirm'
       },
       {
@@ -373,7 +373,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '在老爸海峰刚猛无匹的警用擒拿术与两位老师的默契配合下，码头外围的十余名黑衣哨兵被尽数击倒。江风裹挟着暴雨扑面而来，空气中弥漫着一股让人想吐的甜腻焦糊味。',
+        text: '在老爸海峰刚猛无匹的警用擒拿术与两位老师的默契配合下，码头外围的十余名黑衣哨兵被尽数击倒。[next]江风裹挟着暴雨扑面而来，空气中弥漫着一股让人想吐的甜腻焦糊味。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -382,7 +382,7 @@ export const CHAPTER13_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '咳咳……这股烟味闻一下就让人头重脚轻！你们快看前面停靠的那艘巨型铁壳驳船！甲板正中央立着一座快有一人高的青铜鬼面炉！',
+        text: '咳咳……这股烟味闻一下就让人头重脚轻！你们快看前面停靠的那艘巨型铁壳驳船！[next]甲板正中央立着一座快有一人高的青铜鬼面炉！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

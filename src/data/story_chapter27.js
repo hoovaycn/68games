@@ -42,7 +42,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '门开了！大号的我，还有{ALLY_2_ADULT_NAME}，大家一起跳进去！我们一起回过去救人！',
+        text: '门开了！未来的我，还有{ALLY_2_ADULT_NAME}，大家一起跳进去！我们一起回过去救人！',
         sfx: 'sfx_confirm'
       },
       {
@@ -106,7 +106,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（用力将小号一把推进光圈里）全都进光圈趴好！快！！',
+        text: '（用力将少年时的自己一把推进光圈里）全都进光圈趴好！快！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -122,6 +122,26 @@ export const CHAPTER27_STORY = {
       },
       {
         id: 4,
+        speaker: '境外重装歼灭者·暴风',
+        leftPortrait: 'assets/art/boss_storm_mech@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（四足重型攻城战车踏碎环形光井金属甲板，双联穿甲自动炮炮口泛起炽烈红光，沉闷引擎如雷霆震颤）警报：侦测到底层时空喷流异常过载！歼灭模式全开，炮火覆盖，清除一切阻碍！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '合金自律死士',
+        leftPortrait: 'assets/art/alloy_deathsworn@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（半裸露的橙红铝热剂自爆引信飞速闪烁红光，履带底盘高速轰鸣狂飙，眼中自毁倒计时只剩最后几秒）嘀……嘀……嘀……拥抱永恒光热！自爆冲锋！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
@@ -130,10 +150,10 @@ export const CHAPTER27_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 5,
+        id: 7,
         speaker: '{MC_ADULT_NAME}',
         leftPortrait: '{MC_ADULT_PORTRAIT}',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/boss_storm_mech@2x.png',
         activeSide: 'left',
         text: '傻希哲，回去以后别去江边乱跑了。放学了就老老实实买个鸡蛋灌饼回家！{ALLY_2_ADULT_NAME}，准备干活，挡住他们！',
         highlight: true,
@@ -142,7 +162,7 @@ export const CHAPTER27_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '成年主角与副官死守在光门前，挡住扑来的敌军！',
+      prompt: '成年特警与战友死守在光门前，挡住扑来的敌军！',
       buttonText: '【进入战斗 · 光门前最后的血肉长城】',
       battleId: 'ch27_battle1',
       isBattleTrigger: true,
@@ -179,8 +199,8 @@ export const CHAPTER27_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        rightPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         activeSide: 'left',
         text: '随着过去的历史即将被扭转，{MC_ADULT_NAME}和{ALLY_2_ADULT_NAME}的身影开始泛起点点金光，慢慢变得半透明。',
         sfx: 'sfx_suspense'
@@ -201,7 +221,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{ALLY_2_NAME}',
         activeSide: 'left',
-        text: '（隔着光芒把警徽按在小号手里）回去找到我爸，告诉他，六8班的孩子一个都没少！好好替我们活下去！',
+        text: '（隔着光芒把警徽按在少年时的自己手里）回去找到我爸，告诉他，六8班的孩子一个都没少！好好替我们活下去！',
         highlight: true,
         sfx: 'sfx_confirm'
       },

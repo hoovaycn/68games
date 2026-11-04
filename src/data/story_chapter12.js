@@ -233,7 +233,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！',
+        text: '{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。[next]证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -243,7 +243,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（抬起染着油污的手，有些颤抖地揉了揉自家孩子的头发，眼眶微红）对不起……老爸装了十五年的混混流氓，让你在学校抬不起头。但老爸……从来不是个烂人。',
+        text: '（抬起染着油污的手，有些颤抖地揉了揉自家孩子的头发，眼眶微红）对不起……老爸装了十五年的混混流氓，让你在学校抬不起头。[next]但老爸……从来不是个烂人。',
         highlight: true,
         sfx: 'sfx_confirm'
       },

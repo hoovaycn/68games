@@ -42,7 +42,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（举起工兵铲）这十分钟是大号用命换来的！跑断腿也得把人抢下来！快冲！！',
+        text: '（举起工兵铲）这十分钟是未来的大家用命换来的！跑断腿也得把人抢下来！快冲！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -52,7 +52,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '大号给的路线：二号货舱有跳雷，海峰叔叔五点五十九分会踩上去！徐老师和刘老师会被铁闸关在底舱！快上船！！',
+        text: '未来给的路线：二号货舱有跳雷，海峰叔叔五点五十九分会踩上去！徐老师和刘老师会被铁闸关在底舱！快上船！！',
         sfx: 'sfx_suspense'
       }
     ],
@@ -78,7 +78,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '哟？崇文小学的小兔崽子？放学不回家，跑老子的船上送死啊？！',
+        text: '哟？人大附小的几个小兔崽子？放学不回家，跑老子的船上送死啊？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -98,16 +98,37 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '（脸色一变，端起武器）你个毛孩子怎么会知道计划？！兄弟们抄家伙，把这几个小鬼扔进江里！',
+        text: '（脸色剧变，大口径转轮榴弹枪瞬间抬起，腰间雷管引信噼啪作响）你个毛孩子怎么会知道计划？！死士何在！重盾何在！把通往底舱的梯道给我焊死！',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 4,
+        speaker: '底舱重型水闸守卫',
+        leftPortrait: 'assets/art/hold_gate_guard@2x.png',
+        rightPortrait: '{MC_NAME}',
+        activeSide: 'left',
+        text: '（全身厚重防暴装甲轰然踏前，手持两米宽的合金防暴大盾重重顿在甲板上，掀起一阵劲风）重盾壁垒已立！底舱重地，任何人不得通过！闯入者格杀勿论！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '狂化引爆死士',
+        leftPortrait: 'assets/art/fanatic_bomber@2x.png',
+        rightPortrait: '{MC_NAME}',
+        activeSide: 'left',
+        text: '（浑身捆绑着大号烈性炸药包，狂热地扣紧手中的拉火引信，双眼通红嘶吼）哈哈哈！谁也别想活着下船！陪我们一起炸上天吧！！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
         speaker: '张希哲',
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/boss_iron_scorpion@2x.png',
         activeSide: 'left',
-        text: '未来几米高的铁皮大机甲我们都砸烂过，就凭你们几个也敢拦路？！揍他们！！',
+        text: '未来几米高的铁皮大机甲我们都砸烂过，就凭你们几个也敢拦路？！揍他们！！夺下防爆卡！！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -142,9 +163,9 @@ export const CHAPTER28_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'right',
         text: '前面通道里，海峰警官正往前猛冲，脚下就是一枚隐蔽的跳雷！右边厚重的铁闸门正飞速下落，徐老师和刘老师还在里面！',
         sfx: 'sfx_suspense'
       },
@@ -161,8 +182,8 @@ export const CHAPTER28_STORY = {
       {
         id: 4,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '{ALLY_2_NAME}飞身扑了上去，狠狠撞开海峰！地雷几乎同时被引爆，弹片将旁边的铁板打得噼啪作响！',
         sfx: 'sfx_shock_sting'
@@ -180,8 +201,8 @@ export const CHAPTER28_STORY = {
       {
         id: 6,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '闸门被工兵铲硬生生别住！倒计时还剩三秒！{MC_NAME}钻进缝隙，拉住两位老师拼命往外拽！',
         sfx: 'sfx_shock_sting'

@@ -81,7 +81,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【穿越途中 · 道光十八年冬】\n少年们还在通道里，并没有落进皇宫。眼前像开了扇窗：道光皇帝在养心殿召见林则徐，商量怎么禁烟。当时鸦片正害人上瘾，白银也不断流向海外。',
+        text: '【穿越途中 · 道光十八年冬】\n少年们还在通道里，并没有落进皇宫。[next]眼前像开了扇窗：道光皇帝在养心殿召见林则徐，商量怎么禁烟。当时鸦片正害人上瘾，白银也不断流向海外。',
         sfx: 'sfx_suspense'
       },
       {
@@ -363,7 +363,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '（鞠躬）林总督，我们来自将近两百年后的中国。小时候，我们在课本上读过虎门销烟。今天亲眼看见您和大家守住这口池，才知道当年有多难。我们那儿还有人贩毒，但也有警察、老师和普通人，一直在拦。',
+        text: '（鞠躬）林总督，我们来自将近两百年后的中国。小时候，我们在课本上读过虎门销烟。[next]今天亲眼看见您和大家守住这口池，才知道当年有多难。我们那儿还有人贩毒，但也有警察、老师和普通人，一直在拦。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -373,7 +373,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（望向还在冒白烟的销烟池）两百年后，孩子们还记得这里？还有人肯站出来，不让毒害人？那就好。今天这池鸦片没白毁，我们这些人也没白拼。',
+        text: '（望向还在冒白烟的销烟池）两百年后，孩子们还记得这里？还有人肯站出来，不让毒害人？[next]那就好。今天这池鸦片没白毁，我们这些人也没白拼。',
         highlight: true,
         sfx: 'sfx_confirm'
       },

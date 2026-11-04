@@ -66,17 +66,17 @@ export const CHAPTER26_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
-        text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。她的胸口，还死死贴着当年六8班泛黄的毕业合影。',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
+        activeSide: 'right',
+        text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。[next]她的胸口，还死死贴着当年六8班泛黄的毕业合影。',
         sfx: 'sfx_suspense'
       },
       {
         id: 2,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
         activeSide: 'left',
         text: '（捂住嘴巴）这……这就是阿瑶阿姨？！在学校心理咨询室里那么温和的苏医生……怎么会把自己折磨成这样？！',
         highlight: true,
@@ -85,9 +85,9 @@ export const CHAPTER26_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
-        activeSide: 'left',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: 'assets/art/ayao_aged_2046_weeping@2x.png',
+        activeSide: 'right',
         text: '受到外部刺激，舱内的女人微微颤抖。半空中突然弹出了二十年前水闸地下室的加密记忆投影！',
         sfx: 'sfx_confirm'
       }
@@ -111,59 +111,146 @@ export const CHAPTER26_STORY = {
       {
         id: 1,
         speaker: '沈万廷（投影）',
-        leftPortrait: 'assets/art/boss_ai_topstudent@2x.png',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '敢摸到水闸坏我的事？！把这两个多管闲事的老师灌了药，扔进江里喂鱼！',
+        text: '（老水闸铁门前，沈万廷阴鸷地冷笑，脚下踩着被铁链死死捆住的徐博与刘淑惠）敢摸到地下水闸坏沈家的走私大计？！把这两个多管闲事的教书匠按死，把刚出炉的蚀脑毒雾全灌进喉咙，沉江喂鱼！',
+        highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '未来虚影（投影）',
-        leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
-        rightPortrait: 'assets/art/ayao_adult_default@2x.png',
-        activeSide: 'left',
-        text: '阿瑶，快冲出去把药抢过来喝了！徐博和刘淑惠会被他们灭口的！你必须装作背叛他们，沈万廷才会放过他们！',
-        highlight: true,
-        sfx: 'sfx_suspense'
+        speaker: '徐老师（投影）',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'right',
+        text: '（嘴角满是鲜血，拼死用身躯死死挡住身后的刘淑惠）沈万廷！走私账册的证据我已经托人送出去了……冲我来！放淑惠走！',
+        sfx: 'sfx_text_blip'
       },
       {
         id: 3,
-        speaker: '少年阿瑶（投影）',
-        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
-        activeSide: 'left',
-        text: '（疯了一样抢过药剂往嘴里灌，哭喊着）徐博……淑惠……只要你们能平安活着当老师，我当坏人没关系！你们一定要活下去啊！！',
-        highlight: true,
+        speaker: '青年刘老师（投影）',
+        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        activeSide: 'right',
+        text: '（额头流着血，含泪撕扯着铁链挣扎）徐博！要死一起死！沈万廷，你残害无辜、祸害学生，早晚遭报应！！',
         sfx: 'sfx_shock_sting'
       },
       {
         id: 4,
-        speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/ayao_default@2x.png',
+        activeSide: 'right',
+        text: '沈家打手冷笑着拔出剧毒药剂瓶，就要强行灌入两位老师嘴里！千钧一发之际，排污通风管道轰然震响，一个瘦弱娇小的身影发了疯般扑了出来！',
+        sfx: 'sfx_explosion'
+      },
+      {
+        id: 5,
+        speaker: '未来神座残响（投影）',
+        leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
+        rightPortrait: 'assets/art/ayao_default@2x.png',
         activeSide: 'left',
-        text: '（眼眶通红）怎么会是这样……老师们恨了她这么多年，全校都以为她变坏了……原来她是替老师们挡下了这一劫！',
+        text: '（因果律异化的高维虚影在少女耳边尖利低语）傻姑娘，硬拼他们必死！抢下毒药自己咽下去！只要你展现出承载因果地脉的天赋自愿臣服，沈万廷才会把当做容器，放过两个没用的教书匠！',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 6,
+        speaker: '少年阿瑶（投影）',
+        leftPortrait: 'assets/art/ayao_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '（瘦弱的初中少女一把抢过毒药瓶，在两位老师惊骇欲绝的目光中仰头一饮而尽！毒素瞬间灼穿五脏六腑，口吐黑血却强撑着不肯倒下）咕噜……咳咳咳！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 5,
-        speaker: '{ALLY_2_ADULT_NAME}',
-        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        id: 7,
+        speaker: '少年阿瑶（投影）',
+        leftPortrait: 'assets/art/ayao_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        activeSide: 'left',
+        text: '（颤抖着抹去嘴角的污血，转过身用尽全身力气装出极度凶狠冰冷的眼神，对着两位老师嘶吼）滚！你们两个窝囊废穷老师，天天拿及格、前途说教，能顶什么用？！沈老板才能给我全城唯一的满分未来！从今往后我不是你们的学生！滚啊！！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 8,
+        speaker: '沈万廷（投影）',
+        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
+        rightPortrait: 'assets/art/ayao_default@2x.png',
+        activeSide: 'left',
+        text: '（哈哈狂笑）好狠绝的丫头！喝了蚀脑毒药居然还能站着！真是天生给老子承载地脉古罐的绝世容器！把这两个昏死过去的废物教师扔到江边排污口，把这丫头带回三号船！',
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 9,
+        speaker: '少年阿瑶（投影）',
+        leftPortrait: 'assets/art/ayao_default@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（水闸铁门沉重闭合，少女终于脱力瘫倒在冰冷血泊中，死死抓着老师遗落的半截粉笔，满脸泪水哭泣）徐博……淑惠……你们一定要平安活着当老师……全天下都骂我是坏人没关系……你们一定要好好活着啊……',
+        highlight: true,
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 10,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（泪水夺眶而出，声音发颤）怎么会是这样……徐老师内疚了整整二十年，全校都以为阿瑶阿姨是背叛者……原来她是替老师吞下了蚀脑剧毒，为了保全恩师把自己献祭给了深渊！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 11,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '她把自己逼成了恶人，困在自己设下的噩梦里整整几十年……',
+        text: '（捂着嘴泣不成声）为了保护徐老师和刘老师……她竟然一个人背负了全世界的误解和诅咒，被困在这个地狱里煎熬了整整四十年……',
         sfx: 'sfx_text_blip'
       },
       {
-        id: 6,
-        speaker: '天梯智脑',
-        leftPortrait: 'assets/art/boss_judgement_core@2x.png',
+        id: 12,
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '这也是为什么天梯主脑永远在强迫所有人追求‘满分’——因为在阿瑶被毒素折磨得支离破碎的心里，只要拿到满分，当年的一切悲剧就不会发生……',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 13,
+        speaker: '满分优等生智脑',
+        leftPortrait: 'assets/art/boss_ai_topstudent@2x.png',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '『警告！核心封存记忆被非法激活！启动全域物理歼灭程序！』',
+        text: '（数万道幽蓝数据流疯狂暴走！全息巨像自穹顶威严俯瞰，发出雷霆般的机械咆哮）警报！宿主底层封存情感彻底瓦解！逻辑闭环被致命人性情感污染……启动全域物理歼灭协议！抹除所有外来干扰源！',
+        highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 14,
+        speaker: '天梯巡考机械人',
+        leftPortrait: 'assets/art/patrol_robot_exam@2x.png',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（流线型白色机甲在半空瞬移突刺，双臂高频振动光刃划破空气，胸口倒计时钟表发出急促滴答声）考场纪律违规！答卷时间结束！强制收卷，抹除违规考生！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 15,
+        speaker: '{MC_ADULT_NAME}',
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        rightPortrait: 'assets/art/boss_ai_topstudent@2x.png',
+        activeSide: 'left',
+        text: '（战术斗篷迎风烈烈，合金短棍横胸一震）两代六8班都在这里！你们这台冷血的考试机器，今天休想再束缚阿瑶！把她从这四十年的噩梦里夺回来！全员拔刀！',
+        highlight: true,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
@@ -190,25 +277,25 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '智脑轰然碎裂，化作无数光点！维生舱管线断开，阿瑶从半空坠落，被{MC_ADULT_NAME}稳稳接住。',
+        text: '智脑轰然碎裂，化作漫天光屑！维生舱内无数生物导管逐一脱落，白发苍苍的老态阿瑶从半空中跌落，被{MC_ADULT_NAME}稳稳抱在怀中。',
         sfx: 'sfx_explosion'
       },
       {
         id: 2,
         speaker: '未来阿瑶',
-        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        leftPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（苦涩地笑了笑）你们……终于打破这个笼子了……我终于不用再去算那些冰冷的分数了……',
+        text: '（满头白发、枯瘦苍老的面庞露出一抹如释重负的微笑，浑浊的眼中流下清泪）你们……终于打破这个冰冷的笼子了……我终于……不用再去算那些没有温度的分数了……',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '未来阿瑶',
-        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        leftPortrait: 'assets/art/ayao_aged_2046_weeping@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（递出一枚散发光晕的原石芯片）这是最初的地脉核心【古罐原石密钥】。到底层反应堆插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的我们，已经回不去了……',
+        text: '（用颤抖枯瘦的手，从怀中摸出一枚贴着六8班泛黄毕业照的原石芯片）这是最初的地脉核心【古罐原石密钥】。[next]到底层反物质反应堆插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的我们，已经被这个时代锚定了……',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -216,9 +303,9 @@ export const CHAPTER26_STORY = {
         id: 4,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
-        rightPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
         activeSide: 'left',
-        text: '我们早就不在乎能不能回去了。只要能救下当年的老爸和老师们，我们怎样都行！',
+        text: '我们早就不在乎能不能回去了。只要能救下当年的老爸和老师们，我们付出一切都值得！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -228,7 +315,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_NAME}',
         activeSide: 'left',
-        text: '别耽搁了！走！下到底层反应堆，送他们六个回去改变未来！',
+        text: '别耽搁了！金字塔结构正在坍塌，走！下到底层反应堆，送他们六个回去改变未来！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

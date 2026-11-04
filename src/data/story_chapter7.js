@@ -58,7 +58,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/ayao_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '坐在她们中间，梳着双麻花辫、正笑着递钢笔的女孩叫阿瑶，是全班雷打不动的第一名。那时的她们，还只是三个再普通不过的好朋友。',
+        text: '坐在她们中间，梳着双麻花辫、正笑着递钢笔的女孩叫阿瑶，是全班雷打不动的第一名。[next]那时的她们，还只是三个再普通不过的好朋友。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -253,7 +253,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '那一晚，她们跑遍了整栋教学楼，试图拦住每一个发疯的同学。天快亮时，她们被当年那个给体校生发饮料的坏教练，带着几个异化学生死死堵在了旧教室门口。',
+        text: '那一晚，她们跑遍了整栋教学楼，试图拦住每一个发疯的同学。[next]天快亮时，她们被当年那个给体校生发饮料的坏教练，带着几个异化学生死死堵在了旧教室门口。',
         sfx: 'sfx_confirm'
       },
       {
@@ -262,7 +262,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两人已经打了一整夜，满身是伤，连抬手的力气都快没了。而在走廊尽头的阴影里，一个像老板一样的神秘男人放下几个纸箱，冷笑着说了一句：“总会有人愿意为结果买单。” 随后消失在黑暗中。',
+        text: '两人已经打了一整夜，满身是伤，连抬手的力气都快没了。[next]而在走廊尽头的阴影里，一个像老板一样的神秘男人放下几个纸箱，冷笑着说了一句：“总会有人愿意为结果买单。” 随后消失在黑暗中。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -319,7 +319,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '话音未落，青蓝色的光瞬间从阿瑶身上炸开。原本极度压抑的药效在此刻彻底发作。她猛地抬起头，那双原本温和的眼睛，已经被化不开的青光彻底吞噬。',
+        text: '话音未落，青蓝色的光瞬间从阿瑶身上炸开。原本极度压抑的药效在此刻彻底发作。[next]她猛地抬起头，那双原本温和的眼睛，已经被化不开的青光彻底吞噬。',
         sfx: 'sfx_shock_sting'
       },
       {

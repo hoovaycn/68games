@@ -86,7 +86,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
+        text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！[next]然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -95,7 +95,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。甲板上的人影和江岸开始扭曲、重叠，烟里还传来遥远的号子和炮声。谁也说不清发生了什么。',
+        text: '碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。甲板上的人影和江岸开始扭曲、重叠，烟里还传来遥远的号子和炮声。[next]谁也说不清发生了什么。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -186,7 +186,7 @@ export const CHAPTER14_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '江水仿佛倒着流，白光吞没甲板。六个孩子、海峰和两位老师还抓着彼此，脚下的船却突然消失了。远处传来战鼓和炮声，他们正一起被拽离现代的江面。',
+        text: '江水仿佛倒着流，白光吞没甲板。六个孩子、海峰和两位老师还抓着彼此，脚下的船却突然消失了。[next]远处传来战鼓和炮声，他们正一起被拽离现代的江面。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }

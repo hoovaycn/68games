@@ -291,7 +291,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '打到张希哲站不稳、晃悠着要摔倒的时候，覃瑞怡举着花球冲上去，扯着嗓子喊他的名字。喊到第三声的时候，张希哲眼睛里的青光一下就退了，腿一软坐在了地上，满头是汗。',
+        text: '打到张希哲站不稳、晃悠着要摔倒的时候，覃瑞怡举着花球冲上去，扯着嗓子喊他的名字。[next]喊到第三声的时候，张希哲眼睛里的青光一下就退了，腿一软坐在了地上，满头是汗。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -337,7 +337,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/senior_athlete_leader_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '饮料是教练给的。他每周五在城郊旧训练馆给我们发货，听说更大的箱子会直接送到馆门口。谁送来的，我真没见过，问多了教练还会骂人。',
+        text: '饮料是教练给的。他每周五在城郊旧训练馆给我们发货，听说更大的箱子会直接送到馆门口。[next]谁送来的，我真没见过，问多了教练还会骂人。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -371,7 +371,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '这东西不是今年才冒出来的。一到大考季它就回来，为了追求好成绩，毕业班永远是重灾区。我追了它十几年，徐老师捡瓶子、锁抽屉、夜里跟我见面，都是在查这件事。',
+        text: '这东西不是今年才冒出来的。一到大考季它就回来，为了追求好成绩，毕业班永远是重灾区。[next]我追了它十几年，徐老师捡瓶子、锁抽屉、夜里跟我见面，都是在查这件事。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -380,7 +380,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刘老师蹲在地上，把空饮料瓶一个个捡起来塞进帆布包，她包里已经攒了厚厚一叠异化零食的包装纸，最旧的那一张已经黄得发脆，边角都磨破了。',
+        text: '刘老师蹲在地上，把空饮料瓶一个个捡起来塞进帆布包。[next]她包里已经攒了厚厚一叠异化零食的包装纸，最旧的那一张已经黄得发脆，边角都磨破了。',
         sfx: 'sfx_text_blip'
       },
       {

@@ -29,8 +29,8 @@ export const CHAPTER29_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
         text: '一个穿着风衣的瘦削身影背对着众人站在栏杆前。听到脚步声，她慢慢转过身来。'
       },
@@ -59,7 +59,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
-        text: '当年你根本不是贪图什么好成绩……是为了不让他们把毒手伸向我和淑惠，自己硬咽下去的！你为什么一个字都不告诉我们？！自己一个人扛了二十年？！',
+        text: '当年你根本不是贪图什么好成绩……是为了不让他们把毒手伸向我和淑惠，自己硬咽下去的！[next]你为什么一个字都不告诉我们？！自己一个人扛了二十年？！',
         sfx: 'sfx_dialogue_important'
       },
       {
@@ -74,8 +74,8 @@ export const CHAPTER29_STORY = {
       {
         id: 7,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
         text: '众人倒吸一口凉气！阿瑶的后颈和脊椎上，深嵌着数枚发红光的金属钉，几根粗黑的数据缆绳正死死连在身后的控制台上！'
       },
@@ -103,7 +103,7 @@ export const CHAPTER29_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '对。六8班的孩子骨子里最不服输。只要让他们看到那个荒凉的未来，他们就一定会想尽办法回来救你们！我拿自己的命当赌注……孩子们赢了。你们活着……我这二十年的噩梦，总算醒了……',
+        text: '对。六8班的孩子骨子里最不服输。只要让他们看到那个荒凉的未来，他们就一定会想尽办法回来救你们！我拿自己的命当赌注……孩子们赢了。[next]你们活着……我这二十年的噩梦，总算醒了……',
         highlight: true
       }
     ],
@@ -135,15 +135,26 @@ export const CHAPTER29_STORY = {
       },
       {
         id: 2,
-        speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        speaker: '外置神经死锁柱',
+        leftPortrait: 'assets/art/pillar_neural_lock@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '轰！四周升起四根黑色通电柱，强烈的电流顺着电缆直灌进阿瑶体内！她的意识瞬间被暴走的数据流吞没！',
-        sfx: 'sfx_disaster_fire'
+        text: '（轰然从天台四周破土升起，粗壮的暗紫合金导电立柱缠绕着狂暴高压电弧，吸血光缆直插阿瑶后颈，全场回荡着刺耳电磁啸叫）滋滋……神经死锁激活！因果律能量强制抽引！神经脉冲电弧覆盖全场！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
+        speaker: '主脑重装修复蛛',
+        leftPortrait: 'assets/art/repair_spider@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（八只多关节机械螯足在立柱周围飞速爬动，前肢高温等离子焊枪喷吐绿光，金属机械音密集咔嗒作响）检测到立柱结构震颤……修复协议就位！等离子焊枪过载维持！阻击一切靠近者！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 4,
         speaker: '阿瑶',
         leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -153,7 +164,7 @@ export const CHAPTER29_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '海峰警官',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
@@ -162,12 +173,12 @@ export const CHAPTER29_STORY = {
         sfx: 'sfx_dialogue_important'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '{MC_NAME}',
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '海峰叔叔别开枪！大号给过我控制图纸，主脑靠那四根通电柱供能！砸烂柱子，就能把阿瑶阿姨救出来！六8班，动手！！',
+        text: '海峰叔叔别开枪！未来的我给过我控制图纸，主脑靠那四根通电柱供能，修复蛛在给它供血！先拆柱子和蜘蛛，就能把阿瑶阿姨完好无损救出来！六8班，动手！！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

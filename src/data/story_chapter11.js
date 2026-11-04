@@ -96,7 +96,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
-        text: '其中一人是家长会上的神秘家长；另一人戴着墨镜、挂着金链子，花臂外罩着件旧西装，嘴里叼着烟。{ALLY_2_NAME}认出来了：那是自己的父亲海峰。',
+        text: '其中一人是家长会上的神秘家长；另一人戴着墨镜、挂着金链子，花臂外罩着件旧西装，嘴里叼着烟。[next]{ALLY_2_NAME}认出来了：那是自己的父亲海峰。',
         sfx: 'sfx_suspense'
       },
       {
@@ -223,7 +223,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '打退混混后，海峰亲手把孩子们推到门外，连踩破的奖状也扔了出来。“咣当”一声，卷帘门落下，上了锁。{ALLY_2_NAME}捡起那张沾满油污的纸。',
+        text: '打退混混后，海峰亲手把孩子们推到门外，连踩破的奖状也扔了出来。[next]“咣当”一声，卷帘门落下，上了锁。{ALLY_2_NAME}捡起那张沾满油污的纸。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -232,7 +232,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '（跌坐在泥水里，双手死死抠着地砖，眼泪大颗大颗砸在碎裂的奖状上）为什么……为什么是这样……我爸真的是个烂人……他是个无可救药的坏蛋……',
+        text: '（跌坐在泥水里，双手死死抠着地砖，眼泪大颗大颗砸在碎裂的奖状上）为什么……为什么是这样……[next]我爸真的是个烂人……他是个无可救药的坏蛋……',
         sfx: 'sfx_text_blip'
       },
       {

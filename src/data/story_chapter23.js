@@ -9,12 +9,13 @@
  */
 
 export const CHAPTER23_STORY = {
-  // s1: 雨夜突袭 · 崇文楼咨询室对质
+  // s1: 雨夜突袭 · 崇文楼走廊破门
   ch23_scene_counseling_breakin: {
     id: 'ch23_scene_counseling_breakin',
     title: '深夜十点 · 崇文楼心理咨询室门外',
     bgType: 'corridor',
-    bgImg: 'assets/backgrounds/bg_counseling_room@2x.png',
+    bgImg: 'assets/backgrounds/bg_chongwen_corridor_night@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_chongwen_corridor_office@2x.png',
     bgm: 'bgm_suspense',
     dialogues: [
       {
@@ -23,7 +24,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '雨夜的崇文楼一片死寂。整条走廊泛着微弱的蓝光，空气里飘着刺鼻的焦糊味。',
+        text: '雨夜的崇文楼一片死寂。整条走廊泛着微弱的幽蓝荧光，空气里飘着刺鼻的焦糊味。',
         sfx: 'sfx_suspense'
       },
       {
@@ -48,10 +49,12 @@ export const CHAPTER23_STORY = {
       {
         id: 4,
         speaker: '系统提示',
-        leftPortrait: null,
-        rightPortrait: null,
+        leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '书桌被推在一旁，一台一人多高的复杂仪器立在正中，缠绕着不少电缆，隐隐闪烁着电火花。苏晚医生正坐在桌前，平静地翻看着病历夹。',
+        bgImg: 'assets/backgrounds/bg_counseling_room_machine@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_counseling_room@2x.png',
+        text: '书桌被推在一旁，一台一人多高的复杂仪器立在正中，缠绕着不少电缆，隐隐闪烁着电火花。[next]苏晚医生正坐在桌前，平静地翻看着病历夹。',
         sfx: 'sfx_suspense'
       },
       {
@@ -60,6 +63,8 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_counseling_room_machine@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_counseling_room@2x.png',
         text: '（合上文件夹，淡淡一笑）海峰警官，带这么多人深更半夜查房，阵仗挺大啊。白天送你们的安神糖，难道没管用吗？',
         highlight: true,
         sfx: 'sfx_text_blip'
@@ -70,6 +75,8 @@ export const CHAPTER23_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_counseling_room_machine@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_counseling_room@2x.png',
         text: '苏医生，我们在码头截获了手提箱，找到了未来的预警信！白天体检的时候，你到底在全校同学身上动了什么手脚？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -88,7 +95,8 @@ export const CHAPTER23_STORY = {
     id: 'ch23_scene_ayao_revelation',
     title: '深夜十点一刻 · 尘封二十年的故人',
     bgType: 'classroom',
-    bgImg: 'assets/backgrounds/bg_counseling_room@2x.png',
+    bgImg: 'assets/backgrounds/bg_counseling_room_machine@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_counseling_room@2x.png',
     bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
@@ -107,7 +115,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '（摘下眼镜扔在桌上，散开长发，眼神冰冷）徐博，刘淑惠。整整二十年了。你们当了二十年好老师，而我……却在泥潭里熬了整整二十年。',
+        text: '（摘下眼镜扔在桌上，散开长发，眼神冰冷）徐博，刘淑惠。整整二十年了。[next]你们当了二十年好老师，而我……却在泥潭里熬了整整二十年。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -117,7 +125,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '（踉跄退后一步，眼圈通红）阿瑶……真的是你？！当年你在老水闸掉进江里，我和淑惠找了你三年！你既然还活着……为什么会变成这样？！',
+        text: '（踉跄退后一步，眼圈通红）阿瑶……真的是你？！当年你在老水闸出事失踪，我和淑惠找了你三年！你既然还活着……为什么会变成这样？！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -127,7 +135,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '沈万廷不过是个棋子。他千方百计想找的古罐，本来就是我放出去的饵！没有他的走私船队，我怎么从地脉深处提炼能量开启通道？！',
+        text: '沈万廷不过是个棋子。他千方百计想找的古罐，本来就是我放出去的饵！[next]没有他的走私船队，我怎么从地脉深处提炼能量开启通道？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -149,11 +157,61 @@ export const CHAPTER23_STORY = {
         text: '无辜？海峰，在注定的命运面前，没有谁是无辜的！不把三号船的祸根斩断，过不了几天，你们所有人都会葬身火海！想拦我，就先过了这一关！',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/ayao_adult_default@2x.png',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '阿瑶冷笑着抓起桌上的古瓷罐残片，狠狠拍进了脑波仪的能量卡槽！[next]滋啦——！一人多高的仪器剧烈轰鸣，刺目的暗紫电流像狂蛇般乱窜，电弧瞬间将两侧的窗帘引燃！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 8,
+        speaker: '时空煞气寄生体',
+        leftPortrait: 'assets/art/shadow_parasite@2x.png',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '（仪器裂缝中黑雾翻腾，两只幽灵般的煞气虚影凝聚成形，发出刺耳的电子尖啸）滋……因果律入侵者……[next]抹除……彻底抹除……留在这里变成永恒的养料吧！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 9,
+        speaker: '时空错乱傀儡',
+        leftPortrait: 'assets/art/chronos_puppet@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（数具双眼泛着幽蓝光芒的提线人偶从阴影中踏出，手持电弧工具咔咔逼近）清除障碍……执行……阿瑶大人的封锁指令……！',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 10,
+        speaker: '海峰警官',
+        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（立刻双手持枪护在孩子们前方）该死！这机器里涌出来的是什么鬼东西？！特警队护住两侧窗户！千万别被那团黑雾碰到！',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 11,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        activeSide: 'left',
+        text: '大家背靠背，别慌！这些怪物是靠脑波仪供能的，只要把它们打散，就能阻止仪器！六8班，抄家伙迎战！',
+        highlight: true,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '阿瑶将古瓷罐残片拍进脑波仪，煞气拟态体破空而出！',
+      prompt: '脑波仪暴走喷出煞气虚影，错乱傀儡手持电弧封锁诊室！',
       buttonText: '【进入战斗 · 诊室时空阻滞战】',
       battleId: 'ch23_battle1',
       isBattleTrigger: true,
@@ -194,7 +252,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '（狠心拔出短刃割断衣角）重新开始？徐博，回不去了！从二十年前掉下江水的那天起，我们就再也回不去了！',
+        text: '（狠心拔出短刃割断衣角）重新开始？徐博，回不去了！从二十年前我被逼上绝路、陷进这片泥潭的那天起，我们就再也回不去了！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

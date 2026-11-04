@@ -16,7 +16,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刘老师继续讲起当年那一晚：阿瑶被带走后，她们找到几个刚恢复清醒的同学，挨个问怪零食是从哪来的。顺着这些线索，两人找到了城郊的旧仓库。',
+        text: '刘老师继续讲起当年那一晚：阿瑶被带走后，她们找到几个刚恢复清醒的同学，挨个问怪零食是从哪来的。[next]顺着这些线索，两人找到了城郊的旧仓库。',
         sfx: 'sfx_confirm'
       },
       {
@@ -52,7 +52,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。那一刻她们第一次意识到：这根本不是一两个小贩，而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
+        text: '两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。[next]那一刻她们第一次意识到：这根本不是一两个小贩，而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -97,7 +97,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '仓库最里面站着个穿花西装、戴墨镜挂金链子的男人，半张脸都埋在阴影里。那一身江湖骗子般的打扮，透着一股让人极不舒服的市侩与凶狠。',
+        text: '仓库最里面站着个穿花西装、戴墨镜挂金链子的男人，半张脸都埋在阴影里。[next]那一身江湖骗子般的打扮，透着一股让人极不舒服的市侩与凶狠。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -168,7 +168,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '花西装男人的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。',
+        text: '花西装男人的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。[next]等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -269,7 +269,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个孩子说有人往学校送药，可没人信——没证据，也没证人。大人们只当她们是打架后找借口。',
+        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个孩子说有人往学校送药，可没人信——没证据，也没证人。[next]大人们只当她们是打架后找借口。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -288,7 +288,7 @@ export const CHAPTER8_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
-        text: '众人轮流守着器材室的门，听刘老师讲完那段往事，天已经亮了。隔壁班同学和保安把走廊里失控的人带去医务室，这才敲门喊他们出来：大考马上要开始。',
+        text: '众人轮流守着器材室的门，听刘老师讲完那段往事，天已经亮了。[next]隔壁班同学和保安把走廊里失控的人带去医务室，这才敲门喊他们出来：大考马上要开始。',
         bgm: 'bgm_suspense',
         sfx: 'sfx_confirm'
       },
@@ -309,7 +309,7 @@ export const CHAPTER8_STORY = {
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
-        text: '这二十年里，每一次闭上眼，我都还能看见阿瑶走入黑暗的背影……但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',
+        text: '这二十年里，每一次闭上眼，我都还能看见阿瑶走入黑暗的背影……[next]但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',
         highlight: true,
         sfx: 'sfx_confirm'
       }

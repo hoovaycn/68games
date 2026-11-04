@@ -31,7 +31,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '上次那个队长说，教练每周五都会去城郊旧训练馆发饮料。我们把他带的瓶子和小贩、混混手里的包装对了一遍，标记都一样。去训练馆看看这批货从哪来。',
+        text: '上次那个队长说，教练每周五都会去城郊旧训练馆发饮料。[next]我们把他带的瓶子和小贩、混混手里的包装对了一遍，标记都一样。去训练馆看看这批货从哪来。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -111,7 +111,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '傍晚时分，一行人按着地址摸到了城郊废弃旧训练馆外。远远就能看见门口停着几辆熟悉的小吃车，几个商贩正往高年级混混和异化体育生手里塞荧光包装的零食。',
+        text: '傍晚时分，一行人按着地址摸到了城郊废弃旧训练馆外。[next]远远就能看见门口停着几辆熟悉的小吃车，几个商贩正往高年级混混和异化体育生手里塞荧光包装的零食。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -172,7 +172,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '众人刚把外围几个人逼退，训练馆那扇吱呀作响的铁门就自己开了。馆里昏黄得像一直没见过太阳，最里面的裁判椅上坐着个光头中年男人，手里慢慢转着秒表。',
+        text: '众人刚把外围几个人逼退，训练馆那扇吱呀作响的铁门就自己开了。[next]馆里昏黄得像一直没见过太阳，最里面的裁判椅上坐着个光头中年男人，手里慢慢转着秒表。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -226,7 +226,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '他抬手吹了声短促的铁哨，馆里几个刚才还低着头搬箱子的学生猛地抬起头来，眼睛一层层亮起青光。训练垫边上还滚出来一堆泛黄旧奖状，边角都磨毛了。',
+        text: '他抬手吹了声短促的铁哨，馆里几个刚才还低着头搬箱子的学生猛地抬起头来，眼睛一层层亮起青光。[next]训练垫边上还滚出来一堆泛黄旧奖状，边角都磨毛了。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -270,7 +270,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '原本凶神恶煞的坏教练，此刻眼里的青光完全褪去。他看着满地散落的旧奖状和异化零食，忽然像个无助的孩子一样捂住脸，肩膀止不住地发抖，竟然当着所有人的面哭了起来。',
+        text: '原本凶神恶煞的坏教练，此刻眼里的青光完全褪去。[next]他看着满地散落的旧奖状和异化零食，忽然像个无助的孩子一样捂住脸，肩膀止不住地发抖，竟然当着所有人的面哭了起来。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -279,7 +279,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/coach_sad@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '二十年前……我就是个连体测都过不了的体育差生。所有人都笑话我。喝了这东西，我真拿过全国少年冠军。那几年我风光得很，谁见我都客客气气。',
+        text: '二十年前……我就是个连体测都过不了的体育差生。所有人都笑话我。[next]喝了这东西，我真拿过全国少年冠军。那几年我风光得很，谁见我都客客气气。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -306,7 +306,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两人说着说着，身上的青光又一阵一阵往上翻，好像有什么东西还不肯放过他们。大家赶紧围上去，一声声喊他们的名字，想把两人从那股劲儿里拉回来。',
+        text: '两人说着说着，身上的青光又一阵一阵往上翻，好像有什么东西还不肯放过他们。[next]大家赶紧围上去，喊他们的名字，想把两人从那股劲儿里拉回来。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -343,7 +343,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/coach_sad@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '货不是我们做的。隔两个月，就有人把这些异化零食的纸箱放在训练馆门口。我从来没见过送货的人长什么样，只知道问多了，就再也拿不到货。',
+        text: '货不是我们做的。隔两个月，就有人把这些异化零食的纸箱放在训练馆门口。[next]我从来没见过送货的人长什么样，只知道问多了，就再也拿不到货。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -352,7 +352,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刘老师从散落的旧账本里抽出一张送货单，另一只手掰开坏教练攥紧的掌心，摸出一把挂着褪色号码牌的旧仓库钥匙。送货单上写得很清楚：家长会前夜，统一装车。',
+        text: '刘老师从散落的旧账本里抽出一张送货单，另一只手掰开坏教练攥紧的掌心，摸出一把挂着褪色号码牌的旧仓库钥匙。[next]送货单上写得很清楚：家长会前夜，统一装车。',
         sfx: 'sfx_item_get'
       },
       {

@@ -211,7 +211,7 @@ const CHAPTERS = {
 };
 
 // 章节入口场景注册表（按章节序号）：开发者秘籍 F1 选关菜单跳转到该章开头剧情。
-const CHAPTER_ENTRY_SCENES = [
+export const CHAPTER_ENTRY_SCENES = [
   'scene_classroom',       // 第 1 章（序章）
   'ch1_scene_playground',  // 第 2 章
   'ch2_scene_auditorium',  // 第 3 章
@@ -236,9 +236,9 @@ const CHAPTER_ENTRY_SCENES = [
   'ch22_scene_pier_confrontation', // 第 22 章
   'ch23_scene_counseling_breakin', // 第 23 章
   'ch24_scene_ruins_arrival',      // 第 24 章
-  'ch25_scene_bunker_refuge',      // 第 25 章
-  'ch26_scene_sky_exam_infiltrate',// 第 26 章
-  'ch27_scene_reactor_countdown',  // 第 27 章
+  'ch25_scene_shelter_arrival',    // 第 25 章
+  'ch26_scene_pyramid_ascent',     // 第 26 章
+  'ch27_scene_reactor_run',        // 第 27 章
   'ch28_scene_return_2026',        // 第 28 章
   'ch29_scene_throne_reveal',      // 第 29 章
   'ch30_scene_snack_crush'         // 第 30 章
@@ -628,9 +628,9 @@ export class GameApp {
       return;
     }
     this.levelSelectModal = new LevelSelectModal(this.canvas, {
-      onSelect: (chapterNum) => {
+      onSelect: (chapterNum, item) => {
         this.levelSelectModal = null;
-        this.debugJumpToChapter(chapterNum);
+        this.debugJumpToChapter(chapterNum, item?.sceneKey);
       },
       onClose: () => {
         this.levelSelectModal = null;
@@ -639,10 +639,10 @@ export class GameApp {
   }
 
   /**
-   * 开发者秘籍：跳转到指定章节的开头剧情（章节号 1~20 对应 CHAPTER_ENTRY_SCENES 注册表）。
+   * 开发者秘籍：跳转到指定章节的开头剧情（章节号 1~30 对应 CHAPTER_ENTRY_SCENES 注册表）。
    */
-  debugJumpToChapter(chapterNum) {
-    const sceneKey = CHAPTER_ENTRY_SCENES[Number(chapterNum) - 1];
+  debugJumpToChapter(chapterNum, explicitSceneKey = null) {
+    const sceneKey = explicitSceneKey || CHAPTER_ENTRY_SCENES[Number(chapterNum) - 1];
     if (!sceneKey) return;
 
     // 未选角时兜底初始化 male 线进度（便于直接跳过标题/选人）
@@ -744,9 +744,9 @@ export class GameApp {
       const ally2Name = isMale ? '范文默' : '何妍熹';
       const ally2Portrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_default@2x.png';
       const ally2CorruptedPortrait = isMale ? 'assets/art/fanwenmo_corrupted@2x.png' : 'assets/art/heyanxi_corrupted@2x.png';
-      const mcAdultName = isMale ? '张子骁' : '石予诺';
+      const mcAdultName = isMale ? '成年张子骁' : '成年石予诺';
       const mcAdultPortrait = isMale ? 'assets/art/mc_adult_zixiao_default@2x.png' : 'assets/art/mc_adult_yunuo_default@2x.png';
-      const ally2AdultName = isMale ? '范文默' : '何妍熹';
+      const ally2AdultName = isMale ? '成年范文默' : '成年何妍熹';
       const ally2AdultPortrait = isMale ? 'assets/art/fanwenmo_adult_default@2x.png' : 'assets/art/heyanxi_adult_default@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));

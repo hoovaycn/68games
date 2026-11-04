@@ -22,6 +22,8 @@ export class DialogueSystem {
     this.typingSpeed = 22;
     this.lastCharTime = 0;
     this.isLineComplete = false;
+    this.pages = [''];
+    this.pageIndex = 0;
 
     this.choiceButtonRect = null;
     this.showingChoice = false;
@@ -36,12 +38,110 @@ export class DialogueSystem {
     this.showingChoice = false;
     this.choiceButtonRect = null;
     this.waitingForItemConfirm = false;
+    this.pages = [''];
+    this.pageIndex = 0;
 
     if (sceneData.bgm) {
       sound.playBgm(sceneData.bgm);
     }
 
     this.loadLine(0);
+  }
+
+  /**
+   * 将一段文本按照最大像素宽度拆分为多行
+   */
+  splitIntoLines(text, maxWidth, font = 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif') {
+    const rawParagraphs = (text || '').split('\n');
+    const lines = [];
+
+    const measure = (str) => {
+      if (this.ctx && typeof this.ctx.measureText === 'function') {
+        const m = this.ctx.measureText(str);
+        if (m && typeof m.width === 'number' && m.width > 0) {
+          return m.width;
+        }
+      }
+      let w = 0;
+      for (let i = 0; i < str.length; i++) {
+        w += str.charCodeAt(i) > 255 ? 22 : 12;
+      }
+      return w;
+    };
+
+    if (this.ctx && typeof this.ctx.save === 'function') {
+      this.ctx.save();
+      this.ctx.font = font;
+    }
+
+    for (let pIdx = 0; pIdx < rawParagraphs.length; pIdx++) {
+      const p = rawParagraphs[pIdx];
+      if (p === '') {
+        lines.push('');
+        continue;
+      }
+      const chars = p.split('');
+      let currentLine = '';
+      for (let i = 0; i < chars.length; i++) {
+        const testLine = currentLine + chars[i];
+        if (measure(testLine) > maxWidth && i > 0 && currentLine.length > 0) {
+          lines.push(currentLine);
+          currentLine = chars[i];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      if (currentLine.length > 0) {
+        lines.push(currentLine);
+      }
+    }
+
+    if (this.ctx && typeof this.ctx.restore === 'function') {
+      this.ctx.restore();
+    }
+
+    return lines;
+  }
+
+  /**
+   * 剧情文本分页：
+   * 1. 支持显式断句标记：[next] / [NEXT] / | / ｜ / \n\n，按作者节奏分段
+   * 2. 对超长文本（测量超过 maxLinesPerPage，默认 3 行）自动截断分页，每 3 行一页兜底
+   */
+  paginateText(text, maxLinesPerPage = 3) {
+    if (!text) return [''];
+    // 显式分隔符正则
+    const explicitSegments = text.split(/\s*\[(?:next|NEXT)\]\s*|\s*[|｜]\s*|\n\n+/);
+    const boxW = (this.canvas?.width || 960) - 60;
+    const maxWidth = boxW - 64;
+    const pages = [];
+
+    // 若整段文本既没有显式断句符号，总行数也在限制内，保持原样单页
+    if (explicitSegments.length <= 1) {
+      const lines = this.splitIntoLines(text, maxWidth);
+      if (lines.length <= maxLinesPerPage) {
+        return [text];
+      }
+      for (let i = 0; i < lines.length; i += maxLinesPerPage) {
+        pages.push(lines.slice(i, i + maxLinesPerPage).join('\n'));
+      }
+      return pages.length ? pages : [text];
+    }
+
+    for (const segment of explicitSegments) {
+      const trimmed = segment.trim();
+      if (!trimmed) continue;
+      const lines = this.splitIntoLines(trimmed, maxWidth);
+      if (lines.length <= maxLinesPerPage) {
+        pages.push(trimmed);
+      } else {
+        for (let i = 0; i < lines.length; i += maxLinesPerPage) {
+          pages.push(lines.slice(i, i + maxLinesPerPage).join('\n'));
+        }
+      }
+    }
+
+    return pages.length ? pages : [text];
   }
 
   loadLine(index) {
@@ -55,6 +155,8 @@ export class DialogueSystem {
     this.dialogueIndex = index;
     this.activeLine = this.currentScene.dialogues[index];
     this.waitingForItemConfirm = false;
+    this.pages = this.paginateText(this.activeLine.text);
+    this.pageIndex = 0;
     this.displayedText = '';
     this.charIndex = 0;
     this.isLineComplete = false;
@@ -129,10 +231,21 @@ export class DialogueSystem {
       return;
     }
 
+    const currentTargetText = this.pages[this.pageIndex] || '';
+
     if (!this.isLineComplete) {
-      this.displayedText = this.activeLine.text;
+      this.displayedText = currentTargetText;
       this.isLineComplete = true;
+    } else if (this.pageIndex < this.pages.length - 1) {
+      // 存在下一页（断句分页或超长分页），切入子页
+      this.pageIndex++;
+      this.displayedText = '';
+      this.charIndex = 0;
+      this.isLineComplete = false;
+      this.lastCharTime = performance.now();
+      sound.playSfx('sfx_text_blip');
     } else {
+      // 本句所有分页均已播放完毕
       if (this.activeLine.itemEvent && this.onItemEvent?.(this.activeLine.itemEvent)) {
         this.waitingForItemConfirm = true;
         return;
@@ -178,13 +291,14 @@ export class DialogueSystem {
   }
 
   drawFullscreenText(ctx, w, h) {
+    const currentTargetText = this.pages[this.pageIndex] || '';
     const now = performance.now();
     if (!this.isLineComplete && this.activeLine) {
       if (now - this.lastCharTime >= this.typingSpeed) {
         this.charIndex++;
-        this.displayedText = this.activeLine.text.substring(0, this.charIndex);
+        this.displayedText = currentTargetText.substring(0, this.charIndex);
         this.lastCharTime = now;
-        if (this.charIndex >= this.activeLine.text.length) {
+        if (this.charIndex >= currentTargetText.length) {
           this.isLineComplete = true;
         }
       }
@@ -206,7 +320,12 @@ export class DialogueSystem {
         ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
         ctx.font = '16px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('点击或按空格继续 ▶', w / 2, h - 60);
+        const hasMorePages = this.pageIndex < this.pages.length - 1;
+        const pageLabel = this.pages.length > 1 ? ` (${this.pageIndex + 1}/${this.pages.length})` : '';
+        const promptText = hasMorePages
+          ? `点击或按空格翻页${pageLabel} ▶`
+          : `点击或按空格继续${pageLabel} ▶`;
+        ctx.fillText(promptText, w / 2, h - 60);
       }
     }
   }
@@ -293,13 +412,14 @@ export class DialogueSystem {
   }
 
   drawDialogueBox(ctx, w, h) {
+    const currentTargetText = this.pages[this.pageIndex] || '';
     const now = performance.now();
     if (!this.isLineComplete && this.activeLine) {
       if (now - this.lastCharTime >= this.typingSpeed) {
         this.charIndex++;
-        this.displayedText = this.activeLine.text.substring(0, this.charIndex);
+        this.displayedText = currentTargetText.substring(0, this.charIndex);
         this.lastCharTime = now;
-        if (this.charIndex >= this.activeLine.text.length) {
+        if (this.charIndex >= currentTargetText.length) {
           this.isLineComplete = true;
         }
       }
@@ -353,16 +473,15 @@ export class DialogueSystem {
     }
 
     // 正文台词：钩子句（highlight）用红色大字突出，普通句用纯黑暖灰
+    // 每页保证不超过 3 行，字号统一为 22px，行高 34px，排版舒展呼吸感充足
     const isHighlight = !!(this.activeLine && this.activeLine.highlight);
-    const fullText = (this.activeLine && this.activeLine.text) || '';
-    const isLongText = fullText.length > 90 || fullText.includes('\n');
     ctx.fillStyle = isHighlight ? (isBlackBg ? '#ef4444' : '#b91c1c') : (isBlackBg ? '#cccccc' : '#1c1917');
     ctx.font = isHighlight
-      ? (isLongText ? 'bold 21px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif' : 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif')
-      : (isLongText ? 'bold 20px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif' : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif');
+      ? 'bold 24px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif'
+      : 'bold 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
-    this.wrapText(ctx, this.displayedText, x + 32, y + (isLongText ? 30 : 36), boxW - 64, isLongText ? 28 : 34);
+    this.wrapText(ctx, this.displayedText, x + 32, y + 36, boxW - 64, 34);
 
     // 剧情存档入口：键盘 Esc、手柄 Start 或触屏按钮。
     if (!this.showingChoice) {
@@ -382,7 +501,12 @@ export class DialogueSystem {
         ctx.fillStyle = '#78716c';
         ctx.font = 'bold 16px sans-serif';
         ctx.textAlign = 'right';
-        ctx.fillText('点击或按空格继续 ▶', x + boxW - 28, y + boxH - 24);
+        const hasMorePages = this.pageIndex < this.pages.length - 1;
+        const pageLabel = this.pages.length > 1 ? ` (${this.pageIndex + 1}/${this.pages.length})` : '';
+        const promptText = hasMorePages
+          ? `点击或按空格翻页${pageLabel} ▶`
+          : `点击或按空格继续${pageLabel} ▶`;
+        ctx.fillText(promptText, x + boxW - 28, y + boxH - 24);
       }
     }
   }

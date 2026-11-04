@@ -106,7 +106,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
+        text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。[next]倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
         sfx: 'sfx_glass_shatter'
       },
       {
@@ -133,7 +133,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '罐口的裂缝飘出一缕青灰色烟，甜腻气味和之前害同学异变的零食一模一样。离展柜最近的几个学生先是捂住鼻子，随后眼神发直，推开保安就往瓷罐扑；外围游客惊叫着往出口跑。',
+        text: '罐口的裂缝飘出一缕青灰色烟，甜腻气味和之前害同学异变的零食一模一样。[next]离展柜最近的几个学生先是捂住鼻子，随后眼神发直，推开保安就往瓷罐扑；外围游客惊叫着往出口跑。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -169,7 +169,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'right',
-        text: '原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
+        text: '原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。[next]学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -179,7 +179,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！',
+        text: '呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。[next]学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

@@ -560,7 +560,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '“……我上次数学才考了六十二分。要是偷偷吃一口这个零食，是不是考试成绩就能提上去？没准能满分呢……而且，也不会有人知道吧……”',
+          text: '“……我上次数学才考了六十二分。[next]要是偷偷吃一口这个零食，是不是考试成绩就能提上去？[next]没准能满分呢……而且，也不会有人知道吧……”',
           highlight: true,
           sfx: 'sfx_text_blip'
         },
@@ -1177,7 +1177,7 @@ export const PROLOGUE_STORY = {
           leftPortrait: 'assets/art/shiyunuo_default@2x.png',
           rightPortrait: null,
           activeSide: 'left',
-          text: '“……我上次考试也考得不怎么样。要是偷偷吃一口这个零食，是不是考试成绩就能提上去？没准能满分呢……而且，也不会有人知道吧……”',
+          text: '“……我上次考试也考得不怎么样。[next]要是偷偷吃一口这个零食，是不是考试成绩就能提上去？[next]没准能满分呢……而且，也不会有人知道吧……”',
           highlight: true,
           sfx: 'sfx_text_blip'
         },

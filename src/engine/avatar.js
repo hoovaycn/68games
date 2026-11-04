@@ -92,6 +92,8 @@ const ACTOR_STATES = {
   foreign_sailor: ['1839'],
   comprador_assassin: ['1839'],
   /* 第三幕核心角色立绘 */
+  shadow_cloaked_leader: ['default'],
+  shadow_cloaked_agent: ['default'],
   su_wan_doctor: ['default', 'concerned', 'cold'],
   ayao_adult: ['default', 'tearful', 'smile'],
   ayao_corrupted_god: ['default', 'machine'],

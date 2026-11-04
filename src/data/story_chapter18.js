@@ -32,7 +32,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（拿出画在餐巾纸上的草图）他们押我进来时，我记下了侧门和摄像头；后来从地下室小窗里看到东侧电网每隔一会儿会短暂停电。趁那几秒从侧门进去，就能到一楼大厅。',
+        text: '（拿出画在餐巾纸上的草图）他们押我进来时，我记下了侧门和摄像头；后来从地下室小窗里看到东侧电网每隔一会儿会短暂停电。[next]趁那几秒从侧门进去，就能到一楼大厅。',
         highlight: true,
         sfx: 'sfx_confirm'
       },

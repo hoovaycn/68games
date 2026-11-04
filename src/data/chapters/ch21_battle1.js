@@ -6,7 +6,7 @@
  */
 export const CH21_BATTLE1 = {
   id: 'ch21_battle1',
-  name: '水闸暗巷突围战',
+  name: '雨夜暗巷突围战',
   bgm: 'bgm_battle_normal',
   mapWidth: 16,
   mapHeight: 10,

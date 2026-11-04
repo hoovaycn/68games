@@ -35,7 +35,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         activeSide: 'left',
-        text: '沈崇礼扳下启动杆。药罐里的黑气顺着管子涌出，窗外的阳光被翻涌的乌云遮住，钟楼一下暗了下来。沈万廷的轮椅还在控制台旁，管子却已经接进中央的铁架。',
+        text: '沈崇礼扳下启动杆。药罐里的黑气顺着管子涌出，窗外的阳光被翻涌的乌云遮住，钟楼一下暗了下来。[next]沈万廷的轮椅还在控制台旁，管子却已经接进中央的铁架。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -56,7 +56,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '一头四米高的巨魔挡住出口！铁拳上长满毒刺，胸口的绿光里映出沈万廷的脸；他在轮椅上抬手，巨魔也跟着挥拳，沈崇礼则在控制台上不断往里送黑气。',
+        text: '一头四米高的巨魔挡住出口！铁拳上长满毒刺，胸口的绿光里映出沈万廷的脸；[next]他在轮椅上抬手，巨魔也跟着挥拳，沈崇礼则在控制台上不断往里送黑气。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         bgm: 'bgm_retro_level3',
@@ -109,7 +109,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '巨魔一拳砸向钟楼边的铁栏杆。整排栏杆拧成一团，螺栓从孩子们身边擦过，钉进身后的墙里。它又往前迈了一步，脚下的地板发出一声闷响。',
+        text: '巨魔一拳砸向钟楼边的铁栏杆。整排栏杆拧成一团，螺栓从孩子们身边擦过，钉进身后的墙里。[next]它又往前迈了一步，脚下的地板发出一声闷响。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         sfx: 'sfx_shock_sting'
       },
@@ -211,7 +211,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
-        text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，把浩然正气杖插进它胸口的核心。“浩然正气”四字再次亮起，金光照亮了整座钟楼！',
+        text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，把浩然正气杖插进它胸口的核心。[next]“浩然正气”四字再次亮起，金光照亮了整座钟楼！',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -222,7 +222,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '浩然正气杖上的金光压住核心里翻涌的黑气。核心裂开时，嵌在里面的木杖也跟着崩成碎屑；“浩然正气”四个金字最后亮了一下，随黑雾一起散去。{MC_NAME}伸出手，却再也捡不回来了。',
+        text: '浩然正气杖上的金光压住核心里翻涌的黑气。核心裂开时，嵌在里面的木杖也跟着崩成碎屑；[next]“浩然正气”四个金字最后亮了一下，随黑雾一起散去。{MC_NAME}伸出手，却再也捡不回来了。',
         bgImg: 'assets/backgrounds/bg_clocktower_staff_sacrifice@2x.png',
         hidePortraits: true,
         itemEvent: { itemId: 'righteous_staff', action: 'lose' },
@@ -235,7 +235,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
-        text: '核心碎了，黑气散去，窗外的乌云也裂开一道口子，阳光重新照进钟楼。巨魔塌成满地废铁。沈万廷的轮椅停了，他瘫在座位上，已经指挥不动它；沈崇礼想抱起药罐逃走，被众人堵在门口。',
+        text: '核心碎了，黑气散去，窗外的乌云也裂开一道口子，阳光重新照进钟楼。巨魔塌成满地废铁。[next]沈万廷的轮椅停了，他瘫在座位上，已经指挥不动它；沈崇礼想抱起药罐逃走，被众人堵在门口。',
         bgm: 'bgm_victory',
         sfx: 'sfx_confirm'
       },
@@ -263,7 +263,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/shen_wanting_old@2x.png',
         activeSide: 'left',
-        text: '（望着巨魔残骸里的木屑）林大人，您让我们回去后别停下。浩然正气杖留在这里了，但今天沈家这批药没能送进学校。您当年毁掉的那池鸦片，没白毁。',
+        text: '（望着巨魔残骸里的木屑）林大人，您让我们回去后别停下。浩然正气杖留在这里了，但今天沈家这批药没能送进学校。[next]您当年毁掉的那池鸦片，没白毁。',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -319,7 +319,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '众人下到一楼大厅，省厅增援已经带走了沈家父子，封存了最后的药罐。徐老师领着孩子们穿过人群；大厅门口，医护人员正守着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
+        text: '众人下到一楼大厅，省厅增援已经带走了沈家父子，封存了最后的药罐。徐老师领着孩子们穿过人群；[next]大厅门口，医护人员正守着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -512,7 +512,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（听着他们吵，望向亮起来的河面）昨晚我还怕，天亮后听不见你们这样说话了。现在好了，作业、游戏、谁请早饭，还是能吵半天。以前嫌这些事没完没了，现在觉得，能一直这样就很好。我也先回家了，过两天校门口见。',
+        text: '（听着他们吵，望向亮起来的河面）昨晚我还怕，天亮后听不见你们这样说话了。现在好了，作业、游戏、谁请早饭，还是能吵半天。[next]以前嫌这些事没完没了，现在觉得，能一直这样就很好。我也先回家了，过两天校门口见。',
         highlight: true,
         sfx: 'sfx_confirm'
       },

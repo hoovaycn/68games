@@ -46,7 +46,13 @@ test('先看完关键台词，再确认弹出道具提示；关闭后才进入�
     const saveCount = saves.length;
     dialogue.next();
     assert.equal(dialogue.isLineComplete, true);
-    assert.equal(dialogue.displayedText, scene.dialogues[index].text);
+    // 若当前台词有多个子页，逐页按 Enter 翻完再检查道具事件
+    while (dialogue.pageIndex < dialogue.pages.length - 1) {
+      dialogue.next(); // 翻到下一子页
+      if (!dialogue.isLineComplete) dialogue.next(); // 展开当前子页文字
+    }
+    const fullTargetText = dialogue.pages[dialogue.pageIndex] || '';
+    assert.equal(dialogue.displayedText, fullTargetText);
     assert.equal(app.storyItemModal, null, '展开完整台词时也不能抢先弹窗');
     assert.deepEqual(state.roster.hero.inventory, previousInventory);
     assert.equal(saves.length, saveCount);
@@ -88,6 +94,10 @@ test('先看完关键台词，再确认弹出道具提示；关闭后才进入�
   dialogue.startScene(CHAPTER19_STORY.ch19_scene_boss_destroyed);
   dialogue.loadLine(1);
   dialogue.next();
+  while (dialogue.pageIndex < dialogue.pages.length - 1) {
+    dialogue.next();
+    if (!dialogue.isLineComplete) dialogue.next();
+  }
   dialogue.next();
   assert.equal(app.storyItemModal, null, '终战损毁后重复进入不应再弹失去提示');
   assert.equal(dialogue.dialogueIndex, 2, '重复进入场景可正常继续剧情');
