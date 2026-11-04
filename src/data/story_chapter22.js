@@ -127,7 +127,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/boss_viper_smuggler@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
-        text: '（立刻挡在孩子们身前）独眼蝰蛇！交接单上有我的密钥，货在3号柜里！放孩子们走，否则我立刻把芯片折断扔进江里！',
+        text: '（立刻挡在孩子们身前，将银灰色手提箱死死护在怀里）独眼蝰蛇！箱子在我手里，这上面有生物防拆锁，只有我的指纹和密钥能开！[next]放孩子们走，否则我立刻启动自毁程序把箱子沉进江底，你们什么也别想拿到！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -147,7 +147,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/sailor_berserk@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（厚重的橡胶潜水服被肌肉撑得紧绷，破损防毒面具下喷射出滚烫粗重的白雾，手中重型水压切断钳狠狠砸在集装箱铁皮上，火星四溅）咔嚓！咔嚓！骨头……全都剪碎！',
+        text: '（厚重的橡胶潜水服被肌肉撑得紧绷，破损防毒面具下喷射出滚烫粗重的白雾，手中重型水压切断钳狠狠砸在集装箱铁皮上，火星四溅）[next]咔嚓！咔嚓！骨头……全都剪碎！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -196,7 +196,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '砰！独眼蝰蛇被击退重重撞在货柜上。他凶狠地摸向遥控引信：“想抓老子……全给老子一起死——”',
+        text: '砰！独眼蝰蛇被击退重重撞在货柜上，口吐鲜血。[next]穷途末路的他凶狠地从怀里掏出一枚红灯狂闪的炸药遥控器：“想抓老子……货柜底下早埋了十箱烈性雷管！全给老子一起炸上天——”',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -323,7 +323,7 @@ export const CHAPTER22_STORY = {
         id: 3,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（眼尖地指着凹槽底）快看！警徽底下压着一张焦黑的信纸！',
         sfx: 'sfx_text_blip'

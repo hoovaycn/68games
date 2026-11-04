@@ -135,7 +135,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '沈万廷不过是个棋子。他千方百计想找的古罐，本来就是我放出去的饵！[next]没有他的走私船队，我怎么从地脉深处提炼能量开启通道？！',
+        text: '沈万廷不过是个贪婪的蠢货，他以为挖出来的是发横财的古董，却不知那古罐里封印着百年前地脉的时空煞气原石！[next]我借他的走私船队把原石残片打捞出水，再用这台脑波仪抽取其中的时空能量，就是为了撕开连接二十年后的时空裂隙！[next]只要能逆转因果改写未来，借他的手挖出地脉又有何不可？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -288,7 +288,7 @@ export const CHAPTER23_STORY = {
         id: 7,
         speaker: '阿瑶',
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '去二十年后的世界亲眼看一看吧！看看你们所谓的浩然正气，到底能保得住谁！',
         highlight: true,

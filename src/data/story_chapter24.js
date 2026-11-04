@@ -42,7 +42,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（揉着摔疼的膝盖）哎哟……{MC_NAME}，这是哪儿啊？！刚才还在徐老师的房间里，怎么一眨眼……这楼怎么全塌了？！[next]天上的全息屏写的……二零四六年？！',
+        text: '（揉着摔疼的膝盖）哎哟……{MC_NAME}，这是哪儿啊？！刚才还在崇文楼三楼的心理咨询室里，怎么一眨眼……这楼怎么全塌了？！[next]天上的全息屏写的……二零四六年？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -82,11 +82,21 @@ export const CHAPTER24_STORY = {
         text: '（机械地转过头，额头上红光冰冷闪烁）『检测到未经许可的杂音，扣除公民积分2点。』[next]（说完猛地甩开朱彦泽的手，迈着僵硬整齐的步伐头也不回地朝前走去）',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 8,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        activeSide: 'left',
+        text: '（拉住愣在原地的朱彦泽）别问了，这些人根本不正常！[next]你们看前方的铁丝网和路牌，虽然楼全塌了，但那个十字路口和老槐树的树墩还在……往东走穿过死巷，就是我们学校的操场位置！大家跟我来！',
+        highlight: true,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '穿过铁丝网死巷，众人循着记忆跑向熟悉的旧校址广场。',
+      prompt: '穿过铁丝网死巷，众人循着残留的地标记忆一路狂奔，终于摸到了旧校址广场。',
       buttonText: '【前往学校广场 · 寻找校址】',
       targetScene: 'ch24_scene_martyr_monument'
     }
@@ -106,14 +116,14 @@ export const CHAPTER24_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大理石门柱断裂半埋在瓦砾里，隐约看得见“人大附小”四个烫金残字。在原本升旗台的位置，立着一座两米多高的黑色花岗岩纪念碑。',
+        text: '气喘吁吁地拨开纠缠的电线与瓦砾，熟悉的校门废墟赫然出现在眼前——大理石门柱断裂半埋在瓦砾里，隐约看得见“人大附小”四个烫金残字。[next]而在原本升旗台的位置，竟立着一座两米多高的黑色花岗岩纪念碑。',
         sfx: 'sfx_suspense'
       },
       {
         id: 2,
         speaker: '朱彦泽',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{ALLY_2_NAME}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '这里真的是我们学校！快看这块石碑，上面刻着名单！',
         sfx: 'sfx_text_blip'
@@ -152,7 +162,7 @@ export const CHAPTER24_STORY = {
         id: 6,
         speaker: '覃瑞怡',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（哭出声）所以预警信是真的！未来警徽也是真的！大人们全都不在了……谁来带我们回家啊……呜呜呜……',
         sfx: 'sfx_text_blip'
@@ -187,7 +197,7 @@ export const CHAPTER24_STORY = {
         id: 2,
         speaker: '执行队长',
         leftPortrait: 'assets/art/boss_exam_captain@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（手持双头高压电弧警棍，笑脸金属面具下发出冰冷机械音）停止情绪反应。接受前额叶情感切除手术，否则直接销毁！',
         highlight: true,
@@ -197,7 +207,7 @@ export const CHAPTER24_STORY = {
         id: 3,
         speaker: '机械化满分治安官',
         leftPortrait: 'assets/art/officer_100@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（面带僵硬的固定微笑，齐刷刷举起捕兽网拘束枪，踏着整齐划一的机械步伐逼近）发现未及格样本……展开物理捕获……格式化大脑神经元……！',
         highlight: true,
@@ -207,7 +217,7 @@ export const CHAPTER24_STORY = {
         id: 4,
         speaker: '情绪清扫探针机甲',
         leftPortrait: 'assets/art/probe_machine@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（三眼悬浮机械无人机在半空急速盘旋，底部红外激光网笼罩地面，音波发射口尖啸震耳）嘀——！锁定六名反叛生物体，脑电波剧烈紊乱，执行最高等级物理清扫！',
         highlight: true,
@@ -265,7 +275,7 @@ export const CHAPTER24_STORY = {
         id: 2,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（咬紧牙关挡在前面，眼眶泛红）{MC_NAME}……难道我们真的要死在这座冷冰冰的未来城市里了吗……',
         sfx: 'sfx_text_blip'
@@ -284,7 +294,7 @@ export const CHAPTER24_STORY = {
         id: 4,
         speaker: '执行队长',
         leftPortrait: 'assets/art/boss_exam_captain@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '锁定目标头部。执行彻底清——',
         sfx: 'sfx_shock_sting'
@@ -311,7 +321,7 @@ export const CHAPTER24_STORY = {
         id: 7,
         speaker: '神秘人',
         leftPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
-        rightPortrait: '{MC_NAME}',
+        rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（斗篷阴影遮住了大半面容，顺着滑索呼啸坠地，一把将{MC_NAME}和{ALLY_2_NAME}拽进水泥掩体后）[next]几个不怕死的小鬼！连天梯的重装防暴机甲都敢硬顶？！',
         highlight: true,

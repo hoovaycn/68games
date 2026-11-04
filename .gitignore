@@ -28,7 +28,11 @@ generated-images/
 docs/audio/
 docs/*.zip
 
-# 一次性调试/分析脚本（地图切图、tile 巡检等）
+# 临时下载与压缩缓存
+*.tmp
+.tinypng_cache.json
+scripts/.tinypng_cache.json
+
 scripts/analyze_tiles.mjs
 scripts/ascii_inspect.mjs
 scripts/debug_skip.mjs

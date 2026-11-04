@@ -7,7 +7,7 @@
 export const CH23_BATTLE1 = {
   id: 'ch23_battle1',
   name: '诊室时空阻滞战',
-  bgm: 'bgm_suspense',
+  bgm: 'bgm_battle_normal',
   mapWidth: 16,
   mapHeight: 10,
   defaultTerrain: 'tile_floor',
