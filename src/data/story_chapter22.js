@@ -261,7 +261,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，让徐老师假装有二心去联络三号船。[next]只有这样，独眼蝰蛇这条大鱼才会露头！',
+        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，让徐老师假装有二心去联络三号船，顺势把江里捞上来、谁也撬不开的那只银灰色箱子弄到手。[next]只有这样，独眼蝰蛇这条大鱼才会露头！',
         highlight: true,
         sfx: 'sfx_confirm'
       },

@@ -21,7 +21,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '期中考试前几天的家长会，六八班教室里坐满了家长，椅子不够，连过道都站着人。窗外天已经擦黑，教室里却闷得人额头冒汗。',
+        text: '期中考试前几天的家长会，六八班教室里坐满了家长，椅子不够，连过道都站着人。[next]窗外天已经擦黑，教室里却闷得人额头冒汗。',
         sfx: 'sfx_confirm'
       },
       {
@@ -66,7 +66,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '话音刚落，教室前面传来一阵响动。讲台上，带着墨镜的神秘家长正站在最中间，桌子上摆着整整一排异化零食和饮料，堆得像小山一样显眼。',
+        text: '话音刚落，教室前面传来一阵响动。[next]讲台上，带着墨镜的神秘家长正站在最中间，桌子上摆着整整一排异化零食和饮料，堆得像小山一样显眼。',
         bgm: 'bgm_suspense',
         sfx: 'sfx_shock_sting'
       },
@@ -76,7 +76,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '各位家长静一静！这是我托了好多关系，从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。[next]人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
+        text: '各位家长静一静！这是我托了好多关系，[next]从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。[next]人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
         sfx: 'sfx_confirm'
       },
       {
@@ -85,7 +85,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '讲台边还放着一张领药登记表。神秘家长说后续的免费样品可以送到家，让想领的家长填上孩子姓名、住址和电话；已经有不少人填过了。',
+        text: '讲台边还放着一张领药登记表。神秘家长说后续的免费样品可以送到家，[next]让想领的家长填上孩子姓名、住址和电话；已经有不少人填过了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -94,7 +94,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '他说着，伸手点了点后排两个成绩中等的同学。那两个孩子愣了一下，旁边普通家长的目光却已经齐刷刷落过去了。',
+        text: '他说着，伸手点了点后排两个成绩中等的同学。[next]那两个孩子愣了一下，旁边普通家长的目光却已经齐刷刷落过去了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -103,7 +103,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '来，别害怕。吃完下次考试肯定进前十，也给你们爸妈长长脸。现在这个年头，不早点想办法，怎么跟别人家孩子拼？',
+        text: '来，别害怕。吃完下次考试肯定进前十，也给你们爸妈长长脸。[next]现在这个年头，不早点想办法，怎么跟别人家孩子拼？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -156,7 +156,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
-        text: '两个同学对视一眼，在满教室家长面前撕开包装，嚼了两口。也就几秒钟，他们眼里“唰”地浮上一层青蓝色的光，脸上的表情一下空了。',
+        text: '两个同学对视一眼，在满教室家长面前撕开包装，嚼了两口。[next]也就几秒钟，他们眼里“唰”地浮上一层青蓝色的光，脸上的表情一下空了。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -183,7 +183,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '满屋子大人都愣住了。这些连初中还没上的孩子，嘴里往外蹦的全是高中、大学才学的内容，一个字一个字往外冒，眼神却空洞得吓人。',
+        text: '满屋子大人都愣住了。这些连初中还没上的孩子，嘴里往外蹦的全是高中、[next]大学才学的内容，一个字一个字往外冒，眼神却空洞得吓人。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -201,7 +201,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
-        text: '教室瞬间乱成一团，椅子倒了一片。[next]那两个孩子尖叫着扑向离自己最近的人，后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。',
+        text: '教室瞬间乱成一团，椅子倒了一片。[next]那两个孩子尖叫着扑向离自己最近的人，[next]后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -216,7 +216,7 @@ export const CHAPTER5_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
         text: '都往后退！家长别往前挤！孩子现在认不出人，谁再扑上去只会被撞伤！',
@@ -235,7 +235,7 @@ export const CHAPTER5_STORY = {
       {
         id: 7,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
         activeSide: 'left',
         text: '他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。[next]这些话平时听着没事，这会儿全挤在一起，把人逼疯了。',
@@ -244,7 +244,7 @@ export const CHAPTER5_STORY = {
       {
         id: 8,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
         activeSide: 'left',
         text: '都往讲台两边散开，别堵着过道！别让他们冲进人堆里！',
@@ -291,7 +291,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '讲桌上很快堆起一片被退回的样品。那个带头的神秘家长夹着公文包，脸色一阵青一阵白，眼睛里却忽然闪过一丝青光，灰溜溜地往门口退。',
+        text: '讲桌上很快堆起一片被退回的样品。[next]那个带头的神秘家长夹着公文包，脸色一阵青一阵白，眼睛里却忽然闪过一丝青光，灰溜溜地往门口退。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -316,7 +316,7 @@ export const CHAPTER5_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/parent_rep_default@2x.png',
         activeSide: 'left',
         text: '刚才明明都看到吃零食会变成怪物了，竟然还有人悄悄把零食拿回家。在他们眼里，孩子的安全难道还比不上分数和排名吗？',
@@ -328,7 +328,7 @@ export const CHAPTER5_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '最可怕的不是零食，而是那些家长觉得只要能考高分，变成这样也值得。分数是上去了，可孩子变成六亲不认的怪物，那还有什么用？',
+        text: '最可怕的不是零食，而是那些家长觉得只要能考高分，变成这样也值得。[next]分数是上去了，可孩子变成六亲不认的怪物，那还有什么用？',
         sfx: 'sfx_text_blip'
       },
       {

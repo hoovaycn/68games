@@ -24,7 +24,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '省历史博物馆正门前，冷气从玻璃大门里丝丝冒出。{MC_NAME}、{ALLY_1_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡几个人顶着烈日站在特展巨幅海报下。',
+        text: '省历史博物馆正门前，冷气从玻璃大门里丝丝冒出。[next]{MC_NAME}、{ALLY_1_NAME}、[next]{ALLY_2_NAME}、张希哲、覃瑞怡几个人顶着烈日站在特展巨幅海报下。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'right',
-        text: '你懂什么！这次展出的是当年虎门销烟后从海里捞上来的文物，还是省重点中学的加分调研项目，大家中考都用得上！',
+        text: '你懂什么！这次展出的是当年虎门销烟后从海里捞上来的文物，[next]还是省重点中学的加分调研项目，大家中考都用得上！',
         sfx: 'sfx_confirm'
       },
       {
@@ -79,7 +79,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '众人刚过安检，二号展厅里猛地传来玻璃碎裂声。游客尖叫着往外跑，保安对着对讲机喊：“有学生抄起隔离栏杆砸开了主展柜！快叫人来！”',
+        text: '众人刚过安检，二号展厅里猛地传来玻璃碎裂声。[next]游客尖叫着往外跑，保安对着对讲机喊：“有学生抄起隔离栏杆砸开了主展柜！快叫人来！”',
         bgm: 'bgm_suspense',
         sfx: 'sfx_shock_sting'
       }
@@ -106,7 +106,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。[next]倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
+        text: '主展柜的玻璃碎了一地，旁边的青铜器还立着。[next]一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。[next]倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”',
         sfx: 'sfx_glass_shatter'
       },
       {
@@ -115,7 +115,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/senior_athlete_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '（攥着砸柜的金属栏杆，伸手去抠罐口封泥）我闻到了……和学校发的零食一个味儿！可这个更香。有人说它能让人过目不忘……让我尝一口！',
+        text: '（攥着砸柜的金属栏杆，伸手去抠罐口封泥）我闻到了……[next]和学校发的零食一个味儿！可这个更香。有人说它能让人过目不忘……让我尝一口！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -124,7 +124,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '展柜已经被他砸开了！张希哲，拦住他的手，别让他把封泥也抠掉！那罐里装的不是补脑药，是一百多年前的鸦片！',
+        text: '展柜已经被他砸开了！张希哲，拦住他的手，别让他把封泥也抠掉！[next]那罐里装的不是补脑药，是一百多年前的鸦片！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -158,7 +158,7 @@ export const CHAPTER10_STORY = {
         id: 1,
         speaker: '神秘家长',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '六 8 班的孩子们？学校里的零食试验被你们搅黄了，基金会出钱办个展，你们也要来管？保安正在疏散游客，这件展品由我们的人接走。',
         sfx: 'sfx_shock_sting'
@@ -167,7 +167,7 @@ export const CHAPTER10_STORY = {
         id: 2,
         speaker: '{MC_NAME}',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'right',
         text: '原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。[next]学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
         highlight: true,
@@ -177,7 +177,7 @@ export const CHAPTER10_STORY = {
         id: 3,
         speaker: '神秘家长',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。[next]学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！',
         highlight: true,
@@ -196,7 +196,7 @@ export const CHAPTER10_STORY = {
         id: 5,
         speaker: '沈家护卫',
         leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '箱子从后门走。你们几个拦住这群孩子，别让他们追上来！',
         sfx: 'sfx_shock_sting'
@@ -205,7 +205,7 @@ export const CHAPTER10_STORY = {
         id: 6,
         speaker: '重点班学生',
         leftPortrait: 'assets/art/senior_athlete_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '（眼神发直，扑向挡在展柜前的人）别拦我……我要罐子里的东西！',
         sfx: 'sfx_shock_sting'
@@ -234,7 +234,7 @@ export const CHAPTER10_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '最后一名保镖倒地，众人才发现运输箱早被另两人从后门推出。那辆贴着基金会临时通行证的黑色金杯车刚好发动，装着古瓷罐冲上了街！',
+        text: '最后一名保镖倒地，众人才发现运输箱早被另两人从后门推出。[next]那辆贴着基金会临时通行证的黑色金杯车刚好发动，装着古瓷罐冲上了街！',
         sfx: 'sfx_unit_down'
       },
       {

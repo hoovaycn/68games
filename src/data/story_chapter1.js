@@ -33,13 +33,13 @@ export const CHAPTER1_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一旁，拉拉操队长覃瑞怡带着队员压腿热身，她成绩好得没边儿，是全班公认的「别人家孩子」，嘴上也从不饶人。这俩天生八字不合，一见面就掐。',
+        text: '一旁，拉拉操队长覃瑞怡带着队员压腿热身，她成绩好得没边儿，[next]是全班公认的「别人家孩子」，嘴上也从不饶人。[next]这俩天生八字不合，一见面就掐。',
         sfx: 'sfx_confirm'
       },
       {
         id: 3,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_smirk@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
         text: '覃瑞怡，你们拉拉队今天喊得跟蚊子哼似的！待会儿看我暴射入网！',
@@ -48,8 +48,8 @@ export const CHAPTER1_STORY = {
       {
         id: 4,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_smirk@2x.png',
+        rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'right',
         text: '切！张希哲你少得意，没有我们加油，你早踢隔壁幼儿园去了！',
         sfx: 'sfx_text_blip'
@@ -120,7 +120,7 @@ export const CHAPTER1_STORY = {
         id: 4,
         speaker: '张希哲',
         leftPortrait: 'assets/art/teacher_pe_default@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         activeSide: 'right',
         text: '老师……这是成年人的器械，胳膊会拉伤的！',
         sfx: 'sfx_text_blip'
@@ -128,7 +128,7 @@ export const CHAPTER1_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
         rightPortrait: 'assets/art/teacher_pe_default@2x.png',
         activeSide: 'left',
         text: '住手！他们才六年级。',
@@ -147,7 +147,7 @@ export const CHAPTER1_STORY = {
       {
         id: 7,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_pe_corrupted@2x.png',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_playground_eerie@2x.png',
@@ -186,7 +186,7 @@ export const CHAPTER1_STORY = {
         id: 2,
         speaker: '体育老师',
         leftPortrait: 'assets/art/teacher_pe_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
         activeSide: 'left',
         text: '咳咳……头好痛。这饮料瓶……上周王主任桌上也摆着一模一样的……',
         sfx: 'sfx_text_blip'

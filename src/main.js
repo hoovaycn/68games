@@ -738,12 +738,25 @@ export class GameApp {
       const mcName = isMale ? '张子骁' : '石予诺';
       const mcPortrait = isMale ? 'assets/art/zhangzixiao_default@2x.png' : 'assets/art/shiyunuo_default@2x.png';
       const mcCorruptedPortrait = isMale ? 'assets/art/zhangzixiao_corrupted@2x.png' : 'assets/art/shiyunuo_corrupted@2x.png';
+      const mcResolutePortrait = isMale ? 'assets/art/zhangzixiao_resolute@2x.png' : 'assets/art/shiyunuo_resolute@2x.png';
+      const mcShockPortrait = isMale ? 'assets/art/zhangzixiao_shock@2x.png' : 'assets/art/shiyunuo_shock@2x.png';
+      const mcSmilePortrait = isMale ? 'assets/art/zhangzixiao_smile@2x.png' : 'assets/art/shiyunuo_resolute@2x.png';
+      const mcSadPortrait = isMale ? 'assets/art/zhangzixiao_sad@2x.png' : 'assets/art/shiyunuo_tearful@2x.png';
+      const mcThinkingPortrait = isMale ? 'assets/art/zhangzixiao_default@2x.png' : 'assets/art/shiyunuo_thinking@2x.png';
+
       const ally1Name = isMale ? '张瀚瑜' : '陈品璇';
       const ally1Portrait = isMale ? 'assets/art/zhanghanyu_default@2x.png' : 'assets/art/chenpinxuan_default@2x.png';
       const ally1CorruptedPortrait = isMale ? 'assets/art/zhanghanyu_corrupted@2x.png' : 'assets/art/chenpinxuan_corrupted@2x.png';
+
       const ally2Name = isMale ? '范文默' : '何妍熹';
       const ally2Portrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_default@2x.png';
       const ally2CorruptedPortrait = isMale ? 'assets/art/fanwenmo_corrupted@2x.png' : 'assets/art/heyanxi_corrupted@2x.png';
+      const ally2FuryPortrait = isMale ? 'assets/art/fanwenmo_fury@2x.png' : 'assets/art/heyanxi_resolute@2x.png';
+      const ally2PanicPortrait = isMale ? 'assets/art/fanwenmo_panic@2x.png' : 'assets/art/heyanxi_shock@2x.png';
+      const ally2CryingPortrait = isMale ? 'assets/art/fanwenmo_crying@2x.png' : 'assets/art/heyanxi_gentle@2x.png';
+      const ally2ResolutePortrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_resolute@2x.png';
+      const ally2GentlePortrait = isMale ? 'assets/art/fanwenmo_default@2x.png' : 'assets/art/heyanxi_gentle@2x.png';
+
       const mcAdultName = isMale ? '成年张子骁' : '成年石予诺';
       const mcAdultPortrait = isMale ? 'assets/art/mc_adult_zixiao_default@2x.png' : 'assets/art/mc_adult_yunuo_default@2x.png';
       const ally2AdultName = isMale ? '成年范文默' : '成年何妍熹';
@@ -767,6 +780,17 @@ export class GameApp {
           }
           if (dlg.leftPortrait === '{MC_PORTRAIT}') dlg.leftPortrait = mcPortrait;
           if (dlg.rightPortrait === '{MC_PORTRAIT}') dlg.rightPortrait = mcPortrait;
+          if (dlg.leftPortrait === '{MC_RESOLUTE_PORTRAIT}') dlg.leftPortrait = mcResolutePortrait;
+          if (dlg.rightPortrait === '{MC_RESOLUTE_PORTRAIT}') dlg.rightPortrait = mcResolutePortrait;
+          if (dlg.leftPortrait === '{MC_SHOCK_PORTRAIT}') dlg.leftPortrait = mcShockPortrait;
+          if (dlg.rightPortrait === '{MC_SHOCK_PORTRAIT}') dlg.rightPortrait = mcShockPortrait;
+          if (dlg.leftPortrait === '{MC_SMILE_PORTRAIT}') dlg.leftPortrait = mcSmilePortrait;
+          if (dlg.rightPortrait === '{MC_SMILE_PORTRAIT}') dlg.rightPortrait = mcSmilePortrait;
+          if (dlg.leftPortrait === '{MC_SAD_PORTRAIT}') dlg.leftPortrait = mcSadPortrait;
+          if (dlg.rightPortrait === '{MC_SAD_PORTRAIT}') dlg.rightPortrait = mcSadPortrait;
+          if (dlg.leftPortrait === '{MC_THINKING_PORTRAIT}') dlg.leftPortrait = mcThinkingPortrait;
+          if (dlg.rightPortrait === '{MC_THINKING_PORTRAIT}') dlg.rightPortrait = mcThinkingPortrait;
+
           if (dlg.leftPortrait === '{MC_ADULT_PORTRAIT}') dlg.leftPortrait = mcAdultPortrait;
           if (dlg.rightPortrait === '{MC_ADULT_PORTRAIT}') dlg.rightPortrait = mcAdultPortrait;
           if (dlg.leftPortrait === '{MC_CORRUPTED_PORTRAIT}') dlg.leftPortrait = mcCorruptedPortrait;
@@ -775,8 +799,20 @@ export class GameApp {
           if (dlg.rightPortrait === '{ALLY_1_PORTRAIT}') dlg.rightPortrait = ally1Portrait;
           if (dlg.leftPortrait === '{ALLY_1_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally1CorruptedPortrait;
           if (dlg.rightPortrait === '{ALLY_1_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally1CorruptedPortrait;
+
           if (dlg.leftPortrait === '{ALLY_2_PORTRAIT}') dlg.leftPortrait = ally2Portrait;
           if (dlg.rightPortrait === '{ALLY_2_PORTRAIT}') dlg.rightPortrait = ally2Portrait;
+          if (dlg.leftPortrait === '{ALLY_2_FURY_PORTRAIT}') dlg.leftPortrait = ally2FuryPortrait;
+          if (dlg.rightPortrait === '{ALLY_2_FURY_PORTRAIT}') dlg.rightPortrait = ally2FuryPortrait;
+          if (dlg.leftPortrait === '{ALLY_2_PANIC_PORTRAIT}') dlg.leftPortrait = ally2PanicPortrait;
+          if (dlg.rightPortrait === '{ALLY_2_PANIC_PORTRAIT}') dlg.rightPortrait = ally2PanicPortrait;
+          if (dlg.leftPortrait === '{ALLY_2_CRYING_PORTRAIT}') dlg.leftPortrait = ally2CryingPortrait;
+          if (dlg.rightPortrait === '{ALLY_2_CRYING_PORTRAIT}') dlg.rightPortrait = ally2CryingPortrait;
+          if (dlg.leftPortrait === '{ALLY_2_RESOLUTE_PORTRAIT}') dlg.leftPortrait = ally2ResolutePortrait;
+          if (dlg.rightPortrait === '{ALLY_2_RESOLUTE_PORTRAIT}') dlg.rightPortrait = ally2ResolutePortrait;
+          if (dlg.leftPortrait === '{ALLY_2_GENTLE_PORTRAIT}') dlg.leftPortrait = ally2GentlePortrait;
+          if (dlg.rightPortrait === '{ALLY_2_GENTLE_PORTRAIT}') dlg.rightPortrait = ally2GentlePortrait;
+
           if (dlg.leftPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.leftPortrait = ally2AdultPortrait;
           if (dlg.rightPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.rightPortrait = ally2AdultPortrait;
           if (dlg.leftPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally2CorruptedPortrait;

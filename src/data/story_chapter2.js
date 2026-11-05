@@ -25,7 +25,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '午后的大礼堂里，全校学生排排坐，空气里飘着淡淡的消毒水味。徐老师攥着一只贴着封条的证物袋，大步走上讲台。',
+        text: '午后的大礼堂里，全校学生排排坐，空气里飘着淡淡的消毒水味。[next]徐老师攥着一只贴着封条的证物袋，大步走上讲台。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -179,7 +179,7 @@ export const CHAPTER2_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '后排，朱晏泽却一言不发。这帅气的富二代平日里最爱起哄护短，零花钱多到能把小卖部包圆，谁被欺负了他第一个拍桌子。[next]如今却低着头，指节捏得发白。',
+        text: '后排，朱晏泽却一言不发。这帅气的富二代平日里最爱起哄护短，[next]零花钱多到能把小卖部包圆，谁被欺负了他第一个拍桌子。[next]如今却低着头，指节捏得发白。',
         sfx: 'sfx_text_blip'
       }
     ],
@@ -202,8 +202,8 @@ export const CHAPTER2_STORY = {
       {
         id: 1,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'assets/art/zhuyanze_shock@2x.png',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '老师！昨晚就是{MC_NAME}偷偷从小贩手里拿了荧光零食！满分全是作弊来的！',
         sfx: 'sfx_shock_sting'
@@ -212,7 +212,7 @@ export const CHAPTER2_STORY = {
         id: 2,
         speaker: '{MC_NAME}',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'right',
         text: '朱晏泽你吃错药了吧？！上周你抄我英语作业时还说我是你亲哥，今天转头就往我身上泼脏水？！',
         sfx: 'sfx_shock_sting'
@@ -229,8 +229,8 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        rightPortrait: 'assets/art/zhuyanze_shock@2x.png',
         activeSide: 'left',
         text: '我自己中过招，最清楚中邪的样子！{MC_NAME} 眼神清澈，倒是你们眼里在冒青光！',
         sfx: 'sfx_shock_sting'
@@ -260,7 +260,7 @@ export const CHAPTER2_STORY = {
         id: 7,
         speaker: '男同学',
         leftPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_classroom_eerie@2x.png',
         text: '对！就是他偷吃了徐老师说的怪零食！他满分全是作弊来的，把他赶出去！',

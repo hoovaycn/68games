@@ -200,7 +200,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '前有异化的大爷，后有追上来的学长，她们被死死堵在了旧走廊里。大人们不但帮不上忙，反而成了最可怕的怪物！',
+        text: '前有异化的大爷，后有追上来的学长，她们被死死堵在了旧走廊里。[next]大人们不但帮不上忙，反而成了最可怕的怪物！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -262,7 +262,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两人已经打了一整夜，满身是伤，连抬手的力气都快没了。[next]而在走廊尽头的阴影里，一个像老板一样的神秘男人放下几个纸箱，冷笑着说了一句：“总会有人愿意为结果买单。” 随后消失在黑暗中。',
+        text: '两人已经打了一整夜，满身是伤，连抬手的力气都快没了。[next]而在走廊尽头的阴影里，一个像老板一样的神秘男人放下几个纸箱，[next]冷笑着说了一句：“总会有人愿意为结果买单。” 随后消失在黑暗中。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -290,7 +290,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一直躲在她们身后的阿瑶，忽然痛苦地捂住胸口。她口袋里掉出好几个怪味零食的空袋子。原来她早就偷偷吃了，只是一直瞒着朋友。',
+        text: '一直躲在她们身后的阿瑶，忽然痛苦地捂住胸口。[next]她口袋里掉出好几个怪味零食的空袋子。原来她早就偷偷吃了，只是一直瞒着朋友。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -346,7 +346,7 @@ export const CHAPTER7_STORY = {
         leftPortrait: 'assets/art/young_xu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '干干净净？（神经质地笑起来）你们打架受了处分，别人只会说你们仗义。可我只要掉下第一名，我就什么都不是了！',
+        text: '干干净净？（神经质地笑起来）你们打架受了处分，别人只会说你们仗义。[next]可我只要掉下第一名，我就什么都不是了！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -416,7 +416,7 @@ export const CHAPTER7_STORY = {
       {
         id: 2,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_pain@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
         text: '天亮之后，我们发誓一定要把阿瑶救回来，一定要找到这东西的源头。',
@@ -426,7 +426,7 @@ export const CHAPTER7_STORY = {
         id: 3,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
         activeSide: 'left',
         text: '我们沿着散货的线索找到城郊旧仓库，可到最后，也没能把阿瑶带回来。',
         sfx: 'sfx_text_blip'

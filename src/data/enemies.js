@@ -858,11 +858,11 @@ export const ENEMIES = {
     }
   },
 
-  // 第23章：诊室时空阻滞战
+  // 第23章：诊室净化风暴战
   shadow_parasite: {
     id: 'shadow_parasite',
-    name: '时空煞气寄生体',
-    title: '脑波裂隙异变物',
+    name: '黑雾寄生体',
+    title: '脑波仪黑雾异变物',
     classId: 'street_loafer',
     level: 15,
     bonusHp: 25,
@@ -870,7 +870,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/shadow_parasite@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#701a75',
-    bio: '由古青瓷药罐残片与超载脑波仪共鸣激发的虚幻煞气聚合体，如幽魂般飘忽不定。',
+    bio: '由古青瓷药罐残片与超载脑波仪共鸣激发的虚幻黑雾聚合体，如幽魂般飘忽不定。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 7
@@ -886,8 +886,8 @@ export const ENEMIES = {
   },
   chronos_puppet: {
     id: 'chronos_puppet',
-    name: '时空错乱傀儡',
-    title: '时空折叠投影',
+    name: '失控傀儡',
+    title: '扭曲空间投影',
     classId: 'primary_student',
     level: 15,
     bonusHp: 20,
@@ -895,7 +895,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/chronos_puppet@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#4c1d95',
-    bio: '被卷入扭曲时空维度的虚幻傀儡，动作僵直却不知疲倦，执行着抹杀一切入侵者的死指令。',
+    bio: '被卷入扭曲空间的虚幻傀儡，动作僵直却不知疲倦，执行着抹杀一切入侵者的死指令。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 6
@@ -905,13 +905,13 @@ export const ENEMIES = {
     ],
     quotes: {
       move: '时间……停止……',
-      attack: '因果抹除！',
+      attack: '精神抹除！',
       death: '（化作光斑崩解）'
     }
   },
   ayao_corrupted_shadow: {
     id: 'ayao_corrupted_shadow',
-    name: '煞气拟态·虚影阿瑶',
+    name: '净化拟态·虚影阿瑶',
     title: '脑波共振具现体',
     classId: 'study_committee',
     level: 16,
@@ -920,7 +920,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/ayao_corrupted@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#6d28d9',
-    bio: '阿瑶借由古青瓷药罐残片与脑波仪激发的煞气拟态，周身缭绕暗紫电弧，投掷断裂试卷与时空残影。',
+    bio: '阿瑶借由古青瓷药罐残片与脑波仪激发的净化拟态，周身缭绕暗紫电弧，投掷断裂试卷。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 8
@@ -931,14 +931,14 @@ export const ENEMIES = {
     ],
     quotes: {
       move: '你们根本不明白二十年后的未来有多绝望……',
-      attack: '不要妨碍我逆转因果！',
+      attack: '不要妨碍我净化这个世界！',
       death: '（残影闪烁消散）……快停手……你们会被卷进未来的……'
     }
   },
   time_puppet: {
     id: 'time_puppet',
-    name: '时空异化傀儡',
-    title: '错乱时空裂缝产物',
+    name: '异化傀儡',
+    title: '错乱空间产物',
     classId: 'primary_student',
     level: 15,
     bonusHp: 20,
@@ -946,7 +946,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/ayao_corrupted@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#4c1d95',
-    bio: '从脑波仪撕裂的时空褶皱中涌出的虚幻傀儡，面部是一片空白的马赛克，动作扭曲异常。',
+    bio: '从脑波仪撕裂的空间褶皱中涌出的虚幻傀儡，面部是一片空白的马赛克，动作扭曲异常。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 6
@@ -1151,7 +1151,7 @@ export const ENEMIES = {
   // 第27章：光门前最后的血肉长城
   boss_storm_mech: {
     id: 'boss_storm_mech',
-    name: '境外重装歼灭者·暴风',
+    name: '重装歼灭者·暴风',
     title: '四足攻城巨型战车',
     classId: 'strong_boy',
     level: 20,
@@ -1280,11 +1280,11 @@ export const ENEMIES = {
     }
   },
 
-  // 第29章：斩断神明枷锁
+  // 第29章：斩断机器锁链
   pillar_neural_lock: {
     id: 'pillar_neural_lock',
     name: '外置神经死锁柱',
-    title: '天台神座神经束缚装置',
+    title: '天台机器神经束缚装置',
     classId: 'study_committee',
     level: 22,
     bonusHp: 80,
@@ -1292,7 +1292,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/pillar_neural_lock@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#581c87',
-    bio: '四根矗立在天台四周的粗壮暗紫色合金导电立柱，缠绕着高压电弧与吸血光缆，将阿瑶锁在神座中央。',
+    bio: '四根矗立在天台四周的粗壮暗紫色合金导电立柱，缠绕着高压电弧与光缆，将阿瑶锁在机器中央。',
     ai: {
       type: 'passive_guard',
       aggroRadius: 6
@@ -1308,7 +1308,7 @@ export const ENEMIES = {
   },
   repair_spider: {
     id: 'repair_spider',
-    name: '主脑重装修复蛛',
+    name: '机器重装修复蛛',
     title: '高频等离子维修机兵',
     classId: 'primary_student',
     level: 21,
@@ -1333,8 +1333,8 @@ export const ENEMIES = {
   },
   ayao_corrupted_god: {
     id: 'ayao_corrupted_god',
-    name: '因果裁决者·永恒阿瑶',
-    title: '被天梯主脑强行接管的半神',
+    name: '净化裁决者·永恒阿瑶',
+    title: '被净化机器吞没的异化体',
     classId: 'study_committee',
     level: 23,
     bonusHp: 160,
@@ -1342,7 +1342,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/ayao_corrupted_god_default@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
     themeColor: '#6b21a8',
-    bio: '被境外主脑强行接管异化的半神形态。阿瑶悬浮半空，脊柱钉有七枚骨钉连接神经缆绳，满天飞舞破碎试卷。',
+    bio: '被净化机器吞没异化的形态。阿瑶悬浮半空，脊柱钉有七枚骨钉连接神经缆绳，满天飞舞破碎试卷。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 9
@@ -1353,7 +1353,7 @@ export const ENEMIES = {
     ],
     quotes: {
       move: '（痛苦挣扎）杀了我……不要管我……快击碎死锁柱！',
-      attack: '因果风暴，重构时间线！',
+      attack: '净化风暴，抹除一切！',
       death: '（骨钉崩裂，泪水滑落）……谢谢你们……终于……把我拉回来了……'
     }
   },
@@ -1361,8 +1361,8 @@ export const ENEMIES = {
   // 第30章：终局决战
   boss_judgement_core: {
     id: 'boss_judgement_core',
-    name: '万物天梯裁决核心',
-    title: '终极量子因果母体神座',
+    name: '净化母体核心',
+    title: '终极净化母体',
     classId: 'strong_boy',
     level: 25,
     bonusHp: 240,
@@ -1370,7 +1370,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/boss_judgement_core@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#312e81',
-    bio: '盘踞在三号船顶层穹顶的巨大半球形量子脑波中枢，生物缆绳缠绕，紫黑机械复眼，掌控着莫比乌斯环的罪恶源头。',
+    bio: '盘踞在三号船顶层穹顶的巨大半球形机器中枢，光缆缠绕，紫黑机械复眼，是净化程序的罪恶源头。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 10
@@ -1382,14 +1382,14 @@ export const ENEMIES = {
     ],
     quotes: {
       move: '人类的未来唯有绝对理性的阶梯！凡人皆为蝼蚁！',
-      attack: '量子因果湮灭雷暴！',
-      death: '（核心分崩离析，神座崩塌）……不可能……浩然正气……竟然超越了算法因果……！'
+      attack: '净化湮灭雷暴！',
+      death: '（核心分崩离析，机器崩塌）……不可能……浩然正气……竟然超越了这个算法……！'
     }
   },
   capital_guard_mech: {
     id: 'capital_guard_mech',
-    name: '境外资本重装护卫机甲',
-    title: '神座终极防卫机兵',
+    name: '净化机械守卫',
+    title: '机器终极防卫机兵',
     classId: 'strong_boy',
     level: 23,
     bonusHp: 80,
@@ -1397,7 +1397,7 @@ export const ENEMIES = {
     portrait: 'assets/portraits/capital_guard_mech@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
     themeColor: '#1e293b',
-    bio: '涂装资本鹰隼徽标的厚重机械守卫，手持双臂电磁震荡盾牌，誓死护卫裁决核心。',
+    bio: '厚重机械守卫，手持双臂电磁震荡盾牌，誓死护卫净化核心。',
     ai: {
       type: 'aggressive_chase',
       aggroRadius: 7
@@ -1407,7 +1407,7 @@ export const ENEMIES = {
       { itemId: 'honey_tea', chance: 1.0 }
     ],
     quotes: {
-      move: '神座核心不可侵犯！肃清入侵者！',
+      move: '机器核心不可侵犯！肃清入侵者！',
       attack: '电磁震荡冲击！',
       death: '（金属装甲碎裂瘫痪）'
     }

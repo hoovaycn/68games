@@ -27,7 +27,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '脚下没有甲板，也没有江水。六个孩子、海峰和两位老师还抓着彼此，漂在一条发光的通道里；身后的驳船越来越远，渐渐缩成一个小点。',
+        text: '脚下没有甲板，也没有江水。六个孩子、海峰和两位老师还抓着彼此，漂在一条发光的通道里；[next]身后的驳船越来越远，渐渐缩成一个小点。',
         sfx: 'sfx_suspense'
       },
       {
@@ -90,7 +90,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '林则徐，朕看了你的奏折。鸦片害了百姓，也让国库的钱不断流出去。有人怕得罪外国商人，不敢禁烟。你愿意去广东把这件事办到底吗？',
+        text: '林则徐，朕看了你的奏折。鸦片害了百姓，也让国库的钱不断流出去。[next]有人怕得罪外国商人，不敢禁烟。你愿意去广东把这件事办到底吗？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -99,7 +99,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
         activeSide: 'left',
-        text: '（跪下）“苟利国家生死以，岂因祸福避趋之！”只要鸦片还在害人，我就不会停。请派我去广东，把走私的鸦片查出来、毁掉。',
+        text: '（跪下）“苟利国家生死以，岂因祸福避趋之！[next]”只要鸦片还在害人，我就不会停。请派我去广东，把走私的鸦片查出来、毁掉。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -135,7 +135,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【穿越途中 · 道光十九年虎门】\n众人还在通道里，眼前却能看到海边挤满水师和百姓。官兵把收缴的鸦片搬到池边，准备加盐和石灰销毁。',
+        text: '【穿越途中 · 道光十九年虎门】\n众人还在通道里，眼前却能看到海边挤满水师和百姓。[next]官兵把收缴的鸦片搬到池边，准备加盐和石灰销毁。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -154,7 +154,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '沙角海滩突然传来枪声：有人趁销烟时从海上偷袭，想抢回鸦片。与此同时，通道出口在海滩上打开，卷着众人的白光直冲下去。',
+        text: '沙角海滩突然传来枪声：有人趁销烟时从海上偷袭，想抢回鸦片。[next]与此同时，通道出口在海滩上打开，卷着众人的白光直冲下去。',
         sfx: 'sfx_suspense'
       }
     ],
@@ -180,7 +180,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '众人摔在海滩上，被涌来的浪和石灰烟呛得直咳。抬头一看，官兵正在往大池里倒石灰，海上是旧式帆船；他们真的落在了虎门销烟现场。',
+        text: '众人摔在海滩上，被涌来的浪和石灰烟呛得直咳。[next]抬头一看，官兵正在往大池里倒石灰，海上是旧式帆船；他们真的落在了虎门销烟现场。',
         sfx: 'sfx_suspense'
       },
       {
@@ -199,7 +199,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '（脸色发白地摸了摸口袋）完了完了……手机一格信号都没有！那我的暑期研学报告、还有开学摸底考，是不是全泡汤了？！',
+        text: '（脸色发白地摸了摸口袋）完了完了……手机一格信号都没有！[next]那我的暑期研学报告、还有开学摸底考，是不是全泡汤了？！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -214,7 +214,7 @@ export const CHAPTER15_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '快看浅滩！几艘小帆船靠岸了，那些拿洋枪和刀的人正往销烟池边冲，要抢还没销毁的鸦片箱！',
@@ -244,14 +244,14 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
-        text: '洋人水手举枪上岸，本地打手在前面带路。池边，一个握着木杖的民团教头带人守住还没倒进水里的鸦片箱，拦下了刚跑来的孩子们。',
+        text: '洋人水手举枪上岸，本地打手在前面带路。[next]池边，一个握着木杖的民团教头带人守住还没倒进水里的鸦片箱，拦下了刚跑来的孩子们。',
         sfx: 'sfx_suspense'
       },
       {
         id: 11,
         speaker: '虎门民团教头',
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '我是这儿带民团守池的。林大人让我盯紧这些还没销毁的鸦片，不能让人抢走。你们几个从哪儿来的？快往后站，那边有枪！',
         sfx: 'sfx_confirm'
@@ -259,7 +259,7 @@ export const CHAPTER15_STORY = {
       {
         id: 12,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
         activeSide: 'left',
         text: '我们从海滩那头来的，看见他们要抢箱子。我们是来帮忙的，您说怎么守？',
@@ -306,7 +306,7 @@ export const CHAPTER15_STORY = {
         id: 51,
         speaker: '虎门民团教头',
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '成，你们跟紧我和弟兄们，别让打手绕到箱子后头。看见洋枪就躲，先护住人，再护住货！',
         sfx: 'sfx_confirm'
@@ -315,7 +315,7 @@ export const CHAPTER15_STORY = {
         id: 6,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '大家靠过来，护住池边的鸦片箱！不能让他们把烟土抢回去！',
         sfx: 'sfx_confirm'
@@ -345,7 +345,7 @@ export const CHAPTER15_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '偷袭的人被打退了，官兵继续把鸦片倒进池里。林则徐带着几名亲兵来到池边，先去看了受伤的民团，随后走向刚才帮忙守池的孩子们。',
+        text: '偷袭的人被打退了，官兵继续把鸦片倒进池里。[next]林则徐带着几名亲兵来到池边，先去看了受伤的民团，随后走向刚才帮忙守池的孩子们。',
         sfx: 'sfx_confirm'
       },
       {

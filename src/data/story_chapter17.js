@@ -60,7 +60,7 @@ export const CHAPTER17_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         activeSide: 'left',
         text: '海峰挡住保镖，{MC_NAME}冲到毒池旁抢回浩然正气杖，敲开锁住覃瑞怡的旧锁。瑞怡抓住主角的手，终于从石柱前逃了出来。',
@@ -92,7 +92,7 @@ export const CHAPTER17_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '徐老师趁乱抢走桌上标了住址的送药单，塞进怀里。沈崇礼按动机关，三根淬着毒的长针射向护在最前面的孩子们！',
+        text: '徐老师趁乱抢走桌上标了住址的送药单，塞进怀里。[next]沈崇礼按动机关，三根淬着毒的长针射向护在最前面的孩子们！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -100,7 +100,7 @@ export const CHAPTER17_STORY = {
         id: 2,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '小心——！！！',
         highlight: true,
@@ -119,7 +119,7 @@ export const CHAPTER17_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
         activeSide: 'left',
         text: '（瞳孔骤缩，整个人撕心裂肺地哭喊）爸——！！！爸你醒醒啊！！！不要！！不要扔下我！！',
@@ -130,7 +130,7 @@ export const CHAPTER17_STORY = {
         id: 5,
         speaker: '老爸海峰',
         leftPortrait: 'assets/art/father_haifeng_police_damaged@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '（从腰间摸出警用破拆索，拴向身后的承重柱）带着孩子们走……地下出口快塌了，我给你们挡住后面的人。记住，老爸是警察。',
         sfx: 'sfx_text_blip'
@@ -168,7 +168,7 @@ export const CHAPTER17_STORY = {
       {
         id: 8,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
         rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         activeSide: 'left',
         text: '先别回头看河里，护住瑞怡，跟我走楼梯！打通这道门，再想办法找海峰！',

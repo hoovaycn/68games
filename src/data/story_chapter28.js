@@ -143,7 +143,7 @@ export const CHAPTER28_STORY = {
     }
   },
 
-  // s3: 倒计时十秒 · 飞扑逆转因果
+  // s3: 倒计时十秒 · 飞扑抢回命运
   ch28_scene_disarm_destiny: {
     id: 'ch28_scene_disarm_destiny',
     title: '傍晚五点五十九分 · 三号船底舱生死逆转',
@@ -249,7 +249,7 @@ export const CHAPTER28_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '大火被水警控制，但集装箱深处传来了阿瑶神明化的最后威压。',
+      prompt: '大火被水警控制，但集装箱深处传来了阿瑶与机器融为一体的最后威压。',
       buttonText: '【开启第二十九章 · 少年无悔】',
       targetScene: 'ch29_scene_throne_reveal'
     }

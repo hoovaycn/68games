@@ -189,7 +189,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'right',
-        text: '（避开目光，手指紧扣口袋）……刘老师，你别问了。',
+        text: '（避开目光，手指紧扣口袋，里面露出一角写着“九号码头”的硬纸）……刘老师，你别问了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -317,7 +317,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/enforcer_abiao@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
-        text: '昏暗的冷雨中，一个身材魁梧的雨衣男人推开生锈的铁门，将一个厚牛皮纸袋递给徐老师。[next]徐老师压低声音交谈了两句，把一张折叠的白纸塞回对方手里。',
+        text: '昏暗的冷雨中，一个身材魁梧的雨衣男人推开生锈的铁门，将一个沉甸甸的厚牛皮纸袋递给徐老师。[next]纸袋里是只银灰色、通体冰凉的金属手提箱——正是三号船的水手前几日在江边网获、谁也撬不开的怪箱子。[next]独眼蝰蛇起疑，才让“投诚”的徐老师先把它带走，试试能否打开。[next]徐老师压低声音交谈了两句，把一张折叠的白纸塞回对方手里。',
         sfx: 'sfx_suspense'
       },
       {

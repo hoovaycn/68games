@@ -6,7 +6,7 @@
  * - ch26_scene_ayao_chamber: 开启中央维生舱，阿瑶枯瘦残躯插满管线，胸口贴着2006年六8班毕业照
  * - ch26_scene_hologram_reveal: 激活加密四十年的记忆投影：2006年水闸地下室阿瑶服毒替死掩护徐博与刘淑惠
  * - ch26_battle1: 天梯核心主脑歼灭战（两代六8班联动 VS 天梯总控智脑·满分优等生）
- * - ch26_scene_paradox_truth: 智脑瓦解，枯萎阿瑶交出【古罐原石密钥】，大人回不去，由小号承担逆流使命
+ * - ch26_scene_paradox_truth: 智脑瓦解，枯萎阿瑶交出【古罐残片】，大人回不去，由小号承担逆流使命
  */
 
 export const CHAPTER26_STORY = {
@@ -100,7 +100,7 @@ export const CHAPTER26_STORY = {
     }
   },
 
-  // s3: 投影回放 · 比死还痛的因果锁链
+  // s3: 投影回放 · 比死还痛的真相
   ch26_scene_hologram_reveal: {
     id: 'ch26_scene_hologram_reveal',
     title: '记忆回廊 · 二零零六年雨夜的真正录像',
@@ -114,7 +114,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（老水闸铁门前，沈万廷阴鸷地冷笑，脚下踩着被铁链死死捆住的徐博与刘淑惠）敢摸到地下水闸坏沈家的走私大计？！把这两个多管闲事的教书匠按死，把刚出炉的蚀脑毒雾全灌进喉咙，沉江喂鱼！',
+        text: '（老水闸铁门前，沈万廷阴鸷地冷笑，脚下踩着被铁链死死捆住的徐博与刘淑惠）敢摸到地下水闸坏沈家的走私大计？！把这两个多管闲事的教书匠按死，把刚出炉的毒雾全灌进喉咙，沉江喂鱼！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -147,11 +147,11 @@ export const CHAPTER26_STORY = {
       },
       {
         id: 5,
-        speaker: '未来神座残响（投影）',
-        leftPortrait: 'assets/art/ayao_corrupted_god_default@2x.png',
-        rightPortrait: 'assets/art/ayao_default@2x.png',
+        speaker: '少年阿瑶（投影）',
+        leftPortrait: 'assets/art/ayao_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
-        text: '（因果律异化的高维虚影在少女耳边尖利低语）傻姑娘，硬拼他们必死！抢下毒药自己咽下去！只要你展现出承载因果地脉的天赋自愿臣服，沈万廷才会把当做容器，放过两个没用的教书匠！',
+        text: '（看着沈万廷把毒药瓶凑到老师嘴边，瘦弱的少女浑身发抖，眼里却燃起孤注一掷的决绝）不能……不能让他们替我去死……！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -181,7 +181,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
         rightPortrait: 'assets/art/ayao_default@2x.png',
         activeSide: 'left',
-        text: '（哈哈狂笑）好狠绝的丫头！喝了蚀脑毒药居然还能站着！真是天生给老子承载地脉古罐的绝世容器！把这两个昏死过去的废物教师扔到江边排污口，把这丫头带回三号船！',
+        text: '（哈哈狂笑）好狠绝的丫头！喝了毒药居然还能站着！真是天生扛得住毒的好苗子！把这两个昏死过去的废物教师扔到江边排污口，把这丫头带回三号船！',
         sfx: 'sfx_confirm'
       },
       {
@@ -200,7 +200,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（泪水夺眶而出，声音发颤）怎么会是这样……徐老师内疚了整整二十年，全校都以为阿瑶阿姨是背叛者……原来她是替老师吞下了蚀脑剧毒，为了保全恩师把自己献祭给了深渊！',
+        text: '（泪水夺眶而出，声音发颤）怎么会是这样……徐老师内疚了整整二十年，全校都以为阿瑶阿姨是背叛者……原来她是替老师吞下了毒药，为了保全恩师把自己献祭给了深渊！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -228,7 +228,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/boss_ai_topstudent@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（数万道幽蓝数据流疯狂暴走！全息巨像自穹顶威严俯瞰，发出雷霆般的机械咆哮）警报！宿主底层封存情感彻底瓦解！逻辑闭环被致命人性情感污染……启动全域物理歼灭协议！抹除所有外来干扰源！',
+        text: '（数万道幽蓝数据流疯狂暴走！全息巨像自穹顶威严俯瞰，发出雷霆般的机械咆哮）警报！核心净化程序被干扰！启动全域物理歼灭协议！抹除所有外来干扰源！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -295,7 +295,7 @@ export const CHAPTER26_STORY = {
         leftPortrait: 'assets/art/ayao_aged_2046_weeping@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（用颤抖枯瘦的手，从怀中摸出一枚贴着六8班泛黄毕业照的原石芯片）这是最初的地脉核心【古罐原石密钥】。[next]到底层反物质反应堆插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的我们，已经被这个时代锚定了……',
+        text: '（用颤抖枯瘦的手，从怀中摸出一枚贴着六8班泛黄毕业照的古罐残片）这是最初的那片古罐残片。[next]到底层能量炉插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的我们，已经被这个时代困住了……',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -322,7 +322,7 @@ export const CHAPTER26_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '众人冲向金字塔最底层反物质反应堆。',
+      prompt: '众人冲向金字塔最底层能量炉。',
       buttonText: '【开启第二十七章 · 熔炉抉择】',
       targetScene: 'ch27_scene_reactor_run'
     }

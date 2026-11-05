@@ -23,7 +23,7 @@ export const CHAPTER19_STORY = {
         id: 1,
         speaker: '沈万廷',
         leftPortrait: 'assets/art/shen_wanting_old@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '（把轮椅的输液管插进控制台）我这把老骨头撑到今天，就是要看福寿堂把这批药送出去。崇礼，开闸！',
         highlight: true,
@@ -46,7 +46,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '昏暗中，齿轮和铁架一节节撑开，先是两条长满倒刺的手臂，接着是一颗冒绿光的胸口。它弯下腰，整座钟楼的地板都跟着一震。',
+        text: '昏暗中，齿轮和铁架一节节撑开，先是两条长满倒刺的手臂，接着是一颗冒绿光的胸口。[next]它弯下腰，整座钟楼的地板都跟着一震。',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
         sfx: 'sfx_suspense'
       },
@@ -97,7 +97,7 @@ export const CHAPTER19_STORY = {
         id: 8,
         speaker: '巨魔',
         leftPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '楼下的人敢上来，也一个都别想走！',
         bgImg: 'assets/backgrounds/bg_clocktower_storm@2x.png',
@@ -116,7 +116,7 @@ export const CHAPTER19_STORY = {
       {
         id: 91,
         speaker: '系统提示',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
         text: '巨魔胸口喷出一团黑气，{MC_NAME}下意识举起木杖。“浩然正气”四个金字亮了一下，扑到面前的黑气竟被逼得散开。',
@@ -126,7 +126,7 @@ export const CHAPTER19_STORY = {
       {
         id: 10,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'assets/art/zhuyanze_shock@2x.png',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
         text: '（往后退了半步）它一拳就把栏杆打成这样？我……我腿都不听使唤了。咱们真能打过吗？',
@@ -147,7 +147,7 @@ export const CHAPTER19_STORY = {
       {
         id: 12,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
         text: '（贴着墙）等等，沈崇礼每按一次阀门，它胸口的绿光就亮一次。那几根管子还在往它身上送黑气！',
@@ -167,7 +167,7 @@ export const CHAPTER19_STORY = {
       {
         id: 14,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
         text: '（攥紧警徽，手还在抖）我爸拼命护我们到这里，不是为了让沈家再拿这药害人。我怕，可药罐不能离开钟楼！',
@@ -178,7 +178,7 @@ export const CHAPTER19_STORY = {
       {
         id: 15,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/boss_colossus_opium_god@2x.png',
         activeSide: 'left',
         text: '我也怕。可它胸口喷出的黑气碰上这根杖就散！先打断供气管，等它慢下来，我来把浩然正气杖插进核心。你们谁都别落下！',
@@ -208,7 +208,7 @@ export const CHAPTER19_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: null,
         activeSide: 'left',
         text: '供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，把浩然正气杖插进它胸口的核心。[next]“浩然正气”四字再次亮起，金光照亮了整座钟楼！',
@@ -293,7 +293,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '（和刘老师沿楼梯赶上来）孩子们都在！楼下省厅的人已经接手了。海峰也找到了，人还活着，就在一楼大厅，快跟我们下去！',
+        text: '（和刘老师沿楼梯赶上来）孩子们都在！楼下省厅的人已经接手了。[next]海峰也找到了，人还活着，就在一楼大厅，快跟我们下去！',
         sfx: 'sfx_confirm'
       }
     ],
@@ -349,14 +349,14 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/teacher_xu_default@2x.png',
         rightPortrait: 'assets/art/adult_liu_default@2x.png',
         activeSide: 'left',
-        text: '水警在三号闸口的巡逻艇上找到了他，立刻送医。省厅已经备好针对那种毒针的解毒药，医生说他伤得很重，但救回来了。',
+        text: '水警在三号闸口的巡逻艇上找到了他，立刻送医。[next]省厅已经备好针对那种毒针的解毒药，医生说他伤得很重，但救回来了。',
         sfx: 'sfx_confirm'
       },
       {
         id: 5,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
         activeSide: 'left',
         text: '二十年前被夺走的公道与尊严……今天，终于在这一届孩子手中彻底夺回来了。阿瑶，你看到了吗……',
         sfx: 'sfx_text_blip'
@@ -384,7 +384,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '医护人员把海峰抬到运河岸边的救护车旁。六个孩子和两位老师跟着走出仓库，晨光落在水面上；身后的钟楼敲响了第一声钟，黑雾已经散了。',
+        text: '医护人员把海峰抬到运河岸边的救护车旁。[next]六个孩子和两位老师跟着走出仓库，晨光落在水面上；身后的钟楼敲响了第一声钟，黑雾已经散了。',
         sfx: 'sfx_confirm'
       },
       {
@@ -494,7 +494,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '那我回家开一局，等海叔叔出院，咱们六个再去我家打游戏。张希哲，你可把手柄拿稳了，上回踢球连鞋都飞出去。',
+        text: '那我回家开一局，等海叔叔出院，咱们六个再去我家打游戏。[next]张希哲，你可把手柄拿稳了，上回踢球连鞋都飞出去。',
         sfx: 'sfx_confirm'
       },
       {
@@ -522,7 +522,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '救护车已经开远，警车也驶回各自的辖区。老师领着孩子们走向不同的街口，早餐铺陆续开了门。河岸渐渐空下来，仿佛昨天那场雨和那团黑雾从没来过。',
+        text: '救护车已经开远，警车也驶回各自的辖区。老师领着孩子们走向不同的街口，早餐铺陆续开了门。[next]河岸渐渐空下来，仿佛昨天那场雨和那团黑雾从没来过。',
         sfx: 'sfx_confirm'
       }
     ],
@@ -549,7 +549,7 @@ export const CHAPTER19_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '当天下午，孩子们都回了家。城北安全屋里只剩一名值班警员，正把从沈崇礼身上搜出的无线电台和其他证物逐一登记。',
+        text: '当天下午，孩子们都回了家。城北安全屋里只剩一名值班警员，[next]正把从沈崇礼身上搜出的无线电台和其他证物逐一登记。',
         sfx: 'sfx_text_blip'
       },
       {

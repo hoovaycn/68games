@@ -52,7 +52,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。[next]那一刻她们第一次意识到：这根本不是一两个小贩，而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
+        text: '两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。[next]那一刻她们第一次意识到：这根本不是一两个小贩，[next]而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -106,7 +106,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/mystery_man_default@2x.png',
         rightPortrait: 'assets/art/young_xu_default@2x.png',
         activeSide: 'left',
-        text: '两个黄毛丫头也敢闯老子的场子？这城里多少家长排着队求我给货！只要卷子上的分是真的，谁管你怎么考出来的？识相的滚远点！',
+        text: '两个黄毛丫头也敢闯老子的场子？这城里多少家长排着队求我给货！[next]只要卷子上的分是真的，谁管你怎么考出来的？识相的滚远点！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -142,7 +142,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '花西装男人冷笑一声猛一挥手，周围那些神情呆滞、眼冒青光的学生立刻全扑了上来。两个小姑娘咬紧牙关，硬生生把仓库深处杀出一条路！',
+        text: '花西装男人冷笑一声猛一挥手，周围那些神情呆滞、眼冒青光的学生立刻全扑了上来。[next]两个小姑娘咬紧牙关，硬生生把仓库深处杀出一条路！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -204,7 +204,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '你们永远那么敢冲敢闯。可我每次考试都怕少一分，怕有一天不再是第一名，大家就不在乎我了。我不想听安慰，我只想一直考第一！',
+        text: '你们永远那么敢冲敢闯。可我每次考试都怕少一分，怕有一天不再是第一名，大家就不在乎我了。[next]我不想听安慰，我只想一直考第一！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -222,7 +222,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: 'assets/art/ayao_corrupted@2x.png',
         activeSide: 'right',
-        text: '是！比你们重要一万倍！现在我爸妈以我为荣，老师拿我当榜样。和这些比起来，你们所谓的“朋友”游戏，简直幼稚得可笑。',
+        text: '是！比你们重要一万倍！现在我爸妈以我为荣，老师拿我当榜样。[next]和这些比起来，你们所谓的“朋友”游戏，简直幼稚得可笑。',
         highlight: true,
         sfx: 'sfx_unit_down'
       },
@@ -242,7 +242,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿瑶那冰冷、厌恶的眼神，像一把最钝的刀，狠狠绞碎了两个小女孩的世界。她转身走向了那片阴暗的巷子，头也不回。',
+        text: '阿瑶那冰冷、厌恶的眼神，像一把最钝的刀，狠狠绞碎了两个小女孩的世界。[next]她转身走向了那片阴暗的巷子，头也不回。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -260,7 +260,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: 'assets/art/young_liu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '（眼泪砸在满是淤青的手背上，声音止不住地发抖）是我没拉住她……是我们太自以为是了……如果连最好的朋友都救不了，我们打赢了又有什么用……',
+        text: '（眼泪砸在满是淤青的手背上，声音止不住地发抖）是我没拉住她……[next]是我们太自以为是了……如果连最好的朋友都救不了，我们打赢了又有什么用……',
         sfx: 'sfx_unit_down'
       },
       {
@@ -269,7 +269,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。两个孩子说有人往学校送药，可没人信——没证据，也没证人。[next]大人们只当她们是打架后找借口。',
+        text: '大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。[next]两个孩子说有人往学校送药，可没人信——没证据，也没证人。[next]大人们只当她们是打架后找借口。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -278,7 +278,7 @@ export const CHAPTER8_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '从那以后，两人再也没见过阿瑶。她们没有停止查那批怪零食：读书、当老师，查了二十年，才找到现在这些线索。',
+        text: '从那以后，两人再也没见过阿瑶。她们没有停止查那批怪零食：读书、[next]当老师，查了二十年，才找到现在这些线索。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -296,7 +296,7 @@ export const CHAPTER8_STORY = {
         id: 15,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
         text: '当年我们打赢了仓库里的人，却没抓住送货的，也没能带阿瑶回来。二十年后，同样的怪零食又进了你们的学校。',
@@ -305,7 +305,7 @@ export const CHAPTER8_STORY = {
       {
         id: 16,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xu_pain@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',

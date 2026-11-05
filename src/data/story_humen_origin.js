@@ -17,7 +17,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '林大人，箱子都在，但装烟膏的青花罐少了一只。有人看见刚才打起来时，一个人把罐子放上小车，往旧码头推走了。',
+        text: '林大人，箱子都在，但装烟膏的青花罐少了一只。[next]有人看见刚才打起来时，一个人把罐子放上小车，往旧码头推走了。',
         sfx: 'sfx_suspense'
       },
       {
@@ -71,7 +71,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '官兵推开仓门。墙边是福寿堂准备免费发给穷人的药材箱。门口停着刚才那辆小车，车上是丢失的青花罐，旁边还堆着几箱烟膏。',
+        text: '官兵推开仓门。墙边是福寿堂准备免费发给穷人的药材箱。[next]门口停着刚才那辆小车，车上是丢失的青花罐，旁边还堆着几箱烟膏。',
         sfx: 'sfx_suspense'
       },
       {
@@ -80,7 +80,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/fushoutang_shopkeeper_1839@2x.png',
         rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         activeSide: 'left',
-        text: '林大人，车是他们从我店里抢走的！洋商要借我的铺子藏烟膏，我没答应。他们打完仗把罐子推进来，硬说这仓里的货都是我的。',
+        text: '林大人，车是他们从我店里抢走的！洋商要借我的铺子藏烟膏，我没答应。[next]他们打完仗把罐子推进来，硬说这仓里的货都是我的。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -105,7 +105,7 @@ export const HUMEN_ORIGIN_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
         text: '海叔叔，你不是说两百年后的福寿堂拿药害学生吗？可沈家现在还在免费给穷人发药啊。',
@@ -116,7 +116,7 @@ export const HUMEN_ORIGIN_STORY = {
         id: 6,
         speaker: '福寿堂沈掌柜',
         leftPortrait: 'assets/art/fushoutang_shopkeeper_1839@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '（愣住）两百年后……还有福寿堂？',
         highlight: true,
@@ -144,8 +144,8 @@ export const HUMEN_ORIGIN_STORY = {
       {
         id: 8,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'assets/art/father_haifeng_alert@2x.png',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '六个人跟紧我！拦住水手，别让他们把罐子和烟膏搬走！',
         sfx: 'sfx_confirm'
@@ -182,7 +182,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
         rightPortrait: 'assets/art/fushoutang_shopkeeper_1839@2x.png',
         activeSide: 'left',
-        text: '你原来免费给穷人发药，以后也可以接着做。这几箱烟膏是走私者塞进来的，不会算在你头上。往后别再让他们进门。',
+        text: '你原来免费给穷人发药，以后也可以接着做。[next]这几箱烟膏是走私者塞进来的，不会算在你头上。往后别再让他们进门。',
         sfx: 'sfx_confirm'
       },
       {
@@ -212,7 +212,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '一阵浪打翻了小船。青花罐从沈掌柜手里滑脱，沉进虎门海口。洋商船上的水手把他拉了上去；官兵派船打捞那只罐子，可浪太急，一时找不到了。',
+        text: '一阵浪打翻了小船。青花罐从沈掌柜手里滑脱，沉进虎门海口。[next]洋商船上的水手把他拉了上去；官兵派船打捞那只罐子，可浪太急，一时找不到了。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -322,7 +322,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '{MC_NAME}握紧木杖，掌心沾上的白灰随海风扬起。杖身的刻痕从指缝间透出金光，白烟一时遮住了上面的字。',
+        text: '{MC_NAME}握紧木杖，掌心沾上的白灰随海风扬起。[next]杖身的刻痕从指缝间透出金光，白烟一时遮住了上面的字。',
         sfx: 'sfx_suspense'
       },
       {
@@ -363,7 +363,7 @@ export const HUMEN_ORIGIN_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '销烟池边的白烟忽然打起旋，众人脚下再次亮起把他们卷来时的白光。{MC_NAME}攥紧木杖，大家手拉着手；海滩、销烟池和炮声渐渐远去，现代的驳船重新出现在眼前。',
+        text: '销烟池边的白烟忽然打起旋，众人脚下再次亮起把他们卷来时的白光。[next]{MC_NAME}攥紧木杖，大家手拉着手；海滩、销烟池和炮声渐渐远去，现代的驳船重新出现在眼前。',
         highlight: true,
         sfx: 'sfx_suspense'
       }

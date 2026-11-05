@@ -23,7 +23,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '众人从地下室的另一侧逃到仓库外。沈家父子还在顶楼，可大楼四周通了电，探照灯来回扫，想走正门根本过不去。',
+        text: '众人从地下室的另一侧逃到仓库外。[next]沈家父子还在顶楼，可大楼四周通了电，探照灯来回扫，想走正门根本过不去。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -86,7 +86,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '一推开大厅门，三名服过药的重装守卫就举着盾牌挡住去路。门后的铁闸落下，堵住回头路；通往顶楼的楼梯口也挤满了沈家的打手。',
+        text: '一推开大厅门，三名服过药的重装守卫就举着盾牌挡住去路。[next]门后的铁闸落下，堵住回头路；通往顶楼的楼梯口也挤满了沈家的打手。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -94,7 +94,7 @@ export const CHAPTER18_STORY = {
         id: 11,
         speaker: '重装守卫',
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '（盾牌往地上一砸）楼梯封了。想上顶楼，就在这儿把浩然正气杖交出来！',
         sfx: 'sfx_shock_sting'
@@ -103,7 +103,7 @@ export const CHAPTER18_STORY = {
         id: 12,
         speaker: '沈崇礼',
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '我爸正在顶楼装货。你们在这儿陪守卫慢慢打吧，等打上去，药早就运走了！',
         sfx: 'sfx_shock_sting'
@@ -121,16 +121,16 @@ export const CHAPTER18_STORY = {
         id: 2,
         speaker: '语文刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
         activeSide: 'left',
-        text: '（握紧教鞭）老徐，侧廊又来了一批守卫。我们留下挡住后面的援兵，让孩子们去楼梯口。二十年前没护住阿瑶，今天不能再退了。',
+        text: '（握紧教鞭）老徐，侧廊又来了一批守卫。[next]我们留下挡住后面的援兵，让孩子们去楼梯口。二十年前没护住阿瑶，今天不能再退了。',
         sfx: 'sfx_confirm'
       },
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '（把旧教案塞给{MC_NAME}）我们挡住后面赶来的守卫。你们打通前面重装守卫和楼梯口，去顶楼阻止沈家父子。别回头！',
         highlight: true,
@@ -139,7 +139,7 @@ export const CHAPTER18_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '徐老师！刘老师！！',
@@ -148,8 +148,8 @@ export const CHAPTER18_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '别让老师的心血白费！跟紧我，撕碎梯口的守卫，冲上天台！！',
         sfx: 'sfx_confirm'
@@ -178,7 +178,7 @@ export const CHAPTER18_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '孩子们沿楼梯追到仓库顶楼，推开钟楼门。沈万廷坐在轮椅上，身边只剩几罐药；沈崇礼坐货梯先到了，正站在控制台前。两位老师还在楼下挡住追兵。',
+        text: '孩子们沿楼梯追到仓库顶楼，推开钟楼门。沈万廷坐在轮椅上，身边只剩几罐药；[next]沈崇礼坐货梯先到了，正站在控制台前。两位老师还在楼下挡住追兵。',
         sfx: 'sfx_shock_sting'
       },
       {

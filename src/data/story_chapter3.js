@@ -21,7 +21,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '上周操场的事消停了没两天，放学的时候校门外人行道又堵了一群人。七八个穿别校藏青运动服的外校学生一字排开。',
+        text: '上周操场的事消停了没两天，放学的时候校门外人行道又堵了一群人。[next]七八个穿别校藏青运动服的外校学生一字排开。',
         sfx: 'sfx_confirm'
       },
       {
@@ -30,7 +30,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '领头的正是被异化的体育生队长，胳膊底下夹着一兜青蓝色的异化饮料，见本校学生出来就往人怀里塞。小伙伴们刚走到校门口，张希哲抱着足球走在最前面。',
+        text: '领头的正是被异化的体育生队长，胳膊底下夹着一兜青蓝色的异化饮料，见本校学生出来就往人怀里塞。[next]小伙伴们刚走到校门口，张希哲抱着足球走在最前面。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -111,7 +111,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '外校队长嗤笑一声推了张希哲一把，两边当场推搡起来，混乱中半瓶饮料被挤得“啪”地摔在水泥地上，青蓝色发光的液体流了一地，那股甜得发腻的怪味一下散开。',
+        text: '外校队长嗤笑一声推了张希哲一把，两边当场推搡起来，混乱中半瓶饮料被挤得“啪”地摔在水泥地上，[next]青蓝色发光的液体流了一地，那股甜得发腻的怪味一下散开。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -137,7 +137,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '张希哲把那个一年级小同学死死护在身后。对面这群外校体育生又高又大，人又多，硬打绝对打不过，咬得后槽牙都紧了。',
+        text: '张希哲把那个一年级小同学死死护在身后。[next]对面这群外校体育生又高又大，人又多，硬打绝对打不过，咬得后槽牙都紧了。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -155,7 +155,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '张希哲弯腰捡起那瓶饮料，一仰头就灌了半瓶。青蓝色的光瞬间从他眼底漫上来，他两三下就把围上来的几个外校学生推倒在地，动作比平时快了整整一倍。',
+        text: '张希哲弯腰捡起那瓶饮料，一仰头就灌了半瓶。[next]青蓝色的光瞬间从他眼底漫上来，他两三下就把围上来的几个外校学生推倒在地，动作比平时快了整整一倍。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -164,7 +164,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '可等他转过身，眼睛已经全是青光，直勾勾盯着刚冲到面前的小伙伴们，完全认不出眼前的人了。他抬脚“咚”地一脚把足球狠狠踢到这边，摆出了进攻的架势。',
+        text: '可等他转过身，眼睛已经全是青光，直勾勾盯着刚冲到面前的小伙伴们，完全认不出眼前的人了。[next]他抬脚“咚”地一脚把足球狠狠踢到这边，摆出了进攻的架势。',
         sfx: 'sfx_confirm'
       },
       {
@@ -179,7 +179,7 @@ export const CHAPTER3_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
         activeSide: 'left',
         text: '张希哲！你疯了吗？为了护住大家，你竟然自己喝了那个异化饮料！',
@@ -197,7 +197,7 @@ export const CHAPTER3_STORY = {
       {
         id: 8,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
         activeSide: 'left',
         text: '张希哲！你这个大笨蛋，谁要你用这种方式保护我们了！',
@@ -209,7 +209,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '覃瑞怡举着花球当场就红了眼圈，朱晏泽下意识往前一步又硬生生停住。大家举着武器瞬间僵在原地，谁都不敢真下手——那是自己同班同学。',
+        text: '覃瑞怡举着花球当场就红了眼圈，朱晏泽下意识往前一步又硬生生停住。[next]大家举着武器瞬间僵在原地，谁都不敢真下手——那是自己同班同学。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -218,13 +218,13 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/shadow_woman_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '就在两边僵住、外校人又要往上围的时候，教学楼连廊口的阴影里慢慢走出一个黑影。那黑影平时总是躲在教务处窗帘后，看不清面目，此时却一步步朝这边走来。',
+        text: '就在两边僵住、外校人又要往上围的时候，教学楼连廊口的阴影里慢慢走出一个黑影。[next]那黑影平时总是躲在教务处窗帘后，看不清面目，此时却一步步朝这边走来。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 11,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/shadow_woman_default@2x.png',
         activeSide: 'left',
         text: '那是谁？是敌人吗？',
@@ -236,7 +236,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '黑影现身了，大家才看清——那是平时语文课上总坐在最后一排、几乎没什么存在感的刘老师。徐老师正跟在她身边。',
+        text: '黑影现身了，大家才看清——那是平时语文课上总坐在最后一排、[next]几乎没什么存在感的刘老师。徐老师正跟在她身边。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -251,7 +251,7 @@ export const CHAPTER3_STORY = {
       {
         id: 14,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/teacher_xu_default@2x.png',
         activeSide: 'left',
         text: '十几年？！那不是比咱们年纪还长？',
@@ -261,7 +261,7 @@ export const CHAPTER3_STORY = {
         id: 15,
         speaker: '刘老师',
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '具体的事儿咱们待会再说，先应付眼前这场战斗。他是你们同学，不是怪物。记住——打醒他，别打伤他。',
         highlight: true,
@@ -300,7 +300,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '我刚才…… 是不是差点踢到你们了？我脑子里就一直转着‘我要变强、不能拖大家后腿’，别的什么都记不清了。',
+        text: '我刚才…… 是不是差点踢到你们了？[next]我脑子里就一直转着‘我要变强、不能拖大家后腿’，别的什么都记不清了。',
         sfx: 'sfx_unit_down'
       },
       {
@@ -407,7 +407,7 @@ export const CHAPTER3_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '大家愣在原地。本以为自己只是在打几个捣乱的小混混，一抬头才发现，面前是个深不见底的洞，它背后到底是什么？',
+        text: '大家愣在原地。本以为自己只是在打几个捣乱的小混混，[next]一抬头才发现，面前是个深不见底的洞，它背后到底是什么？',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }

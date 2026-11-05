@@ -2,8 +2,8 @@
  * 第二十七章《熔炉抉择》剧情脚本数据表（第三幕 第7章）
  *
  * 流程结构：
- * - ch27_scene_reactor_run: 金字塔底层反物质反应堆，时空光门开启连接2026年9月28日黄昏五点五十分
- * - ch27_scene_annihilation_horde: 因果律排斥成年人，大号将十二岁小号推入光环，独自阻击歼灭机甲暴风
+ * - ch27_scene_reactor_run: 金字塔底层能量炉，时空门开启连接2026年9月28日黄昏五点五十分
+ * - ch27_scene_annihilation_horde: 时空门排斥成年人，大号将十二岁小号推入光环，独自阻击歼灭机甲暴风
  * - ch27_battle1: 光门前最后的血肉长城（大号死守4回合 VS 重装歼灭者暴风）
  * - ch27_scene_great_sacrifice: 光门稳定100%，历史修正使成年主角与副官化作漫天金色光蝶消散，少先队礼嘱托托付未来
  */
@@ -12,7 +12,7 @@ export const CHAPTER27_STORY = {
   // s1: 反应堆核心 · 逆转的金色光门
   ch27_scene_reactor_run: {
     id: 'ch27_scene_reactor_run',
-    title: '底层深井 · 撕裂维度的光门',
+    title: '底层深井 · 撕裂时空门',
     bgType: 'reactor',
     bgImg: 'assets/backgrounds/bg_reactor_core@2x.png',
     bgm: 'bgm_suspense',
@@ -122,11 +122,11 @@ export const CHAPTER27_STORY = {
       },
       {
         id: 4,
-        speaker: '境外重装歼灭者·暴风',
+        speaker: '重装歼灭者·暴风',
         leftPortrait: 'assets/art/boss_storm_mech@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（四足重型攻城战车踏碎环形光井金属甲板，双联穿甲自动炮炮口泛起炽烈红光，沉闷引擎如雷霆震颤）警报：侦测到底层时空喷流异常过载！歼灭模式全开，炮火覆盖，清除一切阻碍！',
+        text: '（四足重型攻城战车踏碎环形光井金属甲板，双联穿甲自动炮炮口泛起炽烈红光，沉闷引擎如雷霆震颤）警报：侦测到底层时空门能量异常过载！歼灭模式全开，炮火覆盖，清除一切阻碍！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

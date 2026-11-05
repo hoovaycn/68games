@@ -24,7 +24,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '下午三点，窄巷子里飘着一股铁锈和废机油的刺鼻味。破旧的红砖墙上贴满了小广告，头顶的电线乱糟糟地搭着，把灰蒙蒙的天空切成了几块。',
+        text: '下午三点，窄巷子里飘着一股铁锈和废机油的刺鼻味。[next]破旧的红砖墙上贴满了小广告，头顶的电线乱糟糟地搭着，把灰蒙蒙的天空切成了几块。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -59,7 +59,7 @@ export const CHAPTER11_STORY = {
         id: 5,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'right',
         text: '不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的事！我不信！跟我进去看清楚！',
         sfx: 'sfx_confirm'
@@ -105,7 +105,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
-        text: '老海峰，古罐已经送到你店里。今晚先从罐里提炼出“青髓”，再由你开车运去码头。这三十万是你的报酬，往后你的二手车生意也由我罩着。',
+        text: '老海峰，古罐已经送到你店里。今晚先从罐里提炼出“青髓”，再由你开车运去码头。[next]这三十万是你的报酬，往后你的二手车生意也由我罩着。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -114,7 +114,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
-        text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',
+        text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。[next]管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -138,7 +138,7 @@ export const CHAPTER11_STORY = {
       {
         id: 1,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒品？！',
@@ -147,7 +147,7 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'right',
         text: '（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！',
@@ -156,8 +156,8 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_loving@2x.png',
         activeSide: 'left',
         text: '我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！',
         sfx: 'sfx_text_blip'
@@ -165,8 +165,8 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        rightPortrait: 'assets/art/father_haifeng_loving@2x.png',
         activeSide: 'right',
         text: '（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！',
         highlight: true,
@@ -176,7 +176,7 @@ export const CHAPTER11_STORY = {
         id: 5,
         speaker: '二秃子',
         leftPortrait: 'assets/art/punk_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '（拎着铁管从车底钻出来）老海让你们走，没听见？后仓里那批货，谁敢多看一眼，我就敲谁的腿。',
         sfx: 'sfx_shock_sting'
@@ -185,7 +185,7 @@ export const CHAPTER11_STORY = {
         id: 6,
         speaker: '沈家护卫',
         leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '门我堵上了。货还在里面，不能让这几个孩子回头拍照。',
         sfx: 'sfx_text_blip'
@@ -193,7 +193,7 @@ export const CHAPTER11_STORY = {
       {
         id: 7,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/punk_default@2x.png',
         activeSide: 'left',
         text: '{ALLY_2_NAME}，先把奖状捡起来！他们已经围过来了，咱们得打出去！',

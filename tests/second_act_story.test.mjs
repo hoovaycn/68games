@@ -884,9 +884,9 @@ test('第二幕从博物馆到结局全程可达，战斗回跳与主要角色�
     CH15_BATTLE1, CH15B_BATTLE1, CH16_BATTLE1, CH17_BATTLE1, CH19_BATTLE1
   ].map((battle) => [battle.id, battle]));
   const speakerArt = new Map([
-    ['{MC_NAME}', '{MC_PORTRAIT}'],
-    ['{ALLY_1_NAME}', '{ALLY_1_PORTRAIT}'],
-    ['{ALLY_2_NAME}', '{ALLY_2_PORTRAIT}'],
+    ['{MC_NAME}', '{MC_'],
+    ['{ALLY_1_NAME}', '{ALLY_1_'],
+    ['{ALLY_2_NAME}', '{ALLY_2_'],
     ['老爸海峰', 'assets/art/father_haifeng_'],
     ['沈崇礼', 'assets/art/mystery_man_'],
     ['沈万廷', 'assets/art/shen_wanting_'],

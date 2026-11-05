@@ -24,7 +24,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '夜里八点，雨下得特别大。狂风把仓库顶棚的铁皮吹得哐当作响。少年们顺着白天的电路图，悄悄摸进了堆满报废集装箱的后院。',
+        text: '夜里八点，雨下得特别大。狂风把仓库顶棚的铁皮吹得哐当作响。[next]少年们顺着白天的电路图，悄悄摸进了堆满报废集装箱的后院。',
         sfx: 'sfx_suspense'
       },
       {
@@ -78,7 +78,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '十数道白亮刺目的光束死死钉在孩子们身上。集装箱顶上，数名身披夜行雨衣、眼瞳泛着森绿毒光的蒙面黑衣人悄无声息地拔出了短棍与甩刀。',
+        text: '十数道白亮刺目的光束死死钉在孩子们身上。[next]集装箱顶上，数名身披夜行雨衣、眼瞳泛着森绿毒光的蒙面黑衣人悄无声息地拔出了短棍与甩刀。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -87,7 +87,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '老板说得没错，海峰放你们走，肯定还会给你们留线索。我们守在后仓，就是等你们回来。抓了你们当人质，他今晚还敢不听话？',
+        text: '老板说得没错，海峰放你们走，肯定还会给你们留线索。[next]我们守在后仓，就是等你们回来。抓了你们当人质，他今晚还敢不听话？',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -131,15 +131,15 @@ export const CHAPTER12_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '墙外猛地传来引擎声。一辆加固过车头的清障皮卡撞开后仓的旧砖墙，车灯照得黑衣人睁不开眼；两名堵路的守卫被撞翻，其余人急忙后退。',
+        text: '墙外猛地传来引擎声。一辆加固过车头的清障皮卡撞开后仓的旧砖墙，车灯照得黑衣人睁不开眼；[next]两名堵路的守卫被撞翻，其余人急忙后退。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'assets/art/father_haifeng_alert@2x.png',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '敢动我家孩子？！老子今天活剥了你们这群吃人骨髓的杂种！！',
         highlight: true,
@@ -148,10 +148,10 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'assets/art/father_haifeng_loving@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '海峰跳下车，拿着修车用的长管钳挡开刀，反手把领头的黑衣人按倒在地。{ALLY_2_NAME}愣住了：老爸打架的动作不像街头混混，倒像专门练过。',
+        text: '海峰跳下车，拿着修车用的长管钳挡开刀，反手把领头的黑衣人按倒在地。[next]{ALLY_2_NAME}愣住了：老爸打架的动作不像街头混混，倒像专门练过。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -175,7 +175,7 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
         rightPortrait: 'assets/art/father_haifeng_default@2x.png',
         activeSide: 'left',
         text: '爸……？！你……好厉害？！',
@@ -184,8 +184,8 @@ export const CHAPTER12_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'assets/art/father_haifeng_alert@2x.png',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '傻看什么！躲到老子背后！看老子怎么把这帮孙子收拾干净！',
         sfx: 'sfx_confirm'
@@ -215,7 +215,7 @@ export const CHAPTER12_STORY = {
         leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '满地翻滚哀嚎的黑衣死士被一一捆缚。老爸海峰捂着流血的右肋靠在皮卡轮胎上，大口喘着粗气，豆大的汗珠混着血水滚落。',
+        text: '满地翻滚哀嚎的黑衣死士被一一捆缚。[next]老爸海峰捂着流血的右肋靠在皮卡轮胎上，大口喘着粗气，豆大的汗珠混着血水滚落。',
         sfx: 'sfx_text_blip'
       },
       {

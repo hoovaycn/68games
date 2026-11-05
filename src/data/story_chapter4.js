@@ -188,7 +188,7 @@ export const CHAPTER4_STORY = {
         id: 3,
         speaker: '张希哲',
         leftPortrait: 'assets/art/coach_corrupted@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        rightPortrait: 'assets/art/zhangxizhe_smirk@2x.png',
         activeSide: 'right',
         text: '就是你让他们往学校塞这些破东西的？害了多少同学了你还敢坐这儿装大爷！',
         sfx: 'sfx_text_blip'
@@ -205,7 +205,7 @@ export const CHAPTER4_STORY = {
       {
         id: 5,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: 'assets/art/coach_corrupted@2x.png',
         activeSide: 'left',
         text: '你把人吃成那样，还好意思说是帮忙？',
@@ -232,7 +232,7 @@ export const CHAPTER4_STORY = {
       {
         id: 8,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
         rightPortrait: 'assets/art/coach_corrupted@2x.png',
         activeSide: 'left',
         text: '别跟他废话。先把他和这些被异化的人一起打败，再从他嘴里把所有真相挖出来。',
@@ -270,14 +270,14 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '原本凶神恶煞的坏教练，此刻眼里的青光完全褪去。[next]他看着满地散落的旧奖状和异化零食，忽然像个无助的孩子一样捂住脸，肩膀止不住地发抖，竟然当着所有人的面哭了起来。',
+        text: '原本凶神恶煞的坏教练，此刻眼里的青光完全褪去。[next]他看着满地散落的旧奖状和异化零食，忽然像个无助的孩子一样捂住脸，[next]肩膀止不住地发抖，竟然当着所有人的面哭了起来。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 3,
         speaker: '坏教练',
         leftPortrait: 'assets/art/coach_sad@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
         activeSide: 'left',
         text: '二十年前……我就是个连体测都过不了的体育差生。所有人都笑话我。[next]喝了这东西，我真拿过全国少年冠军。那几年我风光得很，谁见我都客客气气。',
         sfx: 'sfx_text_blip'
@@ -288,7 +288,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/coach_sad@2x.png',
         rightPortrait: 'assets/art/vendor_sad@2x.png',
         activeSide: 'left',
-        text: '可巅峰就那几年。除了跑步我什么都不会，后来腿废了、名头也没了，只能在这种破地方混饭吃。你说我不靠这个，我还靠什么？',
+        text: '可巅峰就那几年。除了跑步我什么都不会，后来腿废了、名头也没了，只能在这种破地方混饭吃。[next]你说我不靠这个，我还靠什么？',
         sfx: 'sfx_text_blip'
       },
       {
@@ -297,7 +297,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/vendor_sad@2x.png',
         rightPortrait: 'assets/art/coach_sad@2x.png',
         activeSide: 'left',
-        text: '我当年也是。全班倒数，我爸说我考不上大学就去要饭。靠这东西我考过省状元，风光没几年，现在还不是在小学门口卖烤肠，天天被城管追。',
+        text: '我当年也是。全班倒数，我爸说我考不上大学就去要饭。[next]靠这东西我考过省状元，风光没几年，现在还不是在小学门口卖烤肠，天天被城管追。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -315,7 +315,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: 'assets/art/coach_sad@2x.png',
         rightPortrait: 'assets/art/vendor_sad@2x.png',
         activeSide: 'left',
-        text: '我知道这东西不对……我真的知道。可我除了让小孩喝这个拿成绩，我什么都不会啊。我不这么干，我连饭都吃不上。',
+        text: '我知道这东西不对……我真的知道。[next]可我除了让小孩喝这个拿成绩，我什么都不会啊。我不这么干，我连饭都吃不上。',
         highlight: true,
         sfx: 'sfx_unit_down'
       },
@@ -352,7 +352,7 @@ export const CHAPTER4_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '刘老师从散落的旧账本里抽出一张送货单，另一只手掰开坏教练攥紧的掌心，摸出一把挂着褪色号码牌的旧仓库钥匙。[next]送货单上写得很清楚：家长会前夜，统一装车。',
+        text: '刘老师从散落的旧账本里抽出一张送货单，[next]另一只手掰开坏教练攥紧的掌心，摸出一把挂着褪色号码牌的旧仓库钥匙。[next]送货单上写得很清楚：家长会前夜，统一装车。',
         sfx: 'sfx_item_get'
       },
       {

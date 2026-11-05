@@ -1,12 +1,12 @@
 /**
- * 诊室时空阻滞战 战斗关卡定义
+ * 诊室净化风暴战 战斗关卡定义
  * 地图尺寸：16×10（Tiled 源工程见 docs/map/tiled_project/ch23_battle1.tmx）
  * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH23_BATTLE1 = {
   id: 'ch23_battle1',
-  name: '诊室时空阻滞战',
+  name: '诊室净化风暴战',
   bgm: 'bgm_battle_normal',
   mapWidth: 16,
   mapHeight: 10,

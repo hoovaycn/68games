@@ -25,7 +25,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；{MC_NAME}手里还握着林则徐交给大家的浩然正气杖。',
+        text: '夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；[next]{MC_NAME}手里还握着林则徐交给大家的浩然正气杖。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -109,7 +109,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '皮卡开回城北，海峰拿证件打开安全屋铁门。屋里还是那张铁皮桌，大家却都湿透了，手上还沾着虎门销烟池的白灰。',
+        text: '皮卡开回城北，海峰拿证件打开安全屋铁门。[next]屋里还是那张铁皮桌，大家却都湿透了，手上还沾着虎门销烟池的白灰。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -136,7 +136,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（拿起无线电）沈家拿到了全班住址，我已经让同事继续联系家长，先去守住名单上最近的几户。你们留在这里，天亮再一起去旧洋行仓库。',
+        text: '（拿起无线电）沈家拿到了全班住址，我已经让同事继续联系家长，先去守住名单上最近的几户。[next]你们留在这里，天亮再一起去旧洋行仓库。',
         sfx: 'sfx_confirm'
       },
       {
@@ -164,7 +164,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '徐老师让大家裹着外套靠墙休息，海峰关了吊灯。屋里只剩无线电的小红灯和门外的雨声；覃瑞怡还坐在桌边，盯着手机。',
+        text: '徐老师让大家裹着外套靠墙休息，海峰关了吊灯。[next]屋里只剩无线电的小红灯和门外的雨声；覃瑞怡还坐在桌边，盯着手机。',
         bgImg: 'assets/backgrounds/bg_safahouse_shelter_night@2x.png',
         sfx: 'sfx_text_blip'
       }
@@ -202,7 +202,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '铁皮桌上留着覃瑞怡从书包里拿出的“市级优秀学生干部”奖状。她把奖状翻过来当信纸，背面写满了字，纸角还有没干的泪痕。',
+        text: '铁皮桌上留着覃瑞怡从书包里拿出的“市级优秀学生干部”奖状。[next]她把奖状翻过来当信纸，背面写满了字，纸角还有没干的泪痕。',
         sfx: 'sfx_text_blip'
       },
       {
@@ -211,7 +211,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『对不起大家……刚才沈崇礼发来六 8 班家庭联系表的照片，上面有每个人的住址。他还拍了我家门口，说他们已经知道我们住哪儿。』',
+        text: '『对不起大家……刚才沈崇礼发来六 8 班家庭联系表的照片，上面有每个人的住址。[next]他还拍了我家门口，说他们已经知道我们住哪儿。』',
         sfx: 'sfx_text_blip'
       },
       {
@@ -220,7 +220,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。[next]我知道他可能骗人，可我不敢拿全班同学赌。』',
+        text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。[next]不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。[next]我知道他可能骗人，可我不敢拿全班同学赌。』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -274,7 +274,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '旧水闸的铁锈大门虚掩着，泥地里扔着一只熟悉的粉色双肩包。闸口阴影中，十余名戴着防毒面具、手持高压电棍的沈氏精锐死士早已严阵以待！',
+        text: '旧水闸的铁锈大门虚掩着，泥地里扔着一只熟悉的粉色双肩包。[next]闸口阴影中，十余名戴着防毒面具、手持高压电棍的沈氏精锐死士早已严阵以待！',
         sfx: 'sfx_suspense'
       },
       {
@@ -283,7 +283,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '嘿嘿……六掌柜料事如神，那个天真的女班长果然把东西送来了！至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
+        text: '嘿嘿……六掌柜料事如神，那个天真的女班长果然把东西送来了！[next]至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -299,8 +299,8 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
         activeSide: 'left',
         text: '把覃瑞怡交出来！！把信物还给我们！！',
         sfx: 'sfx_confirm'
@@ -309,7 +309,7 @@ export const CHAPTER16_STORY = {
         id: 4,
         speaker: '沈氏死士头目',
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
         activeSide: 'left',
         text: '想问她在哪儿？先从我和这排电棍中间走过去！',
         sfx: 'sfx_shock_sting'
@@ -347,7 +347,7 @@ export const CHAPTER16_STORY = {
         leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'right',
-        text: '咳……人已经被带到旧洋行仓库地下了。沈崇礼抢了杖，想拿它压住毒池里的黑气，再逼那个女孩喝第一口原浆，替他们试药！',
+        text: '咳……人已经被带到旧洋行仓库地下了。[next]沈崇礼抢了杖，想拿它压住毒池里的黑气，再逼那个女孩喝第一口原浆，替他们试药！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

@@ -3,9 +3,9 @@
  *
  * 流程结构：
  * - ch23_scene_counseling_breakin: 深夜特警与主角团折返崇文楼，破门心理咨询室
- * - ch23_scene_ayao_revelation: 刘老师认出手腕伤疤与习惯，苏晚摘眼镜露出真面目——失踪二十年的阿瑶
- * - ch23_battle1: 崇文楼诊室时空阻滞战（主角团 + 海峰警官NPC VS 古罐煞气拟态体）
- * - ch23_scene_future_exile: 脑波仪超载引发时空黑洞，阿瑶割断风衣断绝旧情，六名少年坠入二十年后未来
+ * - ch23_scene_ayao_revelation: 刘老师认出那双眼睛，苏晚摘眼镜露出真面目——失踪二十年的阿瑶
+ * - ch23_battle1: 崇文楼诊室净化风暴战（主角团 + 海峰警官NPC VS 黑雾寄生体）
+ * - ch23_scene_future_exile: 脑波仪超载撕开时空门，阿瑶割断风衣断绝旧情，六名少年坠入二十年后未来
  */
 
 export const CHAPTER23_STORY = {
@@ -84,8 +84,8 @@ export const CHAPTER23_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '刘老师走上前，目光落在了苏晚的手腕上，脸色煞白。',
-      buttonText: '【凝视手腕 · 揭开二十年的真容】',
+      prompt: '刘老师走上前，目光撞上苏晚那双似曾相识的眼睛，脸色煞白。',
+      buttonText: '【凝视双眼 · 揭开二十年的真容】',
       targetScene: 'ch23_scene_ayao_revelation'
     }
   },
@@ -105,7 +105,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/adult_liu_default@2x.png',
         rightPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         activeSide: 'left',
-        text: '（死死盯着苏晚的手腕，失声叫道）等等……你右手腕上的烫伤……还有倒茶敲杯沿的习惯……天呐！徐博！你快看她！她是……阿瑶？！',
+        text: '（死死盯着苏晚的眼睛，失声叫道）等等……这双眼睛……看人时那种冷冷地、像要把人看穿的眼神……天呐！徐博！你快看她！她是……阿瑶？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -135,7 +135,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '沈万廷不过是个贪婪的蠢货，他以为挖出来的是发横财的古董，却不知那古罐里封印着百年前地脉的时空煞气原石！[next]我借他的走私船队把原石残片打捞出水，再用这台脑波仪抽取其中的时空能量，就是为了撕开连接二十年后的时空裂隙！[next]只要能逆转因果改写未来，借他的手挖出地脉又有何不可？！',
+        text: '沈万廷不过是个贪婪的蠢货，他以为那口青花古罐里装的是能发横财的鸦片膏，却不知道真正可怕的是罐底沉淀的那层“净心散”——它能让人的喜怒哀乐彻底消失！[next]我借他的走私船队把货和这台脑波仪运进城，就是要让所有人都服下它、接进这台机器，把贪婪、嫉妒、恐惧、背叛这些害人的情绪统统抹掉！[next]等所有人都变成不懂背叛、没有痛苦的“满分”之人，这世上就再也不会有人被逼上绝路，再也不会有人像我一样在泥潭里挣扎二十年！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -154,7 +154,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '无辜？海峰，在注定的命运面前，没有谁是无辜的！不把三号船的祸根斩断，过不了几天，你们所有人都会葬身火海！想拦我，就先过了这一关！',
+        text: '无辜？海峰，二十年前我被人逼上绝路、吞下那罐毒药的时候，怎么没见你们这些大人站出来？！[next]这个世界之所以一遍遍害人，就是因为人心太脏！既然你们非要拦着我把它净化干净，就先过了我这一关！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -170,17 +170,17 @@ export const CHAPTER23_STORY = {
       },
       {
         id: 8,
-        speaker: '时空煞气寄生体',
+        speaker: '黑雾寄生体',
         leftPortrait: 'assets/art/shadow_parasite@2x.png',
         rightPortrait: 'assets/art/father_haifeng_police@2x.png',
         activeSide: 'left',
-        text: '（仪器裂缝中黑雾翻腾，两只幽灵般的煞气虚影凝聚成形，发出刺耳的电子尖啸）滋……因果律入侵者……[next]抹除……彻底抹除……留在这里变成永恒的养料吧！',
+        text: '（仪器裂缝中黑雾翻腾，两只幽灵般的黑雾凝聚成形，发出刺耳的电子尖啸）滋……入侵者……[next]抹除……彻底抹除……留在这里变成永恒的养料吧！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 9,
-        speaker: '时空错乱傀儡',
+        speaker: '失控傀儡',
         leftPortrait: 'assets/art/chronos_puppet@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
@@ -211,18 +211,18 @@ export const CHAPTER23_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '脑波仪暴走喷出煞气虚影，错乱傀儡手持电弧封锁诊室！',
-      buttonText: '【进入战斗 · 诊室时空阻滞战】',
+      prompt: '脑波仪暴走喷出黑雾，失控傀儡手持电弧封锁诊室！',
+      buttonText: '【进入战斗 · 诊室净化风暴战】',
       battleId: 'ch23_battle1',
       isBattleTrigger: true,
       targetScene: 'ch23_scene_future_exile'
     }
   },
 
-  // s3: 裂隙撕裂 · 坠入二十年后的深渊
+  // s3: 时空门撕裂 · 坠入二十年后的深渊
   ch23_scene_future_exile: {
     id: 'ch23_scene_future_exile',
-    title: '深夜十点半 · 无法逆转的时空漩涡',
+    title: '深夜十点半 · 无法逆转的时空门',
     bgType: 'quantum',
     bgImg: 'assets/backgrounds/bg_time_passage@2x.png',
     bgm: 'bgm_shock_sting',
@@ -233,7 +233,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '煞气残影消散，但古瓷罐与脑波仪彻底过载，狂暴的光芒在地面撕开了一道旋转的时空裂隙！',
+        text: '黑雾消散，但古瓷罐与脑波仪彻底过载，狂暴的光芒在地面撕开了一道旋转的时空门！',
         sfx: 'sfx_shock_sting'
       },
       {

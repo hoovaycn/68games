@@ -1,12 +1,12 @@
 /**
- * 斩断神明枷锁 战斗关卡定义
+ * 斩断机器锁链 战斗关卡定义
  * 地图尺寸：18×12（Tiled 源工程见 docs/map/tiled_project/ch29_battle1.tmx）
  * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH29_BATTLE1 = {
   id: 'ch29_battle1',
-  name: '斩断神明枷锁',
+  name: '斩断机器锁链',
   bgm: 'bgm_retro_level3',
   mapWidth: 18,
   mapHeight: 12,

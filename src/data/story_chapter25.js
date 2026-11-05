@@ -6,7 +6,7 @@
  * - ch25_scene_unmasking_reunion: 摘下面罩，二十年后的成年主角与成年副官，父辈遗物与绝笔信真相
  * - ch25_scene_shoulder_to_shoulder: 防空洞闸门被热熔切割，两代六8班并肩执棍上膛
  * - ch25_battle1: 防空洞绝壁守护战（大小号联手 VS 天梯追猎者阿尔法）
- * - ch25_scene_bitter_legacy: 战后指明云端【天梯总考场】，阿瑶在维生舱神明化，需夺取古罐原石逆流回2026
+ * - ch25_scene_bitter_legacy: 战后指明云端【天梯总考场】，阿瑶在维生舱与机器融为一体，需夺取古罐残片逆流回2026
  */
 
 export const CHAPTER25_STORY = {
@@ -156,7 +156,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（骨节捏得泛白，眼中燃烧着不屈的怒火）大火吞没了江面，但真正的噩梦才刚开始。[next]三号船爆炸彻底释放了地脉古罐原石的煞气，阿瑶启动【天梯考场】，用机械芯片抹去了全城人的喜怒哀乐，把活生生的人变成只会执行满分命令的提线木偶！',
+        text: '（骨节捏得泛白，眼中燃烧着不屈的怒火）大火吞没了江面，但真正的噩梦才刚开始。[next]三号船爆炸彻底释放了古罐里那股失控的能量，阿瑶启动【天梯考场】，用机械芯片抹去了全城人的喜怒哀乐，把活生生的人变成只会执行满分命令的提线木偶！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -166,7 +166,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '二十年里，我们躲在废墟、暗河与防空洞苟延残喘，拼尽一切建立反抗军，被追猎队围剿断手断脚都不曾退缩！[next]我们之所以流尽鲜血撕开时空裂隙，把这枚警徽和预警信送回过去，就是为了给当年的你们递个醒，哪怕能让你们多留个心眼、多争取半步生机，提前阻止大爆炸，彻底改写这段绝望的惨剧！',
+        text: '二十年里，我们躲在废墟、暗河与防空洞苟延残喘，拼尽一切建立反抗军，被追猎队围剿断手断脚都不曾退缩！[next]我们之所以流尽鲜血撕开时空门，把这枚警徽和预警信送回过去，就是为了给当年的你们递个醒，哪怕能让你们多留个心眼、多争取半步生机，提前阻止大爆炸，彻底改写这段绝望的惨剧！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -309,7 +309,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '我们在这个时代生活了二十年，早就回不去了。但你们刚从二十年前被拽过来，只要有时空矩阵的能量源，就能顺着时间通道送回去！',
+        text: '我们在这个时代生活了二十年，早就回不去了。但你们刚从二十年前被拽过来，只要有启动时空门的能量源，就能顺着时间通道送回去！',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -329,7 +329,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '阿瑶胸口嵌着最初的【地脉古罐原石】！只有打上最高层拿到原石，启动考场里的时空矩阵，才能把你们送回2026年9月28日的码头！',
+        text: '阿瑶胸口嵌着最初的【古罐残片】！只有打上最高层拿到它，启动考场里的时空门，才能把你们送回2026年9月28日的码头！',
         highlight: true,
         sfx: 'sfx_confirm'
       },

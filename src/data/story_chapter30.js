@@ -4,8 +4,8 @@
  * 流程结构：
  * - ch30_scene_snack_crush: 终战序幕！主角当面掏出第一章留白至今的荧光怪零食——包装完好、封条未动，当面捏得粉碎！
  * - ch30_scene_three_generations: 三代同堂！1839林公浩然气、2046大号金色虚影托手、2026生还大人并肩，全员连携突击！
- * - ch30_battle1: 全剧终极大决战【斩断莫比乌斯环】（六8班全员 + 大人们联合突破境外资本终极主脑母体）
- * - ch30_scene_pull_to_mortal: 击碎神座，合力将求死的阿瑶从深渊母体中活生生拽回人间，因果闭环彻底粉碎！
+ * - ch30_battle1: 全剧终极大决战【斩断循环】（六8班全员 + 大人们联合突破净化机器母体）
+ * - ch30_scene_pull_to_mortal: 击碎控制台，合力将求死的阿瑶从机器母体中活生生拽回人间，循环彻底粉碎！
  * - ch30_scene_epilogue_three_views: 总结式三重视角大结局（1839历史答卷、2026当下圆满、2046未来挥别）
  */
 
@@ -113,8 +113,8 @@ export const CHAPTER30_STORY = {
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '地脉异动，终极魔神降临！',
-      buttonText: '【迎接终极裁决主脑】',
+      prompt: '净化能量暴走，终极机器降临！',
+      buttonText: '【迎接终极净化机器】',
       targetScene: 'ch30_scene_three_generations'
     }
   },
@@ -122,7 +122,7 @@ export const CHAPTER30_STORY = {
   // s2: 跨越时空的浩然气 · 三代同堂
   ch30_scene_three_generations: {
     id: 'ch30_scene_three_generations',
-    title: '崩解的主脑核心前 · 奇迹的共鸣',
+    title: '崩解的机器核心前 · 奇迹的共鸣',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
     bgm: 'bgm_army_approaching',
@@ -133,27 +133,27 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '『宿主彻底叛离！全域同化失败！启动终极毁灭程序：引爆底舱核心，抹除所有证据！！』',
+        text: '『净化对象脱离控制！全域净化失败！启动终极毁灭程序：引爆底舱核心，抹除所有证据！！』',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
-        speaker: '万物天梯裁决核心',
+        speaker: '净化母体核心',
         leftPortrait: 'assets/art/boss_judgement_core@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（三号船顶层穹顶轰然坍塌！巨大的半球形量子脑波中枢如恶兽破壳，盘踞在雷暴中央，数万根生物光缆如巨蟒舞动，复眼闪烁深紫电芒）低等生物的虚妄情感……终究不过是因果闭环里的尘埃！时空覆写协议启动，将这群蝼蚁连同这片江面全部蒸发！',
+        text: '（三号船顶层穹顶轰然坍塌！巨大的半球形机器中枢如恶兽破壳，盘踞在雷暴中央，数万根光缆如巨蟒舞动，复眼闪烁深紫电芒）低等生物的虚妄情感……终究不过是一串无用的数据！净化程序全开，将这群蝼蚁连同这片江面全部蒸发！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 3,
-        speaker: '境外资本重装护卫机甲',
+        speaker: '净化机械守卫',
         leftPortrait: 'assets/art/capital_guard_mech@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（涂装资本鹰隼徽标的厚重机械守卫轰然立起双臂电磁震荡盾牌，机体释放出刺目嘲讽光环）资本资产神圣不可侵犯！核心防御矩阵完全激活！胆敢踏上神座者，全部碾碎！',
+        text: '（厚重的机械守卫轰然立起双臂电磁震荡盾牌，机体释放出刺目红光）净化程序神圣不可侵犯！核心防御矩阵完全激活！胆敢靠近机器者，全部碾碎！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -207,7 +207,7 @@ export const CHAPTER30_STORY = {
     transition: {
       type: 'CHOICE',
       prompt: '全剧终局决战爆发！',
-      buttonText: '【斩断莫比乌斯环】',
+      buttonText: '【斩断循环】',
       battleId: 'ch30_battle1',
       isBattleTrigger: true,
       targetScene: 'ch30_battle1'
@@ -217,7 +217,7 @@ export const CHAPTER30_STORY = {
   // 终局战斗过渡占位（战后触发）
   ch30_battle1: {
     id: 'ch30_battle1',
-    title: '战局结算 · 斩断因果',
+    title: '战局结算 · 斩断循环',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
     bgm: 'bgm_confirm',
@@ -228,13 +228,13 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '机械主脑被彻底轰碎！三代同堂的执念撕碎了一切阴霾，循环被彻底打破！',
+        text: '净化机器被彻底轰碎！三代同堂的执念撕碎了一切阴霾，循环被彻底打破！',
         sfx: 'sfx_confirm'
       }
     ],
     transition: {
       type: 'CHOICE',
-      prompt: '神座地基彻底塌陷！抢救阿瑶！',
+      prompt: '控制台地基彻底塌陷！抢救阿瑶！',
       buttonText: '【合力抓紧阿瑶的手】',
       targetScene: 'ch30_scene_pull_to_mortal'
     }
@@ -243,7 +243,7 @@ export const CHAPTER30_STORY = {
   // s3: 活生生拽回人间
   ch30_scene_pull_to_mortal: {
     id: 'ch30_scene_pull_to_mortal',
-    title: '傍晚六点四十分 · 神座彻底坍塌',
+    title: '傍晚六点四十分 · 控制台彻底坍塌',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
     bgm: 'bgm_confirm',

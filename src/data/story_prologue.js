@@ -44,7 +44,7 @@ export const PROLOGUE_STORY = {
         {
           id: 1,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_smile@2x.png',
           rightPortrait: null,
           activeSide: 'left',
           text: '我是张子骁。大家都叫我“六8班棋王”，下棋做事，我习惯走一步看三步。',
@@ -63,7 +63,7 @@ export const PROLOGUE_STORY = {
           id: 3,
           speaker: '张子骁',
           leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
-          rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+          rightPortrait: 'assets/art/teacher_xu_stern@2x.png',
           activeSide: 'left',
           text: '但今天清晨气氛不对。徐老师站在讲台前，脸色异常凝重。',
           sfx: 'sfx_text_blip'
@@ -89,7 +89,7 @@ export const PROLOGUE_STORY = {
         {
           id: 6,
           speaker: '徐老师',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_shock@2x.png',
           rightPortrait: 'assets/art/teacher_xu_default@2x.png',
           activeSide: 'right',
           text: '【微信】“徐老师！小默昨晚狂刷高三物理，边哭边喊它们要来了……平时他连作业都抄别人的！”',
@@ -98,7 +98,7 @@ export const PROLOGUE_STORY = {
         {
           id: 7,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_shock@2x.png',
           rightPortrait: 'assets/art/teacher_xu_default@2x.png',
           activeSide: 'left',
           text: '小默？他连九九乘法表都费劲，去通宵刷高三电磁学？！',
@@ -125,7 +125,7 @@ export const PROLOGUE_STORY = {
         {
           id: 10,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/zhanghanyu_default@2x.png',
           activeSide: 'left',
           text: '校门口可疑摊贩……不行，我得趁现在去校门口截住他问个明白！',
@@ -159,7 +159,7 @@ export const PROLOGUE_STORY = {
         {
           id: 2,
           speaker: '流动商贩',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'right',
           text: '嘻嘻嘻……小朋友，买一串香喷喷的淀粉烤肠吗？吃上一口……保你倒背如流高考物理大题哦……',
@@ -168,7 +168,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'left',
           text: '倒背如流？小学生背什么高考物理！小默变成那样果然是你搞的鬼！快把解药交出来！',
@@ -177,7 +177,7 @@ export const PROLOGUE_STORY = {
         {
           id: 4,
           speaker: '流动商贩',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'right',
           text: '不知天高地厚的小棋呆子……那就尝尝我投掷出的特制辣条吧！',
@@ -222,7 +222,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_shock@2x.png',
           rightPortrait: null,
           activeSide: 'left',
           text: '（这就是从小默家搜出来的同款异化零食！……前方巷口似乎还有动静！）',
@@ -248,7 +248,7 @@ export const PROLOGUE_STORY = {
         {
           id: 1,
           speaker: '高年级混混',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'right',
           text: '喂！六年级的小鬼，慌里慌张去哪呢？把身上值钱的文具和零食统统留下，学长今天心情不好……',
@@ -257,7 +257,7 @@ export const PROLOGUE_STORY = {
         {
           id: 2,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'left',
           text: '（这家伙手里卷着五年中考三年模拟，眼白都是血丝……看来也是被焦虑怪异侵蚀了！）',
@@ -266,7 +266,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'left',
           text: '别挡道！我还要去救范文默呢！这步棋，叫将军！',
@@ -302,7 +302,7 @@ export const PROLOGUE_STORY = {
         {
           id: 2,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_smile@2x.png',
           rightPortrait: null,
           activeSide: 'left',
           text: '收工！终于把阻碍都扫清了。小默家就在前面这栋楼的 402 室……',
@@ -337,7 +337,7 @@ export const PROLOGUE_STORY = {
           id: 2,
           speaker: '范文默',
           leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
-          rightPortrait: 'assets/art/fanwenmo_default@2x.png',
+          rightPortrait: 'assets/art/fanwenmo_panic@2x.png',
           activeSide: 'right',
           text: '……子骁？你怎么逃课过来了……我今天只是有点头痛，在家里预习呢……',
           sfx: 'sfx_text_blip'
@@ -374,7 +374,7 @@ export const PROLOGUE_STORY = {
         {
           id: 6,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_shock@2x.png',
           rightPortrait: 'assets/art/fanwenmo_corrupted@2x.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie@2x.png',
@@ -394,7 +394,7 @@ export const PROLOGUE_STORY = {
         {
           id: 8,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_shock@2x.png',
           rightPortrait: 'assets/art/fanwenmo_corrupted@2x.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie@2x.png',
@@ -422,7 +422,7 @@ export const PROLOGUE_STORY = {
           id: 1,
           speaker: '张瀚瑜',
           leftPortrait: 'assets/art/zhanghanyu_default@2x.png',
-          rightPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          rightPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           activeSide: 'left',
           text: '砰——！子骁！我就知道你会一个人逞能跑过来！我问了三个路人才追上你——我操这什么情况？！',
           sfx: 'sfx_hit_crit'
@@ -431,7 +431,7 @@ export const PROLOGUE_STORY = {
           id: 2,
           speaker: '张子骁',
           leftPortrait: 'assets/art/zhanghanyu_default@2x.png',
-          rightPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          rightPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           activeSide: 'right',
           text: '瀚瑜？！你怎么跟来了！别靠近，小默现在神志不清，力气大得吓人！',
           sfx: 'sfx_text_blip'
@@ -440,7 +440,7 @@ export const PROLOGUE_STORY = {
           id: 3,
           speaker: '张瀚瑜',
           leftPortrait: 'assets/art/zhanghanyu_default@2x.png',
-          rightPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          rightPortrait: 'assets/art/zhangzixiao_resolute@2x.png',
           activeSide: 'left',
           text: '我是学委，班上同学掉队了能不管吗！我包里有粉笔头和小测验重点，咱俩配合，物理把他打醒！',
           sfx: 'sfx_confirm'
@@ -477,7 +477,7 @@ export const PROLOGUE_STORY = {
           id: 2,
           speaker: '张瀚瑜',
           leftPortrait: 'assets/art/zhanghanyu_default@2x.png',
-          rightPortrait: 'assets/art/fanwenmo_default@2x.png',
+          rightPortrait: 'assets/art/fanwenmo_panic@2x.png',
           activeSide: 'left',
           text: '呼——！终于打醒了！你刚才挥着大厚书追着我们满屋跑！到底怎么回事？！',
           sfx: 'sfx_text_blip'
@@ -495,7 +495,7 @@ export const PROLOGUE_STORY = {
           id: 4,
           speaker: '范文默',
           leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
-          rightPortrait: 'assets/art/fanwenmo_default@2x.png',
+          rightPortrait: 'assets/art/fanwenmo_panic@2x.png',
           activeSide: 'right',
           text: '然后脑子里全是算式尖叫声……根本停不下来……它们说下周一还要来学校……',
           sfx: 'sfx_shock_sting'
@@ -557,7 +557,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '张子骁',
-          leftPortrait: 'assets/art/zhangzixiao_default@2x.png',
+          leftPortrait: 'assets/art/zhangzixiao_sad@2x.png',
           rightPortrait: null,
           activeSide: 'left',
           text: '“……我上次数学才考了六十二分。[next]要是偷偷吃一口这个零食，是不是考试成绩就能提上去？[next]没准能满分呢……而且，也不会有人知道吧……”',
@@ -657,7 +657,7 @@ export const PROLOGUE_STORY = {
         {
           id: 5,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_tearful@2x.png',
           rightPortrait: 'assets/art/teacher_xu_default@2x.png',
           activeSide: 'left',
           text: '徐老师，妍熹昨天放学还约我画画呢，她生病了吗？',
@@ -666,7 +666,7 @@ export const PROLOGUE_STORY = {
         {
           id: 6,
           speaker: '徐老师',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_tearful@2x.png',
           rightPortrait: 'assets/art/teacher_xu_default@2x.png',
           activeSide: 'right',
           text: '【微信】“徐老师！妍熹练长笛练到凌晨三点，关灯就哭喊外面有脏东西，今天还把自己反锁了！”',
@@ -675,7 +675,7 @@ export const PROLOGUE_STORY = {
         {
           id: 7,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_tearful@2x.png',
           rightPortrait: 'assets/art/chenpinxuan_default@2x.png',
           activeSide: 'left',
           text: '（闺蜜陈品璇急匆匆地跑了过来，她平时消息最灵通。）',
@@ -684,7 +684,7 @@ export const PROLOGUE_STORY = {
         {
           id: 8,
           speaker: '陈品璇',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_thinking@2x.png',
           rightPortrait: 'assets/art/chenpinxuan_default@2x.png',
           activeSide: 'right',
           text: '予诺！昨天我就觉得妍熹不对劲！一个人蹲在墙角发疯一样比划长笛，眼神直勾勾的！',
@@ -727,7 +727,7 @@ export const PROLOGUE_STORY = {
         {
           id: 2,
           speaker: '流动商贩',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'right',
           text: '漂亮的小姑娘，来尝尝阿伯的特制零食吗？吃上一口……保你落笔就是美院满分卷哦……',
@@ -736,7 +736,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'left',
           text: '小学生考什么美院！妍熹听到的怪声音就是你捣的鬼吧！',
@@ -745,7 +745,7 @@ export const PROLOGUE_STORY = {
         {
           id: 4,
           speaker: '流动商贩',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/vendor_default@2x.png',
           activeSide: 'right',
           text: '多管闲事的小丫头……那就尝尝我的投掷辣条！',
@@ -814,7 +814,7 @@ export const PROLOGUE_STORY = {
         {
           id: 1,
           speaker: '高年级混混',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'right',
           text: '喂！六年级的小妹妹，把身上值钱的零食和文具交出来，学长今天心情很糟糕！',
@@ -823,7 +823,7 @@ export const PROLOGUE_STORY = {
         {
           id: 2,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'left',
           text: '（这家伙手里拿着五三词汇表，眼神直发愣……也是被怪物污染了！）',
@@ -832,7 +832,7 @@ export const PROLOGUE_STORY = {
         {
           id: 3,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/punk_default@2x.png',
           activeSide: 'left',
           text: '让开！我还要去救何妍熹！没有我画不出来的活路！',
@@ -991,7 +991,7 @@ export const PROLOGUE_STORY = {
         {
           id: 6,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           rightPortrait: 'assets/art/heyanxi_corrupted@2x.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie@2x.png',
@@ -1011,7 +1011,7 @@ export const PROLOGUE_STORY = {
         {
           id: 8,
           speaker: '石予诺',
-          leftPortrait: 'assets/art/shiyunuo_default@2x.png',
+          leftPortrait: 'assets/art/shiyunuo_shock@2x.png',
           rightPortrait: 'assets/art/heyanxi_corrupted@2x.png',
           activeSide: 'left',
           bgImg: 'assets/backgrounds/bg_home_eerie@2x.png',
@@ -1039,7 +1039,7 @@ export const PROLOGUE_STORY = {
           id: 1,
           speaker: '陈品璇',
           leftPortrait: 'assets/art/chenpinxuan_default@2x.png',
-          rightPortrait: 'assets/art/shiyunuo_default@2x.png',
+          rightPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           activeSide: 'left',
           text: '哐当——！予诺！果然被我逮到了！——哇！妍熹怎么变成这样了？！',
           sfx: 'sfx_hit_crit'
@@ -1048,7 +1048,7 @@ export const PROLOGUE_STORY = {
           id: 2,
           speaker: '石予诺',
           leftPortrait: 'assets/art/chenpinxuan_default@2x.png',
-          rightPortrait: 'assets/art/shiyunuo_default@2x.png',
+          rightPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           activeSide: 'right',
           text: '品璇小心！妍熹被怪音波控制了，音浪能震碎玻璃！',
           sfx: 'sfx_text_blip'
@@ -1057,7 +1057,7 @@ export const PROLOGUE_STORY = {
           id: 3,
           speaker: '陈品璇',
           leftPortrait: 'assets/art/chenpinxuan_default@2x.png',
-          rightPortrait: 'assets/art/shiyunuo_default@2x.png',
+          rightPortrait: 'assets/art/shiyunuo_resolute@2x.png',
           activeSide: 'left',
           text: '哼，管她什么音浪！我俩一起上，先把她制伏打醒！',
           sfx: 'sfx_confirm'
@@ -1085,7 +1085,7 @@ export const PROLOGUE_STORY = {
           id: 1,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default@2x.png',
-          rightPortrait: 'assets/art/heyanxi_default@2x.png',
+          rightPortrait: 'assets/art/heyanxi_resolute@2x.png',
           activeSide: 'right',
           text: '（长笛落地，眼神恢复清亮）……唔……予诺……品璇……？你们怎么在我房间？',
           sfx: 'sfx_unit_down'
@@ -1121,7 +1121,7 @@ export const PROLOGUE_STORY = {
           id: 5,
           speaker: '石予诺',
           leftPortrait: 'assets/art/shiyunuo_default@2x.png',
-          rightPortrait: 'assets/art/heyanxi_default@2x.png',
+          rightPortrait: 'assets/art/heyanxi_resolute@2x.png',
           activeSide: 'left',
           text: '果然是摊贩搞的鬼！这包剩的怪零食我先扣下了。下周一必须查清楚！',
           sfx: 'sfx_item_get'
@@ -1130,7 +1130,7 @@ export const PROLOGUE_STORY = {
           id: 6,
           speaker: '何妍熹',
           leftPortrait: 'assets/art/shiyunuo_default@2x.png',
-          rightPortrait: 'assets/art/heyanxi_default@2x.png',
+          rightPortrait: 'assets/art/heyanxi_resolute@2x.png',
           activeSide: 'right',
           text: '谢谢你们打醒我！调查怪事带上我吧，我的长笛能安抚心灵！',
           sfx: 'sfx_confirm'

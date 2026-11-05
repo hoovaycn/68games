@@ -1,12 +1,12 @@
 /**
- * 终局决战 · 斩断莫比乌斯环 战斗关卡定义
+ * 终局决战 · 斩断循环 战斗关卡定义
  * 地图尺寸：18×12（Tiled 源工程见 docs/map/tiled_project/ch30_battle1.tmx）
  * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH30_BATTLE1 = {
   id: 'ch30_battle1',
-  name: '终局决战 · 斩断莫比乌斯环',
+  name: '终局决战 · 斩断循环',
   bgm: 'bgm_retro_level3',
   mapWidth: 18,
   mapHeight: 12,
@@ -38,7 +38,7 @@ export const CH30_BATTLE1 = {
 
   objective: {
     type: 'defeat_boss',
-    text: '彻底粉碎天梯裁决者核心'
+    text: '彻底粉碎净化母体核心'
   },
 
   nextStorySceneOnWin: 'ch30_battle1',
