@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 // 导入第三幕全部剧情剧本
@@ -63,6 +63,11 @@ const act3Battles = {
   ch29_battle1: CH29_BATTLE1,
   ch30_battle1: CH30_BATTLE1
 };
+
+const metalCaseBg = 'assets/backgrounds/bg_metal_case@2x.png';
+const metalCaseBg1x = 'assets/backgrounds/bg_metal_case.png';
+const metalCaseOpenBg = 'assets/backgrounds/bg_metal_case_open_badge@2x.png';
+const metalCaseOpenBg1x = 'assets/backgrounds/bg_metal_case_open_badge.png';
 
 test('第三幕 10 场战役配置完整性：网格、部署、敌人及胜利回调', () => {
   for (const [battleId, battle] of Object.entries(act3Battles)) {
@@ -288,6 +293,23 @@ test('第二十六章核心解密与战后剧情立绘对齐：沈万廷、少�
   for (const line of futureAyaoLines) {
     assert.match(line.leftPortrait, /ayao_aged_2046/, '未来阿瑶应使用白发枯萎衰老的 2046 年老态立绘');
     assert.ok(!line.leftPortrait.includes('ayao_adult'), '未来阿瑶不可使用成年阿瑶立绘');
+  }
+});
+
+test('美术交付后金属箱与开箱警徽两版尺寸符合接口', {
+  skip: ![metalCaseBg, metalCaseBg1x, metalCaseOpenBg, metalCaseOpenBg1x].every(assetExists)
+    ? '等待美术交付 bg_metal_case 与 bg_metal_case_open_badge 四张背景图'
+    : false
+}, () => {
+  for (const [path, expected] of [
+    [metalCaseBg, [1920, 1080]],
+    [metalCaseBg1x, [960, 540]],
+    [metalCaseOpenBg, [1920, 1080]],
+    [metalCaseOpenBg1x, [960, 540]]
+  ]) {
+    const png = readFileSync(resolve(rootDir, path));
+    assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `${path}: 不是 PNG`);
+    assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], expected, `${path}: 尺寸不符`);
   }
 });
 

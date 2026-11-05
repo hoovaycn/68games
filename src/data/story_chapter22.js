@@ -127,6 +127,8 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/boss_viper_smuggler@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'right',
+        bgImg: 'assets/backgrounds/bg_metal_case@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_pier_night_rain@2x.png',
         text: '（立刻挡在孩子们身前，将银灰色手提箱死死护在怀里）独眼蝰蛇！箱子在我手里，这上面有生物防拆锁，只有我的指纹和密钥能开！[next]放孩子们走，否则我立刻启动自毁程序把箱子沉进江底，你们什么也别想拿到！',
         highlight: true,
         sfx: 'sfx_text_blip'
@@ -297,7 +299,8 @@ export const CHAPTER22_STORY = {
     id: 'ch22_scene_future_badge',
     title: '货柜脚下 · 跨越二十年的警告',
     bgType: 'pier',
-    bgImg: 'assets/backgrounds/bg_pier_night_rain@2x.png',
+    bgImg: 'assets/backgrounds/bg_metal_case_open_badge@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_pier_night_rain@2x.png',
     bgm: 'bgm_shock_sting',
     dialogues: [
       {
