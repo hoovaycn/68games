@@ -20,6 +20,8 @@ export const CH25_BATTLE1 = {
   props: [],
 
   playerDeploy: [
+    { unitId: 'mc_adult_zixiao', x: 1, y: 4 },
+    { unitId: 'fanwenmo_adult', x: 1, y: 6 },
     { unitId: 'zhangzixiao', x: 2, y: 4 },
     { unitId: 'zhanghanyu', x: 2, y: 5 },
     { unitId: 'fanwenmo', x: 2, y: 6 },

@@ -51,7 +51,7 @@ async function scanAndRefineEmotions() {
         //    - 副手：范文默 FURY 或 PANIC，何妍熹 RESOLUTE！
         //    - 张希哲：SMIRK（挑衅）或 NERVOUS（面对强敌紧张）！
         //    - 覃瑞怡：RESOLUTE（倔强迎战）！
-        //    - 朱彦泽：COMMAND（指挥）或 SHOCK（动摇）！
+        //    - 朱晏泽：COMMAND（指挥）或 SHOCK（动摇）！
         //    - 徐老师：STERN（严厉对峙）！
         //    - 刘老师：PROTECTIVE（保护戒备）！
         //    - 海峰：ALERT（戒备临战）！

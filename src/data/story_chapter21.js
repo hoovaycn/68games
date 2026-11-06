@@ -236,13 +236,13 @@ export const CHAPTER21_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '徐老师快步离开走廊。躲在墙后的张希哲和朱彦泽倒吸一口凉气，赶紧把{MC_NAME}拉回阴影里。',
+        text: '徐老师快步离开走廊。躲在墙后的张希哲和朱晏泽倒吸一口凉气，赶紧把{MC_NAME}拉回阴影里。',
         sfx: 'sfx_text_blip'
       },
       {
         id: 9,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '海峰叔叔被停职了？！徐老师怎么可能去给坏人报信啊！',
@@ -317,6 +317,8 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/enforcer_abiao@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_metal_case@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_street_night_rain@2x.png',
         text: '昏暗的冷雨中，一个身材魁梧的雨衣男人推开生锈的铁门，将一个沉甸甸的厚牛皮纸袋递给徐老师。[next]纸袋里是只银灰色、通体冰凉的金属手提箱——正是三号船的水手前几日在江边网获、谁也撬不开的怪箱子。[next]独眼蝰蛇起疑，才让“投诚”的徐老师先把它带走，试试能否打开。[next]徐老师压低声音交谈了两句，把一张折叠的白纸塞回对方手里。',
         sfx: 'sfx_suspense'
       },
@@ -326,7 +328,7 @@ export const CHAPTER21_STORY = {
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: 'assets/art/enforcer_abiao@2x.png',
         activeSide: 'left',
-        text: '就在男人准备缩回铁门的一刹那，朱彦泽脚下一滑，踩瘪了泥水里的废易拉罐——咔嚓一声脆响！',
+        text: '就在男人准备缩回铁门的一刹那，朱晏泽脚下一滑，踩瘪了泥水里的废易拉罐——咔嚓一声脆响！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -416,11 +418,21 @@ export const CHAPTER21_STORY = {
       },
       {
         id: 15,
-        speaker: '朱彦泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_command@2x.png',
         rightPortrait: 'assets/art/enforcer_abiao@2x.png',
         activeSide: 'left',
         text: '动我六8班的人，先问问小爷答不答应！抄家伙突围！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 16,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（捡起半截砖头掂了掂，声音发紧却半步不退）五个打手又怎样？咱们六8班六个人，还怕他们？！抄家伙上！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -454,7 +466,7 @@ export const CHAPTER21_STORY = {
       },
       {
         id: 2,
-        speaker: '朱彦泽',
+        speaker: '朱晏泽',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',

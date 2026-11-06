@@ -156,7 +156,7 @@ export function upgradePortrait(portrait, speaker, text, fileName) {
     return portrait;
   }
 
-  // 3. 朱彦泽
+  // 3. 朱晏泽
   if (portrait.includes('zhuyanze')) {
     if (/怎么可能|这……|失控|愕然|不敢相信|大家小心！|天啊|怎么会这样|乱成一团/.test(t)) {
       return 'assets/art/zhuyanze_shock@2x.png';

@@ -121,7 +121,7 @@ export const CHAPTER29_STORY = {
     title: '控制台中央 · 刺耳的警报',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
-    bgm: 'bgm_shock_sting',
+    bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,

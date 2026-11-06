@@ -346,7 +346,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '【放学路上 · 告别与未来】\n放学铃声响起，十二岁的{MC_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡、朱彦泽、{ALLY_1_NAME}打打闹闹跑出校门。[next]街角的夕阳下，长大后的他们微笑着比了个大拇指，随后化作金色的微光散在晚风里。那个绝望的未来已经消失，崭新的明天正在眼前。',
+        text: '【放学路上 · 告别与未来】\n放学铃声响起，十二岁的{MC_NAME}、{ALLY_2_NAME}、张希哲、覃瑞怡、朱晏泽、{ALLY_1_NAME}打打闹闹跑出校门。[next]街角的夕阳下，长大后的他们微笑着比了个大拇指，随后化作金色的微光散在晚风里。那个绝望的未来已经消失，崭新的明天正在眼前。',
         highlight: true
       },
       {

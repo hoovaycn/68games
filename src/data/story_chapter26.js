@@ -207,7 +207,7 @@ export const CHAPTER26_STORY = {
       {
         id: 11,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_crying@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（捂着嘴泣不成声）为了保护徐老师和刘老师……她竟然一个人背负了全世界的误解和诅咒，被困在这个地狱里煎熬了整整四十年……',
@@ -277,11 +277,20 @@ export const CHAPTER26_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '智脑轰然碎裂，化作漫天光屑！维生舱内无数生物导管逐一脱落，白发苍苍的老态阿瑶从半空中跌落，被{MC_ADULT_NAME}稳稳抱在怀中。',
+        text: '轰——！智脑轰然碎裂，化作漫天飞舞的光屑，整座核心机房骤然陷入一片死寂。[next]中央那具维生舱的玻璃罩缓缓降下，喷涌出大量冰冷的白雾，无数生物导管一根根脱落，坠在地上发出细碎的声响。',
         sfx: 'sfx_explosion'
       },
       {
         id: 2,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '白雾之中，一个插满管子、白发苍苍的枯瘦身影从半空中跌落——{MC_ADULT_NAME}抢先一步冲上前，将她稳稳接在怀中。',
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 3,
         speaker: '未来阿瑶',
         leftPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
@@ -290,7 +299,7 @@ export const CHAPTER26_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 3,
+        id: 4,
         speaker: '未来阿瑶',
         leftPortrait: 'assets/art/ayao_aged_2046_weeping@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
@@ -300,7 +309,7 @@ export const CHAPTER26_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 4,
+        id: 5,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: 'assets/art/ayao_aged_2046_default@2x.png',
@@ -310,7 +319,7 @@ export const CHAPTER26_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 5,
+        id: 6,
         speaker: '{MC_ADULT_NAME}',
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',

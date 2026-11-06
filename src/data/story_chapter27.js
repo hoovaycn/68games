@@ -72,6 +72,16 @@ export const CHAPTER27_STORY = {
         activeSide: 'left',
         text: '（拉住长大后的自己大喊）我不信！你们在这儿受了二十年的苦，凭什么现在不让你们走？！',
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 7,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（红着眼眶，拳头攥得咯咯响）你们把命都豁出去了，我们更不能怂！回去以后，一定把老师他们都救下来，一个都不少！',
+        highlight: true,
+        sfx: 'sfx_confirm'
       }
     ],
     transition: {

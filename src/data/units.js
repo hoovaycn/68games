@@ -467,5 +467,117 @@ export const UNITS = {
       attack: '销烟池前，岂容尔等作恶！',
       death: '林公……后世子孙……已明浩然正气……'
     }
+  },
+
+  /* ══════════ 第三幕盟友：成年主角（男线 · 反抗军首领） ══════════ */
+  mc_adult_zixiao: {
+    id: 'mc_adult_zixiao',
+    name: '成年张子骁',
+    title: '反抗军首领',
+    gender: 'male',
+    classId: 'strong_boy',
+    level: 12,
+    exp: 0,
+    equippedWeapon: 'dumbbell',
+    inventory: [
+      { id: 'sausage', count: 3 },
+      { id: 'bastard_soda', count: 2 }
+    ],
+    bio: '二十年后从三号船爆炸中幸存下来的张子骁，带着六8班残部在废墟里浴血求生二十年，把当年的浩然正气磨成了一柄锋利的刀。',
+    personalGrowth: { hp: 15, str: 15, def: 15 },
+    personalSkill: null,
+    joinsAt: 'ch25_battle1',
+    portrait: 'assets/portraits/mc_adult_zixiao_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#1d4ed8',
+    quotes: {
+      move: '跟紧我，别掉队。',
+      attack: '这一棍，替二十年前的我们讨回来！',
+      death: '回去吧……去改写那个未来……'
+    }
+  },
+
+  /* ══════════ 第三幕盟友：成年主角（女线 · 反抗军首领） ══════════ */
+  mc_adult_yunuo: {
+    id: 'mc_adult_yunuo',
+    name: '成年石予诺',
+    title: '反抗军首领',
+    gender: 'female',
+    classId: 'strong_boy',
+    level: 12,
+    exp: 0,
+    equippedWeapon: 'dumbbell',
+    inventory: [
+      { id: 'sausage', count: 3 },
+      { id: 'bastard_soda', count: 2 }
+    ],
+    bio: '二十年后从三号船爆炸中幸存下来的石予诺，带着六8班残部在废墟里浴血求生二十年，把当年的浩然正气磨成了一柄锋利的刀。',
+    personalGrowth: { hp: 15, str: 15, def: 15 },
+    personalSkill: null,
+    joinsAt: 'ch25_battle1',
+    portrait: 'assets/portraits/mc_adult_yunuo_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_blue@2x.png',
+    themeColor: '#1d4ed8',
+    quotes: {
+      move: '跟紧我，别掉队。',
+      attack: '这一棍，替二十年前的我们讨回来！',
+      death: '回去吧……去改写那个未来……'
+    }
+  },
+
+  /* ══════════ 第三幕盟友：成年副官（男线 · 范文默） ══════════ */
+  fanwenmo_adult: {
+    id: 'fanwenmo_adult',
+    name: '成年范文默',
+    title: '反抗军副官',
+    gender: 'male',
+    classId: 'sports_star',
+    level: 12,
+    exp: 0,
+    equippedWeapon: 'broom',
+    inventory: [
+      { id: 'sausage', count: 3 },
+      { id: 'white_rabbit_candy', count: 1 }
+    ],
+    bio: '二十年后长成魁梧战士的范文默，少年时那股沉默的怪力，在连年战火里成了反抗军最可靠的护盾。',
+    personalGrowth: { str: 15, skl: 10, spd: 10 },
+    personalSkill: null,
+    joinsAt: 'ch25_battle1',
+    portrait: 'assets/portraits/fanwenmo_adult_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#7c3aed',
+    quotes: {
+      move: '我在前面顶着。',
+      attack: '都退后，交给我。',
+      death: '小默……这次要自己站起来了……'
+    }
+  },
+
+  /* ══════════ 第三幕盟友：成年副官（女线 · 何妍熹） ══════════ */
+  heyanxi_adult: {
+    id: 'heyanxi_adult',
+    name: '成年何妍熹',
+    title: '反抗军副官',
+    gender: 'female',
+    classId: 'sports_star',
+    level: 12,
+    exp: 0,
+    equippedWeapon: 'broom',
+    inventory: [
+      { id: 'sausage', count: 3 },
+      { id: 'white_rabbit_candy', count: 2 }
+    ],
+    bio: '二十年后长成冷峻神射手的何妍熹，少年时那股不动声色的狠劲，在连年战火里成了反抗军最可靠的火力点。',
+    personalGrowth: { str: 15, skl: 10, spd: 10 },
+    personalSkill: null,
+    joinsAt: 'ch25_battle1',
+    portrait: 'assets/portraits/heyanxi_adult_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_white@2x.png',
+    themeColor: '#0891b2',
+    quotes: {
+      move: '听我指挥。',
+      attack: '这个目标，锁定。',
+      death: '音准……怎么偏了……'
+    }
   }
 };

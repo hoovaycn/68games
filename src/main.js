@@ -862,9 +862,14 @@ export class GameApp {
 
     // 剧情入队事件拦截：先加入队伍名册，再逐个弹出仪式感入队组件，确认后再推进下一步
     if (transition.type === 'JOIN_PARTY') {
-      const unitIds = (Array.isArray(transition.unitIds) && transition.unitIds.length > 0)
+      const rawIds = (Array.isArray(transition.unitIds) && transition.unitIds.length > 0)
         ? transition.unitIds
         : (transition.unitId ? [transition.unitId] : []);
+      const unitIds = rawIds.map((id) => {
+        if (id === 'mc_adult_zixiao') return this.selectedRoute === 'female' ? 'mc_adult_yunuo' : 'mc_adult_zixiao';
+        if (id === 'fanwenmo_adult') return this.selectedRoute === 'female' ? 'heyanxi_adult' : 'fanwenmo_adult';
+        return id;
+      });
       if (this.gameState) {
         unitIds.forEach((id) => joinParty(this.gameState, id));
       }
@@ -1032,6 +1037,10 @@ export class GameApp {
           uId = this.selectedRoute === 'female' ? 'chenpinxuan' : 'zhanghanyu';
         } else if (uId === 'fanwenmo' && this.selectedRoute === 'female') {
           uId = 'heyanxi';
+        } else if (uId === 'mc_adult_zixiao') {
+          uId = this.selectedRoute === 'female' ? 'mc_adult_yunuo' : 'mc_adult_zixiao';
+        } else if (uId === 'fanwenmo_adult' && this.selectedRoute === 'female') {
+          uId = 'heyanxi_adult';
         }
 
         let unit = getPartyUnit(this.gameState, uId);

@@ -149,7 +149,7 @@ export const CHAPTER28_STORY = {
     title: '傍晚五点五十九分 · 三号船底舱生死逆转',
     bgType: 'cargo_fire',
     bgImg: 'assets/backgrounds/bg_cargo_hold_fire@2x.png',
-    bgm: 'bgm_shock_sting',
+    bgm: 'bgm_suspense',
     dialogues: [
       {
         id: 1,
@@ -194,7 +194,7 @@ export const CHAPTER28_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（把工兵铲猛地卡进闸门滑轨里）朱彦泽快来帮忙！给我死死卡住啊啊啊！！',
+        text: '（把工兵铲猛地卡进闸门滑轨里）朱晏泽快来帮忙！给我死死卡住啊啊啊！！',
         highlight: true,
         sfx: 'sfx_confirm'
       },

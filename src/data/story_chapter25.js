@@ -30,7 +30,7 @@ export const CHAPTER25_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（靠在铁桶上喘着粗气，紧张地抓紧手里的钢筋，大拇指不停地死命抠着缠在上面的白胶带）[next]喂！你们到底是什么人？！干嘛救我们？！街上那些满分怪物到底怎么回事？！',
@@ -166,7 +166,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '二十年里，我们躲在废墟、暗河与防空洞苟延残喘，拼尽一切建立反抗军，被追猎队围剿断手断脚都不曾退缩！[next]我们之所以流尽鲜血撕开时空门，把这枚警徽和预警信送回过去，就是为了给当年的你们递个醒，哪怕能让你们多留个心眼、多争取半步生机，提前阻止大爆炸，彻底改写这段绝望的惨剧！',
+        text: '二十年了，你们看到的这座死城，就是我们没能守住的世界——三号船爆炸后，阿瑶把全城的人都变成了没有喜怒哀乐的提线木偶，我们这些反抗军被打得七零八落，只能躲在废墟、暗河和防空洞里苟延残喘。[next]我们拼尽最后一点力气撕开时空门，把这枚警徽和预警信送回来，就是想让当年的你们知道真相，去赌一个能改变历史的机会！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -176,7 +176,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（轻轻揉了揉十二岁自己的头发，露出一抹释然的微笑）哪怕历史一旦被你们改写，这个残酷的未来不复存在，连我们三十岁自己的存在也会随之消散……[next]但只要徐老师、刘老师和海峰叔叔能平安活着，只要你们能拥有一个洒满阳光的真正未来，就比什么都值得。',
+        text: '（轻轻揉了揉十二岁自己的头发，露出一抹释然的微笑）历史要是真的被你们改写，这个残酷的未来会消失，而我们这些长大后的自己会怎么样……谁也说不准，说不定也会跟着一起消散。[next]可那又怎样？只要徐老师、刘老师和海峰叔叔能平安活着，只要你们能拥有一个洒满阳光的真正未来，我们宁肯赌这一把。',
         highlight: true,
         sfx: 'sfx_suspense'
       },
@@ -186,7 +186,17 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '（泪水夺眶而出，随后死死抹去眼泪，眼神前所未有地坚定）原来你们是赌上自己的存在，在救当年的我们！[next]徐老师教过我们，浩然正气存乎于心！未来不能亡，老师们不能死，你们也绝不能白白消散！[next]二十年前没能救下他们，这一次，由我们替你们把所有人完完整整抢回来！！',
+        text: '（泪水夺眶而出，随后死死抹去眼泪，眼神前所未有地坚定）原来你们是赌上自己的存在，在救当年的我们！[next]徐老师教过我们，浩然正气存乎于心！未来不能亡，老师们不能死！[next]二十年前没能救下他们，这一次，由我们替你们把所有人完完整整抢回来！！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 13,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{MC_ADULT_PORTRAIT}',
+        activeSide: 'left',
+        text: '（抹了把脸，喉咙发堵）既然未来的我们还在这儿拼，那这条命就更不能白搭！哥几个，跟着长大后的自己，把他们统统打回去！',
         highlight: true,
         sfx: 'sfx_confirm'
       }
@@ -268,8 +278,9 @@ export const CHAPTER25_STORY = {
       }
     ],
     transition: {
-      type: 'CHOICE',
-      prompt: '众人与未来的自己并肩作战，迎战重型追猎者阿尔法与猎犬群！',
+      type: 'JOIN_PARTY',
+      unitIds: ['mc_adult_zixiao', 'fanwenmo_adult'],
+      prompt: '{MC_ADULT_NAME}与{ALLY_2_ADULT_NAME}加入战斗！两代六8班并肩迎战重型追猎者阿尔法与猎犬群！',
       buttonText: '【进入战斗 · 防空洞绝壁守护战】',
       battleId: 'ch25_battle1',
       isBattleTrigger: true,
@@ -300,7 +311,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/qinruiyi_default@2x.png',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
         activeSide: 'left',
-        text: '既然你们能把东西送回过去，为什么不直接把我们送回2026年去阻止大爆炸？！',
+        text: '既然你们连东西都能送回到过去，那为什么你们自己不回去，非要绕这么大一个圈子？！',
         sfx: 'sfx_text_blip'
       },
       {

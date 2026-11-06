@@ -77,7 +77,7 @@ export const CHAPTER23_STORY = {
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_counseling_room_machine@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_counseling_room@2x.png',
-        text: '苏医生，我们在码头截获了手提箱，找到了未来的预警信！白天体检的时候，你到底在全校同学身上动了什么手脚？！',
+        text: '苏医生，我们在码头截获了那只手提箱，里面有一枚从没见过的警徽，还有一张带血的纸条……[next]白天体检的时候，你到底对我们做了什么？',
         highlight: true,
         sfx: 'sfx_shock_sting'
       }
@@ -122,7 +122,7 @@ export const CHAPTER23_STORY = {
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
+        leftPortrait: 'assets/art/teacher_xubox_stealth_pain@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
         text: '（踉跄退后一步，眼圈通红）阿瑶……真的是你？！当年你在老水闸出事失踪，我和淑惠找了你三年！你既然还活着……为什么会变成这样？！',
@@ -135,7 +135,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '沈万廷不过是个贪婪的蠢货，他以为那口青花古罐里装的是能发横财的鸦片膏，却不知道真正可怕的是罐底沉淀的那层“净心散”——它能让人的喜怒哀乐彻底消失！[next]我借他的走私船队把货和这台脑波仪运进城，就是要让所有人都服下它、接进这台机器，把贪婪、嫉妒、恐惧、背叛这些害人的情绪统统抹掉！[next]等所有人都变成不懂背叛、没有痛苦的“满分”之人，这世上就再也不会有人被逼上绝路，再也不会有人像我一样在泥潭里挣扎二十年！',
+        text: '沈万廷不过是个贪婪的蠢货，他以为那口青花古罐里装的是能发横财的鸦片膏，却不知道真正可怕的是罐底沉淀的那层“净心散”——它能让人的喜怒哀乐彻底消失！[next]我把净心散喂给他们，再把这台脑波仪对准全城，用脑波把药力放大、覆盖进每个人的大脑，把贪婪、嫉妒、恐惧、背叛这些害人的情绪统统抹掉！[next]等所有人都变成不懂背叛、没有痛苦的“满分”之人，这世上就再也不会有人被逼上绝路，再也不会有人像我一样在泥潭里挣扎二十年！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -225,7 +225,7 @@ export const CHAPTER23_STORY = {
     title: '深夜十点半 · 无法逆转的时空门',
     bgType: 'quantum',
     bgImg: 'assets/backgrounds/bg_time_passage@2x.png',
-    bgm: 'bgm_shock_sting',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -233,7 +233,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '黑雾消散，但古瓷罐与脑波仪彻底过载，狂暴的光芒在地面撕开了一道旋转的时空门！',
+        text: '黑雾消散，但那台脑波仪与古瓷罐已经彻底过载，仪表盘上的指针疯狂乱跳。[next]忽然，机房中央“轰”地一声，失控的能量竟把地面撕开了一道旋转的时空裂缝！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -242,7 +242,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'left',
-        text: '（冒着气浪扑上去抓紧阿瑶的衣角）阿瑶！把机器停下！跟我走！不管做错了什么，我和淑惠陪你一起担，我们回学校重新开始！',
+        text: '（脸色剧变，一把拽住阿瑶）阿瑶！快把机器关掉！这裂缝会把人吸进去，会死人的！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -252,7 +252,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '（狠心拔出短刃割断衣角）重新开始？徐博，回不去了！从二十年前我被逼上绝路、陷进这片泥潭的那天起，我们就再也回不去了！',
+        text: '（死死盯着那道裂缝，惊骇地摇头）怎么会……我只是想净化他们，让这世上不再有背叛和痛苦，为什么会失控到这种地步？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -262,7 +262,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '阿瑶猛地拉下控制扳手！强烈的引力骤然爆发，地面轰然塌陷，孩子们瞬间被卷入旋转的时空旋涡！',
+        text: '阿瑶慌乱地反手去拽控制杆，非但没能关停，反而让过载的电流暴涨！裂缝轰然扩张，一股狂暴的吸力瞬间把离得最近的六个孩子卷了进去！',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -271,7 +271,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（飞身扑救，拼命伸出手臂）{ALLY_2_NAME}！{MC_NAME}！快抓住我的手！快抓紧！！',
+        text: '（飞身扑救，却被一道电弧狠狠弹开，重重摔在地上）{ALLY_2_NAME}！{MC_NAME}！快抓住我的手——！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -290,7 +290,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/ayao_adult_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '去二十年后的世界亲眼看一看吧！看看你们所谓的浩然正气，到底能保得住谁！',
+        text: '（呆立原地，眼睁睁看着裂缝吞噬孩子们，脸上第一次露出恐惧）不……不要……！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -300,7 +300,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '白光吞没了一切。雷鸣般的轰鸣声中，少年们的意识逐渐模糊，朝着未知的未来急速坠落……',
+        text: '徐老师和刘老师拼死冲上前，却被裂缝边缘滚烫的气浪死死挡住；海峰扑到近前，指尖离孩子们只剩一寸，却再也够不着。[next]裂缝裹着六个孩子轰然闭合，把徐老师、刘老师、海峰连同阿瑶，永远隔断在了这一头。白光吞没了一切，少年们的意识逐渐模糊，朝着未知的未来急速坠落……',
         sfx: 'sfx_confirm'
       }
     ],

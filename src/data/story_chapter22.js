@@ -194,11 +194,11 @@ export const CHAPTER22_STORY = {
     dialogues: [
       {
         id: 1,
-        speaker: '系统提示',
-        leftPortrait: null,
+        speaker: '独眼蝰蛇',
+        leftPortrait: 'assets/art/boss_viper_smuggler@2x.png',
         rightPortrait: null,
         activeSide: 'left',
-        text: '砰！独眼蝰蛇被击退重重撞在货柜上，口吐鲜血。[next]穷途末路的他凶狠地从怀里掏出一枚红灯狂闪的炸药遥控器：“想抓老子……货柜底下早埋了十箱烈性雷管！全给老子一起炸上天——”',
+        text: '（被击退重重撞在货柜上，口吐鲜血，凶狠地从怀里掏出一枚红灯狂闪的炸药遥控器）想抓老子……货柜底下早埋了十箱烈性雷管！全给老子一起炸上天——',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -232,7 +232,7 @@ export const CHAPTER22_STORY = {
       {
         id: 5,
         speaker: '语文刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'assets/art/adult_liu_protective@2x.png',
         rightPortrait: 'assets/art/teacher_xubox_stealth_default@2x.png',
         activeSide: 'left',
         text: '（踩着积水跑下车，一把扶住徐老师）徐老师！你怎么样？！刚才听到动静吓死我了……',
@@ -263,7 +263,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，让徐老师假装有二心去联络三号船，顺势把江里捞上来、谁也撬不开的那只银灰色箱子弄到手。[next]只有这样，独眼蝰蛇这条大鱼才会露头！',
+        text: '专案组查到走私团伙在局里安插了眼线！我们商量之后只能演一出苦肉计——故意放风说我被停职，[next]让徐老师假装有二心去联络三号船，顺势把江里捞上来、谁也撬不开的那只银灰色箱子弄到手。[next]只有这样，独眼蝰蛇这条大鱼才会露头！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -301,7 +301,7 @@ export const CHAPTER22_STORY = {
     bgType: 'pier',
     bgImg: 'assets/backgrounds/bg_metal_case_open_badge@2x.png',
     bgImgFallback: 'assets/backgrounds/bg_pier_night_rain@2x.png',
-    bgm: 'bgm_shock_sting',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -325,7 +325,7 @@ export const CHAPTER22_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（眼尖地指着凹槽底）快看！警徽底下压着一张焦黑的信纸！',
@@ -337,7 +337,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/qinruiyi_default@2x.png',
         activeSide: 'left',
-        text: '（展开带血迹的信纸，手不住颤抖）这字迹……还有末尾向上勾的小动作……这分明是我自己的笔迹！',
+        text: '（展开带血迹的信纸，手不住颤抖）这字迹……看着有点眼熟，末尾这个向上勾的小动作，总觉得在哪里见过……',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

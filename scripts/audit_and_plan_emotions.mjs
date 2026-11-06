@@ -145,7 +145,7 @@ async function generateEmotionPlan() {
 
           // 7. 覃瑞怡
           if (portrait.includes('qinruiyi_')) {
-            if (text.match(/(虚假的第一名，我不要|我逃出来不是为了站在这儿|朱彦泽，别一个人往后退|谁要你用这种方式保护|切！张希哲你少得意|你把人吃成那样|绝不认输)/)) {
+            if (text.match(/(虚假的第一名，我不要|我逃出来不是为了站在这儿|朱晏泽，别一个人往后退|谁要你用这种方式保护|切！张希哲你少得意|你把人吃成那样|绝不认输)/)) {
               return 'assets/art/qinruiyi_resolute@2x.png';
             }
             if (text.match(/(红了眼圈|哭|大笨蛋|害怕|救命|呜呜|被抓)/)) {
@@ -166,7 +166,7 @@ async function generateEmotionPlan() {
             }
           }
 
-          // 9. 朱彦泽
+          // 9. 朱晏泽
           if (portrait.includes('zhuyanze_')) {
             if (text.match(/(听我指挥|少侮辱‘义气’|跟你们这种冷血木偶混在一起才叫真丢人|大伙抄家伙|部署|反攻|结阵)/)) {
               return 'assets/art/zhuyanze_command@2x.png';

@@ -159,8 +159,8 @@ export function resolvePortraitExpression(speaker, text, currentPortrait, isLeft
     return currentPortrait;
   }
 
-  // 5) 朱彦泽 (zhuyanze)
-  if (currentPortrait.includes('zhuyanze') || s.includes('朱彦泽')) {
+  // 5) 朱晏泽 (zhuyanze)
+  if (currentPortrait.includes('zhuyanze') || s.includes('朱晏泽')) {
     if (t.includes('怎么可能') || t.includes('这……') || t.includes('失控') || t.includes('愕然') || t.includes('不敢相信') || t.includes('大家小心！') || t.includes('天啊')) {
       return 'assets/art/zhuyanze_shock@2x.png';
     }

@@ -39,7 +39,7 @@ export const CHAPTER24_STORY = {
       {
         id: 3,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（揉着摔疼的膝盖）哎哟……{MC_NAME}，这是哪儿啊？！刚才还在崇文楼三楼的心理咨询室里，怎么一眨眼……这楼怎么全塌了？！[next]天上的全息屏写的……二零四六年？！',
@@ -66,7 +66,7 @@ export const CHAPTER24_STORY = {
       },
       {
         id: 6,
-        speaker: '朱彦泽',
+        speaker: '朱晏泽',
         leftPortrait: 'assets/art/zhuyanze_default@2x.png',
         rightPortrait: 'assets/art/patrol_robot_exam@2x.png',
         activeSide: 'left',
@@ -79,7 +79,7 @@ export const CHAPTER24_STORY = {
         leftPortrait: 'assets/art/patrol_robot_exam@2x.png',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（机械地转过头，额头上红光冰冷闪烁）『检测到未经许可的杂音，扣除公民积分2点。』[next]（说完猛地甩开朱彦泽的手，迈着僵硬整齐的步伐头也不回地朝前走去）',
+        text: '（机械地转过头，额头上红光冰冷闪烁）『检测到未经许可的杂音，扣除公民积分2点。』[next]（说完猛地甩开朱晏泽的手，迈着僵硬整齐的步伐头也不回地朝前走去）',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -89,9 +89,18 @@ export const CHAPTER24_STORY = {
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: 'assets/art/zhuyanze_default@2x.png',
         activeSide: 'left',
-        text: '（拉住愣在原地的朱彦泽）别问了，这些人根本不正常！[next]你们看前方的铁丝网和路牌，虽然楼全塌了，但那个十字路口和老槐树的树墩还在……往东走穿过死巷，就是我们学校的操场位置！大家跟我来！',
+        text: '（拉住愣在原地的朱晏泽）别问了，这些人根本不正常！[next]你们看前方的铁丝网和路牌，虽然楼全塌了，但那个十字路口和老槐树的树墩还在……往东走穿过死巷，就是我们学校的操场位置！大家跟我来！',
         highlight: true,
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 9,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（一边跟上一边紧张地回头张望）这地方连棵树都透着邪气！大家把手拉紧了，一个都别走散！',
+        sfx: 'sfx_suspense'
       }
     ],
     transition: {
@@ -108,7 +117,7 @@ export const CHAPTER24_STORY = {
     title: '旧校址广场 · 刻在黑色岩石上的真相',
     bgType: 'monument',
     bgImg: 'assets/backgrounds/bg_future_square_monument@2x.png',
-    bgm: 'bgm_shock_sting',
+    bgm: 'bgm_eerie_revelation',
     dialogues: [
       {
         id: 1,
@@ -121,8 +130,8 @@ export const CHAPTER24_STORY = {
       },
       {
         id: 2,
-        speaker: '朱彦泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
+        speaker: '朱晏泽',
+        leftPortrait: 'assets/art/zhuyanze_command@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
         text: '这里真的是我们学校！快看这块石碑，上面刻着名单！',
@@ -161,7 +170,7 @@ export const CHAPTER24_STORY = {
       {
         id: 6,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'assets/art/qinruiyi_crying@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（哭出声）所以预警信是真的！未来警徽也是真的！大人们全都不在了……谁来带我们回家啊……呜呜呜……',
@@ -292,6 +301,35 @@ export const CHAPTER24_STORY = {
       },
       {
         id: 4,
+        speaker: '系统提示',
+        leftPortrait: 'assets/art/boss_exam_captain@2x.png',
+        rightPortrait: 'assets/art/officer_100@2x.png',
+        activeSide: 'left',
+        text: '话音未落，四面八方同时响起刺耳的机械嗡鸣！执行队长带队，机械治安官举着拘束枪齐步压上，情绪清扫探针机甲悬停半空，猩红的红外激光网把六个孩子死死罩住——退路，被彻底封死了！',
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 5,
+        speaker: '机械化满分治安官',
+        leftPortrait: 'assets/art/officer_100@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（面带僵硬的固定微笑，齐刷刷举起捕兽网拘束枪）发现未及格样本……展开物理捕获……格式化大脑神经元……！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
+        speaker: '情绪清扫探针机甲',
+        leftPortrait: 'assets/art/probe_machine@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（三眼悬浮无人机急速盘旋，音波发射口尖啸震耳）锁定六名反叛生物体，脑电波剧烈紊乱，执行最高等级物理清扫！',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 7,
         speaker: '执行队长',
         leftPortrait: 'assets/art/boss_exam_captain@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -300,7 +338,17 @@ export const CHAPTER24_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 5,
+        id: 8,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（手里的钢筋被激光打得火星四溅，虎口崩裂，声音发抖）{MC_NAME}！太多了……子弹和激光铺天盖地，我们……要顶不住了！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 9,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -309,7 +357,7 @@ export const CHAPTER24_STORY = {
         sfx: 'sfx_shock_sting'
       },
       {
-        id: 6,
+        id: 10,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: null,
@@ -318,7 +366,7 @@ export const CHAPTER24_STORY = {
         sfx: 'sfx_suspense'
       },
       {
-        id: 7,
+        id: 11,
         speaker: '神秘人',
         leftPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -328,7 +376,7 @@ export const CHAPTER24_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 8,
+        id: 12,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2_PORTRAIT}',
         rightPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
@@ -337,7 +385,7 @@ export const CHAPTER24_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 9,
+        id: 13,
         speaker: '神秘人',
         leftPortrait: 'assets/art/shadow_cloaked_leader@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
