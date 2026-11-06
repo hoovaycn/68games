@@ -761,6 +761,8 @@ export class GameApp {
       const mcAdultPortrait = isMale ? 'assets/art/mc_adult_zixiao_default@2x.png' : 'assets/art/mc_adult_yunuo_default@2x.png';
       const ally2AdultName = isMale ? '成年范文默' : '成年何妍熹';
       const ally2AdultPortrait = isMale ? 'assets/art/fanwenmo_adult_default@2x.png' : 'assets/art/heyanxi_adult_default@2x.png';
+      const mcAdultDissolvePortrait = isMale ? 'assets/art/mc_adult_zixiao_dissolve@2x.png' : 'assets/art/mc_adult_yunuo_dissolve@2x.png';
+      const ally2AdultDissolvePortrait = isMale ? 'assets/art/fanwenmo_adult_dissolve@2x.png' : 'assets/art/heyanxi_adult_dissolve@2x.png';
 
       const sceneData = JSON.parse(JSON.stringify(rawSceneData));
       const storyNames = {
@@ -815,6 +817,10 @@ export class GameApp {
 
           if (dlg.leftPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.leftPortrait = ally2AdultPortrait;
           if (dlg.rightPortrait === '{ALLY_2_ADULT_PORTRAIT}') dlg.rightPortrait = ally2AdultPortrait;
+          if (dlg.leftPortrait === '{MC_ADULT_DISSOLVE_PORTRAIT}') dlg.leftPortrait = mcAdultDissolvePortrait;
+          if (dlg.rightPortrait === '{MC_ADULT_DISSOLVE_PORTRAIT}') dlg.rightPortrait = mcAdultDissolvePortrait;
+          if (dlg.leftPortrait === '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}') dlg.leftPortrait = ally2AdultDissolvePortrait;
+          if (dlg.rightPortrait === '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}') dlg.rightPortrait = ally2AdultDissolvePortrait;
           if (dlg.leftPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.leftPortrait = ally2CorruptedPortrait;
           if (dlg.rightPortrait === '{ALLY_2_CORRUPTED_PORTRAIT}') dlg.rightPortrait = ally2CorruptedPortrait;
           dlg.text = replaceStoryNames(dlg.text, storyNames);

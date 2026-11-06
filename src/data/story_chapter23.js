@@ -154,7 +154,7 @@ export const CHAPTER23_STORY = {
         leftPortrait: 'assets/art/father_haifeng_police@2x.png',
         rightPortrait: 'assets/art/ayao_adult_default@2x.png',
         activeSide: 'right',
-        text: '无辜？海峰，二十年前我被人逼上绝路、吞下那罐毒药的时候，怎么没见你们这些大人站出来？！[next]这个世界之所以一遍遍害人，就是因为人心太脏！既然你们非要拦着我把它净化干净，就先过了我这一关！',
+        text: '无辜？海峰，二十年前我被人逼上绝路、吞下那罐毒药的时候，怎么没见你们这些人站出来？！[next]这个世界之所以一遍遍害人，就是因为人心太脏！既然你们非要拦着我把它净化干净，就先过了我这一关！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

@@ -1,7 +1,7 @@
 /**
  * 天梯核心主脑歼灭战 战斗关卡定义
  * 地图尺寸：18×12（Tiled 源工程见 docs/map/tiled_project/ch26_battle1.tmx）
- * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
+ * 我方 8 人（两代六8班）/ 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH26_BATTLE1 = {
@@ -20,6 +20,8 @@ export const CH26_BATTLE1 = {
   props: [],
 
   playerDeploy: [
+    { unitId: 'mc_adult_zixiao', x: 1, y: 4 },
+    { unitId: 'fanwenmo_adult', x: 1, y: 6 },
     { unitId: 'zhangzixiao', x: 2, y: 4 },
     { unitId: 'zhanghanyu', x: 2, y: 5 },
     { unitId: 'fanwenmo', x: 2, y: 6 },

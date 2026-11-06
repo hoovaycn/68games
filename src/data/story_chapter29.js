@@ -15,7 +15,7 @@ export const CHAPTER29_STORY = {
     title: '傍晚六点十分 · 三号船顶层天台指挥舱',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
-    bgm: 'bgm_sad_melody',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -199,7 +199,7 @@ export const CHAPTER29_STORY = {
     title: '战局结算 · 斩断锁链',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
-    bgm: 'bgm_confirm',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,

@@ -33,7 +33,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（靠在铁桶上喘着粗气，紧张地抓紧手里的钢筋，大拇指不停地死命抠着缠在上面的白胶带）[next]喂！你们到底是什么人？！干嘛救我们？！街上那些满分怪物到底怎么回事？！',
+        text: '（靠在铁桶上喘着粗气，紧张地抓着钢筋，另一只手的大拇指却不停地抠着手指上缠的那圈白胶带）[next]喂！你们到底是什么人？！干嘛救我们？！街上那些满分怪物到底怎么回事？！',
         sfx: 'sfx_text_blip'
       },
       {
@@ -42,7 +42,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/shadow_cloaked_agent@2x.png',
         rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
         activeSide: 'left',
-        text: '（站在操作台阴影里，抱着手臂轻笑了一声）张希哲，这么多年了。你一慌神就死命抠胶带把手指抠流血的毛病，还是一点都没变啊。',
+        text: '（站在操作台阴影里，抱着手臂轻笑了一声）张希哲，这么多年了。你一慌神就死命抠手指上那圈护指胶带、抠到肉流血的毛病，还是一点都没变啊。',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
@@ -52,7 +52,7 @@ export const CHAPTER25_STORY = {
         leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（手里的钢筋猛地一抖）你……你怎么会知道？！这个习惯连我爸妈都不清楚，只有我们六8班平时打球的几个人才知道！你们到底是谁？！',
+        text: '（手里的钢筋猛地一抖）你……你怎么会知道？！这个习惯连我爸妈都不清楚，只有我们六8班平时一起踢球的几个人才知道！你们到底是谁？！',
         sfx: 'sfx_shock_sting'
       }
     ],
@@ -136,39 +136,48 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '二十年前9月28日傍晚五点五十九分……底舱的烈性炸药被引爆，火浪瞬间封死通路。[next]徐老师和刘老师死死顶住被烧变形的防爆钢闸，用背挡住喷涌的铁水……老爸浑身是血，踩中跳雷炸断了腿，却拼出最后一口气把我们五个推上充气救生筏！',
+        bgImg: 'assets/backgrounds/bg_memory_cabin_explosion@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_resistance_bunker@2x.png',
+        text: '二十年前9月28日傍晚五点五十九分……底舱的烈性炸药被引爆，火浪瞬间封死通路！',
         highlight: true,
-        sfx: 'sfx_suspense'
+        bgm: 'bgm_broken',
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 8,
         speaker: '{ALLY_2_ADULT_NAME}',
         leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '闸门合死前，徐老师最后冲我们喊的话是：‘活下去！带孩子们回学校！’[next]轰的一声巨响，整艘船彻底沉入江底……我们趴在救生筏上哭哑了嗓子，伸出手，却连他们的一片衣角都抓不到！',
+        bgImg: 'assets/backgrounds/bg_memory_teachers_hold_gate@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_resistance_bunker@2x.png',
+        text: '徐老师和刘老师死死顶住被烧变形的防爆钢闸，用背挡住喷涌的铁水……',
         highlight: true,
-        sfx: 'sfx_shock_sting'
+        sfx: 'sfx_text_blip'
       },
       {
         id: 9,
-        speaker: '{MC_ADULT_NAME}',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（骨节捏得泛白，眼中燃烧着不屈的怒火）大火吞没了江面，但真正的噩梦才刚开始。[next]三号船爆炸彻底释放了古罐里那股失控的能量，阿瑶启动【天梯考场】，用机械芯片抹去了全城人的喜怒哀乐，把活生生的人变成只会执行满分命令的提线木偶！',
+        bgImg: 'assets/backgrounds/bg_memory_haifeng_lifeboat@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_resistance_bunker@2x.png',
+        text: '老爸浑身是血，踩中跳雷炸断了腿，却拼出最后一口气把我们五个推上充气救生筏！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },
       {
         id: 10,
-        speaker: '{MC_ADULT_NAME}',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        speaker: '{ALLY_2_ADULT_NAME}',
+        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '二十年了，你们看到的这座死城，就是我们没能守住的世界——三号船爆炸后，阿瑶把全城的人都变成了没有喜怒哀乐的提线木偶，我们这些反抗军被打得七零八落，只能躲在废墟、暗河和防空洞里苟延残喘。[next]我们拼尽最后一点力气撕开时空门，把这枚警徽和预警信送回来，就是想让当年的你们知道真相，去赌一个能改变历史的机会！',
+        bgImg: 'assets/backgrounds/bg_memory_ship_sinking@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_resistance_bunker@2x.png',
+        text: '闸门合死前，徐老师最后冲我们喊的话是：‘活下去！带孩子们回学校！’[next]轰的一声巨响，整艘船彻底沉入江底……我们趴在救生筏上哭哑了嗓子，伸出手，却连他们的一片衣角都抓不到！',
         highlight: true,
-        sfx: 'sfx_confirm'
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 11,
@@ -176,12 +185,37 @@ export const CHAPTER25_STORY = {
         leftPortrait: '{MC_ADULT_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（轻轻揉了揉十二岁自己的头发，露出一抹释然的微笑）历史要是真的被你们改写，这个残酷的未来会消失，而我们这些长大后的自己会怎么样……谁也说不准，说不定也会跟着一起消散。[next]可那又怎样？只要徐老师、刘老师和海峰叔叔能平安活着，只要你们能拥有一个洒满阳光的真正未来，我们宁肯赌这一把。',
+        bgImg: 'assets/backgrounds/bg_future_exam_city@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_future_city_ruins@2x.png',
+        text: '（骨节捏得泛白，眼中燃烧着不屈的怒火）大火吞没了江面，但真正的噩梦才刚开始。[next]三号船爆炸彻底释放了古罐里那股失控的能量，阿瑶启动【天梯考场】，用机械芯片抹去了全城人的喜怒哀乐，把活生生的人变成只会执行满分命令的提线木偶！',
         highlight: true,
-        sfx: 'sfx_suspense'
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 12,
+        speaker: '{MC_ADULT_NAME}',
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_timegate_case_send@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_future_city_ruins@2x.png',
+        text: '二十年了，你们看到的这座死城，就是我们没能守住的世界——三号船爆炸后，阿瑶把全城的人都变成了没有喜怒哀乐的提线木偶，我们这些反抗军被打得七零八落，只能躲在废墟、暗河和防空洞里苟延残喘。[next]我们拼尽最后一点力气撕开时空门，把这枚警徽和预警信送回来，箱子的锁也只认海峰叔叔一个人——只有他才能打开。就是想让当年的你们知道真相，去赌一个能改变历史的机会！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 13,
+        speaker: '{MC_ADULT_NAME}',
+        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_resistance_bunker@2x.png',
+        text: '（轻轻揉了揉十二岁自己的头发，露出一抹释然的微笑）历史要是真的被你们改写，这个残酷的未来会消失，而我们这些长大后的自己会怎么样……谁也说不准，说不定也会跟着一起消散。[next]可那又怎样？只要徐老师、刘老师和海峰叔叔能平安活着，只要你们能拥有一个洒满阳光的真正未来，我们宁肯赌这一把。',
+        highlight: true,
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 14,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
@@ -191,7 +225,7 @@ export const CHAPTER25_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 13,
+        id: 15,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1_PORTRAIT}',
         rightPortrait: '{MC_ADULT_PORTRAIT}',
@@ -215,7 +249,7 @@ export const CHAPTER25_STORY = {
     title: '防空洞重型闸门前 · 两代人的同框',
     bgType: 'bunker',
     bgImg: 'assets/backgrounds/bg_resistance_bunker@2x.png',
-    bgm: 'bgm_army_approaching',
+    bgm: 'bgm_broken',
     dialogues: [
       {
         id: 1,
@@ -322,7 +356,7 @@ export const CHAPTER25_STORY = {
         activeSide: 'left',
         text: '我们在这个时代生活了二十年，早就回不去了。但你们刚从二十年前被拽过来，只要有启动时空门的能量源，就能顺着时间通道送回去！',
         highlight: true,
-        sfx: 'sfx_suspense'
+        sfx: 'sfx_text_blip'
       },
       {
         id: 4,

@@ -84,6 +84,16 @@ export const CHAPTER21_STORY = {
       },
       {
         id: 8,
+        speaker: '系统提示',
+        leftPortrait: null,
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '咨询室靠窗的角落里，立着一台一人多高的仪器，被一块白布严严实实地罩着。白布下透出几点幽蓝的指示灯，偶尔“嘀”地轻响一声。',
+        highlight: true,
+        sfx: 'sfx_suspense'
+      },
+      {
+        id: 9,
         speaker: '苏晚医生',
         leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -92,7 +102,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 9,
+        id: 10,
         speaker: '{MC_NAME}',
         leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -101,7 +111,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 10,
+        id: 11,
         speaker: '苏晚医生',
         leftPortrait: 'assets/art/su_wan_doctor_concerned@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -111,7 +121,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_suspense'
       },
       {
-        id: 11,
+        id: 12,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: 'assets/art/su_wan_doctor_concerned@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
@@ -120,7 +130,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 12,
+        id: 13,
         speaker: '苏晚医生',
         leftPortrait: 'assets/art/su_wan_doctor_cold@2x.png',
         rightPortrait: '{ALLY_2_PORTRAIT}',
@@ -129,7 +139,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_text_blip'
       },
       {
-        id: 13,
+        id: 14,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -138,7 +148,7 @@ export const CHAPTER21_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 14,
+        id: 15,
         speaker: '苏晚医生',
         leftPortrait: 'assets/art/su_wan_doctor_default@2x.png',
         rightPortrait: '{MC_PORTRAIT}',
@@ -319,7 +329,7 @@ export const CHAPTER21_STORY = {
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_metal_case@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_street_night_rain@2x.png',
-        text: '昏暗的冷雨中，一个身材魁梧的雨衣男人推开生锈的铁门，将一个沉甸甸的厚牛皮纸袋递给徐老师。[next]纸袋里是只银灰色、通体冰凉的金属手提箱——正是三号船的水手前几日在江边网获、谁也撬不开的怪箱子。[next]独眼蝰蛇起疑，才让“投诚”的徐老师先把它带走，试试能否打开。[next]徐老师压低声音交谈了两句，把一张折叠的白纸塞回对方手里。',
+        text: '昏暗的冷雨中，一个身材魁梧的雨衣男人推开生锈的铁门，将一个沉甸甸的银灰色金属手提箱递给徐老师——正是她前夜通风报信、害海峰扑空的那伙人。这个手提箱是前几日在江边网获、谁也撬不开的神秘箱子。[next]上头的人起了疑，让徐老师先把它带走，试试能否打开。[next]徐老师压低声音交谈了两句，又把一张折叠的白纸塞回对方手里，跟害海峰停职的那份密报如出一辙。',
         sfx: 'sfx_suspense'
       },
       {

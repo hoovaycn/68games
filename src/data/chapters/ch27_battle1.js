@@ -1,7 +1,7 @@
 /**
  * 光门前最后的血肉长城 战斗关卡定义
  * 地图尺寸：16×12（Tiled 源工程见 docs/map/tiled_project/ch27_battle1.tmx）
- * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
+ * 我方 2 人（大号死守）/ 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH27_BATTLE1 = {
@@ -20,12 +20,8 @@ export const CH27_BATTLE1 = {
   props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 4 },
-    { unitId: 'zhanghanyu', x: 2, y: 5 },
-    { unitId: 'fanwenmo', x: 2, y: 6 },
-    { unitId: 'zhangxizhe', x: 3, y: 4 },
-    { unitId: 'qinruiyi', x: 3, y: 5 },
-    { unitId: 'zhuyanze', x: 3, y: 6 }
+    { unitId: 'mc_adult_zixiao', x: 2, y: 5 },
+    { unitId: 'fanwenmo_adult', x: 3, y: 5 }
   ],
 
   enemyDeploy: [

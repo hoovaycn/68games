@@ -129,7 +129,7 @@ export const CHAPTER22_STORY = {
         activeSide: 'right',
         bgImg: 'assets/backgrounds/bg_metal_case@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_pier_night_rain@2x.png',
-        text: '（立刻挡在孩子们身前，将银灰色手提箱死死护在怀里）独眼蝰蛇！箱子在我手里，这上面有生物防拆锁，只有我的指纹和密钥能开！[next]放孩子们走，否则我立刻启动自毁程序把箱子沉进江底，你们什么也别想拿到！',
+        text: '（立刻挡在孩子们身前，将银灰色手提箱死死护在怀里）独眼蝰蛇！箱子在我手里，这上面的锁谁也撬不开！[next]放孩子们走，否则我现在就把它砸进江底，你们谁也别想拿到！',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -190,7 +190,7 @@ export const CHAPTER22_STORY = {
     title: '战后码头 · 撕开烟雾弹',
     bgType: 'pier',
     bgImg: 'assets/backgrounds/bg_pier_night_rain@2x.png',
-    bgm: 'bgm_confirm',
+    bgm: 'bgm_army_approaching',
     dialogues: [
       {
         id: 1,
@@ -208,6 +208,7 @@ export const CHAPTER22_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '呜——！！凄厉的警笛声骤然撕破雨幕！水警巡逻艇探照灯齐刷刷锁定栈桥，多辆防暴冲锋车雷霆合围，特警队员迅速封控现场！',
+        bgm: 'bgm_victory',
         sfx: 'sfx_confirm'
       },
       {
@@ -309,7 +310,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '特警技术员撬开密封锁扣，白色的冷雾散去。厚厚的防震海绵里，放着两样东西。',
+        text: '海峰接过箱子，指尖刚碰到锁扣，锁芯竟“咔哒”一声自动弹开，像认得他一样。白色的冷雾散去，厚厚的防震海绵里，放着两样东西。',
         sfx: 'sfx_suspense'
       },
       {

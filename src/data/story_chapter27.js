@@ -51,7 +51,7 @@ export const CHAPTER27_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
-        text: '砰！{MC_ADULT_NAME}刚靠近光门，就被一股巨大的排斥力狠狠弹飞，撞在钢铁柱子上！',
+        text: '{MC_ADULT_NAME}刚要跨进光门，却被一圈无形的光晕挡了回来，踉跄着退了几步。',
         sfx: 'sfx_shock_sting'
       },
       {
@@ -185,8 +185,9 @@ export const CHAPTER27_STORY = {
     id: 'ch27_scene_great_sacrifice',
     title: '时空光门闭合前夕 · 最痛的告别',
     bgType: 'reactor',
-    bgImg: 'assets/backgrounds/bg_reactor_core@2x.png',
-    bgm: 'bgm_sad_melody',
+    bgImg: 'assets/backgrounds/bg_timegate_dissolve@2x.png',
+    bgImgFallback: 'assets/backgrounds/bg_reactor_core@2x.png',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,
@@ -209,36 +210,73 @@ export const CHAPTER27_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
-        rightPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        leftPortrait: '{MC_ADULT_DISSOLVE_PORTRAIT}',
+        rightPortrait: '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}',
         activeSide: 'left',
-        text: '随着过去的历史即将被扭转，{MC_ADULT_NAME}和{ALLY_2_ADULT_NAME}的身影开始泛起点点金光，慢慢变得半透明。',
+        text: '光门内骤然爆发出一阵嗡鸣，仿佛整条时间线都被搅动——[next]{MC_ADULT_NAME}和{ALLY_2_ADULT_NAME}的身影开始泛起金光，慢慢变得半透明。',
         sfx: 'sfx_suspense'
       },
       {
         id: 4,
         speaker: '{MC_ADULT_NAME}',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        leftPortrait: '{MC_ADULT_DISSOLVE_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
-        text: '（看着自己渐渐透明的手，笑了笑）傻瓜……如果你们真的把老爸和老师们救下来了，崇文小学的操场就不会荒废，未来也根本不会有这个废墟里的我们。',
+        text: '（看着自己渐渐透明的手，笑了笑）傻瓜……从你们跨进这扇门、回到过去的那一刻起，历史就已经开始改写了……[next]我们这些旧未来的人，自然要跟着一起消失。放心去吧，把老爸和老师们，都救下来。',
         highlight: true,
         sfx: 'sfx_sad_melody'
       },
       {
         id: 5,
+        speaker: '{MC_NAME}',
+        leftPortrait: '{MC_SAD_PORTRAIT}',
+        rightPortrait: '{MC_ADULT_DISSOLVE_PORTRAIT}',
+        activeSide: 'left',
+        text: '（眼泪一下涌了出来）不……！凭什么就我们走？！我们是一起从未来杀到这里的，要走一起走！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 6,
         speaker: '{ALLY_2_ADULT_NAME}',
-        leftPortrait: '{ALLY_2_ADULT_PORTRAIT}',
+        leftPortrait: '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}',
         rightPortrait: '{ALLY_2_PORTRAIT}',
         activeSide: 'left',
-        text: '（隔着光芒把警徽按在少年时的自己手里）回去找到我爸，告诉他，六8班的孩子一个都没少！好好替我们活下去！',
+        text: '（隔着光芒，郑重地看着少年时的自己）回去找到我爸，告诉他，六8班的孩子一个都没少！好好替我们活下去！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
       {
-        id: 6,
+        id: 7,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2_CRYING_PORTRAIT}',
+        rightPortrait: '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}',
+        activeSide: 'left',
+        text: '（哭得上气不接下气）我记住了……我一定亲口告诉他，六8班的孩子一个都没少！你们……一定要等着我们啊！',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 8,
+        speaker: '张希哲',
+        leftPortrait: 'assets/art/zhangxizhe_nervous@2x.png',
+        rightPortrait: '{MC_ADULT_DISSOLVE_PORTRAIT}',
+        activeSide: 'left',
+        text: '（抹着眼泪，声音发颤）大叔！我们还没把老师他们都救回来呢……你们不能就这么散了啊！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 9,
+        speaker: '覃瑞怡',
+        leftPortrait: 'assets/art/qinruiyi_crying@2x.png',
+        rightPortrait: '{MC_PORTRAIT}',
+        activeSide: 'left',
+        text: '（泣不成声）为了我们，为了徐老师和刘老师……你们把整个未来都赌上了……',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 10,
         speaker: '{MC_ADULT_NAME}',
-        leftPortrait: '{MC_ADULT_PORTRAIT}',
+        leftPortrait: '{MC_ADULT_DISSOLVE_PORTRAIT}',
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（身形快消散时，敬了一个端端正正的少先队礼，竖起大拇指）六8班，{MC_NAME}！未来就交给你们了！快走！！！',
@@ -246,7 +284,17 @@ export const CHAPTER27_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 7,
+        id: 11,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1_PORTRAIT}',
+        rightPortrait: '{ALLY_2_ADULT_DISSOLVE_PORTRAIT}',
+        activeSide: 'left',
+        text: '（抹了把脸，嘶声大喊）六8班，出发！我们一定把徐老师、刘老师、海峰叔叔全都救回来，一个都不少！',
+        highlight: true,
+        sfx: 'sfx_confirm'
+      },
+      {
+        id: 12,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,

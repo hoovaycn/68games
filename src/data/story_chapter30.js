@@ -98,6 +98,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（看着随风飘走的碎屑，眼泪止不住地流）不走捷径……哪怕考不及格，也绝不低头……原来当年我真的走错了路……',
+        bgm: 'bgm_childhood',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -173,6 +174,7 @@ export const CHAPTER30_STORY = {
         activeSide: 'left',
         text: '火光中，江风如怒涛翻滚，隐约传来百年前掷地有声的朗笑：『苟利国家生死以，岂因祸福避趋之！[next]百年前未曾输，百年后亦不退！少年莫惧，浩然气常在！！』',
         highlight: true,
+        bgm: 'bgm_gojira_battle',
         sfx: 'sfx_confirm'
       },
       {
@@ -220,7 +222,7 @@ export const CHAPTER30_STORY = {
     title: '战局结算 · 斩断循环',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
-    bgm: 'bgm_confirm',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -246,7 +248,7 @@ export const CHAPTER30_STORY = {
     title: '傍晚六点四十分 · 控制台彻底坍塌',
     bgType: 'cargo_top',
     bgImg: 'assets/backgrounds/bg_cargo_top_throne@2x.png',
-    bgm: 'bgm_confirm',
+    bgm: 'bgm_victory',
     dialogues: [
       {
         id: 1,
@@ -320,7 +322,7 @@ export const CHAPTER30_STORY = {
     title: '破晓清晨 · 所有人都在的未来',
     bgType: 'canal_dawn',
     bgImg: 'assets/backgrounds/bg_canal_dawn@2x.png',
-    bgm: 'bgm_sad_melody',
+    bgm: 'bgm_childhood',
     dialogues: [
       {
         id: 1,

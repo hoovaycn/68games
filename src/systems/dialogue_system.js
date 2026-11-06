@@ -373,10 +373,17 @@ export class DialogueSystem {
   drawPortraits(ctx, w, h) {
     const line = this.activeLine;
     const isLeftActive = line.activeSide === 'left';
+    // 回忆闪回段：立绘统一做黑白做旧处理，便于区分时间线（现在 vs 回忆）
+    const isFlashback = !!line.flashback;
 
     // 立绘尺寸适配 960×540 屏幕：高 320px、宽 240px，顶部留空 80px，底部隐入对话框后
     const PORTRAIT_W = 240;
     const PORTRAIT_H = 320;
+
+    // 回忆段滤镜：黑白 + 轻微泛黄做旧；非活跃方更暗
+    const flashbackActiveFilter = 'grayscale(100%) sepia(18%) brightness(88%) contrast(92%)';
+    const flashbackInactiveFilter = 'grayscale(100%) sepia(18%) brightness(38%) contrast(92%)';
+    const inactiveFilter = 'brightness(30%) grayscale(50%)';
 
     // 左立绘 (主角)
     if (line.leftPortrait) {
@@ -386,8 +393,10 @@ export class DialogueSystem {
         const x = 36;
         const y = h - PORTRAIT_H - 130 + (isLeftActive ? -6 : 6);
 
-        if (!isLeftActive) {
-          ctx.filter = 'brightness(30%) grayscale(50%)';
+        if (isFlashback) {
+          ctx.filter = isLeftActive ? flashbackActiveFilter : flashbackInactiveFilter;
+        } else if (!isLeftActive) {
+          ctx.filter = inactiveFilter;
         }
         ctx.drawImage(leftImg, x, y, PORTRAIT_W, PORTRAIT_H);
         ctx.restore();
@@ -402,8 +411,10 @@ export class DialogueSystem {
         const x = w - PORTRAIT_W - 36;
         const y = h - PORTRAIT_H - 130 + (!isLeftActive ? -6 : 6);
 
-        if (isLeftActive) {
-          ctx.filter = 'brightness(30%) grayscale(50%)';
+        if (isFlashback) {
+          ctx.filter = !isLeftActive ? flashbackActiveFilter : flashbackInactiveFilter;
+        } else if (isLeftActive) {
+          ctx.filter = inactiveFilter;
         }
         ctx.drawImage(rightImg, x, y, PORTRAIT_W, PORTRAIT_H);
         ctx.restore();

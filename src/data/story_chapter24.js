@@ -16,7 +16,7 @@ export const CHAPTER24_STORY = {
     title: '二零四六年 · 冰冷的未来废墟',
     bgType: 'future_city',
     bgImg: 'assets/backgrounds/bg_future_city_ruins@2x.png',
-    bgm: 'bgm_eerie_revelation',
+    bgm: 'bgm_evil_lair',
     dialogues: [
       {
         id: 1,
@@ -100,7 +100,7 @@ export const CHAPTER24_STORY = {
         rightPortrait: '{MC_PORTRAIT}',
         activeSide: 'left',
         text: '（一边跟上一边紧张地回头张望）这地方连棵树都透着邪气！大家把手拉紧了，一个都别走散！',
-        sfx: 'sfx_suspense'
+        sfx: 'sfx_text_blip'
       }
     ],
     transition: {
@@ -326,7 +326,7 @@ export const CHAPTER24_STORY = {
         activeSide: 'left',
         text: '（三眼悬浮无人机急速盘旋，音波发射口尖啸震耳）锁定六名反叛生物体，脑电波剧烈紊乱，执行最高等级物理清扫！',
         highlight: true,
-        sfx: 'sfx_suspense'
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 7,
@@ -354,6 +354,7 @@ export const CHAPTER24_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '咻——轰！！！两枚电磁手雷从高架桥断口处凌空掷下，刺目的蓝白电弧瞬间吞没了整支治安小队！[next]高架桥顶端，一道身裹残破战术黑斗篷的高大身影半蹲在铁轨边缘，手中大口径狙击枪正冒着幽幽青烟。',
+        bgm: 'bgm_victory',
         sfx: 'sfx_shock_sting'
       },
       {

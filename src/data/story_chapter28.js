@@ -224,6 +224,7 @@ export const CHAPTER28_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         text: '倒计时归零！大家把老师拽出来的瞬间，灭火阀也被同时拧开，大量阻燃干粉喷涌而出，压住了火势！所有人都活下来了！',
+        bgm: 'bgm_childhood',
         sfx: 'sfx_confirm'
       },
       {
