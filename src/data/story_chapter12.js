@@ -30,8 +30,10 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我按纸条上的号码报了警，可还没人赶到。我爸今晚就要运货，万一他被发现给我们递纸条，会有危险。我们只在外面看一眼，不往里闯。',
         sfx: 'sfx_text_blip'
@@ -39,8 +41,10 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '小声点。看那个红色的冷藏集装箱，插座指示灯亮着，排气扇在排出一股古怪的冷甜雾气。',
         sfx: 'sfx_confirm'
@@ -48,8 +52,10 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '排气扇旁边有个小窗口！白天那只青花瓷罐就在里面，几个人正把罐里的黑膏刮进机器里。这就是他们说的提炼？',
         highlight: true,
@@ -75,7 +81,8 @@ export const CHAPTER12_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '十数道白亮刺目的光束死死钉在孩子们身上。[next]集装箱顶上，数名身披夜行雨衣、眼瞳泛着森绿毒光的蒙面黑衣人悄无声息地拔出了短棍与甩刀。',
@@ -84,7 +91,8 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '黑衣死士头领',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '老板说得没错，海峰放你们走，肯定还会给你们留线索。[next]我们守在后仓，就是等你们回来。抓了你们当人质，他今晚还敢不听话？',
@@ -93,8 +101,10 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '他们眼里的光……比学校里异化的体育老师还要深！大家小心，退路全被封死了！',
         sfx: 'sfx_shock_sting'
@@ -102,7 +112,8 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '可恶……要死在这了吗……我还没跟我爸道过歉……！',
@@ -138,8 +149,10 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_alert@2x.png',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: 'haifeng',
+        leftEmotion: 'frown',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '敢动我家孩子？！老子今天活剥了你们这群吃人骨髓的杂种！！',
         highlight: true,
@@ -148,7 +161,8 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_loving@2x.png',
+        leftPortrait: 'haifeng',
+        leftEmotion: 'smile',
         rightPortrait: null,
         activeSide: 'left',
         text: '海峰跳下车，拿着修车用的长管钳挡开刀，反手把领头的黑衣人按倒在地。[next]{ALLY_2_NAME}愣住了：老爸打架的动作不像街头混混，倒像专门练过。',
@@ -157,8 +171,10 @@ export const CHAPTER12_STORY = {
       {
         id: 31,
         speaker: '黑衣死士头领',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（被按在地上，扭头冲同伙吼）别让海峰带他们走！把出口堵住，孩子和罐子都得留下！',
         sfx: 'sfx_shock_sting'
@@ -166,8 +182,10 @@ export const CHAPTER12_STORY = {
       {
         id: 32,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '车撞开的缺口我来守！头儿，先把海峰从孩子身边引开！',
         sfx: 'sfx_text_blip'
@@ -175,8 +193,10 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '爸……？！你……好厉害？！',
         sfx: 'sfx_shock_sting'
@@ -184,8 +204,10 @@ export const CHAPTER12_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_alert@2x.png',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: 'haifeng',
+        leftEmotion: 'frown',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '傻看什么！躲到老子背后！看老子怎么把这帮孙子收拾干净！',
         sfx: 'sfx_confirm'
@@ -212,7 +234,8 @@ export const CHAPTER12_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: 'haifeng-battle_damaged',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '满地翻滚哀嚎的黑衣死士被一一捆缚。[next]老爸海峰捂着流血的右肋靠在皮卡轮胎上，大口喘着粗气，豆大的汗珠混着血水滚落。',
@@ -221,8 +244,10 @@ export const CHAPTER12_STORY = {
       {
         id: 2,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-battle_damaged',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '爸！你流血了！你别动，我书包里有覃瑞怡带的纱布！',
         sfx: 'sfx_text_blip'
@@ -230,8 +255,10 @@ export const CHAPTER12_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'haifeng-battle_damaged',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。[next]证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！',
         highlight: true,
@@ -240,8 +267,10 @@ export const CHAPTER12_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'haifeng-battle_damaged',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（抬起染着油污的手，有些颤抖地揉了揉自家孩子的头发，眼眶微红）对不起……老爸装了十五年的混混流氓，让你在学校抬不起头。[next]但老爸……从来不是个烂人。',
         highlight: true,
@@ -250,8 +279,10 @@ export const CHAPTER12_STORY = {
       {
         id: 5,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-battle_damaged',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（死死抱住父亲，嚎啕大哭）爸……！你是我见过的……最伟大的警察！',
         sfx: 'sfx_confirm'
@@ -259,8 +290,10 @@ export const CHAPTER12_STORY = {
       {
         id: 6,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_battle_damaged@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'haifeng-battle_damaged',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '先上车，别留在这儿。省厅在城北有个安全屋，我开车带你们过去。到了那儿，我把沈家的事跟你们说清楚。',
         sfx: 'sfx_confirm'

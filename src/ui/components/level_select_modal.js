@@ -49,7 +49,7 @@ export class LevelSelectModal {
       { num: 27, act: 3, label: '第27章', title: '熔炉抉择', sceneKey: 'ch27_scene_reactor_run' },
       { num: 28, act: 3, label: '第28章', title: '倒流的挽歌', sceneKey: 'ch28_scene_return_2026' },
       { num: 29, act: 3, label: '第29章', title: '求死的神明', sceneKey: 'ch29_scene_throne_reveal' },
-      { num: 30, act: 3, label: '第30章', title: '跨越百年的毕业礼', sceneKey: 'ch30_scene_snack_crush' }
+      { num: 30, act: 3, label: '第30章', title: '跨越百年的毕业礼', sceneKey: 'ch30_scene_second_form' }
     ];
 
     this.focusIndex = 0;

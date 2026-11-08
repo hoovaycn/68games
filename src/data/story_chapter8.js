@@ -23,7 +23,8 @@ export const CHAPTER8_STORY = {
         id: 2,
         speaker: '清醒过来的同学',
         leftPortrait: null,
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '我、我看见他们往那边搬箱子……一个破仓库，有个穿花西装、戴金链子的男的，大家都叫他哥……',
         sfx: 'sfx_text_blip'
@@ -31,8 +32,10 @@ export const CHAPTER8_STORY = {
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '走，过去看看。阿瑶肯定也在那儿。',
         sfx: 'sfx_text_blip'
@@ -40,8 +43,10 @@ export const CHAPTER8_STORY = {
       {
         id: 4,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '这次不对劲。他们不是小打小闹，是成箱成箱地往各个学校送，背后肯定有个大组织。',
         sfx: 'sfx_text_blip'
@@ -59,8 +64,10 @@ export const CHAPTER8_STORY = {
       {
         id: 6,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '如果真是这样，就算我们今晚砸了这一个仓库，外面肯定还有别的供货点。',
         sfx: 'sfx_text_blip'
@@ -68,8 +75,10 @@ export const CHAPTER8_STORY = {
       {
         id: 7,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '先别管几处。阿瑶还在里头，我就先把眼前这扇门砸开。',
         sfx: 'sfx_confirm'
@@ -103,8 +112,10 @@ export const CHAPTER8_STORY = {
       {
         id: 2,
         speaker: '花西装男人',
-        leftPortrait: 'assets/art/mystery_man_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'mystery_man',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '两个黄毛丫头也敢闯老子的场子？这城里多少家长排着队求我给货！[next]只要卷子上的分是真的，谁管你怎么考出来的？识相的滚远点！',
         sfx: 'sfx_text_blip'
@@ -112,8 +123,10 @@ export const CHAPTER8_STORY = {
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '阿瑶呢？你们给她吃了什么鬼东西？！把她交出来！',
         sfx: 'sfx_confirm'
@@ -121,8 +134,10 @@ export const CHAPTER8_STORY = {
       {
         id: 4,
         speaker: '花西装男人',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '交出来？那是她自己伸手拿的！等你们长大了就知道，没人会在乎你遭了什么罪，所有人只看你爬得有多高！',
         sfx: 'sfx_text_blip'
@@ -130,8 +145,10 @@ export const CHAPTER8_STORY = {
       {
         id: 5,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '少拿这种鬼话骗人！把要考试的小孩当牲口灌药，今天非把你这破地方砸了不可！',
         sfx: 'sfx_confirm'
@@ -183,8 +200,10 @@ export const CHAPTER8_STORY = {
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '阿瑶！架打完了，那帮坏蛋全跑了！你清醒一点，快跟我们回去找大夫！',
         sfx: 'sfx_text_blip'
@@ -192,8 +211,10 @@ export const CHAPTER8_STORY = {
       {
         id: 4,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '回去？回去等下一次考试，看我还能不能保住第一名吗？',
         sfx: 'sfx_shock_sting'
@@ -201,8 +222,10 @@ export const CHAPTER8_STORY = {
       {
         id: 5,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '你们永远那么敢冲敢闯。可我每次考试都怕少一分，怕有一天不再是第一名，大家就不在乎我了。[next]我不想听安慰，我只想一直考第一！',
         sfx: 'sfx_text_blip'
@@ -210,8 +233,10 @@ export const CHAPTER8_STORY = {
       {
         id: 6,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '可是阿瑶……你说过，我们要一起毕业，一起去海边看日出的啊！分数真的比我们还重要吗？！',
         sfx: 'sfx_text_blip'
@@ -219,8 +244,10 @@ export const CHAPTER8_STORY = {
       {
         id: 7,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '是！比你们重要一万倍！现在我爸妈以我为荣，老师拿我当榜样。[next]和这些比起来，你们所谓的“朋友”游戏，简直幼稚得可笑。',
         highlight: true,
@@ -229,8 +256,10 @@ export const CHAPTER8_STORY = {
       {
         id: 8,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '别再来找我了。看到你们这副自以为是的样子，只会让我觉得恶心。',
         highlight: true,
@@ -248,7 +277,8 @@ export const CHAPTER8_STORY = {
       {
         id: 10,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '（浑身是血地瘫坐在地，死死抓着衣角）……为什么……我们明明拼了命打赢了……为什么救不回她……',
@@ -257,7 +287,8 @@ export const CHAPTER8_STORY = {
       {
         id: 11,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '（眼泪砸在满是淤青的手背上，声音止不住地发抖）是我没拉住她……[next]是我们太自以为是了……如果连最好的朋友都救不了，我们打赢了又有什么用……',
@@ -295,8 +326,10 @@ export const CHAPTER8_STORY = {
       {
         id: 15,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
         text: '当年我们打赢了仓库里的人，却没抓住送货的，也没能带阿瑶回来。二十年后，同样的怪零食又进了你们的学校。',
@@ -305,8 +338,10 @@ export const CHAPTER8_STORY = {
       {
         id: 16,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_pain@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'xu',
+        leftEmotion: 'cry',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_school_night@2x.png',
         text: '这二十年里，每一次闭上眼，我都还能看见阿瑶走入黑暗的背影……[next]但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！',

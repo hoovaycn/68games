@@ -1,6 +1,7 @@
 import { sound } from '../engine/sound.js';
 import { assetLoader } from '../engine/asset_loader.js';
 import { drawLoadingScreen } from '../ui/loading_screen.js';
+import { artForEmotion } from '../engine/avatar.js';
 
 /**
  * 浅黄纸质极简风剧情剧场组件 (Story Visual Novel Layer)
@@ -177,6 +178,17 @@ export class DialogueSystem {
     }
   }
 
+  /**
+   * 将「角色 id + 情绪」解析为 assets/art 真实立绘 URL。
+   * 兼容历史遗留的完整路径（含 '/' 则直接返回）；无立绘返回 null。
+   */
+  portraitUrl(line, side) {
+    const actor = line?.[side + 'Portrait'];
+    if (!actor) return null;
+    if (actor.includes('/')) return actor;
+    return artForEmotion(actor, line?.[side + 'Emotion'], '2x');
+  }
+
   prepareLineImages() {
     const token = ++this.loadToken;
     this.loading = false;
@@ -185,7 +197,7 @@ export class DialogueSystem {
     const line = this.activeLine;
     const bg = line?.bgImg || this.currentScene?.bgImg;
     const fallback = bg && this.currentScene?.bgImgFallback;
-    const portraits = line?.hidePortraits ? [] : [line?.leftPortrait, line?.rightPortrait].filter(Boolean);
+    const portraits = line?.hidePortraits ? [] : [this.portraitUrl(line, 'left'), this.portraitUrl(line, 'right')].filter(Boolean);
     const paths = [...new Set([bg, ...portraits].filter(Boolean))];
     if (!paths.length) return;
 
@@ -386,8 +398,9 @@ export class DialogueSystem {
     const inactiveFilter = 'brightness(30%) grayscale(50%)';
 
     // 左立绘 (主角)
-    if (line.leftPortrait) {
-      const leftImg = assetLoader.getImage(line.leftPortrait);
+    const leftUrl = this.portraitUrl(line, 'left');
+    if (leftUrl) {
+      const leftImg = assetLoader.getImage(leftUrl);
       if (leftImg) {
         ctx.save();
         const x = 36;
@@ -404,8 +417,9 @@ export class DialogueSystem {
     }
 
     // 右立绘 (NPC/同学/敌人)
-    if (line.rightPortrait) {
-      const rightImg = assetLoader.getImage(line.rightPortrait);
+    const rightUrl = this.portraitUrl(line, 'right');
+    if (rightUrl) {
+      const rightImg = assetLoader.getImage(rightUrl);
       if (rightImg) {
         ctx.save();
         const x = w - PORTRAIT_W - 36;

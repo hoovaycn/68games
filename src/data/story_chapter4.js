@@ -28,8 +28,10 @@ export const CHAPTER4_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '上次那个队长说，教练每周五都会去城郊旧训练馆发饮料。[next]我们把他带的瓶子和小贩、混混手里的包装对了一遍，标记都一样。去训练馆看看这批货从哪来。',
         sfx: 'sfx_text_blip'
@@ -37,8 +39,10 @@ export const CHAPTER4_STORY = {
       {
         id: 3,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '那还蹲这儿抠泥巴干嘛？走啊！抄家伙直捣他们老巢！我兜里还有五十块零花钱，打赢了全请大家吃冰棍！',
         sfx: 'sfx_confirm'
@@ -46,8 +50,10 @@ export const CHAPTER4_STORY = {
       {
         id: 4,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '得了吧你，每次打架前你先看看自己鞋带系紧没，别又冲两步摔个狗吃屎。',
         sfx: 'sfx_text_blip'
@@ -55,8 +61,10 @@ export const CHAPTER4_STORY = {
       {
         id: 5,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '张希哲你皮痒了是吧！我那是战术性滑铲！',
         sfx: 'sfx_text_blip'
@@ -64,8 +72,10 @@ export const CHAPTER4_STORY = {
       {
         id: 6,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '都给我闭嘴！毛都没长齐呢还抄家伙？老巢也是你们能瞎冲的？真当自己是名侦探柯南了？',
         sfx: 'sfx_text_blip'
@@ -73,8 +83,10 @@ export const CHAPTER4_STORY = {
       {
         id: 7,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '可我们都已经被他们欺负这么久了。再等，等来的只会是下一拨、更下一拨。',
         sfx: 'sfx_text_blip'
@@ -82,8 +94,10 @@ export const CHAPTER4_STORY = {
       {
         id: 8,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '行，那就一起去。你们冲前面，我们两个大人压后。查归查，谁都不许一个人往里冲。',
         highlight: true,
@@ -117,8 +131,10 @@ export const CHAPTER4_STORY = {
       {
         id: 2,
         speaker: '推车小贩',
-        leftPortrait: 'assets/art/vendor_default@2x.png',
-        rightPortrait: 'assets/art/punk_default@2x.png',
+        leftPortrait: 'vendor',
+        leftEmotion: 'default',
+        rightPortrait: 'punk',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '尝尝，新出的辣条，吃了刷题不困，通宵都精神。你们不是说最近卷子压得人脑袋疼吗？这玩意儿最顶用。',
         sfx: 'sfx_text_blip'
@@ -126,8 +142,10 @@ export const CHAPTER4_STORY = {
       {
         id: 3,
         speaker: '高年级混混',
-        leftPortrait: 'assets/art/vendor_default@2x.png',
-        rightPortrait: 'assets/art/punk_default@2x.png',
+        leftPortrait: 'vendor',
+        leftEmotion: 'default',
+        rightPortrait: 'punk',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '废话那么多，货够不够？我们兄弟还等着分呢。下周月考一到，谁还不想往前窜几名。',
         sfx: 'sfx_text_blip'
@@ -135,8 +153,10 @@ export const CHAPTER4_STORY = {
       {
         id: 4,
         speaker: '异化体育生',
-        leftPortrait: 'assets/art/senior_athlete_corrupted@2x.png',
-        rightPortrait: 'assets/art/punk_default@2x.png',
+        leftPortrait: 'senior_athlete-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'punk',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '就是，赶紧拿来！我们队长说了，教练这儿的货是最好的！',
         sfx: 'sfx_text_blip'
@@ -144,8 +164,10 @@ export const CHAPTER4_STORY = {
       {
         id: 5,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/punk_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'punk',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '果然，外面这些散货的全是来这儿拿的！',
         sfx: 'sfx_text_blip'
@@ -178,8 +200,10 @@ export const CHAPTER4_STORY = {
       {
         id: 2,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_corrupted@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'coach-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '哪来的小屁孩？毛都没长齐，也敢管爷爷的事？',
         sfx: 'sfx_text_blip'
@@ -187,8 +211,10 @@ export const CHAPTER4_STORY = {
       {
         id: 3,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/coach_corrupted@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_smirk@2x.png',
+        leftPortrait: 'coach-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '就是你让他们往学校塞这些破东西的？害了多少同学了你还敢坐这儿装大爷！',
         sfx: 'sfx_text_blip'
@@ -196,8 +222,10 @@ export const CHAPTER4_STORY = {
       {
         id: 4,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_corrupted@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'coach-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '害？我这是给他们捷径。喝了就能拿第一，多少人求着我要，我还不一定给呢。',
         sfx: 'sfx_text_blip'
@@ -205,8 +233,10 @@ export const CHAPTER4_STORY = {
       {
         id: 5,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
-        rightPortrait: 'assets/art/coach_corrupted@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'frown',
+        rightPortrait: 'coach-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '你把人吃成那样，还好意思说是帮忙？',
         sfx: 'sfx_confirm'
@@ -214,7 +244,8 @@ export const CHAPTER4_STORY = {
       {
         id: 6,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_corrupted@2x.png',
+        leftPortrait: 'coach-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '小姑娘，话别说太早。吃不到葡萄说葡萄酸，你还没尝过“赢”是什么滋味。',
@@ -232,8 +263,10 @@ export const CHAPTER4_STORY = {
       {
         id: 8,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/coach_corrupted@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'coach-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '别跟他废话。先把他和这些被异化的人一起打败，再从他嘴里把所有真相挖出来。',
         sfx: 'sfx_confirm'
@@ -276,8 +309,10 @@ export const CHAPTER4_STORY = {
       {
         id: 3,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_sad@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
+        leftPortrait: 'coach',
+        leftEmotion: 'cry',
+        rightPortrait: 'xu',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '二十年前……我就是个连体测都过不了的体育差生。所有人都笑话我。[next]喝了这东西，我真拿过全国少年冠军。那几年我风光得很，谁见我都客客气气。',
         sfx: 'sfx_text_blip'
@@ -285,8 +320,10 @@ export const CHAPTER4_STORY = {
       {
         id: 4,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_sad@2x.png',
-        rightPortrait: 'assets/art/vendor_sad@2x.png',
+        leftPortrait: 'coach',
+        leftEmotion: 'cry',
+        rightPortrait: 'vendor',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '可巅峰就那几年。除了跑步我什么都不会，后来腿废了、名头也没了，只能在这种破地方混饭吃。[next]你说我不靠这个，我还靠什么？',
         sfx: 'sfx_text_blip'
@@ -294,8 +331,10 @@ export const CHAPTER4_STORY = {
       {
         id: 5,
         speaker: '推车小贩',
-        leftPortrait: 'assets/art/vendor_sad@2x.png',
-        rightPortrait: 'assets/art/coach_sad@2x.png',
+        leftPortrait: 'vendor',
+        leftEmotion: 'cry',
+        rightPortrait: 'coach',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '我当年也是。全班倒数，我爸说我考不上大学就去要饭。[next]靠这东西我考过省状元，风光没几年，现在还不是在小学门口卖烤肠，天天被城管追。',
         sfx: 'sfx_text_blip'
@@ -312,8 +351,10 @@ export const CHAPTER4_STORY = {
       {
         id: 7,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_sad@2x.png',
-        rightPortrait: 'assets/art/vendor_sad@2x.png',
+        leftPortrait: 'coach',
+        leftEmotion: 'cry',
+        rightPortrait: 'vendor',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '我知道这东西不对……我真的知道。[next]可我除了让小孩喝这个拿成绩，我什么都不会啊。我不这么干，我连饭都吃不上。',
         highlight: true,
@@ -322,8 +363,10 @@ export const CHAPTER4_STORY = {
       {
         id: 8,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/coach_sad@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'coach',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '原来不是“坏人专门去害人”。是以前的受害者，变成了今天的加害者。',
         sfx: 'sfx_text_blip'
@@ -331,8 +374,10 @@ export const CHAPTER4_STORY = {
       {
         id: 9,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/coach_sad@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'coach',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '他们当年也吃过这种东西，后来又拿它去害别人。受过害，不代表现在做的事就不用负责。',
         sfx: 'sfx_text_blip'
@@ -340,8 +385,10 @@ export const CHAPTER4_STORY = {
       {
         id: 10,
         speaker: '坏教练',
-        leftPortrait: 'assets/art/coach_sad@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'coach',
+        leftEmotion: 'cry',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '货不是我们做的。隔两个月，就有人把这些异化零食的纸箱放在训练馆门口。[next]我从来没见过送货的人长什么样，只知道问多了，就再也拿不到货。',
         sfx: 'sfx_text_blip'
@@ -358,8 +405,10 @@ export const CHAPTER4_STORY = {
       {
         id: 12,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '也就是说，他们下一步是要借家长会，把东西直接送进每个孩子家里。',
         sfx: 'sfx_shock_sting'

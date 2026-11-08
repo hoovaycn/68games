@@ -30,8 +30,10 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '好不容易放暑假，覃瑞怡你干嘛非拽我们来看什么《近代海防与虎门销烟出水文物展》啊！',
         sfx: 'sfx_text_blip'
@@ -39,8 +41,10 @@ export const CHAPTER10_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '你懂什么！这次展出的是当年虎门销烟后从海里捞上来的文物，[next]还是省重点中学的加分调研项目，大家中考都用得上！',
         sfx: 'sfx_confirm'
@@ -48,8 +52,10 @@ export const CHAPTER10_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '……停车场里停着几辆贴了“怡安教育慈善基金会”临时通行证的黑色金杯车。展览不是刚开吗，怎么后门还停着搬运车？',
         sfx: 'sfx_text_blip'
@@ -57,8 +63,10 @@ export const CHAPTER10_STORY = {
       {
         id: 41,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '大家想起期中考前那场家长会：那个带着怪味零食逼同学试吃的神秘家长，后来一直没查出是谁。眼下基金会又把车停在后门，难免让人起疑。',
         sfx: 'sfx_shock_sting'
@@ -66,8 +74,10 @@ export const CHAPTER10_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '门口的赞助牌也是“怡安教育慈善基金会”。他们出钱办展，后门还停着搬运车……进去看看他们在搬什么。',
         highlight: true,
@@ -112,7 +122,8 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '重点班学生',
-        leftPortrait: 'assets/art/senior_athlete_default@2x.png',
+        leftPortrait: 'senior_athlete',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '（攥着砸柜的金属栏杆，伸手去抠罐口封泥）我闻到了……[next]和学校发的零食一个味儿！可这个更香。有人说它能让人过目不忘……让我尝一口！',
@@ -121,8 +132,10 @@ export const CHAPTER10_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '展柜已经被他砸开了！张希哲，拦住他的手，别让他把封泥也抠掉！[next]那罐里装的不是补脑药，是一百多年前的鸦片！',
         sfx: 'sfx_shock_sting'
@@ -157,8 +170,10 @@ export const CHAPTER10_STORY = {
       {
         id: 1,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '六 8 班的孩子们？学校里的零食试验被你们搅黄了，基金会出钱办个展，你们也要来管？保安正在疏散游客，这件展品由我们的人接走。',
         sfx: 'sfx_shock_sting'
@@ -166,8 +181,10 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '{MC_NAME}',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。[next]学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？',
         highlight: true,
@@ -176,8 +193,10 @@ export const CHAPTER10_STORY = {
       {
         id: 3,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。[next]学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！',
         highlight: true,
@@ -186,8 +205,10 @@ export const CHAPTER10_STORY = {
       {
         id: 4,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '谁也别想碰展品！大伙抄家伙，把这群狗腿子打醒！',
         sfx: 'sfx_confirm'
@@ -195,8 +216,10 @@ export const CHAPTER10_STORY = {
       {
         id: 5,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '箱子从后门走。你们几个拦住这群孩子，别让他们追上来！',
         sfx: 'sfx_shock_sting'
@@ -204,8 +227,10 @@ export const CHAPTER10_STORY = {
       {
         id: 6,
         speaker: '重点班学生',
-        leftPortrait: 'assets/art/senior_athlete_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'senior_athlete-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（眼神发直，扑向挡在展柜前的人）别拦我……我要罐子里的东西！',
         sfx: 'sfx_shock_sting'
@@ -240,8 +265,10 @@ export const CHAPTER10_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '该死！让他们把古董抢走了！这帮人光天化日之下也太猖狂了！',
         sfx: 'sfx_text_blip'
@@ -249,8 +276,10 @@ export const CHAPTER10_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '别慌，我记下了车牌尾号。他们走的是向南的高架桥，那是往城南老工业区开的。',
         sfx: 'sfx_confirm'
@@ -258,8 +287,10 @@ export const CHAPTER10_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '（脸色煞白，手指死死攥紧）……城南废弃汽修街？那地方……是我爸修车铺子所在的街区。',
         highlight: true,

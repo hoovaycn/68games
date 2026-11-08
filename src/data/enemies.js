@@ -1352,9 +1352,91 @@ export const ENEMIES = {
       { itemId: 'moms_lunchbox', chance: 1.0 }
     ],
     quotes: {
-      move: '（痛苦挣扎）杀了我……不要管我……快击碎死锁柱！',
+      move: '（悬浮半空，机械复眼冷漠扫视）不合格的情感，通通抹除！',
       attack: '净化风暴，抹除一切！',
-      death: '（骨钉崩裂，泪水滑落）……谢谢你们……终于……把我拉回来了……'
+      death: '（骨钉崩裂，机器核心嗡鸣）……不可能……我……是净化本身……！'
+    }
+  },
+
+  // 第30章：净化主宰·阿瑶（第二形态 · 终极变异大Boss）
+  ayao_final_form: {
+    id: 'ayao_final_form',
+    name: '净化主宰·阿瑶',
+    title: '与机器彻底融合的终极形态',
+    classId: 'strong_boy',
+    level: 26,
+    bonusHp: 280,
+    equippedWeapon: 'colossus_fist',
+    portrait: 'assets/portraits/ayao_final_form_default@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_pink@2x.png',
+    themeColor: '#7c3aed',
+    bio: '阿瑶与净化机器彻底融合后的终极形态。半人半机器，数万根光缆与破碎试卷缠绕，机械复眼闪烁深紫电芒。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 10
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'moms_lunchbox', chance: 1.0 },
+      { itemId: 'bastard_soda', chance: 1.0 }
+    ],
+    quotes: {
+      move: '低等生物的虚妄情感，终究不过是一串无用的数据！',
+      attack: '净化湮灭雷暴！',
+      death: '（核心分崩离析，暗紫光屑漫天）……原来……这才是……解脱……'
+    }
+  },
+
+  // 第30章：沈家父子怨念残魂
+  shen_chongli_soul: {
+    id: 'shen_chongli_soul',
+    name: '沈崇礼之魂',
+    title: '沈家怨念 · 少东家残魂',
+    classId: 'teacher',
+    level: 23,
+    bonusHp: 70,
+    equippedWeapon: 'teaching_pointer',
+    portrait: 'assets/portraits/shen_chongli_soul@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
+    themeColor: '#7f1d1d',
+    bio: '沈崇礼被阿瑶执念唤醒的怨念残魂，执文明杖，妄想借净化机器重掌沈家的提线木偶王国。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 7
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 }
+    ],
+    quotes: {
+      move: '沈家的规矩，就是让你们都变成满分！',
+      attack: '规则的裁决！',
+      death: '（怨念溃散）沈家……不会亡……！'
+    }
+  },
+  shen_wanting_soul: {
+    id: 'shen_wanting_soul',
+    name: '沈万廷之魂',
+    title: '沈家怨念 · 百年家主残魂',
+    classId: 'teacher',
+    level: 24,
+    bonusHp: 80,
+    equippedWeapon: 'whistle',
+    portrait: 'assets/portraits/shen_wanting_soul@2x.png',
+    walkSprite: 'assets/sprites/placeholder/walk_placeholder_black@2x.png',
+    themeColor: '#450a0a',
+    bio: '沈万廷被阿瑶执念唤醒的百年怨念，苍老浑浊，妄图借净化机器续写沈家百年提线木偶的传承。',
+    ai: {
+      type: 'aggressive_chase',
+      aggroRadius: 8
+    },
+    drops: [
+      { itemId: 'honey_tea', chance: 1.0 },
+      { itemId: 'sausage', chance: 1.0 }
+    ],
+    quotes: {
+      move: '百年大业，绝不会断送在毛孩子手里！',
+      attack: '真正的绝对掌控！',
+      death: '（怨念炸散）列祖列宗……老夫不甘啊！'
     }
   },
 

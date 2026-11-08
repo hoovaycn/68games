@@ -37,7 +37,8 @@ export const CHAPTER7_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '那个扎着高马尾、正抓耳挠腮满脸不服输的，是少年时代的徐老师。',
@@ -46,7 +47,8 @@ export const CHAPTER7_STORY = {
       {
         id: 4,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '坐在另一边，留着齐耳短发、正翻着课本检查答案的，是少年时代的刘老师。',
@@ -55,7 +57,8 @@ export const CHAPTER7_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/ayao_default@2x.png',
+        leftPortrait: 'ayao',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '坐在她们中间，梳着双麻花辫、正笑着递钢笔的女孩叫阿瑶，是全班雷打不动的第一名。[next]那时的她们，还只是三个再普通不过的好朋友。',
@@ -64,8 +67,10 @@ export const CHAPTER7_STORY = {
       {
         id: 6,
         speaker: '阿瑶',
-        leftPortrait: 'assets/art/ayao_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'ayao',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '……没关系的。你们别着急，慢慢算，这道题套公式就能解出来啦。',
         sfx: 'sfx_text_blip'
@@ -73,8 +78,10 @@ export const CHAPTER7_STORY = {
       {
         id: 7,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '也就你脾气好，换作是我，这破卷子我早撕了！每次都得靠你这个第一名来捞我们。',
         sfx: 'sfx_text_blip'
@@ -82,8 +89,10 @@ export const CHAPTER7_STORY = {
       {
         id: 8,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '行了你俩，快写吧。等会儿天黑了，还得让阿瑶带咱们从后门溜出去呢。不过……',
         sfx: 'sfx_text_blip'
@@ -91,8 +100,10 @@ export const CHAPTER7_STORY = {
       {
         id: 9,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '你们觉不觉得，今天阿瑶脸色有点不对劲？而且外面走廊有点太安静了，连值日生的声音都没了。',
         sfx: 'sfx_text_blip'
@@ -125,8 +136,10 @@ export const CHAPTER7_STORY = {
       {
         id: 2,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '你俩坐着别动。不对劲，我先去前面看看。',
         sfx: 'sfx_confirm'
@@ -134,8 +147,10 @@ export const CHAPTER7_STORY = {
       {
         id: 3,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '你少来，要死一起死，我跟你一起。阿瑶，你跟在我们后面。',
         sfx: 'sfx_text_blip'
@@ -152,7 +167,8 @@ export const CHAPTER7_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/senior_student_corrupted@2x.png',
+        leftPortrait: 'senior_student-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '那是一个穿着旧校服的高年级学长，眼睛里泛着诡异的青光。他嘴里疯狂念叨着考试公式，像野兽一样扑了过来。',
@@ -161,8 +177,10 @@ export const CHAPTER7_STORY = {
       {
         id: 6,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '阿瑶躲远点！刘，快去传达室找大爷帮忙！',
         sfx: 'sfx_confirm'
@@ -179,7 +197,8 @@ export const CHAPTER7_STORY = {
       {
         id: 8,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/janitor_old@2x.png',
+        leftPortrait: 'janitor',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '铁门“嘎吱”一声开了。可传达室大爷转过头时，眼睛里竟然也泛着一模一样的幽幽青光！',
@@ -188,8 +207,10 @@ export const CHAPTER7_STORY = {
       {
         id: 9,
         speaker: '异化大爷',
-        leftPortrait: 'assets/art/janitor_old@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'janitor',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '考砸了……谁都不许出去……都给我回去背书！',
         sfx: 'sfx_text_blip'
@@ -269,8 +290,10 @@ export const CHAPTER7_STORY = {
       {
         id: 3,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '刘……你带着阿瑶从窗户翻出去……我来拖住他们。',
         sfx: 'sfx_unit_down'
@@ -278,8 +301,10 @@ export const CHAPTER7_STORY = {
       {
         id: 4,
         speaker: '阿瑶',
-        leftPortrait: 'assets/art/ayao_default@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'ayao',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '你们……每次打架都这么厉害。就算不靠成绩，大家也那么喜欢你们……',
         sfx: 'sfx_text_blip'
@@ -297,8 +322,10 @@ export const CHAPTER7_STORY = {
       {
         id: 6,
         speaker: '阿瑶',
-        leftPortrait: 'assets/art/ayao_default@2x.png',
-        rightPortrait: 'assets/art/young_liu_default@2x.png',
+        leftPortrait: 'ayao',
+        leftEmotion: 'default',
+        rightPortrait: 'liu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '可我只有成绩了……我不能掉下去……不能……',
         highlight: true,
@@ -307,8 +334,10 @@ export const CHAPTER7_STORY = {
       {
         id: 7,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_default@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '阿瑶？你口袋里掉出来的……是外面那些人吃的东西？！你什么时候开始吃的？！',
         sfx: 'sfx_shock_sting'
@@ -325,8 +354,10 @@ export const CHAPTER7_STORY = {
       {
         id: 9,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/ayao_corrupted@2x.png',
-        rightPortrait: 'assets/art/young_xu_default@2x.png',
+        leftPortrait: 'ayao-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'xu-young',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（声音变得冰冷且狂躁）不用你们管！谁也别想抢走我的第一名！',
         sfx: 'sfx_unit_down'
@@ -334,8 +365,10 @@ export const CHAPTER7_STORY = {
       {
         id: 10,
         speaker: '少年徐老师',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '阿瑶！你清醒一点！你为什么要吃那种东西？！我们不是说好要一起干干净净地毕业吗？！',
         sfx: 'sfx_text_blip'
@@ -343,8 +376,10 @@ export const CHAPTER7_STORY = {
       {
         id: 11,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_xu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'xu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '干干净净？（神经质地笑起来）你们打架受了处分，别人只会说你们仗义。[next]可我只要掉下第一名，我就什么都不是了！',
         sfx: 'sfx_text_blip'
@@ -352,8 +387,10 @@ export const CHAPTER7_STORY = {
       {
         id: 12,
         speaker: '少年刘老师',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '谁说的？！你就算考倒数第一，你也是阿瑶，是我们最好的朋友啊！',
         sfx: 'sfx_shock_sting'
@@ -361,8 +398,10 @@ export const CHAPTER7_STORY = {
       {
         id: 13,
         speaker: '异化阿瑶',
-        leftPortrait: 'assets/art/young_liu_default@2x.png',
-        rightPortrait: 'assets/art/ayao_corrupted@2x.png',
+        leftPortrait: 'liu-young',
+        leftEmotion: 'default',
+        rightPortrait: 'ayao-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '（面目狰狞）闭嘴！别再拿你们那种恶心的施舍来可怜我！只要吃了这个……我永远都是不可替代的第一名！',
         highlight: true,
@@ -416,8 +455,10 @@ export const CHAPTER7_STORY = {
       {
         id: 2,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_pain@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'cry',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '天亮之后，我们发誓一定要把阿瑶救回来，一定要找到这东西的源头。',
         sfx: 'sfx_text_blip'
@@ -425,8 +466,10 @@ export const CHAPTER7_STORY = {
       {
         id: 3,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '我们沿着散货的线索找到城郊旧仓库，可到最后，也没能把阿瑶带回来。',
         sfx: 'sfx_text_blip'
@@ -434,8 +477,10 @@ export const CHAPTER7_STORY = {
       {
         id: 4,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '所以这一次，你们无论如何也要阻止这一切，对吗？',
         sfx: 'sfx_text_blip'
@@ -443,7 +488,8 @@ export const CHAPTER7_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '对。我们绝对不能再让当年的事，在你们身上重演。',

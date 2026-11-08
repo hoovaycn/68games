@@ -30,8 +30,10 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '咳咳……这什么破地方，路坑坑洼洼的。{ALLY_2_NAME}，你平时放假就在这种地方帮你爸看店？',
         sfx: 'sfx_text_blip'
@@ -39,8 +41,10 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '……少废话。看前面那家“海峰汽修”，门口卷帘门半拉着，刚才博物馆那辆黑色金杯车就停在院子角落里！',
         highlight: true,
@@ -49,8 +53,10 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '天哪，后备箱开着，那只带封泥的青花古瓷罐真的被搬进去了！{ALLY_2_NAME}……你爸他……该不会真的和那些人是一伙的吧？',
         sfx: 'sfx_shock_sting'
@@ -58,8 +64,10 @@ export const CHAPTER11_STORY = {
       {
         id: 5,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的事！我不信！跟我进去看清楚！',
         sfx: 'sfx_confirm'
@@ -93,8 +101,10 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '其中一人是家长会上的神秘家长；另一人戴着墨镜、挂着金链子，花臂外罩着件旧西装，嘴里叼着烟。[next]{ALLY_2_NAME}认出来了：那是自己的父亲海峰。',
         sfx: 'sfx_suspense'
@@ -102,8 +112,10 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '老海峰，古罐已经送到你店里。今晚先从罐里提炼出“青髓”，再由你开车运去码头。[next]这三十万是你的报酬，往后你的二手车生意也由我罩着。',
         sfx: 'sfx_text_blip'
@@ -111,8 +123,10 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。[next]管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！',
         highlight: true,
@@ -138,8 +152,10 @@ export const CHAPTER11_STORY = {
       {
         id: 1,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒品？！',
         sfx: 'sfx_shock_sting'
@@ -147,8 +163,10 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_default@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！',
         sfx: 'sfx_shock_sting'
@@ -156,8 +174,10 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_loving@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'smile',
         activeSide: 'left',
         text: '我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！',
         sfx: 'sfx_text_blip'
@@ -165,8 +185,10 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_loving@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'haifeng',
+        rightEmotion: 'smile',
         activeSide: 'right',
         text: '（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！',
         highlight: true,
@@ -175,8 +197,10 @@ export const CHAPTER11_STORY = {
       {
         id: 5,
         speaker: '二秃子',
-        leftPortrait: 'assets/art/punk_default@2x.png',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: 'punk',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（拎着铁管从车底钻出来）老海让你们走，没听见？后仓里那批货，谁敢多看一眼，我就敲谁的腿。',
         sfx: 'sfx_shock_sting'
@@ -184,8 +208,10 @@ export const CHAPTER11_STORY = {
       {
         id: 6,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '门我堵上了。货还在里面，不能让这几个孩子回头拍照。',
         sfx: 'sfx_text_blip'
@@ -193,8 +219,10 @@ export const CHAPTER11_STORY = {
       {
         id: 7,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/punk_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'punk',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '{ALLY_2_NAME}，先把奖状捡起来！他们已经围过来了，咱们得打出去！',
         sfx: 'sfx_confirm'
@@ -229,7 +257,8 @@ export const CHAPTER11_STORY = {
       {
         id: 2,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '（跌坐在泥水里，双手死死抠着地砖，眼泪大颗大颗砸在碎裂的奖状上）为什么……为什么是这样……[next]我爸真的是个烂人……他是个无可救药的坏蛋……',
@@ -238,8 +267,10 @@ export const CHAPTER11_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '{ALLY_2_NAME}，先别哭。你爸刚才推你出门的时候，好像往你外套口袋里塞了张纸。',
         sfx: 'sfx_confirm'
@@ -247,8 +278,10 @@ export const CHAPTER11_STORY = {
       {
         id: 4,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '这是汽修厂后门的线路图，连断电开关都画出来了。背面还有字：【后仓有埋伏，别回来，找警察】……这是你爸写的？',
         highlight: true,

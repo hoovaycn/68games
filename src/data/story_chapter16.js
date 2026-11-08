@@ -31,8 +31,10 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '等等，我们要是没穿越回虎门，沈掌柜就不会知道“福寿堂两百年后还在”。他原本还免费给穷人发药，会不会是我们告诉了他未来，他才决定跟洋商走？',
         highlight: true,
@@ -41,8 +43,10 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '那福寿堂后来变坏，会不会跟我们穿越回去有关？可洋商早就找上他了。就算我们没说，他真会一直好好开药铺吗？',
         highlight: true,
@@ -51,8 +55,10 @@ export const CHAPTER16_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '先回安全屋把人和装备点清楚，再联系增援。沈家躲在下游的旧洋行仓库，等天亮了，我们就去堵住出口。浩然正气杖先锁进防爆箱，别再让他们抢走。',
         sfx: 'sfx_confirm'
@@ -60,8 +66,10 @@ export const CHAPTER16_STORY = {
       {
         id: 5,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（手机震了一下，她看完消息，脸色发白）沈崇礼手里……真的有我们班每个人的住址吗？',
         highlight: true,
@@ -70,8 +78,10 @@ export const CHAPTER16_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '海叔叔请警方去联系家长了，可还没挨家通知到。回安全屋咱们一起想办法。瑞怡，谁给你发的消息？',
         sfx: 'sfx_confirm'
@@ -115,8 +125,10 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '人都在。先把伤口处理好。（把浩然正气杖放进防爆箱，上锁后将钥匙收进外套口袋）这根杖放这儿，谁也别单独带出去。',
         sfx: 'sfx_confirm'
@@ -124,8 +136,10 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '老刘，先看看孩子们有没有吸进船上的烟。都跑了一夜了，有人不舒服马上说，别硬撑。',
         sfx: 'sfx_text_blip'
@@ -133,8 +147,10 @@ export const CHAPTER16_STORY = {
       {
         id: 4,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（拿起无线电）沈家拿到了全班住址，我已经让同事继续联系家长，先去守住名单上最近的几户。[next]你们留在这里，天亮再一起去旧洋行仓库。',
         sfx: 'sfx_confirm'
@@ -142,8 +158,10 @@ export const CHAPTER16_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '瑞怡，刚才你看完手机就不说话了。是沈崇礼发了什么吗？你给我们看看，一起想办法。',
         sfx: 'sfx_text_blip'
@@ -151,8 +169,10 @@ export const CHAPTER16_STORY = {
       {
         id: 6,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（把手机屏幕扣在桌上）我……想先给家里报个平安。你们先休息吧，我没事。',
         highlight: true,
@@ -188,8 +208,10 @@ export const CHAPTER16_STORY = {
       {
         id: 1,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（惊慌失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的浩然正气杖不见了！覃瑞怡的人也不在安全屋里！',
         itemEvent: { itemId: 'righteous_staff', action: 'lose' },
@@ -208,7 +230,8 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '信纸留言（覃瑞怡）',
-        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'frown',
         rightPortrait: null,
         activeSide: 'left',
         text: '『对不起大家……刚才沈崇礼发来六 8 班家庭联系表的照片，上面有每个人的住址。[next]他还拍了我家门口，说他们已经知道我们住哪儿。』',
@@ -217,7 +240,8 @@ export const CHAPTER16_STORY = {
       {
         id: 4,
         speaker: '信纸留言（覃瑞怡）',
-        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'frown',
         rightPortrait: null,
         activeSide: 'left',
         text: '『他要我天亮前独自把浩然正气杖送到江心旧水闸。[next]不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。[next]我知道他可能骗人，可我不敢拿全班同学赌。』',
@@ -227,7 +251,8 @@ export const CHAPTER16_STORY = {
       {
         id: 41,
         speaker: '信纸留言（覃瑞怡）',
-        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'frown',
         rightPortrait: null,
         activeSide: 'left',
         text: '『海叔叔，对不起。我趁大家睡着，从你外套里拿了钥匙。杖是我自己拿的，别怪别人。我一定想办法回来。』',
@@ -236,8 +261,10 @@ export const CHAPTER16_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-police',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '这个傻孩子！沈崇礼那帮吃人不吐骨头的恶棍怎么可能守信用！这是去送死啊！',
         sfx: 'sfx_shock_sting'
@@ -245,8 +272,10 @@ export const CHAPTER16_STORY = {
       {
         id: 6,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我让警方继续联系家长，先守住名单上最近的几户，也派人封住水闸外侧。咱们赶紧去救瑞怡！不能让二十年前阿瑶的事，再发生在她身上！',
         sfx: 'sfx_confirm'
@@ -271,7 +300,8 @@ export const CHAPTER16_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '旧水闸的铁锈大门虚掩着，泥地里扔着一只熟悉的粉色双肩包。[next]闸口阴影中，十余名戴着防毒面具、手持高压电棍的沈氏精锐死士早已严阵以待！',
@@ -280,8 +310,10 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '沈氏死士头目',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-police',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '嘿嘿……六掌柜料事如神，那个天真的女班长果然把东西送来了！[next]至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！',
         highlight: true,
@@ -290,8 +322,10 @@ export const CHAPTER16_STORY = {
       {
         id: 21,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '头儿，她和那根杖都送走了。这帮人只看到书包，还以为能在闸里找到她呢。',
         sfx: 'sfx_text_blip'
@@ -299,8 +333,10 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '把覃瑞怡交出来！！把信物还给我们！！',
         sfx: 'sfx_confirm'
@@ -308,8 +344,10 @@ export const CHAPTER16_STORY = {
       {
         id: 4,
         speaker: '沈氏死士头目',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '想问她在哪儿？先从我和这排电棍中间走过去！',
         sfx: 'sfx_shock_sting'
@@ -335,8 +373,10 @@ export const CHAPTER16_STORY = {
       {
         id: 1,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: 'berserker_guard',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（从侧面赶回来，按住被孩子们打倒的头目）水闸里没有瑞怡。说！你们把她和浩然正气杖送去哪了？',
         sfx: 'sfx_confirm'
@@ -344,8 +384,10 @@ export const CHAPTER16_STORY = {
       {
         id: 2,
         speaker: '沈氏死士头目',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-police',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '咳……人已经被带到旧洋行仓库地下了。[next]沈崇礼抢了杖，想拿它压住毒池里的黑气，再逼那个女孩喝第一口原浆，替他们试药！',
         highlight: true,
@@ -354,8 +396,10 @@ export const CHAPTER16_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_1}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '她就在仓库地下！海叔叔，快带我们从水闸的检修通道过去！',
         sfx: 'sfx_confirm'

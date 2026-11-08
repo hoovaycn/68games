@@ -27,7 +27,8 @@ export const CHAPTER3_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        leftPortrait: 'senior_athlete_leader-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '领头的正是被异化的体育生队长，胳膊底下夹着一兜青蓝色的异化饮料，见本校学生出来就往人怀里塞。[next]小伙伴们刚走到校门口，张希哲抱着足球走在最前面。',
@@ -36,7 +37,8 @@ export const CHAPTER3_STORY = {
       {
         id: 3,
         speaker: '魔化外校队长',
-        leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        leftPortrait: 'senior_athlete_leader-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '免费的！体考内部特供，喝一口立定跳远多跳一米，八百米跑满分跟玩似的！不要钱，白给！',
@@ -45,8 +47,10 @@ export const CHAPTER3_STORY = {
       {
         id: 4,
         speaker: '一年级小同学',
-        leftPortrait: 'assets/art/grade1_student_default@2x.png',
-        rightPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        leftPortrait: 'grade1_student',
+        leftEmotion: 'default',
+        rightPortrait: 'senior_athlete_leader-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我、我老师说不能要陌生人的东西……',
         sfx: 'sfx_text_blip'
@@ -54,8 +58,10 @@ export const CHAPTER3_STORY = {
       {
         id: 5,
         speaker: '魔化外校队长',
-        leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
-        rightPortrait: 'assets/art/grade1_student_default@2x.png',
+        leftPortrait: 'senior_athlete_leader-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'grade1_student',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '什么陌生人，我是隔壁体校的，跟你们体育老师熟得很，让你拿着就拿着，别不识抬举。',
         sfx: 'sfx_shock_sting'
@@ -72,7 +78,8 @@ export const CHAPTER3_STORY = {
       {
         id: 7,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '抱着足球正要回家的张希哲看见这阵仗，几步冲上去把那个一年级小同学护在身后，伸手把饮料挡了回去。',
@@ -81,8 +88,10 @@ export const CHAPTER3_STORY = {
       {
         id: 8,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'senior_athlete_leader-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '手往哪伸呢？！高年级大个子堵一年级小孩，要不要脸啊？有本事冲我来！',
         sfx: 'sfx_text_blip'
@@ -90,8 +99,10 @@ export const CHAPTER3_STORY = {
       {
         id: 9,
         speaker: '魔化外校队长',
-        leftPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'senior_athlete_leader-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '哪冒出来的小土豆？少多管闲事，信不信连你一块削？！',
         sfx: 'sfx_shock_sting'
@@ -99,8 +110,10 @@ export const CHAPTER3_STORY = {
       {
         id: 10,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/senior_athlete_leader_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'senior_athlete_leader-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '来啊！怕你我就不姓张！眼神发青、嘴里喷臭气，还特供能量水呢，喝地沟油喝上头了吧你！',
         sfx: 'sfx_confirm'
@@ -143,7 +156,8 @@ export const CHAPTER3_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '只要喝了那瓶饮料，我就能立刻变强，就能护住小同学和我的伙伴儿了！',
@@ -152,7 +166,8 @@ export const CHAPTER3_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '张希哲弯腰捡起那瓶饮料，一仰头就灌了半瓶。[next]青蓝色的光瞬间从他眼底漫上来，他两三下就把围上来的几个外校学生推倒在地，动作比平时快了整整一倍。',
@@ -161,7 +176,8 @@ export const CHAPTER3_STORY = {
       {
         id: 4,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '可等他转过身，眼睛已经全是青光，直勾勾盯着刚冲到面前的小伙伴们，完全认不出眼前的人了。[next]他抬脚“咚”地一脚把足球狠狠踢到这边，摆出了进攻的架势。',
@@ -170,7 +186,8 @@ export const CHAPTER3_STORY = {
       {
         id: 5,
         speaker: '异化张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '都别过来…… 挡我者输。',
@@ -179,8 +196,10 @@ export const CHAPTER3_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'zhangxizhe-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '张希哲！你疯了吗？为了护住大家，你竟然自己喝了那个异化饮料！',
         sfx: 'sfx_shock_sting'
@@ -188,8 +207,10 @@ export const CHAPTER3_STORY = {
       {
         id: 7,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '快醒醒！你不是说要一起打跑这些坏人吗？别被它控制了！',
         sfx: 'sfx_text_blip'
@@ -197,8 +218,10 @@ export const CHAPTER3_STORY = {
       {
         id: 8,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_resolute@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'frown',
+        rightPortrait: 'zhangxizhe-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '张希哲！你这个大笨蛋，谁要你用这种方式保护我们了！',
         sfx: 'sfx_text_blip'
@@ -215,7 +238,8 @@ export const CHAPTER3_STORY = {
       {
         id: 10,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'shadow_woman',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '就在两边僵住、外校人又要往上围的时候，教学楼连廊口的阴影里慢慢走出一个黑影。[next]那黑影平时总是躲在教务处窗帘后，看不清面目，此时却一步步朝这边走来。',
@@ -224,8 +248,10 @@ export const CHAPTER3_STORY = {
       {
         id: 11,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '那是谁？是敌人吗？',
         sfx: 'sfx_shock_sting'
@@ -233,7 +259,8 @@ export const CHAPTER3_STORY = {
       {
         id: 12,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '黑影现身了，大家才看清——那是平时语文课上总坐在最后一排、[next]几乎没什么存在感的刘老师。徐老师正跟在她身边。',
@@ -242,8 +269,10 @@ export const CHAPTER3_STORY = {
       {
         id: 13,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '都别慌！语文刘老师是自己人，我们俩背着学校查这东西，已经查了十几年了。',
         sfx: 'sfx_shock_sting'
@@ -251,8 +280,10 @@ export const CHAPTER3_STORY = {
       {
         id: 14,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '十几年？！那不是比咱们年纪还长？',
         sfx: 'sfx_text_blip'
@@ -260,8 +291,10 @@ export const CHAPTER3_STORY = {
       {
         id: 15,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '具体的事儿咱们待会再说，先应付眼前这场战斗。他是你们同学，不是怪物。记住——打醒他，别打伤他。',
         highlight: true,
@@ -297,8 +330,10 @@ export const CHAPTER3_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我刚才…… 是不是差点踢到你们了？[next]我脑子里就一直转着‘我要变强、不能拖大家后腿’，别的什么都记不清了。',
         sfx: 'sfx_unit_down'
@@ -306,8 +341,10 @@ export const CHAPTER3_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '没事，这次你是为了护小同学，比上次某些大傻子，稀里糊涂中招强多了。',
         sfx: 'sfx_text_blip'
@@ -315,8 +352,10 @@ export const CHAPTER3_STORY = {
       {
         id: 4,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '大姐，你直接报我身份证号得了，你才是大傻子呢！',
         sfx: 'sfx_text_blip'
@@ -324,7 +363,8 @@ export const CHAPTER3_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/senior_athlete_leader_default@2x.png',
+        leftPortrait: 'senior_athlete_leader',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '被打醒的外校队长蹲在地上，抱着头把知道的全说了。',
@@ -334,8 +374,10 @@ export const CHAPTER3_STORY = {
       {
         id: 6,
         speaker: '外校队长',
-        leftPortrait: 'assets/art/senior_athlete_leader_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'senior_athlete_leader',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '饮料是教练给的。他每周五在城郊旧训练馆给我们发货，听说更大的箱子会直接送到馆门口。[next]谁送来的，我真没见过，问多了教练还会骂人。',
         sfx: 'sfx_text_blip'
@@ -368,8 +410,10 @@ export const CHAPTER3_STORY = {
       {
         id: 1,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '这东西不是今年才冒出来的。一到大考季它就回来，为了追求好成绩，毕业班永远是重灾区。[next]我追了它十几年，徐老师捡瓶子、锁抽屉、夜里跟我见面，都是在查这件事。',
         sfx: 'sfx_text_blip'
@@ -386,7 +430,8 @@ export const CHAPTER3_STORY = {
       {
         id: 3,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '我们上学的时候就有这东西，我当老师了它还在。一届一届，从来没断过。',
@@ -395,8 +440,10 @@ export const CHAPTER3_STORY = {
       {
         id: 4,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '原来这东西已经在学校里转了这么多年了……',
         sfx: 'sfx_text_blip'

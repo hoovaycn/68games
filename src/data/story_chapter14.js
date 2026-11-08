@@ -29,8 +29,10 @@ export const CHAPTER14_STORY = {
       {
         id: 2,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'shen_wanting',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '驳船在江浪里晃得厉害。铜炉旁坐着一个戴氧气面罩、身上接着输液管的老人；[next]沈崇礼站在他身边。刘老师一眼认出来：轮椅上的就是二十年前害了阿瑶的沈万廷。',
         sfx: 'sfx_suspense'
@@ -38,8 +40,10 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '徐老师、刘老师，还有海警督。你们来晚了！炉火已经烧起来了，马上就把罐里的老烟膏倒进去熬成新药。',
         sfx: 'sfx_text_blip'
@@ -47,8 +51,10 @@ export const CHAPTER14_STORY = {
       {
         id: 4,
         speaker: '沈万廷（轮椅老人）',
-        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'shen_wanting',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（干瘪的喉咙里发出风箱般的怪笑）嗬……嗬……刘淑惠，二十年了，你那根破竹教鞭还没扔呢？[next]当年阿瑶的哀求我还记在耳朵里……今天，该轮到你们的新学生了！',
         highlight: true,
@@ -57,8 +63,10 @@ export const CHAPTER14_STORY = {
       {
         id: 5,
         speaker: '语文刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'shen_wanting',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '沈万廷！人在做天在看，二十年前的账，今天我们连本带利向你讨回来！',
         sfx: 'sfx_confirm'
@@ -83,8 +91,10 @@ export const CHAPTER14_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！[next]然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！',
         sfx: 'sfx_shock_sting'
@@ -102,8 +112,10 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '混账！你们竟敢砸碎老祖宗的传家宝！护卫队，把所有人推下江喂鱼！！',
         sfx: 'sfx_shock_sting'
@@ -111,8 +123,10 @@ export const CHAPTER14_STORY = {
       {
         id: 31,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（捂着鼻子退了半步）这烟连我们的人都受不了！少爷还叫我们冲？',
         sfx: 'sfx_text_blip'
@@ -120,8 +134,10 @@ export const CHAPTER14_STORY = {
       {
         id: 32,
         speaker: '重装护卫',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: 'assets/art/shen_guard_default@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'shen_guard',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（面罩后喘着粗气，撞开同伴）让开……守住铜炉！谁也别过来！',
         sfx: 'sfx_shock_sting'
@@ -129,8 +145,10 @@ export const CHAPTER14_STORY = {
       {
         id: 4,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: '{ALLY_1}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '先捂住口鼻，别吸那股黑烟！它跟学校的怪味零食一样会让人失控。打手已经围上来了，大家靠在一起！',
         sfx: 'sfx_confirm'
@@ -165,8 +183,10 @@ export const CHAPTER14_STORY = {
       {
         id: 2,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-police',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '脚下的甲板……甲板在消失？！爸！抓紧我的手！！',
         sfx: 'sfx_text_blip'
@@ -174,8 +194,10 @@ export const CHAPTER14_STORY = {
       {
         id: 3,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '抓紧！所有人手拉着手！徐老师、刘老师，护住孩子们的头！！',
         sfx: 'sfx_confirm'

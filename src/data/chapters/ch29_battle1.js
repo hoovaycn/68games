@@ -1,7 +1,7 @@
 /**
  * 斩断机器锁链 战斗关卡定义
  * 地图尺寸：18×12（Tiled 源工程见 docs/map/tiled_project/ch29_battle1.tmx）
- * 我方 6 人 / 敌方 5 人，出生点见 Spawns。
+ * 我方 9 人 / 敌方 5 人，出生点见 Spawns。
  * 瓦片与碰撞细节支持在 Tiled 中绘制后通过 tools/sync_tmx_levels.cjs 回写。
  */
 export const CH29_BATTLE1 = {
@@ -20,6 +20,9 @@ export const CH29_BATTLE1 = {
   props: [],
 
   playerDeploy: [
+    { unitId: 'father_haifeng', x: 1, y: 4 },
+    { unitId: 'xu_laoshi', x: 1, y: 5 },
+    { unitId: 'liu_laoshi', x: 1, y: 6 },
     { unitId: 'zhangzixiao', x: 2, y: 4 },
     { unitId: 'zhanghanyu', x: 2, y: 5 },
     { unitId: 'fanwenmo', x: 2, y: 6 },
@@ -38,7 +41,7 @@ export const CH29_BATTLE1 = {
 
   objective: {
     type: 'defeat_boss',
-    text: '击破神经死锁中枢并解救阿瑶'
+    text: '击破神经死锁中枢，击碎第一形态的阿瑶'
   },
 
   nextStorySceneOnWin: 'ch29_battle1',

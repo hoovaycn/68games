@@ -24,8 +24,10 @@ export const CHAPTER6_STORY = {
       {
         id: 2,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '怎么回事？外面怎么那么吵？张希哲他们不是被家长接走了吗？',
         sfx: 'sfx_text_blip'
@@ -33,8 +35,10 @@ export const CHAPTER6_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '这味道……跟之前咱们缴获的异化零食一模一样！大家小心点，我先去门口看看。',
         sfx: 'sfx_text_blip'
@@ -42,7 +46,8 @@ export const CHAPTER6_STORY = {
       {
         id: 4,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
         rightPortrait: null,
         activeSide: 'left',
         text: '那股味道一飘进来，我心里就猛地一沉。难不成又是……',
@@ -69,8 +74,10 @@ export const CHAPTER6_STORY = {
       {
         id: 7,
         speaker: '女同学',
-        leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'classmate_girl-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '我妈说……就今天一晚，吃了明天就能考好……大家家里都吃了……',
         sfx: 'sfx_text_blip'
@@ -87,8 +94,10 @@ export const CHAPTER6_STORY = {
       {
         id: 9,
         speaker: '张希哲（异化）',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '更强一点……就不会被甩下……',
         sfx: 'sfx_text_blip'
@@ -96,8 +105,10 @@ export const CHAPTER6_STORY = {
       {
         id: 10,
         speaker: '覃瑞怡（异化）',
-        leftPortrait: 'assets/art/zhangxizhe_corrupted@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_corrupted@2x.png',
+        leftPortrait: 'zhangxizhe-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '只要赢……大家就会一直笑……',
         sfx: 'sfx_text_blip'
@@ -105,8 +116,10 @@ export const CHAPTER6_STORY = {
       {
         id: 11,
         speaker: '朱晏泽（异化）',
-        leftPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'zhuyanze-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '先赢的人，才有资格护别人。你们不是一直也这么想的吗？',
         sfx: 'sfx_shock_sting'
@@ -114,8 +127,10 @@ export const CHAPTER6_STORY = {
       {
         id: 12,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'zhuyanze-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '放屁！我们是怕考砸，怕被家长骂，但再怕也不能吃这种怪东西变成怪物啊！',
         sfx: 'sfx_confirm'
@@ -123,8 +138,10 @@ export const CHAPTER6_STORY = {
       {
         id: 13,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '可是……他们全是熟人……这怎么打？',
         sfx: 'sfx_text_blip'
@@ -132,8 +149,10 @@ export const CHAPTER6_STORY = {
       {
         id: 14,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '昨天家长们都看到吃异化零食的后果了，为了分数，竟然还是给孩子吃了，天啊！[next]就像以前一样打，必须把他们揍醒！咱们不能让全班都异化！',
         sfx: 'sfx_text_blip'
@@ -141,8 +160,10 @@ export const CHAPTER6_STORY = {
       {
         id: 15,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'xu',
+        leftEmotion: 'frown',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '靠过来，别散！记住，把他们打醒就行，护好自己和队友！准备站位！',
         highlight: true,
@@ -177,8 +198,10 @@ export const CHAPTER6_STORY = {
       {
         id: 2,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_PORTRAIT}',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '赢下这一层也没用，整栋楼都快守不住了……',
         sfx: 'sfx_text_blip'
@@ -186,8 +209,10 @@ export const CHAPTER6_STORY = {
       {
         id: 3,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '别打了，先撤到器材室！再往外冲，我们五个都得被耗死在这儿！',
         sfx: 'sfx_confirm'
@@ -213,7 +238,8 @@ export const CHAPTER6_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '我们不是已经把送货、发样品的那些人都揪出来了吗……为什么还是变成这样？',
@@ -222,8 +248,10 @@ export const CHAPTER6_STORY = {
       {
         id: 7,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '因为你们总以为坏人在外头。可最难防的，[next]是大家自己心里那点念头——“只要能考第一，吃点这怪零食变怪点也无所谓”。',
         sfx: 'sfx_text_blip'
@@ -240,8 +268,10 @@ export const CHAPTER6_STORY = {
       {
         id: 9,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '很多年前，也有这么一个晚上。一模一样的灯，一模一样的青眼睛。[next]那时候被困在教学楼里的，是我和徐老师，还有她。',
         highlight: true,

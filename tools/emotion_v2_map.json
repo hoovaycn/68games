@@ -1,0 +1,634 @@
+{
+  "zhangzixiao|default": {
+    "id": "zhangzixiao",
+    "emotion": "default"
+  },
+  "zhangzixiao|corrupted": {
+    "id": "zhangzixiao-corrupted",
+    "emotion": "default"
+  },
+  "zhangzixiao|resolute": {
+    "id": "zhangzixiao",
+    "emotion": "frown"
+  },
+  "zhangzixiao|shock": {
+    "id": "zhangzixiao",
+    "emotion": "shock"
+  },
+  "zhangzixiao|sad": {
+    "id": "zhangzixiao",
+    "emotion": "cry"
+  },
+  "zhangzixiao|smile": {
+    "id": "zhangzixiao",
+    "emotion": "smile"
+  },
+  "shiyunuo|default": {
+    "id": "shiyunuo",
+    "emotion": "default"
+  },
+  "shiyunuo|corrupted": {
+    "id": "shiyunuo-corrupted",
+    "emotion": "default"
+  },
+  "shiyunuo|resolute": {
+    "id": "shiyunuo",
+    "emotion": "frown"
+  },
+  "shiyunuo|shock": {
+    "id": "shiyunuo",
+    "emotion": "shock"
+  },
+  "shiyunuo|thinking": {
+    "id": "shiyunuo",
+    "emotion": "frown"
+  },
+  "shiyunuo|sad": {
+    "id": "shiyunuo",
+    "emotion": "cry"
+  },
+  "zhanghanyu|default": {
+    "id": "zhanghanyu",
+    "emotion": "default"
+  },
+  "zhanghanyu|corrupted": {
+    "id": "zhanghanyu-corrupted",
+    "emotion": "default"
+  },
+  "chenpinxuan|default": {
+    "id": "chenpinxuan",
+    "emotion": "default"
+  },
+  "chenpinxuan|corrupted": {
+    "id": "chenpinxuan-corrupted",
+    "emotion": "default"
+  },
+  "fanwenmo|default": {
+    "id": "fanwenmo",
+    "emotion": "default"
+  },
+  "fanwenmo|corrupted": {
+    "id": "fanwenmo-corrupted",
+    "emotion": "default"
+  },
+  "fanwenmo|angry": {
+    "id": "fanwenmo",
+    "emotion": "frown"
+  },
+  "fanwenmo|panic": {
+    "id": "fanwenmo",
+    "emotion": "shock"
+  },
+  "fanwenmo|sad": {
+    "id": "fanwenmo",
+    "emotion": "cry"
+  },
+  "heyanxi|default": {
+    "id": "heyanxi",
+    "emotion": "default"
+  },
+  "heyanxi|corrupted": {
+    "id": "heyanxi-corrupted",
+    "emotion": "default"
+  },
+  "heyanxi|resolute": {
+    "id": "heyanxi",
+    "emotion": "frown"
+  },
+  "heyanxi|shock": {
+    "id": "heyanxi",
+    "emotion": "shock"
+  },
+  "heyanxi|gentle": {
+    "id": "heyanxi",
+    "emotion": "smile"
+  },
+  "heyanxi|angry": {
+    "id": "heyanxi",
+    "emotion": "frown"
+  },
+  "heyanxi|sad": {
+    "id": "heyanxi",
+    "emotion": "cry"
+  },
+  "qinruiyi|default": {
+    "id": "qinruiyi",
+    "emotion": "default"
+  },
+  "qinruiyi|corrupted": {
+    "id": "qinruiyi-corrupted",
+    "emotion": "default"
+  },
+  "qinruiyi|resolute": {
+    "id": "qinruiyi",
+    "emotion": "frown"
+  },
+  "qinruiyi|sad": {
+    "id": "qinruiyi",
+    "emotion": "cry"
+  },
+  "qinruiyi|relieved": {
+    "id": "qinruiyi",
+    "emotion": "smile"
+  },
+  "zhangxizhe|default": {
+    "id": "zhangxizhe",
+    "emotion": "default"
+  },
+  "zhangxizhe|corrupted": {
+    "id": "zhangxizhe-corrupted",
+    "emotion": "default"
+  },
+  "zhangxizhe|smirk": {
+    "id": "zhangxizhe",
+    "emotion": "frown"
+  },
+  "zhangxizhe|nervous": {
+    "id": "zhangxizhe",
+    "emotion": "awkward"
+  },
+  "zhuyanze|default": {
+    "id": "zhuyanze",
+    "emotion": "default"
+  },
+  "zhuyanze|corrupted": {
+    "id": "zhuyanze-corrupted",
+    "emotion": "default"
+  },
+  "zhuyanze|command": {
+    "id": "zhuyanze",
+    "emotion": "frown"
+  },
+  "zhuyanze|shock": {
+    "id": "zhuyanze",
+    "emotion": "shock"
+  },
+  "teacher_xu|default": {
+    "id": "xu",
+    "emotion": "default"
+  },
+  "teacher_xu|stern": {
+    "id": "xu",
+    "emotion": "frown"
+  },
+  "teacher_xu|warm": {
+    "id": "xu",
+    "emotion": "smile"
+  },
+  "teacher_xu|pain": {
+    "id": "xu",
+    "emotion": "cry"
+  },
+  "adult_liu|default": {
+    "id": "liu",
+    "emotion": "default"
+  },
+  "adult_liu|protective": {
+    "id": "liu",
+    "emotion": "frown"
+  },
+  "adult_liu|relieved": {
+    "id": "liu",
+    "emotion": "smile"
+  },
+  "father_haifeng|default": {
+    "id": "haifeng",
+    "emotion": "default"
+  },
+  "father_haifeng|police": {
+    "id": "haifeng-police",
+    "emotion": "default"
+  },
+  "father_haifeng|police_damaged": {
+    "id": "haifeng-police_damaged",
+    "emotion": "default"
+  },
+  "father_haifeng|battle_damaged": {
+    "id": "haifeng-battle_damaged",
+    "emotion": "default"
+  },
+  "father_haifeng|alert": {
+    "id": "haifeng",
+    "emotion": "frown"
+  },
+  "father_haifeng|loving": {
+    "id": "haifeng",
+    "emotion": "smile"
+  },
+  "teacher_xubox_stealth|default": {
+    "id": "xu-stealth",
+    "emotion": "default"
+  },
+  "teacher_xubox_stealth|pale": {
+    "id": "xu-stealth-pale",
+    "emotion": "default"
+  },
+  "teacher_xubox_stealth|pain": {
+    "id": "xu-stealth",
+    "emotion": "cry"
+  },
+  "haifeng_burnt|default": {
+    "id": "haifeng-burnt",
+    "emotion": "default"
+  },
+  "haifeng_burnt|angry": {
+    "id": "haifeng-burnt",
+    "emotion": "frown"
+  },
+  "haifeng_burnt|sad": {
+    "id": "haifeng-burnt",
+    "emotion": "cry"
+  },
+  "teacher_xu_burnt|default": {
+    "id": "xu-burnt",
+    "emotion": "default"
+  },
+  "teacher_xu_burnt|choke": {
+    "id": "xu-burnt-choke",
+    "emotion": "default"
+  },
+  "teacher_xu_burnt|hug": {
+    "id": "xu-burnt-hug",
+    "emotion": "default"
+  },
+  "teacher_liu_burnt|default": {
+    "id": "liu-burnt",
+    "emotion": "default"
+  },
+  "teacher_liu_burnt|choke": {
+    "id": "liu-burnt-choke",
+    "emotion": "default"
+  },
+  "teacher_liu_burnt|hug": {
+    "id": "liu-burnt-hug",
+    "emotion": "default"
+  },
+  "teacher_pe|default": {
+    "id": "pe",
+    "emotion": "default"
+  },
+  "teacher_pe|corrupted": {
+    "id": "pe-corrupted",
+    "emotion": "default"
+  },
+  "young_xu|default": {
+    "id": "xu-young",
+    "emotion": "default"
+  },
+  "young_liu|default": {
+    "id": "liu-young",
+    "emotion": "default"
+  },
+  "ayao|default": {
+    "id": "ayao",
+    "emotion": "default"
+  },
+  "ayao|corrupted": {
+    "id": "ayao-corrupted",
+    "emotion": "default"
+  },
+  "ayao_adult|default": {
+    "id": "ayao-adult",
+    "emotion": "default"
+  },
+  "ayao_adult|sad": {
+    "id": "ayao-adult",
+    "emotion": "cry"
+  },
+  "ayao_adult|smile": {
+    "id": "ayao-adult",
+    "emotion": "smile"
+  },
+  "ayao_corrupted_god|default": {
+    "id": "ayao-corrupted_god",
+    "emotion": "default"
+  },
+  "ayao_corrupted_god|machine": {
+    "id": "ayao-corrupted_god-machine",
+    "emotion": "default"
+  },
+  "ayao_aged_2046|default": {
+    "id": "ayao-aged_2046",
+    "emotion": "default"
+  },
+  "ayao_aged_2046|sad": {
+    "id": "ayao-aged_2046",
+    "emotion": "cry"
+  },
+  "ayao_final_form|default": {
+    "id": "ayao-final_form",
+    "emotion": "default"
+  },
+  "su_wan_doctor|default": {
+    "id": "ayao-doctor",
+    "emotion": "default"
+  },
+  "su_wan_doctor|concerned": {
+    "id": "ayao-doctor",
+    "emotion": "frown"
+  },
+  "su_wan_doctor|cold": {
+    "id": "ayao-doctor",
+    "emotion": "frown"
+  },
+  "mc_adult_zixiao|default": {
+    "id": "zhangzixiao-adult",
+    "emotion": "default"
+  },
+  "mc_adult_zixiao|gentle": {
+    "id": "zhangzixiao-adult",
+    "emotion": "smile"
+  },
+  "mc_adult_zixiao|angry": {
+    "id": "zhangzixiao-adult",
+    "emotion": "frown"
+  },
+  "mc_adult_zixiao|dissolve": {
+    "id": "zhangzixiao-adult-dissolve",
+    "emotion": "default"
+  },
+  "mc_adult_yunuo|default": {
+    "id": "shiyunuo-adult",
+    "emotion": "default"
+  },
+  "mc_adult_yunuo|gentle": {
+    "id": "shiyunuo-adult",
+    "emotion": "smile"
+  },
+  "mc_adult_yunuo|charge": {
+    "id": "shiyunuo-adult-charge",
+    "emotion": "default"
+  },
+  "mc_adult_yunuo|dissolve": {
+    "id": "shiyunuo-adult-dissolve",
+    "emotion": "default"
+  },
+  "fanwenmo_adult|default": {
+    "id": "fanwenmo-adult",
+    "emotion": "default"
+  },
+  "fanwenmo_adult|sad": {
+    "id": "fanwenmo-adult",
+    "emotion": "cry"
+  },
+  "fanwenmo_adult|dissolve": {
+    "id": "fanwenmo-adult-dissolve",
+    "emotion": "default"
+  },
+  "heyanxi_adult|default": {
+    "id": "heyanxi-adult",
+    "emotion": "default"
+  },
+  "heyanxi_adult|aim": {
+    "id": "heyanxi-adult-aim",
+    "emotion": "default"
+  },
+  "heyanxi_adult|hug": {
+    "id": "heyanxi-adult-hug",
+    "emotion": "default"
+  },
+  "heyanxi_adult|dissolve": {
+    "id": "heyanxi-adult-dissolve",
+    "emotion": "default"
+  },
+  "shen_guard|default": {
+    "id": "shen_guard",
+    "emotion": "default"
+  },
+  "shen_wanting|old": {
+    "id": "shen_wanting",
+    "emotion": "default"
+  },
+  "shen_chongli|default": {
+    "id": "shen_chongli",
+    "emotion": "default"
+  },
+  "shen_chongli_soul|default": {
+    "id": "shen_chongli_soul",
+    "emotion": "default"
+  },
+  "shen_wanting_soul|default": {
+    "id": "shen_wanting_soul",
+    "emotion": "default"
+  },
+  "militia_instructor|1839": {
+    "id": "militia_instructor",
+    "emotion": "default"
+  },
+  "berserker_guard|heavy": {
+    "id": "berserker_guard",
+    "emotion": "default"
+  },
+  "boss_colossus|opium_god": {
+    "id": "boss_colossus",
+    "emotion": "default"
+  },
+  "lin_zexu|imperial_commissioner": {
+    "id": "lin_zexu",
+    "emotion": "default"
+  },
+  "emperor_daoguang|palace": {
+    "id": "emperor_daoguang",
+    "emotion": "default"
+  },
+  "foreign_sailor|1839": {
+    "id": "foreign_sailor",
+    "emotion": "default"
+  },
+  "comprador_assassin|1839": {
+    "id": "comprador_assassin",
+    "emotion": "default"
+  },
+  "fushoutang_shopkeeper|1839": {
+    "id": "fushoutang_shopkeeper",
+    "emotion": "default"
+  },
+  "vendor|default": {
+    "id": "vendor",
+    "emotion": "default"
+  },
+  "vendor|sad": {
+    "id": "vendor",
+    "emotion": "cry"
+  },
+  "punk|default": {
+    "id": "punk",
+    "emotion": "default"
+  },
+  "senior_athlete|default": {
+    "id": "senior_athlete",
+    "emotion": "default"
+  },
+  "senior_athlete|corrupted": {
+    "id": "senior_athlete-corrupted",
+    "emotion": "default"
+  },
+  "senior_athlete_leader|default": {
+    "id": "senior_athlete_leader",
+    "emotion": "default"
+  },
+  "senior_athlete_leader|corrupted": {
+    "id": "senior_athlete_leader-corrupted",
+    "emotion": "default"
+  },
+  "senior_student|corrupted": {
+    "id": "senior_student-corrupted",
+    "emotion": "default"
+  },
+  "classmate_boy|default": {
+    "id": "classmate_boy",
+    "emotion": "default"
+  },
+  "classmate_boy|corrupted": {
+    "id": "classmate_boy-corrupted",
+    "emotion": "default"
+  },
+  "classmate_girl|default": {
+    "id": "classmate_girl",
+    "emotion": "default"
+  },
+  "classmate_girl|corrupted": {
+    "id": "classmate_girl-corrupted",
+    "emotion": "default"
+  },
+  "coach|default": {
+    "id": "coach",
+    "emotion": "default"
+  },
+  "coach|corrupted": {
+    "id": "coach-corrupted",
+    "emotion": "default"
+  },
+  "coach|sad": {
+    "id": "coach",
+    "emotion": "cry"
+  },
+  "grade1_student|default": {
+    "id": "grade1_student",
+    "emotion": "default"
+  },
+  "mystery_man|default": {
+    "id": "mystery_man",
+    "emotion": "default"
+  },
+  "mystery_man|corrupted": {
+    "id": "mystery_man-corrupted",
+    "emotion": "default"
+  },
+  "parent_rep|default": {
+    "id": "parent_rep",
+    "emotion": "default"
+  },
+  "shadow_woman|default": {
+    "id": "shadow_woman",
+    "emotion": "default"
+  },
+  "janitor|default": {
+    "id": "janitor",
+    "emotion": "default"
+  },
+  "janitor|old": {
+    "id": "janitor",
+    "emotion": "default"
+  },
+  "enforcer_abiao|default": {
+    "id": "enforcer_abiao",
+    "emotion": "default"
+  },
+  "porter_blueeye|default": {
+    "id": "porter_blueeye",
+    "emotion": "default"
+  },
+  "boss_viper_smuggler|default": {
+    "id": "boss_viper_smuggler",
+    "emotion": "default"
+  },
+  "sailor_berserk|default": {
+    "id": "sailor_berserk",
+    "emotion": "default"
+  },
+  "boss_exam_captain|default": {
+    "id": "boss_exam_captain",
+    "emotion": "default"
+  },
+  "officer_100|default": {
+    "id": "officer_100",
+    "emotion": "default"
+  },
+  "probe_machine|default": {
+    "id": "probe_machine",
+    "emotion": "default"
+  },
+  "boss_hunter_alpha|default": {
+    "id": "boss_hunter_alpha",
+    "emotion": "default"
+  },
+  "patrol_robot_exam|default": {
+    "id": "patrol_robot_exam",
+    "emotion": "default"
+  },
+  "boss_ai_topstudent|default": {
+    "id": "boss_ai_topstudent",
+    "emotion": "default"
+  },
+  "boss_storm_mech|default": {
+    "id": "boss_storm_mech",
+    "emotion": "default"
+  },
+  "alloy_deathsworn|default": {
+    "id": "alloy_deathsworn",
+    "emotion": "default"
+  },
+  "hound_riot|default": {
+    "id": "hound_riot",
+    "emotion": "default"
+  },
+  "boss_iron_scorpion|default": {
+    "id": "boss_iron_scorpion",
+    "emotion": "default"
+  },
+  "fanatic_bomber|default": {
+    "id": "fanatic_bomber",
+    "emotion": "default"
+  },
+  "hold_gate_guard|default": {
+    "id": "hold_gate_guard",
+    "emotion": "default"
+  },
+  "pillar_neural_lock|default": {
+    "id": "pillar_neural_lock",
+    "emotion": "default"
+  },
+  "repair_spider|default": {
+    "id": "repair_spider",
+    "emotion": "default"
+  },
+  "boss_judgement_core|default": {
+    "id": "boss_judgement_core",
+    "emotion": "default"
+  },
+  "capital_guard_mech|default": {
+    "id": "capital_guard_mech",
+    "emotion": "default"
+  },
+  "sniper_dock|default": {
+    "id": "sniper_dock",
+    "emotion": "default"
+  },
+  "shadow_parasite|default": {
+    "id": "shadow_parasite",
+    "emotion": "default"
+  },
+  "chronos_puppet|default": {
+    "id": "chronos_puppet",
+    "emotion": "default"
+  },
+  "shadow_cloaked_leader|default": {
+    "id": "shadow_cloaked_leader",
+    "emotion": "default"
+  },
+  "shadow_cloaked_agent|default": {
+    "id": "shadow_cloaked_agent",
+    "emotion": "default"
+  }
+}

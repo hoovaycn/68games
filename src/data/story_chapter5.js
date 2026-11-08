@@ -27,8 +27,10 @@ export const CHAPTER5_STORY = {
       {
         id: 2,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '奇了怪了，张希哲他们仨怎么一个都没来？朱晏泽昨天还吹牛说要偷偷往徐老师讲台上放假蟑螂呢！',
         sfx: 'sfx_text_blip'
@@ -36,8 +38,10 @@ export const CHAPTER5_STORY = {
       {
         id: 3,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{ALLY_2_PORTRAIT}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '张希哲今天数学考了58分，他敢来才怪！我刚才看他爸脸色铁青地往校门口走，估计人早被提溜回家关禁闭了……',
         sfx: 'sfx_text_blip'
@@ -45,8 +49,10 @@ export const CHAPTER5_STORY = {
       {
         id: 4,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '他们三家家长放学就把人接走了，说要“回去单独聊聊考试的事”。我发消息过去，到现在都没人回。',
         sfx: 'sfx_text_blip'
@@ -54,8 +60,10 @@ export const CHAPTER5_STORY = {
       {
         id: 5,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我不喜欢这个说法。每次大考前，总有人觉得只要把孩子单独拎回去加加码，分数就会自己长出来。',
         sfx: 'sfx_text_blip'
@@ -73,7 +81,8 @@ export const CHAPTER5_STORY = {
       {
         id: 7,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '各位家长静一静！这是我托了好多关系，[next]从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。[next]人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！',
@@ -100,7 +109,8 @@ export const CHAPTER5_STORY = {
       {
         id: 9,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '来，别害怕。吃完下次考试肯定进前十，也给你们爸妈长长脸。[next]现在这个年头，不早点想办法，怎么跟别人家孩子拼？',
@@ -109,8 +119,10 @@ export const CHAPTER5_STORY = {
       {
         id: 10,
         speaker: '普通家长甲',
-        leftPortrait: 'assets/art/parent_rep_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'parent_rep',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '就是啊，试试又不要钱。人家重点中学的孩子都在吃，总不会害自家孩子吧？',
         sfx: 'sfx_text_blip'
@@ -118,8 +130,10 @@ export const CHAPTER5_STORY = {
       {
         id: 11,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/parent_rep_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'parent_rep',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '那几包东西一摆出来，我后背就开始发冷。更可怕的是，下面真的有人在认真衡量：要不要让自己孩子试一口。',
         sfx: 'sfx_text_blip'
@@ -153,8 +167,10 @@ export const CHAPTER5_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: 'classmate_girl-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '两个同学对视一眼，在满教室家长面前撕开包装，嚼了两口。[next]也就几秒钟，他们眼里“唰”地浮上一层青蓝色的光，脸上的表情一下空了。',
         sfx: 'sfx_shock_sting'
@@ -162,8 +178,10 @@ export const CHAPTER5_STORY = {
       {
         id: 2,
         speaker: '女同学',
-        leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: 'classmate_girl-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '水分子之间靠氢键连接，键角是一百零四点五度……碳酸钙高温分解，生成氧化钙和二氧化碳……',
         sfx: 'sfx_text_blip'
@@ -171,8 +189,10 @@ export const CHAPTER5_STORY = {
       {
         id: 3,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        leftPortrait: 'classmate_boy-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '在相对论里，高速运动的钟走得慢，越接近光速，时间膨胀得越厉害……洛伦兹变换……',
         sfx: 'sfx_text_blip'
@@ -189,8 +209,10 @@ export const CHAPTER5_STORY = {
       {
         id: 5,
         speaker: '学生家长',
-        leftPortrait: 'assets/art/parent_rep_default@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        leftPortrait: 'parent_rep',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '孩子？你怎么了？我是爸爸啊，你看我一眼！',
         sfx: 'sfx_shock_sting'
@@ -198,8 +220,10 @@ export const CHAPTER5_STORY = {
       {
         id: 3,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: 'classmate_girl-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '教室瞬间乱成一团，椅子倒了一片。[next]那两个孩子尖叫着扑向离自己最近的人，[next]后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。',
         sfx: 'sfx_shock_sting'
@@ -207,8 +231,10 @@ export const CHAPTER5_STORY = {
       {
         id: 4,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '就是这样！尽情发挥你们的潜力吧！把分数都抢过来，谁也别想挡你们的路！',
         sfx: 'sfx_text_blip'
@@ -216,8 +242,10 @@ export const CHAPTER5_STORY = {
       {
         id: 5,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'frown',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '都往后退！家长别往前挤！孩子现在认不出人，谁再扑上去只会被撞伤！',
         sfx: 'sfx_confirm'
@@ -225,7 +253,8 @@ export const CHAPTER5_STORY = {
       {
         id: 6,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '家长全退到后排！我们先把孩子打醒！谁都不许再喂第二口！',
@@ -235,8 +264,10 @@ export const CHAPTER5_STORY = {
       {
         id: 7,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'classmate_girl-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。[next]这些话平时听着没事，这会儿全挤在一起，把人逼疯了。',
         sfx: 'sfx_text_blip'
@@ -244,8 +275,10 @@ export const CHAPTER5_STORY = {
       {
         id: 8,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'classmate_boy-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '都往讲台两边散开，别堵着过道！别让他们冲进人堆里！',
         sfx: 'sfx_confirm'
@@ -279,7 +312,8 @@ export const CHAPTER5_STORY = {
       {
         id: 2,
         speaker: '普通家长乙',
-        leftPortrait: 'assets/art/parent_rep_default@2x.png',
+        leftPortrait: 'parent_rep',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '这什么破东西！可不能给孩子吃！好好的孩子都吃成疯子了！',
@@ -297,7 +331,8 @@ export const CHAPTER5_STORY = {
       {
         id: 4,
         speaker: '神秘家长',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '你们懂什么？别人家挤破头都抢不到，就你们轴。将来孩子考不上好学校，有你们后悔的！',
@@ -316,8 +351,10 @@ export const CHAPTER5_STORY = {
       {
         id: 6,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/parent_rep_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'parent_rep',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '刚才明明都看到吃零食会变成怪物了，竟然还有人悄悄把零食拿回家。在他们眼里，孩子的安全难道还比不上分数和排名吗？',
         sfx: 'sfx_text_blip'
@@ -325,8 +362,10 @@ export const CHAPTER5_STORY = {
       {
         id: 7,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '最可怕的不是零食，而是那些家长觉得只要能考高分，变成这样也值得。[next]分数是上去了，可孩子变成六亲不认的怪物，那还有什么用？',
         sfx: 'sfx_text_blip'
@@ -334,8 +373,10 @@ export const CHAPTER5_STORY = {
       {
         id: 8,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'liu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '张希哲他们三个还是没消息？',
         sfx: 'sfx_shock_sting'
@@ -343,8 +384,10 @@ export const CHAPTER5_STORY = {
       {
         id: 9,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '没有。对话框一直安安静静的，像是人根本没碰手机。',
         sfx: 'sfx_text_blip'
@@ -352,7 +395,8 @@ export const CHAPTER5_STORY = {
       {
         id: 10,
         speaker: '刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '不对……刚才那个带头的家长，我十几年前好像见过。[next]十几年前的那个家长、还有今天这个人……他们背后肯定有同一个组织的影子，这是在系统性地收割焦虑！',

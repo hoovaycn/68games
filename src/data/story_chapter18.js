@@ -29,8 +29,10 @@ export const CHAPTER18_STORY = {
       {
         id: 2,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（拿出画在餐巾纸上的草图）他们押我进来时，我记下了侧门和摄像头；后来从地下室小窗里看到东侧电网每隔一会儿会短暂停电。[next]趁那几秒从侧门进去，就能到一楼大厅。',
         highlight: true,
@@ -39,8 +41,10 @@ export const CHAPTER18_STORY = {
       {
         id: 3,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（一脸佩服地凑近草图纸）班长，你这脑子是自带监控回放还是咋的？连哪堵墙是监控死角都能背下来……',
         sfx: 'sfx_text_blip'
@@ -48,8 +52,10 @@ export const CHAPTER18_STORY = {
       {
         id: 4,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '东侧门后就是大厅楼梯。如果赶在电网恢复前穿过去，至少能避开外面的探照灯。',
         sfx: 'sfx_text_blip'
@@ -57,8 +63,10 @@ export const CHAPTER18_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '好，等下一次断电，从东侧门进大厅。徐老师和刘老师掩护，我们去顶楼找沈家父子。',
         sfx: 'sfx_confirm'
@@ -83,7 +91,8 @@ export const CHAPTER18_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '一推开大厅门，三名服过药的重装守卫就举着盾牌挡住去路。[next]门后的铁闸落下，堵住回头路；通往顶楼的楼梯口也挤满了沈家的打手。',
@@ -93,8 +102,10 @@ export const CHAPTER18_STORY = {
       {
         id: 11,
         speaker: '重装守卫',
-        leftPortrait: 'assets/art/berserker_guard_heavy@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'berserker_guard',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（盾牌往地上一砸）楼梯封了。想上顶楼，就在这儿把浩然正气杖交出来！',
         sfx: 'sfx_shock_sting'
@@ -102,8 +113,10 @@ export const CHAPTER18_STORY = {
       {
         id: 12,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '我爸正在顶楼装货。你们在这儿陪守卫慢慢打吧，等打上去，药早就运走了！',
         sfx: 'sfx_shock_sting'
@@ -111,8 +124,10 @@ export const CHAPTER18_STORY = {
       {
         id: 13,
         speaker: '沈家护卫',
-        leftPortrait: 'assets/art/shen_guard_default@2x.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'shen_guard',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '沈先生，后面的老师交给我们。重装的人堵楼梯，孩子一个也上不去。',
         sfx: 'sfx_text_blip'
@@ -120,8 +135,10 @@ export const CHAPTER18_STORY = {
       {
         id: 2,
         speaker: '语文刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: 'assets/art/teacher_xu_pain@2x.png',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: 'xu',
+        rightEmotion: 'cry',
         activeSide: 'left',
         text: '（握紧教鞭）老徐，侧廊又来了一批守卫。[next]我们留下挡住后面的援兵，让孩子们去楼梯口。二十年前没护住阿瑶，今天不能再退了。',
         sfx: 'sfx_confirm'
@@ -129,8 +146,10 @@ export const CHAPTER18_STORY = {
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_stern@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'xu',
+        leftEmotion: 'frown',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（把旧教案塞给{MC_NAME}）我们挡住后面赶来的守卫。你们打通前面重装守卫和楼梯口，去顶楼阻止沈家父子。别回头！',
         highlight: true,
@@ -139,8 +158,10 @@ export const CHAPTER18_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '徐老师！刘老师！！',
         sfx: 'sfx_text_blip'
@@ -148,8 +169,10 @@ export const CHAPTER18_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: '{ALLY_2_FURY_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: '{ALLY_2}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '别让老师的心血白费！跟紧我，撕碎梯口的守卫，冲上天台！！',
         sfx: 'sfx_confirm'
@@ -184,8 +207,10 @@ export const CHAPTER18_STORY = {
       {
         id: 2,
         speaker: '沈万廷',
-        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'shen_wanting',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（抬起头，敲了敲身旁的药罐）刘淑惠的学生也来了？学校那张送药单被你们抢走了，可货还在我手里。二十年前阿瑶挡了我的路，这回连你们也想拦？',
         highlight: true,
@@ -194,8 +219,10 @@ export const CHAPTER18_STORY = {
       {
         id: 3,
         speaker: '沈崇礼',
-        leftPortrait: 'assets/art/mystery_man_corrupted@2x.png',
-        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        leftPortrait: 'mystery_man-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: 'shen_wanting',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '爸，楼下的人挡不住了。运货车也没法走！',
         sfx: 'sfx_text_blip'
@@ -203,8 +230,10 @@ export const CHAPTER18_STORY = {
       {
         id: 4,
         speaker: '沈万廷',
-        leftPortrait: 'assets/art/shen_wanting_old@2x.png',
-        rightPortrait: 'assets/art/mystery_man_corrupted@2x.png',
+        leftPortrait: 'shen_wanting',
+        leftEmotion: 'default',
+        rightPortrait: 'mystery_man-corrupted',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '那就把钟楼这套装置打开。先放毒雾拦住追来的人，守住药罐；只要货还在，福寿堂就没输。',
         highlight: true,
@@ -213,8 +242,10 @@ export const CHAPTER18_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/shen_wanting_old@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'shen_wanting',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（握紧浩然正气杖）名单和货，我们一样都不会留给你们。沈万廷，二十年前的事，今天也该有个交代了！',
         sfx: 'sfx_confirm'

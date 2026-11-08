@@ -31,7 +31,8 @@ export const CHAPTER2_STORY = {
       {
         id: 2,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '全体注意！最近校外出现了一种会发荧光的怪异零食和饮料！',
@@ -40,7 +41,8 @@ export const CHAPTER2_STORY = {
       {
         id: 3,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '食用后精神会狂暴失控，还会像发了疯一样学习，做出远超自己能力的事！',
@@ -49,7 +51,8 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '记住——谁的成绩要是突然好得离谱，那才是最危险的信号！任何人见到，一律严禁碰触，立刻上交！',
@@ -68,7 +71,8 @@ export const CHAPTER2_STORY = {
       {
         id: 6,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '这么说……昨天我同桌抽屉里那包发着光的零食，就是这种东西？！',
@@ -77,8 +81,10 @@ export const CHAPTER2_STORY = {
       {
         id: 7,
         speaker: '女同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '你同桌？我还想问你呢，昨天课间你把什么偷偷塞进书包里了？',
         sfx: 'sfx_text_blip'
@@ -86,8 +92,10 @@ export const CHAPTER2_STORY = {
       {
         id: 8,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '胡说什么，那是我妈塞的早餐！倒是你，这两天突然抱着初中课本看得起劲……',
         sfx: 'sfx_text_blip'
@@ -95,8 +103,10 @@ export const CHAPTER2_STORY = {
       {
         id: 9,
         speaker: '女同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '我、我那是自己买来预习的，关你什么事！',
         sfx: 'sfx_shock_sting'
@@ -139,7 +149,8 @@ export const CHAPTER2_STORY = {
       {
         id: 2,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '下面公布今天上午突击小测的成绩。第一名……{MC_NAME}，满分！',
@@ -149,7 +160,8 @@ export const CHAPTER2_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '（咦？！我昨晚因为调查的事折腾到半夜，根本没复习……怎么可能考满分？！）',
@@ -158,7 +170,8 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '哟呵，平时六十多分的学酥，突然考满分？太阳从西边出来了？',
@@ -167,8 +180,10 @@ export const CHAPTER2_STORY = {
       {
         id: 5,
         speaker: '女同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
-        rightPortrait: 'assets/art/classmate_girl_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '该不会……是吃了徐老师刚才说的那个荧光零食吧？！为了成绩居然碰那种东西！',
         sfx: 'sfx_shock_sting'
@@ -202,8 +217,10 @@ export const CHAPTER2_STORY = {
       {
         id: 1,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_shock@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'shock',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '老师！昨晚就是{MC_NAME}偷偷从小贩手里拿了荧光零食！满分全是作弊来的！',
         sfx: 'sfx_shock_sting'
@@ -211,8 +228,10 @@ export const CHAPTER2_STORY = {
       {
         id: 2,
         speaker: '{MC_NAME}',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '朱晏泽你吃错药了吧？！上周你抄我英语作业时还说我是你亲哥，今天转头就往我身上泼脏水？！',
         sfx: 'sfx_shock_sting'
@@ -220,8 +239,10 @@ export const CHAPTER2_STORY = {
       {
         id: 3,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '你有什么证据？昨天我和{MC_NAME}一起去救中招的同学，今天你倒说我们偷偷吃了零食？',
         sfx: 'sfx_confirm'
@@ -229,8 +250,10 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '{ALLY_2_NAME}',
-        leftPortrait: '{ALLY_2_FURY_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_shock@2x.png',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'frown',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'shock',
         activeSide: 'left',
         text: '我自己中过招，最清楚中邪的样子！{MC_NAME} 眼神清澈，倒是你们眼里在冒青光！',
         sfx: 'sfx_shock_sting'
@@ -249,8 +272,10 @@ export const CHAPTER2_STORY = {
       {
         id: 6,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_corrupted@2x.png',
-        rightPortrait: '{ALLY_1_PORTRAIT}',
+        leftPortrait: 'zhuyanze-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{ALLY_1}',
+        rightEmotion: 'default',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_classroom_eerie@2x.png',
         text: '闭嘴！今天我就替全班把你们这些作弊的家伙赶出学校！！',
@@ -259,8 +284,10 @@ export const CHAPTER2_STORY = {
       {
         id: 7,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_corrupted@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'classmate_boy-corrupted',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_classroom_eerie@2x.png',
         text: '对！就是他偷吃了徐老师说的怪零食！他满分全是作弊来的，把他赶出去！',
@@ -269,8 +296,10 @@ export const CHAPTER2_STORY = {
       {
         id: 8,
         speaker: '女同学',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: 'assets/art/classmate_girl_corrupted@2x.png',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: 'classmate_girl-corrupted',
+        rightEmotion: 'default',
         activeSide: 'right',
         bgImg: 'assets/backgrounds/bg_classroom_eerie@2x.png',
         text: '大家一起上，别让这个作弊的家伙跑了！',
@@ -297,8 +326,10 @@ export const CHAPTER2_STORY = {
       {
         id: 1,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（揉着头）头好痛……我刚才在胡扯什么？我怎么可能诬陷同学？！',
         sfx: 'sfx_unit_down'
@@ -306,8 +337,10 @@ export const CHAPTER2_STORY = {
       {
         id: 2,
         speaker: '男同学',
-        leftPortrait: 'assets/art/classmate_boy_default@2x.png',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: 'classmate_boy',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '对不起！我们刚才也是脑子一热跟着瞎喊的……',
         sfx: 'sfx_text_blip'
@@ -315,8 +348,10 @@ export const CHAPTER2_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/zhuyanze_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'zhuyanze',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '零食我确实从小贩手里收缴了，但我没吃，直接扔进了楼下垃圾桶！',
         sfx: 'sfx_confirm'
@@ -324,7 +359,8 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '走！为师亲自陪你们去取证。',
@@ -342,8 +378,10 @@ export const CHAPTER2_STORY = {
       {
         id: 6,
         speaker: '朱晏泽',
-        leftPortrait: 'assets/art/zhuyanze_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '好哥们！以后查案我出钱出力，零花钱和装备我全包了！',
         sfx: 'sfx_confirm'
@@ -378,8 +416,10 @@ export const CHAPTER2_STORY = {
       {
         id: 2,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '零食和饮料瓶，我都扣下了。可孩子们已经开始互相猜忌，比那怪味零食扩散得还快。',
         sfx: 'sfx_text_blip'
@@ -387,8 +427,10 @@ export const CHAPTER2_STORY = {
       {
         id: 3,
         speaker: '黑影女子',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '呵呵……徐老师，你还是这么心软。当年那件事，你到现在还没放下。',
         sfx: 'sfx_text_blip'
@@ -396,8 +438,10 @@ export const CHAPTER2_STORY = {
       {
         id: 4,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '放不下。就是因为放不下，我才不能让他们重走我们的老路。',
         sfx: 'sfx_text_blip'
@@ -405,8 +449,10 @@ export const CHAPTER2_STORY = {
       {
         id: 5,
         speaker: '黑影女子',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '光靠你一个人，护得住几个？它们……已经醒了。',
         highlight: true,
@@ -415,8 +461,10 @@ export const CHAPTER2_STORY = {
       {
         id: 6,
         speaker: '徐老师',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '那也得护，能护一个是一个。',
         sfx: 'sfx_text_blip'
@@ -424,8 +472,10 @@ export const CHAPTER2_STORY = {
       {
         id: 7,
         speaker: '黑影女子',
-        leftPortrait: 'assets/art/teacher_xu_default@2x.png',
-        rightPortrait: 'assets/art/shadow_woman_default@2x.png',
+        leftPortrait: 'xu',
+        leftEmotion: 'default',
+        rightPortrait: 'shadow_woman',
+        rightEmotion: 'default',
         activeSide: 'right',
         text: '你还是老样子。那就照我们当年说好的，继续把这出戏演下去。',
         highlight: true,

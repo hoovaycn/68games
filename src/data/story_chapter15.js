@@ -33,8 +33,10 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '等等，岸上的路灯都不见了！我们这是……真的穿越了？',
         highlight: true,
@@ -43,8 +45,10 @@ export const CHAPTER15_STORY = {
       {
         id: 3,
         speaker: '语文刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '看，前面的景象正在往回倒。我们真在穿越！还没落地，先别松手！',
         sfx: 'sfx_confirm'
@@ -87,8 +91,10 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '道光皇帝',
-        leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
-        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        leftPortrait: 'emperor_daoguang',
+        leftEmotion: 'default',
+        rightPortrait: 'lin_zexu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '林则徐，朕看了你的奏折。鸦片害了百姓，也让国库的钱不断流出去。[next]有人怕得罪外国商人，不敢禁烟。你愿意去广东把这件事办到底吗？',
         sfx: 'sfx_text_blip'
@@ -96,8 +102,10 @@ export const CHAPTER15_STORY = {
       {
         id: 3,
         speaker: '林则徐',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
-        rightPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
+        leftPortrait: 'lin_zexu',
+        leftEmotion: 'default',
+        rightPortrait: 'emperor_daoguang',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（跪下）“苟利国家生死以，岂因祸福避趋之！[next]”只要鸦片还在害人，我就不会停。请派我去广东，把走私的鸦片查出来、毁掉。',
         highlight: true,
@@ -106,8 +114,10 @@ export const CHAPTER15_STORY = {
       {
         id: 4,
         speaker: '道光皇帝',
-        leftPortrait: 'assets/art/emperor_daoguang_palace@2x.png',
-        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        leftPortrait: 'emperor_daoguang',
+        leftEmotion: 'default',
+        rightPortrait: 'lin_zexu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '好。朕派你去广东禁烟，沿海官兵听你调遣。把鸦片查出来，不许再让它害人。',
         sfx: 'sfx_confirm'
@@ -141,7 +151,8 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '林则徐',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        leftPortrait: 'lin_zexu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '把收缴的鸦片全搬到池边！引海水进来，加盐、加石灰，彻底销毁。有人想偷偷藏下一箱，也必须查出来！',
@@ -186,8 +197,10 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '张希哲',
-        leftPortrait: 'assets/art/zhangxizhe_default@2x.png',
-        rightPortrait: 'assets/art/qinruiyi_default@2x.png',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'default',
+        rightPortrait: 'qinruiyi',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（揉眼睛）等等，我们真到了虎门销烟的时候？海边有人开枪，池子里还在倒石灰！',
         highlight: true,
@@ -196,8 +209,10 @@ export const CHAPTER15_STORY = {
       {
         id: 3,
         speaker: '覃瑞怡',
-        leftPortrait: 'assets/art/qinruiyi_default@2x.png',
-        rightPortrait: 'assets/art/zhangxizhe_default@2x.png',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'default',
+        rightPortrait: 'zhangxizhe',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（脸色发白地摸了摸口袋）完了完了……手机一格信号都没有！[next]那我的暑期研学报告、还有开学摸底考，是不是全泡汤了？！',
         sfx: 'sfx_text_blip'
@@ -205,8 +220,10 @@ export const CHAPTER15_STORY = {
       {
         id: 4,
         speaker: '语文刘老师',
-        leftPortrait: 'assets/art/adult_liu_default@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'liu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（扶着沙滩上的“钦差大臣林”旗）你们看，官兵正往池里灌海水，撒盐、倒石灰，把鸦片彻底毁掉。我们真的到了虎门销烟现场！',
         sfx: 'sfx_confirm'
@@ -214,8 +231,10 @@ export const CHAPTER15_STORY = {
       {
         id: 5,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/teacher_xu_default@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'xu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '快看浅滩！几艘小帆船靠岸了，那些拿洋枪和刀的人正往销烟池边冲，要抢还没销毁的鸦片箱！',
         bgm: 'bgm_army_approaching',
@@ -241,8 +260,10 @@ export const CHAPTER15_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
-        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        leftPortrait: 'foreign_sailor',
+        leftEmotion: 'default',
+        rightPortrait: 'militia_instructor',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '洋人水手举枪上岸，本地打手在前面带路。[next]池边，一个握着木杖的民团教头带人守住还没倒进水里的鸦片箱，拦下了刚跑来的孩子们。',
         sfx: 'sfx_suspense'
@@ -250,8 +271,10 @@ export const CHAPTER15_STORY = {
       {
         id: 11,
         speaker: '虎门民团教头',
-        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'militia_instructor',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '我是这儿带民团守池的。林大人让我盯紧这些还没销毁的鸦片，不能让人抢走。你们几个从哪儿来的？快往后站，那边有枪！',
         sfx: 'sfx_confirm'
@@ -259,8 +282,10 @@ export const CHAPTER15_STORY = {
       {
         id: 12,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_RESOLUTE_PORTRAIT}',
-        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'frown',
+        rightPortrait: 'militia_instructor',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我们从海滩那头来的，看见他们要抢箱子。我们是来帮忙的，您说怎么守？',
         sfx: 'sfx_confirm'
@@ -268,8 +293,10 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '洋人走私水手',
-        leftPortrait: 'assets/art/foreign_sailor_1839@2x.png',
-        rightPortrait: 'assets/art/comprador_assassin_1839@2x.png',
+        leftPortrait: 'foreign_sailor',
+        leftEmotion: 'default',
+        rightPortrait: 'comprador_assassin',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '就是那几箱！趁他们还没倒进池子，搬回船上！',
         sfx: 'sfx_shock_sting'
@@ -277,8 +304,10 @@ export const CHAPTER15_STORY = {
       {
         id: 3,
         speaker: '带路的中国打手',
-        leftPortrait: 'assets/art/comprador_assassin_1839@2x.png',
-        rightPortrait: 'assets/art/foreign_sailor_1839@2x.png',
+        leftPortrait: 'comprador_assassin',
+        leftEmotion: 'default',
+        rightPortrait: 'foreign_sailor',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '我带你们绕过官兵。先把守池的人赶开，货就在眼前！',
         sfx: 'sfx_shock_sting'
@@ -286,8 +315,10 @@ export const CHAPTER15_STORY = {
       {
         id: 4,
         speaker: '虎门民团教头',
-        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: 'assets/art/father_haifeng_police@2x.png',
+        leftPortrait: 'militia_instructor',
+        leftEmotion: 'default',
+        rightPortrait: 'haifeng-police',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（握紧守池木杖，挡在鸦片箱前）这批鸦片是来销毁的，不是给你们抢回去害人的！想碰池子，先过我这一关！',
         highlight: true,
@@ -296,8 +327,10 @@ export const CHAPTER15_STORY = {
       {
         id: 5,
         speaker: '老爸海峰',
-        leftPortrait: 'assets/art/father_haifeng_police@2x.png',
-        rightPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        leftPortrait: 'haifeng-police',
+        leftEmotion: 'default',
+        rightPortrait: 'militia_instructor',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '教头，孩子们跟你守这口池！我和两位老师去另一边护住正在搬运鸦片的人，谁也别单独冲。',
         sfx: 'sfx_confirm'
@@ -305,8 +338,10 @@ export const CHAPTER15_STORY = {
       {
         id: 51,
         speaker: '虎门民团教头',
-        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: 'militia_instructor',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '成，你们跟紧我和弟兄们，别让打手绕到箱子后头。看见洋枪就躲，先护住人，再护住货！',
         sfx: 'sfx_confirm'
@@ -314,8 +349,10 @@ export const CHAPTER15_STORY = {
       {
         id: 6,
         speaker: '{ALLY_1_NAME}',
-        leftPortrait: '{ALLY_1_PORTRAIT}',
-        rightPortrait: '{MC_RESOLUTE_PORTRAIT}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '大家靠过来，护住池边的鸦片箱！不能让他们把烟土抢回去！',
         sfx: 'sfx_confirm'
@@ -342,7 +379,8 @@ export const CHAPTER15_STORY = {
       {
         id: 1,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        leftPortrait: 'lin_zexu',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '偷袭的人被打退了，官兵继续把鸦片倒进池里。[next]林则徐带着几名亲兵来到池边，先去看了受伤的民团，随后走向刚才帮忙守池的孩子们。',
@@ -351,8 +389,10 @@ export const CHAPTER15_STORY = {
       {
         id: 2,
         speaker: '林则徐',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'lin_zexu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（看着众人的衣服）你们不像这个年代的人。刚才明明可以躲开，却留下来帮我们守池。你们从哪里来？',
         sfx: 'sfx_text_blip'
@@ -360,8 +400,10 @@ export const CHAPTER15_STORY = {
       {
         id: 3,
         speaker: '{MC_NAME}',
-        leftPortrait: '{MC_PORTRAIT}',
-        rightPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
+        leftPortrait: '{MC}',
+        leftEmotion: 'default',
+        rightPortrait: 'lin_zexu',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（鞠躬）林总督，我们来自将近两百年后的中国。小时候，我们在课本上读过虎门销烟。[next]今天亲眼看见您和大家守住这口池，才知道当年有多难。我们那儿还有人贩毒，但也有警察、老师和普通人，一直在拦。',
         highlight: true,
@@ -370,8 +412,10 @@ export const CHAPTER15_STORY = {
       {
         id: 4,
         speaker: '林则徐',
-        leftPortrait: 'assets/art/lin_zexu_imperial_commissioner@2x.png',
-        rightPortrait: '{MC_PORTRAIT}',
+        leftPortrait: 'lin_zexu',
+        leftEmotion: 'default',
+        rightPortrait: '{MC}',
+        rightEmotion: 'default',
         activeSide: 'left',
         text: '（望向还在冒白烟的销烟池）两百年后，孩子们还记得这里？还有人肯站出来，不让毒害人？[next]那就好。今天这池鸦片没白毁，我们这些人也没白拼。',
         highlight: true,
@@ -380,7 +424,8 @@ export const CHAPTER15_STORY = {
       {
         id: 5,
         speaker: '系统提示',
-        leftPortrait: 'assets/art/militia_instructor_1839@2x.png',
+        leftPortrait: 'militia_instructor',
+        leftEmotion: 'default',
         rightPortrait: null,
         activeSide: 'left',
         text: '教头从池边跑来，手里拿着刚清点完的单子，神色不对。',

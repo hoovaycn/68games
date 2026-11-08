@@ -1,5 +1,7 @@
 // Follow the actual story links, not filename prefixes: a chapter may cross
 // story files (e.g. Humen) and a battle may lead to a different scene file.
+import { artForEmotion } from '../engine/avatar.js';
+
 export function collectChapterAssets(entry, story, battles, chapterEntries, route, units, enemies) {
   const entries = new Set(chapterEntries);
   const scenes = new Set();
@@ -10,24 +12,29 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
   const protagonist = route === 'female' ? 'shiyunuo' : 'zhangzixiao';
   const ally1 = route === 'female' ? 'chenpinxuan' : 'zhanghanyu';
   const ally2 = route === 'female' ? 'heyanxi' : 'fanwenmo';
-  const portraits = {
-    MC_PORTRAIT: protagonist,
-    MC_CORRUPTED_PORTRAIT: protagonist,
-    ALLY_1_PORTRAIT: ally1,
-    ALLY_1_CORRUPTED_PORTRAIT: ally1,
-    ALLY_2_PORTRAIT: ally2,
-    ALLY_2_CORRUPTED_PORTRAIT: ally2
+  const mcAdult = route === 'female' ? 'shiyunuo-adult' : 'zhangzixiao-adult';
+  const ally2Adult = route === 'female' ? 'heyanxi-adult' : 'fanwenmo-adult';
+  const actorRefs = {
+    '{MC}': protagonist,
+    '{MC}-corrupted': route === 'female' ? 'shiyunuo-corrupted' : 'zhangzixiao-corrupted',
+    '{MC_ADULT}': mcAdult,
+    '{MC_ADULT}-dissolve': route === 'female' ? 'shiyunuo-adult-dissolve' : 'zhangzixiao-adult-dissolve',
+    '{ALLY_1}': ally1,
+    '{ALLY_1}-corrupted': route === 'female' ? 'chenpinxuan-corrupted' : 'zhanghanyu-corrupted',
+    '{ALLY_2}': ally2,
+    '{ALLY_2}-corrupted': route === 'female' ? 'heyanxi-corrupted' : 'fanwenmo-corrupted',
+    '{ALLY_2_ADULT}': ally2Adult,
+    '{ALLY_2_ADULT}-dissolve': route === 'female' ? 'heyanxi-adult-dissolve' : 'fanwenmo-adult-dissolve'
   };
   const add = src => {
     if (!src) return;
-    const key = /^\{([A-Z_0-9]+)\}$/.exec(src)?.[1];
-    if (key) {
-      if (portraits[key]) {
-        images.add(`assets/art/${portraits[key]}_${key.includes('CORRUPTED') ? 'corrupted' : 'default'}@2x.png`);
-      }
-    } else {
-      images.add(src);
-    }
+    images.add(src);
+  };
+  const addArt = (actor, emotion) => {
+    if (!actor) return;
+    const resolved = actorRefs[actor] ?? actor;
+    const url = artForEmotion(resolved, emotion, '2x');
+    if (url) images.add(url);
   };
   while (queue.length) {
     const key = queue.shift();
@@ -41,8 +48,8 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
     for (const line of scene.dialogues || []) {
       add(line.bgImg);
       if (!line.hidePortraits) {
-        add(line.leftPortrait);
-        add(line.rightPortrait);
+        addArt(line.leftPortrait, line.leftEmotion);
+        addArt(line.rightPortrait, line.rightEmotion);
       }
     }
     const transition = scene.transition || {};
