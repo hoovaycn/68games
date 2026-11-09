@@ -79,13 +79,17 @@ export const ART_EMOTION_FILES = {
     "default": "shiyunuo_corrupted"
   },
   "zhanghanyu": {
-    "default": "zhanghanyu_default"
+    "default": "zhanghanyu_default",
+    "frown": "zhanghanyu_resolute",
+    "cry": "zhanghanyu_sad"
   },
   "zhanghanyu-corrupted": {
     "default": "zhanghanyu_corrupted"
   },
   "chenpinxuan": {
-    "default": "chenpinxuan_default"
+    "default": "chenpinxuan_default",
+    "frown": "chenpinxuan_resolute",
+    "cry": "chenpinxuan_sad"
   },
   "chenpinxuan-corrupted": {
     "default": "chenpinxuan_corrupted"
@@ -121,7 +125,8 @@ export const ART_EMOTION_FILES = {
   "zhangxizhe": {
     "default": "zhangxizhe_default",
     "frown": "zhangxizhe_smirk",
-    "awkward": "zhangxizhe_nervous"
+    "awkward": "zhangxizhe_nervous",
+    "cry": "zhangxizhe_sad"
   },
   "zhangxizhe-corrupted": {
     "default": "zhangxizhe_corrupted"
@@ -129,7 +134,8 @@ export const ART_EMOTION_FILES = {
   "zhuyanze": {
     "default": "zhuyanze_default",
     "frown": "zhuyanze_command",
-    "shock": "zhuyanze_shock"
+    "shock": "zhuyanze_shock",
+    "cry": "zhuyanze_sad"
   },
   "zhuyanze-corrupted": {
     "default": "zhuyanze_corrupted"
@@ -151,7 +157,9 @@ export const ART_EMOTION_FILES = {
     "smile": "father_haifeng_loving"
   },
   "haifeng-police": {
-    "default": "father_haifeng_police"
+    "default": "father_haifeng_police",
+    "frown": "father_haifeng_police_alert",
+    "cry": "father_haifeng_police_tearful"
   },
   "haifeng-police_damaged": {
     "default": "father_haifeng_police_damaged"
@@ -161,7 +169,8 @@ export const ART_EMOTION_FILES = {
   },
   "xu-stealth": {
     "default": "teacher_xubox_stealth_default",
-    "cry": "teacher_xubox_stealth_pain"
+    "cry": "teacher_xubox_stealth_pain",
+    "frown": "teacher_xubox_stealth_stern"
   },
   "xu-stealth-pale": {
     "default": "teacher_xubox_stealth_pale"
