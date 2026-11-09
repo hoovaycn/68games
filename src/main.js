@@ -2764,7 +2764,14 @@ export class GameApp {
     const aliveEnemies = bs.units.filter(u => u.isAlive && u.faction === 'enemy');
     const alivePlayers = bs.units.filter(u => u.isAlive && u.faction === 'player');
 
-    if (aliveEnemies.length === 0) {
+    // ★ 死守关（objective.type === 'survive'）：撑过 surviveTurns 回合且我方未团灭即胜利
+    const objective = bs.chapter && bs.chapter.objective;
+    const surviveWon = !!objective && objective.type === 'survive'
+      && objective.surviveTurns > 0
+      && bs.turn > objective.surviveTurns
+      && alivePlayers.length > 0;
+
+    if (aliveEnemies.length === 0 || surviveWon) {
       bs.victoryModalShown = true;
       const enemyUnit = bs.units.find(u => u.faction === 'enemy');
       const enemyName = enemyUnit ? enemyUnit.name : '敌方目标';

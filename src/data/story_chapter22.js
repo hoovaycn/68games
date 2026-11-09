@@ -167,7 +167,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: 'sailor_berserk',
         leftEmotion: 'default',
         rightPortrait: '{MC}',
-        rightEmotion: 'default',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（厚重的橡胶潜水服被肌肉撑得紧绷，破损防毒面具下喷射出滚烫粗重的白雾，手中重型水压切断钳狠狠砸在集装箱铁皮上，火星四溅）[next]咔嚓！咔嚓！骨头……全都剪碎！',
         highlight: true,
@@ -189,7 +189,7 @@ export const CHAPTER22_STORY = {
         id: 7,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC}',
-        leftEmotion: 'default',
+        leftEmotion: 'frown',
         rightPortrait: 'xu-stealth',
         rightEmotion: 'default',
         activeSide: 'left',
@@ -362,6 +362,7 @@ export const CHAPTER22_STORY = {
         rightPortrait: 'liu',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/art/cg_future_badge@2x.png',
         text: '（捧出一枚沉甸甸的银灰色金属警徽，脸色骤变）这警徽材质……背面的激光警号是046-2046-SF！前缀046是我的专属警号，年份怎么会是二零四六年？！[next]这是二十年后的警徽？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -395,6 +396,7 @@ export const CHAPTER22_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/art/cg_blood_warning_note@2x.png',
         text: '泛黄纸片上写着凌乱的血字：【千万别在9月28日登上三号船！那是一场万劫不复的死局！[next]快回学校查神经脑波仪，那是改变一切的唯一线索！】',
         highlight: true,
         sfx: 'sfx_suspense'

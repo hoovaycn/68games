@@ -3,7 +3,7 @@
  *
  * 流程结构：
  * - ch26_scene_pyramid_ascent: 突破天梯金字塔外围防线，全息考场与抹杀情感的梦魇
- * - ch26_scene_ayao_chamber: 开启中央维生舱，阿瑶枯瘦残躯插满管线，胸口贴着2006年六8班毕业照
+ * - ch26_scene_ayao_chamber: 开启中央维生舱，阿瑶枯瘦残躯插满管线，胸口贴着2006年三人合影
  * - ch26_scene_hologram_reveal: 阿瑶微弱自述：2006年服毒替死 → 2026年机器反噬 → 2046年困在机器，逐段切黑白回忆画面
  * - ch26_battle1: 天梯核心主脑歼灭战（两代六8班联动 VS 天梯总控智脑·满分优等生）
  * - ch26_scene_paradox_truth: 智脑瓦解，枯萎阿瑶交出【古罐残片】，大人回不去，由小号承担逆流使命
@@ -93,7 +93,8 @@ export const CHAPTER26_STORY = {
         rightPortrait: 'ayao-aged_2046',
         rightEmotion: 'default',
         activeSide: 'right',
-        text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。[next]她的胸口，还死死贴着当年六8班泛黄的毕业合影。',
+        bgImg: 'assets/art/cg_grad_photo_2006@2x.png',
+        text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。[next]她的胸口，还死死贴着当年那张泛黄的三人合影。',
         sfx: 'sfx_suspense'
       },
       {
@@ -159,8 +160,7 @@ export const CHAPTER26_STORY = {
         rightEmotion: 'default',
         activeSide: 'left',
         flashback: true,
-        bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
-        bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
+        bgImg: 'assets/art/cg_ayao_broken_pen@2x.png',
         text: '他要给徐博和淑惠灌毒药……我冲上去，抢过那瓶毒药，自己仰头一口喝了……',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -385,7 +385,7 @@ export const CHAPTER26_STORY = {
         rightPortrait: '{MC_ADULT}',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（用颤抖枯瘦的手，从怀中摸出一枚贴着六8班泛黄毕业照的古罐残片）这是最初的那片古罐残片。[next]到底层能量炉插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的你们，已经被这个时代困住了……',
+        text: '（用颤抖枯瘦的手，从怀中摸出一枚贴着那张泛黄三人合影的古罐残片）这是最初的那片古罐残片。[next]到底层能量炉插进去，通道就会逆转……但只有十二岁的你们能回去，长大后的你们，已经被这个时代困住了……',
         highlight: true,
         sfx: 'sfx_confirm'
       },

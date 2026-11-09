@@ -33,8 +33,24 @@ export const CH27_BATTLE1 = {
   ],
 
   objective: {
-    type: 'defeat_all',
-    text: '全歼来犯敌军守卫时空光门'
+    type: 'survive',
+    surviveTurns: 4,
+    text: '死守4回合，撑到光门稳定！'
+  },
+
+  tutorial: {
+    steps: [
+      {
+        title: '死守光门',
+        body: '本关不必硬拼！两名大号只需撑过4回合——尽量待机、防御、用道具补血，别主动进攻。',
+        hint: '防守 / 补血 / 回避 = 过关 · 强攻大概率打不过'
+      },
+      {
+        title: '撑到光门稳定',
+        body: '只要4回合内我方没有团灭，光门稳定即判定胜利，进入后续剧情。',
+        hint: '胜利条件：死守4回合'
+      }
+    ]
   },
 
   nextStorySceneOnWin: 'ch27_scene_great_sacrifice',

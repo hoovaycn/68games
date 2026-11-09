@@ -277,6 +277,7 @@ export const CHAPTER28_STORY = {
         rightPortrait: 'xu',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/art/cg_folding_shovel@2x.png',
         text: '闸门被工兵铲硬生生别住！倒计时还剩三秒！{MC_NAME}钻进缝隙，拉住两位老师拼命往外拽！',
         sfx: 'sfx_shock_sting'
       },

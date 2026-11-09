@@ -69,6 +69,7 @@ export const CHAPTER24_STORY = {
         rightPortrait: 'qinruiyi',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/art/cg_mask_100score@2x.png',
         text: '街上的行人都戴着焊死的金属面具，面具上画着诡异的红色假笑，额头上印着【100分·绝对合格】。他们步伐整齐，周围听不到一点说话声。',
         sfx: 'sfx_shock_sting'
       },
