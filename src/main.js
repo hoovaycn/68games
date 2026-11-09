@@ -3,6 +3,7 @@ import { CombatSystem } from './systems/combat.js';
 import { EnemyAI } from './systems/ai.js';
 import { Renderer } from './ui/renderer.js';
 import { DialogueSystem } from './systems/dialogue_system.js';
+import { FinaleScreen } from './ui/finale_screen.js';
 import { TitleScreen } from './ui/title_screen.js';
 import { EpilogueScreen } from './ui/epilogue_screen.js';
 import { VictoryModal } from './ui/components/victory_modal.js';
@@ -278,6 +279,7 @@ export class GameApp {
       (event) => this.handleStoryItemEvent(event)
     );
     this.epilogueScreen = new EpilogueScreen(this.canvas, () => this.enterTitleScreen());
+    this.finaleScreen = new FinaleScreen(this.canvas, () => this.enterTitleScreen());
 
     // 预加载核心 3×3 地图大图集
     assetLoader.loadWithChromaKey(ATLAS_CONFIG.sheetSrc);
@@ -817,6 +819,11 @@ export class GameApp {
   handleSceneTransition(transition) {
     if (!transition) return;
 
+    if (transition.targetScene === 'finale_screen' || transition.type === 'GRAND_FINALE') {
+      this.enterFinaleScreen();
+      return;
+    }
+
     if (transition.targetScene === 'title_screen') {
       this.enterTitleScreen();
       this.titleScreen.enterTitle();
@@ -921,6 +928,19 @@ export class GameApp {
     this.canvas.width = 960;
     this.canvas.height = 540;
     this.epilogueScreen.show(this.selectedRoute);
+  }
+
+  enterFinaleScreen() {
+    this.cancelLoading();
+    this.stage = 'STAGE_FINALE';
+    this.topBar.style.display = 'none';
+    this.canvas.width = 960;
+    this.canvas.height = 540;
+    if (this.gameState) {
+      this.gameState.cleared = true;
+      this.saveManager.autosave(this.gameState);
+    }
+    this.finaleScreen.show();
   }
 
   enterBattleMap(chapterData, nextStoryScene) {
@@ -1455,6 +1475,11 @@ export class GameApp {
         return;
       }
 
+      if (this.stage === 'STAGE_FINALE') {
+        this.finaleScreen.handleClick(clickX, clickY);
+        return;
+      }
+
       if (this.stage === 'STAGE_STORY') {
         if (this.dialogueSystem.showingChoice && this.dialogueSystem.choiceButtonRect) {
           const btn = this.dialogueSystem.choiceButtonRect;
@@ -1638,6 +1663,11 @@ export class GameApp {
           sound.playSfx('sfx_confirm');
           this.enterTitleScreen();
         }
+        return;
+      }
+
+      if (this.stage === 'STAGE_FINALE') {
+        this.finaleScreen.handleKeyDown(e.key);
         return;
       }
 
@@ -2893,6 +2923,8 @@ export class GameApp {
       this.titleScreen.render();
     } else if (this.stage === 'STAGE_STORY') {
       this.dialogueSystem.render();
+    } else if (this.stage === 'STAGE_FINALE') {
+      this.finaleScreen.render();
     } else if (this.stage === 'STAGE_EPILOGUE') {
       this.epilogueScreen.render();
     } else {

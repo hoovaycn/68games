@@ -64,6 +64,10 @@ export class AssetLoader {
     return resultObj;
   }
 
+  load(src) {
+    return this.loadWithChromaKey(src);
+  }
+
   async waitFor(src, timeoutMs = 8000) {
     const resource = this.loadWithChromaKey(src);
     if (!resource) return false;

@@ -1,0 +1,924 @@
+=== READING ACT1 (10 files) ===
+
+
+======================================================
+FILE: story_prologue.js
+======================================================
+
+--- Scene [scene_prelude] 前言 ---
+
+--- Scene [scene_classroom] 人大附小 · 六 8 班教室 ---
+  #1 [张子骁] (L:zhangzixiao.smile | R:null.def)
+     "我是张子骁。大家都叫我“六8班棋王”，下棋做事，我习惯走一步看三步。"
+  #2 [张子骁] (L:zhangzixiao.default | R:null.def)
+     "新学期刚开学，早读、默写、抢乒乓球台……一切本该很平常。"
+  #3 [张子骁] (L:zhangzixiao.default | R:xu.frown)
+     "但今天清晨气氛不对。徐老师站在讲台前，脸色异常凝重。"
+  #4 [徐老师] (L:zhangzixiao.default | R:xu.default)
+     "子骁，范文默今天又没来。昨晚他爸爸给我发了条很反常的微信……"
+  #5 [张子骁] (L:zhangzixiao.default | R:xu.default)
+     "（奇怪，徐老师平时从不轻易向学生透露家长私信的……）"
+  #6 [徐老师] (L:zhangzixiao.shock | R:xu.default)
+     "【微信】“徐老师！小默昨晚狂刷高三物理，边哭边喊它们要来了……平时他连作业都抄别人的！”"
+  #7 [张子骁] (L:zhangzixiao.shock | R:xu.default)
+     "小默？他连九九乘法表都费劲，去通宵刷高三电磁学？！"
+  #8 [张子骁] (L:zhangzixiao.default | R:zhanghanyu.default)
+     "（这时，同桌张瀚瑜慌慌张张地冲了过来，他是我的死党。）"
+  #9 [张瀚瑜] (L:zhangzixiao.default | R:zhanghanyu.default)
+     "子骁！昨天校门口有个怪大叔拦住小默，塞给他一包发绿光的零食，笑得跟纸人一样！"
+  #10 [张子骁] (L:zhangzixiao.frown | R:zhanghanyu.default)
+     "校门口可疑摊贩……不行，我得趁现在去校门口截住他问个明白！"
+
+--- Scene [scene_street_vendor] 校外街道 · 遭遇流动商贩 ---
+  #1 [张子骁] (L:zhangzixiao.default | R:vendor.default)
+     "（刚走出校门，空气里就弥漫着一股过分甜腻的冷香……前面那个推车的大叔，面色青白青白的……）"
+  #2 [流动商贩] (L:zhangzixiao.frown | R:vendor.default)
+     "嘻嘻嘻……小朋友，买一串香喷喷的淀粉烤肠吗？吃上一口……保你倒背如流高考物理大题哦……"
+  #3 [张子骁] (L:zhangzixiao.frown | R:vendor.default)
+     "倒背如流？小学生背什么高考物理！小默变成那样果然是你搞的鬼！快把解药交出来！"
+  #4 [流动商贩] (L:zhangzixiao.frown | R:vendor.default)
+     "不知天高地厚的小棋呆子……那就尝尝我投掷出的特制辣条吧！"
+
+--- Scene [scene_after_vendor] 校外街道 · 击退商贩 ---
+  #1 [流动商贩] (L:zhangzixiao.default | R:vendor.default)
+     "哎哟！现在的小学生棋路怎么这么邪门……算你狠，我的小推车不要了！"
+  #2 [张子骁] (L:zhangzixiao.default | R:null.def)
+     "呼……商贩扔下小推车溜走了。车上掉落了一包发着诡异荧光的【淀粉烤肠】。"
+  #3 [张子骁] (L:zhangzixiao.shock | R:null.def)
+     "（这就是从小默家搜出来的同款异化零食！……前方巷口似乎还有动静！）"
+
+--- Scene [scene_street_punk] 校外巷口 · 拦截高年级混混 ---
+  #1 [高年级混混] (L:zhangzixiao.frown | R:punk.default)
+     "喂！六年级的小鬼，慌里慌张去哪呢？把身上值钱的文具和零食统统留下，学长今天心情不好……"
+  #2 [张子骁] (L:zhangzixiao.frown | R:punk.default)
+     "（这家伙手里卷着五年中考三年模拟，眼白都是血丝……看来也是被焦虑怪异侵蚀了！）"
+  #3 [张子骁] (L:zhangzixiao.frown | R:punk.default)
+     "别挡道！我还要去救范文默呢！这步棋，叫将军！"
+
+--- Scene [scene_before_home] 校外巷口 · 扫清障碍 ---
+  #1 [高年级混混] (L:zhangzixiao.default | R:punk.default)
+     "可恶……我的五年中考三年模拟居然输给了小学生……你给我等着！"
+  #2 [张子骁] (L:zhangzixiao.smile | R:null.def)
+     "收工！终于把阻碍都扫清了。小默家就在前面这栋楼的 402 室……"
+
+--- Scene [scene_home] 范文默家 · 异变现场 ---
+  #1 [张子骁] (L:zhangzixiao.default | R:fanwenmo.default)
+     "一路狂奔赶到小默家，防盗门虚掩着一条缝，里面飘出一股淡淡的墨水味。"
+  #2 [范文默] (L:zhangzixiao.default | R:fanwenmo.shock)
+     "……子骁？你怎么逃课过来了……我今天只是有点头痛，在家里预习呢……"
+  #3 [张子骁] (L:zhangzixiao.default | R:fanwenmo.default)
+     "小默！徐老师和瀚瑜都很担心你！你平时连早操都不落下的，到底怎么了？"
+  #4 [范文默] (L:zhangzixiao.default | R:fanwenmo.default)
+     "我真的没事……你看，我还在写物理题呢……只要把这道题解开……只要解开……（声音开始颤抖）"
+  #5 [范文默] (L:zhangzixiao.default | R:fanwenmo-corrupted.default)
+     "……动量守恒……麦克斯韦……只要刷完五三，“它们”就会把脑子还我……嘻嘻嘻……"
+  #6 [张子骁] (L:zhangzixiao.shock | R:fanwenmo-corrupted.default)
+     "小默？！你的眼睛怎么泛着诡异红光！满地都是高三草稿纸，连墙上都写满了血色公式！"
+  #7 [范文默] (L:zhangzixiao.default | R:fanwenmo-corrupted.default)
+     "“它们”在书桌下看着呢……（抱头大喊）子骁快跑！别吃校门口怪零食，会吃脑子！快跑！！"
+  #8 [张子骁] (L:zhangzixiao.shock | R:fanwenmo-corrupted.default)
+     "（桌上放着一包吃剩的发光零食……和小贩卖的一模一样！“它们”到底是什么？！）"
+
+--- Scene [scene_home_reinforce] 范文默家 · 队友破门支援 ---
+  #1 [张瀚瑜] (L:zhanghanyu.default | R:zhangzixiao.frown)
+     "砰——！子骁！我就知道你会一个人逞能跑过来！我问了三个路人才追上你——我操这什么情况？！"
+  #2 [张子骁] (L:zhanghanyu.default | R:zhangzixiao.frown)
+     "瀚瑜？！你怎么跟来了！别靠近，小默现在神志不清，力气大得吓人！"
+  #3 [张瀚瑜] (L:zhanghanyu.default | R:zhangzixiao.frown)
+     "我是学委，班上同学掉队了能不管吗！我包里有粉笔头和小测验重点，咱俩配合，物理把他打醒！"
+
+--- Scene [scene_home_recover] 范文默家 · 清醒与说漏嘴 ---
+  #1 [范文默] (L:zhangzixiao.default | R:fanwenmo.default)
+     "（剧烈喘息，青光散去）……咳咳……子骁……瀚瑜……？你们怎么在我家书房……？"
+  #2 [张瀚瑜] (L:zhanghanyu.default | R:fanwenmo.shock)
+     "呼——！终于打醒了！你刚才挥着大厚书追着我们满屋跑！到底怎么回事？！"
+  #3 [范文默] (L:zhangzixiao.default | R:fanwenmo.default)
+     "昨天校门口小贩塞给我一包东西，说吃一口就能把整本冲刺题背下来……"
+  #4 [范文默] (L:zhangzixiao.default | R:fanwenmo.shock)
+     "然后脑子里全是算式尖叫声……根本停不下来……它们说下周一还要来学校……"
+  #5 [张子骁] (L:zhangzixiao.default | R:fanwenmo.default)
+     "果然是那个商贩搞的鬼！剩下的怪味零食我先收下了。下周一必须查清楚！"
+  #6 [范文默] (L:zhangzixiao.default | R:fanwenmo.default)
+     "谢谢你们打醒我！查探怪事算我一个，我力气管够！"
+
+--- Scene [scene_home_night] 深夜 · 张子骁房间 ---
+  #1 [张子骁] (L:zhangzixiao.default | R:null.def)
+     "深夜十一点半，台灯下只有秒针滴答走动的声响。"
+  #2 [张子骁] (L:zhangzixiao.default | R:null.def)
+     "那包从小默书桌上带回来的怪异零食，正静静躺在我的棋盘旁，表面泛着若隐若现的幽暗荧光。"
+  #3 [张子骁] (L:zhangzixiao.cry | R:null.def)
+     "“……我上次数学才考了六十二分。[next]要是偷偷吃一口这个零食，是不是考试成绩就能提上去？[next]没准能满分呢……而且，也不会有人知道吧……”"
+  #4 [张子骁] (L:zhangzixiao.default | R:null.def)
+     "我的手指不由自主地触碰到了包装袋的一角……冰凉刺骨……"
+
+--- Scene [scene_prelude] 前言 ---
+
+--- Scene [scene_classroom] 人大附小 · 六 8 班教室 ---
+  #1 [石予诺] (L:shiyunuo.default | R:null.def)
+     "我是石予诺，六（8）班美术课代表。我的速写本上没有“画不下去”这一页！"
+  #2 [石予诺] (L:shiyunuo.default | R:null.def)
+     "新学期刚开学，大家都在背单词和公式，教室里每天都很热闹。"
+  #3 [石予诺] (L:shiyunuo.default | R:xu.default)
+     "但今天清晨气氛不对。徐老师站在讲台上焦急地看手机，把我叫了过去。"
+  #4 [徐老师] (L:shiyunuo.default | R:xu.default)
+     "予诺，何妍熹今天早自习没来。她妈妈昨晚深夜发了条请假微信……"
+  #5 [石予诺] (L:shiyunuo.cry | R:xu.default)
+     "徐老师，妍熹昨天放学还约我画画呢，她生病了吗？"
+  #6 [徐老师] (L:shiyunuo.cry | R:xu.default)
+     "【微信】“徐老师！妍熹练长笛练到凌晨三点，关灯就哭喊外面有脏东西，今天还把自己反锁了！”"
+  #7 [石予诺] (L:shiyunuo.cry | R:chenpinxuan.default)
+     "（闺蜜陈品璇急匆匆地跑了过来，她平时消息最灵通。）"
+  #8 [陈品璇] (L:shiyunuo.frown | R:chenpinxuan.default)
+     "予诺！昨天我就觉得妍熹不对劲！一个人蹲在墙角发疯一样比划长笛，眼神直勾勾的！"
+  #9 [石予诺] (L:shiyunuo.default | R:chenpinxuan.default)
+     "有个声音在催她……？品璇，你先帮我打掩护，我必须趁课间去校外看看！"
+
+--- Scene [scene_street_vendor] 校外街道 · 遭遇流动商贩 ---
+  #1 [石予诺] (L:shiyunuo.default | R:vendor.default)
+     "（校门外的人行道上……那个推着发光小推车的大叔，笑得好诡异……）"
+  #2 [流动商贩] (L:shiyunuo.frown | R:vendor.default)
+     "漂亮的小姑娘，来尝尝阿伯的特制零食吗？吃上一口……保你落笔就是美院满分卷哦……"
+  #3 [石予诺] (L:shiyunuo.frown | R:vendor.default)
+     "小学生考什么美院！妍熹听到的怪声音就是你捣的鬼吧！"
+  #4 [流动商贩] (L:shiyunuo.frown | R:vendor.default)
+     "多管闲事的小丫头……那就尝尝我的投掷辣条！"
+
+--- Scene [scene_after_vendor] 校外街道 · 击退商贩 ---
+  #1 [流动商贩] (L:shiyunuo.default | R:vendor.default)
+     "哎哟！现在的小画家怎么这么凶……小推车不要了，快闪！"
+  #2 [石予诺] (L:shiyunuo.default | R:null.def)
+     "商贩跑了！推车旁掉落了一包诡异的【怪味淀粉香肠】。"
+  #3 [石予诺] (L:shiyunuo.default | R:null.def)
+     "（这就是那种异化零食……前面的巷口好像有人在挑衅，去看看！）"
+
+--- Scene [scene_street_punk] 校外巷口 · 拦截高年级混混 ---
+  #1 [高年级混混] (L:shiyunuo.frown | R:punk.default)
+     "喂！六年级的小妹妹，把身上值钱的零食和文具交出来，学长今天心情很糟糕！"
+  #2 [石予诺] (L:shiyunuo.frown | R:punk.default)
+     "（这家伙手里拿着五三词汇表，眼神直发愣……也是被怪物污染了！）"
+  #3 [石予诺] (L:shiyunuo.frown | R:punk.default)
+     "让开！我还要去救何妍熹！没有我画不出来的活路！"
+
+--- Scene [scene_before_home] 校外巷口 · 扫清障碍 ---
+  #1 [高年级混混] (L:shiyunuo.default | R:punk.default)
+     "呜呜……现在的班干居然会打人……我输了！"
+  #2 [石予诺] (L:shiyunuo.default | R:null.def)
+     "成功解决！妍熹家就在前面这栋楼的 301 室，赶快上去！"
+
+--- Scene [scene_punk_intro] 校外巷口 · 高年级混混登场 ---
+  #1 [石予诺] (L:shiyunuo.default | R:vendor.default)
+     "呼……商贩被击退，掉落了一串【烤肠】。妍熹果然就是被他用怪零食控制的……"
+  #2 [石予诺] (L:shiyunuo.default | R:punk.default)
+     "得赶紧去妍熹家——（突然身后巷口传来踩碎瓶子的脆响）咦？"
+  #3 [高年级混混] (L:shiyunuo.default | R:punk.default)
+     "六年级的小学妹，身上带零花钱了吗？借学长买两套冲刺卷怎么样？别磨蹭！"
+  #4 [石予诺] (L:shiyunuo.default | R:punk.default)
+     "（他手里卷着练习册当武器，眼白充血……看来也是被焦虑侵蚀了！就在同一张地图上把他打发了！）"
+
+--- Scene [scene_home] 何妍熹家 · 异变现场 ---
+  #1 [石予诺] (L:shiyunuo.default | R:heyanxi.default)
+     "击败混混后，我气喘吁吁地按响了妍熹家的门铃。妍熹探出头，脸色略显苍白。"
+  #2 [何妍熹] (L:shiyunuo.default | R:heyanxi.default)
+     "予诺……？你怎么逃课过来了……我今天有点发低烧，妈妈让我卧床休息呢……"
+  #3 [石予诺] (L:shiyunuo.default | R:chenpinxuan.default)
+     "妍熹！品璇和我快急疯了！品璇说昨天体育课你眼神直勾勾的，昨晚阿姨还说你一直哭……"
+  #4 [何妍熹] (L:shiyunuo.default | R:heyanxi.default)
+     "品璇又在瞎编了……我只是太困了，练完这一节就好……（手指颤抖）"
+  #5 [何妍熹] (L:shiyunuo.default | R:heyanxi-corrupted.default)
+     "……升C……降E……只要练完这本练习曲，耳朵里的虫鸣声就会停下吧……嘻嘻……"
+  #6 [石予诺] (L:shiyunuo.frown | R:heyanxi-corrupted.default)
+     "妍熹！快停下！你的手指全在流血啊！"
+  #7 [何妍熹] (L:shiyunuo.default | R:heyanxi-corrupted.default)
+     "予诺……快捂上耳朵！别喝校门口的怪汽水……它们顺着网线爬过来了啊啊啊——！！"
+  #8 [石予诺] (L:shiyunuo.shock | R:heyanxi-corrupted.default)
+     "（桌上放着一包泛着幽绿荧光的怪零食……那个摊贩到底是给谁做事的？！）"
+
+--- Scene [scene_home_reinforce] 何妍熹家 · 队友破门支援 ---
+  #1 [陈品璇] (L:chenpinxuan.default | R:shiyunuo.frown)
+     "哐当——！予诺！果然被我逮到了！——哇！妍熹怎么变成这样了？！"
+  #2 [石予诺] (L:chenpinxuan.default | R:shiyunuo.frown)
+     "品璇小心！妍熹被怪音波控制了，音浪能震碎玻璃！"
+  #3 [陈品璇] (L:chenpinxuan.default | R:shiyunuo.frown)
+     "哼，管她什么音浪！我俩一起上，先把她制伏打醒！"
+
+--- Scene [scene_home_recover] 何妍熹家 · 清醒与说漏嘴 ---
+  #1 [何妍熹] (L:shiyunuo.default | R:heyanxi.frown)
+     "（长笛落地，眼神恢复清亮）……唔……予诺……品璇……？你们怎么在我房间？"
+  #2 [陈品璇] (L:chenpinxuan.default | R:heyanxi.default)
+     "累死我了！你刚才吹笛子跟催命似的追着我们跑！快交代，到底怎么回事？！"
+  #3 [何妍熹] (L:shiyunuo.default | R:heyanxi.default)
+     "昨天放学……摊贩塞给我一包东西，说吃一口就能闭着眼吹出比赛曲目……"
+  #4 [何妍熹] (L:shiyunuo.default | R:heyanxi.default)
+     "然后脑袋像被电波控制了一样……它们说明天还要来学校接管大家……"
+  #5 [石予诺] (L:shiyunuo.default | R:heyanxi.frown)
+     "果然是摊贩搞的鬼！这包剩的怪零食我先扣下了。下周一必须查清楚！"
+  #6 [何妍熹] (L:shiyunuo.default | R:heyanxi.frown)
+     "谢谢你们打醒我！调查怪事带上我吧，我的长笛能安抚心灵！"
+
+--- Scene [scene_home_night] 深夜 · 石予诺画室 ---
+  #1 [石予诺] (L:shiyunuo.default | R:null.def)
+     "深夜十一点半，台灯静静照在画架上，窗外的城市一片漆黑。"
+  #2 [石予诺] (L:shiyunuo.default | R:null.def)
+     "那包从妍熹书桌带回来的怪异零食，正摆在我的调色盘旁，散发着若有若无的冷光。"
+  #3 [石予诺] (L:shiyunuo.default | R:null.def)
+     "“……我上次考试也考得不怎么样。[next]要是偷偷吃一口这个零食，是不是考试成绩就能提上去？[next]没准能满分呢……而且，也不会有人知道吧……”"
+  #4 [石予诺] (L:shiyunuo.default | R:null.def)
+     "我的画笔不由自主地朝着包装袋探去……指尖一阵莫名的冰凉刺痛……"
+
+======================================================
+FILE: story_chapter1.js
+======================================================
+
+--- Scene [ch1_scene_playground] 第二天上午 · 阳光操场 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "第二天上午大课间，六年级同学在操场上集合练操。阳光把跑道晒得发白，昨夜那场怪事仿佛只是一场梦。[next]跑道边，体育委员张希哲正颠着足球——他性子直，就是太爱逞强。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "一旁，拉拉操队长覃瑞怡带着队员压腿热身，她成绩好得没边儿，[next]是全班公认的「别人家孩子」，嘴上也从不饶人。[next]这俩天生八字不合，一见面就掐。"
+  #3 [张希哲] (L:zhangxizhe.frown | R:qinruiyi.default)
+     "覃瑞怡，你们拉拉队今天喊得跟蚊子哼似的！待会儿看我暴射入网！"
+  #4 [覃瑞怡] (L:zhangxizhe.frown | R:qinruiyi.frown)
+     "切！张希哲你少得意，没有我们加油，你早踢隔壁幼儿园去了！"
+  #5 [{MC_NAME}] (L:{MC}.default | R:zhangxizhe.default)
+     "我摸了摸书包兜，昨晚带回来的零食仿佛正透着丝丝寒意。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "只是阳光亮得有些刺眼，跑道尽头却像蒙着一层化不开的灰。[next]空气里，隐约飘来一股发甜的怪味——和昨晚那包零食一模一样。"
+
+--- Scene [ch1_scene_pe_test] 操场跑道 · 突如其来的超负荷加测 ---
+  #1 [体育老师] (L:pe.default | R:null.def)
+     "全体立正！今天临时抽测，所有人达标前不准吃午饭！"
+  #2 [体育老师] (L:pe.default | R:zhangxizhe.default)
+     "张希哲！把这副五十公斤铁哑铃推举一百次！不然取消校运会资格！"
+  #3 [外校体育生] (L:senior_athlete.default | R:zhangxizhe.default)
+     "就这胳膊还想当校队？我们体校的六年级，抱着五十公斤哑铃能绕操场跑三圈！"
+  #4 [张希哲] (L:pe.default | R:zhangxizhe.awkward)
+     "老师……这是成年人的器械，胳膊会拉伤的！"
+  #5 [徐老师] (L:xu.frown | R:pe.default)
+     "住手！他们才六年级。"
+  #6 [体育老师] (L:xu.default | R:pe-corrupted.default)
+     "六年级怎么了？！不喝特训饮料怎么冲第一？！——给我滚开！！"
+  #7 [{MC_NAME}] (L:{MC}.frown | R:pe-corrupted.default)
+     "体育老师双眼泛起青黑凶光，外校生也僵硬地举着哑铃逼近！"
+
+--- Scene [ch1_scene_recover] 操场草坪 · 恢复神智与可疑空瓶 ---
+  #1 [外校体育生] (L:senior_athlete.default | R:null.def)
+     "（捂肚子痛哭）是我们教练给的！说喝了这种发光饮料就能跑第一……"
+  #2 [体育老师] (L:pe.default | R:xu.cry)
+     "咳咳……头好痛。这饮料瓶……上周王主任桌上也摆着一模一样的……"
+  #3 [徐老师] (L:xu.default | R:null.def)
+     "……"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "徐老师弯下腰，悄悄把空饮料瓶塞进了自己的公文包，并未上交。"
+  #5 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "刚才多亏大家！学校肯定被脏东西盯上了，查怪事算我一个！"
+  #6 [覃瑞怡] (L:zhangxizhe.default | R:qinruiyi.default)
+     "我也加入！拉拉队创可贴管够！绝不能让歪门邪道欺负咱们班！"
+
+--- Scene [ch1_scene_office_shadow] 行政楼三楼 · 教务处的逆光长发 ---
+  #1 [{MC_NAME}] (L:{MC}.default | R:null.def)
+     "跟着队伍走回教学楼时，我忍不住抬头望向行政楼三楼的教务处。"
+  #2 [{MC_NAME}] (L:{MC}.default | R:null.def)
+     "深红色的天鹅绒窗帘突然微微晃动了一下……逆光中，伫立着一个留着长发的女人倒影。"
+  #3 [神秘女子] (L:shadow_woman.default | R:null.def)
+     "呵……真是几个精力充沛的小家伙呢。不过，当恐惧与猜疑在他们心底生根发芽的时候……"
+  #4 [神秘女子] (L:shadow_woman.default | R:null.def)
+     "真正的宴席……才刚刚开场。"
+
+======================================================
+FILE: story_chapter2.js
+======================================================
+
+--- Scene [ch2_scene_auditorium] 校大礼堂 · 紧急全校食品安全大会 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "午后的大礼堂里，全校学生排排坐，空气里飘着淡淡的消毒水味。[next]徐老师攥着一只贴着封条的证物袋，大步走上讲台。"
+  #2 [徐老师] (L:xu.default | R:null.def)
+     "全体注意！最近校外出现了一种会发荧光的怪异零食和饮料！"
+  #3 [徐老师] (L:xu.default | R:null.def)
+     "食用后精神会狂暴失控，还会像发了疯一样学习，做出远超自己能力的事！"
+  #4 [徐老师] (L:xu.default | R:null.def)
+     "记住——谁的成绩要是突然好得离谱，那才是最危险的信号！任何人见到，一律严禁碰触，立刻上交！"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "台下一片哗然。人群窃窃私语，看彼此的眼神第一次带上了提防。"
+  #6 [男同学] (L:classmate_boy.default | R:null.def)
+     "这么说……昨天我同桌抽屉里那包发着光的零食，就是这种东西？！"
+  #7 [女同学] (L:classmate_boy.default | R:classmate_girl.default)
+     "你同桌？我还想问你呢，昨天课间你把什么偷偷塞进书包里了？"
+  #8 [男同学] (L:classmate_boy.default | R:classmate_girl.default)
+     "胡说什么，那是我妈塞的早餐！倒是你，这两天突然抱着初中课本看得起劲……"
+  #9 [女同学] (L:classmate_boy.default | R:classmate_girl.default)
+     "我、我那是自己买来预习的，关你什么事！"
+  #10 [系统提示] (L:null.def | R:null.def)
+     "你一言我一语，越来越多的人插进来，互相指着鼻子。刚才还挨着坐的同学，一下子谁都不敢离谁太近。"
+
+--- Scene [ch2_scene_exam_result] 六 8 班教室 · 突击小测与猜忌目光 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "下午第一节课，教室里安静得反常。每个人的成绩单都攥得发皱，眼神在卷子和同桌之间来回瞟。"
+  #2 [徐老师] (L:xu.default | R:null.def)
+     "下面公布今天上午突击小测的成绩。第一名……{MC_NAME}，满分！"
+  #3 [{MC_NAME}] (L:{MC}.default | R:null.def)
+     "（咦？！我昨晚因为调查的事折腾到半夜，根本没复习……怎么可能考满分？！）"
+  #4 [男同学] (L:classmate_boy.default | R:null.def)
+     "哟呵，平时六十多分的学酥，突然考满分？太阳从西边出来了？"
+  #5 [女同学] (L:classmate_boy.default | R:classmate_girl.default)
+     "该不会……是吃了徐老师刚才说的那个荧光零食吧？！为了成绩居然碰那种东西！"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "后排，朱晏泽却一言不发。这帅气的富二代平日里最爱起哄护短，[next]零花钱多到能把小卖部包圆，谁被欺负了他第一个拍桌子。[next]如今却低着头，指节捏得发白。"
+
+--- Scene [ch2_scene_confrontation] 教室走道 · 义气富二代的反常指控 ---
+  #1 [朱晏泽] (L:zhuyanze.shock | R:{MC}.frown)
+     "老师！昨晚就是{MC_NAME}偷偷从小贩手里拿了荧光零食！满分全是作弊来的！"
+  #2 [{MC_NAME}] (L:zhuyanze.default | R:{MC}.frown)
+     "朱晏泽你吃错药了吧？！上周你抄我英语作业时还说我是你亲哥，今天转头就往我身上泼脏水？！"
+  #3 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:zhuyanze.default)
+     "你有什么证据？昨天我和{MC_NAME}一起去救中招的同学，今天你倒说我们偷偷吃了零食？"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:zhuyanze.shock)
+     "我自己中过招，最清楚中邪的样子！{MC_NAME} 眼神清澈，倒是你们眼里在冒青光！"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "话音刚落，朱晏泽猛地瞪圆双眼，瞳仁深处泛起诡异的荧绿青光，语气陡然狰狞！"
+  #6 [朱晏泽] (L:zhuyanze-corrupted.default | R:{ALLY_1}.default)
+     "闭嘴！今天我就替全班把你们这些作弊的家伙赶出学校！！"
+  #7 [男同学] (L:classmate_boy-corrupted.default | R:{MC}.frown)
+     "对！就是他偷吃了徐老师说的怪零食！他满分全是作弊来的，把他赶出去！"
+  #8 [女同学] (L:{ALLY_1}.default | R:classmate_girl-corrupted.default)
+     "大家一起上，别让这个作弊的家伙跑了！"
+
+--- Scene [ch2_scene_recover] 教室讲台 · 真相大白与义气同盟 ---
+  #1 [朱晏泽] (L:zhuyanze.default | R:{MC}.default)
+     "（揉着头）头好痛……我刚才在胡扯什么？我怎么可能诬陷同学？！"
+  #2 [男同学] (L:classmate_boy.default | R:zhuyanze.default)
+     "对不起！我们刚才也是脑子一热跟着瞎喊的……"
+  #3 [{MC_NAME}] (L:{MC}.default | R:zhuyanze.default)
+     "零食我确实从小贩手里收缴了，但我没吃，直接扔进了楼下垃圾桶！"
+  #4 [徐老师] (L:xu.default | R:null.def)
+     "走！为师亲自陪你们去取证。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "十分钟后，徐老师当众从垃圾桶底层翻出了那袋未拆封的积灰零食，真相大白！"
+  #6 [朱晏泽] (L:zhuyanze.default | R:{MC}.default)
+     "好哥们！以后查案我出钱出力，零花钱和装备我全包了！"
+
+--- Scene [ch2_scene_school_night] 深夜校园 · 阴影中的密谈 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "深夜十一点，校园里一片死寂。教学楼黑黢黢的剪影如同一头潜伏在夜色中的巨兽。"
+  #2 [徐老师] (L:xu.default | R:shadow_woman.default)
+     "零食和饮料瓶，我都扣下了。可孩子们已经开始互相猜忌，比那怪味零食扩散得还快。"
+  #3 [黑影女子] (L:xu.default | R:shadow_woman.default)
+     "呵呵……徐老师，你还是这么心软。当年那件事，你到现在还没放下。"
+  #4 [徐老师] (L:xu.default | R:shadow_woman.default)
+     "放不下。就是因为放不下，我才不能让他们重走我们的老路。"
+  #5 [黑影女子] (L:xu.default | R:shadow_woman.default)
+     "光靠你一个人，护得住几个？它们……已经醒了。"
+  #6 [徐老师] (L:xu.default | R:shadow_woman.default)
+     "那也得护，能护一个是一个。"
+  #7 [黑影女子] (L:xu.default | R:shadow_woman.default)
+     "你还是老样子。那就照我们当年说好的，继续把这出戏演下去。"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "夜风猛地灌进走廊，路灯剧烈摇晃。那团黑影在墙上拉成一道扭曲的长影，随即像水一样，慢慢渗进了黑暗里……"
+
+======================================================
+FILE: story_chapter3.js
+======================================================
+
+--- Scene [ch3_scene_exhibition] 放学 · 校外堵人 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "上周操场的事消停了没两天，放学的时候校门外人行道又堵了一群人。[next]七八个穿别校藏青运动服的外校学生一字排开。"
+  #2 [系统提示] (L:senior_athlete_leader-corrupted.default | R:null.def)
+     "领头的正是被异化的体育生队长，胳膊底下夹着一兜青蓝色的异化饮料，见本校学生出来就往人怀里塞。[next]小伙伴们刚走到校门口，张希哲抱着足球走在最前面。"
+  #3 [魔化外校队长] (L:senior_athlete_leader-corrupted.default | R:null.def)
+     "免费的！体考内部特供，喝一口立定跳远多跳一米，八百米跑满分跟玩似的！不要钱，白给！"
+  #4 [一年级小同学] (L:grade1_student.default | R:senior_athlete_leader-corrupted.default)
+     "我、我老师说不能要陌生人的东西……"
+  #5 [魔化外校队长] (L:senior_athlete_leader-corrupted.default | R:grade1_student.default)
+     "什么陌生人，我是隔壁体校的，跟你们体育老师熟得很，让你拿着就拿着，别不识抬举。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "外校队长伸手就把饮料往小孩怀里怼。一年级小同学攥着书包带往后缩，声音发颤。"
+  #7 [系统提示] (L:zhangxizhe.default | R:null.def)
+     "抱着足球正要回家的张希哲看见这阵仗，几步冲上去把那个一年级小同学护在身后，伸手把饮料挡了回去。"
+  #8 [张希哲] (L:zhangxizhe.default | R:senior_athlete_leader-corrupted.default)
+     "手往哪伸呢？！高年级大个子堵一年级小孩，要不要脸啊？有本事冲我来！"
+  #9 [魔化外校队长] (L:senior_athlete_leader-corrupted.default | R:zhangxizhe.default)
+     "哪冒出来的小土豆？少多管闲事，信不信连你一块削？！"
+  #10 [张希哲] (L:zhangxizhe.default | R:senior_athlete_leader-corrupted.default)
+     "来啊！怕你我就不姓张！眼神发青、嘴里喷臭气，还特供能量水呢，喝地沟油喝上头了吧你！"
+  #11 [系统提示] (L:null.def | R:null.def)
+     "外校队长嗤笑一声推了张希哲一把，两边当场推搡起来，混乱中半瓶饮料被挤得“啪”地摔在水泥地上，[next]青蓝色发光的液体流了一地，那股甜得发腻的怪味一下散开。"
+
+--- Scene [ch3_scene_gate] 校门口 · 第一次中招 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "张希哲把那个一年级小同学死死护在身后。[next]对面这群外校体育生又高又大，人又多，硬打绝对打不过，咬得后槽牙都紧了。"
+  #2 [张希哲] (L:zhangxizhe.default | R:null.def)
+     "只要喝了那瓶饮料，我就能立刻变强，就能护住小同学和我的伙伴儿了！"
+  #3 [系统提示] (L:zhangxizhe.default | R:null.def)
+     "张希哲弯腰捡起那瓶饮料，一仰头就灌了半瓶。[next]青蓝色的光瞬间从他眼底漫上来，他两三下就把围上来的几个外校学生推倒在地，动作比平时快了整整一倍。"
+  #4 [系统提示] (L:zhangxizhe-corrupted.default | R:null.def)
+     "可等他转过身，眼睛已经全是青光，直勾勾盯着刚冲到面前的小伙伴们，完全认不出眼前的人了。[next]他抬脚“咚”地一脚把足球狠狠踢到这边，摆出了进攻的架势。"
+  #5 [异化张希哲] (L:zhangxizhe-corrupted.default | R:null.def)
+     "都别过来…… 挡我者输。"
+  #6 [{MC_NAME}] (L:{MC}.frown | R:zhangxizhe-corrupted.default)
+     "张希哲！你疯了吗？为了护住大家，你竟然自己喝了那个异化饮料！"
+  #7 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:zhangxizhe-corrupted.default)
+     "快醒醒！你不是说要一起打跑这些坏人吗？别被它控制了！"
+  #8 [覃瑞怡] (L:qinruiyi.frown | R:zhangxizhe-corrupted.default)
+     "张希哲！你这个大笨蛋，谁要你用这种方式保护我们了！"
+  #9 [系统提示] (L:null.def | R:null.def)
+     "覃瑞怡举着花球当场就红了眼圈，朱晏泽下意识往前一步又硬生生停住。[next]大家举着武器瞬间僵在原地，谁都不敢真下手——那是自己同班同学。"
+  #10 [系统提示] (L:shadow_woman.default | R:null.def)
+     "就在两边僵住、外校人又要往上围的时候，教学楼连廊口的阴影里慢慢走出一个黑影。[next]那黑影平时总是躲在教务处窗帘后，看不清面目，此时却一步步朝这边走来。"
+  #11 [{MC_NAME}] (L:{MC}.frown | R:shadow_woman.default)
+     "那是谁？是敌人吗？"
+  #12 [系统提示] (L:liu.default | R:null.def)
+     "黑影现身了，大家才看清——那是平时语文课上总坐在最后一排、[next]几乎没什么存在感的刘老师。徐老师正跟在她身边。"
+  #13 [徐老师] (L:xu.default | R:liu.default)
+     "都别慌！语文刘老师是自己人，我们俩背着学校查这东西，已经查了十几年了。"
+  #14 [{MC_NAME}] (L:{MC}.frown | R:xu.default)
+     "十几年？！那不是比咱们年纪还长？"
+  #15 [刘老师] (L:liu.default | R:{MC}.frown)
+     "具体的事儿咱们待会再说，先应付眼前这场战斗。他是你们同学，不是怪物。记住——打醒他，别打伤他。"
+
+--- Scene [ch3_scene_recover] 校门口 · 十几年前就有的影子 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "打到张希哲站不稳、晃悠着要摔倒的时候，覃瑞怡举着花球冲上去，扯着嗓子喊他的名字。[next]喊到第三声的时候，张希哲眼睛里的青光一下就退了，腿一软坐在了地上，满头是汗。"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "我刚才…… 是不是差点踢到你们了？[next]我脑子里就一直转着‘我要变强、不能拖大家后腿’，别的什么都记不清了。"
+  #3 [覃瑞怡] (L:zhangxizhe.default | R:qinruiyi.default)
+     "没事，这次你是为了护小同学，比上次某些大傻子，稀里糊涂中招强多了。"
+  #4 [朱晏泽] (L:zhuyanze.default | R:qinruiyi.default)
+     "大姐，你直接报我身份证号得了，你才是大傻子呢！"
+  #5 [系统提示] (L:senior_athlete_leader.default | R:null.def)
+     "被打醒的外校队长蹲在地上，抱着头把知道的全说了。"
+  #6 [外校队长] (L:senior_athlete_leader.default | R:liu.default)
+     "饮料是教练给的。他每周五在城郊旧训练馆给我们发货，听说更大的箱子会直接送到馆门口。[next]谁送来的，我真没见过，问多了教练还会骂人。"
+  #7 [系统提示] (L:null.def | R:null.def)
+     "刘老师似乎想到了什么，神色忽然凝重起来。大家瞬间安静下来。"
+
+--- Scene [ch3_scene_truth] 校门口 · 十几年的轮子 ---
+  #1 [刘老师] (L:liu.default | R:xu.default)
+     "这东西不是今年才冒出来的。一到大考季它就回来，为了追求好成绩，毕业班永远是重灾区。[next]我追了它十几年，徐老师捡瓶子、锁抽屉、夜里跟我见面，都是在查这件事。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "刘老师蹲在地上，把空饮料瓶一个个捡起来塞进帆布包。[next]她包里已经攒了厚厚一叠异化零食的包装纸，最旧的那一张已经黄得发脆，边角都磨破了。"
+  #3 [刘老师] (L:liu.default | R:null.def)
+     "我们上学的时候就有这东西，我当老师了它还在。一届一届，从来没断过。"
+  #4 [{MC_NAME}] (L:{MC}.default | R:liu.default)
+     "原来这东西已经在学校里转了这么多年了……"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "大家愣在原地。本以为自己只是在打几个捣乱的小混混，[next]一抬头才发现，面前是个深不见底的洞，它背后到底是什么？"
+
+======================================================
+FILE: story_chapter4.js
+======================================================
+
+--- Scene [ch4_scene_team_meeting] 放学后 · 顺藤摸瓜 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "大家放学后谁也没走，直接蹲在路边，把捡到的荧光包装纸、瓶盖、送货单全摊在地上拼线索。"
+  #2 [张希哲] (L:zhangxizhe.default | R:zhuyanze.default)
+     "上次那个队长说，教练每周五都会去城郊旧训练馆发饮料。[next]我们把他带的瓶子和小贩、混混手里的包装对了一遍，标记都一样。去训练馆看看这批货从哪来。"
+  #3 [朱晏泽] (L:zhangxizhe.default | R:zhuyanze.default)
+     "那还蹲这儿抠泥巴干嘛？走啊！抄家伙直捣他们老巢！我兜里还有五十块零花钱，打赢了全请大家吃冰棍！"
+  #4 [张希哲] (L:zhangxizhe.default | R:zhuyanze.default)
+     "得了吧你，每次打架前你先看看自己鞋带系紧没，别又冲两步摔个狗吃屎。"
+  #5 [朱晏泽] (L:zhangxizhe.default | R:zhuyanze.default)
+     "张希哲你皮痒了是吧！我那是战术性滑铲！"
+  #6 [徐老师] (L:xu.default | R:liu.default)
+     "都给我闭嘴！毛都没长齐呢还抄家伙？老巢也是你们能瞎冲的？真当自己是名侦探柯南了？"
+  #7 [覃瑞怡] (L:qinruiyi.default | R:xu.default)
+     "可我们都已经被他们欺负这么久了。再等，等来的只会是下一拨、更下一拨。"
+  #8 [刘老师] (L:liu.default | R:xu.default)
+     "行，那就一起去。你们冲前面，我们两个大人压后。查归查，谁都不许一个人往里冲。"
+
+--- Scene [ch4_scene_street] 旧训练馆外 · 拿货的下线 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "傍晚时分，一行人按着地址摸到了城郊废弃旧训练馆外。[next]远远就能看见门口停着几辆熟悉的小吃车，几个商贩正往高年级混混和异化体育生手里塞荧光包装的零食。"
+  #2 [推车小贩] (L:vendor.default | R:punk.default)
+     "尝尝，新出的辣条，吃了刷题不困，通宵都精神。你们不是说最近卷子压得人脑袋疼吗？这玩意儿最顶用。"
+  #3 [高年级混混] (L:vendor.default | R:punk.default)
+     "废话那么多，货够不够？我们兄弟还等着分呢。下周月考一到，谁还不想往前窜几名。"
+  #4 [异化体育生] (L:senior_athlete-corrupted.default | R:punk.default)
+     "就是，赶紧拿来！我们队长说了，教练这儿的货是最好的！"
+  #5 [张希哲] (L:zhangxizhe.default | R:punk.default)
+     "果然，外面这些散货的全是来这儿拿的！"
+
+--- Scene [ch4_scene_coach] 旧训练馆 · 全国第一 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "众人刚把外围几个人逼退，训练馆那扇吱呀作响的铁门就自己开了。[next]馆里昏黄得像一直没见过太阳，最里面的裁判椅上坐着个光头中年男人，手里慢慢转着秒表。"
+  #2 [坏教练] (L:coach-corrupted.default | R:zhangxizhe.default)
+     "哪来的小屁孩？毛都没长齐，也敢管爷爷的事？"
+  #3 [张希哲] (L:coach-corrupted.default | R:zhangxizhe.frown)
+     "就是你让他们往学校塞这些破东西的？害了多少同学了你还敢坐这儿装大爷！"
+  #4 [坏教练] (L:coach-corrupted.default | R:qinruiyi.default)
+     "害？我这是给他们捷径。喝了就能拿第一，多少人求着我要，我还不一定给呢。"
+  #5 [覃瑞怡] (L:qinruiyi.frown | R:coach-corrupted.default)
+     "你把人吃成那样，还好意思说是帮忙？"
+  #6 [坏教练] (L:coach-corrupted.default | R:null.def)
+     "小姑娘，话别说太早。吃不到葡萄说葡萄酸，你还没尝过“赢”是什么滋味。"
+  #7 [系统提示] (L:null.def | R:null.def)
+     "他抬手吹了声短促的铁哨，馆里几个刚才还低着头搬箱子的学生猛地抬起头来，眼睛一层层亮起青光。[next]训练垫边上还滚出来一堆泛黄旧奖状，边角都磨毛了。"
+  #8 [{MC_NAME}] (L:{MC}.frown | R:coach-corrupted.default)
+     "别跟他废话。先把他和这些被异化的人一起打败，再从他嘴里把所有真相挖出来。"
+
+--- Scene [ch4_scene_after] 训练馆深处 · 受害者长大了 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "坏教练被打得踉跄着跌坐在地上，旁边几个刚恢复的学生还在捂着脑袋喘。训练馆里一下子只剩秒表乱晃的声音。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "原本凶神恶煞的坏教练，此刻眼里的青光完全褪去。[next]他看着满地散落的旧奖状和异化零食，忽然像个无助的孩子一样捂住脸，[next]肩膀止不住地发抖，竟然当着所有人的面哭了起来。"
+  #3 [坏教练] (L:coach.cry | R:xu.cry)
+     "二十年前……我就是个连体测都过不了的体育差生。所有人都笑话我。[next]喝了这东西，我真拿过全国少年冠军。那几年我风光得很，谁见我都客客气气。"
+  #4 [坏教练] (L:coach.cry | R:vendor.cry)
+     "可巅峰就那几年。除了跑步我什么都不会，后来腿废了、名头也没了，只能在这种破地方混饭吃。[next]你说我不靠这个，我还靠什么？"
+  #5 [推车小贩] (L:vendor.cry | R:coach.cry)
+     "我当年也是。全班倒数，我爸说我考不上大学就去要饭。[next]靠这东西我考过省状元，风光没几年，现在还不是在小学门口卖烤肠，天天被城管追。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "两人说着说着，身上的青光又一阵一阵往上翻，好像有什么东西还不肯放过他们。[next]大家赶紧围上去，喊他们的名字，想把两人从那股劲儿里拉回来。"
+  #7 [坏教练] (L:coach.cry | R:vendor.cry)
+     "我知道这东西不对……我真的知道。[next]可我除了让小孩喝这个拿成绩，我什么都不会啊。我不这么干，我连饭都吃不上。"
+  #8 [{MC_NAME}] (L:{MC}.default | R:coach.cry)
+     "原来不是“坏人专门去害人”。是以前的受害者，变成了今天的加害者。"
+  #9 [刘老师] (L:liu.default | R:coach.cry)
+     "他们当年也吃过这种东西，后来又拿它去害别人。受过害，不代表现在做的事就不用负责。"
+  #10 [坏教练] (L:coach.cry | R:liu.default)
+     "货不是我们做的。隔两个月，就有人把这些异化零食的纸箱放在训练馆门口。[next]我从来没见过送货的人长什么样，只知道问多了，就再也拿不到货。"
+  #11 [系统提示] (L:null.def | R:null.def)
+     "刘老师从散落的旧账本里抽出一张送货单，[next]另一只手掰开坏教练攥紧的掌心，摸出一把挂着褪色号码牌的旧仓库钥匙。[next]送货单上写得很清楚：家长会前夜，统一装车。"
+  #12 [{MC_NAME}] (L:{MC}.default | R:liu.default)
+     "也就是说，他们下一步是要借家长会，把东西直接送进每个孩子家里。"
+
+======================================================
+FILE: story_chapter5.js
+======================================================
+
+--- Scene [ch5_scene_parent_meeting] 期中考前 · 家长会 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "期中考试前几天的家长会，六八班教室里坐满了家长，椅子不够，连过道都站着人。[next]窗外天已经擦黑，教室里却闷得人额头冒汗。"
+  #2 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:{ALLY_2}.default)
+     "奇了怪了，张希哲他们仨怎么一个都没来？朱晏泽昨天还吹牛说要偷偷往徐老师讲台上放假蟑螂呢！"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_1}.default | R:{ALLY_2}.default)
+     "张希哲今天数学考了58分，他敢来才怪！我刚才看他爸脸色铁青地往校门口走，估计人早被提溜回家关禁闭了……"
+  #4 [徐老师] (L:xu.default | R:liu.default)
+     "他们三家家长放学就把人接走了，说要“回去单独聊聊考试的事”。我发消息过去，到现在都没人回。"
+  #5 [刘老师] (L:liu.default | R:xu.default)
+     "我不喜欢这个说法。每次大考前，总有人觉得只要把孩子单独拎回去加加码，分数就会自己长出来。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "话音刚落，教室前面传来一阵响动。[next]讲台上，带着墨镜的神秘家长正站在最中间，桌子上摆着整整一排异化零食和饮料，堆得像小山一样显眼。"
+  #7 [神秘家长] (L:mystery_man-corrupted.default | R:null.def)
+     "各位家长静一静！这是我托了好多关系，[next]从专门做尖子生培养的教育机构弄来的“聪明营养片”和“考前专注饮”。[next]人家重点中学的孩子都在吃，今天现场请两个同学试试，免费的！"
+  #71 [系统提示] (L:null.def | R:null.def)
+     "讲台边还放着一张领药登记表。神秘家长说后续的免费样品可以送到家，[next]让想领的家长填上孩子姓名、住址和电话；已经有不少人填过了。"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "他说着，伸手点了点后排两个成绩中等的同学。[next]那两个孩子愣了一下，旁边普通家长的目光却已经齐刷刷落过去了。"
+  #9 [神秘家长] (L:mystery_man-corrupted.default | R:null.def)
+     "来，别害怕。吃完下次考试肯定进前十，也给你们爸妈长长脸。[next]现在这个年头，不早点想办法，怎么跟别人家孩子拼？"
+  #10 [普通家长甲] (L:parent_rep.default | R:xu.default)
+     "就是啊，试试又不要钱。人家重点中学的孩子都在吃，总不会害自家孩子吧？"
+  #11 [{MC_NAME}] (L:{MC}.default | R:parent_rep.default)
+     "那几包东西一摆出来，我后背就开始发冷。更可怕的是，下面真的有人在认真衡量：要不要让自己孩子试一口。"
+  #12 [系统提示] (L:null.def | R:null.def)
+     "徐老师刚想上前，最后那两个被点到的同学已经在一屋子大人的注视下，硬着头皮接过了包装袋。"
+
+--- Scene [ch5_scene_breakout] 教室里 · 乱起来了 ---
+  #1 [系统提示] (L:classmate_girl-corrupted.default | R:classmate_boy-corrupted.default)
+     "两个同学对视一眼，在满教室家长面前撕开包装，嚼了两口。[next]也就几秒钟，他们眼里“唰”地浮上一层青蓝色的光，脸上的表情一下空了。"
+  #2 [女同学] (L:classmate_girl-corrupted.default | R:classmate_boy-corrupted.default)
+     "水分子之间靠氢键连接，键角是一百零四点五度……碳酸钙高温分解，生成氧化钙和二氧化碳……"
+  #3 [男同学] (L:classmate_boy-corrupted.default | R:classmate_girl-corrupted.default)
+     "在相对论里，高速运动的钟走得慢，越接近光速，时间膨胀得越厉害……洛伦兹变换……"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "满屋子大人都愣住了。这些连初中还没上的孩子，嘴里往外蹦的全是高中、[next]大学才学的内容，一个字一个字往外冒，眼神却空洞得吓人。"
+  #5 [学生家长] (L:parent_rep.default | R:classmate_girl-corrupted.default)
+     "孩子？你怎么了？我是爸爸啊，你看我一眼！"
+  #3 [系统提示] (L:classmate_girl-corrupted.default | R:classmate_boy-corrupted.default)
+     "教室瞬间乱成一团，椅子倒了一片。[next]那两个孩子尖叫着扑向离自己最近的人，[next]后排又有四个之前偷偷拿过样品的同学跟着站了起来，嘴里一遍遍念着“再吃一口就能考好”。"
+  #4 [神秘家长] (L:mystery_man-corrupted.default | R:classmate_boy-corrupted.default)
+     "就是这样！尽情发挥你们的潜力吧！把分数都抢过来，谁也别想挡你们的路！"
+  #5 [徐老师] (L:xu.frown | R:classmate_boy-corrupted.default)
+     "都往后退！家长别往前挤！孩子现在认不出人，谁再扑上去只会被撞伤！"
+  #6 [刘老师] (L:liu.default | R:null.def)
+     "家长全退到后排！我们先把孩子打醒！谁都不许再喂第二口！"
+  #7 [{MC_NAME}] (L:{MC}.frown | R:classmate_girl-corrupted.default)
+     "他们不是发疯，是脑子里那些话在赶着他们跑——“考好一点”“别让爸妈失望”“再熬一个晚上”。[next]这些话平时听着没事，这会儿全挤在一起，把人逼疯了。"
+  #8 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:classmate_boy-corrupted.default)
+     "都往讲台两边散开，别堵着过道！别让他们冲进人堆里！"
+
+--- Scene [ch5_scene_after] 家长会散场后 · 没人真的被吓住 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "最后一个异化同学被打醒后，瘫坐在地上茫然地看着翻倒的椅子，像刚从一场恶梦里醒过来。[next]满教室家长都亲眼看见了自己孩子刚才的样子，半天没人说话。"
+  #2 [普通家长乙] (L:parent_rep.default | R:null.def)
+     "这什么破东西！可不能给孩子吃！好好的孩子都吃成疯子了！"
+  #3 [系统提示] (L:null.def | R:null.def)
+     "讲桌上很快堆起一片被退回的样品。[next]那个带头的神秘家长夹着公文包，脸色一阵青一阵白，眼睛里却忽然闪过一丝青光，灰溜溜地往门口退。"
+  #4 [神秘家长] (L:mystery_man-corrupted.default | R:null.def)
+     "你们懂什么？别人家挤破头都抢不到，就你们轴。将来孩子考不上好学校，有你们后悔的！"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "可比起他那句嘴硬的话，更让人发冷的是另一幕：[next]几个普通家长一边说“太吓人了”，一边左右看了看，还是把没拆的样品悄悄塞进了包里。"
+  #6 [{MC_NAME}] (L:{MC}.frown | R:parent_rep.default)
+     "刚才明明都看到吃零食会变成怪物了，竟然还有人悄悄把零食拿回家。在他们眼里，孩子的安全难道还比不上分数和排名吗？"
+  #7 [刘老师] (L:liu.default | R:xu.default)
+     "最可怕的不是零食，而是那些家长觉得只要能考高分，变成这样也值得。[next]分数是上去了，可孩子变成六亲不认的怪物，那还有什么用？"
+  #8 [徐老师] (L:xu.default | R:liu.default)
+     "张希哲他们三个还是没消息？"
+  #9 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:xu.default)
+     "没有。对话框一直安安静静的，像是人根本没碰手机。"
+  #10 [刘老师] (L:liu.default | R:null.def)
+     "不对……刚才那个带头的家长，我十几年前好像见过。[next]十几年前的那个家长、还有今天这个人……他们背后肯定有同一个组织的影子，这是在系统性地收割焦虑！"
+
+======================================================
+FILE: story_chapter6.js
+======================================================
+
+--- Scene [ch6_scene_corridor] 前夜 · 整层楼都不对了 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "大考前一天傍晚，小伙伴们留在教室里补值日、发准考证，徐老师和刘老师在办公室核对考场名单。[next]楼道本来安安静静的，可没过多久，外面就一阵一阵传来桌椅拖动声和脚步声，[next]空气里还飘着那股甜得发腻的怪味。"
+  #2 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:{ALLY_2}.frown)
+     "怎么回事？外面怎么那么吵？张希哲他们不是被家长接走了吗？"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_1}.default | R:{ALLY_2}.frown)
+     "这味道……跟之前咱们缴获的异化零食一模一样！大家小心点，我先去门口看看。"
+  #4 [{MC_NAME}] (L:{MC}.frown | R:null.def)
+     "那股味道一飘进来，我心里就猛地一沉。难不成又是……"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "门一推开，大家全愣住了。走廊里站着的几乎全是熟脸：[next]张希哲、覃瑞怡、朱晏泽，还有平时一起上课的同学、隔壁班的熟人，甚至连白天打过招呼的低年级孩子都在。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "有人手里还攥着没拆完的包装袋，袋上贴着“免费补送”的字条和家庭住址；[next]有人嘴角沾着荧光糖渣，眼睛却已经一点点亮起青蓝色的光。[next]那不是少数几个倒霉的人，是几乎整层楼都出事了。"
+  #7 [女同学] (L:classmate_girl-corrupted.default | R:{MC}.frown)
+     "我妈说……就今天一晚，吃了明天就能考好……大家家里都吃了……"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "她话还没说完，眼睛里的最后一点清明也没了。走廊另一头，朱晏泽慢慢抬起头；[next]张希哲脚边滚着足球；覃瑞怡的花球垂在身侧，三个人的脸色都白得发青。"
+  #9 [张希哲（异化）] (L:zhangxizhe-corrupted.default | R:qinruiyi-corrupted.default)
+     "更强一点……就不会被甩下……"
+  #10 [覃瑞怡（异化）] (L:zhangxizhe-corrupted.default | R:qinruiyi-corrupted.default)
+     "只要赢……大家就会一直笑……"
+  #11 [朱晏泽（异化）] (L:zhuyanze-corrupted.default | R:{MC}.frown)
+     "先赢的人，才有资格护别人。你们不是一直也这么想的吗？"
+  #12 [{MC_NAME}] (L:{MC}.frown | R:zhuyanze-corrupted.default)
+     "放屁！我们是怕考砸，怕被家长骂，但再怕也不能吃这种怪东西变成怪物啊！"
+  #13 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:zhuyanze-corrupted.default)
+     "可是……他们全是熟人……这怎么打？"
+  #14 [刘老师] (L:liu.default | R:xu.default)
+     "昨天家长们都看到吃异化零食的后果了，为了分数，竟然还是给孩子吃了，天啊！[next]就像以前一样打，必须把他们揍醒！咱们不能让全班都异化！"
+  #15 [徐老师] (L:xu.frown | R:{MC}.frown)
+     "靠过来，别散！记住，把他们打醒就行，护好自己和队友！准备站位！"
+
+--- Scene [ch6_scene_retreat] 器材室 · 赢了眼前，输了整层楼 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "眼前这波终于被压住了。可下一秒，楼下、楼外、另一栋教学楼的窗边，又一片片亮起青蓝色的眼睛。[next]那些刚被扶起来的同学，清醒不到两秒，脸色又被更浓的青光一点点压了回去。"
+  #2 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:liu.default)
+     "赢下这一层也没用，整栋楼都快守不住了……"
+  #3 [刘老师] (L:liu.default | R:xu.default)
+     "别打了，先撤到器材室！再往外冲，我们五个都得被耗死在这儿！"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "几个人边退边把刚被压回神的张希哲、覃瑞怡、朱晏泽一起拖进了器材室。三个人还晕着，却总算没再往外冲。[next]徐老师“哐当”一声反锁上门，又把沉重的器材架顶到了门后。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "门外传来一下又一下撞门的声音，闷得像直接敲在心上。[next]器材室里一片发冷的安静，只有每个人急促的喘气声还在提醒他们，自己没有倒下。"
+  #6 [{MC_NAME}] (L:{MC}.default | R:null.def)
+     "我们不是已经把送货、发样品的那些人都揪出来了吗……为什么还是变成这样？"
+  #7 [刘老师] (L:liu.default | R:xu.default)
+     "因为你们总以为坏人在外头。可最难防的，[next]是大家自己心里那点念头——“只要能考第一，吃点这怪零食变怪点也无所谓”。"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "她说完，慢慢从帆布包最里层摸出一个封皮磨掉漆的旧笔记本。[next]里面夹着一张老照片：扎着高马尾的少年徐老师、齐耳短发的少年刘老师，[next]还有一个梳双麻花辫、笑起来有梨涡的女孩，三个孩子挤在旧教学楼门口，像永远不会分开。"
+  #9 [刘老师] (L:liu.default | R:xu.default)
+     "很多年前，也有这么一个晚上。一模一样的灯，一模一样的青眼睛。[next]那时候被困在教学楼里的，是我和徐老师，还有她。"
+  #10 [系统提示] (L:null.def | R:null.def)
+     "旧笔记本散发着微弱的荧光。刘老师伸出手，[next]指尖刚碰到那发黄的纸页，周围器材室昏暗的光线就像被谁一把拽远了。[next]时间仿佛在这个瞬间被强行拉回了二十年前——"
+
+======================================================
+FILE: story_chapter7.js
+======================================================
+
+--- Scene [ch7_scene_flashback] 二十年前 · 六八班的三个女孩 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "黑板上用粉笔歪歪扭扭写着“距离毕业考还有 30 天”。这是二十年前的六八班教室。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "空荡荡的教室里，只剩下三个留下来补作业的女孩。"
+  #3 [系统提示] (L:xu-young.default | R:null.def)
+     "那个扎着高马尾、正抓耳挠腮满脸不服输的，是少年时代的徐老师。"
+  #4 [系统提示] (L:liu-young.default | R:null.def)
+     "坐在另一边，留着齐耳短发、正翻着课本检查答案的，是少年时代的刘老师。"
+  #5 [系统提示] (L:ayao.default | R:null.def)
+     "坐在她们中间，梳着双麻花辫、正笑着递钢笔的女孩叫阿瑶，是全班雷打不动的第一名。[next]那时的她们，还只是三个再普通不过的好朋友。"
+  #6 [阿瑶] (L:ayao.default | R:xu-young.default)
+     "……没关系的。你们别着急，慢慢算，这道题套公式就能解出来啦。"
+  #7 [少年徐老师] (L:xu-young.default | R:ayao.default)
+     "也就你脾气好，换作是我，这破卷子我早撕了！每次都得靠你这个第一名来捞我们。"
+  #8 [少年刘老师] (L:liu-young.default | R:xu-young.default)
+     "行了你俩，快写吧。等会儿天黑了，还得让阿瑶带咱们从后门溜出去呢。不过……"
+  #9 [少年刘老师] (L:liu-young.default | R:xu-young.default)
+     "你们觉不觉得，今天阿瑶脸色有点不对劲？而且外面走廊有点太安静了，连值日生的声音都没了。"
+
+--- Scene [ch7_scene_outbreak] 走廊里 · 孤立无援 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "刚推开教室门，走廊的声控灯忽然“滋啦”闪了一下。四周黑得有些不正常。"
+  #2 [少年徐老师] (L:xu-young.default | R:liu-young.default)
+     "你俩坐着别动。不对劲，我先去前面看看。"
+  #3 [少年刘老师] (L:xu-young.default | R:liu-young.default)
+     "你少来，要死一起死，我跟你一起。阿瑶，你跟在我们后面。"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "没走几步，她们就看到一个诡异的人影直挺挺地站在走廊尽头。"
+  #5 [系统提示] (L:senior_student-corrupted.default | R:null.def)
+     "那是一个穿着旧校服的高年级学长，眼睛里泛着诡异的青光。他嘴里疯狂念叨着考试公式，像野兽一样扑了过来。"
+  #6 [少年徐老师] (L:xu-young.default | R:liu-young.default)
+     "阿瑶躲远点！刘，快去传达室找大爷帮忙！"
+  #7 [系统提示] (L:null.def | R:null.def)
+     "她们拼了命挣脱，带着阿瑶一路跑到一楼传达室疯狂拍门。"
+  #8 [系统提示] (L:janitor.default | R:null.def)
+     "铁门“嘎吱”一声开了。可传达室大爷转过头时，眼睛里竟然也泛着一模一样的幽幽青光！"
+  #9 [异化大爷] (L:janitor.default | R:xu-young.default)
+     "考砸了……谁都不许出去……都给我回去背书！"
+  #10 [系统提示] (L:null.def | R:null.def)
+     "前有异化的大爷，后有追上来的学长，她们被死死堵在了旧走廊里。[next]大人们不但帮不上忙，反而成了最可怕的怪物！"
+
+--- Scene [ch7_scene_battle_pre] 硬拼 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "一场恶战在所难免！"
+
+--- Scene [ch7_scene_sacrifice] 旧走廊 · 这一次换我护着你们 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "那一晚，她们跑遍了整栋教学楼，试图拦住每一个发疯的同学。[next]天快亮时，她们被当年那个给体校生发饮料的坏教练，带着几个异化学生死死堵在了旧教室门口。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "两人已经打了一整夜，满身是伤，连抬手的力气都快没了。[next]而在走廊尽头的阴影里，一个像老板一样的神秘男人放下几个纸箱，[next]冷笑着说了一句：“总会有人愿意为结果买单。” 随后消失在黑暗中。"
+  #3 [少年徐老师] (L:xu-young.default | R:liu-young.default)
+     "刘……你带着阿瑶从窗户翻出去……我来拖住他们。"
+  #4 [阿瑶] (L:ayao.default | R:xu-young.default)
+     "你们……每次打架都这么厉害。就算不靠成绩，大家也那么喜欢你们……"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "一直躲在她们身后的阿瑶，忽然痛苦地捂住胸口。[next]她口袋里掉出好几个怪味零食的空袋子。原来她早就偷偷吃了，只是一直瞒着朋友。"
+  #6 [阿瑶] (L:ayao.default | R:liu-young.default)
+     "可我只有成绩了……我不能掉下去……不能……"
+  #7 [少年刘老师] (L:liu-young.default | R:ayao.default)
+     "阿瑶？你口袋里掉出来的……是外面那些人吃的东西？！你什么时候开始吃的？！"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "话音未落，青蓝色的光瞬间从阿瑶身上炸开。原本极度压抑的药效在此刻彻底发作。[next]她猛地抬起头，那双原本温和的眼睛，已经被化不开的青光彻底吞噬。"
+  #9 [异化阿瑶] (L:ayao-corrupted.default | R:xu-young.default)
+     "（声音变得冰冷且狂躁）不用你们管！谁也别想抢走我的第一名！"
+  #10 [少年徐老师] (L:xu-young.default | R:ayao-corrupted.default)
+     "阿瑶！你清醒一点！你为什么要吃那种东西？！我们不是说好要一起干干净净地毕业吗？！"
+  #11 [异化阿瑶] (L:xu-young.default | R:ayao-corrupted.default)
+     "干干净净？（神经质地笑起来）你们打架受了处分，别人只会说你们仗义。[next]可我只要掉下第一名，我就什么都不是了！"
+  #12 [少年刘老师] (L:liu-young.default | R:ayao-corrupted.default)
+     "谁说的？！你就算考倒数第一，你也是阿瑶，是我们最好的朋友啊！"
+  #13 [异化阿瑶] (L:liu-young.default | R:ayao-corrupted.default)
+     "（面目狰狞）闭嘴！别再拿你们那种恶心的施舍来可怜我！只要吃了这个……我永远都是不可替代的第一名！"
+  #14 [系统提示] (L:null.def | R:null.def)
+     "黑暗中的男人冷笑了一声，挥了挥手。几个异化学生猛扑上来死死缠住了徐刘二人。"
+  #15 [系统提示] (L:null.def | R:null.def)
+     "而彻底失去理智的阿瑶，则跟着那个男人，头也不回地走进了更深的黑暗里。"
+
+--- Scene [ch7_scene_return] 器材室 · 回忆还没讲完 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "画面抖了一下，时间线瞬间拉回了现实的器材室。"
+  #2 [徐老师] (L:xu.cry | R:liu.default)
+     "天亮之后，我们发誓一定要把阿瑶救回来，一定要找到这东西的源头。"
+  #3 [刘老师] (L:liu.default | R:xu.cry)
+     "我们沿着散货的线索找到城郊旧仓库，可到最后，也没能把阿瑶带回来。"
+  #4 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:liu.default)
+     "所以这一次，你们无论如何也要阻止这一切，对吗？"
+  #5 [徐老师] (L:xu.default | R:null.def)
+     "对。我们绝对不能再让当年的事，在你们身上重演。"
+
+======================================================
+FILE: story_chapter8.js
+======================================================
+
+--- Scene [ch8_scene_warehouse] 旧仓库外 · 顺线摸过去 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "刘老师继续讲起当年那一晚：阿瑶被带走后，她们找到几个刚恢复清醒的同学，挨个问怪零食是从哪来的。[next]顺着这些线索，两人找到了城郊的旧仓库。"
+  #2 [清醒过来的同学] (L:null.def | R:xu-young.default)
+     "我、我看见他们往那边搬箱子……一个破仓库，有个穿花西装、戴金链子的男的，大家都叫他哥……"
+  #3 [少年徐老师] (L:xu-young.default | R:liu-young.default)
+     "走，过去看看。阿瑶肯定也在那儿。"
+  #4 [少年刘老师] (L:xu-young.default | R:liu-young.default)
+     "这次不对劲。他们不是小打小闹，是成箱成箱地往各个学校送，背后肯定有个大组织。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "两个人趴在仓库窗户边往里看，装满异化零食的纸箱子堆得老高，不同学校校服的学生进进出出搬货。[next]那一刻她们第一次意识到：这根本不是一两个小贩，[next]而是一张看不见的大网，正系统地往整个城市的毕业班送这些东西。"
+  #6 [少年刘老师] (L:liu-young.default | R:xu-young.default)
+     "如果真是这样，就算我们今晚砸了这一个仓库，外面肯定还有别的供货点。"
+  #7 [少年徐老师] (L:xu-young.default | R:liu-young.default)
+     "先别管几处。阿瑶还在里头，我就先把眼前这扇门砸开。"
+
+--- Scene [ch8_scene_confront] 仓库深处 · 打赢了也抓不住 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "仓库最里面站着个穿花西装、戴墨镜挂金链子的男人，半张脸都埋在阴影里。[next]那一身江湖骗子般的打扮，透着一股让人极不舒服的市侩与凶狠。"
+  #2 [花西装男人] (L:mystery_man.default | R:xu-young.default)
+     "两个黄毛丫头也敢闯老子的场子？这城里多少家长排着队求我给货！[next]只要卷子上的分是真的，谁管你怎么考出来的？识相的滚远点！"
+  #3 [少年徐老师] (L:xu-young.default | R:mystery_man.default)
+     "阿瑶呢？你们给她吃了什么鬼东西？！把她交出来！"
+  #4 [花西装男人] (L:xu-young.default | R:mystery_man.default)
+     "交出来？那是她自己伸手拿的！等你们长大了就知道，没人会在乎你遭了什么罪，所有人只看你爬得有多高！"
+  #5 [少年刘老师] (L:liu-young.default | R:mystery_man.default)
+     "少拿这种鬼话骗人！把要考试的小孩当牲口灌药，今天非把你这破地方砸了不可！"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "花西装男人冷笑一声猛一挥手，周围那些神情呆滞、眼冒青光的学生立刻全扑了上来。[next]两个小姑娘咬紧牙关，硬生生把仓库深处杀出一条路！"
+
+--- Scene [ch8_scene_after] 仓库门口 · 她不跟你们走 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "花西装男人的异化形态刚被打崩，仓库外忽然传来警车的声音。有人报了警。[next]等两个小姑娘想冲上去抓人时，那男人已经借乱翻窗逃了，地上只留下几包散落的异化零食。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "她们顾不上追，转身就往仓库门口跑。阿瑶就站在那片晨光里，眼睛依然泛着冷幽幽的青光，神情平静得可怕。"
+  #3 [少年徐老师] (L:xu-young.default | R:ayao-corrupted.default)
+     "阿瑶！架打完了，那帮坏蛋全跑了！你清醒一点，快跟我们回去找大夫！"
+  #4 [异化阿瑶] (L:xu-young.default | R:ayao-corrupted.default)
+     "回去？回去等下一次考试，看我还能不能保住第一名吗？"
+  #5 [异化阿瑶] (L:liu-young.default | R:ayao-corrupted.default)
+     "你们永远那么敢冲敢闯。可我每次考试都怕少一分，怕有一天不再是第一名，大家就不在乎我了。[next]我不想听安慰，我只想一直考第一！"
+  #6 [少年刘老师] (L:liu-young.default | R:ayao-corrupted.default)
+     "可是阿瑶……你说过，我们要一起毕业，一起去海边看日出的啊！分数真的比我们还重要吗？！"
+  #7 [异化阿瑶] (L:liu-young.default | R:ayao-corrupted.default)
+     "是！比你们重要一万倍！现在我爸妈以我为荣，老师拿我当榜样。[next]和这些比起来，你们所谓的“朋友”游戏，简直幼稚得可笑。"
+  #8 [异化阿瑶] (L:xu-young.default | R:ayao-corrupted.default)
+     "别再来找我了。看到你们这副自以为是的样子，只会让我觉得恶心。"
+  #9 [系统提示] (L:null.def | R:null.def)
+     "阿瑶那冰冷、厌恶的眼神，像一把最钝的刀，狠狠绞碎了两个小女孩的世界。[next]她转身走向了那片阴暗的巷子，头也不回。"
+  #10 [少年徐老师] (L:xu-young.default | R:null.def)
+     "（浑身是血地瘫坐在地，死死抓着衣角）……为什么……我们明明拼了命打赢了……为什么救不回她……"
+  #11 [少年刘老师] (L:liu-young.default | R:null.def)
+     "（眼泪砸在满是淤青的手背上，声音止不住地发抖）是我没拉住她……[next]是我们太自以为是了……如果连最好的朋友都救不了，我们打赢了又有什么用……"
+  #12 [系统提示] (L:null.def | R:null.def)
+     "大人们赶到时，货车已经开走，仓库里只剩几包散落的零食。[next]两个孩子说有人往学校送药，可没人信——没证据，也没证人。[next]大人们只当她们是打架后找借口。"
+  #13 [系统提示] (L:null.def | R:null.def)
+     "从那以后，两人再也没见过阿瑶。她们没有停止查那批怪零食：读书、[next]当老师，查了二十年，才找到现在这些线索。"
+  #14 [系统提示] (L:null.def | R:null.def)
+     "众人轮流守着器材室的门，听刘老师讲完那段往事，天已经亮了。[next]隔壁班同学和保安把走廊里失控的人带去医务室，这才敲门喊他们出来：大考马上要开始。"
+  #15 [刘老师] (L:liu.default | R:{MC}.frown)
+     "当年我们打赢了仓库里的人，却没抓住送货的，也没能带阿瑶回来。二十年后，同样的怪零食又进了你们的学校。"
+  #16 [徐老师] (L:xu.cry | R:{MC}.default)
+     "这二十年里，每一次闭上眼，我都还能看见阿瑶走入黑暗的背影……[next]但这一次，你们不再是孤军奋战。把当年的遗憾……彻底做个了断吧！"
+
+======================================================
+FILE: story_chapter9.js
+======================================================
+
+--- Scene [ch9_scene_exam] 大考开始 · 灯闪了三下 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "大考开考，监考老师发卷的瞬间，考场所有电灯齐刷刷闪了三下。[next]笔尖刚碰到答题卡，周围的喧闹声像被抽水机抽走一样，瞬间死寂。"
+  #2 [{MC_NAME}] (L:{MC}.default | R:null.def)
+     "我一抬头，监考老师和别的同学全不见了！整间教室空荡荡的，就剩下我们几个，还有那股压得人喘不过气的恐惧感。"
+  #3 [{MC_NAME}] (L:{MC}.cry | R:null.def)
+     "我懂了……刘老师说过，那玩意儿就在咱们自己心里！这里根本不是考场，是它把咱们心里最怕考砸的念头给活生生拽出来了！"
+
+--- Scene [ch9_scene_realm] 精神考场 · 面对异化自我 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "大家猛地站起身。眼前的黑板与考桌被无形的力量扭曲，六道浑身散发着冰冷幽光的身影，[next]悄然从虚空中浮现——那是完完全全由每个人内心最深处的恐惧与心魔滋生出的异化自我！"
+  #2 [张希哲的心魔] (L:zhangxizhe-corrupted.default | R:zhangxizhe.default)
+     "喝了它，你就能永远跑在最前面！你不是最怕体测被淘汰、最怕看着兄弟倒下自己却是个帮不上忙的累赘吗？！"
+  #3 [张希哲] (L:zhangxizhe-corrupted.default | R:zhangxizhe.frown)
+     "累赘？老子平时在球场上哪怕跑到抽筋，也是靠这两条腿硬蹬下来的！[next]靠吃药算什么真本事？那不是保护同伴，那是连自己都看不起！"
+  #4 [覃瑞怡的心魔] (L:qinruiyi.default | R:qinruiyi-corrupted.default)
+     "只要永远拿第一，所有人就都得看着你、夸奖你。[next]你不是最怕从红榜跌下来，看着爸妈眼里的光熄灭吗？你输得起吗？！"
+  #5 [覃瑞怡] (L:qinruiyi.frown | R:qinruiyi-corrupted.default)
+     "我以前是怕！我怕哪怕少考一分大家就不喜欢我了！[next]可是今天走过这一路我才明白——大家并肩作战不是因为我考了多少分，[next]而是因为我是覃瑞怡！虚假的第一名，我不要！"
+  #6 [朱晏泽的心魔] (L:zhuyanze-corrupted.default | R:zhuyanze.default)
+     "你不是整天装大方讲义气吗？赢家才配谈义气！输光了分数被踩在脚下，你的义气在别人眼里就是个笑话！"
+  #7 [朱晏泽] (L:zhuyanze-corrupted.default | R:zhuyanze.frown)
+     "你少侮辱‘义气’这两个字！老子就算考倒数第一挨揍，也绝不出卖良心、出卖朋友！[next]跟你们这种冷血木偶混在一起才叫真丢人！"
+  #8 [{ALLY_2_SHADOW_NAME}] (L:{ALLY_2}-corrupted.default | R:{ALLY_2}.frown)
+     "你总觉得自己平平无奇、什么都争不过别人……只要伸手接受这股力量，全班都会羡慕你的聪明，你再也不用缩在角落里了！"
+  #9 [{ALLY_2_NAME}] (L:{ALLY_2}-corrupted.default | R:{ALLY_2}.frown)
+     "缩在角落里怎么了？只要有这帮朋友在，哪怕我再普通也是独一无二的！我绝不把自己的灵魂卖给怪物！"
+  #10 [{ALLY_1_SHADOW_NAME}] (L:{ALLY_1}.default | R:{ALLY_1}-corrupted.default)
+     "别自欺欺人了，你心底里难道没有动摇过？只要一次，就这一次大考走个捷径，未来多轻松啊！"
+  #11 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:{ALLY_1}-corrupted.default)
+     "滚你娘的蛋！捷径的尽头就是变成像你们这样没有心跳的死人！这一卷子到底能得几分，老子自己算说了算！"
+  #12 [{MC_SHADOW_NAME}] (L:{MC}-corrupted.default | R:{MC}.frown)
+     "你看看你自己，一路扛着所有人走到这里，你不累吗？承认吧，面对这场足以改变命运的大考，你比谁都害怕考砸，你比谁都渴望这股无所不能的力量！"
+  #13 [{MC_NAME}] (L:{MC}-corrupted.default | R:{MC}.frown)
+     "我是怕！谁大考前不紧张害怕？！可那绝不是把自己变成怪物的理由！"
+  #14 [{MC_NAME}] (L:{MC}-corrupted.default | R:{MC}.frown)
+     "刘老师和徐老师花了整整二十年都没能解开的死结，今天——就由我们六个人彻底砸烂！想要夺走我们的人生，先问问我们手里的拳头答不答应！！"
+  #15 [系统提示] (L:null.def | R:null.def)
+     "六颗炽热的心彻底挣脱了恐惧的枷锁！[next]精神考场的气息轰然暴涨，与六个冷酷的心魔轰然相撞，终局之战全面爆发！"
+
+--- Scene [ch9_scene_relief] 交卷之后 · 田野傍晚 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "随着最后一击落下，六个影子化作碎光消散。青蓝色的幻境考场如镜面般彻底崩裂，刺眼的白光吞没了一切……"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "等耳边的轰鸣渐渐平息，大家猛然睁开眼——日光灯平静地照着考场，监考老师正不紧不慢地走过过道，[next]周围只有同学们沙沙的翻卷声。那场凶险万分的精神心魔战，在现实中不过是短短一瞬。"
+  #3 [系统提示] (L:null.def | R:null.def)
+     "几个人远远地对视了一眼，眼里的慌乱与恐惧已经荡然无存。[next]握紧手中的笔，没有捷径，没有荧光，一笔一划，坦坦荡荡地写下了属于自己的每一个答案。"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "清脆的交卷铃声在整个校园上空回荡。[next]最后一门考完，交卷，走出校门——那个被焦虑和异化阴影笼罩的夏天，终于在欢呼声中被彻底甩在身后。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "不知不觉，几个人一路晃晃悠悠走到了校外的田野。夕阳把草坡染成暖融融的金黄，[next]晚风吹起衣角，大家并肩走着，大口大口呼吸着真正属于夏天的自由空气。"
+
+--- Scene [ch9_scene_ending] 田野尽头 · 第一幕终 ---
+  #1 [{MC_NAME}] (L:{MC}.default | R:{ALLY_1}.default)
+     "呼——考完了！不管考多少分，反正卷子是我自己一笔一划写完的！"
+  #2 [{ALLY_1_NAME}] (L:{MC}.frown | R:{ALLY_1}.default)
+     "我最后两道大题全空着……不过算了！能活着走出来，没变成满嘴公式的怪物就烧高香了！"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:{MC}.frown)
+     "就是！反正我也没觉得自己变聪明。大不了回家挨顿男女混合双打，天还能塌下来不成？"
+  #4 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "考砸了再补呗！手脚好好的，脑子也没丢。走啊，明天放假，球场见！看我不把你突成筛子！"
+  #5 [覃瑞怡] (L:zhangxizhe.default | R:qinruiyi.default)
+     "少吹牛了你，上次是谁踢野球把鞋踢飞的？……[next]不过，我今天好像还是头一回觉得，就算考不了第一，其实也没什么大不了的。"
+  #6 [朱晏泽] (L:zhuyanze.default | R:{MC}.default)
+     "那可不，第一名能当下饭菜吃啊？脑子在，哥们儿在，比啥都强！哎，周末谁去我家？我搞到张新卡带！"
+  #7 [{MC_NAME}] (L:{MC}.frown | R:zhuyanze.default)
+     "什么卡带？是不是最近传得特别神的那款《六8异闻录》？听说贼难通关，打不赢怪还会被同桌嘲笑那种！"
+  #8 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:{MC}.default)
+     "带我一个带我一个！这回谁输了谁请校门口大碗馄饨，加两勺辣油不许耍赖！"
+  #9 [系统提示] (L:null.def | R:null.def)
+     "打闹声随着晚风飘得很远。二十年前徐老师和刘老师没能护住的夏天，[next]在这一届孩子们手里，终于稳稳当当地落下了帷幕。"
+  #10 [系统提示] (L:null.def | R:null.def)
+     "那些发光的怪味零食，也被徐老师尽数封存了起来。只是，所有人心头的那块巨石，其实并没有真正落地。"
+  #11 [系统提示] (L:null.def | R:null.def)
+     "在谁也未曾留意的城市阴影深处，那些散落的青蓝色荧光正悄悄换上新的伪装，等待着下一个渴望走捷径的灵魂。"
+  #12 [系统提示] (L:xu.default | R:mystery_man-corrupted.default)
+     "期中考前的家长会上，那个带着怪味零食逼同学试吃的神秘家长，后来再也没露过面。[next]谁也不知道他究竟是什么来头。"
+  #13 [系统提示] (L:null.def | R:null.def)
+     "二十年前，在徐老师和语文刘老师的记忆里，毁掉他们同伴的那个幕后黑手也和他有着千丝万缕的联系。"
+  #14 [系统提示] (L:null.def | R:null.def)
+     "躲在零食和保送名额背后的黑手，不仅没有收手，反而正在省城更深处酝酿着更大的阴谋……"

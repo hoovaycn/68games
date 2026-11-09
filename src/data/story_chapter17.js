@@ -135,7 +135,7 @@ export const CHAPTER17_STORY = {
         id: 4,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2}',
-        leftEmotion: 'frown',
+        leftEmotion: 'cry',
         rightPortrait: 'haifeng-police_damaged',
         rightEmotion: 'default',
         activeSide: 'left',

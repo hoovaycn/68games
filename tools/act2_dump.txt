@@ -1,0 +1,710 @@
+=== READING ACT2 (11 files) ===
+
+
+======================================================
+FILE: story_chapter10.js
+======================================================
+
+--- Scene [ch10_scene_museum_meet] 省历史博物馆 · 百年特展大厅 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "省历史博物馆正门前，冷气从玻璃大门里丝丝冒出。[next]{MC_NAME}、{ALLY_1_NAME}、[next]{ALLY_2_NAME}、张希哲、覃瑞怡几个人顶着烈日站在特展巨幅海报下。"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "好不容易放暑假，覃瑞怡你干嘛非拽我们来看什么《近代海防与虎门销烟出水文物展》啊！"
+  #3 [覃瑞怡] (L:zhangxizhe.default | R:qinruiyi.default)
+     "你懂什么！这次展出的是当年虎门销烟后从海里捞上来的文物，[next]还是省重点中学的加分调研项目，大家中考都用得上！"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:{MC}.default)
+     "……停车场里停着几辆贴了“怡安教育慈善基金会”临时通行证的黑色金杯车。展览不是刚开吗，怎么后门还停着搬运车？"
+  #41 [系统提示] (L:mystery_man-corrupted.default | R:{MC}.default)
+     "大家想起期中考前那场家长会：那个带着怪味零食逼同学试吃的神秘家长，后来一直没查出是谁。眼下基金会又把车停在后门，难免让人起疑。"
+  #5 [{MC_NAME}] (L:mystery_man-corrupted.default | R:{MC}.default)
+     "门口的赞助牌也是“怡安教育慈善基金会”。他们出钱办展，后门还停着搬运车……进去看看他们在搬什么。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "众人刚过安检，二号展厅里猛地传来玻璃碎裂声。[next]游客尖叫着往外跑，保安对着对讲机喊：“有学生抄起隔离栏杆砸开了主展柜！快叫人来！”"
+
+--- Scene [ch10_scene_crisis] 二号中央展厅 · 碎裂的主展柜 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "主展柜的玻璃碎了一地，旁边的青铜器还立着。[next]一只表面粘着海边贝壳的青花瓷罐歪在碎玻璃间，罐口封着的硬泥裂了条缝。[next]倒下的铭牌写着：“道光十九年虎门海口出水；罐内检出鸦片膏。”"
+  #2 [重点班学生] (L:senior_athlete.default | R:null.def)
+     "（攥着砸柜的金属栏杆，伸手去抠罐口封泥）我闻到了……[next]和学校发的零食一个味儿！可这个更香。有人说它能让人过目不忘……让我尝一口！"
+  #3 [覃瑞怡] (L:qinruiyi.default | R:zhangxizhe.default)
+     "展柜已经被他砸开了！张希哲，拦住他的手，别让他把封泥也抠掉！[next]那罐里装的不是补脑药，是一百多年前的鸦片！"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "罐口的裂缝飘出一缕青灰色烟，甜腻气味和之前害同学异变的零食一模一样。[next]离展柜最近的几个学生先是捂住鼻子，随后眼神发直，推开保安就往瓷罐扑；外围游客惊叫着往出口跑。"
+
+--- Scene [ch10_scene_confrontation] 展柜中央 · 神秘家长的狂妄 ---
+  #1 [神秘家长] (L:mystery_man-corrupted.default | R:{MC}.frown)
+     "六 8 班的孩子们？学校里的零食试验被你们搅黄了，基金会出钱办个展，你们也要来管？保安正在疏散游客，这件展品由我们的人接走。"
+  #2 [{MC_NAME}] (L:mystery_man-corrupted.default | R:{MC}.frown)
+     "原来怡安基金会是你在管！你们赞助展览，把那批带鸦片烟膏的古罐送进馆里；车早停在后门，现在展柜一碎，就拿运输箱来接。[next]学校那些害人的零食，味道和罐里飘出来的一模一样！你们是想把罐子运出去，再提炼里面的东西吧？"
+  #3 [神秘家长] (L:mystery_man-corrupted.default | R:{MC}.frown)
+     "呵，鼻子倒灵。之前的零食只掺了一点试制品，罐里的老烟膏才是“青髓”的原料。[next]学生一闹，馆里忙着疏散，我们正好以赞助方的名义“抢救展品”。先运去城南提炼，再送码头。动手，装箱！"
+  #4 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:zhangxizhe.default)
+     "谁也别想碰展品！大伙抄家伙，把这群狗腿子打醒！"
+  #5 [沈家护卫] (L:shen_guard.default | R:{MC}.frown)
+     "箱子从后门走。你们几个拦住这群孩子，别让他们追上来！"
+  #6 [重点班学生] (L:senior_athlete-corrupted.default | R:{MC}.frown)
+     "（眼神发直，扑向挡在展柜前的人）别拦我……我要罐子里的东西！"
+
+--- Scene [ch10_scene_tracking] 博物馆后门 · 黑色货车的去向 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "最后一名保镖倒地，众人才发现运输箱早被另两人从后门推出。[next]那辆贴着基金会临时通行证的黑色金杯车刚好发动，装着古瓷罐冲上了街！"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "该死！让他们把古董抢走了！这帮人光天化日之下也太猖狂了！"
+  #3 [{MC_NAME}] (L:{MC}.default | R:{ALLY_2}.default)
+     "别慌，我记下了车牌尾号。他们走的是向南的高架桥，那是往城南老工业区开的。"
+  #4 [{ALLY_2_NAME}] (L:{MC}.default | R:{ALLY_2}.default)
+     "（脸色煞白，手指死死攥紧）……城南废弃汽修街？那地方……是我爸修车铺子所在的街区。"
+
+======================================================
+FILE: story_chapter11.js
+======================================================
+
+--- Scene [ch11_scene_slum_street] 城南汽修街 · 烈日下的机油味 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "下午三点，窄巷子里飘着一股铁锈和废机油的刺鼻味。[next]破旧的红砖墙上贴满了小广告，头顶的电线乱糟糟地搭着，把灰蒙蒙的天空切成了几块。"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "咳咳……这什么破地方，路坑坑洼洼的。{ALLY_2_NAME}，你平时放假就在这种地方帮你爸看店？"
+  #3 [{ALLY_2_NAME}] (L:zhangxizhe.default | R:{ALLY_2}.default)
+     "……少废话。看前面那家“海峰汽修”，门口卷帘门半拉着，刚才博物馆那辆黑色金杯车就停在院子角落里！"
+  #4 [覃瑞怡] (L:qinruiyi.default | R:{ALLY_2}.default)
+     "天哪，后备箱开着，那只带封泥的青花古瓷罐真的被搬进去了！{ALLY_2_NAME}……你爸他……该不会真的和那些人是一伙的吧？"
+  #5 [{ALLY_2_NAME}] (L:qinruiyi.default | R:{ALLY_2}.frown)
+     "不可能！他虽然脾气臭、整天凶巴巴的，但他绝不会干伤天害理的事！我不信！跟我进去看清楚！"
+
+--- Scene [ch11_scene_garage_inside] 海峰汽修厂内 · 昏暗车间的分赃 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "车间内光线昏暗，几台吊起的发动机投下狰狞的阴影。在一辆拆得只剩骨架的越野车旁，两个身影正相对而立。"
+  #2 [系统提示] (L:mystery_man-corrupted.default | R:haifeng.default)
+     "其中一人是家长会上的神秘家长；另一人戴着墨镜、挂着金链子，花臂外罩着件旧西装，嘴里叼着烟。[next]{ALLY_2_NAME}认出来了：那是自己的父亲海峰。"
+  #3 [神秘家长] (L:mystery_man-corrupted.default | R:haifeng.default)
+     "老海峰，古罐已经送到你店里。今晚先从罐里提炼出“青髓”，再由你开车运去码头。[next]这三十万是你的报酬，往后你的二手车生意也由我罩着。"
+  #4 [老爸海峰] (L:mystery_man-corrupted.default | R:haifeng.default)
+     "（粗暴地颠了颠皮箱里的钞票，冷笑一口浓痰吐在地上）爽快。[next]管他什么害人不害人的药，有老子的酒钱和赌资就行。今晚八点前，我亲自开货车送下运河！"
+
+--- Scene [ch11_scene_confrontation] 车间正中 · 父女/父子决裂的耳光 ---
+  #1 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:haifeng.default)
+     "爸！！你刚才说的都是真的？！你居然为了几个臭钱，帮着这帮害我们学校的坏蛋倒卖毒品？！"
+  #2 [老爸海峰] (L:{ALLY_2}.frown | R:haifeng.default)
+     "（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:haifeng.smile)
+     "我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！"
+  #4 [老爸海峰] (L:{ALLY_2}.frown | R:haifeng.smile)
+     "（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！"
+  #5 [二秃子] (L:punk.default | R:{ALLY_2}.frown)
+     "（拎着铁管从车底钻出来）老海让你们走，没听见？后仓里那批货，谁敢多看一眼，我就敲谁的腿。"
+  #6 [沈家护卫] (L:shen_guard.default | R:{MC}.frown)
+     "门我堵上了。货还在里面，不能让这几个孩子回头拍照。"
+  #7 [{MC_NAME}] (L:{MC}.frown | R:punk.default)
+     "{ALLY_2_NAME}，先把奖状捡起来！他们已经围过来了，咱们得打出去！"
+
+--- Scene [ch11_scene_breakdown] 汽修厂大门外 · 紧闭的铁闸门 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "打退混混后，海峰亲手把孩子们推到门外，连踩破的奖状也扔了出来。[next]“咣当”一声，卷帘门落下，上了锁。{ALLY_2_NAME}捡起那张沾满油污的纸。"
+  #2 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:null.def)
+     "（跌坐在泥水里，双手死死抠着地砖，眼泪大颗大颗砸在碎裂的奖状上）为什么……为什么是这样……[next]我爸真的是个烂人……他是个无可救药的坏蛋……"
+  #3 [{MC_NAME}] (L:{MC}.default | R:{ALLY_2}.default)
+     "{ALLY_2_NAME}，先别哭。你爸刚才推你出门的时候，好像往你外套口袋里塞了张纸。"
+  #4 [覃瑞怡] (L:qinruiyi.default | R:{ALLY_2}.default)
+     "这是汽修厂后门的线路图，连断电开关都画出来了。背面还有字：【后仓有埋伏，别回来，找警察】……这是你爸写的？"
+
+======================================================
+FILE: story_chapter12.js
+======================================================
+
+--- Scene [ch12_scene_night_ambush] 海峰汽修厂后仓 · 雷雨交加的夜探 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "夜里八点，雨下得特别大。狂风把仓库顶棚的铁皮吹得哐当作响。[next]少年们顺着白天的电路图，悄悄摸进了堆满报废集装箱的后院。"
+  #2 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:{MC}.default)
+     "我按纸条上的号码报了警，可还没人赶到。我爸今晚就要运货，万一他被发现给我们递纸条，会有危险。我们只在外面看一眼，不往里闯。"
+  #3 [{MC_NAME}] (L:{ALLY_2}.default | R:{MC}.default)
+     "小声点。看那个红色的冷藏集装箱，插座指示灯亮着，排气扇在排出一股古怪的冷甜雾气。"
+  #4 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "排气扇旁边有个小窗口！白天那只青花瓷罐就在里面，几个人正把罐里的黑膏刮进机器里。这就是他们说的提炼？"
+
+--- Scene [ch12_scene_trap] 探照灯下 · 冰冷的绝杀网 ---
+  #1 [系统提示] (L:berserker_guard.default | R:null.def)
+     "十数道白亮刺目的光束死死钉在孩子们身上。[next]集装箱顶上，数名身披夜行雨衣、眼瞳泛着森绿毒光的蒙面黑衣人悄无声息地拔出了短棍与甩刀。"
+  #2 [黑衣死士头领] (L:berserker_guard.default | R:null.def)
+     "老板说得没错，海峰放你们走，肯定还会给你们留线索。[next]我们守在后仓，就是等你们回来。抓了你们当人质，他今晚还敢不听话？"
+  #3 [覃瑞怡] (L:qinruiyi.default | R:zhangxizhe.default)
+     "他们眼里的光……比学校里异化的体育老师还要深！大家小心，退路全被封死了！"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:null.def)
+     "可恶……要死在这了吗……我还没跟我爸道过歉……！"
+
+--- Scene [ch12_scene_hero_entry] 仓库废墟 · 咆哮而来的神兵天降 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "墙外猛地传来引擎声。一辆加固过车头的清障皮卡撞开后仓的旧砖墙，车灯照得黑衣人睁不开眼；[next]两名堵路的守卫被撞翻，其余人急忙后退。"
+  #2 [老爸海峰] (L:haifeng.frown | R:{ALLY_2}.frown)
+     "敢动我家孩子？！老子今天活剥了你们这群吃人骨髓的杂种！！"
+  #3 [系统提示] (L:haifeng.smile | R:null.def)
+     "海峰跳下车，拿着修车用的长管钳挡开刀，反手把领头的黑衣人按倒在地。[next]{ALLY_2_NAME}愣住了：老爸打架的动作不像街头混混，倒像专门练过。"
+  #31 [黑衣死士头领] (L:berserker_guard.default | R:haifeng.default)
+     "（被按在地上，扭头冲同伙吼）别让海峰带他们走！把出口堵住，孩子和罐子都得留下！"
+  #32 [沈家护卫] (L:shen_guard.default | R:haifeng.default)
+     "车撞开的缺口我来守！头儿，先把海峰从孩子身边引开！"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:haifeng.default)
+     "爸……？！你……好厉害？！"
+  #5 [老爸海峰] (L:haifeng.frown | R:{ALLY_2}.frown)
+     "傻看什么！躲到老子背后！看老子怎么把这帮孙子收拾干净！"
+
+--- Scene [ch12_scene_badge_reveal] 静止的仓库 · 染血的誓言 ---
+  #1 [系统提示] (L:haifeng-battle_damaged.default | R:null.def)
+     "满地翻滚哀嚎的黑衣死士被一一捆缚。[next]老爸海峰捂着流血的右肋靠在皮卡轮胎上，大口喘着粗气，豆大的汗珠混着血水滚落。"
+  #2 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-battle_damaged.default)
+     "爸！你流血了！你别动，我书包里有覃瑞怡带的纱布！"
+  #3 [系统提示] (L:haifeng-battle_damaged.default | R:{ALLY_2}.default)
+     "{ALLY_2_NAME}掀开海峰的外衣包扎伤口，一本警官证从防刺背心里滑了出来。[next]证件上印着他的照片和名字：【省公安厅禁毒总队 · 海峰】。原来他一直是卧底警察！"
+  #4 [老爸海峰] (L:haifeng-battle_damaged.default | R:{ALLY_2}.default)
+     "（抬起染着油污的手，有些颤抖地揉了揉自家孩子的头发，眼眶微红）对不起……老爸装了十五年的混混流氓，让你在学校抬不起头。[next]但老爸……从来不是个烂人。"
+  #5 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-battle_damaged.default)
+     "（死死抱住父亲，嚎啕大哭）爸……！你是我见过的……最伟大的警察！"
+  #6 [老爸海峰] (L:haifeng-battle_damaged.default | R:{ALLY_2}.default)
+     "先上车，别留在这儿。省厅在城北有个安全屋，我开车带你们过去。到了那儿，我把沈家的事跟你们说清楚。"
+
+======================================================
+FILE: story_chapter13.js
+======================================================
+
+--- Scene [ch13_scene_safahouse] 城北防空洞安全屋 · 铁皮桌上的卷宗 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "深夜十点，皮卡停在城北一处旧防空洞外。[next]海峰拿出证件打开铁门，带大家走进省厅安排的安全屋：“先在这儿包扎，等两位老师过来。[next]”屋里的墙上贴着他查沈家时留下的照片和人物关系图。"
+  #2 [老爸海峰] (L:haifeng-police.default | R:{ALLY_2}.default)
+     "（换上一身笔挺深蓝特警战术服，给手臂伤口消毒）你们在学校见到的怪味零食和电子烟，在省厅代号是“04号致幻制剂”。"
+  #21 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-police.default)
+     "爸，你穿成这样我真不习惯。以前墨镜金链子一戴，我看见你就想绕路；现在这么板正，感觉你下一句就要让我出示学生证。"
+  #3 [老爸海峰] (L:haifeng-police.default | R:{ALLY_2}.default)
+     "少贫。博物馆古罐里的鸦片膏，就是这种药最早的原料。我查到沈家的“福寿堂”在虎门销烟之后替洋商藏鸦片，那只罐子也跟这段事有关。不过他们当年怎么搭上的线，我还没查清。"
+  #4 [{MC_NAME}] (L:{MC}.default | R:haifeng-police.default)
+     "一百八十多年前的福寿堂？！那上次来我们学校开家长会、气焰嚣张的那个神秘家长，在这张网里到底是什么人？"
+  #5 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "（海峰把三张照片摆到桌上，指着左边）学校里开家长会、博物馆里抢罐子的，就是沈崇礼。怡安基金会是他对外的招牌，背地里他管着沈家贩药的“福寿堂”。"
+  #6 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "中间这张是二十年前的沈万廷，沈崇礼的父亲。右边还是他，是最近拍到的。别看现在老了，沈家真正发号施令的人一直是他。"
+  #7 [{MC_NAME}] (L:{MC}.default | R:haifeng-police.default)
+     "等等，中间和右边是同一个人？那沈崇礼在外面忙活，背后指挥他的就是他爸？"
+
+--- Scene [ch13_scene_teachers_arrive] 安全屋内 · 跨越二十年的宿怨合流 ---
+  #1 [系统提示] (L:xu.cry | R:liu.default)
+     "铁门拉开一条缝，两个浑身被雨水浇透、风尘仆仆的身影闪了进来——竟然是徐老师和语文刘老师！[next]徐老师怀里紧紧揣着那本泛黄的二十年前旧教案，刘老师手里握着那根从不离身的竹教鞭。"
+  #2 [徐老师] (L:xu.smile | R:haifeng-police.default)
+     "老海！收到你的紧急传呼暗号，我和老刘直接从学校翻墙赶过来了！看到这几个孩子平安无事，总算放心了。[next]（目光扫到海峰肋下的血迹和包扎，神色一凝）你这伤……又是替孩子们挡下的吧？"
+  #21 [老爸海峰] (L:xu.default | R:haifeng-police.default)
+     "（摆摆手，粗声粗气）大老爷们受点皮外伤算什么，别大惊小怪的。[next]倒是你们，一把年纪了还大半夜翻墙过来，也不怕路上出事。"
+  #22 [徐老师] (L:xu.cry | R:haifeng-police.default)
+     "（从口袋里掏出干净的碘伏棉签和创可贴递过去）少逞强，先把伤口消炎了再谈正事。[next]孩子们都平平安安的，我们这一趟就值了。"
+  #3 [张希哲] (L:zhangxizhe.default | R:xu.default)
+     "（在一旁戳了戳覃瑞怡，压低声音）诶，徐老师跟海叔叔，听起来是老相识啊。"
+  #31 [覃瑞怡] (L:qinruiyi.default | R:zhangxizhe.default)
+     "（压低声音）别打岔，好好听。这里面肯定还有我们不知道的往事。"
+  #4 [语文刘老师] (L:liu.default | R:haifeng-police.default)
+     "（刘老师一眼看到桌上中间的旧照片，手里的教鞭掉在地上）沈万廷！[next]徐老师，你快看，就是二十年前开家长会、带头逼死阿瑶的那个校董家长！"
+  #41 [徐老师] (L:xu.cry | R:haifeng-police.default)
+     "是他。当年阿瑶出了事，我记了这张脸二十年。右边这张老人照……他竟然还活着？"
+  #5 [老爸海峰] (L:haifeng-police.default | R:liu.default)
+     "没错。二十年前事情快败露，他假装死于车祸，逃到了国外。现在这张老人照是最近拍到的，他已经暗中回国了。"
+  #6 [老爸海峰] (L:haifeng-police.default | R:liu.default)
+     "他现在坐着轮椅，靠呼吸机撑着，还是在背后指挥。[next]沈崇礼在台前拿“学习补剂”骗人，你们吃过的怪味零食，就是他们父子俩弄出来的新货。"
+  #7 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:xu.cry)
+     "害了阿瑶的沈万廷，现在还在幕后害人；他儿子沈崇礼，就是来我们学校开家长会的那个神秘家长。原来一直是这对父子！"
+  #8 [系统提示] (L:null.def | R:null.def)
+     "海峰和两位老师把旧教案、沈家的照片和货船航线摊在桌上，一边核对一边守着监听台。[next]雨声渐渐小了；再抬头看表，已经熬到天快亮。"
+
+--- Scene [ch13_scene_dock_alert] 监听台前 · 运河祭典之夜 ---
+  #1 [无线电截听信号] (L:null.def | R:null.def)
+     "『滋滋……报告沈万廷和沈崇礼，博物馆的青花瓷罐已运到三号码头。[next]半小时后开炉，就在驳船上用罐里的鸦片膏熬制新药。[next]准备送药的学校名单也核对好了……滋滋……』"
+  #2 [徐老师] (L:xu.default | R:liu.default)
+     "送药名单？等等，上次家长会，他发免费样品前让家长填过领药登记，孩子名字、住址和电话都记在上面。[next]沈崇礼那时就把六 8 班的地址拿到手了！"
+  #21 [{MC_NAME}] (L:{MC}.frown | R:xu.default)
+     "难怪大溃败那晚，整层楼那么多同学都吃到了药……有些是家长带回去的，另一些袋上贴着“免费补送”和住址。[next]原来是沈崇礼照着登记表送上门的！"
+  #3 [老爸海峰] (L:haifeng-police.default | R:{ALLY_2}.frown)
+     "我已经把名单报给警方，请他们尽快联系家长。可省厅增援还要四十分钟，他们半小时后就要开炉。[next]我们先去阻止他们；我走最前面，两位老师护住孩子，谁都别单独行动！"
+  #4 [系统提示] (L:berserker_guard.default | R:shen_guard.default)
+     "众人赶到码头，唯一的入口被黑衣护卫和持棍打手堵住。[next]两名带盾牌的守卫挡在最前面，探照灯一转，所有人的位置都暴露了。"
+  #5 [码头护卫头目] (L:berserker_guard.default | R:haifeng-police.default)
+     "海峰？沈先生说你可能会来。驳船半小时后开炉，这道铁闸你们别想过去。"
+  #51 [沈家护卫] (L:shen_guard.default | R:haifeng-police.default)
+     "头儿，船上的人还在搬货。咱们守住闸口，谁都别放过去！"
+  #6 [码头打手] (L:punk.default | R:xu.default)
+     "后头还带着老师和学生？头儿，咱把他们赶回去，守到船开就行！"
+  #7 [老爸海峰] (L:haifeng.frown | R:berserker_guard.default)
+     "徐老师，护住孩子。你们拿着那只罐子害学生，今天这道闸，我们非过不可！"
+
+--- Scene [ch13_scene_dock_entry] 老运河三号码头 · 腥臭与青烟 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "在老爸海峰刚猛无匹的警用擒拿术与两位老师的默契配合下，码头外围的十余名黑衣哨兵被尽数击倒。[next]江风裹挟着暴雨扑面而来，空气中弥漫着一股让人想吐的甜腻焦糊味。"
+  #2 [覃瑞怡] (L:qinruiyi.default | R:zhangxizhe.default)
+     "咳咳……这股烟味闻一下就让人头重脚轻！你们快看前面停靠的那艘巨型铁壳驳船！[next]甲板正中央立着一座快有一人高的青铜鬼面炉！"
+  #3 [张希哲] (L:zhangxizhe.awkward | R:qinruiyi.default)
+     "（咽了咽口水）好家伙，这炉子长得比沈崇礼那张脸还吓人……"
+  #4 [{MC_NAME}] (L:{MC}.default | R:{ALLY_2}.default)
+     "那只从博物馆抢走的道光古瓷罐，就被铁链悬在铜炉正上方！甲板上那两个穿唐装和西装的人影……就是沈家父子！"
+
+======================================================
+FILE: story_chapter14.js
+======================================================
+
+--- Scene [ch14_scene_dock_ritual] 古运河驳船甲板 · 幽蓝祭坛 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "打退闸口守卫时，天边已经泛白。众人冲上驳船，雨势渐小，铜炉上方的乌云被紫色漩涡卷开；[next]晨光一下照亮甲板，刚才还靠探照灯认路，现在连悬在炉上的青花罐都看得清了。"
+  #2 [系统提示] (L:shen_wanting.default | R:mystery_man-corrupted.default)
+     "驳船在江浪里晃得厉害。铜炉旁坐着一个戴氧气面罩、身上接着输液管的老人；[next]沈崇礼站在他身边。刘老师一眼认出来：轮椅上的就是二十年前害了阿瑶的沈万廷。"
+  #3 [沈崇礼] (L:mystery_man-corrupted.default | R:xu.default)
+     "徐老师、刘老师，还有海警督。你们来晚了！炉火已经烧起来了，马上就把罐里的老烟膏倒进去熬成新药。"
+  #4 [沈万廷（轮椅老人）] (L:shen_wanting.default | R:liu.default)
+     "（干瘪的喉咙里发出风箱般的怪笑）嗬……嗬……刘淑惠，二十年了，你那根破竹教鞭还没扔呢？[next]当年阿瑶的哀求我还记在耳朵里……今天，该轮到你们的新学生了！"
+  #5 [语文刘老师] (L:liu.default | R:shen_wanting.default)
+     "沈万廷！人在做天在看，二十年前的账，今天我们连本带利向你讨回来！"
+
+--- Scene [ch14_scene_pot_broken] 甲板中心 · 狂澜异变 ---
+  #1 [系统提示] (L:haifeng-police.default | R:xu.default)
+     "老爸海峰与徐老师同时飞扑而上，一脚踹翻铁绞盘！[next]然而烧红的钢棍依然擦过古瓷罐的腹部——只听“咔嚓”一声脆响，历经近两百年风霜的青花古罐竟当场炸裂！"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "碎罐里涌出大团黑烟，烟中隐约浮出一张狰狞的脸。[next]甲板上的人影和江岸开始扭曲、重叠，烟里还传来遥远的号子和炮声。[next]谁也说不清发生了什么。"
+  #3 [沈崇礼] (L:mystery_man-corrupted.default | R:{MC}.frown)
+     "混账！你们竟敢砸碎老祖宗的传家宝！护卫队，把所有人推下江喂鱼！！"
+  #31 [沈家护卫] (L:shen_guard.default | R:{MC}.frown)
+     "（捂着鼻子退了半步）这烟连我们的人都受不了！少爷还叫我们冲？"
+  #32 [重装护卫] (L:berserker_guard.default | R:shen_guard.default)
+     "（面罩后喘着粗气，撞开同伴）让开……守住铜炉！谁也别过来！"
+  #4 [{MC_NAME}] (L:{MC}.frown | R:{ALLY_1}.default)
+     "先捂住口鼻，别吸那股黑烟！它跟学校的怪味零食一样会让人失控。打手已经围上来了，大家靠在一起！"
+
+--- Scene [ch14_scene_vortex_entry] 扭曲的天空 · 逆转的指针 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "护卫被打退，碎罐里涌出的黑烟却没有散。[next]号子和炮声越来越近，头顶的天空慢慢裂开一道白光，甲板开始像纸一样卷起来。"
+  #2 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-police.default)
+     "脚下的甲板……甲板在消失？！爸！抓紧我的手！！"
+  #3 [老爸海峰] (L:haifeng-police.default | R:{ALLY_2}.default)
+     "抓紧！所有人手拉着手！徐老师、刘老师，护住孩子们的头！！"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "江水仿佛倒着流，白光吞没甲板。六个孩子、海峰和两位老师还抓着彼此，脚下的船却突然消失了。[next]远处传来战鼓和炮声，他们正一起被拽离现代的江面。"
+
+======================================================
+FILE: story_chapter15.js
+======================================================
+
+--- Scene [ch15_scene_time_passage] 时空通道 · 驳船与过去之间 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "脚下没有甲板，也没有江水。六个孩子、海峰和两位老师还抓着彼此，漂在一条发光的通道里；[next]身后的驳船越来越远，渐渐缩成一个小点。"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "等等，岸上的路灯都不见了！我们这是……真的穿越了？"
+  #3 [语文刘老师] (L:liu.default | R:{MC}.default)
+     "看，前面的景象正在往回倒。我们真在穿越！还没落地，先别松手！"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "通道前方闪出一座古老的宫殿，说话声也越来越清楚。大家仍在通道里，像隔着一扇窗看见了很久以前的事。"
+
+--- Scene [ch15_scene_historic_prologue] 道光十八年 · 紫禁城养心殿 ---
+  #1 [历史画外音] (L:null.def | R:null.def)
+     "【穿越途中 · 道光十八年冬】\n少年们还在通道里，并没有落进皇宫。[next]眼前像开了扇窗：道光皇帝在养心殿召见林则徐，商量怎么禁烟。当时鸦片正害人上瘾，白银也不断流向海外。"
+  #2 [道光皇帝] (L:emperor_daoguang.default | R:lin_zexu.default)
+     "林则徐，朕看了你的奏折。鸦片害了百姓，也让国库的钱不断流出去。[next]有人怕得罪外国商人，不敢禁烟。你愿意去广东把这件事办到底吗？"
+  #3 [林则徐] (L:lin_zexu.default | R:emperor_daoguang.default)
+     "（跪下）“苟利国家生死以，岂因祸福避趋之！[next]”只要鸦片还在害人，我就不会停。请派我去广东，把走私的鸦片查出来、毁掉。"
+  #4 [道光皇帝] (L:emperor_daoguang.default | R:lin_zexu.default)
+     "好。朕派你去广东禁烟，沿海官兵听你调遣。把鸦片查出来，不许再让它害人。"
+
+--- Scene [ch15_scene_humen_harbor_inspect] 道光十九年 · 广东虎门海防要塞 ---
+  #1 [历史画外音] (L:null.def | R:null.def)
+     "【穿越途中 · 道光十九年虎门】\n众人还在通道里，眼前却能看到海边挤满水师和百姓。[next]官兵把收缴的鸦片搬到池边，准备加盐和石灰销毁。"
+  #2 [林则徐] (L:lin_zexu.default | R:null.def)
+     "把收缴的鸦片全搬到池边！引海水进来，加盐、加石灰，彻底销毁。有人想偷偷藏下一箱，也必须查出来！"
+  #3 [系统提示] (L:null.def | R:null.def)
+     "沙角海滩突然传来枪声：有人趁销烟时从海上偷袭，想抢回鸦片。[next]与此同时，通道出口在海滩上打开，卷着众人的白光直冲下去。"
+
+--- Scene [ch15_scene_beach_wake] 道光十九年 · 广东虎门沙角海滩 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "众人摔在海滩上，被涌来的浪和石灰烟呛得直咳。[next]抬头一看，官兵正在往大池里倒石灰，海上是旧式帆船；他们真的落在了虎门销烟现场。"
+  #2 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "（揉眼睛）等等，我们真到了虎门销烟的时候？海边有人开枪，池子里还在倒石灰！"
+  #3 [覃瑞怡] (L:qinruiyi.default | R:zhangxizhe.default)
+     "（脸色发白地摸了摸口袋）完了完了……手机一格信号都没有！[next]那我的暑期研学报告、还有开学摸底考，是不是全泡汤了？！"
+  #4 [语文刘老师] (L:liu.default | R:{MC}.default)
+     "（扶着沙滩上的“钦差大臣林”旗）你们看，官兵正往池里灌海水，撒盐、倒石灰，把鸦片彻底毁掉。我们真的到了虎门销烟现场！"
+  #5 [{MC_NAME}] (L:{MC}.frown | R:xu.default)
+     "快看浅滩！几艘小帆船靠岸了，那些拿洋枪和刀的人正往销烟池边冲，要抢还没销毁的鸦片箱！"
+
+--- Scene [ch15_scene_militia_stand] 化烟巨池畔 · 浴血浅滩 ---
+  #1 [系统提示] (L:foreign_sailor.default | R:militia_instructor.default)
+     "洋人水手举枪上岸，本地打手在前面带路。[next]池边，一个握着木杖的民团教头带人守住还没倒进水里的鸦片箱，拦下了刚跑来的孩子们。"
+  #11 [虎门民团教头] (L:militia_instructor.default | R:{MC}.frown)
+     "我是这儿带民团守池的。林大人让我盯紧这些还没销毁的鸦片，不能让人抢走。你们几个从哪儿来的？快往后站，那边有枪！"
+  #12 [{MC_NAME}] (L:{MC}.frown | R:militia_instructor.default)
+     "我们从海滩那头来的，看见他们要抢箱子。我们是来帮忙的，您说怎么守？"
+  #2 [洋人走私水手] (L:foreign_sailor.default | R:comprador_assassin.default)
+     "就是那几箱！趁他们还没倒进池子，搬回船上！"
+  #3 [带路的中国打手] (L:comprador_assassin.default | R:foreign_sailor.default)
+     "我带你们绕过官兵。先把守池的人赶开，货就在眼前！"
+  #4 [虎门民团教头] (L:militia_instructor.default | R:haifeng-police.default)
+     "（握紧守池木杖，挡在鸦片箱前）这批鸦片是来销毁的，不是给你们抢回去害人的！想碰池子，先过我这一关！"
+  #5 [老爸海峰] (L:haifeng-police.default | R:militia_instructor.default)
+     "教头，孩子们跟你守这口池！我和两位老师去另一边护住正在搬运鸦片的人，谁也别单独冲。"
+  #51 [虎门民团教头] (L:militia_instructor.default | R:{MC}.frown)
+     "成，你们跟紧我和弟兄们，别让打手绕到箱子后头。看见洋枪就躲，先护住人，再护住货！"
+  #6 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:{MC}.frown)
+     "大家靠过来，护住池边的鸦片箱！不能让他们把烟土抢回去！"
+
+--- Scene [ch15_scene_lin_commends] 销烟池边 · 林则徐来了 ---
+  #1 [系统提示] (L:lin_zexu.default | R:null.def)
+     "偷袭的人被打退了，官兵继续把鸦片倒进池里。[next]林则徐带着几名亲兵来到池边，先去看了受伤的民团，随后走向刚才帮忙守池的孩子们。"
+  #2 [林则徐] (L:lin_zexu.default | R:{MC}.default)
+     "（看着众人的衣服）你们不像这个年代的人。刚才明明可以躲开，却留下来帮我们守池。你们从哪里来？"
+  #3 [{MC_NAME}] (L:{MC}.default | R:lin_zexu.default)
+     "（鞠躬）林总督，我们来自将近两百年后的中国。小时候，我们在课本上读过虎门销烟。[next]今天亲眼看见您和大家守住这口池，才知道当年有多难。我们那儿还有人贩毒，但也有警察、老师和普通人，一直在拦。"
+  #4 [林则徐] (L:lin_zexu.default | R:{MC}.default)
+     "（望向还在冒白烟的销烟池）两百年后，孩子们还记得这里？还有人肯站出来，不让毒害人？[next]那就好。今天这池鸦片没白毁，我们这些人也没白拼。"
+  #5 [系统提示] (L:militia_instructor.default | R:null.def)
+     "教头从池边跑来，手里拿着刚清点完的单子，神色不对。"
+
+======================================================
+FILE: story_humen_origin.js
+======================================================
+
+--- Scene [ch15b_scene_missing_jar] 虎门销烟池边 · 少了一只罐 ---
+  #1 [虎门民团教头] (L:militia_instructor.default | R:lin_zexu.default)
+     "林大人，箱子都在，但装烟膏的青花罐少了一只。[next]有人看见刚才打起来时，一个人把罐子放上小车，往旧码头推走了。"
+  #2 [林则徐] (L:lin_zexu.default | R:{MC}.default)
+     "池子守住了，那只罐子也得找回来。教头，你带人看好剩下的货。孩子们跟我去码头，千万别自己追。"
+  #3 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "等等，车轮印旁掉了块木牌，上面写着“福寿堂”。我在我们那儿查沈家时，也见过这个名字。"
+  #4 [{MC_NAME}] (L:{MC}.default | R:haifeng-police.default)
+     "福寿堂？难道这时候他们就跟走私船是一伙的？先别猜了，沿车轮印找找那只罐子。"
+
+--- Scene [ch15b_scene_smuggler_storehouse] 虎门旧码头 · 福寿堂药仓 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "官兵推开仓门。墙边是福寿堂准备免费发给穷人的药材箱。[next]门口停着刚才那辆小车，车上是丢失的青花罐，旁边还堆着几箱烟膏。"
+  #2 [福寿堂沈掌柜] (L:fushoutang_shopkeeper.default | R:lin_zexu.default)
+     "林大人，车是他们从我店里抢走的！洋商要借我的铺子藏烟膏，我没答应。[next]他们打完仗把罐子推进来，硬说这仓里的货都是我的。"
+  #3 [走私水手] (L:foreign_sailor.default | R:fushoutang_shopkeeper.default)
+     "别装了！把你的几家铺子借我们运货，洋商付的银子，可比你免费给穷人发药强多了。"
+  #4 [林则徐] (L:lin_zexu.default | R:fushoutang_shopkeeper.default)
+     "给穷人的药材先别动。烟膏和那只罐子是谁推进来的，我会查清楚；现在先把这批走私的货扣下。"
+  #5 [{MC_NAME}] (L:{MC}.frown | R:haifeng-police.default)
+     "海叔叔，你不是说两百年后的福寿堂拿药害学生吗？可沈家现在还在免费给穷人发药啊。"
+  #6 [福寿堂沈掌柜] (L:fushoutang_shopkeeper.default | R:{MC}.frown)
+     "（愣住）两百年后……还有福寿堂？"
+  #7 [走私水手] (L:foreign_sailor.default | R:lin_zexu.default)
+     "别让他们把货扣下！抢回罐子和烟膏，快搬上船！"
+  #71 [带路的中国打手] (L:comprador_assassin.default | R:lin_zexu.default)
+     "水手去搬罐子，我带人拦住官兵。林大人，先过了我这关再扣货！"
+  #8 [老爸海峰] (L:haifeng.frown | R:{MC}.frown)
+     "六个人跟紧我！拦住水手，别让他们把罐子和烟膏搬走！"
+
+--- Scene [ch15b_scene_storehouse_aftermath] 虎门旧码头 · 药铺变了 ---
+  #1 [系统提示] (L:lin_zexu.default | R:null.def)
+     "水手被打退，官兵开始搬走烟膏。药材箱原样留下，青花罐还在门口的小车上。沈掌柜盯着那只罐子看了很久。"
+  #2 [林则徐] (L:lin_zexu.default | R:fushoutang_shopkeeper.default)
+     "你原来免费给穷人发药，以后也可以接着做。[next]这几箱烟膏是走私者塞进来的，不会算在你头上。往后别再让他们进门。"
+  #3 [福寿堂沈掌柜] (L:fushoutang_shopkeeper.default | R:{MC}.default)
+     "（看着青花罐，低声说）两百年后，福寿堂还在卖害人的药……难道沈家后来是靠帮洋商运烟膏发财的？"
+  #4 [系统提示] (L:fushoutang_shopkeeper.default | R:null.def)
+     "趁官兵搬货，沈掌柜突然抱起青花罐，从后门跳上小船。海峰追到门口，只看见他正往洋商的船那边划。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "一阵浪打翻了小船。青花罐从沈掌柜手里滑脱，沉进虎门海口。[next]洋商船上的水手把他拉了上去；官兵派船打捞那只罐子，可浪太急，一时找不到了。"
+  #6 [覃瑞怡] (L:qinruiyi.default | R:{MC}.default)
+     "博物馆的铭牌写着“虎门海口出水”，就是这只罐子吧？可掌柜刚才明明不肯帮洋商，怎么听完我们说的未来，就把罐子抱走了？"
+  #7 [{MC_NAME}] (L:{MC}.default | R:haifeng-police.default)
+     "我说了两百年后的事，他才知道福寿堂能开那么久。可我不说，他就不会拿那只罐子吗？"
+  #8 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "我也不知道咱们没来会怎样。洋商早就在拉他入伙，最后抱罐子上船也是他自己选的。先回池边，往后怎么对付福寿堂，我们还得想办法。"
+
+--- Scene [ch15b_scene_lin_report] 销烟池边 · 沈掌柜跑了 ---
+  #1 [林则徐] (L:lin_zexu.default | R:haifeng-police.default)
+     "沈掌柜上了洋商的船，我会让官兵盯住他们。往后要是再拿药铺藏烟膏，一定查到底。"
+  #2 [老爸海峰] (L:haifeng-police.default | R:lin_zexu.default)
+     "林总督，在我们那边，沈家后来真的拿药铺当幌子卖害人的药。回去后，我会沿着这条线继续查。"
+  #3 [林则徐] (L:lin_zexu.default | R:{MC}.default)
+     "（从教头手中接过木杖，郑重递向{MC_NAME}）教头拿它守住了销烟池。这杖我交给民团时，就是盼他们记着：毒物不能再害人。如今这根木杖你们带回去，接着守住你们那边的人。"
+  #4 [{MC_NAME}] (L:{MC}.default | R:lin_zexu.default)
+     "（伸出双手接住木杖）林大人，我会带回去。"
+
+--- Scene [ch15_scene_righteous_seal] 虎门海滩 · 浩然正气 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "{MC_NAME}握紧木杖，掌心沾上的白灰随海风扬起。[next]杖身的刻痕从指缝间透出金光，白烟一时遮住了上面的字。"
+  #11 [系统提示] (L:null.def | R:null.def)
+     "白烟散开，杖身刻着四个金色大字：“浩然正气”。刚才教头握着它守池，如今它到了两百年后的孩子手里。{MC_NAME}看着这四个字，想起学校里那些被沈家毒药害过的同学。"
+  #12 [{MC_NAME}] (L:{MC}.default | R:lin_zexu.default)
+     "林大人，教头守住了这池鸦片。回去换我们守住学校里的同学，沈家的毒药，一包也别想送进去。"
+  #2 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "林总督，我们回去接着查福寿堂。今天药铺还在免费给穷人发药，沈掌柜却已经抱着罐子去找洋商了。回去后，不能再让他们拿毒药害学生。"
+  #3 [系统提示] (L:null.def | R:null.def)
+     "销烟池边的白烟忽然打起旋，众人脚下再次亮起把他们卷来时的白光。[next]{MC_NAME}攥紧木杖，大家手拉着手；海滩、销烟池和炮声渐渐远去，现代的驳船重新出现在眼前。"
+
+======================================================
+FILE: story_chapter16.js
+======================================================
+
+--- Scene [ch16_scene_return_ruins] 古运河驳船残骸 · 雨夜将尽 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "夜还没亮，众人重新落在破损的驳船上。沈氏父子早趁混乱坐快艇逃了；[next]{MC_NAME}手里还握着林则徐交给大家的浩然正气杖。"
+  #2 [{MC_NAME}] (L:{MC}.default | R:{ALLY_2}.default)
+     "等等，我们要是没穿越回虎门，沈掌柜就不会知道“福寿堂两百年后还在”。他原本还免费给穷人发药，会不会是我们告诉了他未来，他才决定跟洋商走？"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:{MC}.default)
+     "那福寿堂后来变坏，会不会跟我们穿越回去有关？可洋商早就找上他了。就算我们没说，他真会一直好好开药铺吗？"
+  #4 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "先回安全屋把人和装备点清楚，再联系增援。沈家躲在下游的旧洋行仓库，等天亮了，我们就去堵住出口。浩然正气杖先锁进防爆箱，别再让他们抢走。"
+  #5 [覃瑞怡] (L:qinruiyi.default | R:{MC}.default)
+     "（手机震了一下，她看完消息，脸色发白）沈崇礼手里……真的有我们班每个人的住址吗？"
+  #6 [{MC_NAME}] (L:{MC}.default | R:qinruiyi.default)
+     "海叔叔请警方去联系家长了，可还没挨家通知到。回安全屋咱们一起想办法。瑞怡，谁给你发的消息？"
+  #7 [系统提示] (L:null.def | R:null.def)
+     "瑞怡攥着手机没回答。海峰领大家下了驳船，走到码头外停着的皮卡旁，让受伤的人先上车。"
+
+--- Scene [ch16_scene_safahouse_night] 城北防空洞安全屋 · 熄灯前 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "皮卡开回城北，海峰拿证件打开安全屋铁门。[next]屋里还是那张铁皮桌，大家却都湿透了，手上还沾着虎门销烟池的白灰。"
+  #2 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "人都在。先把伤口处理好。（把浩然正气杖放进防爆箱，上锁后将钥匙收进外套口袋）这根杖放这儿，谁也别单独带出去。"
+  #3 [徐老师] (L:xu.default | R:liu.default)
+     "老刘，先看看孩子们有没有吸进船上的烟。都跑了一夜了，有人不舒服马上说，别硬撑。"
+  #4 [老爸海峰] (L:haifeng-police.default | R:qinruiyi.default)
+     "（拿起无线电）沈家拿到了全班住址，我已经让同事继续联系家长，先去守住名单上最近的几户。[next]你们留在这里，天亮再一起去旧洋行仓库。"
+  #5 [{MC_NAME}] (L:{MC}.default | R:qinruiyi.default)
+     "瑞怡，刚才你看完手机就不说话了。是沈崇礼发了什么吗？你给我们看看，一起想办法。"
+  #6 [覃瑞怡] (L:qinruiyi.default | R:{MC}.default)
+     "（把手机屏幕扣在桌上）我……想先给家里报个平安。你们先休息吧，我没事。"
+  #7 [系统提示] (L:null.def | R:null.def)
+     "徐老师让大家裹着外套靠墙休息，海峰关了吊灯。[next]屋里只剩无线电的小红灯和门外的雨声；覃瑞怡还坐在桌边，盯着手机。"
+
+--- Scene [ch16_scene_betrayal_note] 安全屋铁桌前 · 沾满泪痕的留言 ---
+  #1 [张希哲] (L:zhangxizhe.default | R:{MC}.default)
+     "（惊慌失措地指着空空如也的防爆箱）不……不见了！放在铁盒里的浩然正气杖不见了！覃瑞怡的人也不在安全屋里！"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "铁皮桌上留着覃瑞怡从书包里拿出的“市级优秀学生干部”奖状。[next]她把奖状翻过来当信纸，背面写满了字，纸角还有没干的泪痕。"
+  #3 [信纸留言（覃瑞怡）] (L:qinruiyi.frown | R:null.def)
+     "『对不起大家……刚才沈崇礼发来六 8 班家庭联系表的照片，上面有每个人的住址。[next]他还拍了我家门口，说他们已经知道我们住哪儿。』"
+  #4 [信纸留言（覃瑞怡）] (L:qinruiyi.frown | R:null.def)
+     "『他要我天亮前独自把浩然正气杖送到江心旧水闸。[next]不给，就按地址抓同学试药，从我家开始；我敢把消息告诉你们，他就立刻动手。[next]我知道他可能骗人，可我不敢拿全班同学赌。』"
+  #41 [信纸留言（覃瑞怡）] (L:qinruiyi.frown | R:null.def)
+     "『海叔叔，对不起。我趁大家睡着，从你外套里拿了钥匙。杖是我自己拿的，别怪别人。我一定想办法回来。』"
+  #5 [徐老师] (L:xu.default | R:haifeng-police.default)
+     "这个傻孩子！沈崇礼那帮吃人不吐骨头的恶棍怎么可能守信用！这是去送死啊！"
+  #6 [老爸海峰] (L:haifeng-police.default | R:{MC}.default)
+     "我让警方继续联系家长，先守住名单上最近的几户，也派人封住水闸外侧。咱们赶紧去救瑞怡！不能让二十年前阿瑶的事，再发生在她身上！"
+
+--- Scene [ch16_scene_rainy_chase] 江心旧水闸 · 泥泞与锈铁 ---
+  #1 [系统提示] (L:berserker_guard.default | R:null.def)
+     "旧水闸的铁锈大门虚掩着，泥地里扔着一只熟悉的粉色双肩包。[next]闸口阴影中，十余名戴着防毒面具、手持高压电棍的沈氏精锐死士早已严阵以待！"
+  #2 [沈氏死士头目] (L:berserker_guard.default | R:haifeng-police.default)
+     "嘿嘿……六掌柜料事如神，那个天真的女班长果然把东西送来了！[next]至于你们这帮追来的跟屁虫，就留在这给水闸当肥料吧！"
+  #21 [沈家护卫] (L:shen_guard.default | R:qinruiyi.default)
+     "头儿，她和那根杖都送走了。这帮人只看到书包，还以为能在闸里找到她呢。"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:{MC}.frown)
+     "把覃瑞怡交出来！！把信物还给我们！！"
+  #4 [沈氏死士头目] (L:berserker_guard.default | R:{ALLY_2}.frown)
+     "想问她在哪儿？先从我和这排电棍中间走过去！"
+
+--- Scene [ch16_scene_truth_unveiled] 锈蚀水闸顶 · 逼供残兵 ---
+  #1 [老爸海峰] (L:haifeng-police.default | R:berserker_guard.default)
+     "（从侧面赶回来，按住被孩子们打倒的头目）水闸里没有瑞怡。说！你们把她和浩然正气杖送去哪了？"
+  #2 [沈氏死士头目] (L:berserker_guard.default | R:haifeng-police.default)
+     "咳……人已经被带到旧洋行仓库地下了。[next]沈崇礼抢了杖，想拿它压住毒池里的黑气，再逼那个女孩喝第一口原浆，替他们试药！"
+  #3 [{MC_NAME}] (L:{MC}.default | R:{ALLY_1}.default)
+     "她就在仓库地下！海叔叔，快带我们从水闸的检修通道过去！"
+
+======================================================
+FILE: story_chapter17.js
+======================================================
+
+--- Scene [ch17_scene_alter_breach] 洋行仓库地下核心 · 毒池祭台 ---
+  #1 [系统提示] (L:mystery_man-corrupted.default | R:qinruiyi.frown)
+     "众人从检修通道冲进仓库地下室。覃瑞怡被锁在柱子上，沈崇礼端着一碗绿药逼她喝；[next]浩然正气杖放在毒池旁，桌上还摊着六 8 班的家庭联系表，每户地址旁都画了记号。"
+  #2 [沈崇礼] (L:mystery_man-corrupted.default | R:qinruiyi.frown)
+     "喝下去！你是班长，又是优秀学生，只要连你都替我们说这药好，学校里还会有多少人相信你、跟着吃？"
+  #3 [覃瑞怡] (L:qinruiyi.frown | R:mystery_man-corrupted.default)
+     "（奋力将药碗撞翻在地，声嘶力竭地怒喊）做梦！！我死也不会把灵魂卖给你们这帮恶魔！！"
+  #4 [{MC_NAME}] (L:{MC}.default | R:mystery_man-corrupted.default)
+     "住手！海叔叔去挡住保镖，我去拿池边的浩然正气杖，先把瑞怡救下来！"
+  #5 [系统提示] (L:{MC}.frown | R:qinruiyi.frown)
+     "海峰挡住保镖，{MC_NAME}冲到毒池旁抢回浩然正气杖，敲开锁住覃瑞怡的旧锁。瑞怡抓住主角的手，终于从石柱前逃了出来。"
+
+--- Scene [ch17_scene_father_shield] 祭坛崩塌处 · 悲壮的背影 ---
+  #1 [系统提示] (L:mystery_man-corrupted.default | R:xu.default)
+     "徐老师趁乱抢走桌上标了住址的送药单，塞进怀里。[next]沈崇礼按动机关，三根淬着毒的长针射向护在最前面的孩子们！"
+  #2 [老爸海峰] (L:haifeng-police_damaged.default | R:{ALLY_2}.frown)
+     "小心——！！！"
+  #3 [系统提示] (L:haifeng-police_damaged.default | R:null.def)
+     "海峰冲到孩子们身前，用身体挡下三根毒针。针扎进他脖子和胸前的衣服，毒性很快发作，他站都站不稳了。"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:haifeng-police_damaged.default)
+     "（瞳孔骤缩，整个人撕心裂肺地哭喊）爸——！！！爸你醒醒啊！！！不要！！不要扔下我！！"
+  #5 [老爸海峰] (L:haifeng-police_damaged.default | R:{ALLY_2}.frown)
+     "（从腰间摸出警用破拆索，拴向身后的承重柱）带着孩子们走……地下出口快塌了，我给你们挡住后面的人。记住，老爸是警察。"
+  #6 [系统提示] (L:null.def | R:null.def)
+     "破拆索炸断了柱子，石桥塌进地下暗河，堵住追来的守卫，却也把海峰卷进水里。[next]他胸前的警徽掉在岸边，{ALLY_2_NAME}捡起它，被徐老师拉向另一侧的出口。"
+  #7 [重装守卫] (L:berserker_guard.default | R:xu.default)
+     "（从另一侧的维修楼梯走下来，挡住出口）沈先生要孩子和浩然正气杖都留下。桥塌了，你们还能往哪走？"
+  #71 [沈家护卫] (L:shen_guard.default | R:xu.default)
+     "楼梯上面也有人守着。放下那根杖，我们还能让你们从这儿出去。"
+  #8 [徐老师] (L:xu.frown | R:berserker_guard.default)
+     "先别回头看河里，护住瑞怡，跟我走楼梯！打通这道门，再想办法找海峰！"
+
+--- Scene [ch17_scene_tearful_retreat] 仓库内部楼梯间 · 追上顶楼 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "地下室的守卫被打退。大家带着覃瑞怡爬上另一侧的维修楼梯，到了仓库里。[next]两位老师留下挡追兵；沈家父子已经坐货梯上了顶楼。海峰被暗河冲走，生死未卜。"
+  #2 [覃瑞怡] (L:qinruiyi.frown | R:{ALLY_2}.default)
+     "（扶着楼梯扶手，眼泪止不住）都是我的错……是我害了海叔叔……如果我没有擅自跑出来……"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:qinruiyi.default)
+     "（握紧警徽）瑞怡，先站起来。我爸替我们挡了针，才把你救出来。徐老师已经通知水警沿暗河找他；我们去拦沈家，不能让他们把药运走。"
+  #4 [{MC_NAME}] (L:{MC}.default | R:{ALLY_1}.default)
+     "楼梯上写着“钟楼”！老师挡住后面的人，我们带着杖和名单上去，别让沈家父子跑了！"
+
+======================================================
+FILE: story_chapter18.js
+======================================================
+
+--- Scene [ch18_scene_warehouse_breach] 洋行仓库外侧 · 暴雨突击准备 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "众人从地下室的另一侧逃到仓库外。[next]沈家父子还在顶楼，可大楼四周通了电，探照灯来回扫，想走正门根本过不去。"
+  #2 [覃瑞怡] (L:qinruiyi.default | R:{MC}.default)
+     "（拿出画在餐巾纸上的草图）他们押我进来时，我记下了侧门和摄像头；后来从地下室小窗里看到东侧电网每隔一会儿会短暂停电。[next]趁那几秒从侧门进去，就能到一楼大厅。"
+  #3 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "（一脸佩服地凑近草图纸）班长，你这脑子是自带监控回放还是咋的？连哪堵墙是监控死角都能背下来……"
+  #4 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:qinruiyi.default)
+     "东侧门后就是大厅楼梯。如果赶在电网恢复前穿过去，至少能避开外面的探照灯。"
+  #5 [{MC_NAME}] (L:{MC}.default | R:xu.default)
+     "好，等下一次断电，从东侧门进大厅。徐老师和刘老师掩护，我们去顶楼找沈家父子。"
+
+--- Scene [ch18_scene_teacher_stand] 货栈一层挑空中庭 · 钢铁巨兽 ---
+  #1 [系统提示] (L:berserker_guard.default | R:null.def)
+     "一推开大厅门，三名服过药的重装守卫就举着盾牌挡住去路。[next]门后的铁闸落下，堵住回头路；通往顶楼的楼梯口也挤满了沈家的打手。"
+  #11 [重装守卫] (L:berserker_guard.default | R:{MC}.frown)
+     "（盾牌往地上一砸）楼梯封了。想上顶楼，就在这儿把浩然正气杖交出来！"
+  #12 [沈崇礼] (L:mystery_man-corrupted.default | R:{MC}.frown)
+     "我爸正在顶楼装货。你们在这儿陪守卫慢慢打吧，等打上去，药早就运走了！"
+  #13 [沈家护卫] (L:shen_guard.default | R:mystery_man-corrupted.default)
+     "沈先生，后面的老师交给我们。重装的人堵楼梯，孩子一个也上不去。"
+  #2 [语文刘老师] (L:liu.default | R:xu.cry)
+     "（握紧教鞭）老徐，侧廊又来了一批守卫。[next]我们留下挡住后面的援兵，让孩子们去楼梯口。二十年前没护住阿瑶，今天不能再退了。"
+  #3 [徐老师] (L:xu.frown | R:{MC}.frown)
+     "（把旧教案塞给{MC_NAME}）我们挡住后面赶来的守卫。你们打通前面重装守卫和楼梯口，去顶楼阻止沈家父子。别回头！"
+  #4 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:xu.default)
+     "徐老师！刘老师！！"
+  #5 [{MC_NAME}] (L:{MC}.frown | R:{ALLY_2}.frown)
+     "别让老师的心血白费！跟紧我，撕碎梯口的守卫，冲上天台！！"
+
+--- Scene [ch18_scene_tower_arrival] 货栈顶层钟楼大厅 · 最后的药罐 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "孩子们沿楼梯追到仓库顶楼，推开钟楼门。沈万廷坐在轮椅上，身边只剩几罐药；[next]沈崇礼坐货梯先到了，正站在控制台前。两位老师还在楼下挡住追兵。"
+  #2 [沈万廷] (L:shen_wanting.default | R:{MC}.default)
+     "（抬起头，敲了敲身旁的药罐）刘淑惠的学生也来了？学校那张送药单被你们抢走了，可货还在我手里。二十年前阿瑶挡了我的路，这回连你们也想拦？"
+  #3 [沈崇礼] (L:mystery_man-corrupted.default | R:shen_wanting.default)
+     "爸，楼下的人挡不住了。运货车也没法走！"
+  #4 [沈万廷] (L:shen_wanting.default | R:mystery_man-corrupted.default)
+     "那就把钟楼这套装置打开。先放毒雾拦住追来的人，守住药罐；只要货还在，福寿堂就没输。"
+  #5 [{MC_NAME}] (L:{MC}.default | R:shen_wanting.default)
+     "（握紧浩然正气杖）名单和货，我们一样都不会留给你们。沈万廷，二十年前的事，今天也该有个交代了！"
+
+======================================================
+FILE: story_chapter19.js
+======================================================
+
+--- Scene [ch19_scene_final_stand] 货栈顶层钟楼大厅 · 魔尊降世 ---
+  #1 [沈万廷] (L:shen_wanting.default | R:{MC}.frown)
+     "（把轮椅的输液管插进控制台）我这把老骨头撑到今天，就是要看福寿堂把这批药送出去。崇礼，开闸！"
+  #2 [系统提示] (L:shen_wanting.default | R:mystery_man-corrupted.default)
+     "沈崇礼扳下启动杆。药罐里的黑气顺着管子涌出，窗外的阳光被翻涌的乌云遮住，钟楼一下暗了下来。[next]沈万廷的轮椅还在控制台旁，管子却已经接进中央的铁架。"
+  #3 [系统提示] (L:null.def | R:null.def)
+     "昏暗中，齿轮和铁架一节节撑开，先是两条长满倒刺的手臂，接着是一颗冒绿光的胸口。[next]它弯下腰，整座钟楼的地板都跟着一震。"
+  #4 [系统提示] (L:boss_colossus.default | R:null.def)
+     "一头四米高的巨魔挡住出口！铁拳上长满毒刺，胸口的绿光里映出沈万廷的脸；[next]他在轮椅上抬手，巨魔也跟着挥拳，沈崇礼则在控制台上不断往里送黑气。"
+  #5 [沈万廷] (L:shen_wanting.default | R:boss_colossus.default)
+     "我动不了，它替我动。谁敢碰那些药罐，就先从它拳头底下活着出去！"
+  #6 [巨魔] (L:boss_colossus.default | R:shen_wanting.default)
+     "（胸口绿光一闪，嗓音里混着沈万廷的声音）碰一下药罐，我就把你们一个个砸进地板里。"
+  #7 [沈崇礼] (L:mystery_man-corrupted.default | R:boss_colossus.default)
+     "楼下的老师和警察马上就要上来？先让他们吸够毒雾！等我带着药罐从后门走，学校里自然有人接货。"
+  #8 [巨魔] (L:boss_colossus.default | R:{MC}.frown)
+     "楼下的人敢上来，也一个都别想走！"
+  #9 [系统提示] (L:boss_colossus.default | R:null.def)
+     "巨魔一拳砸向钟楼边的铁栏杆。整排栏杆拧成一团，螺栓从孩子们身边擦过，钉进身后的墙里。[next]它又往前迈了一步，脚下的地板发出一声闷响。"
+  #91 [系统提示] (L:{MC}.frown | R:boss_colossus.default)
+     "巨魔胸口喷出一团黑气，{MC_NAME}下意识举起木杖。“浩然正气”四个金字亮了一下，扑到面前的黑气竟被逼得散开。"
+  #10 [朱晏泽] (L:zhuyanze.shock | R:boss_colossus.default)
+     "（往后退了半步）它一拳就把栏杆打成这样？我……我腿都不听使唤了。咱们真能打过吗？"
+  #11 [覃瑞怡] (L:qinruiyi.frown | R:zhuyanze.default)
+     "我也怕。可我从地下室逃出来，不是为了站在这儿，看着他们把药送进学校。朱晏泽，别一个人往后退。"
+  #12 [张希哲] (L:zhangxizhe.awkward | R:boss_colossus.default)
+     "（贴着墙）等等，沈崇礼每按一次阀门，它胸口的绿光就亮一次。那几根管子还在往它身上送黑气！"
+  #13 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:boss_colossus.default)
+     "先别走散。谁被它盯上就喊，其他人把人拉开。咱们六个一起上来的，也得一起下去。"
+  #14 [{ALLY_2_NAME}] (L:{ALLY_2}.frown | R:boss_colossus.default)
+     "（攥紧警徽，手还在抖）我爸拼命护我们到这里，不是为了让沈家再拿这药害人。我怕，可药罐不能离开钟楼！"
+  #15 [{MC_NAME}] (L:{MC}.frown | R:boss_colossus.default)
+     "我也怕。可它胸口喷出的黑气碰上这根杖就散！先打断供气管，等它慢下来，我来把浩然正气杖插进核心。你们谁都别落下！"
+
+--- Scene [ch19_scene_boss_destroyed] 残破的钟楼露台 · 圣光普照 ---
+  #1 [系统提示] (L:{MC}.frown | R:null.def)
+     "供气管被打断，巨魔的铁拳慢了下来。{MC_NAME}趁机爬上倒下的铁架，把浩然正气杖插进它胸口的核心。[next]“浩然正气”四字再次亮起，金光照亮了整座钟楼！"
+  #11 [系统提示] (L:null.def | R:null.def)
+     "浩然正气杖上的金光压住核心里翻涌的黑气。核心裂开时，嵌在里面的木杖也跟着崩成碎屑；[next]“浩然正气”四个金字最后亮了一下，随黑雾一起散去。{MC_NAME}伸出手，却再也捡不回来了。"
+  #2 [系统提示] (L:shen_wanting.default | R:boss_colossus.default)
+     "核心碎了，黑气散去，窗外的乌云也裂开一道口子，阳光重新照进钟楼。巨魔塌成满地废铁。[next]沈万廷的轮椅停了，他瘫在座位上，已经指挥不动它；沈崇礼想抱起药罐逃走，被众人堵在门口。"
+  #3 [沈万廷] (L:shen_wanting.default | R:{MC}.default)
+     "（望着碎掉的核心）那罐里的东西……两百年了，怎么偏偏毁在你们手上……"
+  #4 [沈崇礼] (L:mystery_man-corrupted.default | R:{MC}.default)
+     "（松开药罐，跌坐在地）爸，送药单没了，货也保不住了。福寿堂……真到头了。"
+  #5 [{MC_NAME}] (L:{MC}.default | R:shen_wanting.default)
+     "（望着巨魔残骸里的木屑）林大人，您让我们回去后别停下。浩然正气杖留在这里了，但今天沈家这批药没能送进学校。[next]您当年毁掉的那池鸦片，没白毁。"
+  #6 [{MC_NAME}] (L:{MC}.default | R:mystery_man-corrupted.default)
+     "沈掌柜当年明明可以接着给穷人免费发药，却自己抱着青花罐上了洋商的船。今天，我们至少拦下了沈家这批药。"
+  #7 [张希哲] (L:zhangxizhe.default | R:qinruiyi.default)
+     "毒雾没了！老师他们可以上来了！"
+  #8 [徐老师] (L:xu.default | R:liu.default)
+     "（和刘老师沿楼梯赶上来）孩子们都在！楼下省厅的人已经接手了。[next]海峰也找到了，人还活着，就在一楼大厅，快跟我们下去！"
+
+--- Scene [ch19_scene_miracle_reunion] 货栈一楼大厅 · 失而复得 ---
+  #1 [系统提示] (L:xu.default | R:liu.default)
+     "众人下到一楼大厅，省厅增援已经带走了沈家父子，封存了最后的药罐。徐老师领着孩子们穿过人群；[next]大厅门口，医护人员正守着一副担架。担架上的人裹着大衣，胸前缠满绷带——是海峰！"
+  #2 [老爸海峰] (L:haifeng-police_damaged.default | R:{ALLY_2}.default)
+     "（躺在担架上，勉强扯出一点笑）哭什么，我还在呢。让医生先把我抬稳，你再扑过来。"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-police_damaged.default)
+     "（趴到担架边，握住海峰的手）爸！你真的还活着……我以为再也见不到你了！"
+  #4 [徐老师] (L:xu.default | R:liu.default)
+     "水警在三号闸口的巡逻艇上找到了他，立刻送医。[next]省厅已经备好针对那种毒针的解毒药，医生说他伤得很重，但救回来了。"
+  #5 [语文刘老师] (L:liu.default | R:xu.cry)
+     "二十年前被夺走的公道与尊严……今天，终于在这一届孩子手中彻底夺回来了。阿瑶，你看到了吗……"
+
+--- Scene [ch19_scene_dawn_epilogue] 古运河岸边 · 破晓时分 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "医护人员把海峰抬到运河岸边的救护车旁。[next]六个孩子和两位老师跟着走出仓库，晨光落在水面上；身后的钟楼敲响了第一声钟，黑雾已经散了。"
+  #2 [老爸海峰] (L:haifeng-police_damaged.default | R:{ALLY_2}.default)
+     "（被扶上救护车）省厅的同事回去审人、继续值勤，我去医院听医生审我。先老老实实养伤，你们也回家睡一觉，等我好些，再来讲讲这一路的事。"
+  #3 [{ALLY_2_NAME}] (L:{ALLY_2}.default | R:haifeng-police_damaged.default)
+     "爸，我先回家换身干衣服，下午就去医院看你。这次换我等你回家，你说了要听我们讲，就得说话算话。"
+  #4 [老爸海峰] (L:haifeng-police_damaged.default | R:{ALLY_2}.default)
+     "说话算话。不过来一个就行，别把大伙儿全带进病房。医生看见，还以为你们要在那儿开班会。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "救护车开走了。六个孩子和两位老师站在河边，直到警灯消失在街角。"
+  #6 [张希哲] (L:zhangxizhe.default | R:liu.default)
+     "我先回家补觉。醒了还得写暑假作业……刘老师，昨晚那一宿能写进作文里，顺便抵两页作业吗？"
+  #7 [语文刘老师] (L:liu.default | R:zhangxizhe.default)
+     "作文可以写，数学不能抵。我睡醒还得回学校批卷子，你要是真写，就把和你一起守在那儿的人也写进去。"
+  #8 [张希哲] (L:zhangxizhe.default | R:liu.default)
+     "不是吧？我们连沈家都拦住了，数学作业还是拦不住？"
+  #9 [徐老师] (L:xu.default | R:zhangxizhe.default)
+     "拦不住。我先送你们回家，下午再去学校跟校长说清楚。要是校长问起作业，别看我，我也救不了你们。"
+  #10 [覃瑞怡] (L:qinruiyi.default | R:{ALLY_1}.default)
+     "我先回家跟爸妈说声对不起，他们肯定急坏了。以后谁再让我一个人去解决，我先把你们全叫来，不自己扛了。"
+  #11 [{ALLY_1_NAME}] (L:{ALLY_1}.default | R:qinruiyi.default)
+     "这才对。我先回家吃顿热饭，睡醒再来找你们。替你撑场子可以，替你写暑假作业不行。"
+  #12 [覃瑞怡] (L:qinruiyi.default | R:{ALLY_1}.default)
+     "谁要你替我写？我还怕你照着我的抄呢。"
+  #13 [朱晏泽] (L:zhuyanze.default | R:zhangxizhe.default)
+     "那我回家开一局，等海叔叔出院，咱们六个再去我家打游戏。[next]张希哲，你可把手柄拿稳了，上回踢球连鞋都飞出去。"
+  #14 [张希哲] (L:zhangxizhe.default | R:zhuyanze.default)
+     "放心，手柄没鞋带，飞不了。真输了我请早饭，行了吧？"
+  #15 [{MC_NAME}] (L:{MC}.default | R:zhuyanze.default)
+     "（听着他们吵，望向亮起来的河面）昨晚我还怕，天亮后听不见你们这样说话了。现在好了，作业、游戏、谁请早饭，还是能吵半天。[next]以前嫌这些事没完没了，现在觉得，能一直这样就很好。我也先回家了，过两天校门口见。"
+  #16 [系统提示] (L:null.def | R:null.def)
+     "救护车已经开远，警车也驶回各自的辖区。老师领着孩子们走向不同的街口，早餐铺陆续开了门。[next]河岸渐渐空下来，仿佛昨天那场雨和那团黑雾从没来过。"
+
+--- Scene [ch19_scene_radio_signal] 城北安全屋 · 下午的值班电台 ---
+  #1 [系统提示] (L:null.def | R:null.def)
+     "当天下午，孩子们都回了家。城北安全屋里只剩一名值班警员，[next]正把从沈崇礼身上搜出的无线电台和其他证物逐一登记。"
+  #2 [系统提示] (L:null.def | R:null.def)
+     "没人碰它，电台却自己响了。值班警员停下笔，把声音调大。"
+  #3 [卫星加密密电] (L:null.def | R:null.def)
+     "『滋……三号船收到。城里的收件人换了。下一份名单，按新地址送……滋……』"
+  #4 [系统提示] (L:null.def | R:null.def)
+     "信号断了。警员拿起登记表，把“三号船”三个字记在空白处，翻遍沈崇礼的案卷，也没找到这个名字。"
+  #5 [系统提示] (L:null.def | R:null.def)
+     "第二幕 · 完。三号船的暗流涌动，等待着新一轮的破局。（第三幕 · 敬请期待）"

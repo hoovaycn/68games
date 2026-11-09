@@ -98,7 +98,7 @@ test('第三幕从 Ch21 到 Ch30 结局全线贯通可达，无断流或死循�
   const foughtBattles = new Set();
   let currentSceneId = 'ch21_scene_clinic_warmth';
 
-  while (currentSceneId && currentSceneId !== 'title_screen') {
+  while (currentSceneId && currentSceneId !== 'title_screen' && currentSceneId !== 'finale_screen') {
     assert.ok(!visited.has(currentSceneId), `${currentSceneId}: 剧情链路出现循环`);
     visited.add(currentSceneId);
 
@@ -108,7 +108,6 @@ test('第三幕从 Ch21 到 Ch30 结局全线贯通可达，无断流或死循�
 
     const transition = scene.transition;
     assert.ok(transition, `${currentSceneId}: 缺少转场配置`);
-
     if (transition.isBattleTrigger || transition.battleId) {
       const bId = transition.battleId;
       assert.ok(act3Battles[bId], `${currentSceneId}: 引用的战斗未定义 ${bId}`);
@@ -122,7 +121,10 @@ test('第三幕从 Ch21 到 Ch30 结局全线贯通可达，无断流或死循�
   }
 
   assert.equal(foughtBattles.size, 10, '第三幕每章均有一场主线战役参战');
-  assert.equal(currentSceneId, 'title_screen', '第三幕最终应顺利过渡至主菜单 title_screen');
+  assert.ok(
+    currentSceneId === 'title_screen' || currentSceneId === 'finale_screen',
+    `第三幕最终应顺利过渡至主菜单或全剧终终幕画卷，实际为: ${currentSceneId}`
+  );
 });
 
 test('选关菜单 LevelSelectModal 覆盖全部 30 个章节，且与 main.js 的 CHAPTER_ENTRY_SCENES 完全对齐', () => {

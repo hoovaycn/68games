@@ -93,7 +93,6 @@ export const CHAPTER26_STORY = {
         rightPortrait: 'ayao-aged_2046',
         rightEmotion: 'default',
         activeSide: 'right',
-        bgImg: 'assets/art/cg_grad_photo_2006@2x.png',
         text: '维生舱喷出一阵冷气。舱里没有高高在上的主宰，只有一个插满管子、白发苍苍的瘦弱女人。[next]她的胸口，还死死贴着当年那张泛黄的三人合影。',
         sfx: 'sfx_suspense'
       },
@@ -105,6 +104,7 @@ export const CHAPTER26_STORY = {
         rightPortrait: 'ayao-aged_2046',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/art/cg_grad_photo_2006@2x.png',
         text: '（捂住嘴巴）这……这就是阿瑶老师？！在学校心理咨询室里那么温和的苏医生……怎么会把自己折磨成这样？！',
         highlight: true,
         sfx: 'sfx_shock_sting'
@@ -160,7 +160,7 @@ export const CHAPTER26_STORY = {
         rightEmotion: 'default',
         activeSide: 'left',
         flashback: true,
-        bgImg: 'assets/art/cg_ayao_broken_pen@2x.png',
+        bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
         text: '他要给徐博和淑惠灌毒药……我冲上去，抢过那瓶毒药，自己仰头一口喝了……',
         highlight: true,
         sfx: 'sfx_shock_sting'

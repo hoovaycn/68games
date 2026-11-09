@@ -149,7 +149,8 @@ export const ART_EMOTION_FILES = {
   "liu": {
     "default": "adult_liu_default",
     "frown": "adult_liu_protective",
-    "smile": "adult_liu_relieved"
+    "smile": "adult_liu_relieved",
+    "cry": "adult_liu_crying"
   },
   "haifeng": {
     "default": "father_haifeng_default",

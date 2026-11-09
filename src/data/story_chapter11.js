@@ -166,7 +166,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2}',
         leftEmotion: 'frown',
         rightPortrait: 'haifeng',
-        rightEmotion: 'default',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '（眼神微微一缩，随即眉毛倒竖，恶狠狠抓起手边的扳手）死孩子？！谁让你跟过来的？！',
         sfx: 'sfx_shock_sting'
@@ -177,7 +177,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2}',
         leftEmotion: 'frown',
         rightPortrait: 'haifeng',
-        rightEmotion: 'smile',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '我以为你只是穷，只是嘴硬……我这次期末大考考进了班级前列，我把奖状带在身上想给你看啊！你为什么偏偏要当人渣？！',
         sfx: 'sfx_text_blip'
@@ -188,7 +188,7 @@ export const CHAPTER11_STORY = {
         leftPortrait: '{ALLY_2}',
         leftEmotion: 'frown',
         rightPortrait: 'haifeng',
-        rightEmotion: 'smile',
+        rightEmotion: 'frown',
         activeSide: 'right',
         text: '（一巴掌打掉{ALLY_2_NAME}手里的奖状，又踩了一脚）读书有什么用！老子做什么轮不到你管！二秃子，把他们赶出去，别让他们再进后仓！',
         highlight: true,

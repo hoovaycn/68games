@@ -230,7 +230,7 @@ export const CHAPTER30_STORY = {
         id: 6,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC}',
-        leftEmotion: 'default',
+        leftEmotion: 'frown',
         rightPortrait: 'xu-stealth',
         rightEmotion: 'default',
         activeSide: 'left',
@@ -242,9 +242,9 @@ export const CHAPTER30_STORY = {
         id: 7,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2}',
-        leftEmotion: 'default',
+        leftEmotion: 'frown',
         rightPortrait: '{MC}',
-        rightEmotion: 'default',
+        rightEmotion: 'frown',
         activeSide: 'left',
         text: '（红着眼，声音却格外坚定）还有那根浩然正气杖，就是林公当年亲手交到我们手里的！它护着我们走到了今天，这一次，也一定护得住我们！',
         highlight: true,
@@ -330,7 +330,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: '{MC}',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（金色虚影并肩站在成年主角身旁，拍了拍胸前空着的警徽位，声音坚定）还有我！[next]我们胸前这空着的位置，就是把警徽送回过去、换你们走到今天的证明。这一仗，谁都不许掉队！',
+        text: '（金色虚影并肩站在{MC_ADULT_NAME}身旁，拍了拍胸前空着的警徽位，声音坚定）还有我！[next]我们胸前这空着的位置，就是把警徽送回过去、换你们走到今天的证明。这一仗，谁都不许掉队！',
         highlight: true,
         sfx: 'sfx_confirm'
       },
@@ -483,7 +483,7 @@ export const CHAPTER30_STORY = {
         id: 8,
         speaker: '朱晏泽',
         leftPortrait: 'zhuyanze',
-        leftEmotion: 'default',
+        leftEmotion: 'cry',
         rightPortrait: 'ayao-adult',
         rightEmotion: 'cry',
         activeSide: 'left',
@@ -494,7 +494,7 @@ export const CHAPTER30_STORY = {
         id: 9,
         speaker: '{ALLY_1_NAME}',
         leftPortrait: '{ALLY_1}',
-        leftEmotion: 'default',
+        leftEmotion: 'cry',
         rightPortrait: 'ayao-adult',
         rightEmotion: 'cry',
         activeSide: 'left',
@@ -505,7 +505,7 @@ export const CHAPTER30_STORY = {
         id: 10,
         speaker: '{ALLY_2_NAME}',
         leftPortrait: '{ALLY_2}',
-        leftEmotion: 'default',
+        leftEmotion: 'cry',
         rightPortrait: 'ayao-adult',
         rightEmotion: 'cry',
         activeSide: 'left',
@@ -684,6 +684,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '缆绳断裂的瞬间，整台机器发出濒死的嗡鸣，随后轰然坍塌，化作漫天暗紫的光屑。阿瑶的身体也在那光雨中，一点点变得透明，最终化作一缕青烟，消散在江风里。',
         sfx: 'sfx_disaster_fire'
       },
@@ -694,6 +695,7 @@ export const CHAPTER30_STORY = {
         leftEmotion: 'cry',
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（从口袋里掏出一颗皱巴巴的糖，朝光屑散尽的方向伸出手，声音抖得不成样子）阿瑶老师……我还没请你吃糖呢……[next]等我以后开了小卖部，第一颗糖一定给你留着……',
         sfx: 'sfx_sad_melody'
       },
@@ -704,6 +706,7 @@ export const CHAPTER30_STORY = {
         leftEmotion: 'cry',
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（死死攥着胸前那枚警徽，哭得浑身发抖）阿瑶老师……我会当个好警察的！[next]沈家那些没算完的账，我一定一笔一笔替你讨回来！',
         sfx: 'sfx_sad_melody'
       },
@@ -714,6 +717,7 @@ export const CHAPTER30_STORY = {
         leftEmotion: 'cry',
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（抱着书，眼泪大颗大颗砸在地上）阿瑶老师……你还没看我当上医生呢……[next]我发誓，你教我们别走捷径，我会记一辈子。',
         sfx: 'sfx_sad_melody'
       },
@@ -724,6 +728,7 @@ export const CHAPTER30_STORY = {
         leftEmotion: 'cry',
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（狠狠抹了把脸，鼻音浓得发闷）阿瑶老师！我数学这次真能上九十分！[next]你、你在天上可得看着——我以后再也不抄作业了！',
         sfx: 'sfx_sad_melody'
       },
@@ -734,6 +739,7 @@ export const CHAPTER30_STORY = {
         leftEmotion: 'cry',
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（挺直腰杆，声音抖得厉害，却仍一字一顿）阿瑶老师……六8班，我会替你守住。[next]一个，都不许走歪。',
         sfx: 'sfx_sad_melody'
       },
@@ -745,6 +751,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'liu',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（扑上前，却只捞到一把散开的光屑，嘶声喊道）阿瑶——！你放心，你的学生们，一个都不会走歪路！',
         highlight: true,
         sfx: 'sfx_sad_melody'
@@ -753,10 +760,11 @@ export const CHAPTER30_STORY = {
         id: 19,
         speaker: '刘老师',
         leftPortrait: 'liu',
-        leftEmotion: 'default',
+        leftEmotion: 'cry',
         rightPortrait: '{MC}',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（把脸埋进掌心，声音哽咽）傻阿瑶……你到最后，都还在替别人扛……',
         sfx: 'sfx_sad_melody'
       },
@@ -766,6 +774,7 @@ export const CHAPTER30_STORY = {
         leftPortrait: null,
         rightPortrait: null,
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '江风卷走最后一片光屑，暗紫的天幕终于被撕开一道口子，透出一点破晓前的微光。',
         sfx: 'sfx_confirm'
       },
@@ -777,6 +786,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'liu',
         rightEmotion: 'default',
         activeSide: 'left',
+        bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
         text: '（攥紧拳头，仰起头，把眼泪逼回去）阿瑶老师，我们答应你。[next]不做向捷径低头的人——这是六8班，最后一道大题的答案。',
         highlight: true,
         sfx: 'sfx_confirm'
@@ -1020,8 +1030,8 @@ export const CHAPTER30_STORY = {
     transition: {
       type: 'CHOICE',
       prompt: '《六8班异闻录》全剧终。感谢游玩！',
-      buttonText: '【全剧终 · 返回标题主菜单】',
-      targetScene: 'title_screen'
+      buttonText: '【全剧终 · 终幕画卷】',
+      targetScene: 'finale_screen'
     }
   }
 };
