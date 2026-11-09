@@ -210,8 +210,7 @@ export const ART_EMOTION_FILES = {
   "ayao-adult": {
     "default": "ayao_adult_default",
     "cry": "ayao_adult_tearful",
-    "smile": "ayao_adult_smile",
-    "dissolve": "ayao_adult_dissolve"
+    "smile": "ayao_adult_smile"
   },
   "ayao-adult-dissolve": {
     "default": "ayao_adult_dissolve"
