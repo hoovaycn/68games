@@ -689,6 +689,56 @@ export const CHAPTER30_STORY = {
       },
       {
         id: 13,
+        speaker: '{ALLY_1_NAME}',
+        leftPortrait: '{ALLY_1}',
+        leftEmotion: 'cry',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（从口袋里掏出一颗皱巴巴的糖，朝光屑散尽的方向伸出手，声音抖得不成样子）阿瑶老师……我还没请你吃糖呢……[next]等我以后开了小卖部，第一颗糖一定给你留着……',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 14,
+        speaker: '{ALLY_2_NAME}',
+        leftPortrait: '{ALLY_2}',
+        leftEmotion: 'cry',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（死死攥着胸前那枚警徽，哭得浑身发抖）阿瑶老师……我会当个好警察的！[next]沈家那些没算完的账，我一定一笔一笔替你讨回来！',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 15,
+        speaker: '覃瑞怡',
+        leftPortrait: 'qinruiyi',
+        leftEmotion: 'cry',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（抱着书，眼泪大颗大颗砸在地上）阿瑶老师……你还没看我当上医生呢……[next]我发誓，你教我们别走捷径，我会记一辈子。',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 16,
+        speaker: '张希哲',
+        leftPortrait: 'zhangxizhe',
+        leftEmotion: 'cry',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（狠狠抹了把脸，鼻音浓得发闷）阿瑶老师！我数学这次真能上九十分！[next]你、你在天上可得看着——我以后再也不抄作业了！',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 17,
+        speaker: '朱晏泽',
+        leftPortrait: 'zhuyanze',
+        leftEmotion: 'cry',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（挺直腰杆，声音抖得厉害，却仍一字一顿）阿瑶老师……六8班，我会替你守住。[next]一个，都不许走歪。',
+        sfx: 'sfx_sad_melody'
+      },
+      {
+        id: 18,
         speaker: '徐老师',
         leftPortrait: 'xu-stealth',
         leftEmotion: 'cry',
@@ -700,7 +750,7 @@ export const CHAPTER30_STORY = {
         sfx: 'sfx_sad_melody'
       },
       {
-        id: 14,
+        id: 19,
         speaker: '刘老师',
         leftPortrait: 'liu',
         leftEmotion: 'default',
@@ -711,7 +761,7 @@ export const CHAPTER30_STORY = {
         sfx: 'sfx_sad_melody'
       },
       {
-        id: 15,
+        id: 20,
         speaker: '系统提示',
         leftPortrait: null,
         rightPortrait: null,
@@ -720,7 +770,7 @@ export const CHAPTER30_STORY = {
         sfx: 'sfx_confirm'
       },
       {
-        id: 16,
+        id: 21,
         speaker: '{MC_NAME}',
         leftPortrait: '{MC}',
         leftEmotion: 'default',
