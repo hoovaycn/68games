@@ -19,7 +19,7 @@ export class FinaleScreen {
     this.state = 'IDLE'; // IDLE | FADE_IN | DISPLAY | FADE_OUT | DONE
     this.stateStartTime = 0;
     this.bgImgSrc = 'assets/backgrounds/bg_grand_finale_fin@2x.png';
-    this.bgImgFallback = 'assets/backgrounds/bg_grand_finale_fin.png';
+    this.bgImgFallback = 'assets/backgrounds/bg_grand_finale_fin@2x.png';
 
     // 预加载
     assetLoader.loadWithChromaKey(this.bgImgSrc);
@@ -113,7 +113,8 @@ export class FinaleScreen {
 
   drawArtContent(ctx, w, h) {
     const img = assetLoader.getImage(this.bgImgSrc) || assetLoader.getImage(this.bgImgFallback);
-    const hasImage = img && img.complete && img.naturalWidth > 0;
+    // getImage 返回的是色键处理后的 canvas（非 Image），判断用 width/height 而非 complete/naturalWidth
+    const hasImage = img && img.width > 0 && img.height > 0;
 
     if (hasImage) {
       // 美术成品图全屏铺满适配

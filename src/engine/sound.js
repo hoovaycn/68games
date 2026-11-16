@@ -4,11 +4,26 @@
  * 2. 所有音效（含战斗打击音效）统一走真实 mp3 素材，命名规范 sfx_*.mp3，
  *    由 combat_exchange 时间轴按需触发，保证战斗音效口径一致
  */
+
+// 缺失 SFX 别名：第三幕引用了尚未交付的素材，先指向已有音效；素材交付后删掉对应行即可
+const SFX_ALIASES = {
+  sfx_explosion: 'sfx_glass_shatter',
+  sfx_disaster_fire: 'sfx_suspense',
+  sfx_dialogue_important: 'sfx_phone_msg'
+};
+
+// 各目录音频扩展名探测顺序：BGM 优先 ogg（无缝循环）；SFX 多为 mp3，优先 mp3 减少 404 往返
+const EXT_PROBE_ORDER = {
+  bgm: ['.ogg', '.mp3', '.wav'],
+  sfx: ['.mp3', '.wav', '.ogg']
+};
+
 export class SoundManager {
   constructor() {
     this.bgmAudio = null;
     this.currentBgmName = null;
     this.sfxCache = {};
+    this.bgmCache = {};
     this.bgmVolume = 0.65;
     this.sfxVolume = 0.85;
     this.userInteracted = false;
@@ -21,7 +36,7 @@ export class SoundManager {
     }
   }
 
-  // 播放或切换 BGM（自动探测扩展名：.ogg 优先，其次 .mp3、.wav）
+  // 播放或切换 BGM（自动探测扩展名）
   playBgm(bgmName, loop = true) {
     // Node / 无窗口环境（selftest 引用组件层时）直接跳过，避免 Audio 未定义炸栈
     if (typeof window === 'undefined') return;
@@ -36,20 +51,24 @@ export class SoundManager {
     }
 
     this.currentBgmName = bgmName;
-    const audio = new Audio();
+    let audio = this.bgmCache[bgmName];
+    if (!audio) {
+      audio = new Audio();
+      audio.volume = this.bgmVolume;
+      this.bgmCache[bgmName] = audio;
+      this._loadWithFallback(audio, 'bgm', bgmName);
+    }
     audio.loop = loop;
-    audio.volume = this.bgmVolume;
     this.bgmAudio = audio;
-    this._loadWithFallback(audio, 'bgm', bgmName);
 
     if (this.userInteracted) {
       audio.play().catch(e => console.log('BGM play deferred', e));
     }
   }
 
-  // 依次尝试 .ogg / .mp3 / .wav，加载失败自动回退到下一个扩展名
+  // 依次尝试扩展名，加载失败自动回退到下一个扩展名
   _loadWithFallback(audio, dir, name, onRetryPlay) {
-    const exts = ['.ogg', '.mp3', '.wav'];
+    const exts = EXT_PROBE_ORDER[dir] || ['.ogg', '.mp3', '.wav'];
     let i = 0;
     const loadNext = () => {
       if (i >= exts.length) return;
@@ -72,11 +91,12 @@ export class SoundManager {
     this.currentBgmName = null;
   }
 
-  // 播放短促音效（自动探测扩展名：.ogg / .mp3 / .wav）
+  // 播放短促音效（自动探测扩展名）
   playSfx(sfxName) {
     // Node / 无窗口环境（selftest 引用组件层时）直接跳过，避免 Audio 未定义炸栈
     if (typeof window === 'undefined') return;
 
+    sfxName = SFX_ALIASES[sfxName] || sfxName;
     let sound = this.sfxCache[sfxName];
 
     if (!sound) {
@@ -98,6 +118,28 @@ export class SoundManager {
         promise.catch(() => {});
       }
     } catch (e) {}
+  }
+
+  // 静默预加载：章节切换空闲期提前拉取，避免进入场景后才开始下载
+  preloadBgm(bgmName) {
+    if (typeof window === 'undefined' || !bgmName) return;
+    if (this.bgmCache[bgmName]) return;
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.volume = this.bgmVolume;
+    this.bgmCache[bgmName] = audio;
+    this._loadWithFallback(audio, 'bgm', bgmName);
+  }
+
+  preloadSfx(sfxName) {
+    if (typeof window === 'undefined' || !sfxName) return;
+    sfxName = SFX_ALIASES[sfxName] || sfxName;
+    if (this.sfxCache[sfxName]) return;
+    const sound = new Audio();
+    sound.preload = 'auto';
+    sound.volume = this.sfxVolume;
+    this.sfxCache[sfxName] = sound;
+    this._loadWithFallback(sound, 'sfx', sfxName);
   }
 }
 

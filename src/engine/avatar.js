@@ -153,13 +153,12 @@ export const ART_EMOTION_FILES = {
     "cry": "adult_liu_crying"
   },
   "haifeng": {
-    "default": "father_haifeng_default",
-    "frown": "father_haifeng_alert",
-    "smile": "father_haifeng_loving"
+    "default": "father_haifeng_default"
   },
   "haifeng-police": {
     "default": "father_haifeng_police",
     "frown": "father_haifeng_police_alert",
+    "smile": "father_haifeng_loving",
     "cry": "father_haifeng_police_tearful"
   },
   "haifeng-police_damaged": {
@@ -737,7 +736,7 @@ export function normalizePortraitRef(raw) {
  * opts.state 显式请求；opts.density 指定 '2x' 时连存量字段也会重打双密度。
  */
 export function portraitForUnit(u, opts = {}) {
-  const density = densityOf(opts.density);
+  const density = densityOf(opts.density ?? DENSITY_2X);
 
   if (u && typeof u === 'object') {
     for (const key of [u.enemyId, u.unitId, u.id]) {
@@ -767,7 +766,7 @@ export function portraitForUnit(u, opts = {}) {
  * assetLoader.getImage 返回 null，由 UI 层画占位框。
  */
 export function artForUnit(u, opts = {}) {
-  const density = densityOf(opts.density);
+  const density = densityOf(opts.density ?? DENSITY_2X);
   const state = opts.state || DEFAULT_STATE;
 
   if (u && typeof u === 'object') {

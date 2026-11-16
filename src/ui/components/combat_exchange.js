@@ -512,7 +512,7 @@ export class CombatExchange extends ModalBase {
   _renderVs() {
     const ctx = this.ctx;
     const vs = this.cards.vs;
-    const img = assetLoader.getImage('assets/ui/ui_vs_badge.png');
+    const img = assetLoader.getImage('assets/ui/ui_vs_badge@2x.png');
     if (img) {
       // 贴图 64×64 内主体直径 48，按 vs.r 等比缩放（含四周 8px 光晕余量）
       const size = vs.r * 8 / 3;
@@ -626,9 +626,9 @@ export class CombatExchange extends ModalBase {
   /** 命中特效贴图：暴击/命中/MISS 三种美术元素闪动显示（缺失时回落文字伤害数字） */
   _drawStrikeImage(kind, card) {
     const srcMap = {
-      crit: 'assets/ui/ui_crit.png',
-      hit: 'assets/ui/ui_hit.png',
-      miss: 'assets/ui/ui_miss.png',
+      crit: 'assets/ui/ui_crit@2x.png',
+      hit: 'assets/ui/ui_hit@2x.png',
+      miss: 'assets/ui/ui_miss@2x.png',
     };
     const src = srcMap[kind];
     if (!src) return;

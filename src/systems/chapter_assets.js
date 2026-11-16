@@ -7,6 +7,7 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
   const scenes = new Set();
   const battleIds = new Set();
   const images = new Set();
+  const audio = new Set();
   const tilesets = new Map();
   const queue = [entry];
   const protagonist = route === 'female' ? 'shiyunuo' : 'zhangzixiao';
@@ -30,6 +31,9 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
     if (!src) return;
     images.add(src);
   };
+  const addAudio = id => {
+    if (id) audio.add(id);
+  };
   const addArt = (actor, emotion) => {
     if (!actor) return;
     const resolved = actorRefs[actor] ?? actor;
@@ -45,8 +49,11 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
     scenes.add(key);
     add(scene.bgImg);
     add(scene.bgImgFallback);
+    addAudio(scene.bgm);
     for (const line of scene.dialogues || []) {
       add(line.bgImg);
+      addAudio(line.bgm);
+      addAudio(line.sfx);
       if (!line.hidePortraits) {
         addArt(line.leftPortrait, line.leftEmotion);
         addArt(line.rightPortrait, line.rightEmotion);
@@ -57,6 +64,7 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
       const battle = battles[transition.battleId];
       if (battle && !battleIds.has(transition.battleId)) {
         battleIds.add(transition.battleId);
+        addAudio(battle.bgm);
         for (const deploy of battle.playerDeploy || []) {
           let id = deploy.unitId;
           if (id === '{MC_ID}' || id === 'zhangzixiao') id = protagonist;
@@ -97,5 +105,5 @@ export function collectChapterAssets(entry, story, battles, chapterEntries, rout
     }
     queue.push(transition.targetScene);
   }
-  return { scenes, battleIds, images, tilesets: [...tilesets.values()] };
+  return { scenes, battleIds, images, audio: [...audio], tilesets: [...tilesets.values()] };
 }

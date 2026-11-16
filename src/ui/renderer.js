@@ -304,6 +304,16 @@ export class Renderer {
     ctx.fillText(`${aliveEnemies} 人`, enemyStatX + 28, statRowY + 11);
   }
 
+  // 返回【敌N人】统计区域（用于开发者秘籍点击检测）
+  getEnemyStatRect() {
+    const statRowH = 64;
+    const statsY = this.panelY + this.panelH - statRowH - 16;
+    const statRowY = statsY + 22;
+    const enemyStatX = this.hudX + Math.floor(this.hudW / 2) + 2;
+    // 覆盖"敌"字块 + "N 人"文字，加少量容错
+    return { x: enemyStatX, y: statRowY - 4, w: 62, h: 30 };
+  }
+
   // ==================== 地砖层 ====================
 
   drawMap(gridSystem, state) {

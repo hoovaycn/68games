@@ -75,7 +75,7 @@ export class VictoryModal {
     const stampX = x + boxW - 92;
     const stampY = y + 150;
 
-    const rankImg = assetLoader.getImage(`assets/ui/ui_rank_${rankText.toLowerCase()}.png`);
+    const rankImg = assetLoader.getImage(`assets/ui/ui_rank_${rankText.toLowerCase()}@2x.png`);
     if (rankImg) {
       // 贴图 96×96 内主体直径 68 居中（≈ 原 arc r=34）
       const stampSize = 96;

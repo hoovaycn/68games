@@ -20,21 +20,21 @@ export const CH22_BATTLE1 = {
   props: [],
 
   playerDeploy: [
-    { unitId: 'zhangzixiao', x: 2, y: 2 },
-    { unitId: 'zhanghanyu', x: 2, y: 4 },
-    { unitId: 'fanwenmo', x: 2, y: 6 },
-    { unitId: 'zhangxizhe', x: 3, y: 3 },
-    { unitId: 'qinruiyi', x: 3, y: 5 },
-    { unitId: 'zhuyanze', x: 1, y: 3 },
-    { unitId: 'xu_laoshi', x: 1, y: 5 }
+    { unitId: 'zhangzixiao', x: 1, y: 2 },
+    { unitId: 'zhanghanyu', x: 0, y: 3 },
+    { unitId: 'fanwenmo', x: 1, y: 6 },
+    { unitId: 'zhangxizhe', x: 1, y: 4 },
+    { unitId: 'qinruiyi', x: 0, y: 5 },
+    { unitId: 'zhuyanze', x: 0, y: 1 },
+    { unitId: 'xu_laoshi', x: 0, y: 7 }
   ],
 
   enemyDeploy: [
-    { enemyId: 'boss_viper_smuggler', instanceId: 'boss_viper', x: 13, y: 4 },
-    { enemyId: 'sailor_berserk', instanceId: 'sailor_1', x: 12, y: 3 },
-    { enemyId: 'sailor_berserk', instanceId: 'sailor_2', x: 12, y: 5 },
-    { enemyId: 'sniper_dock', instanceId: 'sniper_1', x: 14, y: 2 },
-    { enemyId: 'sniper_dock', instanceId: 'sniper_2', x: 14, y: 6 }
+    { enemyId: 'boss_viper_smuggler', instanceId: 'boss_viper', x: 15, y: 5 },
+    { enemyId: 'sailor_berserk', instanceId: 'sailor_1', x: 15, y: 7 },
+    { enemyId: 'sailor_berserk', instanceId: 'sailor_2', x: 15, y: 9 },
+    { enemyId: 'sniper_dock', instanceId: 'sniper_1', x: 15, y: 1 },
+    { enemyId: 'sniper_dock', instanceId: 'sniper_2', x: 15, y: 3 }
   ],
 
   objective: {
@@ -43,5 +43,495 @@ export const CH22_BATTLE1 = {
   },
 
   nextStorySceneOnWin: 'ch22_scene_reverse_ambush',
-  tiledData: null
+  tiledData: {
+  "visualWidth": 16,
+  "visualHeight": 10,
+  "bgGrid": [
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ],
+    [
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123,
+      123
+    ]
+  ],
+  "decGrid": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      217,
+      217,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "tilesets": [
+    {
+      "name": "Tileset_48x48_9",
+      "firstgid": 1,
+      "src": "assets/tiles/modern_free/Tileset_48x48_9.png",
+      "cols": 10,
+      "total": 100,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt481",
+      "firstgid": 101,
+      "src": "assets/tiles/tiled_import/b25f7deed48a-a5_modern_exterior.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt482",
+      "firstgid": 229,
+      "src": "assets/tiles/tiled_import/7d21016c1dcd-a5_sewer.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt483",
+      "firstgid": 357,
+      "src": "assets/tiles/tiled_import/84f489ec09d4-a5_valley.png",
+      "cols": 8,
+      "total": 128,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt484",
+      "firstgid": 485,
+      "src": "assets/tiles/tiled_import/3c79a7c23b84-b_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    },
+    {
+      "name": "nt485",
+      "firstgid": 741,
+      "src": "assets/tiles/tiled_import/8452e4593650-c_interior.png",
+      "cols": 16,
+      "total": 256,
+      "tileW": 48,
+      "tileH": 48
+    }
+  ],
+  "collisions": [
+    {
+      "x": 5,
+      "y": 0
+    },
+    {
+      "x": 6,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "y": 1
+    },
+    {
+      "x": 6,
+      "y": 1
+    },
+    {
+      "x": 5,
+      "y": 2
+    },
+    {
+      "x": 6,
+      "y": 2
+    },
+    {
+      "x": 5,
+      "y": 3
+    },
+    {
+      "x": 6,
+      "y": 3
+    },
+    {
+      "x": 9,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 10,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 9,
+      "y": 9
+    },
+    {
+      "x": 10,
+      "y": 9
+    }
+  ],
+  "zones": {}
+}
 };

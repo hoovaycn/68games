@@ -392,7 +392,7 @@ export const CHAPTER13_STORY = {
       {
         id: 7,
         speaker: '老爸海峰',
-        leftPortrait: 'haifeng',
+        leftPortrait: 'haifeng-police',
         leftEmotion: 'frown',
         rightPortrait: 'berserker_guard',
         rightEmotion: 'default',

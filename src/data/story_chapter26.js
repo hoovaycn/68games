@@ -147,9 +147,23 @@ export const CHAPTER26_STORY = {
         flashback: true,
         bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
-        text: '（气若游丝，像在梦呓）四十年前……就在这座城的地下水闸里……[next]我看见沈万廷用铁链，捆着我最好的朋友徐博和淑惠……',
+        text: '（气若游丝，像在梦呓）四十年前……就在这座城的地下水闸里……[next]沈万廷抓住了徐博和淑惠，拿他们逼我……',
         highlight: true,
         sfx: 'sfx_suspense'
+      },
+      {
+        id: 16,
+        speaker: '沈万廷（投影）',
+        leftPortrait: 'shen_wanting',
+        leftEmotion: 'default',
+        rightPortrait: null,
+        activeSide: 'left',
+        flashback: true,
+        bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
+        text: '（全息投影里，当年的沈万廷从水闸阴影中踱出，把一包零食递到阿瑶面前，冷笑）这就是外头卖疯了的「提分药」。[next]吃了它，你永远考第一；不吃，你这两个好朋友，一个都别想活着走出这水闸。',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
       },
       {
         id: 2,
@@ -161,9 +175,23 @@ export const CHAPTER26_STORY = {
         activeSide: 'left',
         flashback: true,
         bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
-        text: '他要给徐博和淑惠灌毒药……我冲上去，抢过那瓶毒药，自己仰头一口喝了……',
+        text: '为了护住徐博和淑惠的命，我当着他的面，把那包零食一口一口咽了下去……',
         highlight: true,
         sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 17,
+        speaker: '少年阿瑶（投影）',
+        leftPortrait: 'ayao',
+        leftEmotion: 'default',
+        rightPortrait: null,
+        activeSide: 'left',
+        flashback: true,
+        bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
+        bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
+        text: '（投影里，少女阿瑶浑身发抖，却还是接过零食，仰头吞下，冲着徐博和淑惠嘶喊）你们快走！走啊！[next]别回头……就当，从没认识过我……',
+        highlight: true,
+        sfx: 'sfx_sad_melody'
       },
       {
         id: 3,
@@ -175,7 +203,7 @@ export const CHAPTER26_STORY = {
         flashback: true,
         bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
-        text: '又转身冲着他们吼“滚”，装成投靠沈家的叛徒……[next]只有这样，他们才肯信我是真的背叛，才肯活着离开……',
+        text: '可我没想到，那药的劲头太猛了。[next]我想回头去追他们，可一张嘴，说出来的却成了「谁也别想抢走我的第一名」……我控制不住自己，真的变成了那个只认分数、六亲不认的怪物……',
         highlight: true,
         sfx: 'sfx_text_blip'
       },
@@ -189,7 +217,7 @@ export const CHAPTER26_STORY = {
         flashback: true,
         bgImg: 'assets/backgrounds/bg_sluice_basement_2006@2x.png',
         bgImgFallback: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
-        text: '可从那以后，我就被沈万廷带上了三号船。[next]毒素烂掉了我半条命，全城的人却都骂我——[next]说我是为了一个满分，连朋友都出卖的畜生……',
+        text: '再后来，我被沈万廷带上了三号船，被那药熬得半死。[next]全城的人却都骂我，说我是为了一个满分，连朋友都出卖的畜生……',
         highlight: true,
         sfx: 'sfx_sad_melody'
       },
@@ -258,7 +286,7 @@ export const CHAPTER26_STORY = {
         rightEmotion: 'default',
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_stasis_chamber@2x.png',
-        text: '（泪水夺眶而出，声音发颤）怎么会是这样……[next]徐老师内疚了整整二十年，全校都以为阿瑶老师是背叛者……[next]原来她是替老师吞下了毒药，把自己献祭给了深渊！',
+        text: '（泪水夺眶而出，声音发颤）怎么会是这样……[next]徐老师内疚了整整二十年，全校都以为阿瑶老师是背叛者……[next]原来她是为了保护徐老师他们，被逼着吞下那药，把自己搭了进去！',
         highlight: true,
         sfx: 'sfx_shock_sting'
       },

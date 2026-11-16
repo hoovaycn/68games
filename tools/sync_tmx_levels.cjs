@@ -325,7 +325,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch23_battle1',
     tmx: 'docs/map/tiled_project/ch23_battle1.tmx',
     js: 'src/data/chapters/ch23_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'father_haifeng'],
     enemyUnits: [
       { enemyId: 'shadow_parasite', instanceId: 'parasite_1' },
       { enemyId: 'shadow_parasite', instanceId: 'parasite_2' },
@@ -351,7 +351,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch25_battle1',
     tmx: 'docs/map/tiled_project/ch25_battle1.tmx',
     js: 'src/data/chapters/ch25_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'mc_adult_zixiao', 'fanwenmo_adult'],
     enemyUnits: [
       { enemyId: 'boss_hunter_alpha', instanceId: 'boss_hunter' },
       { enemyId: 'patrol_robot_exam', instanceId: 'robot_1' },
@@ -364,7 +364,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch26_battle1',
     tmx: 'docs/map/tiled_project/ch26_battle1.tmx',
     js: 'src/data/chapters/ch26_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'mc_adult_zixiao', 'fanwenmo_adult'],
     enemyUnits: [
       { enemyId: 'boss_ai_topstudent', instanceId: 'boss_ai' },
       { enemyId: 'boss_storm_mech', instanceId: 'storm_mech_1' },
@@ -377,7 +377,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch27_battle1',
     tmx: 'docs/map/tiled_project/ch27_battle1.tmx',
     js: 'src/data/chapters/ch27_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['mc_adult_zixiao', 'fanwenmo_adult'],
     enemyUnits: [
       { enemyId: 'boss_storm_mech', instanceId: 'mech_vanguard' },
       { enemyId: 'alloy_deathsworn', instanceId: 'deathsworn_1' },
@@ -403,7 +403,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch29_battle1',
     tmx: 'docs/map/tiled_project/ch29_battle1.tmx',
     js: 'src/data/chapters/ch29_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'xu_laoshi', 'liu_laoshi', 'father_haifeng'],
     enemyUnits: [
       { enemyId: 'ayao_corrupted_god', instanceId: 'ayao_god' },
       { enemyId: 'pillar_neural_lock', instanceId: 'pillar_1' },
@@ -416,7 +416,7 @@ const CHAPTER_CONFIGS = [
     id: 'ch30_battle1',
     tmx: 'docs/map/tiled_project/ch30_battle1.tmx',
     js: 'src/data/chapters/ch30_battle1.js',
-    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze'],
+    playerUnits: ['zhangzixiao', 'zhanghanyu', 'fanwenmo', 'zhangxizhe', 'qinruiyi', 'zhuyanze', 'xu_laoshi', 'liu_laoshi', 'father_haifeng'],
     enemyUnits: [
       { enemyId: 'boss_judgement_core', instanceId: 'boss_judgement' },
       { enemyId: 'capital_guard_mech', instanceId: 'mech_guard_1' },
@@ -745,8 +745,10 @@ async function syncTmx(config) {
 
   const tiledJson = JSON.stringify(tiledData, null, 2);
 
-  // 安全替换或注入 tiledData（严格匹配并替换原有 tiledData）
-  if (jsContent.includes('tiledData:')) {
+  // 安全替换或注入 tiledData（兼容 null 与对象两种旧写法）
+  if (/tiledData:\s*null/.test(jsContent)) {
+    jsContent = jsContent.replace(/tiledData:\s*null/, `tiledData: ${tiledJson}`);
+  } else if (/tiledData:\s*\{/.test(jsContent)) {
     jsContent = jsContent.replace(/tiledData:\s*\{[\s\S]*?\n\}(?=\s*[,;\n])/m, `tiledData: ${tiledJson}`);
   } else {
     jsContent = jsContent.replace(/\n\};?\s*$/, `,\n  tiledData: ${tiledJson}\n};\n`);

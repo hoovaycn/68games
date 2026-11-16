@@ -445,7 +445,16 @@ export class GameApp {
         if (!active()) return;
         await tiledManager.loadTileset(ts, 45000);
       }
+      if (active()) this.preloadChapterAudio(next);
     })();
+  }
+
+  preloadChapterAudio(plan) {
+    if (!plan || typeof window === 'undefined') return;
+    for (const id of plan.assets.audio) {
+      if (id.startsWith('bgm_')) sound.preloadBgm(id);
+      else if (id.startsWith('sfx_')) sound.preloadSfx(id);
+    }
   }
 
   prepareChapter(sceneKey, onReady) {
@@ -453,6 +462,7 @@ export class GameApp {
     if (!plan || this.chapterReady === plan.entry) return false;
     this.cancelChapterPrefetch();
     const { images, tilesets } = plan.assets;
+    this.preloadChapterAudio(plan);
     // Release previous chapter canvases before decoding the next chapter.
     for (const src of Object.keys(assetLoader.cache)) {
       if (!images.has(src) && src !== ATLAS_CONFIG.sheetSrc) delete assetLoader.cache[src];
@@ -514,8 +524,8 @@ export class GameApp {
       'assets/backgrounds/bg_title@2x.png',
       'assets/backgrounds/title_logo@2x.png',
       'assets/backgrounds/bg_classroom@2x.png',
-      'assets/art/zhangzixiao_default.png',
-      'assets/art/shiyunuo_default.png'
+      'assets/art/zhangzixiao_default@2x.png',
+      'assets/art/shiyunuo_default@2x.png'
     ]);
   }
 
@@ -697,6 +707,27 @@ export class GameApp {
 
     console.log("【开发者秘籍】F2 触发：敌方全灭，战斗胜利！");
     this.checkBattleEnd();
+  }
+
+  /**
+   * 开发者秘籍：战斗界面连续点击【敌N人】区域 6 次 → 即时战斗胜利。
+   * 返回 true 表示本次点击命中了该区域（由调用方吞掉点击）。
+   */
+  handleCheatEnemyStatClick(clickX, clickY) {
+    if (this.stage !== 'STAGE_BATTLE' || !this.renderer) return false;
+    const rect = this.renderer.getEnemyStatRect();
+    if (!rect) return false;
+    if (clickX >= rect.x && clickX <= rect.x + rect.w &&
+        clickY >= rect.y && clickY <= rect.y + rect.h) {
+      this.cheatEnemyStatClicks = (this.cheatEnemyStatClicks || 0) + 1;
+      if (this.cheatEnemyStatClicks >= 6) {
+        this.cheatEnemyStatClicks = 0;
+        this.triggerInstantBattleVictory();
+      }
+      return true;
+    }
+    this.cheatEnemyStatClicks = 0;
+    return false;
   }
 
   /**
@@ -1511,6 +1542,9 @@ export class GameApp {
         }
         return;
       }
+
+      // ★ 开发者秘籍：连续点击【敌N人】区域 6 次 → 即时胜利（吞掉点击）
+      if (this.handleCheatEnemyStatClick(clickX, clickY)) return;
 
       this.handleBattleConfirm(clickX, clickY);
     });

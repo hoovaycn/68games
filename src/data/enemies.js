@@ -733,7 +733,7 @@ export const ENEMIES = {
     level: 13,
     bonusHp: 15,
     equippedWeapon: 'mop',
-    portrait: 'assets/portraits/porter_blueeye.png',
+    portrait: 'assets/portraits/porter_blueeye@2x.png',
     walkSprite: 'assets/sprites/placeholder/walk_placeholder_red@2x.png',
     themeColor: '#1e3a8a',
     bio: '码头装卸工打扮，双眼泛着幽绿青光，面部肌肉僵硬，动作机械沉重，被沈家残余势力强行驱使。',

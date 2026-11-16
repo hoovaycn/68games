@@ -166,7 +166,7 @@ export const HUMEN_ORIGIN_STORY = {
       {
         id: 8,
         speaker: '老爸海峰',
-        leftPortrait: 'haifeng',
+        leftPortrait: 'haifeng-police',
         leftEmotion: 'frown',
         rightPortrait: '{MC}',
         rightEmotion: 'frown',

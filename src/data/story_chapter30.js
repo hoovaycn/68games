@@ -356,6 +356,37 @@ export const CHAPTER30_STORY = {
         text: '（抄起铁管与教案夹并肩站立）人大附小六8班全体同学！人生最硬的一道大题，交卷了！！',
         highlight: true,
         sfx: 'sfx_confirm'
+      },
+      {
+        id: 9,
+        speaker: '净化母体核心',
+        leftPortrait: 'boss_judgement_core',
+        leftEmotion: 'default',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（巨大半球形机械中枢盘踞穹顶，紫黑机械复眼暴闪）浩然正气？不过是一串过时的数据！[next]净化程序最终阶段，启动——把这一切连同江面，全部清零！',
+        highlight: true,
+        sfx: 'sfx_shock_sting'
+      },
+      {
+        id: 10,
+        speaker: '净化机械守卫',
+        leftPortrait: 'capital_guard_mech',
+        leftEmotion: 'default',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（双臂电磁震荡盾牌重重一顿，金属音低沉）清除所有外来干扰源！护卫核心！',
+        sfx: 'sfx_text_blip'
+      },
+      {
+        id: 11,
+        speaker: '合金自律死士',
+        leftPortrait: 'alloy_deathsworn',
+        leftEmotion: 'default',
+        rightPortrait: null,
+        activeSide: 'left',
+        text: '（合金躯体整齐列阵，机械眼泛起红光）执行净化命令……抹除……全部抹除……！',
+        sfx: 'sfx_text_blip'
       }
     ],
     transition: {
@@ -696,7 +727,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
-        text: '（从口袋里掏出一颗皱巴巴的糖，朝光屑散尽的方向伸出手，声音抖得不成样子）阿瑶老师……我还没请你吃糖呢……[next]等我以后开了小卖部，第一颗糖一定给你留着……',
+        text: '（把一颗皱巴巴的糖捧在掌心，朝光屑散尽的方向伸出手，声音抖得不成样子）阿瑶老师……您给的糖，我们没吃。[next]我们知道，您不是真的想害我们。',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -707,7 +738,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
-        text: '（死死攥着胸前那枚警徽，哭得浑身发抖）阿瑶老师……我会当个好警察的！[next]沈家那些没算完的账，我一定一笔一笔替你讨回来！',
+        text: '（死死攥着胸前那枚警徽，哭得浑身发抖）阿瑶老师……我爸说，警察是保护别人的。[next]您也是这样，一直护着我们。',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -718,7 +749,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
-        text: '（抱着书，眼泪大颗大颗砸在地上）阿瑶老师……你还没看我当上医生呢……[next]我发誓，你教我们别走捷径，我会记一辈子。',
+        text: '（眼泪大颗大颗砸在书页上）阿瑶老师……您不是坏人，您是被那台机器害的。[next]对不起……我们没能早点救您。',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -729,7 +760,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
-        text: '（狠狠抹了把脸，鼻音浓得发闷）阿瑶老师！我数学这次真能上九十分！[next]你、你在天上可得看着——我以后再也不抄作业了！',
+        text: '（狠狠抹了把脸，鼻音浓得发闷）阿瑶老师！我再也不抄作业了！[next]以后都凭自己的本事做！您在天上看着。',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -740,7 +771,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: null,
         activeSide: 'left',
         bgImg: 'assets/backgrounds/bg_ayao_golden_dissolve@2x.png',
-        text: '（挺直腰杆，声音抖得厉害，却仍一字一顿）阿瑶老师……六8班，我会替你守住。[next]一个，都不许走歪。',
+        text: '（挺直腰杆，声音抖得厉害，却仍一字一顿）阿瑶老师……六8班，我替您守着。[next]一个都不许走歪。这是您交给我们的。',
         sfx: 'sfx_sad_melody'
       },
       {
@@ -888,7 +919,7 @@ export const CHAPTER30_STORY = {
       {
         id: 3,
         speaker: '海峰警官',
-        leftPortrait: 'haifeng',
+        leftPortrait: 'haifeng-police',
         leftEmotion: 'smile',
         rightPortrait: '{ALLY_2}',
         rightEmotion: 'default',
@@ -948,7 +979,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'qinruiyi',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（颠着足球，眼睛发亮）你们信不信，我这学期数学能上九十分！[next]阿瑶老师在天上看着呢，我可不敢再抄作业了。',
+        text: '（颠着足球，一脸得意）我宣布，这学期数学要冲九十分！[next]考不到我请全班吃辣条；考到了，你们管我叫"数学小天才"就行。',
         sfx: 'sfx_confirm'
       },
       {
@@ -959,7 +990,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'zhangxizhe',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（抱着书，笑得眼睛弯弯）我要当医生。[next]以后再有像阿瑶老师那样被坏东西缠上的人，我就去把他们一个个拉回来。',
+        text: '（抱着书，笑得眼睛弯弯）我要当医生。[next]以后谁再被逼着走歪路，我就把他拉回来。',
         sfx: 'sfx_confirm'
       },
       {
@@ -970,7 +1001,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'qinruiyi',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（推了推并不存在的眼镜，一本正经）我当班长，管他们。[next]谁不交作业，我就把阿瑶老师那句"别走捷径"贴他脑门上。',
+        text: '（推了推并不存在的眼镜，一本正经）我当班长，就一条班规——[next]谁想抄作业，我就把他拎到"别走捷径"四个字底下罚站。',
         sfx: 'sfx_confirm'
       },
       {
@@ -981,7 +1012,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: 'zhuyanze',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（咬着冰棍，含糊不清）我想开家小卖部。[next]让每个考砸的小孩，都能分到一颗"再来一次"的糖。',
+        text: '（咬着冰棍，含糊不清）我开小卖部，招牌就叫"再来一次"。[next]考砸的小孩进来，先吃颗糖，擦干眼泪，把卷子重做一遍。',
         sfx: 'sfx_confirm'
       },
       {
@@ -992,7 +1023,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: '{ALLY_1}',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（把一枚警徽别在胸口，挺起胸膛）我要当警察。[next]像我爸那样，把当年沈家没算完的账，一笔一笔算清楚。',
+        text: '（把警徽别在胸口，挺起胸膛）我当警察，跟我爸一样。[next]谁欺负咱们班的孩子，我第一个不答应。',
         sfx: 'sfx_confirm'
       },
       {
@@ -1003,7 +1034,7 @@ export const CHAPTER30_STORY = {
         rightPortrait: '{ALLY_2}',
         rightEmotion: 'default',
         activeSide: 'left',
-        text: '（抬头看着天，忽然笑出来）我还没想好以后干什么。[next]但我知道，以后每次想走捷径的时候，都会想起——有个叫阿瑶的老师，用她的一辈子，告诉我那条路不能走。',
+        text: '（抬头看天，忽然笑了）我还没想好以后干什么。[next]但有一条定了——以后想走捷径的时候，就想想阿瑶老师，然后老老实实走。',
         highlight: true,
         sfx: 'sfx_confirm'
       },

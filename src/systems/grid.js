@@ -11,11 +11,11 @@
 export const SUBDIVIDE = 1;
 
 export const DEFAULT_TERRAIN_TYPES = {
-  sidewalk: { name: '人行道', def: 0, avoid: 0, cost: 1, color: '#a8a29e', tileImg: 'assets/props/kenney/kc_sidewalk.png' },
-  asphalt: { name: '柏油路', def: 0, avoid: 0, cost: 1, color: '#52525b', tileImg: 'assets/props/kenney/kc_asphalt.png' },
-  crosswalk: { name: '斑马线', def: 0, avoid: 0, cost: 1, color: '#71717a', tileImg: 'assets/props/kenney/kc_crosswalk.png' },
-  grass: { name: '绿化带', def: 1, avoid: 10, cost: 2, color: '#166534', label: '草地', tileImg: 'assets/props/kenney/kc_grass.png' },
-  brick: { name: '红砖路', def: 0, avoid: 0, cost: 1, color: '#a16207', tileImg: 'assets/props/kenney/kc_brick_red.png' }
+  sidewalk: { name: '人行道', def: 0, avoid: 0, cost: 1, color: '#a8a29e', tileImg: 'assets/props/kenney/kc_sidewalk@2x.png' },
+  asphalt: { name: '柏油路', def: 0, avoid: 0, cost: 1, color: '#52525b', tileImg: 'assets/props/kenney/kc_asphalt@2x.png' },
+  crosswalk: { name: '斑马线', def: 0, avoid: 0, cost: 1, color: '#71717a', tileImg: 'assets/props/kenney/kc_crosswalk@2x.png' },
+  grass: { name: '绿化带', def: 1, avoid: 10, cost: 2, color: '#166534', label: '草地', tileImg: 'assets/props/kenney/kc_grass@2x.png' },
+  brick: { name: '红砖路', def: 0, avoid: 0, cost: 1, color: '#a16207', tileImg: 'assets/props/kenney/kc_brick_red@2x.png' }
 };
 
 export class GridSystem {

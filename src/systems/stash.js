@@ -41,7 +41,7 @@ function snapshotItem(itemId, count = 1) {
       name: itemId, desc: UI_FALLBACK_DESC,
       kind: 'unknown', category: null, stack: 1,
       use_in_battle: null, use_in_field: null,
-      iconPath: 'assets/items/' + itemId + '.png'
+      iconPath: 'assets/items/' + itemId + '@2x.png'
     };
   }
   return {
@@ -50,7 +50,7 @@ function snapshotItem(itemId, count = 1) {
     kind: g.kind || 'unknown', category: g.category || null,
     stack: (typeof g.stack === 'number' && g.stack >= 1) ? g.stack : 1,
     use_in_battle: !!g.use_in_battle, use_in_field: !!g.use_in_field,
-    iconPath: g.icon || ('assets/items/' + itemId + '.png')
+    iconPath: g.icon || ('assets/items/' + itemId + '@2x.png')
   };
 }
 
