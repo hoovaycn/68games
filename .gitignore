@@ -37,6 +37,8 @@ docs/*.zip
 *.tmp
 .tinypng_cache.json
 scripts/.tinypng_cache.json
+# TinyPNG 压缩执行记录（生成物，含绝对无关的运行统计）
+tinypng_compress_log.json
 
 scripts/analyze_tiles.mjs
 scripts/ascii_inspect.mjs
