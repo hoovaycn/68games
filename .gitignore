@@ -8,6 +8,9 @@ Thumbs.db
 backup/
 # TinyPNG 压缩前原图备份（压缩后正式图已落盘 assets/，冗余）
 .backup_assets_tinypng/
+# 音频优化原始备份（体量大，不进版本库）
+audio_optimized/
+
 
 # 构建产物
 dist/

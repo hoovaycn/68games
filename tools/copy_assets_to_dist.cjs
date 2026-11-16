@@ -13,6 +13,55 @@ if (!fs.existsSync(src)) {
   process.exit(0);
 }
 
-// 合并复制，不删除 dist/assets 已有文件（vite 生成的 JS/CSS bundle 也在此目录，删了会黑屏）
-fs.cpSync(src, dest, { recursive: true, force: true });
-console.log('[copy-assets] assets -> dist/assets 完成');
+/**
+ * 递归镜像同步目录：将 srcDir 的内容完全同步到 destDir，
+ * 同时删除 destDir 中源目录不存在的废弃文件/子目录（保持纯净，避免旧素材残留导致体积膨胀）
+ */
+function syncDirectory(srcDir, destDir) {
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
+
+  const srcEntries = fs.readdirSync(srcDir, { withFileTypes: true });
+  const srcNames = new Set(srcEntries.map(e => e.name));
+
+  // 1. 删除 destDir 中多余的文件或文件夹
+  if (fs.existsSync(destDir)) {
+    const destEntries = fs.readdirSync(destDir, { withFileTypes: true });
+    for (const entry of destEntries) {
+      if (!srcNames.has(entry.name)) {
+        const fullDest = path.join(destDir, entry.name);
+        fs.rmSync(fullDest, { recursive: true, force: true });
+      }
+    }
+  }
+
+  // 2. 复制并递归同步
+  for (const entry of srcEntries) {
+    const srcPath = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+
+    if (entry.isDirectory()) {
+      syncDirectory(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
+// 遍历 assets/ 的顶层条目逐项同步：
+// 子目录（art, audio, backgrounds 等）进行镜像同步，
+// 顶层文件复制，同时保护 dist/assets/ 根目录下 vite 生成的 index-*.js / css bundle 不受影响。
+const topEntries = fs.readdirSync(src, { withFileTypes: true });
+for (const entry of topEntries) {
+  const srcItem = path.join(src, entry.name);
+  const destItem = path.join(dest, entry.name);
+  if (entry.isDirectory()) {
+    syncDirectory(srcItem, destItem);
+  } else {
+    fs.copyFileSync(srcItem, destItem);
+  }
+}
+
+console.log('[copy-assets] assets -> dist/assets 完成（镜像子目录已自动清理冗余）');
+
